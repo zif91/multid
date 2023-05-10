@@ -14,7 +14,7 @@
  .fancybox-slide--html .fancybox-close-small:hover:after {
 	 background: rgba(0,0,0,0);
 }
- .fancybox-slide--html .popup#thx-popup .fancybox-close-small, .fancybox-slide--html .popup#err-popup .fancybox-close-small, .fancybox-slide--html .popup_configurator .fancybox-close-small, .fancybox-slide--html .popup_call-order .fancybox-close-small {
+ .fancybox-slide--html .popup-fb#thx-popup .fancybox-close-small, .fancybox-slide--html .popup-fb#err-popup .fancybox-close-small, .fancybox-slide--html .popup-fb_configurator .fancybox-close-small, .fancybox-slide--html .popup-fb_call-order .fancybox-close-small {
 	 color: #646a9b;
 	 border: 1px solid #646a9b;
 }
@@ -25,7 +25,7 @@
 	 color: #fff;
 	 z-index: 2;
 }
- .popup {
+ .popup-fb {
 	 box-sizing: border-box;
 	 background: #fff;
 	 background: ;
@@ -34,7 +34,7 @@
 	 padding: 0;
 	 overflow: hidden;
 }
- .popup__header {
+ .popup-fb__header {
 	 display: flex;
 	 flex-direction: column;
 	 justify-content: space-between;
@@ -46,14 +46,14 @@
 	 color: #fff;
 	 position: relative;
 }
- .popup__header-pic {
+ .popup-fb__header-pic {
 	 display: block;
 	 width: 250px;
 	 position: absolute;
 	 bottom: 0;
 	 right: 0;
 }
- .popup__content {
+ .popup-fb__content {
 	 display: flex;
 	 flex-direction: column;
 	 box-sizing: border-box;
@@ -61,13 +61,13 @@
 	 padding: 50px;
 	 position: relative;
 }
- .popup__content.popup__content_thx {
+ .popup-fb__content.popup-fb__content_thx {
 	 display: none;
 }
- .popup__content.popup__content_err {
+ .popup-fb__content.popup-fb__content_err {
 	 display: none;
 }
- .popup__caption {
+ .popup-fb__caption {
 	 text-align: center;
 	 font: 700 24px/1.3 "Montserrat";
 	 max-width: 460px;
@@ -75,45 +75,45 @@
 	 position: relative;
 	 z-index: 2;
 }
- .popup__heading {
+ .popup-fb__heading {
 	 font: 700 24px/1.3 "Montserrat";
 	 max-width: 350px;
 	 margin: 0 0 20px;
 	 position: relative;
 	 z-index: 2;
 }
- .popup__subheading {
+ .popup-fb__subheading {
 	 font: 400 16px "Montserrat";
 	 max-width: 400px;
 	 margin: 0 0 80px;
 	 position: relative;
 	 z-index: 2;
 }
- .popup__descr {
+ .popup-fb__descr {
 	 font: 400 14px "Montserrat";
 	 margin-bottom: 15px;
 }
- .popup__nums {
+ .popup-fb__nums {
 	 font: 700 24px "Montserrat";
 }
- .popup__auto {
+ .popup-fb__auto {
 	 display: flex;
 	 width: 55%;
 	 position: absolute;
 	 right: 0;
 	 bottom: 0;
 }
- .popup__auto img {
+ .popup-fb__auto img {
 	 max-width: 100%;
 	 margin: auto 0 0;
 }
- .popup__circle {
+ .popup-fb__circle {
 	 width: 110px;
 	 position: absolute;
 	 top: 10px;
 	 left: 50px;
 }
- .popup__form-details {
+ .popup-fb__form-details {
 	 display: block;
 	 font: 400 12px "Montserrat";
 	 color: #4B4D5A;
@@ -121,7 +121,7 @@
 	 margin-top: 25px;
 	 position: relative;
 }
- .popup__form-details:before {
+ .popup-fb__form-details:before {
 	 content: "";
 	 width: 13px;
 	 height: 13px;
@@ -130,10 +130,10 @@
 	 left: 0;
 	 top: 0;
 }
- .popup__form-details_note:before {
+ .popup-fb__form-details_note:before {
 	 background: url(../templates/autosalon/images/icons/info.svg) no-repeat center/contain;
 }
- .popup__icon {
+ .popup-fb__icon {
 	 box-sizing: border-box;
 	 width: 60px;
 	 height: 60px;
@@ -142,7 +142,7 @@
 	 margin: 0 auto 30px;
 	 position: relative;
 }
- .popup__icon:before {
+ .popup-fb__icon:before {
 	 content: "";
 	 width: 88px;
 	 height: 88px;
@@ -153,29 +153,29 @@
 	 top: -14px;
 	 left: -14px;
 }
- .popup__icon_callback {
+ .popup-fb__icon_callback {
 	 background: url(/images/icons/headphones.svg) no-repeat center, ;
 	 background-size: 50%;
 }
- .popup__icon_mail {
+ .popup-fb__icon_mail {
 	 background: url(/images/icons/email.svg) no-repeat center, ;
 	 background-size: 50%;
 }
- .popup__presents {
+ .popup-fb__presents {
 	 display: flex;
 	 flex-wrap: nowrap;
 	 max-width: 350px;
 }
- .popup__present {
+ .popup-fb__present {
 	 flex: 1;
 	 font: 400 12px "Montserrat";
 	 color: #FFFFFF;
 	 padding-right: 15px;
 }
- .popup__present:last-child {
+ .popup-fb__present:last-child {
 	 padding-right: 0;
 }
- .popup__present-icon {
+ .popup-fb__present-icon {
 	 display: flex;
 	 width: 54px;
 	 height: 54px;
@@ -184,50 +184,50 @@
 	 border-radius: 24px;
 	 margin-bottom: 10px;
 }
- .popup__present-icon img {
+ .popup-fb__present-icon img {
 	 width: 75%;
 	 margin: auto;
 }
- .popup .wpcf7 {
+ .popup-fb .wpcf7 {
 	 position: relative;
 	 z-index: 2;
 }
- .popup .button {
+ .popup-fb .button {
 	 width: 100%;
 }
- .popup__header_reserve .popup__subheading {
+ .popup-fb__header_reserve .popup-fb__subheading {
 	 margin: 0 0 30px;
 }
- .popup__header_reserve .popup__auto {
+ .popup-fb__header_reserve .popup-fb__auto {
 	 right: -15px;
 	 bottom: -30px;
 }
- .popup__header_trade-in .popup__auto {
+ .popup-fb__header_trade-in .popup-fb__auto {
 	 width: 62%;
 }
- .popup__header_offer .popup__heading {
+ .popup-fb__header_offer .popup-fb__heading {
 	 max-width: 390px;
 }
- .popup__header_gos .popup__heading {
+ .popup-fb__header_gos .popup-fb__heading {
 	 max-width: 330px;
 }
- .popup__header_gos .popup__subheading {
+ .popup-fb__header_gos .popup-fb__subheading {
 	 margin: 0 0 30px;
 }
- .popup__header_guarantee .popup__heading {
+ .popup-fb__header_guarantee .popup-fb__heading {
 	 max-width: 330px;
 }
- .popup__header_guarantee .popup__auto {
+ .popup-fb__header_guarantee .popup-fb__auto {
 	 right: -70px;
 }
- .popup__header_guarantee .popup__header-pic {
+ .popup-fb__header_guarantee .popup-fb__header-pic {
 	 width: 160px;
 	 right: 30px;
 }
- .popup__header_guarantee .popup__subheading {
+ .popup-fb__header_guarantee .popup-fb__subheading {
 	 margin-bottom: 35px;
 }
- .popup-response {
+ .popup-fb-response {
 	 display: flex;
 	 flex-direction: column;
 	 position: relative;
@@ -236,10 +236,10 @@
 	 max-width: 320px;
 	 z-index: 1;
 }
- .popup-response__text-sm {
+ .popup-fb-response__text-sm {
 	 margin: 15px 0 20px;
 }
- .popup-response__phone {
+ .popup-fb-response__phone {
 	 box-sizing: border-box;
 	 padding-top: 20px;
 	 border-top: 1px solid #D9D9D9;
@@ -247,26 +247,26 @@
 	 text-align: center;
 	 color: #747474;
 }
- .popup-response__phone a {
+ .popup-fb-response__phone a {
 	 display: block;
 	 font-weight: 700;
 	 font-size: 14px;
 	 color: #000000;
 	 margin-top: 7px;
 }
- .popup.popup_sent .popup__header {
+ .popup-fb.popup-fb_sent .popup-fb__header {
 	 display: none;
 }
- .popup.popup_sent .popup__content, .popup.popup_sent .configurator {
+ .popup-fb.popup-fb_sent .popup-fb__content, .popup-fb.popup-fb_sent .configurator {
 	 display: none;
 }
- .popup_credit .popup__form-details:last-child {
+ .popup-fb_credit .popup-fb__form-details:last-child {
 	 margin-top: 8px;
 }
- .popup#thx-popup .popup__content.popup__content_thx, .popup#err-popup .popup__content.popup__content_thx {
+ .popup-fb#thx-popup .popup-fb__content.popup-fb__content_thx, .popup-fb#err-popup .popup-fb__content.popup-fb__content_thx {
 	 display: block;
 }
- .popup#thx-popup .popup__content.popup__content_err, .popup#err-popup .popup__content.popup__content_err {
+ .popup-fb#thx-popup .popup-fb__content.popup-fb__content_err, .popup-fb#err-popup .popup-fb__content.popup-fb__content_err {
 	 display: block;
 }
  @media screen and (max-width: 767px) {
@@ -274,67 +274,67 @@
 		 right: 0;
 		 top: 0;
 	}
-	 .popup__header {
+	 .popup-fb__header {
 		 max-width: 320px;
 		 padding: 30px 20px;
 	}
-	 .popup__content {
+	 .popup-fb__content {
 		 padding: 30px 20px;
 		 max-width: 320px;
 	}
-	 .popup__heading {
+	 .popup-fb__heading {
 		 font-size: 20px;
 		 margin-bottom: 10px;
 	}
-	 .popup__subheading {
+	 .popup-fb__subheading {
 		 max-width: 220px;
 		 margin: 0 0 50px;
 	}
-	 .popup__nums {
+	 .popup-fb__nums {
 		 font-size: 18px;
 	}
-	 .popup__auto {
+	 .popup-fb__auto {
 		 width: 190px;
 		 bottom: 20px;
 		 right: -30px;
 	}
-	 .popup__descr {
+	 .popup-fb__descr {
 		 margin-bottom: 10px;
 		 max-width: 145px;
 	}
-	 .popup__header-pic {
+	 .popup-fb__header-pic {
 		 width: 120px;
 	}
-	 .popup__circle {
+	 .popup-fb__circle {
 		 width: 60px;
 		 top: 0px;
 		 left: 20px;
 	}
-	 .popup__header_trade-in .popup__auto {
+	 .popup-fb__header_trade-in .popup-fb__auto {
 		 width: 62%;
 		 bottom: 0;
 	}
-	 .popup__header_trade-in .popup__header-pic {
+	 .popup-fb__header_trade-in .popup-fb__header-pic {
 		 width: 85px;
 	}
-	 .popup__header_reserve .popup__subheading, .popup__header_gos .popup__subheading {
+	 .popup-fb__header_reserve .popup-fb__subheading, .popup-fb__header_gos .popup-fb__subheading {
 		 margin: 0 0 30px;
 		 max-width: 140px;
 	}
-	 .popup__header_reserve .popup__auto, .popup__header_gos .popup__auto {
+	 .popup-fb__header_reserve .popup-fb__auto, .popup-fb__header_gos .popup-fb__auto {
 		 right: -15px;
 		 bottom: -10px;
 	}
-	 .popup__header_guarantee .popup__auto {
+	 .popup-fb__header_guarantee .popup-fb__auto {
 		 display: none;
 	}
-	 .popup__header_guarantee .popup__header-pic {
+	 .popup-fb__header_guarantee .popup-fb__header-pic {
 		 display: none;
 	}
-	 .popup .wpcf7-form-control-wrap-33 {
+	 .popup-fb .wpcf7-form-control-wrap-33 {
 		 width: 100%;
 	}
-	 .popup .wpcf7-form-control-wrap-button {
+	 .popup-fb .wpcf7-form-control-wrap-button {
 		 margin: 15px 0;
 	}
 }

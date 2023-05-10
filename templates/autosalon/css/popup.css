@@ -882,3 +882,178 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 	}
 }
  
+ .special-offers-screen {
+	 overflow: hidden;
+}
+ .special-offers-screen__button {
+	 margin-top: 20px;
+}
+ .special-plate {
+	 display: flex;
+	 flex-wrap: nowrap;
+	 align-items: center;
+	 background: url(/images/car-special-bg.png) no-repeat center left, ;
+	 border: 1px solid rgba(255,255,255,0);
+	 border-radius: 24px;
+	 padding: 25px 40px;
+	 margin-bottom: 14px;
+}
+ .special-plate__img {
+	 display: flex;
+	 width: 290px;
+}
+ .special-plate__img img {
+	 display: block;
+	 max-height: 100%;
+	 max-width: 100%;
+	 margin: auto;
+}
+ .special-plate__text {
+	 flex: 1;
+	 padding-left: 70px;
+}
+ .special-plate__name {
+	 font: 400 24px "Montserrat";
+	 color: #000000;
+	 margin: 0 0 25px;
+}
+ .special-plate__details {
+	 display: flex;
+	 justify-content: space-between;
+	 align-items: center;
+	 box-sizing: border-box;
+	 background: #FFFFFF;
+	 border-radius: 6px;
+	 padding-left: 25px;
+	 font: 400 14px "Montserrat";
+}
+ .special-plate__teh span {
+	 margin-right: 10px;
+}
+ .special-plate__prices {
+	 display: flex;
+	 flex-wrap: nowrap;
+	 align-items: center;
+}
+ .special-plate__old-price {
+	 font: 400 13px "Montserrat";
+	 text-decoration-line: line-through;
+	 color: ;
+}
+ .special-plate__price {
+	 font: 700 20px "Montserrat";
+	 padding-left: 25px;
+	 margin: 0 10px;
+	 position: relative;
+}
+ .special-plate__price:before {
+	 content: "";
+	 width: 16px;
+	 height: 20px;
+	 background: url(/images/icons/fire.svg) no-repeat center/contain;
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+}
+ .special-plate__credit-price {
+	 font: 700 13px "Montserrat";
+}
+ .special-plate__buttons {
+	 display: flex;
+}
+ .special-plate .button:first-child {
+	 border-radius: 6px 0 0 6px;
+}
+ .special-plate .button:last-child {
+	 border-radius: 0 6px 6px 0;
+}
+ .special-plate:hover {
+	 border: 1px solid #D8DCEA;
+}
+ .special-plate:hover .special-plate__name {
+	 color: ;
+}
+ @media screen and (max-width: 1365px) {
+	 .special-plate__text {
+		 padding-left: 40px;
+	}
+}
+ @media screen and (max-width: 1279px) {
+	 .special-plate {
+		 padding: 25px 15px;
+	}
+	 .special-plate__img {
+		 width: 200px;
+	}
+	 .special-plate__teh span {
+		 margin-right: 5px;
+	}
+	 .special-plate__text {
+		 padding-left: 15px;
+	}
+	 .special-plate__name {
+		 margin: 0 0 15px;
+	}
+	 .special-plate__details {
+		 padding-left: 15px;
+	}
+	 .special-plate__price {
+		 font-size: 18px;
+		 padding-left: 20px;
+		 position: relative;
+	}
+	 .special-plate__price:before {
+		 width: 14px;
+		 height: 18px;
+	}
+}
+ @media screen and (max-width: 1023px) {
+	 .special-plate__img {
+		 width: 180px;
+	}
+	 .special-plate__name {
+		 margin: 0 0 10px;
+	}
+	 .special-plate__details {
+		 flex-wrap: wrap;
+		 padding: 10px;
+	}
+	 .special-plate__buttons {
+		 width: 100%;
+		 justify-content: center;
+		 display: flex;
+		 margin-top: 10px;
+	}
+}
+ @media screen and (max-width: 767px) {
+	 .special-plate {
+		 flex-direction: column;
+		 background: url(/images/car-special-bg.png) no-repeat top -63px center, #f2f3f7;
+		 padding: 20px 15px;
+	}
+	 .special-plate__img {
+		 margin-bottom: 10px;
+	}
+	 .special-plate__text {
+		 padding-left: 0;
+	}
+	 .special-plate__name {
+		 font-size: 18px;
+		 text-align: center;
+	}
+	 .special-plate__details {
+		 flex-direction: column;
+		 padding: 15px;
+	}
+	 .special-plate__prices {
+		 flex-wrap: wrap;
+		 justify-content: center;
+	}
+	 .special-plate__price, .special-plate__credit-price, .special-plate__old-price {
+		 margin: 10px 0 0;
+	}
+	 .special-plate .button_sm {
+		 padding: 7px 15px;
+	}
+}
+ 

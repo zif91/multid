@@ -1,0 +1,158 @@
+{% extends 'app.twig' %}
+{% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all', 
+rowTpl:'@CODE: <div class="bg-main position-relative"
+style="background-image:url([+image+]);">
+    <div class="container h-100">
+        <div class="h-100 d-flex flex-column justify-content-end align-item-start">
+            <p class="text-uppercase text-white bg-main-title my-3">[+title+]</p>
+            <p class="text-white bg-main-text mb-5">
+                [+text+]
+            </p>
+            <p class="mb-5">
+                <button onclick="window.location.href = /katalog-avtomobilej/";"
+                    class="btn btn-sm btn-primary text-white fw-bold py-2 px-4 mb-0 mb-xl-5"
+                >
+                    Посмотреть автомобили
+                </button>
+            </p>
+        </div>
+    </div>
+</div>'}) %}
+{% set DLCatalog = runSnippet('DocLister',  {
+    id: 'catalog',
+    controller: 'catalog_filters',
+    display: 20, 
+    parents: 27, 
+    depth: 5, 
+    tvList:'car-price,old-car-price,car_photos,run,engine_power,gear', 
+	ownerTPL: '@T_FILE:partials/wrap',
+    tpl:'@T_FILE:partials/catalogcard',
+    tplFirst:'@T_FILE:partials/catalogcard_first',
+    paginate:'pages',
+    TplNextP:'',
+    TplPrevP:'',
+    TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+    TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+    TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>', 
+    filters: 'AND(tv:Winter:no:Yes;)',       
+    
+    filter: 'filters',
+    filterRangeSeparator: ':',
+    filterValuesSeparator: '|',
+    filterDelimiter: '||',
+    __filterPriceId: 14,
+    __filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
+	filterList: '19,20,42,43,15,16,9,14,11,10',
+    filterTpl: '@T_FILE:partials/filters/tpl',
+    filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+    filterTplRange: '@T_FILE:partials/filters/tplRange',
+    filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+    filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+    tvSortType: 'UNSIGNED'
+  }) 
+%}
+
+
+{% block MAIN %}
+	{{banner |raw}}
+
+	<div class="container">
+		<form class="form extrafilter form-main-one p-3 p-xl-5 mx-4 mx-xl-0" action="">
+			<h4 class="fw-bold mt-2 mb-3 mb-xl-5">Подобрать автомобиль</h4>
+            <div class="row flex-column flex-xl-row">
+
+			
+                {{ plh['catalog.filters'] | raw }}
+				<div class="col d-flex flex-column justify-content-end p-3">
+					<button class="filterbutton btn btn-danger py-2 btn-red w-100 border-0">
+						Подобрать
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="container p-4 pt-xl-0 d-none d-xl-block">
+		<h4 class="fw-bold mb-5">Наши услуги</h4>
+		<div class="row overflow-hidden sales">
+			<div class="col row p-0 m-0 sale-item">
+				<div class="col-6 d-flex align-items-center justify-content-center">
+					<img class="img-fluid" src="/templates/atlant/images/main-sales/1.png" alt=""/>
+				</div>
+				<div class="col-6 d-flex flex-column justify-content-between">
+					<p class="fw-bold m-0 mt-4">АВТОКРЕДИТ</p>
+					<p class=" small fw-bold m-0 mb-4">от 4,9%. Купите автомобиль<span class="text-red"> выгодно!</span></p>
+				</div>
+			</div>
+			<div class="col row p-0 m-0 sale-item">
+				<div class="col-6 d-flex align-items-center justify-content-center">
+					<img class="img-fluid" src="/templates/atlant/images/main-sales/2.png" alt=""/>
+				</div>
+				<div class="col-6 d-flex flex-column justify-content-between">
+					<p class="fw-bold m-0 mt-4">ТАКСИ</p>
+					<p class="text-red small fw-bold m-0 mb-4">до салона</p>
+				</div>
+			</div>
+			<div class="col row p-0 m-0 sale-item">
+				<div class="col-6 d-flex align-items-center justify-content-center">
+					<img class="img-fluid" src="/templates/atlant/images/main-sales/3.png" alt=""/>
+				</div>
+				<div class="col-6 d-flex flex-column justify-content-between">
+					<p class="fw-bold m-0 mt-4">TRADE-IN</p>
+					<p class="small fw-bold m-0 mb-4">
+						замена авто
+						<span class="text-red">на новое</span>
+					</p>
+				</div>
+			</div>
+			<div class="col row p-0 m-0 sale-item">
+				<div class="col-6 d-flex align-items-center justify-content-center">
+					<img class="img-fluid" src="/templates/atlant/images/main-sales/4.png" alt=""/>
+				</div>
+				<div class="col-6 d-flex flex-column justify-content-between">
+					<p class="fw-bold m-0 mt-4">РЕГИСТРАЦИЯ</p>
+					<p class="small fw-bold m-0 mb-4">
+						авто<br/>
+						<span class="text-red">в ГИБДД</span>
+					</p>
+				</div>
+			</div>
+			<div class="col row p-0 m-0 sale-item">
+				<div class="col-6 d-flex align-items-center justify-content-center">
+					<img class="img-fluid" src="/templates/atlant/images/main-sales/5.png" alt=""/>
+				</div>
+				<div class="col-6 d-flex flex-column justify-content-between">
+					<p class="fw-bold m-0 mt-4">СТРАХОВКА</p>
+					<p class="text-red small fw-bold m-0 mb-4">
+						осаго<br/>
+						или каско
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container pt-4 ps-4">
+		<h4 class="fw-bold">Выгодные предложения</h4>
+	</div>
+	<div class="container mb-3 similar-cars used-cars-block ">
+		<div id="similar-cars" class="carousel carousel-dark" data-bs-interval="false">
+			<div class="d-flex d-sm-block">
+				<a class="carousel-control-prev d-sm-none position-relative" type="button" data-bs-target="#similar-cars" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+					{{DLCatalog |raw}}
+				<a class="carousel-control-next d-sm-none position-relative" type="button" data-bs-target="#similar-cars" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+			</div>
+
+		</div>
+	</div>
+	<div class="container  pt-3 text-center mb-5 d-none d-sm-block">
+		<button onclick="window.location.href = '{{ makeUrl(27) }}';" class="btn btn-outline-secondary btn-see-all">Смотреть все</button>
+	</div>
+
+	{% include '/partials/tradein.twig' %}
+{% endblock %}
+

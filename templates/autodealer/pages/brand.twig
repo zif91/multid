@@ -1,0 +1,22 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+
+{% set catalog = runSnippet('DocLister', {
+    display: 20,
+    parents: resource.id,
+    depth: 2,
+    tvList: "car-price,old-car-price,car_photos",
+    tpl: "card-pulkovo-1"
+})  %}
+<section class="section-50"><div class="container"><h1>{{resource.pagetitle}}</h1></div></section>
+{% include 'partials/vigoda.twig' %}
+<section class="s-cards section-50">
+    <div class="container">
+        <div class="cards">
+            {{catalog |raw}}
+        </div>
+    </div>
+</section>
+{% include ('partials/callback.twig') %}
+
+{% endblock %}

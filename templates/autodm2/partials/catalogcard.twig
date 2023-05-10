@@ -1,0 +1,52 @@
+{% set thumb = runSnippet('morephoto', {
+images: data['tv.car_photos'],
+phpthumb: 'w=250,h=168,zc=C',
+tpl: '@CODE:[+image+]',
+total: 1,
+display: 1
+}) %}
+
+{#{ data['tv.car_photos'] }#}
+{% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
+action:'caroldprice'}) %}
+{#{ runSnippet('morephoto', {
+images: data['tv.car_photos'],
+tpl: '@CODE:[+image+]',
+total: 1,
+display: 1
+}) | dump}#}
+<div class="col-xl-3 col-lg-4 col-md-6 h-auto">
+    <div class="item">
+        <a href="{{ data['url'] }}"><img src="{{ thumb }}" class="image"></a>
+        <div class="flex">
+            <a href="{{ data['url'] }}" class="d-block name">{{ data['title'] }}</a>
+            <div class="nal"><span></span> В наличии</div>
+        </div>
+        <p>
+            С пробегом / {{ data['tv.year'] }} / {{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км / {{ data['tv.car_color'] }} <br />
+            {{ data['tv.engine_volume'] }} {{ data['tv.gear'] }} ({{ data['tv.engine_power'] }} л.с.) <br />
+            {{ data['tv.equipment'] }}
+        </p>
+       <div style="display: flex; flex-direction: row;">
+  <span style="margin-right: 10px;"><s>{{ (oldprice)|number_format(0, '.', ' ') }} ₽</s></span>
+  <span style="margin-left: auto; color: #b71f25">от 4.9% годовых</span>
+</div>
+
+
+
+
+        <div class="flex">
+            <div class="price">
+                <span>{{ ( data['tv.car-price'] )|number_format(0, '.', ' ') }}</span> ₽
+            </div>
+            <div class="d-block">
+                <div class="d-inline-block mr-3">В кредит от:</div>
+                <div class="d-inline-block special">{{ ( data['tv.car-price'] / 80 )|number_format(0, '.', ' ') }}</span> ₽</div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button onclick="location.href='{{ data['url'] }}';">Подробнее</button>
+            <button class="btn" type="button" data-toggle="modal" data-target="#oneclick">Купить в кредит</button>
+        </div>
+    </div>
+</div>

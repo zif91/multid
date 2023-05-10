@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "first_name": {
+      "required": "Обязательно к заполнению"
+    },
+    "mobile_tel": {
+      "required": "Обязательно к заполнению"
+    },
+    "agree": {
+      "required": "Обязательно к заполнению"
+    }
+  },
+  "subject": "Запрос на кредит",
+  "prepare": "prepareFormConfig",
+  "prepareAfterProcess": "CatchFormResult",
+  "formControls": "agree"
+}

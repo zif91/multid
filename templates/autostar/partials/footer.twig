@@ -1,0 +1,31 @@
+<footer class="footer pt-4">
+    <div class="container">
+        <div class="flex">
+            <div class="logo mb-4">
+                <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
+            </div>
+            <ul class="pt-3 mb-4">
+                <li class="d-inline-block"><a href="/avtomobili-s-probegom">Каталог</a></li>
+                <li class="d-inline-block"><a href="/akcii2">Акции</a></li>
+                <li class="d-inline-block"><a href="#adres">Контакты</a></li>
+            </ul>
+            <div class="contacts mb-4">
+                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'd-block pl-4 mb-3 phone'}) | raw}}
+                <!--a href="#" class="d-block pl-4 mail">info@auto_star.ru</a-->
+            </div>
+        </div>
+        <div class="social mb-4 text-center">{#
+            <a href="#" class="d-inline-block mx-2"><img src="img/social1.png"></a>
+            <a href="#" class="d-inline-block mx-2"><img src="img/social2.png"></a>
+            <a href="#" class="d-inline-block mx-2"><img src="img/social3.png"></a>#}
+        </div>
+        <div class="copy text-center py-3">
+            © {{resource.pagetitle}} 2023. Все права защищены
+        </div>
+    </div>
+</footer>
+<div class="copy-block">
+    <div class="container-fluid">
+        Информация о технических характеристиках, составе комплектаций, цветовой гамме и стоимости автомобилей, а также действующих акциях, сроках и условиях их проведения, указанных на данном сайте, носит информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями пунктом 2 статьи 437 Гражданского кодекса Российской Федерации. Для получения подробной информации обращайтесь к специалистам нашей компании.
+    </div>
+</div>

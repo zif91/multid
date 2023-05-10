@@ -1,0 +1,8 @@
+ 
+                <div class="col-xl-4 col-lg-6">
+                    <div class="item" style="background: linear-gradient( rgba(0,0,0,0.3), rgba(0,0,0,.5) ),  url(
+                    {{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=300,zc=1'}) }}{#{data['tv.image']|raw}#}) center/cover;">
+                        <p>{{ data.title }}</p>
+                        <button  type="button" data-toggle="modal" data-target="#oneclick">Подробнее</button>
+                    </div>
+                </div>

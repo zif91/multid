@@ -1,0 +1,198 @@
+{% extends './app.twig' %}
+{% set brand = runSnippet('_get', {key: 'brand'}) %}
+{% if not brand %}
+{% set brand = '' %}
+{% endif %}
+{% set model = runSnippet('_get', {key: 'model'}) %}
+{% if not model %}
+{% set model = '' %}
+{% endif %}
+{% set body = runSnippet('_get', {key: 'body'}) %}
+{% if not body %}
+{% set body = '' %}
+{% endif %}
+{% set price_start = runSnippet('_get', {key: 'pricestart'}) %}
+{% if not price_start %}
+{% set price_start = 0 %}
+{% endif %}
+{% set price_end = runSnippet('_get', {key: 'priceend'}) %}
+{% if not price_end %}
+{% set price_end = 99999999 %}
+{% endif %}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: 593,
+depth: 2,
+tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
+ownerTPL: '@T_FILE:partials/wrap',
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+tpl:'@T_FILE:partials/catalogcard_mod',
+paginate:'pages',
+TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
+TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
+TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
+tvSortType: 'UNSIGNED',
+addWhereList: 'c.template=28',
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %} {% set models=runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' , _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')' , parents: 593, depth: 1, addWhereList: 'isfolder=1 AND c.template=20' , orderBy: 'car-price' , order: 'RAND()' , tvSortType: 'SIGNED' , tvList:'car-price,old-car-price,mark_id,model_id', api: 1, debug:0, noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+	</div>',
+	})
+	| json %}
+	{% block MAIN %}
+	{#% include('partials/crumbs.twig') %#}
+	{#<div class="index-calc-block inner position-relative pt-5 pb-5 text-center">
+		<div class="container position-relative">
+			<div class="row">
+				{{ plh['catalog.filters'] | raw }}
+			</div>
+			<!--a class="bottom-link mb-2 d-inline-block">Показать еще фильтры</a-->
+		</div>
+	</div>#}
+	<div class="container pt-5">
+		{% include '/partials/brands.twig' %}
+
+		<div class="catalog-page pb-4">
+			<div class="container">
+				<div class="index-filter-block inner py-sm-4 py-5 px-4">
+					<div class="name mb-4">
+						Выбрать автомобиль
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="row mb-4">
+								<div class="col-6">
+									<p class="mb-2">Выберите марку</p>
+									<select class="w-100 px-3" id="marks">
+										<option>Выбрать...</option>
+										{% for item in marks %}
+										<option>{{ item.pagetitle }}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-6">
+									<p class="mb-2">Выберите модель</p>
+									<select id="models" class="w-100 px-3">
+										<option>Выбрать...</option>
+										{% for item in models %}
+										<option>{{ item.pagetitle }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<p class="mb-2">Цена</p>
+							<div class="flex">
+								<input id="price_start" type="text" id="amount" class="px-2" readonly>
+								<input id="price_end" type="text" id="amount2" class="px-2" readonly>
+							</div>
+							<div id="slider-range" class="mb-4"></div>
+						</div>
+						<div class="col-lg-4">
+							<p class="mb-2"> </p>
+							<div class="flex">
+								<div class="button text-right">
+									<button id="filterbutton">Показать</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="catalog">
+				{{DLCatalog |raw}}
+			</div>
+		</div>
+		{{runSnippet ('bdebug', {})}}
+		{#% include 'partials/actions.twig' %#}
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/autosalon/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+	</div>
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const marksSelect = document.querySelector('#marks');
+  const modelsSelect = document.querySelector('#models');
+  const pricestart = document.querySelector('#price_start');
+  const priceend = document.querySelector('#price_end');
+
+  const updateFilterUrl = () => {
+    const brand = marksSelect.value;
+    const model = modelsSelect.value;
+    const priceStart = pricestart.value;
+    const priceEnd = priceend.value;
+
+    let url = '/katalog-novyh-avtomobilej/?';
+    if (brand && brand !== 'Выбрать...') {
+      url += `brand=${brand}&`;
+    }
+
+    if (model && model !== 'Выбрать...') {
+      url += `model=${model}&`;
+    }
+
+    if (priceStart) {
+      url += `pricestart=${priceStart}&`;
+    }
+
+    if (priceEnd) {
+      url += `priceend=${priceEnd}&`;
+    }
+
+    $.ajax({
+      url: url,
+      method: 'GET',
+      dataType: 'html'
+    })
+    .done(function(data) {
+      const catalogHtml = $(data).find('#catalog').html();
+      const modelsHtml = $(data).find('#models').html();
+      $('#catalog').html(catalogHtml);
+      $('#models').html(modelsHtml);
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      console.error(errorThrown);
+    });
+  };
+
+  $("#slider-range").slider({
+    range: true,
+    min: 100000,
+    max: 10000000,
+    values: [100000, 10000000],
+    slide: function(event, ui) {
+      $("#price_start").val(ui.values[0] + " руб.");
+      $("#price_end").val(ui.values[1] + " руб.");
+    },
+    stop: function() {
+      updateFilterUrl();
+    }
+  });
+  $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
+  $("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
+
+  marksSelect.addEventListener('change', updateFilterUrl);
+  modelsSelect.addEventListener('change', updateFilterUrl);
+  pricestart.addEventListener('change', updateFilterUrl);
+  priceend.addEventListener('change', updateFilterUrl);
+});
+
+</script>
+	{% include "/partials/contacts.twig" %}
+	{% endblock %}

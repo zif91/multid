@@ -1,0 +1,105 @@
+{% extends './app.twig' %}
+{% set DLCatalog = runSnippet('DocLister',  {
+    id: 'catalog',
+    controller: 'catalog_filters',
+    display: 20, 
+    parents: 27, 
+    depth: 5, 
+    tvList:'car-price,old-car-price,car_photos,run,engine_power,gear', 
+	ownerTPL: '@T_FILE:partials/wrap',
+    tpl:'@T_FILE:partials/catalogcard',
+    tplFirst:'@T_FILE:partials/catalogcard_first',
+    paginate:'pages',
+    TplNextP:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">Вперед</a></li>',
+    TplPrevP:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">Назад</a></li>',
+    TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+    TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+    TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+    filters: 'AND(tv:Winter:no:Yes;)',    
+    
+    filter: 'filters',
+    filterRangeSeparator: ':',
+    filterValuesSeparator: '|',
+    filterDelimiter: '||',
+    __filterPriceId: 14,
+    __filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;43:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
+	_filterList: '19,20,42,43,15,16,9,14,11,10',
+	filterList: '42,43,10',
+    filterTpl: '@T_FILE:partials/filters/tpl',
+    filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+    filterTplRange: '@T_FILE:partials/filters/tplRange',
+    filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+    filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+    tvSortType: 'UNSIGNED'
+  }) 
+%}
+
+{% block MAIN %}
+
+	<hr class="m-0 d-xl-none"/>
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="/">Главная</a>
+				</li>
+				<li class="breadcrumb-item active">Автомобили с пробегом</li>
+			</ol>
+		</nav>
+	</div>
+	<hr class="m-0"/>
+
+
+	<div class="container px-4 ">
+		<h4 class="fw-bold mb-5 d-none d-xl-block"></h4>
+		<div class="container pt-5">
+			<form class="form extrafilter form-main-one p-3 p-xl-5 mx-0 mx-xl-0" action="">
+				<h4 class="fw-bold  p-3 mb-xl-0">Подобрать автомобиль</h4>
+
+					<div class="row  justify-content-between p-3">
+
+					{{ plh['catalog.filters'] | raw }}
+						<div class="col-md-3 col-xs-12 mt-3">
+							<button class="Button--reset   btn  py-2 btn-grey w-100 border-0">
+								Сбросить
+							</button>
+						</div>
+						<div class="col-md-6 col-xs-12 mt-3">
+							<button class="filterbutton btn btn-danger py-2 btn-red w-100 border-0">
+								Подобрать
+							</button>
+						</div>
+
+					</div>
+			</form>
+		</div>
+		{#<p>
+					Сортировать по:
+					<select class="form-select form-select-sort">
+						<option value="1">Цена</option>
+					</select>
+					<select class="form-select form-select-sort">
+						<option value="1">Год</option>
+					</select>
+				</p>#}
+	</div>
+	<div class="container mb-3 similar-cars used-cars-block">
+		<div id="similar-cars" class="carousel carousel-dark" data-bs-interval="false">
+			<div class="d-flex d-sm-block">
+				<a class="carousel-control-prev d-sm-none position-relative" type="button" data-bs-target="#similar-cars" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				</a>
+				{{DLCatalog |raw}}
+				<a class="carousel-control-next d-sm-none position-relative" type="button" data-bs-target="#similar-cars" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				</a>
+			</div>
+
+		</div>
+		{% include 'partials/actions.twig' %}
+
+	</div>
+
+
+{% endblock %}
+

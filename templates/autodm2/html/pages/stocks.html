@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Акции</title>
+    </head>
+    <body>
+        <%= require('../includes/header.html').default %>
+        <hr class="m-0 d-xl-none" />
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                    <li class="breadcrumb-item active">Акции</li>
+                </ol>
+            </nav>
+        </div>
+        <hr class="m-0" />
+        <div class="container px-4 pt-5">
+            <h4 class="fw-bold mb-5">Акции и скидки</h4>
+            <div class="row mb-5">
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="stock">
+                        <div class="stock-bg"></div>
+                        <div class="stock-img">
+                            <img src="/templates/atlant/images/stocks/1.png" alt="" />
+                        </div>
+                        <div class="stock-body">
+                            <div class="stock-title">Trade-in</div>
+                            <div class="stock-content">
+                                <p class="m-0 fw-bold text-end">
+                                    Выгода до <span class="text-red fs-5">254 000 ₽</span>
+                                </p>
+                                <p class="m-0 small">
+                                    Текст с кратким описанием акции по трейд-ину в автосалоне Атлант
+                                    Перечисляем основные триггерные преимущества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="stock">
+                        <div class="stock-bg"></div>
+                        <div class="stock-img">
+                            <img src="/templates/atlant/images/stocks/2.png" alt="" />
+                        </div>
+                        <div class="stock-body">
+                            <div class="stock-title">Госпрограмма</div>
+                            <div class="stock-content">
+                                <p class="m-0 fw-bold text-end">
+                                    Выгода до <span class="text-red fs-5">254 000 ₽</span>
+                                </p>
+                                <p class="m-0 small">
+                                    Текст с кратким описанием акции по трейд-ину в автосалоне Атлант
+                                    Перечисляем основные триггерные преимущества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="stock">
+                        <div class="stock-bg"></div>
+                        <div class="stock-img">
+                            <img src="/templates/atlant/images/stocks/3.png" alt="" />
+                        </div>
+                        <div class="stock-body">
+                            <div class="stock-title">Зимние шины</div>
+                            <div class="stock-content">
+                                <p class="m-0 fw-bold text-end text-red">В подарок!</p>
+                                <p class="m-0 small text-justify">
+                                    Текст с кратким описанием акции по трейд-ину в автосалоне Атлант
+                                    Перечисляем основные триггерные преимущества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container px-4">
+            <h4 class="fw-bold mb-5">Выгодные предложения</h4>
+        </div>
+        <div class="container mb-3 similar-cars">
+            <div id="similar-cars" class="carousel carousel-dark" data-bs-interval="false">
+                <div class="d-flex d-sm-block">
+                    <a
+                        class="carousel-control-prev d-sm-none position-relative"
+                        type="button"
+                        data-bs-target="#similar-cars"
+                        data-bs-slide="prev"
+                    >
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <div class="row px-0 pt-3 pb-5 carousel-inner w-auto m-0">
+                        <div class="carousel-item active pb-4 pb-lg-0 d-sm-block me-sm-0">
+                            <div class="card shadow border-0">
+                                <img src="/templates/atlant/images/cars/car1.png" class="card-img-top" alt="Car" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Audi Q5 2020г</h5>
+                                    <div class="row card-text">
+                                        <div
+                                            class="col pe-0 text-decoration-line-through text-secondary small"
+                                        >
+                                            2 245 000 ₽
+                                        </div>
+                                        <div class="col ps-0 fw-bold text-end text-danger">
+                                            2 245 000 ₽
+                                        </div>
+                                    </div>
+                                    <hr class="my-2" />
+                                    <div class="row small mb-2">
+                                        <div class="col-4 small text-secondary">Пробег</div>
+                                        <div class="col-4 small text-secondary">Двигатель</div>
+                                        <div class="col-4 small text-secondary">КПП</div>
+                                        <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                        <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                        <div class="col-4 fw-bold py-2">Автомат</div>
+                                    </div>
+                                    <a
+                                        href="#"
+                                        class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                        >Подробнее</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item pb-4 d-sm-block me-sm-0">
+                            <div class="card shadow border-0">
+                                <img src="/templates/atlant/images/cars/car2.png" class="card-img-top" alt="Car" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Audi Q5 2020г</h5>
+                                    <div class="row card-text">
+                                        <div
+                                            class="col pe-0 text-decoration-line-through text-secondary small"
+                                        >
+                                            2 245 000 ₽
+                                        </div>
+                                        <div class="col ps-0 fw-bold text-end text-danger">
+                                            2 245 000 ₽
+                                        </div>
+                                    </div>
+                                    <hr class="my-2" />
+                                    <div class="row small mb-2">
+                                        <div class="col-4 small text-secondary">Пробег</div>
+                                        <div class="col-4 small text-secondary">Двигатель</div>
+                                        <div class="col-4 small text-secondary">КПП</div>
+                                        <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                        <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                        <div class="col-4 fw-bold py-2">Автомат</div>
+                                    </div>
+                                    <a
+                                        href="#"
+                                        class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                        >Подробнее</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item pb-4 d-sm-block me-sm-0">
+                            <div class="card shadow border-0">
+                                <img src="/templates/atlant/images/cars/car3.png" class="card-img-top" alt="Car" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Audi Q5 2020г</h5>
+                                    <div class="row card-text">
+                                        <div
+                                            class="col pe-0 text-decoration-line-through text-secondary small"
+                                        >
+                                            2 245 000 ₽
+                                        </div>
+                                        <div class="col ps-0 fw-bold text-end text-danger">
+                                            2 245 000 ₽
+                                        </div>
+                                    </div>
+                                    <hr class="my-2" />
+                                    <div class="row small mb-2">
+                                        <div class="col-4 small text-secondary">Пробег</div>
+                                        <div class="col-4 small text-secondary">Двигатель</div>
+                                        <div class="col-4 small text-secondary">КПП</div>
+                                        <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                        <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                        <div class="col-4 fw-bold py-2">Автомат</div>
+                                    </div>
+                                    <a
+                                        href="#"
+                                        class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                        >Подробнее</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item pb-4 d-sm-block me-sm-0">
+                            <div class="card shadow border-0">
+                                <img src="/templates/atlant/images/cars/car4.png" class="card-img-top" alt="Car" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Audi Q5 2020г</h5>
+                                    <div class="row card-text">
+                                        <div
+                                            class="col pe-0 text-decoration-line-through text-secondary small"
+                                        >
+                                            2 245 000 ₽
+                                        </div>
+                                        <div class="col ps-0 fw-bold text-end text-danger">
+                                            2 245 000 ₽
+                                        </div>
+                                    </div>
+                                    <hr class="my-2" />
+                                    <div class="row small mb-2">
+                                        <div class="col-4 small text-secondary">Пробег</div>
+                                        <div class="col-4 small text-secondary">Двигатель</div>
+                                        <div class="col-4 small text-secondary">КПП</div>
+                                        <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                        <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                        <div class="col-4 fw-bold py-2">Автомат</div>
+                                    </div>
+                                    <a
+                                        href="#"
+                                        class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                        >Подробнее</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item pb-4 d-sm-block me-sm-0">
+                            <div class="card shadow border-0">
+                                <img src="/templates/atlant/images/cars/car5.png" class="card-img-top" alt="Car" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Audi Q5 2020г</h5>
+                                    <div class="row card-text">
+                                        <div
+                                            class="col pe-0 text-decoration-line-through text-secondary small"
+                                        >
+                                            2 245 000 ₽
+                                        </div>
+                                        <div class="col ps-0 fw-bold text-end text-danger">
+                                            2 245 000 ₽
+                                        </div>
+                                    </div>
+                                    <hr class="my-2" />
+                                    <div class="row small mb-2">
+                                        <div class="col-4 small text-secondary">Пробег</div>
+                                        <div class="col-4 small text-secondary">Двигатель</div>
+                                        <div class="col-4 small text-secondary">КПП</div>
+                                        <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                        <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                        <div class="col-4 fw-bold py-2">Автомат</div>
+                                    </div>
+                                    <a
+                                        href="#"
+                                        class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                        >Подробнее</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item pb-4 d-sm-block me-sm-0">
+                            <div class="card shadow border-0">
+                                <img src="/templates/atlant/images/cars/car6.png" class="card-img-top" alt="Car" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Audi Q5 2020г</h5>
+                                    <div class="row card-text">
+                                        <div
+                                            class="col pe-0 text-decoration-line-through text-secondary small"
+                                        >
+                                            2 245 000 ₽
+                                        </div>
+                                        <div class="col ps-0 fw-bold text-end text-danger">
+                                            2 245 000 ₽
+                                        </div>
+                                    </div>
+                                    <hr class="my-2" />
+                                    <div class="row small mb-2">
+                                        <div class="col-4 small text-secondary">Пробег</div>
+                                        <div class="col-4 small text-secondary">Двигатель</div>
+                                        <div class="col-4 small text-secondary">КПП</div>
+                                        <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                        <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                        <div class="col-4 fw-bold py-2">Автомат</div>
+                                    </div>
+                                    <a
+                                        href="#"
+                                        class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                        >Подробнее</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item pb-4 d-sm-block me-sm-0">
+                            <div class="card shadow border-0">
+                                <img src="/templates/atlant/images/cars/car7.png" class="card-img-top" alt="Car" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Audi Q5 2020г</h5>
+                                    <div class="row card-text">
+                                        <div
+                                            class="col pe-0 text-decoration-line-through text-secondary small"
+                                        >
+                                            2 245 000 ₽
+                                        </div>
+                                        <div class="col ps-0 fw-bold text-end text-danger">
+                                            2 245 000 ₽
+                                        </div>
+                                    </div>
+                                    <hr class="my-2" />
+                                    <div class="row small mb-2">
+                                        <div class="col-4 small text-secondary">Пробег</div>
+                                        <div class="col-4 small text-secondary">Двигатель</div>
+                                        <div class="col-4 small text-secondary">КПП</div>
+                                        <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                        <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                        <div class="col-4 fw-bold py-2">Автомат</div>
+                                    </div>
+                                    <a
+                                        href="#"
+                                        class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                        >Подробнее</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item pb-4 d-sm-block me-sm-0">
+                            <div class="card shadow border-0">
+                                <img src="/templates/atlant/images/cars/car8.png" class="card-img-top" alt="Car" />
+                                <div class="card-body">
+                                    <h5 class="card-title">Audi Q5 2020г</h5>
+                                    <div class="row card-text">
+                                        <div
+                                            class="col pe-0 text-decoration-line-through text-secondary small"
+                                        >
+                                            2 245 000 ₽
+                                        </div>
+                                        <div class="col ps-0 fw-bold text-end text-danger">
+                                            2 245 000 ₽
+                                        </div>
+                                    </div>
+                                    <hr class="my-2" />
+                                    <div class="row small mb-2">
+                                        <div class="col-4 small text-secondary">Пробег</div>
+                                        <div class="col-4 small text-secondary">Двигатель</div>
+                                        <div class="col-4 small text-secondary">КПП</div>
+                                        <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                        <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                        <div class="col-4 fw-bold py-2">Автомат</div>
+                                    </div>
+                                    <a
+                                        href="#"
+                                        class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                        >Подробнее</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a
+                        class="carousel-control-next d-sm-none position-relative"
+                        type="button"
+                        data-bs-target="#similar-cars"
+                        data-bs-slide="next"
+                    >
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center mb-5 d-none d-sm-block">
+            <button class="btn btn-outline-secondary btn-see-all">Смотреть все</button>
+        </div>
+        <div class="container py-5 mb-5 d-none d-sm-block">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+        </div>
+        <%= require('../includes/feedback.html').default %>
+        <div></div>
+        <%= require('../includes/footer.html').default %>
+    </body>
+</html>

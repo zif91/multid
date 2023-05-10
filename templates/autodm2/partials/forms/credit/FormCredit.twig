@@ -1,0 +1,94 @@
+<form class="form-calculate mt-4 p-4" style="background: #b71f25; border-radius: 9px" action="">
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+    {{ data['form.messages'] | raw }}
+                <h4 class="fw-bold text-white">Расчитать кредит</h4>
+                <p class="text-white" >Оставьте заявку на желаемый автомобиль, и наши менеджеры помогут рассчитать кредит с учетом самых выгодных предложений в банках - партнерах.</p>
+                 <div class="row">{#
+                    <div class="col-6 mb-3">
+                        <label for="calc-input-1" class="form-label text-white small">
+                            Сумма кредита
+                        </label>
+                        <input
+                        name="summ" 
+                    value="{{ data.summ }}"
+                            class="form-control py-2 border-0 amount-imask"
+                            id="calc-input-1"
+                            type="text"
+                            placeholder="{{(resource['car-price']) |number_format(0, '.', ' ')}} ₽"
+                        />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="calc-input-2" class="form-label text-white small">
+                            Первый взнос
+                        </label>
+                        <input
+                        name="vznos" 
+                    value="{{ data.vznos }}"
+                            class="form-control py-2 border-0 amount-imask"
+                            id="calc-input-2"
+                            type="text"
+                            placeholder="{{ (resource['car-price']/10) |number_format(0, '.', ' ') }} ₽"
+                        />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="calc-input-3" class="form-label text-white small">
+                            Ваш ежемесячный платеж
+                        </label>
+                        <input
+                            class="form-control py-2 border-0 amount-imask"
+                            id="calc-input-3"
+                            type="text"
+                            placeholder="{{(month)|number_format(0, '.', ' ') }} ₽/ мес"
+                        />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="calc-input-4" class="form-label text-white small">
+                            Процентная ставка
+                        </label>
+                        <input
+                            class="form-control py-2 border-0 percent-imask"
+                            id="calc-input-4"
+                            type="text"
+                            placeholder="9 %"
+                        />
+                    </div>#}
+                    <div class="col mb-3">
+                        <label for="calc-input-5" class="form-label text-white small">
+                            Ваше имя
+                        </label>
+                        <input
+                        name="first_name" 
+                    value="{{ data.first_name }}"
+                            class="form-control py-2 border-1 {{ data['first_name.classname'] }}"
+                            id="calc-input-5"
+                            type="text"
+                            placeholder="Иван"
+                        />
+                    </div>
+                    <div class="col mb-3">
+                        <label for="calc-input-6" class="form-label text-white small">
+                            Ваше телефон
+                        </label>
+                        <input
+                        name="mobile_tel" 
+                        value="{{ data.mobile_tel }}"
+                        class="form-control py-2 border-1 phone-imask {{ data['mobile_tel.classname'] }}"
+                        id="calc-input-6"
+                        type="text"
+                        placeholder="+7 (000) 000-00-00"
+                        />
+                    </div>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" checked id="id7" type="checkbox" value="1" {{ data['c.agree.1'] }} name="agree"/>
+                    <label class="form-check-label text-white small" for="id7">
+                        Даю согласие на обработку персональных данных
+                    </label>
+                </div>
+                <div class="text-center py-3">
+                    <button class="btn btn-light px-5 py-2">
+                        Отправить заявку на кредит
+                    </button>
+                </div>
+            </form>

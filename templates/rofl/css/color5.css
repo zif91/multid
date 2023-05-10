@@ -1,0 +1,57 @@
+.btn.btn-light {
+  border: 1px solid #5890da;
+  color: #5890da;
+}
+.btn.btn-light:hover {
+  background: #5890da;
+}
+.header .logo a {
+  background: url('img/logo6.svg');
+}
+.header ul li a:hover {
+  color: #5890da;
+}
+.header .phone {
+  background: url('img/phone9.svg') no-repeat 0 5px;
+}
+.footer ul li a:hover {
+  color: #5890da;
+}
+.actions-page .item a:hover {
+  background: #5890da;
+  border: 1px solid #5890da;
+}
+.text-danger {
+  color: #5890da !important;
+}
+.btn-danger {
+  background-color: #5890da !important;
+  border-color: #5890da !important;
+}
+.bg-danger {
+  background-color: #5890da !important;
+}
+.index-catalog-block .tabs-nav li a.active {
+  border: 1px solid #5890da;
+  color: #5890da;
+}
+@media (max-width: 767px) {
+  .header .phone {
+    background: url('img/phone10.svg');
+  }
+}
+.index-contacts-block .logo .logotype {
+  background: url('img/logo6.svg') center / cover;
+}
+.catalog-page .pages .pagination .page-item .page-link.active {
+  background: #5890da;
+}
+.contacts-page .contacts .info .logo .logotype {
+  background: url('img/logo6.svg') center / cover;
+}
+.item-page .price-block .price span {
+  color: #5890da;
+}
+.item-page .bottom-block .btn-light:hover {
+  border: 1px solid #5890da;
+}

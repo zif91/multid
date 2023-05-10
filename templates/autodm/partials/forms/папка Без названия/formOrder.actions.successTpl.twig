@@ -1,0 +1,52 @@
+{% if data.parents %}
+    {% set actions = runSnippet('DocLister', {
+        api: 1,
+        parents: data.parents,
+        depth: 4,
+        tvList: 'action-type,action-cost,multiSelector,action-enabled',
+        addWhereList: 'c.template=16 AND FROM_UNIXTIME(c.pub_date) < NOW()',
+        filters: 'AND(tv:action-type:!=:;tv:action-cost:!=:;tv:multiSelector:containsOne:' ~ data.docid ~ ')'
+    }) | json %}
+
+    {% if actions | length %}
+        <div class="buy-car-col col-md-6 col-lg-12 order-lg-last">
+            <div class="checkbox-group">
+                {% set price = data.price_original | default(resource.price) %}
+                {% for item in actions %}
+                    {% if item['tv_action-cost'] | length > 2 %}
+                        {% set cost = item['tv_action-cost'] %}
+                    {% else %}
+                        {% set cost = (price / 100) * item['tv_action-cost'] %}
+                    {% endif %}
+                    <label class="form-check">
+                        <input type="checkbox" class="d-none" name="action[]" value="{{ item['id'] }}" data-action-cost="{{ cost }}" data-action-type="{{ item['tv_action-type'] }}" data-action-id="{{ item['id'] }}">
+                        <div class="form-check-box"></div>
+                        <div class="form-check-text">
+                            {{ item['tv_action-type'] }} (–{{ cost | number_format(0, '.', '&nbsp;') | raw }} руб.)
+                        </div>
+                    </label>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% elseif modx.placeholders['product-actions'] %}
+    <div class="buy-car-col col-md-6 col-lg-12 order-lg-last">
+        <div class="checkbox-group">
+            {% set price = data.price_original | default(resource.price) %}
+            {% for item in modx.placeholders['product-actions'] %}
+                {% if item['tv.action-cost'] | length > 2 %}
+                    {% set cost = item['tv.action-cost'] %}
+                {% else %}
+                    {% set cost = (price / 100) * item['tv.action-cost'] %}
+                {% endif %}
+                <label class="form-check">
+                    <input type="checkbox" class="d-none" name="action[]" value="{{ item['id'] }}" data-action-type="{{ item['tv.action-type'] }}" data-action-id="{{ item['id'] }}">
+                    <div class="form-check-box"></div>
+                    <div class="form-check-text">
+                        {{ item['tv.action-type'] }} (–{{ cost | number_format(0, '.', '&nbsp;') | raw }} руб.)
+                    </div>
+                </label>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

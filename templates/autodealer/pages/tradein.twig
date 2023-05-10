@@ -1,0 +1,324 @@
+{% extends 'app.twig' %}
+
+{% block MAIN %}
+<hr class="m-0" />
+<div class="container py-5 bg-main-car">
+    <h4 class="fw-bold mb-5 text-uppercase d-xl-none px-4 pb-4">Trade-in</h4>
+    <div class="row form-trade-in rounded-3 p-3 p-xl-5 mx-4 mx-xl-0">
+        <div class="col-12">
+            <h4 class="text-white fw-bold mb-3 mb-xl-5">Сдать автомобиль в Trade-in</h4>
+        </div>
+                        {{ runSnippet('Form', {
+                            formid: 'FormTradeIn',
+                            path: '/templates/atlant/partials/forms/tradeIn2/',
+                            extension: 'twig'
+                        })  | raw }}
+
+        
+    </div>
+</div>
+<div class="container p-4 d-none d-xl-block">
+    <h4 class="fw-bold mb-5">Преимущества продажи в {{baseSettings["salon-name"]}}</h4>
+    <div class="row overflow-hidden sales">
+        <div class="col-3 row p-0 m-0 sale-item">
+            <div class="col-6 d-flex align-items-center justify-content-center">
+                <img src="/templates/atlant/images/sales/speed.png" alt="" />
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-between">
+                <p class="text-red fw-bold m-0 mt-4">СРОК ПРОДАЖИ</p>
+                <p class="small fw-bold m-0 mb-4">вы экономите свое время</p>
+            </div>
+        </div>
+        <div class="col-3 row p-0 m-0 sale-item">
+            <div class="col-6 d-flex align-items-center justify-content-center">
+                <img src="/templates/atlant/images/sales/cash.png" alt="" />
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-between">
+                <p class="text-red fw-bold m-0 mt-4">НИКАКИХ ЗАТРАТ</p>
+                <p class="small fw-bold m-0 mb-4">на предпродажную подготовку</p>
+            </div>
+        </div>
+        <div class="col-3 row p-0 m-0 sale-item">
+            <div class="col-6 d-flex align-items-center justify-content-center">
+                <img src="/templates/atlant/images/sales/diagnostic.png" alt="" />
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-between">
+                <p class="text-red fw-bold m-0 mt-4">
+                    БЕСПЛАТНАЯ<br />
+                    ДИАГНОСТИКА
+                </p>
+                <p class="small fw-bold m-0 mb-4">Полный чеклист состояния автомобиля</p>
+            </div>
+        </div>
+        <div class="col-3 row p-0 m-0 sale-item">
+            <div class="col-6 d-flex align-items-center justify-content-center">
+                <img src="/templates/atlant/images/sales/guard.png" alt="" />
+            </div>
+            <div class="col-6 d-flex flex-column justify-content-between">
+                <p class="text-red fw-bold m-0 mt-4">
+                    ЮРИДИЧЕСКАЯ<br />
+                    ЧИСТОТА
+                </p>
+                <p class="small fw-bold m-0 mb-4">Без банковских ячеек, депозитов и проверок.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container p-4">
+    <h4 class="fw-bold mb-5">Как происходит выкуп автомобиля?</h4>
+    <div class="row my-5">
+        <div class="col-6 col-xl-3 mb-5 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <div class="cyrcle-red cyrcle-red-none-left">1</div>
+                <div class="text-center">
+                    <p class="fw-bold text-uppercase m-2">Заявка</p>
+                    <p class="small m-0">
+                        Оставьте заявку<br />
+                        или позвоните нам
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3 mb-5 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <div class="cyrcle-red">2</div>
+                <div class="text-center">
+                    <p class="fw-bold text-uppercase m-2">Тех диагностика</p>
+                    <p class="small m-0">Мы бесплатно оценим и проведем диагностику</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3 mb-5 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <div class="cyrcle-red">3</div>
+                <div class="text-center">
+                    <p class="fw-bold text-uppercase m-2">Оформление документов</p>
+                    <p class="small m-0">
+                       Наши менеджеры<br />
+быстро помогут оформить документы                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3 mb-5 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <div class="cyrcle-red cyrcle-red-none-right">4</div>
+                <div class="text-center">
+                    <p class="fw-bold text-uppercase m-2">Получение выплаты</p>
+                    <p class="small m-0">
+                       Или зачет стоимости <br />
+                        в счет нового автомобиля
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-lg mb-5 px-0 px-lg-1">
+    <div class="row question-document mx-0 mx-lg-3">
+        <div class="col-12 col-lg-6 py-5 px-4 px-sm-5">
+            <div class="container p-0 px-sm-4">
+                <h4 class="fw-bold mb-4">Какие документы нужны?</h4>
+                <ul>
+                    <li>Паспорт транспортного средства (ПТС)</li>
+                    <li>Паспорт собственника транспортного средства</li>
+                    <li>Свидетельство о регистрации транспортного средства (СТС)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block question-document-image"></div>
+    </div>
+</div>
+{# <div class="container p-4 mb-5">
+    <h4 class="fw-bold mb-5">Вопросы и ответы</h4>
+    <div class="row">
+        <div class="col-12 col-lg-6 mb-4">
+            <div class="accordion question" id="accordion1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading1">
+                        <button
+                            class="accordion-button collapsed text-black"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse1"
+                            aria-expanded="false"
+                            aria-controls="collapse1"
+                        >
+                            Как вы проводите оценку авто?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapse1"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="heading1"
+                        data-bs-parent="#accordion1"
+                    >
+                        <div class="accordion-body">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Molestias et ex sunt! Fugiat esse cum harum blanditiis,
+                            voluptatum quidem consequatur. Aspernatur aut fugiat, pariatur
+                            rem mollitia porro repellendus. Ipsa, cupiditate.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <div class="accordion question" id="accordion2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading2">
+                        <button
+                            class="accordion-button collapsed text-black"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse2"
+                            aria-expanded="false"
+                            aria-controls="collapse2"
+                        >
+                            Почему вы предложили меньше, чем другая компания?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapse2"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="heading2"
+                        data-bs-parent="#accordion2"
+                    >
+                        <div class="accordion-body">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Molestias et ex sunt! Fugiat esse cum harum blanditiis,
+                            voluptatum quidem consequatur. Aspernatur aut fugiat, pariatur
+                            rem mollitia porro repellendus. Ipsa, cupiditate.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <div class="accordion question" id="accordion3">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading3">
+                        <button
+                            class="accordion-button collapsed text-black"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse3"
+                            aria-expanded="false"
+                            aria-controls="collapse3"
+                        >
+                            Покупаете ли вы отдельно ПТС без автомобиля?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapse3"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="heading3"
+                        data-bs-parent="#accordion3"
+                    >
+                        <div class="accordion-body">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Molestias et ex sunt! Fugiat esse cum harum blanditiis,
+                            voluptatum quidem consequatur. Aspernatur aut fugiat, pariatur
+                            rem mollitia porro repellendus. Ipsa, cupiditate.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <div class="accordion question" id="accordion4">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading4">
+                        <button
+                            class="accordion-button collapsed text-black"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse4"
+                            aria-expanded="false"
+                            aria-controls="collapse4"
+                        >
+                            Покупаете ли вы отдельно ПТС без автомобиля?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapse4"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="heading4"
+                        data-bs-parent="#accordion4"
+                    >
+                        <div class="accordion-body">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Molestias et ex sunt! Fugiat esse cum harum blanditiis,
+                            voluptatum quidem consequatur. Aspernatur aut fugiat, pariatur
+                            rem mollitia porro repellendus. Ipsa, cupiditate.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <div class="accordion question" id="accordion5">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading5">
+                        <button
+                            class="accordion-button collapsed text-black"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse5"
+                            aria-expanded="false"
+                            aria-controls="collapse5"
+                        >
+                            Почему вы предложили меньше, чем другая компания?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapse5"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="heading5"
+                        data-bs-parent="#accordion5"
+                    >
+                        <div class="accordion-body">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Molestias et ex sunt! Fugiat esse cum harum blanditiis,
+                            voluptatum quidem consequatur. Aspernatur aut fugiat, pariatur
+                            rem mollitia porro repellendus. Ipsa, cupiditate.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mb-4">
+            <div class="accordion question" id="accordion6">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading6">
+                        <button
+                            class="accordion-button collapsed text-black"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse6"
+                            aria-expanded="false"
+                            aria-controls="collapse6"
+                        >
+                            Как вы проводите оценку авто?
+                        </button>
+                    </h2>
+                    <div
+                        id="collapse6"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="heading6"
+                        data-bs-parent="#accordion6"
+                    >
+                        <div class="accordion-body">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Molestias et ex sunt! Fugiat esse cum harum blanditiis,
+                            voluptatum quidem consequatur. Aspernatur aut fugiat, pariatur
+                            rem mollitia porro repellendus. Ipsa, cupiditate.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>#}
+
+{% endblock %}
+

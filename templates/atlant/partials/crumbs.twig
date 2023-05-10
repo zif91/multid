@@ -1,0 +1,35 @@
+{# пащимута не работаит
+
+    
+<div class="breadcrumbs">
+                    <div class="container">
+  
+{{ runSnippet('DLCrumbs', {
+showCurrent: 1,
+sysKey: 'crumbs',
+ownerTPL: '@CODE:<div class="breadcrumbs__list">
+    <div class="breadcrumbs-list">
+        [+crumbs.wrap+]</div></div>',
+tpl:'@CODE:<a itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" href="[+url+]">[+title+]</a>',
+tplCurrent: '@CODE:<span itemprop="name">[+title+]</span>',
+addWhereList: 'AND (alias_visible=1 OR id=1)',
+tplFirst: '@CODE:<a href='/'>Главная</a>'
+}) | raw}}
+                    </div>
+
+#}
+{{ runSnippet('DLCrumbs', {
+showCurrent: 1,
+sysKey: 'crumbs',
+ownerTPL: '@CODE:<hr class="m-0 d-xl-none" />
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+        [+crumbs.wrap+]
+        </ol>
+    </nav>
+</div>',
+tpl:'@CODE: <li class="breadcrumb-item"><a itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" href="[+url+]">[+title+]</a></li>',
+tplCurrent: '@CODE: <li class="breadcrumb-item active"><a itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" href="[+url+]">[+title+]</a></li>',
+addWhereList: 'AND (alias_visible=1 OR id=1)',
+}) | raw}}

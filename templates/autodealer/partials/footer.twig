@@ -1,0 +1,46 @@
+
+    <footer class="footer py-5 text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="logo mb-5">
+                        <a href="/"><img style="filter: grayscale(100%) brightness(80%) contrast(30%)" src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <ul class="pb-4">
+                        <li class="mb-2"><a href="/katalog-avtomobilej/" class="text-light">Каталог автомобилей с пробегом</a></li>
+                        <!--li class="mb-2"><a href="#" class="text-light">Акции</a></li-->
+                        <li class="mb-2"><a href="/kontakty1" class="text-light">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="contacts pb-4">
+                        {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'phone pl-4 text-light mb-2 d-block'}) | raw}}
+                        <div class="adress pl-4 py-1">
+                                                {{baseSettings.salon_location}}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="copy pb-4">
+                        <p class="mb-2">{{baseSettings["pagetitle"]}}, 2023. Все права защищены</p>
+                        <p class="mb-2"><button style="text-align: left;
+    color: gray;
+    font-size: 10px;
+    padding: 0;" class="btn politika-btn" data-fancybox="politika" data-src="#politika">Политика обработки персональных данных</button></p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="best mb-5 pl-5">
+                        <span class="d-block mb-2">Лучший дилер</span>
+            2021 года по версии журнала Дилеры России
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <button data-toggle="modal" data-target="#popup"  class="mb-4 w-100 btn btn-danger">Заказать звонок</button>
+                </div>
+            </div>
+        </div>
+    </footer>

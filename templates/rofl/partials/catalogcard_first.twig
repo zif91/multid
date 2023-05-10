@@ -1,0 +1,39 @@
+{#% set thumb = runSnippet('morephoto', {
+images: data['tv.car_photos'],
+phpthumb: 'w=370,h=230,zc=C',
+tpl: '@CODE:[+image.thumb+]',
+total: 1,
+display: 1
+}) %#}
+{% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
+action:'caroldprice'}) %}
+
+<div class="item">
+	<a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="w-100"></a>
+	<div class="text p-3 position-relative">
+		<div class="name mb-1">
+			{{ data['title'] }}<span class="text-light bg-danger p-1 align-middle">Hot</span>
+		</div>
+		<div class="age mb-1">
+{{ data['tv.modification'] }}		</div>
+		<span class="special d-inline-block mb-2 py-1 px-2">Спецпредложение</span>
+		<div class="about mb-2">
+			{{ ( data['tv.run'] )|number_format(0, '.', ' ') }} км, 
+			{{ data['tv.body_type'] }}, {{ data['tv.gear'] }}, {{ data['tv.fuel'] }}, {{ data['tv.engine_volume'] }}, {{ data['tv.engine_power'] }} л. с., {{ data['tv.drive'] }}, {{ data['tv.car_color'] }}
+		</div>
+		<div class="book mb-2">
+			<span class="bg-danger d-inline-block align-middle mr-2 mb-1"></span> В наличии
+		</div>
+		<div class="price mb-2">
+			<div class="new">
+				{{ ( data['tv.car-price'])|number_format(0, '.', ' ') }} ₽
+			</div>
+			<span class="old">
+				{{ (oldprice)|number_format(0, '.', ' ') }} ₽
+			</span>
+		</div>
+		<button onclick="window.location.href='{{ data['url'] }}'"
+		class="btn btn-danger w-100">Подробнее</button>
+		<button style="border-radius: 8px !important;" data-toggle="modal" data-target="#exampleModal" class="btn btn-light w-100 mt-3">Купить в 1 клик</button>
+	</div>
+</div>

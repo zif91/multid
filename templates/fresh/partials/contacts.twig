@@ -1,0 +1,15 @@
+{# {{ runSnippet('map', {zoom:'15',grey:'1', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+}) | raw}} #}
+{% set map = runSnippet('map', {zoom:'15',grey:'1', class:'123 map', coords:baseSettings.salon_coordinates, width:'80', title:baseSettings.pagetitle,color:'#dc143c'
+}) %}
+	<div class="index-map-block mb-5">
+		<div class="container">
+			<div class="block-name mb-4">
+				Мы на карте
+			</div>
+			<div class="map">
+        {{ map | raw }}
+
+			</div>
+		</div>
+	</div>

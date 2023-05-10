@@ -1,0 +1,41 @@
+
+
+
+
+<form class="p-md-5 p-4 text-center">
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+    {{ data['form.messages'] | raw }}
+            <div class="block-name mb-sm-5 mb-4 text-light">
+                Выгодные условия на покупку <br />Вашего автомобиля в Кредит!
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <input name="brand" value="{{data.brand}}" type="text" placeholder="Интересующий Вас автомобиль" class="form-control">
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <input name="desired_amount" value="{{data.desired_amount}}" type="text" placeholder="Стоимость" class="form-control">
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <select name="credit_term" value="{{data.credit_term}}"class="form-select">
+                        <option>Срок: 12 месяцев</option>
+                        <option>Срок: 18 месяцев</option>
+                        <option>Срок: 24 месяцев</option>
+                        <option>Срок: 30 месяцев</option>
+                        <option>Срок: 36 месяцев</option>
+                        <option>Срок: 42 месяцев</option>
+                        <option>Срок: 48 месяцев</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <input name="first_name" value="{{data.first_name}}" type="text" placeholder="Ваше имя" class="form-control">
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <input type="text" value="{{ data.mobile_tel }}" name="mobile_tel" placeholder="Ваш телефон" class="form-control">
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <input value="{{ data.email }}" name="email" type="text" placeholder="Ваш e-mail" class="form-control">
+                </div>
+            </div>
+            <button class="btn btn-danger mt-2">Получить условия и цену</button>
+        </form>

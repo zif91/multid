@@ -1,0 +1,47 @@
+{% set docinfo = runSnippet('DocInfo', {'docid': site_start, 'field': 'catalog_id'}) %}
+
+{% if catalog is null %}
+    {% set catalog_id = 27 %}
+{% else %}
+    {% set catalog_id = catalog %}
+{% endif %}
+
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'yml',
+controller: 'catalog_filters',
+display: 4000,
+parents: catalog_id,
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image,engine_volume,fuel,body_type,car_photos, mark, model, modification, body_type, wheel, color, metallic, car_state, run, year, car-price, vin, pts',
+tpl:'marketRowTpl',
+noneTPL:'@T_FILE:partials/noitems',
+filter: 'filters',
+filterRangeSeparator: ':',
+filterValuesSeparator: '|',
+filterDelimiter: '||',
+filterPriceId: 19,
+filterCurrencyId: 'RUB',
+__filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
+filterList: '42,43,19,16',
+prepare: 'dl.prepare.yandex_yml',
+urlScheme:'full',
+
+api: 0
+})
+%}
+
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+	<cars>
+		{{DLCatalog}}
+	</cars>
+</data>
+
+[!DocLister?
+		&id=`yml`
+		&depth=`1`
+		&parents=`27`
+		&tvList=`car_photos, mark, model, modification, body_type, wheel, color, metallic, car_state, run, year, car-price, vin, pts`
+		&prepare=`dl.prepare.yandex_yml`
+		&urlScheme=`full`
+		&tpl=`marketRowTpl`
+		!]

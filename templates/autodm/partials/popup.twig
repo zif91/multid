@@ -1,0 +1,60 @@
+<div class="modal fade" id="oneclick" tabindex="-1" role="dialog" aria-labelledby="oneclick" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background: #b71f25;" >
+      <!--div class="modal-header">
+        <h5 class="modal-title" id="oneclick">Форма обратной связи</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div-->
+      <!--div class="modal-body">
+        Оставьте заявку - и наш менеджер свяжется с Вами в ближайшее время      </div-->{{ runSnippet('Form', {
+                            formid: 'FormCallback',
+                            path: '/templates/autodm/partials/forms/feedback_modal/',
+                            extension: 'twig'
+                        })  | raw }}
+      <!--div class="modal-footer">
+        <button type="button" class="btn btn-primary">Отправить</button>
+      </div-->
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<div class="float-button " id="float-button">
+  <a href="#" data-toggle="modal" data-target="#callphone"><i class="bi bi-telephone"></i></a><div class="waves-container">
+    <div class="waves"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+window.addEventListener('load', function() {
+// Проверяем, было ли уже показано окно в этой сессии
+if (!localStorage.getItem('isPopupShown')) {
+  // Запускаем таймер на 60 секунд
+  setTimeout(function() {
+    // Получаем элемент модального окна
+    var modalElement = document.getElementById('callphone');
+    // Открываем модальное окно
+    $(modalElement).modal('show');
+    // Сохраняем информацию о том, что окно уже было показано
+    localStorage.setItem('isPopupShown', true);
+  }, 60000);
+}
+});
+
+let domElement = document.getElementById("float-button");
+
+setInterval(function() {
+  domElement.heartBeat(1500);
+}, 5000);
+
+</script>
+
+
+{{ runSnippet('Form', {
+                            formid: 'FormCallback',
+                            path: '/templates/autodm/partials/forms/feedback_modal_call/',
+                            extension: 'twig'
+                        })  | raw }}

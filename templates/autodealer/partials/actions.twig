@@ -1,0 +1,35 @@
+{% set gifts = runSnippet('DocLister', {
+display: 4,
+parents: 24,
+depth: 0,
+tvList:'image,color',
+tpl:'@T_FILE:partials/actions_actions'
+})
+%}
+<div class="page-name py-4">
+    <div class="container">
+        <h1 class="h1 m-0">Акции</h1>
+    </div>
+</div>
+<div class="actions-page pb-3">
+    <div class="container">
+        <div class="row">
+            {{gifts | raw}}
+        </div>
+    </div>
+</div>
+
+{#% set gifts = runSnippet('DocLister', {
+display: 3,
+parents: 24,
+depth: 0,
+tvList:'image,color',
+tpl:'@T_CODE:
+<div class="col-xl-4 col-lg-6">
+    <div class="item" style="background: url('{{ runSnippet(\'phpthumb\', {input: data[\'tv.image\'], options:\'w=130,h=130,zc=1\'}) }}') center/cover;">
+        <p>{{ data.title }}</p>
+        <button>Подробнее</button>
+    </div>
+</div>'
+})
+%#}

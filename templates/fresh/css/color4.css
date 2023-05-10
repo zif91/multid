@@ -1,0 +1,238 @@
+.header ul li a:hover {
+  color: #34b5a5;
+}
+.header .contacts button {
+  background: #34b5a5;
+}
+.index-form-block .fields {
+  border: 1px solid #34b5a5;
+}
+.index-form-block .fields select {
+  border-right: 1px solid #34b5a5;
+}
+.index-form-block .fields input[type='text'] {
+  border-right: 1px solid #34b5a5;
+}
+.index-form-block button {
+  background: #34b5a5;
+}
+@media (max-width: 575px) {
+  .index-form-block form .fields select {
+    border-bottom: 1px solid #34b5a5;
+  }
+}
+.index-services-block .item {
+  border: 1px solid #34b5a5;
+}
+.index-services-block .item .icon {
+  border-bottom: 1px solid #34b5a5;
+}
+.index-services-block .item .icon svg path {
+  fill: #34b5a5;
+}
+.index-services-block .bottom-link {
+  color: #34b5a5;
+  background: url('img/arrow7.svg') no-repeat right;
+}
+.index-catalog-block .list .item {
+  border: 1px solid #34b5a5;
+}
+.index-catalog-block .list .item .text button {
+  background: #34b5a5;
+}
+.index-catalog-block .list .slick-next {
+  border: 1px solid #34b5a5;
+}
+.index-catalog-block .list2 .item {
+  border: 1px solid #34b5a5;
+}
+.index-catalog-block .list2 .item .text button {
+  background: #34b5a5;
+}
+.advantages-block .item {
+  border: 1px solid #34b5a5;
+}
+.advantages-block .item .check {
+  border-bottom: 1px solid #34b5a5;
+}
+.advantages-block .item .check span {
+  background: #34b5a5 url('img/check.svg') no-repeat center;
+}
+.advantages-block .item .check .icon {
+  background: #34b5a5;
+}
+.advantages-block .list .item .check span {
+  background: #34b5a5 url('img/check2.svg') no-repeat center;
+}
+.footer input[type='text'] {
+  border: 1px solid #34b5a5;
+}
+.footer select {
+  border: 1px solid #34b5a5;
+}
+.footer .agree a {
+  color: #34b5a5;
+}
+.footer button {
+  background: #34b5a5;
+}
+.index-brands-block .bottom-link {
+  color: #34b5a5;
+  background: url('img/arrow8.svg') no-repeat right;
+}
+.popup .image {
+  background: url('img/popup4.svg') center / cover;
+}
+.popup form button {
+  background: #34b5a5;
+}
+.popup form .bottom-text a {
+  color: #34b5a5;
+}
+.catalog-page .filter {
+  border: 1px solid #34b5a5;
+  border-right: 0;
+  border-bottom: 0;
+}
+.catalog-page .filter select {
+  border-right: 1px solid #34b5a5;
+  border-bottom: 1px solid #34b5a5;
+}
+.catalog-page .item {
+  border: 1px solid #34b5a5;
+}
+.catalog-page .item .text button {
+  background: #34b5a5;
+}
+.catalog-page .pages {
+  border: 1px solid #34b5a5;
+}
+.catalog-page .pages li:not(:last-child) {
+  border-right: 1px solid #34b5a5;
+}
+.catalog-page .pages li a:hover {
+  background: #34b5a5;
+}
+.catalog-page .bottom-link {
+  color: #34b5a5;
+  background: url('img/arrow7.svg') no-repeat right;
+}
+.actions-page .item {
+  border: 1px solid #34b5a5;
+}
+.actions-page .item .img {
+  border-bottom: 1px solid #34b5a5;
+}
+.actions-page .item .img svg path {
+  fill: #34b5a5;
+}
+.actions-page .item .text button {
+  background: #34b5a5;
+}
+.advantages-page .item div span {
+  background: #34b5a5;
+}
+.advantages-page .bottom-text button {
+  background: #34b5a5;
+}
+.item-page .info .buttons button {
+  color: #34b5a5;
+  border: 1px solid #34b5a5;
+}
+.item-page .info .buttons button:hover {
+  background: #34b5a5;
+}
+.item-page table thead tr td {
+  color: #34b5a5;
+}
+.item-page table tbody tr td button {
+  background: #34b5a5;
+}
+.item-page .order .text {
+  border: 1px solid #34b5a5;
+  color: #34b5a5;
+}
+.item-page .order button {
+  background: #34b5a5;
+}
+.item-page .complect {
+  border: 1px solid #34b5a5;
+}
+.item-page .complect div span:first-child {
+  color: #34b5a5;
+}
+.item-page .complect button {
+  background: #34b5a5;
+}
+.item-page .calc .calc-item .ui-widget-content {
+  background: #34b5a5;
+}
+.item-page .calc .calc-item .ui-state-default,
+.item-page .calc .calc-item .ui-widget-content .ui-state-default,
+.item-page .calc .calc-item .ui-widget-header .ui-state-default,
+.item-page .calc .calc-item .ui-button,
+.item-page .calc .calc-item html .ui-button.ui-state-disabled:hover,
+.item-page .calc .calc-item html .ui-button.ui-state-disabled:active {
+  border: 7px solid #34b5a5;
+}
+.item-page .banks .bottom-link a {
+  color: #34b5a5;
+  background: url('img/arrow7.svg') no-repeat right;
+}
+@media (max-width: 575px) {
+  .item-page .calc {
+    border: 1px solid #34b5a5;
+  }
+}
+.calc-page .block1 .selects select {
+  border: 1px solid #34b5a5;
+  background: url('img/select4.svg') no-repeat right 10px top 50%;
+}
+.calc-page .block1 .price {
+  background: #34b5a5;
+}
+.calc-page .block2 select {
+  border: 1px solid #34b5a5;
+  background: url('img/select4.svg') no-repeat right 10px top 50%;
+}
+.calc-page .block2 .field input[type='text'] {
+  border: 1px solid #34b5a5;
+}
+.calc-page .block2 .field div {
+  color: #34b5a5;
+  border-left: 1px solid #34b5a5;
+}
+.calc-page .block2 .calc-item .ui-widget-content {
+  background: #34b5a5;
+}
+.calc-page .block2 .calc-item .ui-state-default,
+.calc-page .block2 .calc-item .ui-widget-content .ui-state-default,
+.calc-page .block2 .calc-item .ui-widget-header .ui-state-default,
+.calc-page .block2 .calc-item .ui-button,
+.calc-page .block2 .calc-item html .ui-button.ui-state-disabled:hover,
+.calc-page .block2 .calc-item html .ui-button.ui-state-disabled:active {
+  border: 7px solid #34b5a5;
+}
+.calc-page .block3 table tr td:last-child {
+  color: #34b5a5;
+}
+.about-block .item {
+  border: 1px solid #34b5a5;
+}
+.about-block .item .icon svg path {
+  fill: #34b5a5;
+}
+.about-block .item .icon svg rect {
+  fill: #34b5a5;
+}
+.about-block .item .name {
+  background: #34b5a5;
+}
+@media (max-width: 575px) {
+  .calc-page .block2 {
+    border: 1px solid #34b5a5;
+  }
+}
+.contacts-page .buttons button {
+  background: #34b5a5;
+}

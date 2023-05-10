@@ -1,0 +1,376 @@
+<form class="form">
+    <input type="hidden" name="formid" value="formTradein">
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.price | default(resource[car-price]) }}" data-price>
+        {#{ data['form.messages'] | raw }#}
+                    <div class="row flex-column flex-xl-row">
+                        <div class="col mb-3">
+                            <label for="formAuto" class="form-label text-white small">
+                                Марка вашей машины
+                            </label>
+                            <select class="form-select py-2 border-0" id="formAuto"
+                            name="brand"
+                            value="{{ data.brand }}">
+                                <option value="AC">AC</option>
+                                <option value="Acura">Acura</option>
+                                <option value="Adler">Adler</option>
+                                <option value="Alfa Romeo">Alfa Romeo</option>
+                                <option value="Alpina">Alpina</option>
+                                <option value="Alpine">Alpine</option>
+                                <option value="AM General">AM General</option>
+                                <option value="AMC">AMC</option>
+                                <option value="Apal">Apal</option>
+                                <option value="Ariel">Ariel</option>
+                                <option value="Aro">Aro</option>
+                                <option value="Asia">Asia</option>
+                                <option value="Aston Martin">Aston Martin</option>
+                                <option value="Auburn">Auburn</option>
+                                <option value="Audi">Audi</option>
+                                <option value="Aurus">Aurus</option>
+                                <option value="Austin">Austin</option>
+                                <option value="Austin Healey">Austin Healey</option>
+                                <option value="Autobianchi">Autobianchi</option>
+                                <option value="BAIC">BAIC</option>
+                                <option value="Bajaj">Bajaj</option>
+                                <option value="Baltijas Dzips">Baltijas Dzips</option>
+                                <option value="Batmobile">Batmobile</option>
+                                <option value="Bentley">Bentley</option>
+                                <option value="Bertone">Bertone</option>
+                                <option value="Bilenkin">Bilenkin</option>
+                                <option value="Bio auto">Bio auto</option>
+                                <option value="Bitter">Bitter</option>
+                                <option value="Blaval">Blaval</option>
+                                <option value="BMW">BMW</option>
+                                <option value="Borgward">Borgward</option>
+                                <option value="Brabus">Brabus</option>
+                                <option value="Brilliance">Brilliance</option>
+                                <option value="Bristol">Bristol</option>
+                                <option value="Bufori">Bufori</option>
+                                <option value="Bugatti">Bugatti</option>
+                                <option value="Buick">Buick</option>
+                                <option value="BYD">BYD</option>
+                                <option value="Byvin">Byvin</option>
+                                <option value="Cadillac">Cadillac</option>
+                                <option value="Callaway">Callaway</option>
+                                <option value="Carbodies">Carbodies</option>
+                                <option value="Caterham">Caterham</option>
+                                <option value="Chana">Chana</option>
+                                <option value="Changan">Changan</option>
+                                <option value="ChangFeng">ChangFeng</option>
+                                <option value="Changhe">Changhe</option>
+                                <option value="Chery">Chery</option>
+                                <option value="Chevrolet">Chevrolet</option>
+                                <option value="Chrysler">Chrysler</option>
+                                <option value="Ciimo (DongFeng-Honda)">Ciimo (DongFeng-Honda)</option>
+                                <option value="Citroen">Citroen</option>
+                                <option value="Cizeta">Cizeta</option>
+                                <option value="Coggiola">Coggiola</option>
+                                <option value="Cord">Cord</option>
+                                <option value="Cupra">Cupra</option>
+                                <option value="Dacia">Dacia</option>
+                                <option value="Dadi">Dadi</option>
+                                <option value="Daewoo">Daewoo</option>
+                                <option value="Daihatsu">Daihatsu</option>
+                                <option value="Daimler">Daimler</option>
+                                <option value="Dallara">Dallara</option>
+                                <option value="Datsun">Datsun</option>
+                                <option value="De Tomaso">De Tomaso</option>
+                                <option value="Deco Rides">Deco Rides</option>
+                                <option value="Delage">Delage</option>
+                                <option value="DeLorean">DeLorean</option>
+                                <option value="Derways">Derways</option>
+                                <option value="DeSoto">DeSoto</option>
+                                <option value="DKW">DKW</option>
+                                <option value="Dodge">Dodge</option>
+                                <option value="DongFeng">DongFeng</option>
+                                <option value="Doninvest">Doninvest</option>
+                                <option value="Donkervoort">Donkervoort</option>
+                                <option value="DS">DS</option>
+                                <option value="DW Hower">DW Hower</option>
+                                <option value="E-Car">E-Car</option>
+                                <option value="Eagle">Eagle</option>
+                                <option value="Eagle Cars">Eagle Cars</option>
+                                <option value="Everus">Everus</option>
+                                <option value="Excalibur">Excalibur</option>
+                                <option value="EXEED">EXEED</option>
+                                <option value="Facel Vega">Facel Vega</option>
+                                <option value="FAW">FAW</option>
+                                <option value="Ferrari">Ferrari</option>
+                                <option value="Fiat">Fiat</option>
+                                <option value="Fisker">Fisker</option>
+                                <option value="Flanker">Flanker</option>
+                                <option value="Ford">Ford</option>
+                                <option value="Foton">Foton</option>
+                                <option value="FSO">FSO</option>
+                                <option value="Fuqi">Fuqi</option>
+                                <option value="GAC">GAC</option>
+                                <option value="GAC Aion">GAC Aion</option>
+                                <option value="Geely">Geely</option>
+                                <option value="Genesis">Genesis</option>
+                                <option value="Geo">Geo</option>
+                                <option value="GMC">GMC</option>
+                                <option value="Goggomobil">Goggomobil</option>
+                                <option value="Gonow">Gonow</option>
+                                <option value="Gordon">Gordon</option>
+                                <option value="GP">GP</option>
+                                <option value="Great Wall">Great Wall</option>
+                                <option value="Hafei">Hafei</option>
+                                <option value="Haima">Haima</option>
+                                <option value="Hanomag">Hanomag</option>
+                                <option value="Haval">Haval</option>
+                                <option value="Hawtai">Hawtai</option>
+                                <option value="Heinkel">Heinkel</option>
+                                <option value="Hennessey">Hennessey</option>
+                                <option value="Hindustan">Hindustan</option>
+                                <option value="Hispano-Suiza">Hispano-Suiza</option>
+                                <option value="Holden">Holden</option>
+                                <option value="Honda">Honda</option>
+                                <option value="Hongqi">Hongqi</option>
+                                <option value="Horch">Horch</option>
+                                <option value="Hozon">Hozon</option>
+                                <option value="HSV">HSV</option>
+                                <option value="HuangHai">HuangHai</option>
+                                <option value="Hudson">Hudson</option>
+                                <option value="Hummer">Hummer</option>
+                                <option value="Hyundai">Hyundai</option>
+                                <option value="Infiniti">Infiniti</option>
+                                <option value="Innocenti">Innocenti</option>
+                                <option value="International">International</option>
+                                <option value="Invicta">Invicta</option>
+                                <option value="Iran Khodro">Iran Khodro</option>
+                                <option value="Isdera">Isdera</option>
+                                <option value="Isuzu">Isuzu</option>
+                                <option value="IVECO">IVECO</option>
+                                <option value="JAC">JAC</option>
+                                <option value="Jaguar">Jaguar</option>
+                                <option value="Jeep">Jeep</option>
+                                <option value="Jensen">Jensen</option>
+                                <option value="Jinbei">Jinbei</option>
+                                <option value="JMC">JMC</option>
+                                <option value="Kia">Kia</option>
+                                <option value="Koenigsegg">Koenigsegg</option>
+                                <option value="KTM AG">KTM AG</option>
+                                <option value="LADA (ВАЗ)">LADA (ВАЗ)</option>
+                                <option value="Lamborghini">Lamborghini</option>
+                                <option value="Lancia">Lancia</option>
+                                <option value="Land Rover">Land Rover</option>
+                                <option value="Landwind">Landwind</option>
+                                <option value="Lexus">Lexus</option>
+                                <option value="Liebao Motor">Liebao Motor</option>
+                                <option value="Lifan">Lifan</option>
+                                <option value="Ligier">Ligier</option>
+                                <option value="Lincoln">Lincoln</option>
+                                <option value="LiXiang">LiXiang</option>
+                                <option value="Logem">Logem</option>
+                                <option value="Lotus">Lotus</option>
+                                <option value="LTI">LTI</option>
+                                <option value="Lucid">Lucid</option>
+                                <option value="Luxgen">Luxgen</option>
+                                <option value="Mahindra">Mahindra</option>
+                                <option value="Marcos">Marcos</option>
+                                <option value="Marlin">Marlin</option>
+                                <option value="Marussia">Marussia</option>
+                                <option value="Maruti">Maruti</option>
+                                <option value="Maserati">Maserati</option>
+                                <option value="Matra">Matra</option>
+                                <option value="Maybach">Maybach</option>
+                                <option value="Mazda">Mazda</option>
+                                <option value="McLaren">McLaren</option>
+                                <option value="Mega">Mega</option>
+                                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                <option value="Mercury">Mercury</option>
+                                <option value="Messerschmitt">Messerschmitt</option>
+                                <option value="Metrocab">Metrocab</option>
+                                <option value="MG">MG</option>
+                                <option value="Microcar">Microcar</option>
+                                <option value="Minelli">Minelli</option>
+                                <option value="MINI">MINI</option>
+                                <option value="Mitsubishi">Mitsubishi</option>
+                                <option value="Mitsuoka">Mitsuoka</option>
+                                <option value="Morgan">Morgan</option>
+                                <option value="Morris">Morris</option>
+                                <option value="Nash">Nash</option>
+                                <option value="Nio">Nio</option>
+                                <option value="Nissan">Nissan</option>
+                                <option value="Noble">Noble</option>
+                                <option value="Oldsmobile">Oldsmobile</option>
+                                <option value="Opel">Opel</option>
+                                <option value="Osca">Osca</option>
+                                <option value="Packard">Packard</option>
+                                <option value="Pagani">Pagani</option>
+                                <option value="Panoz">Panoz</option>
+                                <option value="Perodua">Perodua</option>
+                                <option value="Peugeot">Peugeot</option>
+                                <option value="PGO">PGO</option>
+                                <option value="Piaggio">Piaggio</option>
+                                <option value="Pierce-Arrow">Pierce-Arrow</option>
+                                <option value="Plymouth">Plymouth</option>
+                                <option value="Polestar">Polestar</option>
+                                <option value="Pontiac">Pontiac</option>
+                                <option value="Porsche">Porsche</option>
+                                <option value="Premier">Premier</option>
+                                <option value="Proton">Proton</option>
+                                <option value="PUCH">PUCH</option>
+                                <option value="Puma">Puma</option>
+                                <option value="Qoros">Qoros</option>
+                                <option value="Qvale">Qvale</option>
+                                <option value="RAM">RAM</option>
+                                <option value="Ravon">Ravon</option>
+                                <option value="Reliant">Reliant</option>
+                                <option value="Renaissance">Renaissance</option>
+                                <option value="Renault">Renault</option>
+                                <option value="Renault Samsung">Renault Samsung</option>
+                                <option value="Rezvani">Rezvani</option>
+                                <option value="Rimac">Rimac</option>
+                                <option value="Rinspeed">Rinspeed</option>
+                                <option value="Rivian">Rivian</option>
+                                <option value="Roewe">Roewe</option>
+                                <option value="Rolls-Royce">Rolls-Royce</option>
+                                <option value="Ronart">Ronart</option>
+                                <option value="Rover">Rover</option>
+                                <option value="Saab">Saab</option>
+                                <option value="Saipa">Saipa</option>
+                                <option value="Saleen">Saleen</option>
+                                <option value="Santana">Santana</option>
+                                <option value="Saturn">Saturn</option>
+                                <option value="Scion">Scion</option>
+                                <option value="Sears">Sears</option>
+                                <option value="SEAT">SEAT</option>
+                                <option value="Shanghai Maple">Shanghai Maple</option>
+                                <option value="ShuangHuan">ShuangHuan</option>
+                                <option value="Simca">Simca</option>
+                                <option value="Skoda">Skoda</option>
+                                <option value="Skywell">Skywell</option>
+                                <option value="Smart">Smart</option>
+                                <option value="Soueast">Soueast</option>
+                                <option value="Spectre">Spectre</option>
+                                <option value="Spyker">Spyker</option>
+                                <option value="SsangYong">SsangYong</option>
+                                <option value="Steyr">Steyr</option>
+                                <option value="Studebaker">Studebaker</option>
+                                <option value="Subaru">Subaru</option>
+                                <option value="Suzuki">Suzuki</option>
+                                <option value="Talbot">Talbot</option>
+                                <option value="TATA">TATA</option>
+                                <option value="Tatra">Tatra</option>
+                                <option value="Tazzari">Tazzari</option>
+                                <option value="Tesla">Tesla</option>
+                                <option value="Think">Think</option>
+                                <option value="Tianma">Tianma</option>
+                                <option value="Tianye">Tianye</option>
+                                <option value="Tofas">Tofas</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Trabant">Trabant</option>
+                                <option value="Tramontana">Tramontana</option>
+                                <option value="Triumph">Triumph</option>
+                                <option value="TVR">TVR</option>
+                                <option value="Ultima">Ultima</option>
+                                <option value="Vauxhall">Vauxhall</option>
+                                <option value="Vector">Vector</option>
+                                <option value="Venturi">Venturi</option>
+                                <option value="Volkswagen">Volkswagen</option>
+                                <option value="Volvo">Volvo</option>
+                                <option value="Vortex">Vortex</option>
+                                <option value="Voyah">Voyah</option>
+                                <option value="VUHL">VUHL</option>
+                                <option value="W Motors">W Motors</option>
+                                <option value="Wanderer">Wanderer</option>
+                                <option value="Wartburg">Wartburg</option>
+                                <option value="Weltmeister">Weltmeister</option>
+                                <option value="Westfield">Westfield</option>
+                                <option value="Wiesmann">Wiesmann</option>
+                                <option value="Willys">Willys</option>
+                                <option value="Xin Kai">Xin Kai</option>
+                                <option value="Xpeng">Xpeng</option>
+                                <option value="Yulon">Yulon</option>
+                                <option value="Zastava">Zastava</option>
+                                <option value="Zeekr">Zeekr</option>
+                                <option value="Zenos">Zenos</option>
+                                <option value="Zenvo">Zenvo</option>
+                                <option value="Zibar">Zibar</option>
+                                <option value="Zotye">Zotye</option>
+                                <option value="ZX">ZX</option>
+                                <option value="Автокам">Автокам</option>
+                                <option value="ГАЗ">ГАЗ</option>
+                                <option value="ЗАЗ">ЗАЗ</option>
+                                <option value="ЗИЛ">ЗИЛ</option>
+                                <option value="ЗиС">ЗиС</option>
+                                <option value="ИЖ">ИЖ</option>
+                                <option value="Канонир">Канонир</option>
+                                <option value="Комбат">Комбат</option>
+                                <option value="ЛуАЗ">ЛуАЗ</option>
+                                <option value="Москвич">Москвич</option>
+                                <option value="СМЗ">СМЗ</option>
+                                <option value="Спортивные авто и Реплики">Спортивные авто и Реплики</option>
+                                <option value="ТагАЗ">ТагАЗ</option>
+                                <option value="УАЗ">УАЗ</option>
+                                <option value="Ё-мобиль">Ё-мобиль</option>                            </select>
+                        </div>
+                        <div class="col mb-3">
+                            <label for="formModel" class="form-label text-white small">
+                                Модель
+                            </label>
+                            <input type="text" 
+                            class="form-control py-2 border-0" 
+                            id="formModel" 
+                            name="model"
+                            value="{{ data.model }} ">
+                            </select>
+                        </div>
+                        <div class="col mb-3">
+                            <label for="formAmount" class="form-label text-white small">
+                                Ваша стоимость
+                            </label>
+                            <input 
+                            type="text" 
+                            class="form-control py-2 border-0" 
+                            id="formAmount"
+                            name="youprice"
+                            value="{{ data.yourprice }} " />
+                        </div>
+                        <div class="col mb-3">
+                            <label for="formName" class="form-label text-white small">
+                                Ваше имя
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control py-2 border-0 {{ data['name.classname'] }}"
+                                id="formName"
+                                placeholder="Иван"
+                                name="name" 
+                                value="{{ data.name }}" 
+                            />
+                        </div>
+                        <div class="col mb-3">
+                            <label for="formPhone" class="form-label text-white small">
+                                Ваш телефон
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control py-2 phone-imask border-0 {{ data['phone.classname'] }}"
+                                id="formPhone"
+                                placeholder="+7 (___) ___-__-__"
+                                value="{{ data.phone }}"
+                            />
+                        </div>
+                        
+                        <div class="col mb-3 d-flex align-items-end">
+                            <button
+                                type="submit"
+                                class="btn btn-primary py-2 text-white w-100 border-0"
+                            >
+                                Отправить заявку
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col mb-3">   
+
+
+                    
+
+                            <input class="form-check-input" type="checkbox" value="1"{{ data['c.agree.1'] }} id="checkForm" />
+                            <label class="form-check-label small" for="checkForm">
+                            Даю согласие на обработку персональных данных
+                            </label>
+                        </div>
+                </form>

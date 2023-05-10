@@ -1,0 +1,59 @@
+.mpTv > div .morephoto_itemTitle {
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    border: 0;
+    box-shadow: 0 0 20px -10px #000;
+    display: block !important;
+    height: 32px;
+    overflow: hidden;
+    resize: none;
+}
+
+.mpTv > div .morephoto_itemTitle:focus {
+    height: 120px;
+    /*min-width: 240px;*/
+    z-index: 1;
+}
+
+.mpTv textarea, .mpTv input, .mpTv select { display: none; }
+.mpTv > div, .item div { width:150px; height: 150px; padding: 1px; }
+.mpTv > div {
+margin: 0 10px 10px 0;
+float: left;
+/* line-height: 75px; */
+border: 1px #ccc solid;
+position: relative;
+text-align: center;
+display: table;
+background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//fzxAgAEACVsDXYbfqiYAAAAASUVORK5CYII=');
+}
+div.addButton {
+background: #fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAMAAABG8BK2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRF////6enp3d3d5OTk5ubm3t7e9vb24ODg6urq4uLi2tra+fn5z8/P7e3t1tbW8PDwOYcgsAAAAfZJREFUeNrsltuWgyAMReUi4aLy/387SQiInWKtTzNreV4MhGxCgrbT9OjRo0d/RdkclO9TbKebHISoo+5QElJ8TiLnvVf3zoSY1KCEcd/nwhTvUh165nwAKQjmVYojqbZUaR7Z4hhSfkMk8IhRlkF+gIGX3pJUCVTHUcEOMIE2J+WU6bGmtHIcR7L8PrR2jCmL05TKg58YlR23OzcQc04wvARtygsxjsDdvV27jOywNiUb8lORvHMKpw7tdfttPsHYemguNvcqvVwlKwW0VzChYiQXsyyr5CONOMGUfptqI0Vip22LtcGr3IpRw+fQYSSd6tsiqPa2mk+YFgtst2R6zKSMObt+M+z+Yhv3DpPLFiOMBnmTBIOiqwMLCjEQt2WxPBPqsveY4g6MCYLJS0TpGWDWaGB+ruwRLmOCIwwSdhVMOMPISaDZHOR1R1npUOIcY3gXqHaA9jrB3JVYnANMxOxDCCAYQKvd1Nh1yohzhNGlCvNuz+nN9au+LzD2N8bcwGipjoq1Tjl+wqCfpHtbv3woXOyXXcfow492JspFTKI9KyZGs/9qGvxgXMYoZ6vNnAirQ61AkEoZYrayggPrajwUDTcRz1fPEMNrGqaJx1vcjtNx9BE9xYj22dGH4sDR+i3nAgU74S7r+VP86NGjf60fAQYAQowbZVzsjXUAAAAASUVORK5CYII=') center no-repeat;
+cursor: pointer;
+border-style: dashed
+}
+.mpTv .itemWrap {background-size: contain; background-repeat: no-repeat; background-position: center;}
+.mpTv .item:active { cursor: move; }
+.mpTv .item img { max-width: 100%; max-height: 100%; width:75px;}
+.mpTv .item div { vertical-align: middle; }
+.mpTv .item .removeBtn {
+	position: absolute; 
+	display: none;
+	opacity: 0.85;
+	width: 15px; 
+	height: 15px;
+	background: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPGNpcmNsZSBzdHlsZT0iZmlsbDojRTIxQjFCOyIgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjU2Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNDNDA2MDY7IiBkPSJNNTEwLjI4LDI4NS4zMDRMMzY3LjkxMiwxNDIuOTM2TDE1MC4yNDgsMzY4LjYwOGwxNDAuOTI4LDE0MC45MjggIEM0MDYuMzUyLDQ5My42OTYsNDk3LjA1Niw0MDEuMjg4LDUxMC4yOCwyODUuMzA0eiIvPgo8Zz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiBkPSJNMzU0LjM3NiwzNzEuNTM2Yy01LjEyLDAtMTAuMjMyLTEuOTUyLTE0LjE0NC01Ljg1NkwxNDYuNDA4LDE3MS44NDggICBjLTcuODE2LTcuODE2LTcuODE2LTIwLjQ3MiwwLTI4LjI4czIwLjQ3Mi03LjgxNiwyOC4yOCwwTDM2OC41MiwzMzcuNGM3LjgxNiw3LjgxNiw3LjgxNiwyMC40NzIsMCwyOC4yOCAgIEMzNjQuNjA4LDM2OS41ODQsMzU5LjQ5NiwzNzEuNTM2LDM1NC4zNzYsMzcxLjUzNnoiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiBkPSJNMTYwLjU0NCwzNzEuNTM2Yy01LjEyLDAtMTAuMjMyLTEuOTUyLTE0LjE0NC01Ljg1NmMtNy44MTYtNy44MTYtNy44MTYtMjAuNDcyLDAtMjguMjggICBsMTkzLjgzMi0xOTMuODMyYzcuODE2LTcuODE2LDIwLjQ3Mi03LjgxNiwyOC4yOCwwczcuODE2LDIwLjQ3MiwwLDI4LjI4TDE3NC42ODgsMzY1LjY4ICAgQzE3MC43ODQsMzY5LjU4NCwxNjUuNjY0LDM3MS41MzYsMTYwLjU0NCwzNzEuNTM2eiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=) center no-repeat;
+	background-size: cover;
+	cursor: pointer; 
+	right: 3px; 
+	top: 3px;
+}
+
+
+
+.mpTv .item:hover .removeBtn {
+	display: block;
+}
+
+

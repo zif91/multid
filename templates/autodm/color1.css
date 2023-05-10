@@ -1,0 +1,159 @@
+.header ul li a:hover {
+  color: #b71f25;
+}
+.header .contacts a:hover {
+  color: #b71f25;
+}
+.header .contacts button {
+  background: #b71f25;
+}
+.index-first-block form .flex .prices .ui-widget-header {
+  background: #b71f25;
+}
+.index-first-block form .flex .prices .ui-state-default,
+.index-first-block form .flex .prices .ui-widget-content .ui-state-default,
+.index-first-block form .flex .prices .ui-widget-header .ui-state-default,
+.index-first-block form .flex .prices .ui-button,
+.index-first-block form .flex .prices html .ui-button.ui-state-disabled:hover,
+.index-first-block form .flex .prices html .ui-button.ui-state-disabled:active {
+  border: 5px solid #b71f25;
+}
+.index-first-block form .flex button {
+  background: #b71f25;
+}
+.brands-block .bottom-button button {
+  color: #b71f25;
+}
+.brands-block .bottom-button button span {
+  background: url('img/arrow.svg');
+}
+.catalog-block .item .name:hover {
+  color: #b71f25;
+}
+.catalog-block .item .buttons button:nth-child(1) {
+  background: #b71f25;
+}
+.catalog-block .item .buttons button:nth-child(2) {
+  color: #b71f25;
+  background: #F8CCCE;
+}
+.catalog-block .bottom-button button {
+  color: #b71f25;
+}
+.catalog-block .bottom-button button span {
+  background: url('img/arrow.svg');
+}
+.catalog-block .pages a:hover {
+  color: #b71f25;
+}
+.compilations-block .item button {
+  color: #b71f25;
+}
+.services-block .item button {
+  color: #b71f25;
+}
+.services-block .item button:hover {
+  background: #b71f25;
+}
+.feedback-block form button {
+  background: #b71f25;
+}
+.map-block .content .contacts a {
+  color: #b71f25;
+}
+.footer .left-block .phone:hover {
+  color: #b71f25;
+}
+.footer .left-block button {
+  background: #b71f25;
+}
+.footer nav ul li a:hover {
+  color: #b71f25;
+}
+.navi a:hover {
+  color: #b71f25;
+}
+.index-first-block form .bottom-link {
+  color: #b71f25;
+  background: url('img/arrow4.svg') no-repeat right;
+}
+.item-page .buttons button:nth-child(1) {
+  background: #b71f25;
+}
+.item-page .buttons button:nth-child(2) {
+  color: #b71f25;
+  background: #F8CCCE;
+}
+.item-page .counts .item .line span {
+  background: #b71f25;
+}
+.item-page .calc .item .ui-widget-content {
+  background: #b71f25;
+}
+.item-page .calc .item .ui-state-default,
+.item-page .calc .item .ui-widget-content .ui-state-default,
+.item-page .calc .item .ui-widget-header .ui-state-default,
+.item-page .calc .item .ui-button,
+.item-page .calc .item html .ui-button.ui-state-disabled:hover,
+.item-page .calc .item html .ui-button.ui-state-disabled:active {
+  border: 2px solid #b71f25;
+}
+.item-page .calc button {
+  background: #b71f25;
+}
+.catalog-block .slick-dots li.slick-active button {
+  background: #b71f25;
+}
+.compilations-block .slick-dots li.slick-active button {
+  background: #b71f25;
+}
+.services-block .slick-dots li.slick-active button {
+  background: #b71f25;
+}
+.item-page .photos .slick-dots li.slick-active button {
+  background: #b71f25;
+}
+.calc-page .block1 .price .new {
+  color: #b71f25;
+}
+.calc-page .block2 .ui-widget-header {
+  background: #b71f25;
+}
+.calc-page .block2 .ui-state-default,
+.calc-page .block2 .ui-widget-content .ui-state-default,
+.calc-page .block2 .ui-widget-header .ui-state-default,
+.calc-page .block2 .ui-button,
+.calc-page .block2 html .ui-button.ui-state-disabled:hover,
+.calc-page .block2 html .ui-button.ui-state-disabled:active {
+  border: 5px solid #b71f25;
+}
+.calc-page .block3 table tr td:last-child {
+  color: #b71f25;
+}
+.calc-page .bottom-button button {
+  background: #b71f25;
+}
+.articles-block .list .item button {
+  background: #b71f25;
+}
+.articles-block .slick-dots li.slick-active button {
+  background: #b71f25;
+}
+.text-block blockquote {
+  border-left: 2px solid #b71f25;
+}
+.contacts-page a {
+  color: #b71f25;
+}
+.actions-page .item button {
+  background: #b71f25;
+}
+.services-page .item button {
+  color: #b71f25;
+}
+.services-page .item button:hover {
+  background: #b71f25;
+}
+.service-page .docs .doc .number {
+  color: #b71f25;
+}

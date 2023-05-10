@@ -1,0 +1,72 @@
+{#% set thumb = runSnippet('morephoto', {
+images: data['tv.car_photos'],
+phpthumb: 'w=250,h=168,zc=C',
+tpl: '@CODE:[+image.thumb+]',
+total: 1,
+display: 1
+}) %#}
+{% set car_photos = "https://s3.multiauto.site/new_cars/" ~ data['tv.configuration_id'] ~ ".jpg"%}
+{% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %}
+{#{dump(modification)}#}
+   {#{data.id}#}       
+{#% set photo = runSnippet ('DocLister', {parents: data.id,
+depth: 0,
+orderBy: 'menuindex',
+api: 1,
+order: 'ASC',
+tvList:'configuration_id, car-price, old-car-price',
+ownerTPL: '@CODE:[+dl.wrap+]',
+tpl:'@CODE:[+tv.configuration_id+]'}) %}
+{% set DLdata = photo | json %}
+    {{dump(photo)}#}
+{% set photo = "https://s3.multiauto.site/new_cars/" ~ DLdata|first['tv_configuration_id'] ~ ".jpg" %}
+
+{#{dump(modification)}#}
+<div class="item mb-3 position-relative">
+            <a class="link position-absolute"></a>
+            <div class="top-block flex">
+                <div class="name">
+                    {{ data['pagetitle'] }} {{data[tv.body_type]}}
+                </div>
+                <div class="data">
+                    <span>{{ modification[0]['Объем двигателя'] }}см
+ {{ modification[0]['Тип двигателя'] }}</span>
+                    <span>{{ modification[0]['Лошадиные силы'] }} л.с.</span>
+                    <span>{{ modification[0]['Трансмиссия'] }}</span>
+                </div>
+                <div class="price">
+                    от {{ data['tv.car-price'] }} ₽
+                </div>
+            </div>
+            <a href="{{data.url}}">
+            <div class="hidden-block w-100">
+                <div class="image">
+                    <img style="max-width:235px; height:auto" src="{{car_photos}}" class="pr-3">
+               
+                </div>
+                <div class="info">
+                    <div class="name mb-4">
+                    {{ data['pagetitle'] }} {{data[tv.body_type]}}
+                    </div>
+                    <div class="tags mb-3">
+                        <span class="d-inline-block py-2 px-3 text-light bg-dark">2023</span>
+                        <span class="d-inline-block py-2 px-3 text-light bg-dark"> {{ modification|length }}
+комплектации </span>
+                    </div>
+                    <div class="data">
+                        <span>{{ modification[0]['Объем двигателя'] }}см
+ {{ modification[0]['Тип двигателя'] }}</span>
+                        <span> {{ modification[0]['Лошадиные силы'] }} л.с.</span>
+                        <span>{{ modification[0]['Трансмиссия'] }}</span>
+                    </div>
+                </div>
+                <div class="info2">
+                    <div class="price">
+                        от {{ data['tv.car-price'] }} ₽
+                    </div>
+                    <p class="mb-3">Минимальная цена</p>
+                    <button class="btn btn-danger" data-fancybox="" data-src="#popup">Резерв онлайн</button>
+<button class="btn btn-danger mt-3" onclick="window.location.href={{data.url}};">Подробнее</button>
+                </div>
+            </div></a>
+        </div>

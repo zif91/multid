@@ -1,0 +1,1306 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-BoldItalic.eot');
+  src: local('Inter Bold Italic'), local('Inter-BoldItalic'), url('/templates/mono/fonts/Inter-BoldItalic.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-BoldItalic.woff2') format('woff2'), url('/templates/mono/fonts/Inter-BoldItalic.woff') format('woff'), url('/templates/mono/fonts/Inter-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-MediumItalic.eot');
+  src: local('Inter Medium Italic'), local('Inter-MediumItalic'), url('/templates/mono/fonts/Inter-MediumItalic.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-MediumItalic.woff2') format('woff2'), url('/templates/mono/fonts/Inter-MediumItalic.woff') format('woff'), url('/templates/mono/fonts/Inter-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-ThinItalicBETA.eot');
+  src: local('Inter Thin Italic BETA'), local('Inter-ThinItalicBETA'), url('/templates/mono/fonts/Inter-ThinItalicBETA.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-ThinItalicBETA.woff2') format('woff2'), url('/templates/mono/fonts/Inter-ThinItalicBETA.woff') format('woff'), url('/templates/mono/fonts/Inter-ThinItalicBETA.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-Regular.eot');
+  src: local('Inter Regular'), local('Inter-Regular'), url('/templates/mono/fonts/Inter-Regular.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-Regular.woff2') format('woff2'), url('/templates/mono/fonts/Inter-Regular.woff') format('woff'), url('/templates/mono/fonts/Inter-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-Black.eot');
+  src: local('Inter Black'), local('Inter-Black'), url('/templates/mono/fonts/Inter-Black.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-Black.woff2') format('woff2'), url('/templates/mono/fonts/Inter-Black.woff') format('woff'), url('/templates/mono/fonts/Inter-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-BlackItalic.eot');
+  src: local('Inter Black Italic'), local('Inter-BlackItalic'), url('/templates/mono/fonts/Inter-BlackItalic.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-BlackItalic.woff2') format('woff2'), url('/templates/mono/fonts/Inter-BlackItalic.woff') format('woff'), url('/templates/mono/fonts/Inter-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-LightBETA.eot');
+  src: local('Inter Light BETA'), local('Inter-LightBETA'), url('/templates/mono/fonts/Inter-LightBETA.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-LightBETA.woff2') format('woff2'), url('/templates/mono/fonts/Inter-LightBETA.woff') format('woff'), url('/templates/mono/fonts/Inter-LightBETA.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-SemiBold.eot');
+  src: local('Inter Semi Bold'), local('Inter-SemiBold'), url('/templates/mono/fonts/Inter-SemiBold.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-SemiBold.woff2') format('woff2'), url('/templates/mono/fonts/Inter-SemiBold.woff') format('woff'), url('/templates/mono/fonts/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-ExtraBoldItalic.eot');
+  src: local('Inter Extra Bold Italic'), local('Inter-ExtraBoldItalic'), url('/templates/mono/fonts/Inter-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-ExtraBoldItalic.woff2') format('woff2'), url('/templates/mono/fonts/Inter-ExtraBoldItalic.woff') format('woff'), url('/templates/mono/fonts/Inter-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-Bold.eot');
+  src: local('Inter Bold'), local('Inter-Bold'), url('/templates/mono/fonts/Inter-Bold.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-Bold.woff2') format('woff2'), url('/templates/mono/fonts/Inter-Bold.woff') format('woff'), url('/templates/mono/fonts/Inter-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-ExtraLightItalicBETA.eot');
+  src: local('Inter Extra Light Italic BETA'), local('Inter-ExtraLightItalicBETA'), url('/templates/mono/fonts/Inter-ExtraLightItalicBETA.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-ExtraLightItalicBETA.woff2') format('woff2'), url('/templates/mono/fonts/Inter-ExtraLightItalicBETA.woff') format('woff'), url('/templates/mono/fonts/Inter-ExtraLightItalicBETA.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-ExtraLightBETA.eot');
+  src: local('Inter Extra Light BETA'), local('Inter-ExtraLightBETA'), url('/templates/mono/fonts/Inter-ExtraLightBETA.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-ExtraLightBETA.woff2') format('woff2'), url('/templates/mono/fonts/Inter-ExtraLightBETA.woff') format('woff'), url('/templates/mono/fonts/Inter-ExtraLightBETA.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-ExtraBold.eot');
+  src: local('Inter Extra Bold'), local('Inter-ExtraBold'), url('/templates/mono/fonts/Inter-ExtraBold.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-ExtraBold.woff2') format('woff2'), url('/templates/mono/fonts/Inter-ExtraBold.woff') format('woff'), url('/templates/mono/fonts/Inter-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-ThinBETA.eot');
+  src: local('Inter Thin BETA'), local('Inter-ThinBETA'), url('/templates/mono/fonts/Inter-ThinBETA.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-ThinBETA.woff2') format('woff2'), url('/templates/mono/fonts/Inter-ThinBETA.woff') format('woff'), url('/templates/mono/fonts/Inter-ThinBETA.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-LightItalicBETA.eot');
+  src: local('Inter Light Italic BETA'), local('Inter-LightItalicBETA'), url('/templates/mono/fonts/Inter-LightItalicBETA.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-LightItalicBETA.woff2') format('woff2'), url('/templates/mono/fonts/Inter-LightItalicBETA.woff') format('woff'), url('/templates/mono/fonts/Inter-LightItalicBETA.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-Italic.eot');
+  src: local('Inter Italic'), local('Inter-Italic'), url('/templates/mono/fonts/Inter-Italic.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-Italic.woff2') format('woff2'), url('/templates/mono/fonts/Inter-Italic.woff') format('woff'), url('/templates/mono/fonts/Inter-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-SemiBoldItalic.eot');
+  src: local('Inter Semi Bold Italic'), local('Inter-SemiBoldItalic'), url('/templates/mono/fonts/Inter-SemiBoldItalic.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-SemiBoldItalic.woff2') format('woff2'), url('/templates/mono/fonts/Inter-SemiBoldItalic.woff') format('woff'), url('/templates/mono/fonts/Inter-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/templates/mono/fonts/Inter-Medium.eot');
+  src: local('Inter Medium'), local('Inter-Medium'), url('/templates/mono/fonts/Inter-Medium.eot?#iefix') format('embedded-opentype'), url('/templates/mono/fonts/Inter-Medium.woff2') format('woff2'), url('/templates/mono/fonts/Inter-Medium.woff') format('woff'), url('/templates/mono/fonts/Inter-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+.up {
+  text-transform: uppercase;
+}
+.none {
+  text-decoration: none;
+}
+.th {
+  font-weight: 100;
+}
+.el {
+  font-weight: 200;
+}
+.l {
+  font-weight: 300;
+}
+.reg {
+  font-weight: 400;
+}
+.med {
+  font-weight: 500;
+}
+.sb {
+  font-weight: 600;
+}
+.bold {
+  font-weight: 700;
+}
+.eb {
+  font-weight: 800;
+}
+.black {
+  font-weight: 900;
+}
+.un {
+  text-decoration: underline;
+}
+.in {
+  display: inline-block;
+}
+.vam {
+  vertical-align: middle;
+}
+.rel {
+  position: relative;
+}
+.bl {
+  display: block;
+}
+.abs {
+  position: absolute;
+}
+.tr {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.try {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.trx {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tc {
+  display: table-cell;
+  vertical-align: middle;
+}
+.dn {
+  display: none;
+}
+.tac {
+  text-align: center;
+}
+.tal {
+  text-align: left;
+}
+.tar {
+  text-align: right;
+}
+.taj {
+  text-align: justify;
+}
+.it {
+  font-style: italic;
+}
+.sn {
+  font-style: normal;
+}
+.popup {
+  position: fixed;
+  width: 120%;
+  height: 100%;
+  left: -10%;
+  top: 0;
+  overflow-y: scroll;
+  background: rgba(1, 1, 1, 0.7);
+  z-index: 11;
+  display: none;
+}
+.b0 {
+  border: 0;
+}
+.bn {
+  background: none;
+}
+.w100 {
+  width: 100%;
+}
+.h100 {
+  height: 100%;
+}
+.wa {
+  width: auto;
+}
+.p0 {
+  padding: 0;
+}
+.m0 {
+  margin: 0;
+}
+.poi {
+  cursor: pointer;
+}
+.auto {
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+}
+.noup {
+  text-transform: none;
+}
+.fix {
+  position: fixed;
+}
+.tn {
+  transform: none;
+}
+.bf {
+  background: #fff;
+}
+.cf {
+  color: #fff;
+}
+.c0 {
+  color: #000;
+}
+.ap {
+  appearance: none;
+}
+.nw {
+  white-space: nowrap;
+}
+.ma {
+  margin: 0 auto;
+}
+.oh {
+  overflow: hidden;
+}
+.pen {
+  pointer-events: none;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #fff;
+  overflow-x: hidden;
+}
+body,
+th,
+td {
+  font-family: 'Inter';
+  font-size: 14px;
+  color: #000;
+}
+body,
+form,
+object,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+img,
+table {
+  border: none;
+}
+table {
+  border-collapse: collapse;
+}
+table td {
+  padding: 0;
+}
+a {
+  color: #000;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+a:hover {
+  text-decoration: none;
+}
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 0;
+  font-family: 'Inter';
+}
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder,
+button:focus::-webkit-input-placeholder,
+select:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder,
+button:focus::-moz-placeholder,
+select:focus::-moz-placeholder {
+  color: transparent;
+}
+input:focus:-moz-placeholder,
+textarea:focus:-moz-placeholder,
+button:focus:-moz-placeholder,
+select:focus:-moz-placeholder {
+  color: transparent;
+}
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder,
+button:focus:-ms-input-placeholder,
+select:focus:-ms-input-placeholder {
+  color: transparent;
+}
+button,
+input[type='submit'] {
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  cursor: pointer;
+  border: 0;
+}
+ol,
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+.an {
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+section,
+header,
+footer,
+nav,
+main {
+  display: block;
+}
+.container-fluid {
+  margin: 0 auto;
+  width: 1380px;
+}
+* {
+  outline: none!important;
+}
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.flex2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+}
+.header .adress {
+  font-size: 24px;
+  line-height: 29px;
+}
+.header .phone {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  background: url('../img/phone.svg') no-repeat 0 0;
+  padding-left: 33px;
+}
+.header .phone a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+.index-page-slider .item {
+  padding: 206px 0 78px;
+}
+.index-page-slider .item p {
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 145%;
+  letter-spacing: 0.01em;
+}
+.index-page-slider .item p span {
+  color: #fb2740;
+}
+.index-page-slider .item button {
+  font-size: 24px;
+  line-height: 29px;
+  background: #fb2740;
+  color: #fff;
+  width: 316px;
+  height: 69px;
+  -webkit-border-radius: 36px;
+  -moz-border-radius: 36px;
+  border-radius: 36px;
+}
+.index-page-slider .slick-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+}
+.index-page-slider .slick-dots li {
+  display: inline-block;
+  margin: 0 5px;
+}
+.index-page-slider .slick-dots li.slick-active button {
+  background: #FB2740;
+  border: 1px solid #FFFFFF;
+}
+.index-page-slider .slick-dots li button {
+  padding: 0;
+  font-size: 0;
+  z-index: 2;
+  width: 10px;
+  height: 10px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: #fff;
+}
+.top-menu {
+  background: #fb2740;
+}
+.top-menu ul {
+  border-left: 1px solid #fff;
+  margin: 0 140px;
+}
+.top-menu ul li {
+  border-right: 1px solid #fff;
+}
+.top-menu ul li a {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 20px 40px;
+  color: #fff;
+}
+.top-menu ul li a.active {
+  background: #fff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  color: #fb2740;
+  position: relative;
+  z-index: 3;
+}
+.h1 {
+  color: #fb2740;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+}
+.index-catalog-block .filter .filter-item {
+  width: 17%;
+}
+.index-catalog-block .filter .filter-item p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.index-catalog-block .filter .filter-item input[type='text'] {
+  height: 42px;
+  border: 1px solid #FB2740;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 18px;
+}
+.index-catalog-block .item .name {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+.index-catalog-block .item .price {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 51px;
+  color: #8A939D;
+}
+.index-catalog-block .item ul li {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+.index-catalog-block .item ul li:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #fb2740;
+  left: 0;
+  top: 0;
+}
+.index-catalog-block .item button {
+  height: 53px;
+  color: #fff;
+  background: #000;
+  font-weight: 500;
+  font-size: 24px;
+}
+.h2 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #fb2740;
+}
+.index-filter-block .field p {
+  font-size: 24px;
+  line-height: 29px;
+}
+.index-filter-block .field input[type='text'] {
+  height: 35px;
+  font-size: 24px;
+  border-bottom: 1px solid #000;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.index-filter-block .field input[type='text']:focus {
+  border-bottom: 1px solid #fb2740;
+}
+.index-filter-block .button {
+  padding-top: 40px;
+}
+.index-filter-block .button button {
+  height: 41px;
+  background: #000;
+  font-size: 24px;
+}
+.bottom-map-block {
+  padding: 70px 0;
+}
+.bottom-map-block .contacts {
+  width: 387px;
+  background: #484747;
+  z-index: 3;
+}
+.bottom-map-block .contacts .name {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+.bottom-map-block .contacts p {
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 119.52%;
+}
+.bottom-map-block .contacts a {
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 119.52%;
+  background: url('../img/phone2.svg') no-repeat 0 1px;
+}
+.bottom-map-block .contacts button {
+  height: 49px;
+  -webkit-border-radius: 36px;
+  -moz-border-radius: 36px;
+  border-radius: 36px;
+  font-weight: 700;
+  font-size: 24px;
+  background: #fb2740;
+}
+.bottom-map-block .map {
+  left: 0;
+  top: 0;
+}
+.footer {
+  background: #3F3F3F;
+}
+.footer ul li a {
+  font-size: 24px;
+  line-height: 29px;
+  color: #fff;
+}
+.footer .phone a {
+  font-weight: 700;
+  font-size: 43px;
+  line-height: 52px;
+}
+.footer .copy {
+  font-size: 24px;
+  line-height: 29px;
+  color: rgba(255, 255, 255, 0.64);
+}
+.footer .copy a {
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.64);
+}
+.choise-block .images .slick-dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+}
+.choise-block .images .slick-dots li {
+  display: inline-block;
+  margin: 0 5px;
+}
+.choise-block .images .slick-dots li.slick-active button {
+  background: #FB2740;
+  border: 1px solid #FFFFFF;
+}
+.choise-block .images .slick-dots li button {
+  padding: 0;
+  font-size: 0;
+  z-index: 2;
+  width: 10px;
+  height: 10px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: #fff;
+}
+.choise-block .info .h1 {
+  color: #000;
+}
+.choise-block .info .h1 span {
+  color: #fb2740;
+}
+.choise-block .info ul li {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 103.52%;
+}
+.choise-block .info ul li span {
+  color: #fb2740;
+}
+.choise-block .info ul li img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.choise-block .info .buttons {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.choise-block .info .buttons button {
+  width: 48%;
+  height: 39px;
+  background: none;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  color: #fb2740;
+  font-weight: 600;
+  font-size: 16px;
+}
+.choise-block .info .buttons button:hover {
+  color: #fff;
+  background: #fb2740;
+  border: 1px solid #fb2740;
+}
+.item-page .top-text {
+  font-size: 18px;
+  line-height: 22px;
+}
+.item-page .slider-nav {
+  margin: 0 -16px;
+}
+.item-page .slider-nav .item {
+  margin: 0 16px;
+  cursor: pointer;
+}
+.item-page .info {
+  margin-left: 100px;
+}
+.item-page .info .price {
+  font-size: 48px;
+  line-height: 58px;
+  color: #fb2740;
+}
+.item-page .info .price .old {
+  color: #000;
+  text-decoration: line-through;
+}
+.item-page .info ul li {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 103.52%;
+}
+.item-page .info ul li span {
+  color: #fb2740;
+}
+.item-page .info ul li img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.item-page .info .buttons {
+  width: 390px;
+  left: 0;
+  bottom: 0;
+}
+.item-page .info .buttons button {
+  background: #fff;
+  height: 49px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  font-size: 24px;
+}
+.item-page .info .buttons button:hover {
+  color: #fff;
+  background: #000;
+  border: 1px solid #000;
+}
+.calc-block {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), #ffffff;
+}
+.calc-block .block-name {
+  font-size: 38px;
+  line-height: 46px;
+}
+.calc-block .block-name span {
+  color: #fb2740;
+}
+.calc-block .range .name {
+  font-size: 16px;
+  line-height: 19px;
+}
+.calc-block .range .ui-widget.ui-widget-content {
+  border: 0;
+}
+.calc-block .range .ui-widget-content {
+  background: #000;
+}
+.calc-block .range .ui-slider-horizontal {
+  height: 1px;
+}
+.calc-block .range .values {
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: -0.07em;
+}
+.calc-block .range .ui-state-default,
+.calc-block .range .ui-widget-content .ui-state-default,
+.calc-block .range .ui-widget-header .ui-state-default,
+.calc-block .range .ui-button,
+.calc-block .range html .ui-button.ui-state-disabled:hover,
+.calc-block .range html .ui-button.ui-state-disabled:active {
+  border: 0;
+  background: none;
+  white-space: nowrap;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: -0.07em;
+  color: #000;
+  width: 80px;
+  text-align: center;
+  margin-left: -40px;
+  margin-top: -15px;
+  padding-bottom: 30px;
+}
+.calc-block .range .ui-state-default:before,
+.calc-block .range .ui-widget-content .ui-state-default:before,
+.calc-block .range .ui-widget-header .ui-state-default:before,
+.calc-block .range .ui-button:before,
+.calc-block .range html .ui-button.ui-state-disabled:hover:before,
+.calc-block .range html .ui-button.ui-state-disabled:active:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 7px;
+  width: 8px;
+  height: 8px;
+  background: #fb2740;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.calc-block .price {
+  font-size: 16px;
+  line-height: 19px;
+}
+.calc-block .price span {
+  font-size: 24px;
+  line-height: 29px;
+}
+.calc-block button {
+  height: 50px;
+  background: #000;
+  font-size: 24px;
+}
+.item-data-block .item {
+  font-size: 24px;
+  line-height: 29px;
+  padding-left: 30px;
+}
+.item-data-block .item:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #fb2740;
+  left: 0;
+  top: 4px;
+}
+.item-data-block2 .item .name {
+  cursor: pointer;
+  background: url('../img/plus.png') no-repeat right;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  padding: 6px 50px 6px 0;
+  color: #fb2740;
+  border-bottom: 1px solid #fb2740;
+}
+.item-data-block2 .item .name.active {
+  background: url('../img/minus.png') no-repeat right;
+}
+.item-data-block2 .item .text {
+  display: none;
+}
+.item-data-block2 .item .text .block {
+  font-size: 24px;
+  line-height: 29px;
+  padding-left: 30px;
+}
+.item-data-block2 .item .text .block.other {
+  padding-left: 0;
+}
+.item-data-block2 .item .text .block.other:before {
+  display: none;
+}
+.item-data-block2 .item .text .block:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #fb2740;
+  left: 0;
+  top: 4px;
+}
+.item-data-block2 .item .text .block span {
+  font-weight: 700;
+}
+.item-data-block2 .item .text .block table tr td {
+  font-size: 24px;
+  line-height: 29px;
+  vertical-align: top;
+}
+.item-data-block2 .item .text .block table tr td:last-child {
+  text-align: right;
+}
+@media (max-width: 1380px) {
+  .container-fluid {
+    width: 1199px;
+  }
+}
+@media (max-width: 1199px) {
+  .container-fluid {
+    width: 970px;
+  }
+  .index-page-slider .item p {
+    font-size: 32px;
+  }
+  .index-page-slider .item button {
+    font-size: 20px;
+    width: 260px;
+    height: 50px;
+  }
+  .top-menu ul {
+    margin: 0;
+  }
+  .index-catalog-block .item .price {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  .choise-block .info ul li {
+    font-size: 16px;
+  }
+  .item-page .info {
+    margin-left: 0;
+  }
+  .item-page .info .price {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+@media (max-width: 991px) {
+  .container-fluid {
+    width: 747px;
+  }
+  .header .logo {
+    width: 44px;
+  }
+  .header .adress {
+    font-size: 7px;
+    line-height: 8px;
+  }
+  .header .phone {
+    font-size: 4px;
+    line-height: 5px;
+    background: url('../img/phone3.svg') no-repeat 0 2px;
+    padding-left: 10px;
+  }
+  .header .phone a {
+    font-size: 6px;
+    line-height: 7px;
+    margin-bottom: 0!important;
+  }
+  .index-page-slider .item p {
+    font-size: 24px;
+  }
+  .top-menu ul li a {
+    padding: 20px;
+  }
+  .index-catalog-block .filter .filter-item {
+    width: 48%;
+  }
+  .footer ul li a {
+    font-size: 20px;
+  }
+  .choise-block .info .h1 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .choise-block .info ul li {
+    font-size: 14px;
+  }
+  .choise-block .info ul li img {
+    width: 10px;
+  }
+  .choise-block .info .buttons button {
+    font-size: 12px;
+    height: 30px;
+  }
+  .item-page .info .price {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .item-page .info ul li {
+    font-size: 14px;
+  }
+  .item-page .info ul li img {
+    width: 10px;
+  }
+  .calc-block .block-name {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .item-data-block .item {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .item-data-block .item:before {
+    width: 16px;
+    height: 16px;
+  }
+  .item-data-block2 .item .text .block {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .item-data-block2 .item .text .block:before {
+    width: 16px;
+    height: 16px;
+  }
+  .item-data-block2 .item .text .block table tr td {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .container-fluid {
+    width: 556px;
+  }
+  .index-page-slider .item p {
+    font-size: 18px;
+  }
+  .index-page-slider .item button {
+    font-size: 12px;
+    width: 160px;
+    height: 40px;
+  }
+  .top-menu ul li a {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .index-catalog-block .item .price {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .footer ul li a {
+    font-size: 14px;
+  }
+  .footer .logo {
+    width: 120px;
+  }
+  .choise-block .info .h1 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .choise-block .info ul li {
+    font-size: 12px;
+  }
+  .choise-block .info .buttons button {
+    font-size: 8px;
+    height: 20px;
+  }
+  .choise-block .images .slick-dots {
+    bottom: 10px;
+  }
+  .item-page .info ul li {
+    font-size: 12px;
+  }
+  .item-page .info .price {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .item-page .info .buttons {
+    width: 110px;
+  }
+  .item-page .info .buttons button {
+    height: 20px;
+    font-size: 10px;
+  }
+  .item-data-block2 .item .name {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+@media (max-width: 575px) {
+  .container-fluid {
+    width: auto;
+    padding: 0 16px;
+  }
+  .header .phone {
+    margin-top: 6px;
+  }
+  .index-page-slider .item {
+    padding: 30px 0 25px;
+  }
+  .index-page-slider .item p {
+    font-size: 10px;
+  }
+  .index-page-slider .item button {
+    font-size: 5px;
+    width: 72px;
+    height: 17px;
+    line-height: 17px;
+  }
+  .index-page-slider .slick-dots {
+    bottom: 10px;
+  }
+  .index-page-slider .slick-dots li button {
+    width: 5px;
+    height: 5px;
+  }
+  .top-menu ul li a {
+    padding: 7px 10px;
+    font-size: 6px;
+    line-height: 7px;
+  }
+  .h1 {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .h2 {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .index-catalog-block .filter {
+    display: none;
+  }
+  .index-catalog-block .item .name {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .index-catalog-block .item .price {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .index-catalog-block .item ul li {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .index-catalog-block .item ul li:before {
+    width: 10px;
+    height: 10px;
+    top: 2px;
+  }
+  .index-catalog-block .item button {
+    font-size: 10px;
+    height: 24px;
+  }
+  .index-filter-block {
+    display: none;
+  }
+  .bottom-map-block .contacts {
+    width: 150px;
+  }
+  .bottom-map-block .contacts .name {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .bottom-map-block .contacts p {
+    font-size: 9px;
+    line-height: 119.52%;
+  }
+  .bottom-map-block .contacts a {
+    font-size: 9px;
+    line-height: 119.52%;
+    background: url('../img/phone4.svg') no-repeat 0 2px;
+  }
+  .bottom-map-block .contacts button {
+    height: 20px;
+    font-size: 10px;
+  }
+  .footer .logo {
+    width: 70px;
+  }
+  .footer ul li a {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .footer .phone a {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .footer .copy {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .choise-block .images .slick-dots li button {
+    width: 5px;
+    height: 5px;
+  }
+  .choise-block .info .h1 {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .choise-block .info ul li {
+    font-size: 6px;
+    line-height: 103.52%;
+  }
+  .choise-block .info .buttons button {
+    height: 12px;
+    font-size: 5px;
+  }
+  .item-page .info ul li {
+    font-size: 6px;
+    line-height: 103.52%;
+  }
+  .item-page .top-text {
+    font-size: 6px;
+    line-height: 7px;
+  }
+  .item-page .info .price {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .item-page .slider-nav {
+    margin: 0 -5px;
+  }
+  .item-page .slider-nav .item {
+    margin: 0 5px;
+  }
+  .calc-block .block-name {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .calc-block .container-fluid {
+    padding: 0 30px;
+  }
+  .calc-block .range .name {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .calc-block .price {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .calc-block .price span {
+    color: #fb2740;
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .calc-block button {
+    font-size: 10px;
+  }
+  .item-data-block .item {
+    font-size: 10px;
+    line-height: 12px;
+    padding-left: 20px;
+  }
+  .item-data-block .item:before {
+    width: 8px;
+    height: 8px;
+    top: 2px;
+  }
+  .item-data-block2 .item .name {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 15px 50px 15px 0;
+  }
+  .item-data-block2 .item .text .block {
+    font-size: 10px;
+    line-height: 12px;
+    padding-left: 20px;
+  }
+  .item-data-block2 .item .text .block:before {
+    width: 8px;
+    height: 8px;
+    top: 2px;
+    left: 15px;
+  }
+  .item-data-block2 .item .text .block table tr td {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "name": {
+      "required": "Обязательно к заполнению"
+    },
+    "phone": {
+      "required": "Обязательно к заполнению"
+    },
+    "agree": {
+      "required": "Обязательно к заполнению"
+    }
+  },
+  "subject": "Купить автомобиль: Наличные",
+  "prepare": "prepareFormConfig",
+  "prepareAfterProcess": "CatchFormResult",
+  "formControls": "agree,brand"
+}

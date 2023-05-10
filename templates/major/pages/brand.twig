@@ -1,0 +1,26 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+
+{% set catalog = runSnippet('DocLister', {
+    display: 20,
+    parents: resource.id,
+    depth: 0,
+    tvList: "car-price,old-car-price,car_photos",
+    ownerTPL: '@T_FILE:partials/wrap',
+    tpl: "@T_FILE:partials/catalogcard",
+    debug: 0,
+    addWhereList: 'isfolder=1',
+})  %}
+
+<div class="index-catalog-block pb-4">
+        <div class="container">
+            <div class="block-name mb-5">
+{{resource.pagetitle}}
+            </div>
+            <div class="row">
+            {{catalog |raw}}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

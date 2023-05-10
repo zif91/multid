@@ -1,0 +1,10 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{#% cache 'main' ~ resource.id %#}
+
+<div class="container">
+	{{resource.content |raw}}</div>
+{% include('partials/contacts.twig') %}
+{#% include '/partials/tradein.twig' %#}
+{#% endcache %#}
+{% endblock %}

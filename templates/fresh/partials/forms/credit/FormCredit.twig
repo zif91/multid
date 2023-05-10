@@ -1,0 +1,53 @@
+<form> 
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+    {{ data['form.messages'] | raw }}
+    <div class="credit-block px-4 py-5 mb-5 text-light" id="creditform">
+    <div class="name text-center mb-5">
+        Выгоднее - в кредит! Скидка до 100 000 руб!
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="field mb-4">
+                <p class="mb-2">Первый взнос</p>
+                <input id="firstpayment" type="text" class="form-control" placeholder="{{ (resource['car-price'])/8|number_format(0, '.', ' ') }} ₽">
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="field mb-4">
+                <p class="mb-2">Срок кредита</p>
+                <input value="{{ data.credit_term }}" id="monthes" type="text" class="form-control" placeholder="24 месяца">
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="field mb-4">
+                <p class="mb-2">Ежемесячный платеж</p>
+                <input id="monthly" value="{{ data.month_pay }}" type="text" class="form-control other" placeholder="{{ (resource['car-price'])/20|number_format(0, '.', ' ') }} ₽">
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="field mb-4 pt-sm-0 pt-4">
+                <p class="mb-2">Ваша выгода</p>
+                <div class="discount text-center text-light">
+                    Скидка - 100 000 руб!
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+           <div class="field mb-4 pt-sm-0 pt-4">
+                <p class="mb-2">Ваше имя</p>
+                <input name="first_name" value="{{ data.first_name }}" type="text" class="form-control {{ data['first_name.classname'] }}" id="calc-input-5" type="text" placeholder="Иван" />
+            </div>
+        </div> 
+        <div class="col-xl-3 col-md-6">
+           <div class="field mb-4 pt-sm-0 pt-4">
+            <p class="mb-2">Ваш телефон</p>
+            </label>
+            <input value="{{ data.mobile_tel }}" name="mobile_tel"  class="form-control py-2 border-1 phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
+        </div>
+    </div>
+    <div class="text-center pt-3 col">
+        <button type="submit" class="btn btn-danger">Оставить заявку</button>
+    </div>
+</div>
+</form>

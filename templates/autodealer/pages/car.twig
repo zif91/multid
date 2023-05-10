@@ -1,0 +1,169 @@
+{% extends 'app.twig' %}
+{% block MAIN %}{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 4,
+parents: 27,
+depth: 2,
+_filters: 'AND(tv:car-price:against:~car-price~)',
+filters: 'AND(tv:model:=:' ~ resource.model ~ ')',
+tvList:'car-price,run,engine_power,gear,year,image,body_type,model,car_color,engine_volume,fuel,drive',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+})
+%}
+{% set cardphoto = runSnippet('morephoto', {
+images: resource["car_photos"],
+image: resource.car-photos,
+phpthumb: 'w=570,h=0',
+ownerTPL: '[+wrap+]',
+display: 1
+})
+%}
+{#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
+{% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
+action:'caroldprice'}) %}
+{% set month = runSnippet('helpers', {carmonth: resource['car-price'],
+action:'carmonth'}) %}
+{% set vigoda = oldprice - resource['car-price'] %}
+{% set gifts = runSnippet('DocLister', {
+display: 3,
+parents: 24,
+depth: 0,
+tvList:'image,color',
+tpl:'@T_CODE: <div class="gift__item">
+    <div style="background: linear-gradient(to bottom, {{ data[\'tv.color\'] }} 0px, {{ data[\'tv.color\'] }} 123px, #ffffff 123px, #ffffff 100%)" class="gift-item gift-item--transit">
+        <div class="gift-item__text-wrap">
+            <div class="gift-item__text">{{ data.title }}</div>
+        </div>
+        <div class="gift-item__photo-wrap">
+            <img style="max-width:130px" src="{{ runSnippet(\'phpthumb\', {input: data[\'tv.image\'], options:\'w=130,h=130,zc=1\'}) }}" alt="{{ data.title }}" class="gift-item__photo">
+        </div>
+    </div>
+</div>'
+})%}
+{#% include('partials/crumbs.twig') %#}
+{% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
+{% set car_photos = resource.car_photos | json %}
+{% set car_photos = car_photos.fieldValue %}
+
+<div class="navi py-4">
+        <div class="container">
+            <a href="/">Главная</a> → <a href="/avtomobili-s-probegom2"><span>Каталог автомобилей с пробегом</span></a>
+        </div>
+    </div>
+    <div class="h1 mb-5">
+        <div class="container">
+            <h1>{{resource.pagetitle}} {{resource.year}}</h1>
+        </div>
+    </div>
+    <div class="item-page pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-lg-7 col-md-6">
+                    <div class="photos mb-5">
+                        <div class="slider-for">
+                            {% if car_photos and count(car_photos)>0 %}
+                            {% for image in car_photos %}
+                            <div class="item"><img src="{{image.image}}"></div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="item"><img src="{{image.image}}"></div>
+                            {% endif %}
+                        </div>
+                        <div class="slider-nav mt-3">
+                            {% if car_photos and count(car_photos)>0 %}
+                            {% for image in car_photos %}
+                            <div class="item"><img src="{{image.image}}"></div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="item"><img src="{{image.image}}"></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5 col-md-6">
+                    <div class="params pb-3">
+                        <div class="name mb-3">
+                            Характеристики
+                        </div>
+                        <table class="mb-3 w-100">
+                            <tr>
+                                <td>Год выпуска</td>
+                                <td>{{resource.year}}</td>
+                            </tr>
+                            <tr>
+                                <td>Пробег</td>
+                                <td>{{resource.run}} км</td>
+                            </tr>
+                            <tr>
+                                <td>Двигатель</td>
+                                <td> {{resource.engine_power}} л. с. / {{resource.fuel}}</td>
+                            </tr>
+                            <tr>
+                                <td>Цвет</td>
+                                <td>{{resource.car_color}}</td>
+                            </tr>
+                            <tr>
+                                <td>Коробка передач</td>
+                                <td>{{resource.gear}}</td>
+                            </tr>
+                            <tr>
+                                <td>Привод</td>
+                                <td>{{resource.drive}}</td>
+                            </tr>
+                        </table>
+                        <div class="price mb-4">
+                            {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
+                        </div>
+                        <ul class="pb-3">
+                            <li class="pl-5 position-relative mb-4">ПТС: Оригинал</li>
+                            <li class="pl-5 position-relative mb-4">Гарантия юридической чистоты</li>
+                        </ul>
+                        <div class="discount mb-3">
+                            Специальное предложение за покупку в кредит
+                        </div>
+                        <button data-toggle="modal" data-target="#popup"  class="btn btn-danger w-100 mb-2"><span></span> Оставить заявку</button>
+                        <div class="row">
+                            <div class="col-6">
+                                <button data-toggle="modal" data-target="#popup"  class="btn but bl w-100">Обменять</button>
+                            </div>
+                            <div class="col-6">
+                                <button data-toggle="modal" data-target="#popup"  class="btn but wh w-100">Рассчитать кредит</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-4">
+                <div class="col-md-6">
+                    <div class="text-block mb-4 p-4">
+                        <p class="mb-3">Данные о розыске и запрете на регистрацию не найдены</p>
+                        <p class="mb-3">{% if resource.owners %}
+                            {{resource.owners}}
+                            {% else %}
+                            Один
+                            {% endif %} - владельцев в ПТС</p>
+                        <p class="mb-3">Данные совпадаютс ПТС</p>
+                        <p>Данные о ДТП не найдены</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-block  mb-4 p-4">
+                        <p class="mb-3 red">3 записи в истории пробегов</p>
+                        <p class="mb-3 orange">4 записи в истории эксплуатации</p>
+                        <p>Не работал в такси</p>
+                    </div>
+                </div>
+            </div>
+            <div class="main-text">
+                {{resource.content}}
+            </div>
+        </div>
+    </div> {% include '/partials/advantages.twig' %}
+{{ runSnippet('Form', {
+formid: 'FormCallback',
+path: '/templates/autodealer/partials/forms/feedback/',
+extension: 'twig'
+}) | raw }}
+{% include('partials/contacts.twig') %}
+{% endblock %}

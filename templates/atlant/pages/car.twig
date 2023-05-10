@@ -1,0 +1,328 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{% set cardphoto = runSnippet('morephoto', {
+images: resource["car_photos"],
+image: resource.car-photos,
+phpthumb: 'w=570,h=0',
+ownerTPL: '[+wrap+]',
+display: 1
+})
+%}
+{#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
+{% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
+action:'caroldprice'}) %}
+{% set month = runSnippet('helpers', {carmonth: resource['car-price'],
+action:'carmonth'}) %}
+{% set vigoda = oldprice - resource['car-price'] %}
+{% set gifts = runSnippet('DocLister', {
+display: 3,
+parents: 24,
+depth: 0,
+tvList:'image,color',
+tpl:'@T_CODE: <div class="gift__item">
+    <div style="background: linear-gradient(to bottom, {{ data[\'tv.color\'] }} 0px, {{ data[\'tv.color\'] }} 123px, #ffffff 123px, #ffffff 100%)" class="gift-item gift-item--transit">
+        <div class="gift-item__text-wrap">
+            <div class="gift-item__text">{{ data.title }}</div>
+        </div>
+        <div class="gift-item__photo-wrap">
+            <img style="max-width:130px" src="{{ runSnippet(\'phpthumb\', {input: data[\'tv.image\'], options:\'w=130,h=130,zc=1\'}) }}" alt="{{ data.title }}" class="gift-item__photo">
+        </div>
+    </div>
+</div>'
+})
+%}{% include('partials/crumbs.twig') %}
+{% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
+{% set car_photos = resource.car_photos | json %}
+{% set car_photos = car_photos.fieldValue %}
+<hr class="m-0" />
+<div class="container px-4">
+    <h4 class="py-4 fw-bold">{{resource.pagetitle}}</h4>
+</div>
+<div class="container px-4 mb-5 main-grid">
+    <div id="slide-cars" class="slide-cars carousel slide main-slide mb-5 pe-xl-2" data-bs-ride="carousel">
+        <div class="position-relative m-0">
+            <div class="carousel-inner m-0">
+                <div class="gallery carousel-item active" data-id="1">
+                    <a data-fancybox="gallery" href="{{cardphoto}}">
+                        <img src="{{cardphoto}}" class="d-block w-100" alt="..." /></a>
+                </div>
+                {% if car_photos and count(car_photos)>0 %}
+                {% for image in car_photos  %}
+                <div class="gallery carousel-item" data-id="{{image.image}}">
+                    <a data-fancybox="gallery" href="{{image.image}}">
+                        <img class="d-block w-100" src="{{  runSnippet('phpthumb', {input: image.image, options: 'w=570,h=0,far=C,bg=FFFFFF,f=jpg'}) }}" alt="Интерьер и экстерьер"></a>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="carousel-item" data-id="{{image.image}}">
+                    <img class="d-block w-100" src="{{  runSnippet('phpthumb', {input: image.image, options: 'w=570,h=0,far=C,bg=FFFFFF,f=jpg'}) }}" alt="Интерьер и экстерьер">
+                </div>
+                {% endif %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#slide-cars" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#slide-cars" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="slide-items">
+            <div class=" slide-item active" data-id="1">
+                <img src="{{cardphoto}}" class="d-block w-100" alt="..." />
+            </div>
+            {% if car_photos and count(car_photos)>0 %}
+            {% for image in car_photos %}
+            <div class=" slide-item" data-id="">
+                <img class="d-block w-100" src="{{  runSnippet('phpthumb', {input: image.image, options: 'w=570,h=0,far=C,bg=FFFFFF,f=jpg'}) }}" alt="Интерьер и экстерьер">
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="slide-item" data-id="">
+                <img class="d-block w-100" src="{{  runSnippet('phpthumb', {input: image.image, options: 'w=570,h=0,far=C,bg=FFFFFF,f=jpg'}) }}" alt="Интерьер и экстерьер">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+    <div class="ms-xl-3 banner-one p-xl-3 mb-3 main-banner-one">
+        <div class="label">
+            <span class="text">Выгода до {{(vigoda)|number_format(0, '.', ' ')}}  ₽</span>
+        </div>
+        <div class="row position-relative">
+            <div class="col-6 col-xl-12 text-secondary small order-2 order-xl-1 text-end text-xl-start">
+                <div class="row">
+                    <div class="col-12 col-xl-4">Цена:</div>
+                    <div class="col-12 col-xl-8">
+                        <span class="text-decoration-line-through"> {{ ( oldprice)|number_format(0, '.', ' ') }} ₽</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-xl-12 fw-bold order-1 order-xl-2">
+                <div class="row">
+                    <div class="col-12 col-xl-4 d-flex align-items-center">Ваша цена:</div>
+                    <div class="col-12 col-xl-8">
+                        <span class="fs-5">{{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ms-xl-3 banner-two p-3 mb-3 main-banner-two">
+        <p class="text-uppercase m-0">Специальное предложение:</p>
+        <p class="m-0">В кредит <span class="fs-5 fw-bold">от {{(month)|number_format(0, '.', ' ') }} ₽/ мес</span></p>
+    </div>
+    <div class="ms-xl-3 mb-5 main-info">
+        <h4 class="fw-bold py-4 m-0">Характеристики</h4>
+        <div class="row m-0 small border-bottom">
+            <div class="col px-0 text-secondary py-2">Двигатель</div>
+            <div class="col px-0 text-end py-2 fw-bold">{{resource.fuel
+                }}</div>
+        </div>
+        <div class="row m-0 small border-bottom">
+            <div class="col px-0 text-secondary py-2">Привод</div>
+            <div class="col px-0 text-end py-2 fw-bold">{{resource.drive
+                }}</div>
+        </div>
+        <div class="row m-0 small border-bottom">
+            <div class="col px-0 text-secondary py-2">Трансмиссия</div>
+            <div class="col px-0 text-end py-2 fw-bold">{{resource.gear
+                }}</div>
+        </div>
+        <div class="row m-0 small border-bottom">
+            <div class="col px-0 text-secondary py-2">Год</div>
+            <div class="col px-0 text-end py-2 fw-bold">{{resource.year}}</div>
+        </div>
+        <div class="row m-0 small border-bottom">
+            <div class="col px-0 text-secondary py-2">Пробег</div>
+            <div class="col px-0 text-end py-2 fw-bold">{{resource.run
+                }} км</div>
+        </div>
+        <div class="row m-0 small border-bottom">
+            <div class="col px-0 text-secondary py-2">Мощность</div>
+            <div class="col px-0 text-end py-2 fw-bold">{{resource.engine_power
+                }}</div>
+        </div>
+        {% if resource.engine_volume %}
+        <div class="row m-0 small border-bottom">
+            <div class="col px-0 text-secondary py-2">Объем двигателя</div>
+            <div class="col px-0 text-end py-2 fw-bold">{{resource.engine_volume
+                }}</div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="m-0 ms-xl-3 row main-buttons">
+        {# <div class="col-4 p-0 pe-1">
+            <button class="two btn btn-outline-secondary btn-about btn-sm fw-bold w-100 py-2 border-2 text-dark h-100">
+                Подробнее
+            </button>
+        </div>#}
+        <div class="col-6 px-1">
+            <button type="button" class=" btn btn-danger btn-about-red btn-sm fw-bold w-100 py-2 border-2 btn-transparent h-100" data-bs-toggle="modal" data-bs-target="#creditpopup">
+                Расчитать кредит
+            </button>
+        </div>
+        <div class="col-6 p-0 ps-1">
+            <button data-bs-toggle="modal" data-bs-target="#feedback" class="btn btn-primary btn-sm fw-bold w-100 py-2 text-white border-2 btn-transparent h-100">
+                Заказать звонок
+            </button>
+        </div>
+    </div>
+</div>
+<div class="container px-4">
+    <div class="row">
+        <div class="col-12 col-lg-7">
+            <div class="mb-5 info-items">
+                <div class="item">
+                    <div>
+                        <img src="/templates/atlant/images/auto-item/owners.png" alt="" />
+                    </div>
+                    <div>
+                        <p class="text-secondary small mb-1">Владельцы</p>
+                        <p class="fw-bold m-0">{% if resource.owners %}
+                            {{resource.owners}}
+                            {% else %}
+                            Один
+                            {% endif %}</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src="/templates/atlant/images/auto-item/engine.png" alt="" />
+                    </div>
+                    <div>
+                        <p class="text-secondary small mb-1">Двигатель</p>
+                        <p class="fw-bold m-0">{{resource.fuel
+                            }}</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src="/templates/atlant/images/auto-item/mileage.png" alt="" />
+                    </div>
+                    <div>
+                        <p class="text-secondary small mb-1">Пробег</p>
+                        <p class="fw-bold m-0">{{resource.run
+                            }} км</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src="/templates/atlant/images/auto-item/checkpoint.png" alt="" />
+                    </div>
+                    <div>
+                        <p class="text-secondary small mb-1">КПП</p>
+                        <p class="fw-bold m-0">{{resource.gear
+                            }}</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src="/templates/atlant/images/auto-item/engine.png" alt="" />
+                    </div>
+                    <div>
+                        <p class="text-secondary small mb-1">Объем</p>
+                        <p class="fw-bold m-0">{{resource.engine_volume
+                            }}</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src="/templates/atlant/images/auto-item/power.png" alt="" />
+                    </div>
+                    <div>
+                        <p class="text-secondary small mb-1">Мощность</p>
+                        <p class="fw-bold m-0">{{resource.engine_power
+                            }}</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src="/templates/atlant/images/auto-item/drive.png" alt="" />
+                    </div>
+                    <div>
+                        <p class="text-secondary small mb-1">Привод</p>
+                        <p class="fw-bold m-0">{{resource.drive
+                            }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-5">
+            <ul class="row auto-item-block m-0">
+                <li class="col-5 p-0 py-2">Процентная ставка по кредиту от 4,9%</li>
+                <div class="col-2"></div>
+                <li class="col-5 p-0 py-2">
+                    Более 10 лицензированных финансовых организаций
+                </li>
+                <li class="col-5 p-0 py-2">
+                    Минимальный комплект документов для одобрения
+                </li>
+                <div class="col-2"></div>
+                <li class="col-5 p-0 py-2">Кредит от 200 000 до 3 500 000 руб</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container px-4 mb-5 d-none d-xl-block">
+    <div id="description" class="row m-0">
+        <div class="col-7 ps-0">
+            <h4 class="fw-bold py-4 m-0">Описание</h4>
+            <p class="pb-4 m-0">
+                {{resource.content|raw}}
+            </p>
+            <div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Коробка</div>
+                    <div class="col px-0 text-end py-2 fw-bold">{{resource.gear}}</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Привод</div>
+                    <div class="col px-0 text-end py-2 fw-bold">{{resource.drive
+                        }}</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">VIN</div>
+                    <div class="col px-0 text-end py-2 fw-bold">***4521**</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Кузов</div>
+                    <div class="col px-0 text-end py-2 fw-bold">{{resource.body_type}}</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Состояние</div>
+                    <div class="col px-0 text-end py-2 fw-bold">{{resource.car_state}}</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Модель</div>
+                    <div class="col px-0 text-end py-2 fw-bold">{{resource.model}}</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Владельцев</div>
+                    <div class="col px-0 text-end py-2 fw-bold">{% if resource.owners %}
+                        {{resource.owners}}
+                        {% else %}
+                        Один
+                        {% endif %}</div>
+                </div>
+            </div>
+        </div>
+        <div id="credit" class="col-5 pe-0">
+            {{ runSnippet('Form', {
+            formid: 'FormCredit',
+            path: '/templates/atlant/partials/forms/credit/',
+            extension: 'twig'
+            }) | raw }}
+        </div>
+    </div>
+</div>
+<div class="container px-4 mb-5 d-none d-xl-block">
+    {% include 'partials/actions.twig' %}
+</div>
+<div class="container px-4 mb-5 d-none d-xl-block">
+    {% include 'partials/tradein.twig' %}
+</div>
+{% endblock %}

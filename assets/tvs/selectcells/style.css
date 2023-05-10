@@ -1,0 +1,12 @@
+.selectcells { position: absolute; left: 0; top: 100%; background-color: #fff; border-color: #ccc; padding: .5rem; box-shadow: 0 .25rem 1rem rgba(0, 0, 0, .25) }
+.selectcells .mce-grid td { padding: 0 }
+.selectcells .mce-grid td.mce-grid-cell div { border: 1px solid #c5c5c5; width: 15px; height: 15px; margin: 0; cursor: pointer }
+.selectcells .mce-grid td.mce-grid-cell div:focus { border-color: #91bbe9 }
+.selectcells .mce-grid td.mce-grid-cell div[disabled] { cursor: not-allowed }
+.selectcells .mce-grid { border-spacing: 2px; border-collapse: separate }
+.selectcells .mce-grid a { display: block; border: 1px solid transparent }
+.selectcells .mce-grid a:hover, .mce-grid a:focus { border-color: #91bbe9 }
+.selectcells .mce-grid-border { margin: 0 4px 0 4px }
+.selectcells .mce-grid-border a { border-color: #c5c5c5; width: 13px; height: 13px }
+.selectcells .mce-grid-border a:hover, .selectcells .mce-grid-border a.mce-active { border-color: #91bbe9; background: #bdd6f2 }
+.selectcells .mce-text-center { text-align: center; }

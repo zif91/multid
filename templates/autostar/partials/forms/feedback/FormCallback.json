@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "name": {
+      "required": "Обязательно к заполнению"
+    },
+    "phone": {
+      "required": "Обязательно к заполнению"
+    }
+  },
+  "subject": "Купить автомобиль",
+  "prepare": "prepareFormConfig",
+  "prepareAfterProcess": "CatchFormResult",
+  "formControls": "agree"
+}

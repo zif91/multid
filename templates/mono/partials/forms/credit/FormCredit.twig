@@ -1,0 +1,63 @@
+<form class="form-calculate">
+    <div class="row">
+        <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+        <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+        {{ data['form.messages'] | raw }}
+        <div class="col-lg-3 col-sm-6">
+            <div class="range mb-4">
+                <div class="name mb-4">
+                    Первоначальный взнос
+                </div>
+                <div id="slider">
+                    <div id="custom-handle" class="ui-slider-handle"></div>
+                </div>
+                <div class="values mt-3 flex">
+                    <div data-min="{{resource['car-price'] / 10 }}">{{resource['car-price'] / 10 }} руб</div>
+                    <div data-max="{{resource['car-price'] }}">{{resource['car-price'] }} руб.</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="range mb-4">
+                <div class="name mb-4">
+                    Срок кредита
+                </div>
+                <div id="slider2">
+                    <div id="custom-handle2" class="ui-slider-handle"></div>
+                </div>
+                <div class="values mt-3 flex">
+                    <div>12 месяцев</div>
+                    <div>64 месяца</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="price mb-4">
+                Ежемесячный платеж
+                <span class="d-block mt-2 amount">32 000 руб.</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+        </div>
+        
+        <div class="col-lg-3 col-sm-6">
+            <div class="field mb-4">
+                <p class="mb-3">
+                    Ваше имя
+                </p>
+                <input name="first_name" value="{{ data.first_name }}" id="calc-input-5" type="text" class="w100  {{ data['first_name.classname'] }}" placeholder="Иван" />
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="field mb-4">
+                <p class="mb-3">Телефон</p>
+                <input name="mobile_tel" value="{{ data.mobile_tel }}" class="w100 px-2 phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <button class="w-100 mb-4 text-light btn">Оставить заявку</button>
+        </div>
+    </div>
+</form>

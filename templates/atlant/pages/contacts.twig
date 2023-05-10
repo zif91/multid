@@ -1,0 +1,38 @@
+{% extends 'app.twig' %}
+
+{% block MAIN %}
+    <div class="s-address section-36">
+      <div class="container">
+        <div class="address">
+          <div class="address__col">
+            <div class="address__item"><span>Адрес</span>
+              <p>{{baseSettings.salon_location}}</p>
+            </div>
+            <div class="address__item"><span>Время работы</span>
+              <p>Ежедневно с 09:00 до 21:00</p>
+            </div>
+            <div class="address__item"><span>Телефон</span><a href="">{{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:''}) | raw}}</a></div>
+          </div>
+          <div class="address__col">
+            <form action="/">
+              <input type="text" name="name" aria-label="name" required placeholder="Ваше имя">
+              <input type="tel" name="phone" aria-label="phone" required placeholder="Телефон">
+              <textarea placeholder="Ваш вопрос" name="msg"> </textarea>
+              <button class="Button Button--z18 Button--big" type="submit">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.3225 1.40907C22.7222 0.793011 21.8338 0.563498 21.0055 0.805091L1.6896 6.42212C0.815638 6.66492 0.196185 7.36192 0.0293162 8.24736C-0.141154 9.1485 0.45429 10.2924 1.23221 10.7708L7.27188 14.4829C7.89134 14.8634 8.69086 14.7679 9.20347 14.2509L16.1195 7.29186C16.4676 6.92947 17.0439 6.92947 17.392 7.29186C17.7402 7.64217 17.7402 8.20991 17.392 8.5723L10.464 15.5326C9.95018 16.0484 9.85414 16.8517 10.2323 17.475L13.9226 23.5752C14.3548 24.3 15.0991 24.7107 15.9154 24.7107C16.0115 24.7107 16.1195 24.7107 16.2155 24.6986C17.1519 24.5778 17.8962 23.9376 18.1723 23.0316L23.8987 3.74044C24.1508 2.91903 23.9227 2.02513 23.3225 1.40907Z" fill="white"></path>
+                </svg>Отправить заявку
+              </button>
+              <div class="agree">
+                 Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#"> <span>персональных данных</span></a></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-address section-36">
+        <div class="container">
+            {{resource.content | raw}}
+        </div>
+    </div>
+{% endblock %}

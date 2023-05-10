@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Главная</title>
+    </head>
+    <body>
+        <%= require('../includes/header.html').default %>
+        <hr class="m-0 d-xl-none" />
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                    <li class="breadcrumb-item"><a href="/">Автомобили</a></li>
+                    <li class="breadcrumb-item"><a href="/">С пробегом</a></li>
+                    <li class="breadcrumb-item"><a href="/">Audi</a></li>
+                    <li class="breadcrumb-item active">Audi Q5 2013г, 32000км, Бежевая</li>
+                </ol>
+            </nav>
+        </div>
+        <hr class="m-0" />
+        <div class="container px-4">
+            <h4 class="py-4 fw-bold">Audi Q5 2020г, 3200км, Бежевая</h4>
+        </div>
+        <div class="container px-4 mb-5 main-grid">
+            <div
+                id="slide-cars"
+                class="slide-cars carousel slide main-slide mb-5 pe-xl-2"
+                data-bs-ride="carousel"
+            >
+                <div class="position-relative m-0">
+                    <div class="carousel-inner m-0">
+                        <div class="carousel-item active" data-id="1">
+                            <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-id="2">
+                            <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-id="3">
+                            <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-id="4">
+                            <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-id="5">
+                            <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-id="6">
+                            <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-id="7">
+                            <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-id="8">
+                            <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item" data-id="9">
+                            <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                        </div>
+                    </div>
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#slide-cars"
+                        data-bs-slide="prev"
+                    >
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#slide-cars"
+                        data-bs-slide="next"
+                    >
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="slide-items">
+                    <div class="slide-item active" data-id="1">
+                        <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                    </div>
+                    <div class="slide-item" data-id="2">
+                        <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                    </div>
+                    <div class="slide-item" data-id="3">
+                        <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                    </div>
+                    <div class="slide-item" data-id="4">
+                        <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                    </div>
+                    <div class="slide-item" data-id="5">
+                        <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                    </div>
+                    <div class="slide-item" data-id="6">
+                        <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                    </div>
+                    <div class="slide-item" data-id="7">
+                        <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                    </div>
+                    <div class="slide-item" data-id="8">
+                        <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                    </div>
+                    <div class="slide-item" data-id="9">
+                        <img src="/images/car-slide.png" class="d-block w-100" alt="..." />
+                    </div>
+                </div>
+            </div>
+            <div class="ms-xl-3 banner-one p-xl-3 mb-3 main-banner-one">
+                <div class="label">
+                    <span class="text">Выгода до 430 000 руб.</span>
+                </div>
+                <div class="row position-relative">
+                    <div
+                        class="col-6 col-xl-12 text-secondary small order-2 order-xl-1 text-end text-xl-start"
+                    >
+                        <div class="row">
+                            <div class="col-12 col-xl-4">Цена:</div>
+                            <div class="col-12 col-xl-8">
+                                <span class="text-decoration-line-through">2 645 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-xl-12 fw-bold order-1 order-xl-2">
+                        <div class="row">
+                            <div class="col-12 col-xl-4 d-flex align-items-center">Ваша цена:</div>
+                            <div class="col-12 col-xl-8">
+                                <span class="fs-5">2 245 000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-xl-3 banner-two p-3 mb-3 main-banner-two">
+                <p class="text-uppercase m-0">Специальное предложение:</p>
+                <p class="m-0">В кредит <span class="fs-5 fw-bold">от 12 000 ₽ / мес</span></p>
+            </div>
+            <div class="ms-xl-3 mb-5 main-info">
+                <h4 class="fw-bold py-4 m-0">Характеристики</h4>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Двигатель</div>
+                    <div class="col px-0 text-end py-2 fw-bold">Бензин</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Привод</div>
+                    <div class="col px-0 text-end py-2 fw-bold">Передний</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Трансмиссия</div>
+                    <div class="col px-0 text-end py-2 fw-bold">Автомат</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Год</div>
+                    <div class="col px-0 text-end py-2 fw-bold">2020</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Пробег</div>
+                    <div class="col px-0 text-end py-2 fw-bold">92 000 км</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Мощность</div>
+                    <div class="col px-0 text-end py-2 fw-bold">225 л.с</div>
+                </div>
+                <div class="row m-0 small border-bottom">
+                    <div class="col px-0 text-secondary py-2">Объем двигателя</div>
+                    <div class="col px-0 text-end py-2 fw-bold">3.0</div>
+                </div>
+            </div>
+            <div class="m-0 ms-xl-3 row main-buttons">
+                <div class="col-4 p-0 pe-1">
+                    <button
+                        class="btn btn-outline-secondary btn-about btn-sm fw-bold w-100 py-2 border-2 text-dark h-100"
+                    >
+                        Подробнее
+                    </button>
+                </div>
+                <div class="col-4 px-1">
+                    <button
+                        class="btn btn-danger btn-about-red btn-sm fw-bold w-100 py-2 border-2 btn-transparent h-100"
+                    >
+                        Расчитать кредит
+                    </button>
+                </div>
+                <div class="col-4 p-0 ps-1">
+                    <button
+                        class="btn btn-primary btn-sm fw-bold w-100 py-2 text-white border-2 btn-transparent h-100"
+                    >
+                        Заказать звонок
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container px-4">
+            <div class="row">
+                <div class="col-12 col-lg-7">
+                    <div class="mb-5 info-items">
+                        <div class="item">
+                            <div>
+                                <img src="/images/auto-item/owners.png" alt="" />
+                            </div>
+                            <div>
+                                <p class="text-secondary small mb-1">Владельцы</p>
+                                <p class="fw-bold m-0">Один</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="/images/auto-item/engine.png" alt="" />
+                            </div>
+                            <div>
+                                <p class="text-secondary small mb-1">Двигатель</p>
+                                <p class="fw-bold m-0">Бензин</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="/images/auto-item/mileage.png" alt="" />
+                            </div>
+                            <div>
+                                <p class="text-secondary small mb-1">Пробег</p>
+                                <p class="fw-bold m-0">92 000 км</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="/images/auto-item/checkpoint.png" alt="" />
+                            </div>
+                            <div>
+                                <p class="text-secondary small mb-1">КПП</p>
+                                <p class="fw-bold m-0">Автомат</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="/images/auto-item/engine.png" alt="" />
+                            </div>
+                            <div>
+                                <p class="text-secondary small mb-1">Объем</p>
+                                <p class="fw-bold m-0">2.0 л</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="/images/auto-item/power.png" alt="" />
+                            </div>
+                            <div>
+                                <p class="text-secondary small mb-1">Мощность</p>
+                                <p class="fw-bold m-0">122 л.с</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="/images/auto-item/drive.png" alt="" />
+                            </div>
+                            <div>
+                                <p class="text-secondary small mb-1">Привод</p>
+                                <p class="fw-bold m-0">Передний</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                    <ul class="row auto-item-block m-0">
+                        <li class="col-5 p-0 py-2">Процентная ставка по кредиту от 0%</li>
+                        <div class="col-2"></div>
+                        <li class="col-5 p-0 py-2">
+                            Более 10 лицензированных финансовых организаций
+                        </li>
+                        <li class="col-5 p-0 py-2">
+                            Минимальный комплект документов для одобрения
+                        </li>
+                        <div class="col-2"></div>
+                        <li class="col-5 p-0 py-2">Кредит от 200 000 до 3 500 000 руб</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container px-4 mb-5 d-none d-xl-block">
+            <div class="row m-0">
+                <div class="col-7 ps-0">
+                    <h4 class="fw-bold py-4 m-0">Описание</h4>
+                    <p class="pb-4 m-0">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+                        consequuntur deserunt libero, odio perferendis voluptate nihil aperiam
+                        voluptates, id odit harum doloribus vitae, doloremque voluptatibus
+                        laboriosam consequatur qui nulla optio.
+                    </p>
+                    <div>
+                        <div class="row m-0 small border-bottom">
+                            <div class="col px-0 text-secondary py-2">Коробка</div>
+                            <div class="col px-0 text-end py-2 fw-bold">Автомат</div>
+                        </div>
+                        <div class="row m-0 small border-bottom">
+                            <div class="col px-0 text-secondary py-2">Привод</div>
+                            <div class="col px-0 text-end py-2 fw-bold">Передний</div>
+                        </div>
+                        <div class="row m-0 small border-bottom">
+                            <div class="col px-0 text-secondary py-2">VIN</div>
+                            <div class="col px-0 text-end py-2 fw-bold">X96****</div>
+                        </div>
+                        <div class="row m-0 small border-bottom">
+                            <div class="col px-0 text-secondary py-2">Модель</div>
+                            <div class="col px-0 text-end py-2 fw-bold">A31R32</div>
+                        </div>
+                        <div class="row m-0 small border-bottom">
+                            <div class="col px-0 text-secondary py-2">Шасси</div>
+                            <div class="col px-0 text-end py-2 fw-bold">Стандартное</div>
+                        </div>
+                        <div class="row m-0 small border-bottom">
+                            <div class="col px-0 text-secondary py-2">Комплектация</div>
+                            <div class="col px-0 text-end py-2 fw-bold">Престиж</div>
+                        </div>
+                        <div class="row m-0 small border-bottom">
+                            <div class="col px-0 text-secondary py-2">Владельцев</div>
+                            <div class="col px-0 text-end py-2 fw-bold">256</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 pe-0">
+                    <form class="form-calculate mt-4 p-4" action="">
+                        <h4 class="fw-bold text-white">Расчитать кредит</h4>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label for="calc-input-1" class="form-label text-white small">
+                                    Сумма кредита
+                                </label>
+                                <input
+                                    class="form-control py-2 border-0 amount-imask"
+                                    id="calc-input-1"
+                                    type="text"
+                                    placeholder="1 500 000 ₽"
+                                />
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="calc-input-2" class="form-label text-white small">
+                                    Первый взнос
+                                </label>
+                                <input
+                                    class="form-control py-2 border-0 amount-imask"
+                                    id="calc-input-2"
+                                    type="text"
+                                    placeholder="1 000 000 ₽"
+                                />
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="calc-input-3" class="form-label text-white small">
+                                    Ваш ежемесячный платеж
+                                </label>
+                                <input
+                                    class="form-control py-2 border-0 amount-imask"
+                                    id="calc-input-3"
+                                    type="text"
+                                    placeholder="15 000 ₽"
+                                />
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="calc-input-4" class="form-label text-white small">
+                                    Процентная ставка
+                                </label>
+                                <input
+                                    class="form-control py-2 border-0 percent-imask"
+                                    id="calc-input-4"
+                                    type="text"
+                                    placeholder="9 %"
+                                />
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="calc-input-5" class="form-label text-white small">
+                                    Ваше имя
+                                </label>
+                                <input
+                                    class="form-control py-2 border-0"
+                                    id="calc-input-5"
+                                    type="text"
+                                    placeholder="Иван"
+                                />
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="calc-input-6" class="form-label text-white small">
+                                    Ваше телефон
+                                </label>
+                                <input
+                                    class="form-control py-2 border-0 phone-imask"
+                                    id="calc-input-6"
+                                    type="text"
+                                    placeholder="+7 (000) 000-00-00"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="id7" />
+                            <label class="form-check-label text-white small" for="id7">
+                                Даю согласие на обработку персональных данных
+                            </label>
+                        </div>
+                        <div class="text-center py-3">
+                            <button class="btn btn-light px-5 py-2">
+                                Отправить заявку на кредит
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container px-4 pt-5">
+            <div class="row mb-5">
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="stock">
+                        <div class="stock-bg"></div>
+                        <div class="stock-img">
+                            <img src="/images/stocks/1.png" alt="" />
+                        </div>
+                        <div class="stock-body">
+                            <div class="stock-title">Trade-in</div>
+                            <div class="stock-content">
+                                <p class="m-0 fw-bold text-end">
+                                    Выгода до <span class="text-red fs-5">254 000 ₽</span>
+                                </p>
+                                <p class="m-0 small">
+                                    Текст с кратким описанием акции по трейд-ину в автосалоне Атлант
+                                    Перечисляем основные триггерные преимущества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="stock">
+                        <div class="stock-bg"></div>
+                        <div class="stock-img">
+                            <img src="/images/stocks/2.png" alt="" />
+                        </div>
+                        <div class="stock-body">
+                            <div class="stock-title">Госпрограмма</div>
+                            <div class="stock-content">
+                                <p class="m-0 fw-bold text-end">
+                                    Выгода до <span class="text-red fs-5">254 000 ₽</span>
+                                </p>
+                                <p class="m-0 small">
+                                    Текст с кратким описанием акции по трейд-ину в автосалоне Атлант
+                                    Перечисляем основные триггерные преимущества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="stock">
+                        <div class="stock-bg"></div>
+                        <div class="stock-img">
+                            <img src="/images/stocks/3.png" alt="" />
+                        </div>
+                        <div class="stock-body">
+                            <div class="stock-title">Зимние шины</div>
+                            <div class="stock-content">
+                                <p class="m-0 fw-bold text-end text-red">В подарок!</p>
+                                <p class="m-0 small text-justify">
+                                    Текст с кратким описанием акции по трейд-ину в автосалоне Атлант
+                                    Перечисляем основные триггерные преимущества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mb-5 px-4 d-xl-none">
+            <button class="btn btn-danger btn-red-trade-in">Сдать автомобиль в TRADE IN</button>
+        </div>
+        <div class="container mb-5 d-none d-xl-block">
+            <div class="form-item-trade-in p-3 p-xl-5 mx-4 mx-xl-0">
+                <h4 class="text-white fw-bold mb-3 mb-xl-5">Сдать автомобиль в Trade-in</h4>
+                <form class="form">
+                    <div class="row flex-column flex-xl-row">
+                        <div class="col mb-3">
+                            <label for="formAuto" class="form-label text-white small">
+                                Марка вашей машины
+                            </label>
+                            <select class="form-select py-2 border-0" id="formAuto">
+                                <option value="1">Audi</option>
+                            </select>
+                        </div>
+                        <div class="col mb-3">
+                            <label for="formModel" class="form-label text-white small">
+                                Модель
+                            </label>
+                            <select class="form-select py-2 border-0" id="formModel">
+                                <option value="1">Q3</option>
+                            </select>
+                        </div>
+                        <div class="col mb-3">
+                            <label for="formAmount" class="form-label text-white small">
+                                Ваша стоимость
+                            </label>
+                            <input type="text" class="form-control py-2 border-0" id="formAmount" />
+                        </div>
+                        <div class="col mb-3">
+                            <label for="formName" class="form-label text-white small">
+                                Ваше имя
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control py-2 border-0"
+                                id="formName"
+                                placeholder="Иван"
+                            />
+                        </div>
+                        <div class="col mb-3">
+                            <label for="formPhone" class="form-label text-white small">
+                                Ваш телефон
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control py-2 phone-imask border-0"
+                                id="formPhone"
+                                placeholder="+7 (___) ___-__-__"
+                            />
+                        </div>
+                        <div class="col mb-3 d-flex align-items-end">
+                            <button
+                                type="submit"
+                                class="btn btn-danger btn-red py-2 text-white w-100 border-0"
+                            >
+                                Отправить заявку
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container p-4">
+            <h4 class="fw-bold">Похожие автомобили</h4>
+        </div>
+        <div class="similar-cars">
+            <div class="container mb-5">
+                <div id="similar-cars" class="carousel carousel-dark" data-bs-interval="false">
+                    <div class="d-flex d-sm-block">
+                        <a
+                            class="carousel-control-prev d-sm-none position-relative"
+                            type="button"
+                            data-bs-target="#similar-cars"
+                            data-bs-slide="prev"
+                        >
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <div class="row px-0 pt-3 pb-5 carousel-inner w-auto m-0">
+                            <div class="carousel-item active pb-4 pb-lg-0 d-sm-block me-sm-0">
+                                <div class="card shadow border-0">
+                                    <img
+                                        src="/images/cars/car1.png"
+                                        class="card-img-top"
+                                        alt="Car"
+                                    />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Audi Q5 2020г</h5>
+                                        <div class="row card-text">
+                                            <div
+                                                class="col pe-0 text-decoration-line-through text-secondary small"
+                                            >
+                                                2 245 000 ₽
+                                            </div>
+                                            <div class="col ps-0 fw-bold text-end text-danger">
+                                                2 245 000 ₽
+                                            </div>
+                                        </div>
+                                        <hr class="my-2" />
+                                        <div class="row small mb-2">
+                                            <div class="col-4 small text-secondary">Пробег</div>
+                                            <div class="col-4 small text-secondary">Двигатель</div>
+                                            <div class="col-4 small text-secondary">КПП</div>
+                                            <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                            <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                            <div class="col-4 fw-bold py-2">Автомат</div>
+                                        </div>
+                                        <a
+                                            href="#"
+                                            class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                            >Подробнее</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item pb-4 pb-lg-0 d-sm-block me-sm-0">
+                                <div class="card shadow border-0">
+                                    <img
+                                        src="/images/cars/car2.png"
+                                        class="card-img-top"
+                                        alt="Car"
+                                    />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Audi Q5 2020г</h5>
+                                        <div class="row card-text">
+                                            <div
+                                                class="col pe-0 text-decoration-line-through text-secondary small"
+                                            >
+                                                2 245 000 ₽
+                                            </div>
+                                            <div class="col ps-0 fw-bold text-end text-danger">
+                                                2 245 000 ₽
+                                            </div>
+                                        </div>
+                                        <hr class="my-2" />
+                                        <div class="row small mb-2">
+                                            <div class="col-4 small text-secondary">Пробег</div>
+                                            <div class="col-4 small text-secondary">Двигатель</div>
+                                            <div class="col-4 small text-secondary">КПП</div>
+                                            <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                            <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                            <div class="col-4 fw-bold py-2">Автомат</div>
+                                        </div>
+                                        <a
+                                            href="#"
+                                            class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                            >Подробнее</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item pb-4 pb-lg-0 d-sm-block me-sm-0">
+                                <div class="card shadow border-0">
+                                    <img
+                                        src="/images/cars/car3.png"
+                                        class="card-img-top"
+                                        alt="Car"
+                                    />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Audi Q5 2020г</h5>
+                                        <div class="row card-text">
+                                            <div
+                                                class="col pe-0 text-decoration-line-through text-secondary small"
+                                            >
+                                                2 245 000 ₽
+                                            </div>
+                                            <div class="col ps-0 fw-bold text-end text-danger">
+                                                2 245 000 ₽
+                                            </div>
+                                        </div>
+                                        <hr class="my-2" />
+                                        <div class="row small mb-2">
+                                            <div class="col-4 small text-secondary">Пробег</div>
+                                            <div class="col-4 small text-secondary">Двигатель</div>
+                                            <div class="col-4 small text-secondary">КПП</div>
+                                            <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                            <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                            <div class="col-4 fw-bold py-2">Автомат</div>
+                                        </div>
+                                        <a
+                                            href="#"
+                                            class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                            >Подробнее</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item pb-4 pb-lg-0 d-sm-block me-sm-0">
+                                <div class="card shadow border-0">
+                                    <img
+                                        src="/images/cars/car4.png"
+                                        class="card-img-top"
+                                        alt="Car"
+                                    />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Audi Q5 2020г</h5>
+                                        <div class="row card-text">
+                                            <div
+                                                class="col pe-0 text-decoration-line-through text-secondary small"
+                                            >
+                                                2 245 000 ₽
+                                            </div>
+                                            <div class="col ps-0 fw-bold text-end text-danger">
+                                                2 245 000 ₽
+                                            </div>
+                                        </div>
+                                        <hr class="my-2" />
+                                        <div class="row small mb-2">
+                                            <div class="col-4 small text-secondary">Пробег</div>
+                                            <div class="col-4 small text-secondary">Двигатель</div>
+                                            <div class="col-4 small text-secondary">КПП</div>
+                                            <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                            <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                            <div class="col-4 fw-bold py-2">Автомат</div>
+                                        </div>
+                                        <a
+                                            href="#"
+                                            class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                            >Подробнее</a
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a
+                            class="carousel-control-next d-sm-none position-relative"
+                            type="button"
+                            data-bs-target="#similar-cars"
+                            data-bs-slide="next"
+                        >
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%= require('../includes/feedback.html').default %>
+        <div></div>
+        <%= require('../includes/footer.html').default %>
+    </body>
+</html>

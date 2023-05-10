@@ -1,0 +1,49 @@
+{% set catalog_number = runSnippet('DocInfo', {docid: site_start , field: 'catalog_number' }) %}
+
+<div class="brands-block">
+	<div class="container-fluid">
+		<h2>Бренды</h2>
+		<div class="flex2">
+			{{ runSnippet('getCache', {
+			snippetName:'brands',
+			key: site_start,
+			lifetime: '36000',
+			parent: catalog_number,
+
+
+		}) | raw }}
+			
+		</div>
+		<div class="bottom-button">
+				<button name="showbrands">Смотреть все <span></span></button>
+			</div>
+		{#<div class="bottom-button">
+			<button>Смотреть все <span></span></button>
+		</div>#}
+	</div>
+</div>
+<script type="text/javascript">
+const elements = document.querySelectorAll("body > main > div.brands-block > div > div > div:nth-child(n+15)");
+
+// Hide the elements
+elements.forEach(element => {
+  element.style.display = "none";
+});
+
+// Get the button with name="showbrands"
+const button = document.querySelector('button[name="showbrands"]');
+
+// Add a click event listener to the button
+button.addEventListener("click", () => {
+  // Show or hide the elements based on their current visibility
+  elements.forEach(element => {
+    if (element.style.display === "none") {
+      element.style.display = "block";
+      button.textContent = "Скрыть все";
+    } else {
+      element.style.display = "none";
+      button.textContent = "Показать все";
+    }
+  });
+});
+</script>

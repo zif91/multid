@@ -1,0 +1,173 @@
+.header .logo a {
+  background: url('img/logo2.svg') center / cover;
+}
+.header .contacts .phone span {
+  color: #361b85;
+}
+.header .contacts .adress {
+  background: url('img/adress2.svg') no-repeat 0 0;
+}
+.btn.btn-danger {
+  background: radial-gradient(86.86% 643.32% at 4.78% 16.94%, rgba(54, 27, 133, 0.56) 0%, rgba(54, 27, 133, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(57.77% 174.19% at 36.86% 100%, rgba(127, 108, 251, 0.56) 0%, rgba(127, 108, 251, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(59.64% 374.11% at 87.37% 0%, rgba(64, 36, 238, 0.56) 0%, rgba(51, 18, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #361b85;
+  box-shadow: 0px 4px 12px rgba(75, 27, 133, 0.21);
+  border: 0;
+}
+.btn.btn-outline-danger {
+  box-shadow: 0px 4px 12px rgba(75, 27, 133, 0.21);
+  color: #361b85;
+  border: 3px solid #361b85;
+}
+.top-menu .menu-button {
+  background: url('img/menu-button2.svg') no-repeat 0 4px;
+}
+.top-menu .catalog .block-name span {
+  color: #361b85;
+}
+.top-menu .catalog .item span {
+  background: #361b85;
+}
+.index-filter-block .filter .name span {
+  color: #361b85;
+}
+.index-filter-block .filter .top-link {
+  color: #361b85;
+}
+.form-select {
+  background: url('img/select2.svg') no-repeat right 14px top 50%;
+}
+.number span.plus {
+  background: url('img/plus2.svg');
+}
+.number span.minus {
+  background: url('img/minus2.svg');
+}
+.index-cars-select .block-name span {
+  color: #361b85;
+}
+.index-cars-select .item a span {
+  background: #361b85;
+}
+.best-offers-block .block-name {
+  background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #4024ee 0%, rgba(64, 36, 238, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1e1e1e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.best-offers-block .item:hover:after {
+  background: url('img/offerlogo2.svg');
+}
+.best-offers-block .item .number {
+  color: #361b85;
+}
+.advantages-block .block-name {
+  background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #4024ee 0%, rgba(64, 36, 238, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1e1e1e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.bottom-map-block .content .contacts .phone span {
+  color: #361b85;
+}
+.bottom-map-block .content .contacts .adress {
+  background: url('img/adress2.svg') no-repeat 0 1px;
+}
+.footer .contacts .phone span {
+  color: #361b85;
+}
+.footer .contacts .adress {
+  background: url('img/adress2.svg') no-repeat 0 0;
+}
+.mobile-header .logo a {
+  background: url('img/mob-logo2.svg');
+}
+.mobile-header .menu-button {
+  background: url('img/menu2.svg');
+}
+.mobile-menu {
+  background: radial-gradient(86.86% 643.32% at 4.78% 16.94%, rgba(54, 27, 133, 0.56) 0%, rgba(54, 27, 133, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(57.77% 174.19% at 36.86% 100%, rgba(127, 108, 251, 0.56) 0%, rgba(127, 108, 251, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(59.64% 374.11% at 87.37% 0%, rgba(64, 36, 238, 0.56) 0%, rgba(51, 18, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #361b85;
+}
+.mobile-menu .btn {
+  color: #361b85;
+}
+.popup {
+  background: #f9f9f9 url('img/popup2.png') no-repeat top right !important;
+}
+.popup .name {
+  background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #4024ee 0%, rgba(64, 36, 238, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1e1e1e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.popup .checkbox + label a {
+  color: #361b85;
+}
+.navi span {
+  color: #361b85;
+}
+.h1 h1 {
+  background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #4024ee 0%, rgba(64, 36, 238, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1e1e1e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.catalog-page .block-name span {
+  color: #361b85;
+}
+.catalog-page .top-link {
+  background: url('img/arrow2.svg') no-repeat right top;
+}
+.catalog-page .tags .tag span {
+  background: #361b85;
+}
+.catalog-page .searched span {
+  color: #361b85;
+}
+.catalog-page .item .price {
+  background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #4024ee 0%, rgba(64, 36, 238, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1e1e1e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.catalog-page .navigation .pagination .page-item .page-link:hover {
+  color: #361b85;
+}
+.item-page .price {
+  background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #4024ee 0%, rgba(64, 36, 238, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1e1e1e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.item-page .discount {
+  color: #361b85;
+  background: url('img/discount2.svg') no-repeat 13px 20px;
+}
+.item-page .but.wh {
+  color: #361b85;
+  border: 2px solid #361b85;
+}
+.steps-block .block-name {
+  background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #4024ee 0%, rgba(64, 36, 238, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1e1e1e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.steps-block .flex .item .icon span {
+  background: #361b85;
+}
+.steps-block .flex .item .name {
+  background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #4024ee 0%, rgba(64, 36, 238, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #1e1e1e;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.steps-block .flex .item .time {
+  color: #361b85;
+}

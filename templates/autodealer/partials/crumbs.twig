@@ -1,0 +1,32 @@
+{# пащимута не работаит
+
+    
+<div class="breadcrumbs">
+                    <div class="container">
+  
+{{ runSnippet('DLCrumbs', {
+showCurrent: 1,
+sysKey: 'crumbs',
+ownerTPL: '@CODE:<div class="breadcrumbs__list">
+    <div class="breadcrumbs-list">
+        [+crumbs.wrap+]</div></div>',
+tpl:'@CODE:<a itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" href="[+url+]">[+title+]</a>',
+tplCurrent: '@CODE:<span itemprop="name">[+title+]</span>',
+addWhereList: 'AND (alias_visible=1 OR id=1)',
+tplFirst: '@CODE:<a href='/'>Главная</a>'
+}) | raw}}
+                    </div>
+
+#}
+{{ runSnippet('DLCrumbs', {
+showCurrent: 1,
+sysKey: 'crumbs',
+ownerTPL: '@CODE:<div class="navi">
+        <div class="container-fluid">
+            [+crumbs.wrap+]
+        </div>
+    </div>',
+tpl:'@CODE: <a  itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="[+url+]">[+title+]</a> <span></span>',
+tplCurrent: '@CODE: <a  itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="[+url+]">[+title+]</a> <span></span>',
+addWhereList: 'AND (alias_visible=1 OR id=1)',
+}) | raw}}

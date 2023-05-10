@@ -1,0 +1,39 @@
+{#% set thumb = runSnippet('morephoto', {
+images: data['tv.car_photos'],
+phpthumb: 'w=250,h=168,zc=C',
+tpl: '@CODE:[+image.thumb+]',
+total: 1,
+display: 1
+}) %#}
+{#{ data['tv.car_photos'] }#}
+{% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
+action:'caroldprice'}) %}
+<div class="col-lg-4 col-md-6">
+    <div class="item p-2 mb-4">
+        <a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="w-100 mb-2"></a>
+        <div class="p-2">
+            <div class="name mb-3">
+                {{ data['title'] }}
+            </div>
+            <div class="price d-inline-block mb-3">
+                {{ ( data['tv.car-price'] )|number_format(0, '.', ' ') }} ₽
+            </div>
+            <div class="flex">
+                <div class="info-block mb-3">
+                    Цвет
+                    <span class="d-block mt-2">{{ data['tv.car_color'] }}</span>
+                </div>
+                <div class="info-block mb-3">
+                    Пробег
+                    <span class="d-block mt-2">{{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км</span>
+                </div>
+                <div class="info-block mb-3">
+                    Год
+                    <span class="d-block mt-2">{{ data['tv.year'] }}</span>
+                </div>
+            </div>
+            <button data-toggle="modal" data-target="#popup" class="btn btn-danger w-100 mb-3"><span></span> Купить в 1 клик!</button>
+            <a href="{{ data['url'] }}" class="bottom-link">Подробнее об авто</a>
+        </div>
+    </div>
+</div>

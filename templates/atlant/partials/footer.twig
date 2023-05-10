@@ -1,0 +1,137 @@
+    <footer id="footer" class="footer">
+        <div class="container pt-5 pb-3 pb-lg-4 position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle d-lg-none">
+                <a href="#header"><img src="/templates/atlant/images/top.png" alt="top" /></a>
+            </div>
+            <div class="row">
+                <div class="col text-center text-lg-start d-flex d-lg-block flex-column">
+                    <p class="d-none d-lg-block"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}" alt="logo" /></p>
+                    <p class="d-none d-lg-block small">{{baseSettings.salon_location}}</p>
+                    <p class="mb-2 small order-2">Пн-Вс: с 9-00 до 21:00</p>
+                    <!--<p class="small order-3">Вс: с 10-00 до 20:00</p>-->
+                    <p class="fs-5 fw-bold order-1">{{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}</p>
+                    <p class="d-none d-lg-block">
+                        <a href="#" class="link-red-color text-decoration-underline">Как проехать</a>
+                    </p>
+                </div>
+                {#<div class="col d-none d-lg-block">
+                    <h4 class="fs-5 fw-bold text-uppercase">Новые автомобили</h4>
+                    <ul class="list">
+                        <li><a href="#" class="link-color">До 1 500 000₽</a></li>
+                        <li><a href="#" class="link-color">До 2 500 000₽</a></li>
+                        <li><a href="#" class="link-color">До 3 500 000₽</a></li>
+                        <li><a href="#" class="link-color">От 3 500 000₽</a></li>
+                        <li><a href="#" class="link-color">Отечественные</a></li>
+                        <li><a href="#" class="link-color">Иномарки</a></li>
+                        <li><a href="#" class="link-color">Японские</a></li>
+                        <li><a href="#" class="link-color">Немецкие</a></li>
+                    </ul>
+                </div>#}
+                <div class="col d-none d-lg-block">
+                    <h4 class="fs-5 fw-bold text-uppercase">Автомобили с пробегом</h4>
+                    <ul class="list">
+                        <li><a href="/avtomobili-s-probegom?f[19]=1:1000000" class="link-color">До 1 000 000₽</a></li>
+                        <li><a href="/avtomobili-s-probegom?f[19]=1:1200000" class="link-color">До 1 200 000₽</a></li>
+                        <li><a href="/avtomobili-s-probegom?f[19]=1:1500000" class="link-color">До 1 500 000₽</a></li>
+                        <li><a href="/avtomobili-s-probegom?f[19]=2500000:99999999" class="link-color">От 2 500 000₽</a></li> {#
+                        <li><a href="#" class="link-color">Отечественные</a></li>
+                        <li><a href="#" class="link-color">Иномарки</a></li>
+                        <li><a href="#" class="link-color">Японские</a></li>
+                        <li><a href="#" class="link-color">Немецкие</a></li>
+                        <li><a href="#" class="link-color">Китайские</a></li>#}
+
+                    </ul>
+                </div>
+                <div class="col d-none d-lg-block">
+                    <h4 class="fs-5 fw-bold text-uppercase">Услуги</h4>
+                    <ul class="list">
+                        <li><a href="/kredit" class="link-color">Кредит</a></li>
+                        <li><a href="/akcii2" class="link-color">Акции</a></li>
+                        <li><a href="/trejd-in" class="link-color">TRADE IN</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center text-lg-start">
+                <button
+                    class="btn btn-primary text-white px-3 px-lg-5"
+                    data-bs-toggle="modal"
+                    data-bs-target="#feedback"
+                >
+                    Заказать звонок
+                </button>
+                </div>
+                <div class="col text-end d-none d-lg-block">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <div class="px-3">
+                            <img src="/templates/atlant/images/payments/mastercard.png" alt="mastercard" />
+                        </div>
+                        <div class="px-3">
+                            <img src="/templates/atlant/images/payments/visa.png" alt="visa" />
+                        </div>
+                        <div class="px-3">
+                            <img src="/templates/atlant/images/payments/mir.png" alt="mir" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="m-0 d-none d-lg-block" />
+        <div class="container pt-3 pt-lg-4 pb-5">
+            <div class="row flex-column flex-lg-row">
+                <div class="col">
+                    <p class="small text-center text-lg-start m-0">© 1998–2022 «{{baseSettings.pagetitle}}»</p>
+                </div>
+                <div class="col d-none d-lg-block">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="px-2">
+                            <a href="#" class="link-color"
+                                ><img src="/templates/atlant/images/socials/fb.png" alt="fb"
+                            /></a>
+                        </div>
+                        <div class="px-2">
+                            <a href="#" class="link-color"
+                                ><img src="/templates/atlant/images/socials/vk.png" alt="vk"
+                            /></a>
+                        </div>
+                        <div class="px-2">
+                            <a href="#" class="link-color"
+                                ><img src="/templates/atlant/images/socials/ok.png" alt="ok"
+                            /></a>
+                        </div>
+                        <div class="px-2">
+                            <a href="#" class="link-color"
+                                ><img src="/templates/atlant/images/socials/telegram.png" alt="telegram"
+                            /></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-end d-lg-none">
+                    <div class="d-flex align-items-center justify-content-center py-3">
+                        <div class="px-2">
+                            <img src="/templates/atlant/images/payments/mastercard.png" alt="mastercard" />
+                        </div>
+                        <div class="px-2">
+                            <img src="/templates/atlant/images/payments/visa.png" alt="visa" />
+                        </div>
+                        <div class="px-2">
+                            <img src="/templates/atlant/images/payments/mir.png" alt="mir" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="small text-center text-lg-end m-0">
+                        <a href="#" class="link-color text-decoration-underline"
+                            >Политика конфиденциальности</a
+                        >
+                    </p>
+                </div>
+                <div><p class="small text-center text-lg-end m-0">ООО «Атон»
+
+ИНН 7810918730
+
+ОГРН  1217800071796 </p></div>
+            </div>
+        </div>
+    </footer>
+    

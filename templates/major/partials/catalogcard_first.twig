@@ -1,0 +1,22 @@
+<div class="col-lg-3 col-md-4 col-sm-6">
+<div class="item mb-3 p-3">
+    <div class="image text-center mb-2">
+{% set car_photos = "https://s3.multiauto.site/new_cars/" ~ data['tv.configuration_id'] ~ ".jpg"%}
+        <a href="{{ data['url'] }}"><img src="{{car_photos | raw}}"></a>
+    </div>
+    <a href="{{ data['url'] }}" class="name mb-3 d-block">                    {{ data['pagetitle'] }} {{data[tv.body_type]}}
+
+</a>
+    <div class="price mb-3">
+        <span class="old">
+        {{ data['tv.old-car-price'] }} ₽
+</span>
+        <div class="new">
+            {{ data['tv.car-price'] }} ₽
+        </div>
+    </div>
+    <div class="items bg-dark text-light text-center p-2 mb-2">
+        {{random(1, 17)}} автомобилей в наличии
+    </div>
+    <button class="w-100 btn btn-danger" data-fancybox="" data-src="#popup" >Купить в один клик</button>
+</div></div>

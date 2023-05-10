@@ -1,0 +1,23 @@
+{% set headermenu = runSnippet('DLMenu', {
+    parents: baseSettings["id"],
+    tvList: 'image',
+    innerTpl: '@CODE:
+        [+wrap+]',
+    innerRowTpl: '@CODE: <li class="w-25"><a href="[+url+]" class="d-block h-100 ">[+pagetitle+]</a></li>',
+    parentRowTpl: '@CODE: <li class="w-25"><a href="[+url+]" class="d-block h-100 ">[+pagetitle+]</a></li>',
+    rowTpl: '@CODE: <li class="w-25"><a href="[+url+]" class="d-block h-100 ">[+pagetitle+]</a></li>',
+    rowHereTpl: '@CODE: <li class="w-25"><a href="[+url+]" class="d-block h-100 active">[+pagetitle+]</a></li>',
+    outerTpl: '@CODE: <ul class="flex">
+    <li class="w-25"><a href="/" class="d-block h-100 ">Автомобили по акции</a></li>
+        [+wrap+]</ul>'}) %}    
+
+<nav class="top-menu mb-5">
+        <div class="container-fluid">
+            <ul class="flex">
+<li class="w-25"><a href="#cars" class="d-block h-100 active">Автомобили по акции</a></li>
+<li class="w-25"><a href="#contacts" class="d-block h-100 ">Контакты</a></li>
+<li class="w-25"><a href="#adres" class="d-block h-100 ">Проложить маршрут</a></li>
+
+            </ul>
+        </div>
+</nav>

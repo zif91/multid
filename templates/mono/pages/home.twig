@@ -1,0 +1,74 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{#% cache 'main' ~ resource.id %#}
+{% set catalog_id = baseSettings.catalog_number %}
+{% set equipment = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+_controller: 'catalog_filters',
+display: 20,
+parents: catalog_id,
+addWhereList: 'isfolder=1',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard_outer',
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+paginate:'pages',
+TplNextP:'',
+TplPrevP:'',
+TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+tvSortType: 'UNSIGNED',
+api: 0,
+
+})
+%}
+{% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
+rowTpl:'@CODE:
+<div class="index-page-slider text-light">
+	<div class="item" style="background: url([+image+]) center/cover;">
+		<div class="container-fluid flex">
+			<p>[+title+]</p>
+			<button class="mt-lg-4 mt-2" onclick="scrollToCars()">Автомобили по акции</button>
+		</div>
+	</div>
+</div>'}) %}
+{{banner |raw}}
+{% include '/partials/menu.twig' %}
+<div class="index-catalog-block pb-5">
+	<div class="container-fluid" id="cars">
+		<h1 class="h1 mb-4">{{baseSettings.mark}} - Автомобили в наличии</h1>
+		<div class="filter flex pb-3">
+		</div>
+		{{DLCatalog |raw}}
+	</div>
+</div>
+</div>
+<div class="index-filter-block pb-5" id="contacts">
+	<div class="container-fluid">
+		<h2 class="h2 mb-5">Индивидуальный подбор {{baseSettings.mark}}</h2>
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/mono/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+	</div>
+</div>
+<script>
+  function scrollToCars() {
+    var element = document.getElementById("cars");
+    element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
+</script>
+
+{% include('partials/contacts.twig') %}
+{#% include '/partials/tradein.twig' %#}
+{#% endcache %#}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'app.twig' %}
+
+{% block MAIN %}
+    
+<div class="page-name py-4">
+    <div class="container">
+        <h1 class="h1 m-0">Контакты</h1>
+    </div>
+</div>
+
+{% include('partials/contacts.twig') %}
+
+
+    <div class="s-address section-36">
+        <div class="container">
+            {{resource.content | raw}}
+        </div>
+    </div>
+{% endblock %}

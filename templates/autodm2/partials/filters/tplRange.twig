@@ -1,0 +1,19 @@
+<div class="price-range-group flex">
+	<input type="text" class="price-range-input range-min" value="{{ data['min'] }}">
+	<input type="text" class="price-range-input range-max" value="{{ data['max'] }}">
+</div>
+<div class="price-range-slider flex">
+	<input type="hidden" class="price-range-slider-js filter-range-slider" name="f[ {{ data['id'] }} ][]" id="{{ data['hash'] }}" data-input-type="range" data-id="{{ data['id'] }}" value="" data-min="{{ data['min'] }}" data-max="{{ data['max'] }}" data-from="{{ data['from'] }}" data-to="{{ data['to'] }}" data-step="{{ data['step'] }}" data-type="double" data-grid="false" />
+</div>
+{#<div class="prices">
+	<div class="flex"> <input type="" class="filter-range-slider" name="f[{{ data['id'] }}][]" id="{{ data['hash'] }}" data-input-type="range" data-id="{{ data['id'] }}" value="" data-min="{{ data['min'] }}" data-max="{{ data['max'] }}" data-from="{{ data['from'] }}" data-to="{{ data['to'] }}" data-step="{{ data['step'] }}" data-type="double" />
+		<input class="filter-range-slider" type="range" data-id="{{ data['id'] }}" class="form-range" min="{{ data['min'] }}" max="{{ data['max'] }}" data-from="{{ data['from'] }}" data-to="{{ data['to'] }}" data-step="{{ data['step'] }}" data-type="double" id="{{ data['hash'] }}">
+		<div id="slider-range"></div>
+	</div>
+</div>#}
+{#<div class="prices">
+	<input type="text" id="amount" readonly>
+	<span class="line"></span>
+	<input type="text" id="amount2" readonly>
+	<div id="slider-range"><input type="hidden" class="filter-range-slider" name="f[{{ data['id'] }}][]" id="{{ data['hash'] }}" data-input-type="range" data-id="{{ data['id'] }}" value="" data-min="{{ data['min'] }}" data-max="{{ data['max'] }}" data-from="{{ data['from'] }}" data-to="{{ data['to'] }}" data-step="{{ data['step'] }}" data-type="double"></div>
+	#}

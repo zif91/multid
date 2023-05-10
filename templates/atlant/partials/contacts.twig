@@ -1,0 +1,99 @@
+
+                      {# {{  runSnippet('map', {zoom:'15',grey:'1', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+ }) | raw}}  #}
+ {% set map = runSnippet('map', {zoom:'15',grey:'1', class:'123', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+ })  %}
+
+ <div class="container px-4 py-5 d-lg-none">
+    <p>Офис {{baseSettings.pagetitle}}:</p>
+    <p class="fw-bold">Санкт-Петербург, {{baseSettings.salon_location}}</p>
+    <p>
+        <a href="#" class="text-red" data-bs-toggle="modal" data-bs-target="#map">
+            Смотреть на карте
+        </a>
+    </p>
+</div>
+
+<div class="modal fade" id="map" tabindex="-1" aria-labelledby="mapLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="mapLabel">Смотреть на карте</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                <div style="position: relative; overflow: hidden">
+                    {#{map|raw}#}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+    class="modal fade"
+    id="feedback"
+    tabindex="-1"
+    aria-labelledby="feedbackLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        {{ runSnippet('Form', {
+                            formid: 'FormCallback',
+                            path: '/templates/atlant/partials/forms/feedback_modal/',
+                            extension: 'twig'
+                        })  | raw }} 
+    </div>
+</div>
+
+
+<div class="modal fade" id="creditpopup" tabindex="-1" aria-labelledby="creditLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="background: radial-gradient(116.43% 272.68% at 4.42% 8.56%, #fa544b 0, #c54740 100%)">
+            <div class="modal-header border-0" >
+                <!--<h5 class="modal-title" id="mapLabel">Рассчитать кредитный платеж</h5>-->
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="">
+                <div style="position: relative; overflow: hidden; margin-top: -1.5rem;">
+
+                {{ runSnippet('Form', {
+                            formid: 'FormCredit',
+                            path: '/templates/atlant/partials/forms/credit2/',
+                            extension: 'twig'
+                        })  | raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="feedback d-none d-lg-block  position-relative">{{map|raw}}
+
+      <div class="container py-5 position-relative" style="z-index:99" >
+        <div class="row">
+            <div class="col">
+                {{ runSnippet('Form', {
+                            formid: 'FormCallback',
+                            path: '/templates/atlant/partials/forms/feedback/',
+                            extension: 'twig'
+                        })  | raw }}
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                
+            </div>
+        </div>
+    </div>
+</div>
+

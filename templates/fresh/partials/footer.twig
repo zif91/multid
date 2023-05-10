@@ -1,0 +1,63 @@
+<div class="popup" id="popup" style="display: none;">
+				<div class="flex">
+					<div class="image"></div>
+					
+ {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/fresh/partials/forms/feedback_modal/',
+        extension: 'twig'
+        }) | raw }}
+
+
+				</div>
+			</div>
+
+		<footer class="footer text-light py-sm-5 py-3">
+		<div class="container">
+			<div class="top-text text-center mb-5">
+				Остались вопросы? Мы свяжемся с Вами!
+			</div>
+
+			{{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/fresh/partials/forms/feedback/',
+        extension: 'twig'
+        }) | raw }}
+			<div class="flex">
+				<nav class="pb-3">
+					<p class="mb-4">Услуги</p>
+					<ul>
+						<li class="mb-3"><a href="/katalog-novyh-avtomobilej/">Автомобили в наличии</a></li>
+						<li class="mb-3"><a href="#">Кредит</a></li>
+
+					</ul>
+				</nav>
+				{#<nav class="pb-3">
+					<p class="mb-4">Продать</p>
+					<ul>
+						<li class="mb-3"><a href="#">Оценка и выкуп</a></li>
+						<li class="mb-3"><a href="#">Обмен / Trade-in</a></li>
+						<li class="mb-3"><a href="#">Комиссионная продажа</a></li>
+					</ul>
+				</nav>#}
+				<nav class="pb-3">
+					<p class="mb-4">Компания</p>
+					<ul>
+						<li class="mb-3"><a href="contacts">Контакты</a></li>
+					</ul>
+				</nav>
+				<div class="contacts mb-sm-5 mb-3">
+		{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"d-block mb-sm-4 mb-2"}) | raw}}
+					<a href="#" class="d-block mb-sm-4 mb-2">info@company.com</a>
+					
+				</div>
+			</div>
+			<div class="bottom-block flex pt-sm-4 pt-2">
+				<div class="copy">
+					© 2023 Автосалон 
+				</div>
+				<a href="/policy" class="rules">Пользовательское соглашение</a>
+			</div>
+		</div>
+	</footer>
+				

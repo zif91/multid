@@ -1,0 +1,13 @@
+{% extends 'app.twig' %}
+
+{% block MAIN %}
+    {% include('partials/contacts.twig') %}
+
+    <div class="section">
+        <div class="container">
+          <div class="p-3">
+            {{resource.content | raw}}
+          </div>
+        </div>
+    </div>
+{% endblock %}

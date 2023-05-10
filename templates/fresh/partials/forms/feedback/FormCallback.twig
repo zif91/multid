@@ -1,0 +1,24 @@
+<form><div class="row form pb-4">
+	    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+                   {{ data['form.messages'] | raw }}
+
+				<div class="col-md-4">
+					<input id="first_name" value="{{ data.first_name }}" type="text" placeholder="Имя" class="mb-3 w-100 px-3">
+				</div>
+				<div class="col-md-4">
+					<input type="text" placeholder="Телефон" name="mobile_tel"  class="mb-3 w-100 px-3 {{ data['mobile_tel.classname'] }} phone-imask" id="mobile_tel" value="{{ data.mobile_tel }}">
+				</div>
+				<div class="col-md-4">
+					<input type="text" placeholder=" E-mail" class="mb-3 w-100 px-3">
+				</div>
+				<div class="col-md-8">
+					<div class="agree mb-3">
+						Нажимая кнопку, вы принимаете условия <a href="/policy">Политики конфиденциальности</a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<button type="submit" class="w-100 mb-5">Задать вопрос</button>
+				</div>
+			</div>
+		</form>
+

@@ -1,0 +1,20 @@
+    <footer class="footer py-5">
+        <div class="container-fluid">
+            <div class="flex">
+                <div class="logo mb-3">
+                    <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
+                </div>
+                <ul class="pt-sm-2 mb-5">
+                    <li class="d-inline-block mr-sm-3 mr-2"><a href="#">Каталог автомобилей</a></li>
+                    <li class="d-inline-block mr-sm-3 mr-2"><a href="#">Акции</a></li>
+                    <li class="d-inline-block mr-sm-3 mr-2"><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="phone text-right mb-5">
+                {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'phone text-light'}) | raw}}
+            </div>
+            <div class="copy">
+                Данный сайт несет информационный характер и ни при каких условиях материалы и цены, размещенные на сайте, не являются публичной офертой. <a href="/policy">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>

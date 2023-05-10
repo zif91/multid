@@ -1,0 +1,21 @@
+{# <script src="https://unpkg.com/imask"></script>
+<script type="text/javascript">
+var phoneMask = IMask(
+  document.getElementById('formPhone'), {
+    mask: '+{7}(000)000-00-00'
+  });
+</script> #}
+<form class="form">
+  <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+  <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+  {{ data['form.messages'] | raw }}
+  <div class="name mb-5">
+    Оставить заявку
+  </div>
+  <input type="text" class="form-control mb-3 w-100 {{ data['first_name.classname'] }}" id="formName" name="first_name" value="{{ data.first_name }}" placeholder="Ваше имя" class="">
+  <input  type="text" name="mobile_tel" id="formPhone" placeholder="+7 (___) ___-__-__" value="{{ data.mobile_tel }}" class="phone mb-3 w-100 phone-imask phone-mask {{ data['mobile_tel.classname'] }} ">
+  <div class="agree">
+    <input type="checkbox" class="checkbox" id="agree"><label for="agree" class="mb-3 pl-4 d-block">Отправляя эту форму, я принимаю правила сайта и <a href="/politika">политику конфиденциальности</a></label>
+  </div>
+  <button type="submit"  class="btn btn-danger w-100">Получить предложение</button>
+</form>

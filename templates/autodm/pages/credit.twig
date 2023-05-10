@@ -1,0 +1,188 @@
+{% extends 'app.twig' %}
+{% set brand = runSnippet('DocLister',{
+parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle+]">[+pagetitle+]</option>'
+}) %}
+{#{{ runSnippet('DocLister', {display: 20, parents: 27, depth: 0, tvList:'car-price,old-car-price,car_photos', tpl:'@CODE:<section class="section-50 used-cars-block">
+    <div class="container">
+        <div class="section__top">
+            <h2 class="section-title title-black mb-36">[+pagetitle+]<a class="catalog-link" href="[+url+]">
+                    Все модели<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 16.5L14 10.4154L8.1669 4.5" stroke="#F72446" stroke-width="3" stroke-linecap="round" />
+                    </svg>
+                </a>
+            </h2>
+            <div class="cards">
+                [+news+]
+            </div>
+        </div>
+</section>',prepare:'FolderCars'
+}) |raw}} #}
+{% block MAIN %}
+
+<main class="item-page">
+    <div class="price d-none">10000000</div>
+    <div class="p-5 row">
+    <div class="col-md-1"></div><h1>Рассчитайте кредит на покупку автомобиля!</h1></div>
+    <div class="row p-sm-0 px-5">
+        <div class="col-md-1"></div>
+        <div class="calc col-md-6">
+            <h2>Выгода при покупке в кредит!</h2>
+            <p class="pb-2">Ставка от 4.9% годовых!</p>
+            <div class="item">
+                Сумма кредита
+                <input type="text" id="amounter" readonly>
+                <div id="slider-range-max"></div>
+            </div>
+            <div class="item">
+                Первоначальный взнос
+                <input type="text" id="first-pay" readonly>
+                <div id="slider-range-max3"></div>
+            </div>
+            <div class="item">
+                Срок кредита
+                <input type="text" id="amounter2" readonly>
+                <div id="slider-range-max2"></div>
+            </div>
+            <div class="item">
+Кредитная программа
+<div>
+                <select class="-select py-2 border-0 w-100">
+                    <option value="12" selected >Выберите кредитную программу</option> 
+                    <option value="1,6"  >Первый автомобиль (Ставка 1.6%, Скидка 20%)</option> 
+                    <option value="1,6"  >Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option> 
+
+                    <option value="1,6"  >Медицинский работник  (Ставка 1.6%, Скидка 20%)</option> 
+
+                    <option value="1,6"  >Госпрограмма льготного кредитования (Ставка 1.6%)</option> 
+                    <option value="9,9"  >Стандартная кредитная программа  (Ставка 9.9%)</option> 
+
+
+    </select>
+</div>
+                <div id="slider-range-max2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="item">
+                        <span> Платеж от</span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item">
+                        <span id="payment2">30 050 р/мес.</span>
+                    </div>
+                </div>
+            </div>
+            {#<button type="button" data-toggle="modal" data-target="#oneclick">Рассчитать кредит</button>#}
+            {{ runSnippet('Form', {
+        formid: 'FormCredit',
+        path: '/templates/autodm/partials/forms/credit3/',
+        extension: 'twig'
+        }) | raw }}
+        </div>
+        <div class="col-md-4">
+        <div class="d-flex justify-content-between pt-5">
+            <span class="credit-text text-start">Кредитная ставка:</span>
+            <span class="credit-amounts text-end" id="percent">12%</span>
+            </div>        <div class="d-flex justify-content-between">
+
+             <span class="credit-text text-start">Программа: </span>
+            <span class="credit-amounts text-end"  id="program-name">Стандартная программа</span>
+            </div>        <div class="d-flex justify-content-between">
+
+            <span class="credit-text text-start">Первоначальный взнос:</span>
+            <span class="credit-amounts text-end"  id="first-pay2">123</span>
+            </div>        <div class="d-flex justify-content-between">
+
+             <span class="credit-text text-start">Сумма кредита:</span>
+            <span class="credit-amounts text-end"  id="summ">123</span>
+            </div>        <div class="d-flex justify-content-between">
+
+             <span class="credit-text text-start">Срок:</span>
+            <span class="credit-amounts"   id="mes">123</span></div>
+              <div class="d-flex justify-content-between">
+
+            <span class="credit-text text-start">Ежемесячный платеж:</span>
+<span class="credit-amounts text-end" id="paymentSpan2">0 р/мес.</span>
+
+        
+        </div></div>
+    </div>
+    <div class="row">
+        
+    </div>
+    {% include('partials/banks.twig') %}
+</main>
+{% endblock %}
+{% block SCRIPTS %}
+<script src="static/js/choices.min.js"></script>
+<script src="static/js/select2.js"></script>
+<script type="text/javascript">
+$(function() {
+    const select = $('.-select');
+const programName = $('#program-name');
+  programName.text("Не выбрана программа кредитования"); // устанавливаем значение по умолчанию
+const amountInput = $('#amounter');
+const firstPayInput = $('#first-pay');
+const termInput = $('#amounter2');
+const paymentSpan = $('#payment2');
+const stavka = $('#percent');
+const price = parseFloat($('.price').text().replace(/\s+/g, '').replace(/₽/, ''));
+const selectedOption = $(this).find('option:selected');
+$('#slider-range-max').slider({range: 'max',min: price / 40,max: price,value: 500000,slide: function(event, ui) {amountInput.val(ui.value.toLocaleString('ru-RU') + ' р.');updatePayment();updateFirstPaySlider(ui.value);}});
+amountInput.val($('#slider-range-max').slider('value').toLocaleString('ru-RU') + ' р.');
+$('#slider-range-max3').slider({range: 'max',min: 0,max: 400000,value: 300000,slide: function(event, ui) {firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' р.');updatePayment();}});
+firstPayInput.val($('#slider-range-max3').slider('value').toLocaleString('ru-RU') + ' р.');
+$('#slider-range-max2').slider({range: 'max',min: 12,max: 88,value: 88,slide: function(event, ui) {termInput.val(ui.value + ' месяцев');updatePayment();}});
+termInput.val($('#slider-range-max2').slider('value') + ' месяцев');
+
+function updateFirstPaySlider(maxValue) {
+const firstPaySlider = $('#slider-range-max3');
+const firstPayValue = parseFloat(firstPaySlider.slider('value'));
+const newMaxValue = Math.min(maxValue, price);
+if (firstPayValue > newMaxValue) {
+firstPaySlider.slider('value', newMaxValue);
+firstPayInput.val(newMaxValue.toLocaleString('ru-RU') + ' р.');
+}
+firstPaySlider.slider('option', 'max', newMaxValue);
+}
+
+function updatePayment() {
+  const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
+  const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+  const term = parseFloat(termInput.val()) || 0;
+const programValue = select.val();
+let coefficient = 1.24;
+
+switch (programValue) {
+  case "1,6":
+    coefficient = 1 + (16 / 100);
+    break;
+  case "9,9":
+    coefficient = 1.24;
+    break;
+  // Добавить обработку для остальных программ
+}
+const payment = (amount - firstPay) / term * coefficient;  paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+  $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' р.');
+  $('#percent').text(programValue + ' %');
+  $('#summ').text(amount.toLocaleString('ru-RU') + ' р.');
+  $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
+  $('#paymentSpan2').text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+const selectedOption = $(this).find('option:selected');
+const programNameText = selectedOption.text().split('(')[0].trim();
+if (programNameText === '') {
+  programName.text('Не выбрана программа кредитования');
+} else {
+  programName.text(programNameText);
+}
+console.log(programNameText);}
+
+updatePayment();
+
+amountInput.on('input', updatePayment);
+firstPayInput.on('input', updatePayment);
+termInput.on('change', updatePayment);
+select.on('change',updatePayment);
+});</script>
+{% endblock %}

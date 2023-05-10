@@ -1,0 +1,143 @@
+ <div class="popup popup__error" data-popup-id="#popupError">
+        <div class="popup__close" data-popup-close>
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.6447 17.9411L35.6152 0.970562L37.0294 2.38478L20.0589 19.3553L37.0294 36.3259L35.6152 37.7401L18.6447 20.7696L1.67409 37.7401L0.259876 36.3259L17.2304 19.3553L0.259877 2.38478L1.67409 0.970562L18.6447 17.9411Z" fill="white"></path>
+            </svg>
+        </div>
+        <div class="popup__title">ошибка....</div>
+        <p>Ой видимо что-то пошло не так :( </p>
+        <p>
+            Перезвоните по номеру <a href="tel:+78122204847">+7 (812) 220-48-47, </a></p>
+        <p>либо попробуйте отправить заявку еще раз</p>
+    </div>
+    <div class="popup popup__success" data-popup-id="#popupSuccess">
+        <div class="popup__close" data-popup-close>
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.6447 17.9411L35.6152 0.970562L37.0294 2.38478L20.0589 19.3553L37.0294 36.3259L35.6152 37.7401L18.6447 20.7696L1.67409 37.7401L0.259876 36.3259L17.2304 19.3553L0.259877 2.38478L1.67409 0.970562L18.6447 17.9411Z" fill="#333333"></path>
+            </svg>
+        </div>
+        <div class="popup__title">Успешно!</div>
+        <p>Наши менеджеры уже совсем скоро вам презвонят!</p>
+    </div>
+    <div class="popup popup__request" data-popup-id="#popupRequest">
+        <div class="popup__close" data-popup-close>
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.6447 17.9411L35.6152 0.970562L37.0294 2.38478L20.0589 19.3553L37.0294 36.3259L35.6152 37.7401L18.6447 20.7696L1.67409 37.7401L0.259876 36.3259L17.2304 19.3553L0.259877 2.38478L1.67409 0.970562L18.6447 17.9411Z" fill="#333333"></path>
+            </svg>
+        </div>
+        <div class="popup__title">Отправить заявку</div>
+        <form class="popupForm" action="/">
+            <div class="popupForm__list">
+                <input type="text" name="name" aria-label="name" required placeholder="Ваше имя">
+                <input type="tel" name="phone" aria-label="phone" required placeholder="Телефон">
+            </div>
+            <button class="Button Button--z18 Button--big" type="submit">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3225 1.40907C22.7222 0.793011 21.8338 0.563498 21.0055 0.805091L1.6896 6.42212C0.815638 6.66492 0.196185 7.36192 0.0293162 8.24736C-0.141154 9.1485 0.45429 10.2924 1.23221 10.7708L7.27188 14.4829C7.89134 14.8634 8.69086 14.7679 9.20347 14.2509L16.1195 7.29186C16.4676 6.92947 17.0439 6.92947 17.392 7.29186C17.7402 7.64217 17.7402 8.20991 17.392 8.5723L10.464 15.5326C9.95018 16.0484 9.85414 16.8517 10.2323 17.475L13.9226 23.5752C14.3548 24.3 15.0991 24.7107 15.9154 24.7107C16.0115 24.7107 16.1195 24.7107 16.2155 24.6986C17.1519 24.5778 17.8962 23.9376 18.1723 23.0316L23.8987 3.74044C24.1508 2.91903 23.9227 2.02513 23.3225 1.40907Z" fill="white"></path>
+                </svg>Отправить заявку
+            </button>
+            <div class="popupForm__agree agree">
+                Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#"> <span>персональных данных</span></a></div>
+        </form>
+    </div>
+    <div class="popup popup__request" data-popup-id="#popupRequestModel">
+        <div class="popup__close" data-popup-close>
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.6447 17.9411L35.6152 0.970562L37.0294 2.38478L20.0589 19.3553L37.0294 36.3259L35.6152 37.7401L18.6447 20.7696L1.67409 37.7401L0.259876 36.3259L17.2304 19.3553L0.259877 2.38478L1.67409 0.970562L18.6447 17.9411Z" fill="#333333"></path>
+            </svg>
+        </div>
+        <div class="popup__title">Отправить заявку</div>
+        <ul class="autoOptions">
+            <li class="autoOptions__item" data-auto="model">Автомобиль: <b>KIA RIO</b></li>
+            <li class="autoOptions__item" data-auto="equipment">Комплектация: <b>COMFORT</b></li>
+        </ul>
+        <form class="popupForm" action="/">
+            <div class="popupForm__list">
+                <input type="text" name="name" aria-label="name" required placeholder="Ваше имя">
+                <input type="tel" name="phone" aria-label="phone" required placeholder="Телефон">
+            </div>
+            <button class="Button Button--z18 Button--big" type="submit">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3225 1.40907C22.7222 0.793011 21.8338 0.563498 21.0055 0.805091L1.6896 6.42212C0.815638 6.66492 0.196185 7.36192 0.0293162 8.24736C-0.141154 9.1485 0.45429 10.2924 1.23221 10.7708L7.27188 14.4829C7.89134 14.8634 8.69086 14.7679 9.20347 14.2509L16.1195 7.29186C16.4676 6.92947 17.0439 6.92947 17.392 7.29186C17.7402 7.64217 17.7402 8.20991 17.392 8.5723L10.464 15.5326C9.95018 16.0484 9.85414 16.8517 10.2323 17.475L13.9226 23.5752C14.3548 24.3 15.0991 24.7107 15.9154 24.7107C16.0115 24.7107 16.1195 24.7107 16.2155 24.6986C17.1519 24.5778 17.8962 23.9376 18.1723 23.0316L23.8987 3.74044C24.1508 2.91903 23.9227 2.02513 23.3225 1.40907Z" fill="white"></path>
+                </svg>Отправить заявку
+            </button>
+            <div class="popupForm__agree agree">
+                Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#"> <span>персональных данных</span></a></div>
+        </form>
+    </div>
+    <div class="popup popup__offer" data-popup-id="#popupOffer">
+        <div class="popup__close" data-popup-close>
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.6447 17.9411L35.6152 0.970562L37.0294 2.38478L20.0589 19.3553L37.0294 36.3259L35.6152 37.7401L18.6447 20.7696L1.67409 37.7401L0.259876 36.3259L17.2304 19.3553L0.259877 2.38478L1.67409 0.970562L18.6447 17.9411Z" fill="#333333"></path>
+            </svg>
+        </div>
+        <div class="popup__title">Спецпредложение</div>
+        <ul class="autoOptions">
+            <li class="autoOptions__item" data-auto="model">Автомобиль: <b>KIA RIO</b></li>
+            <li class="autoOptions__item" data-auto="equipment">Комплектация: <b>COMFORT</b></li>
+        </ul>
+        <form class="popupForm" action="/">
+            <div class="popupForm__list">
+                <input type="text" name="name" aria-label="name" required placeholder="Ваше имя">
+                <input type="tel" name="phone" aria-label="phone" required placeholder="Телефон">
+            </div>
+            <button class="Button Button--z18 Button--big" type="submit">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3225 1.40907C22.7222 0.793011 21.8338 0.563498 21.0055 0.805091L1.6896 6.42212C0.815638 6.66492 0.196185 7.36192 0.0293162 8.24736C-0.141154 9.1485 0.45429 10.2924 1.23221 10.7708L7.27188 14.4829C7.89134 14.8634 8.69086 14.7679 9.20347 14.2509L16.1195 7.29186C16.4676 6.92947 17.0439 6.92947 17.392 7.29186C17.7402 7.64217 17.7402 8.20991 17.392 8.5723L10.464 15.5326C9.95018 16.0484 9.85414 16.8517 10.2323 17.475L13.9226 23.5752C14.3548 24.3 15.0991 24.7107 15.9154 24.7107C16.0115 24.7107 16.1195 24.7107 16.2155 24.6986C17.1519 24.5778 17.8962 23.9376 18.1723 23.0316L23.8987 3.74044C24.1508 2.91903 23.9227 2.02513 23.3225 1.40907Z" fill="white"></path>
+                </svg>Отправить заявку
+            </button>
+            <div class="popupForm__agree agree">
+                Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#"> <span>персональных данных</span></a></div>
+        </form>
+    </div>
+    <div class="popup popup__reserve" data-popup-id="#popupReserve">
+        <div class="popup__close" data-popup-close>
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.6447 17.9411L35.6152 0.970562L37.0294 2.38478L20.0589 19.3553L37.0294 36.3259L35.6152 37.7401L18.6447 20.7696L1.67409 37.7401L0.259876 36.3259L17.2304 19.3553L0.259877 2.38478L1.67409 0.970562L18.6447 17.9411Z" fill="#333333"></path>
+            </svg>
+        </div>
+        <div class="popup__title">Зарезервировать</div>
+        <ul class="autoOptions">
+            <li class="autoOptions__item" data-auto="model">Автомобиль: <b>KIA RIO</b></li>
+            <li class="autoOptions__item" data-auto="equipment">Комплектация: <b>COMFORT</b></li>
+        </ul>
+        <form class="popupForm" action="/">
+            <div class="popupForm__list">
+                <input type="text" name="name" aria-label="name" required placeholder="Ваше имя">
+                <input type="tel" name="phone" aria-label="phone" required placeholder="Телефон">
+            </div>
+            <button class="Button Button--z18 Button--big" type="submit">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3225 1.40907C22.7222 0.793011 21.8338 0.563498 21.0055 0.805091L1.6896 6.42212C0.815638 6.66492 0.196185 7.36192 0.0293162 8.24736C-0.141154 9.1485 0.45429 10.2924 1.23221 10.7708L7.27188 14.4829C7.89134 14.8634 8.69086 14.7679 9.20347 14.2509L16.1195 7.29186C16.4676 6.92947 17.0439 6.92947 17.392 7.29186C17.7402 7.64217 17.7402 8.20991 17.392 8.5723L10.464 15.5326C9.95018 16.0484 9.85414 16.8517 10.2323 17.475L13.9226 23.5752C14.3548 24.3 15.0991 24.7107 15.9154 24.7107C16.0115 24.7107 16.1195 24.7107 16.2155 24.6986C17.1519 24.5778 17.8962 23.9376 18.1723 23.0316L23.8987 3.74044C24.1508 2.91903 23.9227 2.02513 23.3225 1.40907Z" fill="white"></path>
+                </svg>Отправить заявку
+            </button>
+            <div class="popupForm__agree agree">
+                Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#"> <span>персональных данных</span></a></div>
+        </form>
+    </div>
+    <div class="popup popup__credit" data-popup-id="#popupCredit">
+        <div class="popup__close" data-popup-close>
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.6447 17.9411L35.6152 0.970562L37.0294 2.38478L20.0589 19.3553L37.0294 36.3259L35.6152 37.7401L18.6447 20.7696L1.67409 37.7401L0.259876 36.3259L17.2304 19.3553L0.259877 2.38478L1.67409 0.970562L18.6447 17.9411Z" fill="#333333"></path>
+            </svg>
+        </div>
+        <div class="popup__title">Заявка на кредит</div>
+        <ul class="autoOptions">
+            <li class="autoOptions__item" data-auto="model">Автомобиль: <b>KIA RIO</b></li>
+            <li class="autoOptions__item" data-auto="equipment">Комплектация: <b>COMFORT</b></li>
+        </ul>
+        <form class="popupForm" action="/">
+            <div class="popupForm__list">
+                <input type="text" name="name" aria-label="name" required placeholder="Ваше имя">
+                <input type="tel" name="phone" aria-label="phone" required placeholder="Телефон">
+            </div>
+            <button class="Button Button--z18 Button--big" type="submit">
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.3225 1.40907C22.7222 0.793011 21.8338 0.563498 21.0055 0.805091L1.6896 6.42212C0.815638 6.66492 0.196185 7.36192 0.0293162 8.24736C-0.141154 9.1485 0.45429 10.2924 1.23221 10.7708L7.27188 14.4829C7.89134 14.8634 8.69086 14.7679 9.20347 14.2509L16.1195 7.29186C16.4676 6.92947 17.0439 6.92947 17.392 7.29186C17.7402 7.64217 17.7402 8.20991 17.392 8.5723L10.464 15.5326C9.95018 16.0484 9.85414 16.8517 10.2323 17.475L13.9226 23.5752C14.3548 24.3 15.0991 24.7107 15.9154 24.7107C16.0115 24.7107 16.1195 24.7107 16.2155 24.6986C17.1519 24.5778 17.8962 23.9376 18.1723 23.0316L23.8987 3.74044C24.1508 2.91903 23.9227 2.02513 23.3225 1.40907Z" fill="white"></path>
+                </svg>Отправить заявку
+            </button>
+            <div class="popupForm__agree agree">
+                Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#"> <span>персональных данных</span></a></div>
+        </form>
+    </div>
+    <div class="overlay"></div>

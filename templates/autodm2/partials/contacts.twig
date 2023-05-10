@@ -1,0 +1,36 @@
+
+                      {# {{  runSnippet('map', {zoom:'15',grey:'1', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+ }) | raw}}  #}
+ {% set ultimid = runSnippet('UltimateParent', {}) %}
+ {% set map = runSnippet('map', {zoom:'15',grey:'1', class:'123', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+ })  %}
+
+    <div id="adres" class="map-block">
+        {{ map | raw }}
+        
+        <div class="content">
+            <div class="container-fluid">
+                <div class="contacts">
+                    <ul>
+                        <li>
+                            <span><img src="/templates/autodm/img/contacts1.svg"></span>
+{{  baseSettings['pagetitle'] | raw}}  , {{baseSettings.salon_location}}                        </li>
+                        <li>
+                            <span><img src="/templates/autodm/img/contacts2.svg"></span>
+{{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}                         </li>
+                        <li>
+                            <span><img src="/templates/autodm/img/contacts3.svg"></span>
+                            Ежедневно с 9:00 до 21:00
+                        </li>
+                    </ul>
+                    <a href="https://yandex.ru/maps/?rtext=~{{baseSettings.salon_coordinates}}">Проложить маршрут</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+   
+
+
+ 
+

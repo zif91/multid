@@ -1,0 +1,159 @@
+.header ul li a:hover {
+  color: #2f80ed;
+}
+.header .contacts a:hover {
+  color: #2f80ed;
+}
+.header .contacts button {
+  background: #2f80ed;
+}
+.index-first-block form .flex .prices .ui-widget-header {
+  background: #2f80ed;
+}
+.index-first-block form .flex .prices .ui-state-default,
+.index-first-block form .flex .prices .ui-widget-content .ui-state-default,
+.index-first-block form .flex .prices .ui-widget-header .ui-state-default,
+.index-first-block form .flex .prices .ui-button,
+.index-first-block form .flex .prices html .ui-button.ui-state-disabled:hover,
+.index-first-block form .flex .prices html .ui-button.ui-state-disabled:active {
+  border: 5px solid #2f80ed;
+}
+.index-first-block form .flex button {
+  background: #2f80ed;
+}
+.brands-block .bottom-button button {
+  color: #2f80ed;
+}
+.brands-block .bottom-button button span {
+  background: url('img/arrow3.svg');
+}
+.catalog-block .item .name:hover {
+  color: #2f80ed;
+}
+.catalog-block .item .buttons button:nth-child(1) {
+  background: #2f80ed;
+}
+.catalog-block .item .buttons button:nth-child(2) {
+  color: #2f80ed;
+  background: rgba(47, 128, 237, 0.31);
+}
+.catalog-block .bottom-button button {
+  color: #2f80ed;
+}
+.catalog-block .bottom-button button span {
+  background: url('img/arrow3.svg');
+}
+.catalog-block .pages a:hover {
+  color: #2f80ed;
+}
+.compilations-block .item button {
+  color: #2f80ed;
+}
+.services-block .item button {
+  color: #2f80ed;
+}
+.services-block .item button:hover {
+  background: #2f80ed;
+}
+.feedback-block form button {
+  background: #2f80ed;
+}
+.map-block .content .contacts a {
+  color: #2f80ed;
+}
+.footer .left-block .phone:hover {
+  color: #2f80ed;
+}
+.footer .left-block button {
+  background: #2f80ed;
+}
+.footer nav ul li a:hover {
+  color: #2f80ed;
+}
+.navi a:hover {
+  color: #2f80ed;
+}
+.index-first-block form .bottom-link {
+  color: #2f80ed;
+  background: url('img/arrow6.svg') no-repeat right;
+}
+.item-page .buttons button:nth-child(1) {
+  background: #2f80ed;
+}
+.item-page .buttons button:nth-child(2) {
+  color: #2f80ed;
+  background: rgba(47, 128, 237, 0.31);
+}
+.item-page .counts .item .line span {
+  background: #2f80ed;
+}
+.item-page .calc .item .ui-widget-content {
+  background: #2f80ed;
+}
+.item-page .calc .item .ui-state-default,
+.item-page .calc .item .ui-widget-content .ui-state-default,
+.item-page .calc .item .ui-widget-header .ui-state-default,
+.item-page .calc .item .ui-button,
+.item-page .calc .item html .ui-button.ui-state-disabled:hover,
+.item-page .calc .item html .ui-button.ui-state-disabled:active {
+  border: 2px solid #2f80ed;
+}
+.item-page .calc button {
+  background: #2f80ed;
+}
+.catalog-block .slick-dots li.slick-active button {
+  background: #2f80ed;
+}
+.compilations-block .slick-dots li.slick-active button {
+  background: #2f80ed;
+}
+.services-block .slick-dots li.slick-active button {
+  background: #2f80ed;
+}
+.item-page .photos .slick-dots li.slick-active button {
+  background: #2f80ed;
+}
+.calc-page .block1 .price .new {
+  color: #2f80ed;
+}
+.calc-page .block2 .ui-widget-header {
+  background: #2f80ed;
+}
+.calc-page .block2 .ui-state-default,
+.calc-page .block2 .ui-widget-content .ui-state-default,
+.calc-page .block2 .ui-widget-header .ui-state-default,
+.calc-page .block2 .ui-button,
+.calc-page .block2 html .ui-button.ui-state-disabled:hover,
+.calc-page .block2 html .ui-button.ui-state-disabled:active {
+  border: 5px solid #2f80ed;
+}
+.calc-page .block3 table tr td:last-child {
+  color: #2f80ed;
+}
+.calc-page .bottom-button button {
+  background: #2f80ed;
+}
+.articles-block .list .item button {
+  background: #2f80ed;
+}
+.articles-block .slick-dots li.slick-active button {
+  background: #2f80ed;
+}
+.text-block blockquote {
+  border-left: 2px solid #2f80ed;
+}
+.contacts-page a {
+  color: #2f80ed;
+}
+.actions-page .item button {
+  background: #2f80ed;
+}
+.services-page .item button {
+  color: #2f80ed;
+}
+.services-page .item button:hover {
+  background: #2f80ed;
+}
+.service-page .docs .doc .number {
+  color: #2f80ed;
+}

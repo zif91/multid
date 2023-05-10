@@ -1,0 +1,34 @@
+<?php
+
+return [
+    'caption' => 'Заказы',
+
+    'fields' => [
+        'name' => [
+            'caption' => 'ФИО',
+        ],
+        'phone' => [
+            'caption' => 'Телефон',
+        ],
+        'products' => [
+            'caption' => 'Какими продуктами пользуется',
+
+            // показывать данное поле только в просмотре заявки
+            'onlyfull' => true,
+
+            // заменять значение поля на представленные ниже
+            'elements' => [
+                1 => 'Продукт 1',
+                2 => 'Продукт 2',
+                3 => 'Продукт 3',
+            ],
+        ],
+        'page' => [
+            'caption' => 'Страница',
+            'prepare' => function($value, $data, $evo) {
+                $value = str_replace('&nbsp;', ' ', $value);
+                return $value;
+            },
+        ],
+    ],
+];

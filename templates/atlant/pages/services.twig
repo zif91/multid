@@ -1,0 +1,54 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+
+                            {{  runSnippet('DocLister', 
+                            {display: 20, 
+                              parents: 27, 
+                              depth: 0, 
+                              tvList:'car-price,old-car-price,car_photos', 
+                              tpl:'@CODE:<section class="section-50 used-cars-block">
+                                <div class="container">
+                                  <div class="section__top">
+                                    <h2 class="section-title title-black mb-36">[+pagetitle+]<a class="catalog-link"
+                                        href="[+url+]">
+                                        Все модели<svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                          xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M8 16.5L14 10.4154L8.1669 4.5" stroke="#F72446" stroke-width="3"
+                                            stroke-linecap="round" />
+                                        </svg>
+                                      </a>
+                                    </h2>
+                                    <div class="cards">
+                                      [+cars+]
+                                    </div>
+                                  </div>
+                              </section>',
+                prepare:'FolderCars',
+                filter: 'filters',
+                filterRangeSeparator: ':',
+                filterValuesSeparator: '|',
+                filterDelimiter: '||',
+                'filter_delimiter:containsAll': '~',
+                filterPriceId: 19,
+                filterList: 9,
+                _filterList: '19:range;9:dropdown;134:range;135:range;136:range',
+                filterCategory: 20,
+                filterCounters: 1,
+                filterUseParams: 1,
+                filterTpl: '@T_FILE:partials/filters/tpl.twig',
+                filterOwnerRange: '@T_FILE:partials/filters/ownerRange.twig',
+                filterTplRange: '@T_FILE:partials/filters/tplRange',
+                filterOwnerCheckbox: '@T_FILE:cpartials/filters/ownerCheckbox',
+                filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+                filterOwnerRadio: '@T_FILE:partials/filters/ownerRadio',
+                filterTplRadio: '@T_FILE:partials/filters/tplRadio',
+                templateExtension: 'twig',
+
+}) |raw}}
+
+{{ filters }}
+{{ plh.filters | raw }}
+{{ data['wrap'] }}
+
+
+{% endblock %} 

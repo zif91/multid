@@ -1,0 +1,27 @@
+<form class="row">
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    {{ data['form.messages'] | raw }}
+    <div class="col-lg-3 col-4">
+        <div class="field mb-4">
+            <p class="mb-3">Модель</p>
+            <input type="text" class="w100 px-2" placeholder="Audi a4">
+        </div>
+    </div>
+    <div class="col-lg-3 col-4">
+        <div class="field mb-4">
+            <p class="mb-3">Комментарий</p>
+            <input type="text" class="w100 px-2" placeholder="Text">
+        </div>
+    </div>
+    <div class="col-lg-3 col-4">
+        <div class="field mb-4">
+            <p class="mb-3">Телефон</p>
+            <input type="text" name="mobile_tel" value="{{ data.mobile_tel }}" class="w100 px-2 phone-imask {{ data['mobile_tel.classname'] }}" placeholder="+7 800 800 0000">
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="button">
+            <button class="w-100 text-light">Оставить заявку</button>
+        </div>
+    </div>
+</form>

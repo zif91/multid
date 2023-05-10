@@ -1,0 +1,46 @@
+<form class="form-calculate mt-4 p-4" action="">
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+    {{ data['form.messages'] | raw }}
+                <h4 class="fw-bold text-white">Расчитать кредит</h4>
+                <p style="color:antiquewhite">Оставьте заявку на желаемый автомобиль, и наши менеджеры помогут рассчитать кредит с учетом самых выгодных предложений в банках - партнерах.</p>
+                <div class="row">
+                    
+                    <div class="col-6 mb-3">
+                        <label for="calc-input-5" class="form-label text-white small">
+                            Ваше имя
+                        </label>
+                        <input
+                        name="name" 
+                    value="{{ data.name }}"
+                            class="form-control py-2 border-0 {{ data['name.classname'] }}"
+                            id="calc-input-5"
+                            type="text"
+                            placeholder="Иван"
+                        />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="calc-input-6" class="form-label text-white small">
+                            Ваше телефон
+                        </label>
+                        <input
+                        name="phone" 
+                    value="{{ data.phone }}"
+                            class="form-control py-2 border-0 phone-imask {{ data['phone.classname'] }}"
+                            id="calc-input-6"
+                            type="text"
+                            placeholder="+7 (000) 000-00-00"
+                        />
+                    </div>
+                </div>
+                <div class="form-check mb-3">
+                    <input checked class="form-check-input" id="id7" type="checkbox" value="1" {{ data['c.agree.1'] }} name="agree"/>
+                    <label class="form-check-label text-white small" for="id7">
+                        Даю согласие на обработку персональных данных
+                    </label>
+                </div>
+                <div class="text-center py-3">
+                    <button class="btn btn-light px-5 py-2">
+Получить предложение                    </button>
+                </div>
+            </form>

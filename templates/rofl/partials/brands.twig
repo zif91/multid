@@ -1,0 +1,78 @@
+{% set brandsarray = runSnippet('getCache', {
+snippetName:'brands_array',
+key: 'pagetitle',
+lifetime: '36000',
+}) %}
+<div class="cars-in-stock-block pt-5 pb-4">
+	<div class="container">
+		<h2 class="h2 mb-4">Авто в наличии</h2>
+		<div class="d-flex">
+			<div class="list">
+{% if brandsarray is not empty %}
+{% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
+{% set sliced_brands = sorted_brands|slice(0,6) %}
+{% for brand in sliced_brands %}
+<div class="item position-relative mb-3">
+<a href="/katalog-avtomobilej/?f[42]={{ brand.name }}">{{ brand.name }}
+<span class="pt-1 pr-2 pb-1 pl-2">{{ brand.count }}</span>
+</a>
+</div>
+{% endfor %}
+{% else %}
+The brands array is not defined or is empty.
+{% endif %}
+			</div>
+			<div class="list">
+				{% if brandsarray is not empty %}
+{% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
+{% set sliced_brands = sorted_brands|slice(18,6) %}
+{% for brand in sliced_brands %}
+<div class="item position-relative mb-3">
+<a href="/katalog-avtomobilej/?f[42]={{ brand.name }}">{{ brand.name }}
+<span class="pt-1 pr-2 pb-1 pl-2">{{ brand.count }}</span>
+</a>
+</div>
+{% endfor %}
+{% else %}
+The brands array is not defined or is empty.
+{% endif %}
+
+		
+			</div>
+			<div class="list">
+				{% if brandsarray is not empty %}
+{% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
+{% set sliced_brands = sorted_brands|slice(6,6) %}
+{% for brand in sliced_brands %}
+<div class="item position-relative mb-3">
+<a href="/katalog-avtomobilej/?f[42]={{ brand.name }}">{{ brand.name }}
+<span class="pt-1 pr-2 pb-1 pl-2">{{ brand.count }}</span>
+</a>
+</div>
+{% endfor %}
+{% else %}
+The brands array is not defined or is empty.
+{% endif %}
+			</div>
+			<div class="list">
+				{% if brandsarray is not empty %}
+{% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
+{% set sliced_brands = sorted_brands|slice(12,6) %}
+{% for brand in sliced_brands %}
+<div class="item position-relative mb-3">
+<a href="/katalog-avtomobilej/?f[42]={{ brand.name }}">{{ brand.name }}
+<span class="pt-1 pr-2 pb-1 pl-2">{{ brand.count }}</span>
+</a>
+</div>
+{% endfor %}
+{% else %}
+The brands array is not defined or is empty.
+{% endif %}
+			</div>
+		</div>
+	</div>
+	{#<div class="bottom-button">
+		<button>Смотреть все <span></span></button>
+	</div>#}
+</div>
+</div>

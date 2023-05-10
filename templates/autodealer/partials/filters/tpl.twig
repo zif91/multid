@@ -1,0 +1,21 @@
+<div class="index-filter-block col-12">
+    <div class="container">
+        <div class="filter bg-light py-4 px-sm-5 px-4 position-relative">
+            <div class="flex">
+                <div class="name mb-4">
+                    <span>Выбрать</span> автомобиль
+                </div>
+                <a href="/katalog-avtomobilej/" class="top-link mb-4 mt-2">Перейти в каталог →</a>
+            </div>
+            <form class="extrafilter col-12">
+                <div class="row">
+                    {{ data['wrap'] | raw }}
+                </div>
+                <div class="button pt-2">
+                    <button class="btn filterbutton btn-outline-danger middle mr-md-4">Показать все автомобили</button>
+                    <button  class="Button--reset clear-link">Сбросить фильтр</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

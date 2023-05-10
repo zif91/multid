@@ -1,0 +1,40 @@
+{#% set thumb = runSnippet('morephoto', {
+images: data['tv.car_photos'],
+phpthumb: 'w=250,h=168,zc=C',
+tpl: '@CODE:[+image.thumb+]',
+total: 1,
+display: 1
+}) %#}
+{#{ data['tv.car_photos'] }#}
+{#% set configuration_id = runSnippet('DocLister', {
+id: baseSettings.catalog_number, depth: 2, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.configuration_id+]', debug: -1} )  %#}
+{% set photo = runSnippet ('DocLister', {parents: data.id,
+depth: 0,
+orderBy: 'menuindex',
+api: 1,
+order: 'ASC',
+tvList:'configuration_id, car-price, old-car-price',
+ownerTPL: '@CODE:[+dl.wrap+]',
+tpl:'@CODE:[+tv.configuration_id+]'}) %}
+{% set DLdata = photo | json %}
+{% set photo = "https://s3.multiauto.site/new_cars/" ~ DLdata|first['tv_configuration_id'] ~ ".jpg" %}
+
+<div class="col-lg-4 col-6">
+    <div class="item mb-sm-5 mb-3">
+        <div class="image mb-sm-4 mb-2">
+            <a href="{{ data['url'] }}"><img src="{{ photo }}"></a>
+        </div>
+        <div class="name mb-sm-4 mb-2">
+            {{runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title']  }}
+        </div>
+        <div class="price mb-sm-4 mb-2">
+            {{ ( DLdata|first['tv_car-price'] )|number_format(0, '.', ' ') }} ₽
+        </div>
+        <ul class="pb-sm-3 pb-2">
+            <li class="pl-sm-4 pl-3 mb-sm-3 mb-2 position-relative">Гарантия Дилера</li>
+            <li class="pl-sm-4 pl-3 mb-sm-3 mb-2 position-relative">Индивидуальное предложение</li>
+        </ul>
+        <button class="w-100 mb-sm-4 mb-2"  data-toggle="modal" data-target="#oneclick">Купить в 1 клик</button>
+        <button class="w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button>
+    </div>
+</div>

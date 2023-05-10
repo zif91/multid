@@ -1,0 +1,209 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{#% cache 'main' ~ resource.id %#}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: 27,
+depth: 5,
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+paginate:'pages',
+TplNextP:'',
+TplPrevP:'',
+TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+filter: 'filters',
+filterRangeSeparator: ':',
+filterValuesSeparator: '|',
+filterDelimiter: '||',
+__filterPriceId: 14,
+filterList: '42,43,19',
+_filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
+filterTpl: '@T_FILE:partials/filters/tpl',
+filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+filterTplRange: '@T_FILE:partials/filters/tplRange',
+filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+tvSortType: 'UNSIGNED',
+api: 0,
+noneTPL:'@CODE: <div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+    </div>
+  </div>
+</div>',
+})
+%}
+
+
+{% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
+rowTpl:'@CODE: <div class="index-calc-block position-relative pt-5 pb-5 text-center">
+	<img src="[+image+]" class="bg position-absolute w-100 h-100">
+	<div class="container position-relative">
+		<div class="block-name mb-5 text-light">
+			<span class="d-block">[+title+]</span>
+		</div>
+		[+catalog.filters+]
+	</div>
+</div>'}) %}
+{{banner |raw}}
+{% include '/partials/brands.twig' %}
+<div class="index-page-form mb-5">
+	<div class="container">
+		{{ runSnippet('Form', {
+              formid: 'FormCredit',
+              path: '/templates/rofl/partials/forms/credit_home/',
+              extension: 'twig'
+              }) | raw }} 
+	</div>
+</div>
+<div class="index-catalog-block mb-5">
+	<div class="container">
+		<h2 class="h2 mb-3">Продажа автомобилей с пробегом</h2>
+		<div class="d-flex top-flex">
+			<ul class="nav">
+				<li class="nav-item mr-3 mb-3">
+					<a class="nav-link active bg-danger text-light" aria-current="page" href="/avtomobili-s-probegom?f[19]=0:500000">до 500 000₽</a>
+				</li>
+				<li class="nav-item mr-3 mb-3">
+					<a class="nav-link" href="/avtomobili-s-probegom?f[19]=500000:1000000">до 1 000 000₽</a>
+				</li>
+				<li class="nav-item mr-3 mb-3">
+					<a class="nav-link" href="/avtomobili-s-probegom?f[19]=1000000:2000000">до 2 000 000₽</a>
+				</li>
+				<li class="nav-item mr-3 mb-3">
+					<a class="nav-link" href="/avtomobili-s-probegom?f[19]=2000000:50000000">больше 2 000 000₽</a>
+				</li>
+			</ul>
+			<a href="{{ makeUrl(27) }}" class="top-link mb-3 p-2 pr-4 d-inline-block">Показать весь каталог</a>
+		</div>
+		<div class="row">
+			<div class="col-xl-3 col-lg-4">
+				<div class="nav-text mb-3">
+					Подборки:
+				</div>
+				<ul class="tabs-nav" id="myTab" role="tablist">
+					<li class="mb-2"><a href="#t1" data-toggle="tab" class="position-relative active"><img src="/templates/rofl/img/tab1.png"><span>Седан</span></a>
+					<li class="mb-2"><a href="#t2" data-toggle="tab" class="position-relative"><img src="/templates/rofl/img/tab2.png"><span>Хетчбэк</span></a>
+					<li class="mb-2"><a href="#t3" data-toggle="tab" class="position-relative"><img src="/templates/rofl/img/tab3.png"><span>Универсал</span></a>
+					<li class="mb-2"><a href="#t4" data-toggle="tab" class="position-relative"><img src="/templates/rofl/img/tab4.png"><span>Внедорожник</span></a>
+					<li class="mb-2"><a href="#t5" data-toggle="tab" class="position-relative"><img src="/templates/rofl/img/tab5.png"><span>Минивэн</span></a>
+				</ul>
+			</div>
+			<div class="col-xl-9 col-lg-8">
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="t1" role="tabpanel">
+						<div class="list">
+							{{runSnippet('DocLister', {
+							id: 'catalog',
+							display: 6,
+							parents: 27,
+							depth: 5,
+							orderBy: 'car-price',
+							order: 'RAND()',
+							tvSortType: 'SIGNED',
+							tvList:'car-price,old-car-price,car_photos, images, run,engine_power,gear,year, image, body_type, drive, body_type, fuel, car_color,engine_volume',
+							tpl:'@T_FILE:partials/catalogcard_first',
+							filters:'AND(tv:body_type:against:Седан)',
+							tvSortType: 'UNSIGNED',
+							api: 0
+							}) |raw
+							}}
+						</div>
+					</div>
+					<div class="tab-pane fade" id="t2" role="tabpanel">
+						<div class="list">
+						{{runSnippet('DocLister', {
+						id: 'catalog',
+						display: 6,
+						parents: 27,
+						depth: 5,
+						orderBy: 'car-price',
+						order: 'RAND()',
+						tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',						tpl:'@T_FILE:partials/catalogcard_first',
+						filters:'AND(tv:body_type:against:Хэтчбек)',
+						tvSortType: 'UNSIGNED',
+						api: 0
+						}) |raw
+						}}</div>
+					</div>
+					<div class="tab-pane fade" id="t3" role="tabpanel">
+						<div class="list">
+						{{runSnippet('DocLister', {
+						id: 'catalog',
+						display: 6,
+						parents: 27,
+						depth: 5,
+						orderBy: 'car-price',
+						order: 'RAND()',
+						tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',						tpl:'@T_FILE:partials/catalogcard_first',
+						filters:'AND(tv:body_type:against:Универсал)',
+						tvSortType: 'UNSIGNED',
+						api: 0
+						}) |raw
+						}}</div>
+					</div>
+					<div class="tab-pane fade" id="t4" role="tabpanel"><div class="list">
+						{{runSnippet('DocLister', {
+						id: 'catalog',
+						display: 6,
+						parents: 27,
+						depth: 5,
+						orderBy: 'car-price',
+						order: 'RAND()',
+						tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',						filters:'AND(tv:body_type:against:Внедорожник)',
+						tpl:'@T_FILE:partials/catalogcard_first',
+						tvSortType: 'UNSIGNED',
+						api: 0
+						}) |raw
+						}}</div>
+					</div>
+					<div class="tab-pane fade" id="t5" role="tabpanel"><div class="list">
+						{{runSnippet('DocLister', {
+						id: 'catalog',
+						display: 6,
+						parents: 27,
+						depth: 5,
+						orderBy: 'car-price',
+						order: 'RAND()',
+						tvSortType: 'SIGNED',
+						filters:'AND(tv:body_type:against:Минивэн)',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',						tpl:'@T_FILE:partials/catalogcard_first',
+						tvSortType: 'UNSIGNED',
+						api: 0
+						}) |raw
+						}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{#% include '/partials/podbor.twig' %#}
+{# <div class="feedback-block">
+	<div class="container-fluid">
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/rofl/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+	</div>
+</div>#}
+{% include('partials/actions.twig') %}
+{% include('partials/contacts.twig') %}
+{% include '/partials/advantages.twig' %}
+
+{#% include '/partials/tradein.twig' %#}
+{#% endcache %#}
+{% endblock %}

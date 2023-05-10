@@ -1,0 +1,20 @@
+        <footer class="footer position-relative py-4">
+        <a href="#top" class="totop position-absolute"></a>
+        <div class="container d-flex">
+            <div class="logo">
+                <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"> <span class="align-middle pl-2 ml-2 text-light">{{city}}</span></a>
+
+            </div>
+            <ul class="pt-2">
+                <li class="d-inline-block"><a href="/avtomobili-s-probegom" class="text-light">Каталог</a></li>
+                <li class="d-inline-block"><a href="/akcii2" class="text-light">Акции</a></li>
+                <li class="d-inline-block"><a href="/kontakty" class="text-light">Контакты</a></li>
+            </ul>
+            <a href="#" class="phone pt-2 text-light">{{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'phone'}) | raw}} </a>
+        </div>
+    </footer>
+    <div class="copyright-block text-center py-2">
+        <div class="container">
+            © {{baseSettings["pagetitle"]}}, 2023. Все права защищены
+        </div>
+    </div>

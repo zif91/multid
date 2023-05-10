@@ -1,0 +1,28 @@
+{% set headermenu = runSnippet('DLMenu', {
+parents: baseSettings["id"],
+tvList: 'image',
+rowTpl: '@CODE:<li class="d-md-inline-block"><a href="[+url+]">[+pagetitle+]</a></li>',
+outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
+    [+wrap+]</ul>'}) %}
+
+
+<div class="menubg"></div>
+<header class="header py-3">
+    <div class="container flex">
+        <div class="logo">
+            <a style="background: url({{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=214,h=70,far=C,f=png,q=1'}) }}) no-repeat;
+background-size: cover; background-position: center;
+" href="/" class="d-inline-block"></a>
+        </div>
+        <ul class="pt-4 mt-1">
+            <li class="d-inline-block"><a href="/katalog-novyh-avtomobilej/">Автомобили в продаже</a></li>
+                                        <li class="d-inline-block">{#<button class="btn btn-danger w-100">Заказать звонок</button>#}</li>
+
+            {#<li class="d-inline-block"><a href="#">Услуги</a></li>
+            <li class="d-inline-block"><a href="#">О компании</a></li>
+            <li class="d-inline-block"><a href="#">Контакты</a></li>#}
+        </ul>
+        {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone mt-3 pt-2"}) | raw}}
+        <a class="menu-button"></a>
+    </div>
+</header>

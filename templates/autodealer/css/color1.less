@@ -1,0 +1,295 @@
+﻿@color: #BF151B;
+
+.header {
+	.logo {
+		a {
+			background: url('img/logo.svg') center/cover;
+		}
+	}
+	.contacts {
+		.phone {
+			span {
+				color: @color;
+			}
+		}
+		.adress {
+			background: url('img/adress.svg') no-repeat 0 0;
+		}
+	}
+}
+
+.btn {
+	&.btn-danger {
+		box-shadow: 0px 4px 12px rgba(226, 29, 37, 0.22);
+		background: radial-gradient(86.86% 643.32% at 4.78% 16.94%, rgba(176, 0, 0, 0.56) 0%, rgba(255, 0, 0, 0) 100%), radial-gradient(57.77% 174.19% at 36.86% 100%, rgba(255, 98, 154, 0.56) 0%, rgba(255, 0, 0, 0) 100%) , radial-gradient(59.64% 374.11% at 87.37% 0%, rgba(255, 22, 22, 0.56) 0%, rgba(255, 0, 0, 0) 100%) #BE2E39;
+	}
+	&.btn-outline-danger {
+		box-shadow: 0px 4px 12px rgba(226, 29, 37, 0.22);
+		color: @color;
+		border: 3px solid @color;
+	}
+}
+
+.top-menu {
+	.menu-button {
+		background: url('img/menu-button.svg') no-repeat 0 4px;
+	}
+	.catalog {
+		.block-name {
+			span {
+				color: @color;
+			}
+		}
+		.item {
+			span {
+				background: @color;
+			}
+		}
+	}
+}
+
+.index-filter-block {
+	.filter {
+		.name {
+			span {
+				color: @color;
+			}
+		}
+		.top-link {
+			color: @color;
+		}
+	}
+}
+
+.form-select {
+	background: url('img/select.svg') no-repeat right 14px top 50%;
+}
+
+.number {
+	span {
+		&.plus {
+			background: url('img/plus.svg');
+		}
+		&.minus {
+			background: url('img/minus.svg');
+		}
+	}
+}
+
+.index-cars-select {
+	.block-name {
+		span {
+			color: @color;
+		}
+	}
+	.item {
+		a {
+			span {
+				background: @color;
+			}
+		}
+	}
+}
+
+.best-offers-block {
+	.block-name {
+		background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #E02228 0%, rgba(224, 34, 40, 0) 100%), #1E1E1E;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+	.item {
+		&:hover {
+			&:after {
+				background: url('img/offerlogo.svg');
+			}
+		}
+		.number {
+			color: @color;
+		}
+	}
+}
+
+.advantages-block {
+	.block-name {
+		background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #E02228 0%, rgba(224, 34, 40, 0) 100%), #1E1E1E;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+}
+
+.bottom-map-block {
+	.content {
+		.contacts {
+			.phone {
+				span {
+					color: @color;
+				}
+			}
+			.adress {
+				background: url('img/adress.svg') no-repeat 0 1px;
+			}
+		}
+	}
+}
+
+.footer {
+	.contacts {
+		.phone {
+			span {
+				color: @color;
+			}
+		}
+		.adress {
+			background: url('img/adress.svg') no-repeat 0 0;
+		}
+	}
+}
+
+.mobile-header {
+	.logo {
+		a {
+			background: url('img/mob-logo.svg');
+		}
+	}
+	.menu-button {
+		background: url('img/menu.svg');
+	}
+}
+
+.mobile-menu {
+	background: radial-gradient(86.86% 643.32% at 4.78% 16.94%, rgba(176, 0, 0, 0.56) 0%, rgba(255, 0, 0, 0) 100%), radial-gradient(57.77% 174.19% at 36.86% 100%, rgba(255, 98, 154, 0.56) 0%, rgba(255, 0, 0, 0) 100%), radial-gradient(59.64% 374.11% at 87.37% 0%, rgba(255, 22, 22, 0.56) 0%, rgba(255, 0, 0, 0) 100%), #BE2E39;
+	.btn {
+		color: @color;
+	}
+}
+
+.popup {
+	background: #F9F9F9 url('img/popup.png') no-repeat top right!important;
+	.name {
+		background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #E02228 0%, rgba(224, 34, 40, 0) 100%), #1E1E1E;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+	.checkbox + label {
+		a {
+			color: @color;
+		}
+	}
+}
+
+.navi {
+	span {
+		color: @color;
+	}
+}
+
+.h1 {
+	h1 {
+		background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #E02228 0%, rgba(224, 34, 40, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(0deg, #1E1E1E, #1E1E1E), #FFFFFF;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+}
+
+.catalog-page {
+	.block-name {
+		span {
+			color: @color;
+		}
+	}
+	.top-link {
+		background: url('img/arrow.svg') no-repeat right top;
+	}
+	.tags {
+		.tag {
+			span {
+				background: @color;
+			}
+		}
+	}
+	.searched {
+		span {
+			color: @color;
+		}
+	}
+	.item {
+		.price {
+			background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #E02228 0%, rgba(224, 34, 40, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(0deg, #1E1E1E, #1E1E1E), #FFFFFF;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			text-fill-color: transparent;
+		}
+	}
+	.navigation {
+		.pagination {
+			.page-item {
+				.page-link {
+					&:hover {
+						color: @color;
+					}
+				}
+			}
+		}
+	}
+}
+
+.item-page {
+	.price {
+		background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #E02228 0%, rgba(224, 34, 40, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(0deg, #1E1E1E, #1E1E1E), #FFFFFF;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+	.discount {
+		color: @color;
+		background: url('img/discount.svg') no-repeat 13px 20px;
+	}
+	.but {
+		&.wh {
+			color: @color;
+			border: 2px solid @color;
+		}
+	}
+}
+
+.steps-block {
+	.block-name {
+		background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #E02228 0%, rgba(224, 34, 40, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(0deg, #1E1E1E, #1E1E1E), #FFFFFF;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-fill-color: transparent;
+	}
+}
+
+.steps-block {
+	.flex {
+		.item {
+			.icon {
+				span {
+					background: @color;
+				}
+			}
+			.name {
+				background: radial-gradient(71.25% 688.71% at 66.06% 124.19%, #E02228 0%, rgba(224, 34, 40, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(0deg, #1E1E1E, #1E1E1E), #FFFFFF;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				text-fill-color: transparent;
+			}
+			.time {
+				color: @color;
+			}
+		}
+	}
+}

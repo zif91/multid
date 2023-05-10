@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "mobile_tel": {
+      "required": "Обязательно к заполнению"
+    }
+  },
+  "subject": "Купить автомобиль",
+  "prepare": "prepareFormConfig",
+  "prepareAfterProcess": "CatchFormResult",
+  "formControls": "agree",
+    "prepareProcess": "saveFormData"
+
+}

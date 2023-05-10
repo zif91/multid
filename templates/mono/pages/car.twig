@@ -1,0 +1,221 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{#% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 3,
+parents: 27,
+depth: 2,
+_filters: 'AND(tv:car-price:against:~car-price~)',
+filters: 'AND(tv:model:=:' ~ resource.model ~ ')',
+tvList:'car-price,run,engine_power,gear,year,image,body_type,model,car_color,engine_volume,fuel,drive',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+})
+%#}
+{% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%}
+{#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
+{% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
+action:'caroldprice'}) %}
+{% set month = runSnippet('helpers', {carmonth: resource['car-price'],
+action:'carmonth'}) %}
+{% set vigoda = oldprice - resource['car-price'] %}
+{#% set gifts = runSnippet('DocLister', {
+display: 3,
+parents: 24,
+depth: 0,
+tvList:'image,color',
+tpl:'@T_CODE: <div class="gift__item">
+    <div style="background: linear-gradient(to bottom, {{ data[\'tv.color\'] }} 0px, {{ data[\'tv.color\'] }} 123px, #ffffff 123px, #ffffff 100%)" class="gift-item gift-item--transit">
+        <div class="gift-item__text-wrap">
+            <div class="gift-item__text">{{ data.title }}</div>
+        </div>
+        <div class="gift-item__photo-wrap">
+            <img style="max-width:130px" src="{{ runSnippet(\'phpthumb\', {input: data[\'tv.image\'], options:\'w=130,h=130,zc=1\'}) }}" alt="{{ data.title }}" class="gift-item__photo">
+        </div>
+    </div>
+</div>'
+})%#}
+{#% include('partials/crumbs.twig') %#}
+{% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all',
+outerTpl:'@CODE:<ul>((wrapper))</ul>',
+rowTpl:'@CODE:<li>((event)), ((location)), ((price))</li>',
+toJson:'1',
+}) %}
+{% set complectation = complectation | json %}
+<div class="item-page pb-5">
+    <div class="container-fluid">
+        <h1 class="h1 mb-3">{{resource.pagetitle}}, </h1>
+        <div class="top-text mb-4">
+            {{resource.year}} {{resource.modification}} {{resource.engine_power
+            }} {{resource.fuel
+            }} {{resource.gear
+            }} {{resource.drive
+            }}
+        </div>
+        <div class="row">
+            <div class="col-xl-5 col-6">
+                <div class="slider-for">
+                    {#% if car_photos and count(car_photos)>0 %}
+                    {% for image in car_photos %}
+                    <div class="item"><img src="{{image.image}}"></div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="item"><img src="{{image.image}}"></div>
+                    {% endif %#}
+                    <div class="item"><img src="{{car_photos}}"></div>
+                </div>
+                {#<div class="slider-nav mt-md-5 mt-3">
+                    {% if car_photos and count(car_photos)>0 %}
+                    {% for image in car_photos %}
+                    <div class="item"><img src="{{image.image}}"></div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="item"><img src="{{image.image}}"></div>
+                    {% endif %}
+                </div>#}
+            </div>
+            <div class="col-xl-7 col-6">
+                <div class="info position-relative h-100">
+                    <div class="price mb-md-5 mb-3">
+                        <span class="old">{{ (oldprice)|number_format(0, '.', ' ') }} ₽</span> {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
+                    </div>
+                    <ul>
+                        <li class="mb-lg-4 mb-2 pl-lg-5 pl-3 position-relative"><img src="/templates/mono/img/choise-icon1.svg"> <span>Бонус</span> при покупке</li>
+                        <li class="mb-lg-4 mb-2 pl-lg-5 pl-3 position-relative"><img src="/templates/mono/img/choise-icon2.svg"> Спутниковая система <span>в подарок</span></li>
+                        <li class="mb-lg-4 mb-2 pl-lg-5 pl-3 position-relative"><img src="/templates/mono/img/choise-icon3.svg"> Выкупим Ваш автомобиль <span>в день обращения</span></li>
+                    </ul>
+                    <div class="buttons position-absolute">
+                        <button class="w-100 mb-lg-3 mb-1"  data-toggle="modal" data-target="#oneclick">Оставить заявку</button>
+                        <button class="w-100" onclick="scrollToCredit()">Рассчитать кредит</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="calc-block pt-5 pb-3 mb-5">
+    <div class="container-fluid">
+        <div class="block-name mb-sm-4 mb-3" id="credit">
+            При покупке в кредит - <span>Выгода до 100 000 рублей!</span>
+        </div>
+        {{ runSnippet('Form', {
+        formid: 'FormCredit',
+        path: '/templates/mono/partials/forms/credit/',
+        extension: 'twig'
+        }) | raw }}
+    </div>
+</div>
+{% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %}
+{#dump(modification)#}
+{% for item in modification %}
+{% for key, value in item %}
+{#% if key == 'complectation-id' and value is not empty %}
+{{key}} - {{value}} <br>
+{% endif %#}
+{% endfor %}
+{% endfor %}
+<div class="item-data-block pb-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="flex">
+                {#% for item in modification %}
+                {% for key, value in item %}
+                {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
+                <div class="item position-relative mb-4 col-xl-4 col-lg-5 col-6">
+                    {{ key }} <br> {{ value }}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endfor %#}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="item-data-block2 pb-5">
+    <div class="container-fluid">
+        {#{dump(modification)}#}
+        {% for item in modification %}
+        {% if item["group-name"] is not empty %}
+        <div class="item mb-sm-5 mb-3">
+            <div class="name">
+                {{item["group-name"]}} {{item["Объем двигателя"]}}см³, {{item["Тип двигателя"]}}, КП {{item["Трансмиссия"]}}, {{item["Привод"]}} привод
+            </div>
+            <div class="text pt-4">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-12">
+                        <h2 class="pb-3">
+                            Характеристики
+                        </h2>
+                        {% for key, value in item %}
+                        {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
+                        <div class="item position-relative mb-4 ">
+                            {{ key }} - {{ value }}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-12">
+                        <h2 class="pb-3">
+                            Комплектация
+                        </h2>
+                        <div class="item position-relative mb-4 row">
+                            {% set options = runSnippet ('takeoptions', {
+                            complectation_id: item["complectation-id"], }) %}
+                            {% for item in options %}
+                            {% for key, value in item %}
+                            {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
+                            <div class="item position-relative mb-4 col-4">
+                                {{ key }} -
+                                {% if value == 1 %}
+                                Есть
+                                {% elseif value > 1 %}
+                                {{ value }} руб.
+                                {% else %}
+                                {{ value }}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- <div class="col-xl-4 col-lg-5 col-6">
+                        <h2 class="pb-3">
+                            Комплектация
+                        </h2>
+                        <div class="item position-relative mb-4 ">
+                            
+                        </div>
+                        <div class="item position-relative mb-4 ">
+                            Айнаненане - Айнане
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% include('partials/contacts.twig') %}
+<div class="index-filter-block pb-5">
+    <div class="container-fluid">
+        <h2 class="h2 mb-5 text-dark">Оставьте заявку и мы с вами свяжемся</h2>
+        {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/mono/partials/forms/feedback/',
+        extension: 'twig'
+        }) | raw }}
+    </div>
+</div>
+{% set minam = resource['car-price'] / 10 %}
+{% set maxam = resource['car-price'] %}
+    <script>
+  function scrollToCredit() {
+    var credit = document.getElementById("credit");
+    credit.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,135 @@
+﻿@color: green;
+
+.btn {
+	&.btn-light {
+		border: 1px solid @color;
+		color: @color;
+		&:hover {
+			background: @color;
+		}
+	}
+}
+
+.header {
+	.logo {
+		a {
+			background: url('img/logo3.svg');
+		}
+	}
+	ul {
+		li {
+			a {
+				&:hover {
+					color: @color;
+				}
+			}
+		}
+	}
+	.phone {
+		background: url('img/phone3.svg') no-repeat 0 5px;
+	}
+}
+
+.footer {
+	ul {
+		li {
+			a {
+				&:hover {
+					color: @color;
+				}
+			}
+		}
+	}
+}
+
+.actions-page {
+	.item {
+		a {
+			&:hover {
+				background: @color;
+				border: 1px solid @color;
+			}
+		}
+	}
+}
+
+.text-danger {
+	color: @color!important;
+}
+
+.btn-danger {
+	background-color: @color!important;
+	border-color: @color!important;
+}
+
+.bg-danger {
+	background-color: @color!important;
+}
+
+.index-catalog-block {
+	.tabs-nav {
+		li {
+			a {
+				&.active {
+					border: 1px solid @color;
+					color: @color;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.header .phone {background: url('img/phone4.svg');}
+}
+
+.index-contacts-block {
+	.logo {
+		.logotype {
+			background: url('img/logo3.svg') center/cover;
+		}
+	}
+}
+
+.catalog-page {
+	.pages {
+		.pagination {
+			.page-item {
+				.page-link {
+					&.active {
+						background: @color;
+					}
+				}
+			}
+		}
+	}
+}
+
+.contacts-page {
+	.contacts {
+		.info {
+			.logo {
+				.logotype {
+					background: url('img/logo3.svg') center/cover;
+				}
+			}
+		}
+	}
+}
+
+.item-page {
+	.price-block {
+		.price {
+			span {
+				color: @color;
+			}
+		}
+	}
+	.bottom-block {
+		.btn-light {
+			&:hover {
+				border: 1px solid @color;
+			}
+		}
+	}
+}

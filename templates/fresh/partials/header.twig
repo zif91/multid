@@ -1,0 +1,41 @@
+{% set headermenu = runSnippet('DLMenu', {
+parents: baseSettings["id"],
+tvList: 'image',
+rowTpl: '@CODE:<li class="d-md-inline-block"><a href="[+url+]">[+pagetitle+]</a></li>',
+outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
+    [+wrap+]</ul>'}) %}
+<div class="menubg"></div>
+	<nav class="mobile-menu">
+		<a class="close"></a>
+		<div class="logo">
+			<img src="{{baseSettings["logo"]}}">
+		</div>
+		<ul>
+			<li><a href="/katalog-novyh-avtomobilej/">Каталог</a></li>
+			<li><a href="/akcii">Акции</a></li>
+			<li><a href="#map">Контакты</a></li>
+		</ul>
+		<div class="contacts mb-sm-5 mb-3">
+			{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"d-block mb-sm-4 mb-2"}) | raw}}
+			<a href="#" class="d-block mb-sm-4 mb-2">info@company.com</a>
+			<a href="#" class="d-inline-block mr-3"><img src="img/social1.svg"></a>
+			<a href="#" class="d-inline-block"><img src="img/social2.svg"></a>
+		</div>
+	</nav>
+	<header class="header py-sm-4 py-3">
+		<div class="container flex">
+			<a class="menu-button"></a>
+			<div class="logo pt-sm-1">
+				<a href="/"><img src="{{baseSettings["logo"]}}"></a>
+			</div>
+			<ul class="pt-2">
+				<li class="d-inline-block"><a href="/katalog-novyh-avtomobilej/">Каталог</a></li>
+				<li class="d-inline-block"><a href="/akcii">Акции</a></li>
+				<li class="d-inline-block"><a href="contacts">Контакты</a></li>
+			</ul>
+			<div class="contacts">
+				<button data-fancybox="popup" data-src="#popup" type="button">Заказать звонок</button>
+				{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"ml-3"}) | raw}}
+			</div>
+		</div>
+	</header>

@@ -1,0 +1,356 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+    {% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+_controller: 'catalog_filters',
+display: 20,
+parents: resource.id,
+depth: 1,
+filters: 'AND(tv:mark_id:=:' ~ baseSettings.mark ~ ')',
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image, configuration_id',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+noneTPL:'@CODE: <div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+        </div>
+    </div>
+</div>',
+tvSortType: 'UNSIGNED',
+api: 0
+})
+%}
+{#% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 3,
+parents: 27,
+depth: 2,
+_filters: 'AND(tv:car-price:against:~car-price~)',
+filters: 'AND(tv:model:=:' ~ resource.model ~ ')',
+tvList:'car-price,run,engine_power,gear,year,image,body_type,model,car_color,engine_volume,fuel,drive',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+})
+%#}
+
+{#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
+{% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
+action:'caroldprice'}) %}
+{% set vigoda = oldprice - resource['car-price'] %}
+{#% set gifts = runSnippet('DocLister', {
+display: 3,
+parents: 24,
+depth: 0,
+tvList:'image,color',
+tpl:'@T_CODE: <div class="gift__item">
+    <div style="background: linear-gradient(to bottom, {{ data[\'tv.color\'] }} 0px, {{ data[\'tv.color\'] }} 123px, #ffffff 123px, #ffffff 100%)" class="gift-item gift-item--transit">
+        <div class="gift-item__text-wrap">
+            <div class="gift-item__text">{{ data.title }}</div>
+        </div>
+        <div class="gift-item__photo-wrap">
+            <img style="max-width:130px" src="{{ runSnippet(\'phpthumb\', {input: data[\'tv.image\'], options:\'w=130,h=130,zc=1\'}) }}" alt="{{ data.title }}" class="gift-item__photo">
+        </div>
+    </div>
+</div>'
+})%#}
+{#% include('partials/crumbs.twig') %#}
+
+{% set configuration_id = runSnippet('DocLister', {
+id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.configuration_id+]'} )  %}
+{% set car_photos = "https://s3.multiauto.site/new_cars/" ~ configuration_id ~ ".jpg"%}   
+<div class="choise-block mb-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <div class="images">
+                    {#% if car_photos %}
+                    {% for image in car_photos %}
+                    <div class="item"><img src="{{image.image}}"></div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="item"><img src="{{image.image}}"></div>
+                    {% endif %#}
+                                        <div class="item"><img src="{{car_photos}}"></div>
+
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="info position-relative h-100">
+                    <h1 class="h1 mb-md-4 mb-2">{{resource.pagetitle}}</h1>
+                    <ul>
+                        <li class="mb-lg-4 mb-2 pl-lg-5 pl-3 position-relative"><img src="/templates/mono/img/choise-icon1.svg"> <span>Бонус</span> при покупке</li>
+                        <li class="mb-lg-4 mb-2 pl-lg-5 pl-3 position-relative"><img src="/templates/mono/img/choise-icon2.svg"> Спутниковая система <span>в подарок</span></li>
+                        <li class="mb-lg-4 mb-2 pl-lg-5 pl-3 position-relative"><img src="/templates/mono/img/choise-icon3.svg"> Выкупим Ваш автомобиль <span>в день обращения</span></li>
+                    </ul>
+                    <div class="buttons flex">
+                        <button class="btn btn-primary" onclick="scrollToForm()">Получить предложение</button>
+                        <button  data-toggle="modal" data-target="#oneclick">Заказать звонок</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><div class="index-catalog-block pb-5">
+    <div class="container-fluid">
+        <h1 class="h1 mb-4">{{baseSettings.mark}} - Автомобили в наличии</h1>
+        <div class="filter flex pb-3">
+        </div>
+        {{DLCatalog |raw}}
+    </div>
+</div>
+</div>
+<div class="index-filter-block pb-5" id="FormCallback">
+    <div class="container-fluid">
+        <h2 class="h2 mb-5">Индивидуальный подбор {{baseSettings.mark}}</h2>
+        {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/mono/partials/forms/feedback/',
+        extension: 'twig'
+        }) | raw }}
+    </div>
+</div>
+{#
+<div class="calc-block pt-5 pb-3 mb-5">
+    <div class="container-fluid">
+        <div class="block-name mb-sm-4 mb-3">
+            При покупке в кредит - <span>Выгода до 100 000 рублей!</span>
+        </div>
+        {{ runSnippet('Form', {
+        formid: 'FormCredit',
+        path: '/templates/mono/partials/forms/credit/',
+        extension: 'twig'
+        }) | raw }}
+    </div>
+</div>
+<div class="item-data-block pb-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-4 col-lg-5 col-6">
+                <div class="item position-relative mb-4">
+                    Цвет <br />
+                    {{resource.car_color}}
+                </div>
+                <div class="item position-relative mb-4">
+                    Привод <br />
+                    {{resource.drive}}
+                </div>
+                <div class="item position-relative mb-4">
+                    Кузов <br />
+                    {{resource.body_type}}
+                </div>
+                <div class="item position-relative mb-4">
+                    Коробка <br />
+                    {{resource.gear}}
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-7 col-6">
+                <div class="item position-relative mb-4">
+                    Салон <br />
+                    Кожа Vernasca с перфорацией особого дизайна "Красный Такора" | "Черный".Интерьер может содержать различные материалы как, например, натуральная кожа, искусственная кожа, ткань и другие.)
+                </div>
+                <div class="item position-relative mb-4">
+                    Двигатель <br />
+                    {{resource.engine_volume}} \ {{resource.engine_power}}л.с.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>#}
+
+{% include('partials/contacts.twig') %}
+{#
+<main class="main container">
+    <div class="item-page pb-5">
+        <div class="back-link text-center mb-3">
+            <a href="#" class="d-inline-block pl-4">Назад к каталогу</a>
+        </div>
+        <h1 class="h1">{{resource.pagetitle}}, {{resource.year}} {{resource.modification}} </h1>
+        <div class="top-text mb-3">
+            {{resource.vin}}
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="photos mb-4">
+                    <div class="slider-for">
+                        {% if car_photos and count(car_photos)>0 %}
+                        {% for image in car_photos %}
+                        <div class="photo"><img src="{{image.image}}"></div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="photo"><img src="{{image.image}}"></div>
+                        {% endif %}
+                    </div>
+                    <div class="slider-nav">
+                        {% if car_photos and count(car_photos)>0 %}
+                        {% for image in car_photos %}
+                        <div class="photo"><img src="{{image.image}}"></div>
+                        {% endfor %}
+                        {% else %}
+                        <div class="photo"><img src="{{image.image}}"></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="info mb-4 pt-lg-3">
+                    <div class="price mb-3">
+                        {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
+                    </div>
+                    <div class="special mb-1">
+                        Специальное предложение
+                    </div>
+                    <div class="nal mb-4 py-1 px-4 d-inline-block">
+                        В наличии сегодня
+                    </div>
+                    <div class="buttons pb-3">
+                        <button data-fancybox data-src="#popup2" class="w-100 mb-3">Забронировать</button>
+                        <button data-fancybox data-src="#popup3" class="w-100 mb-3">Рассчитать кредит</button>
+                    </div>
+                    <table class="w-100">
+                        <tr>
+                            <td>Двигатель</td>
+                            <td>{{resource.fuel
+                                }}</td>
+                        </tr>
+                        <tr>
+                            <td>Мощность</td>
+                            <td>{{resource.engine_power
+                                }} л.с.</td>
+                        </tr>
+                        <tr>
+                            <td>КПП</td>
+                            <td>{{resource.gear
+                                }}</td>
+                        </tr>
+                        <tr>
+                            <td>Привод</td>
+                            <td>{{resource.drive
+                                }}</td>
+                        </tr>
+                        <tr>
+                            <td>Пробег</td>
+                            <td>{{resource.run
+                                }} км</td>
+                        </tr>
+                        <tr>
+                            <td>Цвет</td>
+                            <td>{{resource.car_color}}</td>
+                        </tr>
+                        <tr>
+                            <td>ПТС</td>
+                            <td>{{resource.pts}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="info2">
+                    <div class="name mb-3">
+                        Характеристики
+                    </div>
+                    <table class="w-100 mb-4">
+                        <tr>
+                            <td>Год выпуска</td>
+                            <td>{{resource.year
+                                }}</td>
+                        </tr>
+                        <tr>
+                            <td>Мощность двигателя</td>
+                            <td>{{resource.engine_power
+                                }} л.с.</td>
+                        </tr>
+                        <tr>
+                            <td>Коробка передач</td>
+                            <td>{{resource.gear
+                                }}</td>
+                        </tr>
+                        <tr>
+                            <td>Поколение</td>
+                            <td>{{resource.modification
+                                }}</td>
+                        </tr>
+                        <tr>
+                            <td>Владельцев</td>
+                            <td>{% if resource.owners %}
+                                {{resource.owners}}
+                                {% else %}
+                                Один
+                                {% endif %}</td>
+                        </tr>
+                        <tr>
+                            <td>Тип кузова</td>
+                            <td>
+                                {{resource.body_type}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Модификация</td>
+                            <td>{{resource.engine_volume
+                                }} {{resource.gear
+                                }} ({{resource.engine_power
+                                }} л.с.)</td>
+                        </tr>
+                        <tr>
+                            <td>Цвет</td>
+                            <td>{{resource.car_color}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="info3">
+                    <div class="block mb-4 p-3 position-relative">
+                        <img src="/templates/autostar/img/item-icon1.svg" class="icon position-absolute">
+                        <div class="name mb-3">
+                            Отчет о состоянии автомобиля
+                        </div>
+                        <ul class="pb-3">
+                            <li class="mb-2">Проверен на наличие ДТП</li>
+                            <li class="mb-2">Нет юридических ограничений</li>
+                        </ul>
+                        <button data-fancybox data-src="#popup1" class="w-100">Получить полный отчет</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="info3">
+                    <div class="block mb-4 p-3 position-relative">
+                        <img src="/templates/autostar/img/item-icon2.svg" class="icon position-absolute">
+                        <div class="name mb-3">
+                            Выгода при покупке в кредит
+                        </div>
+                        <div class="discount mb-4">
+                            До 20%
+                        </div>
+                        <button data-fancybox data-src="#popup3" class="w-100">Рассчитать кредит</button>
+                    </div>
+                    <div class="buttons pb-3">
+                        <button data-fancybox data-src="#popup2" class="w-100 mb-3">Забронировать</button>
+                        <button data-fancybox data-src="#popup3" class="w-100 mb-3">Рассчитать кредит</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index-catalog-block pb-4">
+        <div class="block-name mb-4">
+            Похожие автомобили
+        </div>
+        <div class="row">
+            {{DLCatalog | raw}}
+        </div>
+    </div>
+</main>#}
+<script>
+  function scrollToForm() {
+    var form = document.getElementById("FormCallback");
+    form.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+  }
+</script>
+ {{runSnippet('takemodels', {configuration_id: resource['configuration_id']  })
+}}
+{% set minam = resource['car-price'] / 10 %}
+{% set maxam = resource['car-price'] %}
+{% endblock %}

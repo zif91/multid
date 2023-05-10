@@ -1,0 +1,90 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{#% cache 'main' ~ resource.id %#}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: 27,
+depth: 5,
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+paginate:'pages',
+TplNextP:'',
+TplPrevP:'',
+TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+filter: 'filters',
+filterRangeSeparator: ':',
+filterValuesSeparator: '|',
+filterDelimiter: '||',
+__filterPriceId: 14,
+filterList: '42,43,19',
+_filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
+filterTpl: '@T_FILE:partials/filters/tpl',
+filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+filterTplRange: '@T_FILE:partials/filters/tplRange',
+filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+tvSortType: 'UNSIGNED',
+api: 0,
+noneTPL:'@CODE: <div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+    </div>
+  </div>
+</div>',
+})
+%}
+
+
+{% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
+rowTpl:'@CODE: <div class="index-first-block text-light" style="background: url([+image+]) center/cover;">
+		<div class="container">
+			<div class="top-text mb-4">
+				При покупке любого авто в кредит - выгода
+			</div>
+			<div class="price mb-4">
+				<span class="d-block">до</span>
+				350 000 ₽
+			</div>
+			<button class="btn btn-danger big" data-fancybox="popup" data-src="#popup">Получить предложение</button>
+		</div>
+	</div>
+
+'}) %}
+
+{{banner |raw}}
+{{ plh['catalog.filters'] | raw }}
+{% include('partials/brands.twig') %}
+
+
+{% include '/partials/advantages.twig' %}
+		{{ runSnippet('Form', {
+              formid: 'FormCallback',
+              path: '/templates/autodealer/partials/forms/feedback/',
+              extension: 'twig'
+              }) | raw }} 
+
+{#% include '/partials/podbor.twig' %#}
+{# <div class="feedback-block">
+	<div class="container-fluid">
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/rofl/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+	</div>
+</div>#}
+{#% include('partials/actions.twig') %#}
+{% include('partials/contacts.twig') %}
+
+{#% include '/partials/tradein.twig' %#}
+{#% endcache %#}
+{% endblock %}

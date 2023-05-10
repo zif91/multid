@@ -1,0 +1,31 @@
+{% set gifts = runSnippet('DocLister', {
+    display: 3,
+    parents: 24,
+    depth: 0,
+    tvList:'image,color',
+    tpl:'@T_CODE:     <div class="col-12 col-md-6 col-xl-4 mb-4">
+        <div class="stock">
+            <div class="stock-bg"></div>
+            <div class="stock-img" style="background-color:{{ data[\'tv.color\'] }}; height:100%">
+                <img class="pt-3" src="{{ runSnippet(\'phpthumb\', {input: data[\'tv.image\'], options:\'w=130,h=130,zc=1\'}) }}" alt="" />
+            </div>
+            <div class="stock-body">
+                <div style="text-align:right" class="stock-title">{{ data.title }}</div>
+                <div class="stock-content">
+                    <p class="m-0 fw-bold text-end">
+                        <span class="text-red fs-5">{{data.longtitle}}</span>
+                    </p>
+                    <p style="text-align:right" class="m-0 small">
+                        {{data.content |raw}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>'
+    })
+    %}
+    <div class="row mb-5 d-none d-xl-flex">
+
+    {{gifts | raw}}
+    
+</div>

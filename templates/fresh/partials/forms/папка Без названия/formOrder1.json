@@ -1,0 +1,26 @@
+{
+  "controller": "Form",
+  "formid": "FormTradeIn",
+  "messagesOuterTpl": "@T_FILE:common/messagesOuterTpl",
+  "messagesErrorOuterTpl": "@T_FILE:common/messagesErrorOuterTpl",
+  "messagesRequiredOuterTpl": "@T_FILE:common/messagesRequiredOuterTpl",
+  "formTpl": "@T_FILE:FormTradeIn",
+  "errorTpl": "@T_FILE:common/errorTpl",
+  "errorClass": " is-invalid",
+  "requiredClass": " is-invalid",
+  "rules": {
+    "name": {
+      "required": "Обязательно к заполнению"
+    },
+    "phone": {
+      "required": "Обязательно к заполнению"
+    },
+    "agree": {
+      "required": "Обязательно к заполнению"
+    }
+  },
+  "subject": "Купить автомобиль: Наличные",
+  "prepare": "prepareFormConfig",
+  "reportTpl": "@T_FILE:product/formOrder1.reportTpl",
+  "successTpl": "@T_FILE:product/formOrder1.successTpl"
+}

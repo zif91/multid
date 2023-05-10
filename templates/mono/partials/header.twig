@@ -1,0 +1,37 @@
+{% set headermenu = runSnippet('DLMenu', {
+    parents: baseSettings["id"],
+    tvList: 'image',
+    rowTpl: '@CODE:<li><a href="[+url+]">[+pagetitle+]</a></li>',
+    outerTpl: '@CODE:<ul>
+        [+wrap+]</ul>'}) %}    
+    {#
+    <div class="menubg"></div>
+    <header class="header">
+        <div class="container-fluid flex">
+            <div class="logo">
+                <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
+            </div>
+                               {{ headermenu|raw}}
+
+            <div class="contacts">
+             <button type="button"data-toggle="modal" data-target="#oneclick">Заказать звонок</button>
+            </div>
+            <a class="menu-button"></a>
+        </div>
+    </header>#}
+
+                       
+       <header class="header py-lg-5 py-3">
+        <div class="container-fluid flex">
+            <div class="logo">
+                <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
+            </div>
+            <div class="adress pt-2">
+                {{baseSettings.salon_location}}
+            </div>
+            <div class="phone">
+                {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'd-block mb-2'}) | raw}}   
+                Ежедневно с 9:00 до 21:00
+            </div>
+        </div>
+    </header>         

@@ -1,0 +1,150 @@
+{% extends 'app.twig' %}
+{% set brand = runSnippet('DocLister',{
+parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle+]">[+pagetitle+]</option>'
+}) %}
+{#{{ runSnippet('DocLister', {display: 20, parents: 27, depth: 0, tvList:'car-price,old-car-price,car_photos', tpl:'@CODE:<section class="section-50 used-cars-block">
+  <div class="container">
+    <div class="section__top">
+      <h2 class="section-title title-black mb-36">[+pagetitle+]<a class="catalog-link" href="[+url+]">
+          Все модели<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 16.5L14 10.4154L8.1669 4.5" stroke="#F72446" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </a>
+      </h2>
+      <div class="cards">
+        [+news+]
+      </div>
+    </div>
+</section>',prepare:'FolderCars'
+}) |raw}} #}
+{% block MAIN %}
+<hr class="m-0" />
+<div class="container p-4 py-5">
+  <h4 class="fw-bold mb-5">Автокредит</h4>
+  <p>Планируете обновить автомобиль, но не располагаете всей нужной суммой? Это и не требуется. Намного выгоднее - часть автомобиля не оплачивать наличными, а воспользоваться кредитными программами, это позволит получить скидку на приобретаемый автомобиль. <br> Если хотите приобрести авто, и возник вопрос, связанный с кредитом - просто заполните форму, и наш менеджер поспешит Вам помочь!</p>
+  <div class="row">
+    {{ runSnippet('Form', {
+    formid: 'FormCredit',
+    path: '/templates/autodm/partials/forms/credit/',
+    extension: 'twig'
+    }) | raw }}
+  </div>
+</div>
+<div class="container p-4 d-none d-xl-block">
+  <h4 class="fw-bold mb-5">Приемущества кредита в {{baseSettings["salon-name"]}}</h4>
+  <div class="row overflow-hidden sales">
+    <div class="col-3 row p-0 m-0 sale-item">
+      <div class="col-6 d-flex align-items-center justify-content-center">
+        <img src="/templates/atlant/images/sales/speed.png" alt="" />
+      </div>
+      <div class="col-6 d-flex flex-column justify-content-between">
+        <p class="text-red fw-bold m-0 mt-4">СРОК ОДОБРЕНИЯ</p>
+        <p class="small fw-bold m-0 mb-4">вы экономите свое время</p>
+      </div>
+    </div>
+    <div class="col-3 row p-0 m-0 sale-item">
+      <div class="col-6 d-flex align-items-center justify-content-center">
+        <img src="/templates/atlant/images/sales/cash.png" alt="" />
+      </div>
+      <div class="col-6 d-flex flex-column justify-content-between">
+        <p class="text-red fw-bold m-0 mt-4">ВЫГОДНЫЕ УСЛОВИЯ</p>
+        <p class="small fw-bold m-0 mb-4">мы подберем лучшее предложение</p>
+      </div>
+    </div>
+    <div class="col-3 row p-0 m-0 sale-item">
+      <div class="col-6 d-flex align-items-center justify-content-center">
+        <img src="/templates/atlant/images/sales/diagnostic.png" alt="" />
+      </div>
+      <div class="col-6 d-flex flex-column justify-content-between">
+        <p class="text-red fw-bold m-0 mt-4">
+          БЕСПЛАТНАЯ<br />
+          ДИАГНОСТИКА
+        </p>
+        <p class="small fw-bold m-0 mb-4">Полный чеклист состояния автомобиля</p>
+      </div>
+    </div>
+    <div class="col-3 row p-0 m-0 sale-item">
+      <div class="col-6 d-flex align-items-center justify-content-center">
+        <img src="/templates/atlant/images/sales/guard.png" alt="" />
+      </div>
+      <div class="col-6 d-flex flex-column justify-content-between">
+        <p class="text-red fw-bold m-0 mt-4">
+          НАДЕЖНОСТЬ
+        </p>
+        <p class="small fw-bold m-0 mb-4">Вы сами выберете самое выгодное предложение</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container p-4">
+    <h4 class="fw-bold mb-5">Как происходит получение кредита?</h4>
+    <div class="row my-5">
+        <div class="col-6 col-xl-3 mb-5 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <div class="cyrcle-red cyrcle-red-none-left">1</div>
+                <div class="text-center">
+                    <p class="fw-bold text-uppercase m-2">Заявка</p>
+                    <p class="small m-0">
+                        Оставьте заявку<br />
+                        или позвоните нам
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3 mb-5 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <div class="cyrcle-red">2</div>
+                <div class="text-center">
+                    <p class="fw-bold text-uppercase m-2">Подбор условий</p>
+                    <p class="small m-0">Мы вместе подберем условия с комфортным платежом</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3 mb-5 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <div class="cyrcle-red">3</div>
+                <div class="text-center">
+                    <p class="fw-bold text-uppercase m-2">Подача заявки в банк</p>
+                    <p class="small m-0">
+                       Наши менеджеры<br />
+быстро помогут подать заявку                  </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3 mb-5 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <div class="cyrcle-red cyrcle-red-none-right">4</div>
+                <div class="text-center">
+                    <p class="fw-bold text-uppercase m-2">Подписание договора</p>
+                    <p class="small m-0">
+                      Банки присылают решение <br />
+                        Вы выбираете подходящее и подписываете договор
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-lg mb-5 px-0 px-lg-1">
+    <div class="row question-document mx-0 mx-lg-3">
+        <div class="col-12 col-lg-6 py-5 px-4 px-sm-5">
+            <div class="container p-0 px-sm-4">
+                <h4 class="fw-bold mb-4">Какие документы нужны?</h4>
+                <ul>
+                    <li>Паспорт</li>
+                    <li>Водительское удостоверение</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block question-document-image"></div>
+    </div>
+</div>
+{% include('partials/banks.twig') %}
+
+{% endblock %}
+{% block SCRIPTS %}
+<script src="static/js/choices.min.js"></script>
+<script src="static/js/select2.js"></script>
+{% endblock %}

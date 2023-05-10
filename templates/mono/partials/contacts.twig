@@ -1,0 +1,22 @@
+{# {{ runSnippet('map', {zoom:'15',grey:'1', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+}) | raw}} #}
+{% set ultimid = runSnippet('UltimateParent', {}) %}
+{% set map = runSnippet('map', {zoom:'15',grey:'1', class:'123', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+}) %}
+<div class="bottom-map-block position-relative" id="adres">
+    <div class="container-fluid flex">
+        <div></div>
+        <div class="contacts text-light p-sm-4 p-3 position-relative">
+            <div class="name mb-sm-3 mb-2">
+                Автосалон - {{baseSettings.pagetitle}}
+            </div>
+            <p class="mb-sm-4 mb-2">Официальный дилер {{ runSnippet('docInfo', {docid: ultimid, field: 'mark' }) | raw}} <br />Время работы: с 9-00 до 21-00<br /> Адрес: {{ runSnippet('docInfo', {docid: ultimid, field: 'pagetitle' }) | raw}} , {{baseSettings.salon_location}}</p>
+            
+            {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'd-block text-light mb-sm-5 mb-2 pl-sm-4 pl-3'}) | raw}}
+            <button class="w-100 text-light"  data-toggle="modal" data-target="#oneclick">Заказать звонок</button>
+        </div>
+    </div>
+    <div class="map position-absolute w-100 h-100">
+            {{ map | raw }}
+    </div>
+</div>

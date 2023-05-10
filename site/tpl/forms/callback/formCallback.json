@@ -1,0 +1,15 @@
+{
+    "rules": {
+        "name": {
+            "required": "Введите Ваше имя"
+        },
+        "phone": {
+            "required": "Введите Ваш телефон"
+        },
+        "!email": {
+            "email": "Введите Ваш email"
+        }
+    },
+	"to": "spam@iliukhin.com",
+	"subject": "Форма обратной связи"
+}

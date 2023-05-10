@@ -1,0 +1,9 @@
+{% if data['name'] in ['size-d', 'size-s', 'size-w', 'size-d2', 'size-s2', 'size-w2'] %}
+    {% set filter_class = 'col-4 col-lg-4' %}
+{% else %}
+    {% set filter_class = 'col-lg-4 col-sm-6 col-xs-12' %}
+{% endif %}
+{#<div class="{{ filter_class}} px-2 pb-3 py-lg-1 prices" data-name="{{ data['name'] }}">#}
+    <div class="row m-0 price-range prices">{{ data['wrap'] | raw }}</div>
+
+<!--</div>-->

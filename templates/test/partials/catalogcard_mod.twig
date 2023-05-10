@@ -1,0 +1,51 @@
+{#% set thumb = runSnippet('morephoto', {
+images: data['tv.car_photos'],
+phpthumb: 'w=250,h=168,zc=C',
+tpl: '@CODE:[+image.thumb+]',
+total: 1,
+display: 1
+}) %#}
+{% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %}
+{#{dump(modification)}#}
+{#{data.id}#}
+{#% set photo = runSnippet ('DocLister', {parents: data.id,
+depth: 0,
+orderBy: 'menuindex',
+api: 1,
+order: 'ASC',
+tvList:'configuration_id, car-price, old-car-price',
+ownerTPL: '@CODE:[+dl.wrap+]',
+tpl:'@CODE:[+tv.configuration_id+]'}) %}
+{% set DLdata = photo | json %}
+{{dump(photo)}#}
+{#{dump(modification)}#}
+<table>
+<tr>
+    <td>{{ data['pagetitle'] }}</td>
+    <td>{{ data['id'] }}</td>
+    <td>{{ modification|length }}</td>
+
+</tr></table>
+{#
+<div class="item mb-3 position-relative">
+    <a class="link position-absolute"></a>
+    <div class="top-block flex">
+        <div class="name">
+            {{ data['pagetitle'] }} : {{ data['id'] }}
+        </div>
+        <div class="price">
+            от {{ data['tv.car-price'] }} ₽
+        </div>
+    </div>
+    <div class="hidden-block w-100">
+        <div class="info">
+            <span class="d-inline-block py-2 px-3 text-light bg-dark"> {{ modification|length }}
+                комплектации </span>
+        </div>
+    </div>
+    <div class="info2">
+        <div class="price">
+            от {{ data['tv.car-price'] }} ₽
+        </div>
+    </div>
+</div>#}

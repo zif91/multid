@@ -1,0 +1,96 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{#% cache 'main' ~ resource.id %#}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: 27,
+depth: 5,
+orderBy: 'menuindex',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+noneTPL:'@T_FILE:partials/noitems',
+paginate:'pages',
+TplNextP:'',
+TplPrevP:'',
+TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+filter: 'filters',
+filterRangeSeparator: ':',
+filterValuesSeparator: '|',
+filterDelimiter: '||',
+filterPriceId: 19,
+filterCurrencyId: 'RUB',
+__filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
+filterList: '42,43,19,16',
+filterTpl: '@T_FILE:partials/filters/tpl',
+filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+filterTplRange: '@T_FILE:partials/filters/tplRange',
+filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+tvSortType: 'UNSIGNED',
+api: 0
+})
+%}
+{% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
+rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) center/cover;">
+	<div class="container-fluid">
+		<h1>[+title+]</h1>
+		[+catalog.filters+]
+		</form>
+	</div>
+</div>'}) %}
+{{banner |raw}}
+{% include '/partials/brands.twig' %}
+<div class="catalog-block">
+	<div class="container-fluid catalog-products" id="catalog">
+		<h2>Специальные предложения</h2>
+		{{DLCatalog |raw}}
+	</div>
+	<div class="bottom-button">
+		<button onclick="window.location.href = '{{ makeUrl(27) }}';">Смотреть все <span></span></button>
+	</div>
+</div>
+</div>
+{% include '/partials/podbor.twig' %}
+<div class="feedback-block">
+	<div class="container-fluid">
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/autodm/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+	</div>
+</div>
+<script type="text/javascript">
+var waitForJQuery2 = setInterval(function() {
+	if (typeof $ != 'undefined') {
+		$(function() {
+			$("#slider-range").slider({
+				range: true,
+				min: 0,
+				max: 50000,
+				values: [10000, 30000],
+				slide: function(event, ui) {
+					$("#amount").val("Цена от " + ui.values[0] + " р.");
+					$("#amount2").val("Цена до " + ui.values[1] + " р.");
+				}
+			});
+			$("#amount").val("Цена от " + $("#slider-range").slider("values", 0) + " р.");
+			$("#amount2").val("Цена до " + $("#slider-range").slider("values", 1) + " р.");
+		});
+		clearInterval(waitForJQuery2);
+	}
+}, 100);
+</script>
+{% include '/partials/advantages.twig' %}
+{% include('partials/contacts.twig') %}
+{% include('partials/banks.twig') %}
+{#% include '/partials/tradein.twig' %#}
+{#% endcache %#}
+{% endblock %}

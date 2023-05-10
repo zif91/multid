@@ -1,0 +1,45 @@
+{% extends 'app.twig' %}
+{% set reviews = runSnippet('DocLister',{
+parents:29,
+depth: 0,
+tvList:'image,',
+tpl:"@T_CODE:<div class='col-6 col-lg-3 mb-4'>
+    <div class='card shadow border-0 h-100'>
+        <img src='{{ data['tv.image'] }}' class='card-img-top' />
+        <div class='card-body review-body'>
+            <h5 class='card-title fw-bold'>{{data.pagetitle}}</h5>
+            <p class='card-text fw-bold mb-1'>{{data.longtitle}}</p>
+            <p class='card-text'>
+                {{data.content|raw}}
+            </p>
+            <div class='row'>
+                <div class='col text-end'>
+                    <a href='{{data.url}}'' class=' link-review fw-bold'>Читать отзыв</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>",
+display:'8',
+paginate:'pages',
+TplNextP:'',
+TplPrevP:'',
+TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page">
+    <span class="page-link">[+num+]</span>
+</li>',
+TplWrapPaginate:'@CODE: <nav class="py-5">
+    <ul class="pagination">[+wrap+]</ul>
+</nav>'
+}) %}
+{% block MAIN %}
+{% include 'partials/crumbs.twig' %}
+<hr class="m-0" />
+<div class="container p-4 py-5">
+    <h4 class="fw-bold mb-5">Отзывы</h4>
+    <div class="row">
+        {{ reviews |raw }}
+    </div>
+    {{ plh['pages'] | raw }}
+</div>
+{% endblock %}

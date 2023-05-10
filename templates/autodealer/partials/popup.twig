@@ -1,0 +1,55 @@
+<div class="modal fade" id="oneclick" tabindex="-1" role="dialog" aria-labelledby="oneclick" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background: #b71f25;">
+      <!--div class="modal-header">
+        <h5 class="modal-title" id="oneclick">Форма обратной связи</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div-->
+      <!--div class="modal-body">
+        Оставьте заявку - и наш менеджер свяжется с Вами в ближайшее время      </div-->{#{ runSnippet('Form', {
+      formid: 'FormCallback',
+      path: '/templates/autodm/partials/forms/feedback_modal/',
+      extension: 'twig'
+      }) | raw }#}
+      <!--div class="modal-footer">
+        <button type="button" class="btn btn-primary">Отправить</button>
+      </div-->
+    </div>
+  </div>
+</div>
+<!-- Кнопка для открытия модального окна -->
+
+<!-- Модальное окно Bootstrap -->
+<div class="modal fade popup" id="popup" tabindex="-1" role="dialog" aria-labelledby="popupLabel" aria-hidden="true">
+  <div class="modal-dialog popup" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/autodealer/partials/forms/feedback_modal/',
+        extension: 'twig'
+        }) | raw }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="popup" style="display: none; width: 100%; max-width: 430px;" class="popup">
+  {{ runSnippet('Form', {
+  formid: 'FormCallback',
+  path: '/templates/autodealer/partials/forms/feedback_modal/',
+  extension: 'twig'
+  }) | raw }}
+
+</div>
+<div id="politika" style="display: none; width: 100%; max-width: 430px;" class="politika">
+  {{runSnippet('DocInfo', {
+  docid:'23569',
+  field: 'content',
+  } ) | raw}}
+</div>

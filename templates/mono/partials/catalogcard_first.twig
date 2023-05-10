@@ -1,0 +1,35 @@
+{% set thumb = runSnippet('morephoto', {
+    images: data['tv.car_photos'],
+    phpthumb: 'w=370,h=230,zc=C',
+    tpl: '@CODE:[+image.thumb+]',
+    total: 1,
+    display: 1
+}) %}
+{% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
+action:'caroldprice'}) %}
+<div class="carousel-item active pb-4 pt-4 pb-lg-0 d-sm-block me-sm-0">
+	<a href="{{ data['url'] }}" style="text-decoration: none; color: black"><div class="card h-100 shadow border-0">
+		<img src="{{ thumb }}" class="card-img-top" alt="Car"/>
+		<div class="card-body d-flex flex-column justify-content-between">
+			<h5 class="card-title">{{ data['title'] }}</h5>
+			<div class="row card-text">
+				<div class="col pe-0 text-decoration-line-through text-secondary small">
+                    {{ (oldprice)|number_format(0, '.', ' ') }} ₽
+				</div>
+				<div class="col ps-0 fw-bold text-end text-danger">
+					{{ ( data['tv.car-price'])|number_format(0, '.', ' ') }} ₽
+				</div>
+			</div>
+			<hr class="my-2"/>
+			<div class="row small mb-2">
+				<div class="col-4 small text-secondary">Пробег</div>
+				<div class="col-4 small text-secondary">Двигатель</div>
+				<div class="col-4 small text-secondary">КПП</div>
+				<div class="col-4 fw-bold py-2" >{{ ( data['tv.run'] )|number_format(0, '.', ' ') }} км</div>
+                <div class="col-4 fw-bold py-2">{{ data['tv.engine_power'] }} л.с.</div>
+                <div class="col-4 fw-bold py-2">{{ data['tv.gear'] }}</div>
+			</div>
+			<a href="{{ data['url'] }}" class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100">Подробнее</a>
+		</div>
+	</div></a>
+</div>

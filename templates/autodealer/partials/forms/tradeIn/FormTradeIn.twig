@@ -1,0 +1,66 @@
+<form>
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+    {{ data['form.messages'] | raw }}
+    <div class="credit-block px-4 py-5 mb-5 text-light" id="creditform">
+        
+        <div class="row">
+            <div class="col-xl-12 col-md-12">
+                <div class="field mb-4">
+                    <p class="mb-2">
+                        Марка вашей машины</p>
+                    <select id="brand" type="text" class="form-control" name="brand" value="{{ data.brand }}">
+                        <option value="" selected disabled>Выберите марку</option>
+                        <option value="AC">AC</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Changan">Changan</option>
+                        <option value="Chery">Chery</option>
+                        <option value="Datsun">Datsun</option>
+                        <option value="DongFeng">DongFeng</option>
+                        <option value="EXEED">EXEED</option>
+                        <option value="FAW">FAW</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Geely">Geely</option>
+                        <option value="Haval">Haval</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="JAC">JAC</option>
+                        <option value="Kia">Kia</option>
+                        <option value="Lifan">Lifan</option>
+                        <option value="Ravon">Ravon</option>
+                        <option value="Skoda">Skoda</option>
+                        <option value="SsangYong">SsangYong</option>
+                        <option value="Subaru">Subaru</option>
+                        <option value="Suzuki">Suzuki</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="YA3">YA3</option>
+                        <option value="Другая марка">Другая марка</option>
+                    </select>
+                </div>
+                <div class="field mb-4">
+                        <p class="mb-2">Модель</p>
+                        <input id="model" value="{{data.model}}" type="text" class="form-control">
+                    </div>
+                
+                <div class="field mb-4">
+                     <p class="mb-2">
+                        Пробег
+                    </p>
+                    <input type="text" class="form-control py-2 border-0" id="mileage" name="mileage" value="{{ data.mileage }} " />
+                </div>
+                <div class="field mb-4 pt-sm-0 pt-4">
+                        <p class="mb-2">Ваше имя</p>
+                        <input name="first_name" value="{{ data.first_name }}" type="text" class="form-control {{ data['first_name.classname'] }}" id="calc-input-5" type="text" placeholder="Иван" />
+                    </div>
+                 <div class="field mb-4 pt-sm-0 pt-4">
+                        <p class="mb-2">Ваш телефон</p>
+                        </label>
+                        <input value="{{ data.mobile_tel }}" name="mobile_tel" class="form-control py-2 border-1 phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
+                    </div>
+                
+                <div class="text-center pt-3 col">
+                    <button type="submit" class="btn btn-danger">Оставить заявку</button>
+                </div>
+            </div>
+</form>

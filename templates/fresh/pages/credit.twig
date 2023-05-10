@@ -1,0 +1,129 @@
+{% extends 'app.twig' %}
+{% set brand = runSnippet('DocLister',{
+parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle+]">[+pagetitle+]</option>'
+}) %}
+{#{{ runSnippet('DocLister', {display: 20, parents: 27, depth: 0, tvList:'car-price,old-car-price,car_photos', tpl:'@CODE:<section class="section-50 used-cars-block">
+  <div class="container">
+    <div class="section__top">
+      <h2 class="section-title title-black mb-36">[+pagetitle+]<a class="catalog-link" href="[+url+]">
+          Все модели<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 16.5L14 10.4154L8.1669 4.5" stroke="#F72446" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </a>
+      </h2>
+      <div class="cards">
+        [+news+]
+      </div>
+    </div>
+</section>',prepare:'FolderCars'
+}) |raw}} #}
+{% block MAIN %}
+
+<div class="order-page pt-4 pb-5">
+		<div class="container">
+			<form class="pt-5 pb-4 px-sm-5 px-3">
+				<div class="block-name mb-4">
+					Рассчитать кредит
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-md-6 mb-4">
+						<p class="mb-2">Первый взнос</p>
+						<select class="w-100 px-3">
+							<option>346 000 руб</option>
+							<option>346 000 руб</option>
+							<option>346 000 руб</option>
+						</select>
+					</div>
+					<div class="col-lg-3 col-md-6 mb-4">
+						<p class="mb-2">Срок кредита</p>
+						<select class="w-100 px-3">
+							<option>36 месяцев</option>
+							<option>36 месяцев</option>
+							<option>36 месяцев</option>
+						</select>
+					</div>
+					<div class="col-lg-3 col-md-6 mb-4">
+						<p class="mb-2">Сумма платеже каждый месяц</p>
+						<input type="text" class="w-100 px-3" value="86 500 руб">
+					</div>
+					<div class="col-lg-3 col-md-6 mb-4">
+						<button class="w-100">Оформить кредит!</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+<div class="steps-block pt-5 pb-sm-5 pb-3 mb-5">
+		<div class="container">
+			<div class="block-name mb-5">
+				Как мы работаем?
+			</div>
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="item mb-4 p-sm-4 p-3">
+								<div class="text position-relative">
+									<div class="number position-absolute">01.</div>
+									<div class="name mb-2">
+										Шаг первый
+									</div>
+									Знакомство: Мы начинаем с тщательного изучения Ваших потребностей и желаний, чтобы найти идеальный автомобиль для Вас. 
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="item mb-4 p-sm-4 p-3">
+								<div class="text position-relative">
+									<div class="number position-absolute">02.</div>
+									<div class="name mb-2">
+										Шаг второй
+									</div>
+									Подбор: Наши эксперты помогут Вам выбрать автомобиль из нашего широкого ассортимента, учитывая Ваши предпочтения и бюджет.</br>
+ 
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="item mb-4 p-sm-4 p-3">
+								<div class="text position-relative">
+									<div class="number position-absolute">03.</div>
+									<div class="name mb-2">
+										Шаг третий
+									</div>
+									Финансирование: Мы предлагаем гибкое финансирование на лучших условиях, чтобы помочь Вам получить нужный автомобиль.
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="item mb-4 p-sm-4 p-3">
+								<div class="text position-relative">
+									<div class="number position-absolute">04.</div>
+									<div class="name mb-2">
+										Шаг четвертый
+									</div>
+									Гарантия: Мы предлагаем длительную гарантию на все новые автомобили, чтобы вы могли чувствовать себя уверенно.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="container">
+{% include "/partials/advantages.twig" %}
+</div>
+<div class="container">
+        {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/autosalon/partials/forms/feedback/',
+        extension: 'twig'
+        }) | raw }}
+</div>
+{% include "/partials/contacts.twig" %}
+{% endblock %}
+{% block SCRIPTS %}
+<script src="static/js/choices.min.js"></script>
+<script src="static/js/select2.js"></script>
+{% endblock %}

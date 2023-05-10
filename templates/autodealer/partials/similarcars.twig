@@ -1,0 +1,50 @@
+<div id="similar-cars" class="carousel carousel-dark" data-bs-interval="false">
+	<div class="d-flex d-sm-block">
+		<a class="carousel-control-prev d-sm-none position-relative" type="button" data-bs-target="#similar-cars" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		</a>
+
+		<div class="row px-0 pt-3 pb-5 carousel-inner w-auto m-0">
+
+			{{  runSnippet('DocLister', 
+                {display: 4, 
+                  parents: 27, 
+                  depth: 0, 
+                  tvList:'car-price,old-car-price,car_photos,run,engine_power,gear', 
+                  tpl:'@FILE:partials/similarcar',
+                  paginate:'pages',
+                TplNextP:'',
+                TplPrevP:'',
+                TplPage:'@CODE: <li><a href="[+link+]">[+num+]</a></li>',
+                TplCurrentPage:'@CODE: <li class="active"><a href="[+link+]">[+num+]</a></li>',
+                TplWrapPaginate:'@CODE: <div class="pagination">
+                <ul>[+wrap+]</ul>
+                </div>',
+                filter: 'filters',
+                filterRangeSeparator: ':',
+                filterValuesSeparator: '|',
+                filterDelimiter: '||',
+                'filter_delimiter:containsAll': '~',
+                filterPriceId: 19,
+                filterList: 9,
+                _filterList: '19:range;9:dropdown;134:range;135:range;136:range',
+                filterCategory: 20,
+                filterCounters: 1,
+                filterUseParams: 1,
+                filterTpl: '@T_FILE:partials/filters/tpl',
+                filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+                filterTplRange: '@T_FILE:partials/filters/tplRange',
+                filterOwnerCheckbox: '@T_FILE:cpartials/filters/ownerCheckbox',
+                filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+                filterOwnerRadio: '@T_FILE:partials/filters/ownerRadio',
+                filterTplRadio: '@T_FILE:partials/filters/tplRadio'
+                }) |raw}}
+		</div>
+
+
+		<a class="carousel-control-next d-sm-none position-relative" type="button" data-bs-target="#similar-cars" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		</a>
+	</div>
+</div>
+

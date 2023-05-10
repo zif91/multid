@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <%= require('../includes/header.html').default %>
+        <hr class="m-0 d-xl-none" />
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                    <li class="breadcrumb-item active">Автомобили с пробегом</li>
+                </ol>
+            </nav>
+        </div>
+        <hr class="m-0" />
+        <div class="container px-4 pt-5">
+            <h4 class="fw-bold mb-5 d-none d-xl-block">Автомобили</h4>
+            <p>
+                Сортировать по:
+                <select class="form-select form-select-sort">
+                    <option value="1">Цена</option>
+                </select>
+                <select class="form-select form-select-sort">
+                    <option value="1">Год</option>
+                </select>
+            </p>
+        </div>
+        <div class="container px-3">
+            <div class="row px-0 pt-3 m-0">
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car1.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car2.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car3.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car4.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car1.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car2.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car3.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car4.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car1.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car2.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car3.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 pb-4">
+                    <div class="card shadow border-0">
+                        <img src="/images/cars/car4.png" class="card-img-top" alt="Car" />
+                        <div class="card-body">
+                            <h5 class="card-title">Audi Q5 2020г</h5>
+                            <div class="row card-text">
+                                <div
+                                    class="col pe-0 text-decoration-line-through text-secondary small"
+                                >
+                                    2 245 000 ₽
+                                </div>
+                                <div class="col ps-0 fw-bold text-end text-danger">2 245 000 ₽</div>
+                            </div>
+                            <hr class="my-2" />
+                            <div class="row small mb-2">
+                                <div class="col-4 small text-secondary">Пробег</div>
+                                <div class="col-4 small text-secondary">Двигатель</div>
+                                <div class="col-4 small text-secondary">КПП</div>
+                                <div class="col-4 fw-bold py-2">52 900 км.</div>
+                                <div class="col-4 fw-bold py-2">220 л.с.</div>
+                                <div class="col-4 fw-bold py-2">Автомат</div>
+                            </div>
+                            <a
+                                href="#"
+                                class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100"
+                                >Подробнее</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="py-5">
+                <ul class="pagination">
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">1</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                </ul>
+            </nav>
+            <div class="row mb-5 d-none d-xl-flex">
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="stock">
+                        <div class="stock-bg"></div>
+                        <div class="stock-img">
+                            <img src="/images/stocks/1.png" alt="" />
+                        </div>
+                        <div class="stock-body">
+                            <div class="stock-title">Trade-in</div>
+                            <div class="stock-content">
+                                <p class="m-0 fw-bold text-end">
+                                    Выгода до <span class="text-red fs-5">254 000 ₽</span>
+                                </p>
+                                <p class="m-0 small">
+                                    Текст с кратким описанием акции по трейд-ину в автосалоне Атлант
+                                    Перечисляем основные триггерные преимущества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="stock">
+                        <div class="stock-bg"></div>
+                        <div class="stock-img">
+                            <img src="/images/stocks/2.png" alt="" />
+                        </div>
+                        <div class="stock-body">
+                            <div class="stock-title">Госпрограмма</div>
+                            <div class="stock-content">
+                                <p class="m-0 fw-bold text-end">
+                                    Выгода до <span class="text-red fs-5">254 000 ₽</span>
+                                </p>
+                                <p class="m-0 small">
+                                    Текст с кратким описанием акции по трейд-ину в автосалоне Атлант
+                                    Перечисляем основные триггерные преимущества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4 mb-4">
+                    <div class="stock">
+                        <div class="stock-bg"></div>
+                        <div class="stock-img">
+                            <img src="/images/stocks/3.png" alt="" />
+                        </div>
+                        <div class="stock-body">
+                            <div class="stock-title">Зимние шины</div>
+                            <div class="stock-content">
+                                <p class="m-0 fw-bold text-end text-red">В подарок!</p>
+                                <p class="m-0 small text-justify">
+                                    Текст с кратким описанием акции по трейд-ину в автосалоне Атлант
+                                    Перечисляем основные триггерные преимущества.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%= require('../includes/feedback.html').default %>
+        <div></div>
+        <%= require('../includes/footer.html').default %>
+    </body>
+</html>

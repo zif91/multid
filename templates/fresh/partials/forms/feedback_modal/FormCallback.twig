@@ -1,0 +1,28 @@
+{# <script src="https://unpkg.com/imask"></script>
+<script type="text/javascript">
+var phoneMask = IMask(
+  document.getElementById('formPhone'), {
+    mask: '+{7}(000)000-00-00'
+  });
+</script> #}
+<form class="text-center">
+  <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+                <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+                {{ data['form.messages'] | raw }}
+
+            <div class="logo mb-sm-5 mb-3">
+              <img src="/templates/fresh/img/logo.svg">
+            </div>
+            <div class="name mb-2">
+              Давайте мы Вам позвоним
+            </div>
+            <div class="top-text mb-5">
+              Специалисты {{baseSettings.pagetitle}} оперативно ответят на все интересующие вопросы
+            </div>
+            <input type="text" placeholder="Ваш номер телефона" class="phone-imask w-100 px-3 mb-4 {{ data['mobile_tel.classname'] }}"  type="tel" name="mobile_tel" id="formPhone" placeholder="+7 (___) ___-__-__" value="{{ data.mobile_tel }}">
+            <button class="w-100 mb-4" type="submit"><span></span> Жду звонка</button>
+            <div class="bottom-text">
+              Вы даёте согласие на обработку <a href="/policy">персональных данных</a>.
+            </div>
+          </form>
+              

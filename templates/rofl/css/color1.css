@@ -1,0 +1,56 @@
+.btn.btn-light {
+  border: 1px solid #d93e3a;
+  color: #d93e3a;
+}
+.btn.btn-light:hover {
+  background: #d93e3a;
+}
+.header .logo a {
+}
+.header ul li a:hover {
+  color: #d93e3a;
+}
+.header .phone {
+  background: url('../img/phone.svg') no-repeat 0 5px;
+}
+.footer ul li a:hover {
+  color: #d93e3a;
+}
+.actions-page .item a:hover {
+  background: #d93e3a;
+  border: 1px solid #d93e3a;
+}
+.text-danger {
+  color: #d93e3a !important;
+}
+.btn-danger {
+  background-color: #d93e3a !important;
+  border-color: #d93e3a !important;
+}
+.bg-danger {
+  background-color: #d93e3a !important;
+}
+.index-catalog-block .tabs-nav li a.active {
+  border: 1px solid #d93e3a;
+  color: #d93e3a;
+}
+@media (max-width: 767px) {
+  .header .phone {
+    background: url('../img/phone2.svg');
+  }
+}
+.index-contacts-block .logo .logotype {
+  background: url('../img/logo.svg') center / cover;
+}
+.catalog-page .pages .pagination .page-item .page-link.active {
+  background: #d93e3a;
+}
+.contacts-page .contacts .info .logo .logotype {
+  background: url('../img/logo.svg') center / cover;
+}
+.item-page .price-block .price span {
+  color: #d93e3a;
+}
+.item-page .bottom-block .btn-light:hover {
+  border: 1px solid #d93e3a;
+}

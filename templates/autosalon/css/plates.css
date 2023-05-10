@@ -111,7 +111,7 @@
 	 color: #000000;
 }
  .popups-row__item_percent {
-	 background: url(../images/percent-full.png) no-repeat center right 30px, ;
+	 background: url('../images/percent-full.png') no-repeat center right 30px, ;
 }
  .popups-row__item_family {
 	 background: url(../images/flag.png) no-repeat center right 30px, ;

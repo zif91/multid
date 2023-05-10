@@ -1,12 +1,10 @@
 <?php
-$result = exec('whoami');
-var_dump($result);
+$dir = '/home/jacov9sw.beget.tech/public_html';
+
+// Выполнение команды и сохранение вывода и ошибок в переменной $output
+exec("cd $dir && git pull 2>&1", $output, $return_var);
+
+// Вывод содержимого массива $output и кода возврата
+var_dump($output);
 echo "<br>";
-$dir = 'jacov9sw.beget.tech/public_html';
-exec("git config --global safe.directory '*' && git pull 2>&1", $output);
-var_dump($output);
-
-exec("cd $dir && git pull 2>&1", $output);
-var_dump($output);
-
-//test autoload  123
+echo "Код возврата: $return_var";

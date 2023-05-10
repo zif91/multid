@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 {% set cacheKey = md5(resource.id ~ json_encode(_GET)) %}
 {% set metaTitle = resource.metaTitle | default(resource.pagetitle) | parser %}
 {% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}

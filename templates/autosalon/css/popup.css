@@ -40,7 +40,7 @@
 	 justify-content: space-between;
 	 width: 100%;
 	 max-width: 750px;
-	 background: url(../templates/autosalon/images/popup-bg.png) no-repeat center/cover;
+	 background: url(../images/popup-bg.png) no-repeat center/cover;
 	 border-radius: 0 0 24px 24px;
 	 padding: 50px;
 	 color: #fff;
@@ -587,7 +587,7 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 }
  .checkbox.changed .checkbox__field::before {
 	 border: 1px solid ;
-	 background: url(../templates/autosalon/images/icons/checkbox.svg) no-repeat center;
+	 background: url(../images/icons/checkbox.svg) no-repeat center;
 }
  .checkbox.changed .checkbox__field_configurator:before {
 	 border: 1px solid ;

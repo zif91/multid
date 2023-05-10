@@ -111,16 +111,16 @@
 	 color: #000000;
 }
  .popups-row__item_percent {
-	 background: url('../images/percent-full.png') no-repeat center right 30px ;
+	 background: #f2f3f7 url('../images/percent-full.png') no-repeat center right 30px ;
 }
  .popups-row__item_family {
-	 background: url(../images/flag.png) no-repeat center right 30px ;
+	 background: #f2f3f7 url(../images/flag.png) no-repeat center right 30px ;
 }
  .popups-row__item_guarantee {
-	 background: url(../images/guarantee.png) no-repeat center right 30px ;
+	 background: #f2f3f7 url(../images/guarantee.png) no-repeat center right 30px ;
 }
  .popups-row__item_tradein {
-	 background: url(../images/money-full.png) no-repeat center right 10px ;
+	 background: #f2f3f7 url(../images/money-full.png) no-repeat center right 10px ;
 }
  @media screen and (max-width: 1279px) {
 	 .adv-item {

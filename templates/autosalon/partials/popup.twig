@@ -55,7 +55,7 @@ extension: 'twig'
   </div>
 </div>
 
-<div id="trade-in-popup" class="popup popup_trade-in fancybox-content">
+<div id="trade-in-popup" class="popup popup_trade-in" style="display: none;">
     <div class="popup__header popup__header_trade-in">
         <div>
             <div class="popup__heading">Получите лучшее предложение по&nbsp;Trade&nbsp;In</div>
@@ -68,11 +68,11 @@ extension: 'twig'
         <div class="popup__auto">
             <img src="/templates/autosalon/images/tradein-popup-car.png" alt="">
         </div>
-        <img class="popup__header-pic" src="/templates/autosalon//images/money-popup.png" alt="">
+        <img class="popup__header-pic" src="/templates/autosalon/images/money-popup.png" alt="">
     </div>
     <div class="popup__content">
             <div role="form" class="wpcf7" id="" lang="ru-RU" dir="ltr">
-                <form data-id="tradein" id="car-tradein-modification-line" class="wpcf7-form" novalidate="novalidate">
+                <form data-id="tradein" id="car-tradein-modification-line" class="wpcf7-form">
                     <span class="wpcf7-form-row">
                         <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33">
                             <span class="wpcf7-form-control-wrap-label">Как вас зовут?</span>
@@ -95,6 +95,8 @@ extension: 'twig'
                 </form>
             </div>
         </div>
+    
+</div>
 
 <div class="sticky">
     <div class="sticky__close"></div>

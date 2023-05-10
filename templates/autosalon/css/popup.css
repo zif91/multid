@@ -453,3 +453,298 @@
 	}
 }
  
+input[type="checkbox"], input[type="file"], input[type="radio"] {
+	 display: none;
+}
+ .wpcf7-form-row {
+	 display: flex;
+	 flex-wrap: wrap;
+	 align-items: flex-end;
+	 margin: -5px;
+}
+ .wpcf7-form-control-wrap {
+	 box-sizing: border-box;
+	 display: block;
+	 padding: 5px;
+	 position: relative;
+}
+ .wpcf7-form-control-wrap.wpcf7-form-control-wrap-50 {
+	 width: 50%;
+}
+ .wpcf7-form-control-wrap.wpcf7-form-control-wrap-33 {
+	 width: 33.3333%;
+}
+ .wpcf7-form-control-wrap.wpcf7-form-control-wrap-20 {
+	 width: 20%;
+}
+ .wpcf7-form-control-wrap .button {
+	 width: 100%;
+}
+ .wpcf7-form-control-wrap-label {
+	 display: block;
+	 font-family: "Montserrat";
+	 font-size: 13px;
+	 color: ;
+	 margin-bottom: 10px;
+}
+ .wpcf7-form-control {
+	 display: block;
+	 box-sizing: border-box;
+	 height: 60px;
+	 width: 100%;
+	 outline: 0;
+	 border: 1px solid #fff;
+	 border-radius: 6px;
+	 padding: 0 20px;
+	 background: #fff;
+	 font-family: "Montserrat";
+	 font-size: 16px;
+	 color: #000000;
+}
+ .wpcf7-form-control:not([type=submit]):focus {
+	 border: 1px solid ;
+}
+ .wpcf7-form-control.wpcf7-form-control_textarea {
+	 line-height: 1.5;
+	 padding: 25px 30px;
+	 resize: vertical;
+	 min-height: 160px;
+}
+ .wpcf7-details {
+	 font-size: 12px;
+	 color: #8A8A8A;
+}
+ .wpcf7-details_info {
+	 display: block;
+	 position: relative;
+	 padding-left: 25px;
+}
+ .wpcf7-details_info:before {
+	 content: "";
+	 width: 15px;
+	 height: 15px;
+	 background: url(/images/icons/info.svg) no-repeat center;
+	 background-size: contain;
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+}
+ fieldset {
+	 padding: 0;
+	 margin: 0;
+	 border: 0;
+}
+ input:-webkit-autofill {
+	 -webkit-animation-name: autofill;
+	 -webkit-animation-fill-mode: both;
+}
+ @-webkit-keyframes autofill {
+	 to {
+		 background: #ffffff;
+	}
+}
+ input.error, textarea.error {
+	 border: none;
+	 border: 1px solid ;
+	 background: url(/images/icons/valid-error.svg) no-repeat right 20px center, #fff;
+	 position: relative;
+}
+ input.valid, textarea.valid {
+	 background: url(/images/icons/valid-ok.svg) no-repeat right 20px center, #fff;
+}
+ .wpcf7-form-control.error:not([type=submit]):focus {
+	 border: none;
+	 border: 1px solid rgba(11,31,53,0.6);
+}
+ .checkbox {
+	 display: block;
+}
+ .checkbox__field, .checkbox__field_configurator {
+	 display: block;
+	 box-sizing: border-box;
+	 font: 400 12px/1 "Montserrat";
+	 color: #6A6A6A;
+	 padding-left: 35px;
+	 position: relative;
+}
+ .checkbox__field::before, .checkbox__field_configurator:before {
+	 content: "";
+	 width: 26px;
+	 height: 26px;
+	 border: 1px solid #DEDEDE;
+	 box-sizing: border-box;
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+	 bottom: 0;
+	 margin: auto 0;
+}
+ .checkbox input[type="checkbox"].error + .checkbox__field::before {
+	 border: 1px solid #f13836;
+}
+ .checkbox:hover .checkbox__field::before {
+	 border: 1px solid ;
+}
+ .checkbox.changed .checkbox__field::before {
+	 border: 1px solid ;
+	 background: url(/images/icons/checkbox.svg) no-repeat center;
+}
+ .checkbox.changed .checkbox__field_configurator:before {
+	 border: 1px solid ;
+	 background: url(/images/icons/checkbox-white.svg) no-repeat center, ;
+}
+ .call-order-screen .checkbox__field, .trade-in-screen .checkbox__field, .trade-in-form .checkbox__field {
+	 color: #fff;
+}
+ .call-order-screen .checkbox__field::before, .trade-in-screen .checkbox__field::before, .trade-in-form .checkbox__field::before {
+	 color: #fff;
+}
+ .call-order-screen .checkbox.changed .checkbox__field::before, .trade-in-screen .checkbox.changed .checkbox__field::before, .trade-in-form .checkbox.changed .checkbox__field::before {
+	 background: url(/images/icons/checkbox-white.svg) no-repeat center;
+	 border: 1px solid #fff;
+}
+ .radio-button {
+	 display: flex;
+	 align-items: center;
+	 margin: 5px 0;
+	 cursor: pointer;
+}
+ .radio-button__label {
+	 display: block;
+	 font-family: "Montserrat";
+	 font-size: 16px;
+}
+ .radio-button__ripple {
+	 flex-shrink: 0;
+	 box-sizing: border-box;
+	 width: 26px;
+	 height: 26px;
+	 border: 1px solid #DEDEDE;
+	 background-color: #ffffff;
+	 display: inline-block;
+	 position: relative;
+	 margin: auto 15px auto 0;
+	 border-radius: 50%;
+	 vertical-align: middle;
+}
+ .radio-button__ripple:before {
+	 display: none;
+	 content: '';
+	 position: absolute;
+	 top: 0;
+	 bottom: 0;
+	 left: 0;
+	 right: 0;
+	 margin: auto;
+	 border-radius: 50%;
+	 width: 20px;
+	 height: 20px;
+	 background: ;
+}
+ .radio-button__color {
+	 content: '';
+	 position: absolute;
+	 top: 0;
+	 bottom: 0;
+	 left: 0;
+	 right: 0;
+	 margin: auto;
+	 border-radius: 50%;
+	 width: 20px;
+	 height: 20px;
+	 background: #f6d805;
+}
+ input[type="radio"]:checked + .radio-button__ripple {
+	 border: 1px solid ;
+}
+ input[type="radio"]:checked + .radio-button__ripple:before {
+	 display: block;
+}
+ .radio-button_color input[type="radio"]:checked + .radio-button__ripple:before {
+	 display: none;
+}
+ .form {
+	 box-sizing: border-box;
+	 padding: 35px 30px 40px 40px;
+}
+ .form__icon svg {
+	 display: block;
+	 margin: 0 auto 20px;
+}
+ .form__icon svg path {
+	 stroke: ;
+}
+ .form__top-line {
+	 font: 400 12px "Montserrat";
+	 margin-bottom: 25px;
+	 margin-bottom: 5px;
+}
+ .form__caption {
+	 font: 700 22px "Montserrat";
+	 margin-bottom: 20px;
+}
+ .form__caption span {
+	 box-sizing: border-box;
+	 background: #E30611;
+	 border-radius: 6px;
+	 padding: 1px 7px;
+	 font: 700 11px "Montserrat";
+	 color: #fff;
+}
+ .form__caption-sm {
+	 font: 400 12px "Montserrat";
+	 margin-bottom: 25px;
+}
+ .form__text-sm {
+	 font: 400 12px "Montserrat";
+	 color: rgba(0,0,0,0.5);
+}
+ .form_grey {
+	 background: ;
+	 border-radius: 24px;
+}
+ .form_white {
+	 background: #fff;
+	 border-radius: 24px;
+}
+ .form_white .wpcf7-form-control {
+	 background: ;
+}
+ .form_blue {
+	 background: ;
+	 color: #fff;
+}
+ .form_blue .form__icon svg path {
+	 stroke: #fff;
+}
+ .form_blue .wpcf7-form-control-wrap-label {
+	 color: #fff;
+}
+ .form_blue .form__text-sm {
+	 color: #fff;
+}
+ @media screen and (max-width: 1279px) {
+	 .form {
+		 padding: 25px 20px;
+	}
+}
+ @media screen and (max-width: 1023px) {
+	 .form__caption {
+		 margin-bottom: 20px;
+	}
+	 .wpcf7-form-control-wrap-label {
+		 margin-bottom: 5px;
+	}
+}
+ @media screen and (max-width: 767px) {
+	 .form {
+		 padding: 20px 15px;
+	}
+	 .wpcf7-form-row {
+		 flex-wrap: wrap;
+	}
+	 .wpcf7-form-control-wrap.wpcf7-form-control-wrap-50 {
+		 width: 100%;
+	}
+}
+ 

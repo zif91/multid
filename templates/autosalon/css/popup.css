@@ -40,7 +40,7 @@
 	 justify-content: space-between;
 	 width: 100%;
 	 max-width: 750px;
-	 background: url(/images/popup-bg.png) no-repeat center/cover;
+	 background: url(templates/autosalon/images/popup-bg.png) no-repeat center/cover;
 	 border-radius: 0 0 24px 24px;
 	 padding: 50px;
 	 color: #fff;
@@ -125,13 +125,13 @@
 	 content: "";
 	 width: 13px;
 	 height: 13px;
-	 background: url(/images/icons/phone-blue.svg) no-repeat center/contain;
+	 background: url(templates/autosalon//images/icons/phone-blue.svg) no-repeat center/contain;
 	 position: absolute;
 	 left: 0;
 	 top: 0;
 }
  .popup__form-details_note:before {
-	 background: url(/images/icons/info.svg) no-repeat center/contain;
+	 background: url(templates/autosalon//images/icons/info.svg) no-repeat center/contain;
 }
  .popup__icon {
 	 box-sizing: border-box;

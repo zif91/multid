@@ -1056,4 +1056,360 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 		 padding: 7px 15px;
 	}
 }
- 
+.animated {
+	 -moz-transition: all 0.5s ease-in-out;
+	 -webkit-transition: all 0.5s ease-in-out;
+	 transition: all 0.5s ease-in-out;
+}
+ .padding {
+	 padding: 75px 0 85px;
+}
+ @media screen and (max-width: 1279px) {
+	 .padding {
+		 padding: 60px 0 70px;
+	}
+}
+ @media screen and (max-width: 1023px) {
+	 .padding {
+		 padding: 35px 0 40px;
+	}
+}
+ .flex {
+	 display: flex;
+	 flex-wrap: nowrap;
+}
+ .flex_between {
+	 display: flex;
+	 justify-content: space-between;
+	 flex-wrap: nowrap;
+}
+ body {
+	 margin: 0;
+	 padding: 0;
+	 font-family: 'Montserrat', sans-serif;
+	 font-size: 14px;
+	 font-weight: 400;
+	 color: #000000;
+	 line-height: 1.4;
+	 min-width: 320px;
+}
+ body.dark {
+	 overflow: hidden;
+	 position: relative;
+}
+ body.dark:before {
+	 content: "";
+	 background: rgba(0,0,0,0.7);
+	 width: 100%;
+	 height: 100%;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 z-index: 1000;
+}
+ body.dark .header {
+	 z-index: none;
+}
+ body.dark .header__top-line {
+	 z-index: 1001;
+}
+ body.dark .brands-menu {
+	 z-index: 99;
+}
+ button, input, select, textarea {
+	 font-family: 'Montserrat', sans-serif;
+	 font-size: 16px;
+}
+ .wrapper {
+	 max-width: 1250px;
+	 padding: 0 40px;
+	 margin: 0 auto;
+}
+ h1, h2, h3, h4, h5, h6 {
+	 margin: 0;
+	 font-weight: 400;
+}
+ a {
+	 display: block;
+	 color: #646A9B;
+	 text-decoration: none;
+}
+ p {
+	 font: 400 16px/1.9 "Montserrat";
+	 margin: 20px 0;
+}
+ p a {
+	 display: inline-block;
+}
+ .half-bg-screen {
+	 background: #fff;
+	 background: -moz-linear-gradient(top,#fff 0,#fff 50%,#F2F3F7 50%,#F2F3F7 100%);
+	 background: -webkit-linear-gradient(top,#fff 0,#fff 50%,#F2F3F7 50%,#F2F3F7 100%);
+	 background: linear-gradient(to bottom,#fff 0,#fff 50%,#F2F3F7 50%,#F2F3F7 100%);
+}
+ .logo {
+	 display: flex;
+	 flex-wrap: nowrap;
+	 align-items: center;
+	 font: 700 18px "Montserrat";
+	 color: #000000;
+}
+ .logo img {
+	 width: 30px;
+	 margin-right: 13px;
+}
+ .text-cols {
+	 display: flex;
+	 flex-wrap: nowrap;
+	 margin: 0 -40px;
+}
+ .text-cols__col {
+	 box-sizing: border-box;
+	 width: 50%;
+	 padding: 0 40px;
+}
+ .caption {
+	 font: 700 30px/1.5 "Montserrat";
+	 margin: 0 0 30px;
+}
+ .caption-big {
+	 font: 700 46px/1.1 "Montserrat";
+	 margin-bottom: 40px;
+}
+ .subheading {
+	 font: 400 18px "Montserrat";
+	 margin-bottom: 25px;
+}
+ .more-info p:first-child {
+	 margin-top: 0;
+}
+ .more-button {
+	 font: 400 14px "Montserrat";
+	 cursor: pointer;
+	 color: #646A9B;
+}
+ .more-button.active {
+	 display: none;
+}
+ .fav-icon, .compare-icon {
+	 cursor: pointer;
+}
+ .fav-icon__num, .compare-icon__num {
+	 display: none;
+	 box-sizing: border-box;
+	 border-radius: 50%;
+	 width: 18px;
+	 height: 18px;
+	 position: absolute;
+	 top: -8px;
+	 left: 12px;
+	 background: #E30611;
+	 color: #fff;
+	 font-size: 9px;
+	 line-height: 18px;
+	 font-weight: 900;
+	 text-align: center;
+}
+ .fav-icon:hover svg path, .compare-icon:hover svg path {
+	 stroke: #646A9B;
+}
+ .fav-icon.active svg path, .compare-icon.active svg path {
+	 stroke: #646A9B;
+	 fill: #646A9B;
+}
+ .fav-icon.active .fav-icon__num, .fav-icon.active .compare-icon__num, .compare-icon.active .fav-icon__num, .compare-icon.active .compare-icon__num {
+	 display: block;
+}
+ .download-links {
+	 display: flex;
+	 margin: -7px;
+}
+ .download-links__item {
+	 padding: 7px;
+	 box-sizing: border-box;
+}
+ .download-link {
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: space-between;
+	 background: #FFFFFF;
+	 border: 1px solid #DFDFDF;
+	 box-sizing: border-box;
+	 border-radius: 4px;
+	 padding: 35px 25px;
+	 min-height: 250px;
+	 max-width: 200px;
+	 font: 400 14px "Montserrat";
+	 text-align: center;
+}
+ .download-link__icon {
+	 display: block;
+	 width: 30px;
+	 margin: 0 auto;
+}
+ .download-link__heading {
+	 color: #000;
+}
+ .button {
+	 display: inline-block;
+	 box-sizing: border-box;
+	 cursor: pointer;
+	 text-decoration: none;
+	 outline: 0;
+	 border: none;
+	 border-radius: 6px;
+	 font: 700 16px "Montserrat";
+	 color: #000000;
+	 position: relative;
+	 padding: 20px 25px;
+	 text-align: center;
+	 -moz-transition: all 0.5s ease-in-out;
+	 -webkit-transition: all 0.5s ease-in-out;
+	 transition: all 0.5s ease-in-out;
+}
+ .button_red {
+	 background: #E30611;
+	 color: #FFFFFF;
+}
+ .button_red:hover {
+	 background: #FF000D;
+}
+ .button_blue {
+	 background: #646A9B;
+	 color: #FFFFFF;
+}
+ .button_blue:hover {
+	 background: #616CC1;
+}
+ .button_grey {
+	 background: #F2F3F7;
+	 border-radius: 4px;
+	 padding: 18px 15px;
+	 color: #004DC9;
+}
+ .button_grey:hover {
+	 box-shadow: 5px 8px 22px rgba(204,204,202,0.4);
+}
+ .button_bordered {
+	 background: #FFFFFF;
+	 border: 1px solid #646A9B;
+	 box-sizing: border-box;
+	 padding: 13px 30px;
+	 font-size: 14px;
+	 color: #646A9B;
+}
+ .button_bordered:hover {
+	 background: #646A9B;
+	 color: #fff;
+}
+ .button_with-icon {
+	 text-align: left;
+	 padding: 19px 80px 19px 30px;
+}
+ .button_with-icon img {
+	 position: absolute;
+	 right: 35px;
+	 top: 0;
+	 bottom: 0;
+	 margin: auto 0;
+	 width: 10px;
+}
+ .button_with-icon-left {
+	 text-align: left;
+	 padding: 19px 25px 19px 70px;
+}
+ .button_with-icon-left img {
+	 position: absolute;
+	 left: 35px;
+	 top: 0;
+	 bottom: 0;
+	 margin: auto 0;
+	 width: 20px;
+}
+ .button_sm {
+	 font-size: 14px;
+	 padding: 14px 28px;
+}
+ .show-more-btn {
+	 margin-top: 45px;
+}
+ @media screen and (max-width: 1365px) {
+	 .caption-big {
+		 font-size: 40px;
+		 margin-bottom: 40px;
+	}
+}
+ @media screen and (max-width: 1279px) {
+	 body {
+		 padding-top: 52px;
+	}
+	 .wrapper {
+		 padding: 0 15px;
+	}
+	 .caption {
+		 font-size: 28px;
+	}
+	 p {
+		 font-size: 14px;
+	}
+	 .text-cols {
+		 margin: 0 -20px;
+	}
+	 .text-cols__col {
+		 padding: 0 20px;
+	}
+}
+ @media screen and (max-width: 1023px) {
+	 .caption-big {
+		 font-size: 30px;
+		 margin-bottom: 30px;
+	}
+	 p {
+		 margin: 10px 0;
+	}
+	 .accent-text p {
+		 font-size: 18px;
+		 margin: 15px 0;
+	}
+}
+ @media screen and (max-width: 767px) {
+	 body {
+		 padding-top: 102px;
+	}
+	 .text-cols {
+		 flex-wrap: wrap;
+	}
+	 .text-cols__col {
+		 width: 100%;
+	}
+	 .caption {
+		 font-size: 24px;
+		 margin-bottom: 20px;
+	}
+	 .caption-big {
+		 font-size: 24px;
+		 margin-bottom: 20px;
+	}
+	 .download-link {
+		 padding: 20px 15px;
+		 min-height: 200px;
+	}
+	 .show-more-btn {
+		 margin-top: 25px;
+	}
+	 .button_bordered {
+		 padding: 13px 15px;
+	}
+}
+ @media screen and (max-width: 410px) {
+	 .caption {
+		 font-size: 22px;
+	}
+	 .compare-icon__num, .fav-icon__num {
+		 top: -7px;
+		 left: 15px;
+		 width: 16px;
+		 height: 16px;
+		 line-height: 16px;
+	}
+}

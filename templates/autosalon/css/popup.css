@@ -125,13 +125,13 @@
 	 content: "";
 	 width: 13px;
 	 height: 13px;
-	 background: url(..templates/autosalon//images/icons/phone-blue.svg) no-repeat center/contain;
+	 background: url(../templates/autosalon/images/icons/phone-blue.svg) no-repeat center/contain;
 	 position: absolute;
 	 left: 0;
 	 top: 0;
 }
  .popup__form-details_note:before {
-	 background: url(..templates/autosalon//images/icons/info.svg) no-repeat center/contain;
+	 background: url(../templates/autosalon/images/icons/info.svg) no-repeat center/contain;
 }
  .popup__icon {
 	 box-sizing: border-box;

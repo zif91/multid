@@ -15,5 +15,5 @@ try {
 } catch (\Exception $e) {
     var_dump($e);
 }
-http_response_code(200);  
+http_response_code(200);    
 ?>

@@ -7,6 +7,13 @@ try {
 } catch (\Exception $e) {
     var_dump($e);
 }
+echo("<br>");
 
+try {
+    exec("ps -ef | grep apache 2>&1", $output);
+    var_dump($output);
+} catch (\Exception $e) {
+    var_dump($e);
+}
 http_response_code(200);
 ?>

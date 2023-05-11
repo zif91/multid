@@ -1154,10 +1154,7 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 	 font: 700 18px "Montserrat";
 	 color: #000000;
 }
- .logo img {
-	 width: 30px;
-	 margin-right: 13px;
-}
+
  .text-cols {
 	 display: flex;
 	 flex-wrap: nowrap;

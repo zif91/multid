@@ -91,3 +91,13 @@ extension: 'twig'
     </div>
   </a>
 </div>
+<script> 
+document.addEventListener("DOMContentLoaded", function() {
+  var closeBtn = document.querySelector(".sticky__close");
+  closeBtn.addEventListener("click", function() {
+    var sticky = document.querySelector(".sticky");
+    sticky.style.display = "none";
+  });
+});
+
+</script>

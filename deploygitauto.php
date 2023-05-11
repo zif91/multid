@@ -10,8 +10,4 @@ try {
     var_dump($e);
 }
 http_response_code(200);
-
-
-var_dump($output);
-var_dump($e);
 ?>

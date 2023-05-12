@@ -332,7 +332,7 @@
 		 display: none;
 	}
 	 .popup-fb .wpcf7-form-control-wrap-33 {
-		 width: 100% !important";
+		 width: 100% !important;
 	}
 	 .popup-fb .wpcf7-form-control-wrap-button {
 		 margin: 15px 0;
@@ -493,7 +493,7 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 	 height: 60px;
 	 width: 100%;
 	 outline: 0;
-	 border: 1px solid #fff;
+	 border: 1px solid #35374e;
 	 border-radius: 6px;
 	 padding: 0 20px;
 	 background: #fff;

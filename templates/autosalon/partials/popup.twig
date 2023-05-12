@@ -139,20 +139,15 @@ extension: 'twig'
       sticky.style.display = "none";
     });
   });
+
   </script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    window.showCreditPopup = function(e, t, i) {
-        $("#credit-popup-plate .popup__image").attr("src", ""),
-          $.fancybox.open({
-            src: "#credit-popup-plate",
-            type: "inline",
-          })
-      },
-      document.getElementById('myButton').addEventListener('click', function() {
-        showCreditPopup(
-        );
-      });
-  });
+        document.getElementById('myButton').addEventListener('click', function() {
+            $.fancybox.open({
+              src: "#credit-popup-plate",
+              type: "inline",
+            })
+        });
 
   </script>

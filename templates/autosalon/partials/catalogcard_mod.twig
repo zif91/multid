@@ -37,10 +37,11 @@ display: 1
 				<span class="text-right">Ставка <br />от 5%</span>
 			</div>
 			<div class="buttons row">
-				<div class="col-6">
+				{#<div class="col-6">
 					<button  id="myButton" class="color1 w-100">Купить в кредит</button>
-				</div>
-				<div class="col-6"> <a onclick="showCreditPopup(
+				</div>#}
+				<div class="col-6"> 
+					<a href="#" onclick="showCreditPopup(
                             {{ data['id'] }},
                             '',
                             '{{(data['tv.car-price'] / 64) | number_format(0, ' ', ' ')}}')"

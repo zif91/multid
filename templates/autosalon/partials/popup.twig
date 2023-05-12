@@ -147,20 +147,10 @@ extension: 'twig'
           $.fancybox.open({
             src: "#credit-popup-plate",
             type: "inline",
-            opts: {
-              beforeShow: function(n, s) {
-                $("#credit-popup-plate .popup__car_id").val(e),
-                  $("#credit-popup-plate .popup__image").attr("src", t),
-                  $("#credit-popup-plate .popup__price").text(i + " руб/мес")
-              }
-            }
           })
       },
       document.getElementById('myButton').addEventListener('click', function() {
         showCreditPopup(
-          7821,
-          '/storage/static/images/models/kia/rio-sedan/colors/kristalno-beliy-416x358-mirror.png',
-          '12 600'
         );
       });
   });

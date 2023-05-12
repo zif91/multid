@@ -91,25 +91,24 @@ extension: 'twig'
     </div>
   </a>
 </div>
-
 <div id="credit-popup-plate" class="popup fancybox-content">
-    <div class="popup__header">
-        <div>
-            <div class="popup__heading">Получите расчет платежей по автокредиту</div>
-            <div class="popup__subheading popup__car_name"></div>
-        </div>
-        <div>
-            <div class="popup__descr">В кредит от</div>
-            <div class="popup__nums popup__price">20 300 руб/мес</div>
-        </div>
-        <div class="popup__auto">
-            <img class="popup__image" src="/storage/static/images/models/skoda/octavia-new/colors/seriy-metallik-416x358-mirror.png" alt="">
-        </div>
-        <img class="popup__header-pic" src="/images/percent.png" alt="">
+  <div class="popup__header">
+    <div>
+      <div class="popup__heading">Получите расчет платежей по автокредиту</div>
+      <div class="popup__subheading popup__car_name"></div>
     </div>
-    <div class="popup__content">
-        <div role="form" class="wpcf7" id="" lang="ru-RU" dir="ltr">
-            <form data-id="credit" id="car-credit-modification-line-extended" action="#" method="post" class="wpcf7-form" novalidate="novalidate">
+    <div>
+      <div class="popup__descr">В кредит от</div>
+      <div class="popup__nums popup__price">20 300 руб/мес</div>
+    </div>
+    <div class="popup__auto">
+      <img class="popup__image" src="/storage/static/images/models/skoda/octavia-new/colors/seriy-metallik-416x358-mirror.png" alt="">
+    </div>
+    <img class="popup__header-pic" src="/images/percent.png" alt="">
+  </div>
+  <div class="popup__content">
+    <div role="form" class="wpcf7" id="" lang="ru-RU" dir="ltr">
+      <form data-id="credit" id="car-credit-modification-line-extended" action="#" method="post" class="wpcf7-form" novalidate="novalidate">
         <span class="wpcf7-form-row">
           <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33">
             <span class="wpcf7-form-control-wrap-label">Как вас зовут?</span>
@@ -119,41 +118,51 @@ extension: 'twig'
             <span class="wpcf7-form-control-wrap-label">Телефон</span>
             <input type="tel" name="phone" value="" class="wpcf7-form-control error" placeholder="+7   (   )   -   -" aria-invalid="true">
           </span>
-
           <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33 wpcf7-form-control-wrap-button">
             <button type="submit" class="button button_red ">Отправить заявку</button>
           </span>
         </span>
-                <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap_checkbox" style="margin-top: 10px">
-                            <label class="checkbox changed">
-                                <input type="checkbox" id="" name="agreement" value="">
-                                <span class="checkbox__field">Даю согласие на обработку персональных данных</span>
-                            </label>
-                </span>
-            </form>
-        </div>
+        <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap_checkbox" style="margin-top: 10px">
+          <label class="checkbox changed">
+            <input type="checkbox" id="" name="agreement" value="">
+            <span class="checkbox__field">Даю согласие на обработку персональных данных</span>
+          </label>
+        </span>
+      </form>
     </div>
-    
-
-<script> 
-document.addEventListener("DOMContentLoaded", function() {
-  var closeBtn = document.querySelector(".sticky__close");
-  closeBtn.addEventListener("click", function() {
-    var sticky = document.querySelector(".sticky");
-    sticky.style.display = "none";
-  });
-});
-
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('myButton').addEventListener('click', function() {
-            showCreditPopup(
-                7821,
-                '/storage/static/images/models/kia/rio-sedan/colors/kristalno-beliy-416x358-mirror.png',
-                '12 600'
-            );
-        });
+  </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var closeBtn = document.querySelector(".sticky__close");
+    closeBtn.addEventListener("click", function() {
+      var sticky = document.querySelector(".sticky");
+      sticky.style.display = "none";
     });
-</script>
+  });
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.showCreditPopup = function(e, t, i) {
+        $("#credit-popup-plate .popup__image").attr("src", ""),
+          $.fancybox.open({
+            src: "#credit-popup-plate",
+            type: "inline",
+            opts: {
+              beforeShow: function(n, s) {
+                $("#credit-popup-plate .popup__car_id").val(e),
+                  $("#credit-popup-plate .popup__image").attr("src", t),
+                  $("#credit-popup-plate .popup__price").text(i + " руб/мес")
+              }
+            }
+          })
+      },
+      document.getElementById('myButton').addEventListener('click', function() {
+        showCreditPopup(
+          7821,
+          '/storage/static/images/models/kia/rio-sedan/colors/kristalno-beliy-416x358-mirror.png',
+          '12 600'
+        );
+      });
+  });
 
+  </script>

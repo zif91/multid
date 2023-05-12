@@ -108,7 +108,12 @@ extension: 'twig'
   </div>
   <div class="popup__content">
     <div role="form" class="wpcf7" id="" lang="ru-RU" dir="ltr">
-      <form data-id="credit" id="car-credit-modification-line-extended" action="#" method="post" class="wpcf7-form" novalidate="novalidate">
+      {{ runSnippet('Form', {
+      formid: 'FormCallback',
+      path: '/templates/autosalon/partials/forms/feedback_popup/',
+      extension: 'twig'
+      }) | raw }}
+      {#<form data-id="credit" id="car-credit-modification-line-extended" action="#" method="post" class="wpcf7-form" novalidate="novalidate">
         <span class="wpcf7-form-row">
           <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33">
             <span class="wpcf7-form-control-wrap-label">Как вас зовут?</span>
@@ -128,7 +133,7 @@ extension: 'twig'
             <span class="checkbox__field">Даю согласие на обработку персональных данных</span>
           </label>
         </span>
-      </form>
+      </form>#}
     </div>
   </div>
   <script>

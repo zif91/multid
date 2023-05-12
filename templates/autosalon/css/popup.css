@@ -1258,7 +1258,7 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 	 font: 700 16px "Montserrat";
 	 color: #000000;
 	 position: relative;
-	 padding: 20px 25px;
+	 padding: 18px 25px;
 	 text-align: center;
 	 -moz-transition: all 0.5s ease-in-out;
 	 -webkit-transition: all 0.5s ease-in-out;

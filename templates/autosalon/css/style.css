@@ -1253,3 +1253,13 @@ main {
     appearance: none;
     background: #ffffff  no-repeat right 15px top 50%;
   }
+.car-plate__button{
+font-size: 14px;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+      background: #D12D1E;
+      color: #fff;
+    font-weight: 600;
+    height: 52px;
+    border-radius: 8px
+}

@@ -42,10 +42,12 @@ display: 1
 				</div>#}
 				<div class="col-6"> 
 					<a href="#" onclick="showCreditPopup(
-                            {{ data['id'] }},
-                            '',
-                            '{{(data['tv.car-price'] / 64) | number_format(0, ' ', ' ')}}')"
-                          class="car-plate__button button button_red">В кредит</a>
+                        {{ data['id'] }},
+                        '',
+                        '{{(data['tv.car-price'] / 64) | number_format(0, ' ', ' ')}}');
+                        return false;"
+                      class="car-plate__button button button_red">В кредит</a>
+
                 </div>
 				<div class="col-6">
 					<button class="color2 w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button>

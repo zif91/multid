@@ -33,7 +33,7 @@ display: 1
 				<span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
 			</div>
 			<div class="credit mb-3 position-relative">
-				{{(data['tv.car-price'] / 64) | number_format(0, ' ', ' ')}} рублей в месяц
+				{{(data['tv.car-price'] / 80) | number_format(0, ' ', ' ')}} рублей в месяц
 				<span class="text-right">Ставка <br />от 5%</span>
 			</div>
 			<div class="buttons row">
@@ -44,7 +44,7 @@ display: 1
 					<a href="#" onclick="showCreditPopup(
                         {{ data['id'] }},
                         '',
-                        '{{(data['tv.car-price'] / 64) | number_format(0, ' ', ' ')}}');
+                        '{{(data['tv.car-price'] / 80) | number_format(0, ' ', ' ')}}');
                         return false;"
                       class="car-plate__button button button_red">В кредит</a>
 

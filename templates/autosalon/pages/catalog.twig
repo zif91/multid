@@ -117,6 +117,8 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 				{{DLCatalog |raw}}
 			</div>
 		</div>
+		    {% include('partials/banks.twig') %}
+
 		{{runSnippet ('bdebug', {})}}
 		{#% include 'partials/actions.twig' %#}
 		{{ runSnippet('Form', {

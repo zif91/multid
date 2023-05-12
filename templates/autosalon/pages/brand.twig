@@ -1,32 +1,30 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-
 {% set catalog = runSnippet('DocLister', {
-    display: 20,
-    parents: resource.id,
-    depth: 1,
-    tvList: "car-price,old-car-price,car_photos,configuration_id",
-    ownerTPL: '@T_FILE:partials/wrap',
-    tpl: "@T_FILE:partials/catalogcard_mod",
-    debug: 0,
-    __addWhereList: 'isfolder=1',
-})  %}
-
-
-    <div class="catalog-page pb-4">
+display: 20,
+parents: resource.id,
+depth: 1,
+tvList: "car-price,old-car-price,car_photos,configuration_id",
+ownerTPL: '@T_FILE:partials/wrap',
+tpl: "@T_FILE:partials/catalogcard_mod",
+debug: 0,
+__addWhereList: 'isfolder=1',
+}) %}
+<div class="catalog-page pb-4">
     <div class="container">
-            <div class="block-name pt-5 mb-5" style="font-weight: 700;
+        <div class="block-name pt-5 mb-5" style="font-weight: 700;
     font-size: 28px;
     line-height: 34px;">
-{{resource.pagetitle}}			</div>
-			<div class="row">
-        {{catalog|raw}}
+            {{resource.pagetitle}} </div>
+        <div class="row">
+            {{catalog|raw}}
+        </div>
+    </div>
 </div>
-</div></div>
+    {% include('partials/banks.twig') %}
+
 <div class="container">{% include "/partials/advantages.twig" %}</div>
 <div class="container">{% include "/partials/actions2.twig" %}</div>
-
-
 <div class="page-form-block mb-5">
     <div class="container">
         {{ runSnippet('Form', {

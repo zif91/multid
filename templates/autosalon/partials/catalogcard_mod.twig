@@ -41,8 +41,8 @@ display: 1
 					<button  id="myButton" class="color1 w-100">Купить в кредит</button>
 				</div>
 				<div class="col-6"> <a onclick="showCreditPopup(
-                            7821,
-                            '{{car_photos| raw}}',
+                            {{ data['id'] }},
+                            '',
                             '{{(data['tv.car-price'] / 64) | number_format(0, ' ', ' ')}}')"
                           class="car-plate__button button button_red">В кредит</a>
                 </div>

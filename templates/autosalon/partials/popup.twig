@@ -91,16 +91,6 @@ extension: 'twig'
     </div>
   </a>
 </div>
-<script> 
-document.addEventListener("DOMContentLoaded", function() {
-  var closeBtn = document.querySelector(".sticky__close");
-  closeBtn.addEventListener("click", function() {
-    var sticky = document.querySelector(".sticky");
-    sticky.style.display = "none";
-  });
-});
-
-</script>
 
 <div id="credit-popup-plate" class="popup fancybox-content">
     <div class="popup__header">
@@ -144,4 +134,14 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
     </div>
     
-<button type="button" data-fancybox-close="" class="fancybox-button fancybox-close-small" title="Close"><svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24"><path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path></svg></button></div>
+    
+<script> 
+document.addEventListener("DOMContentLoaded", function() {
+  var closeBtn = document.querySelector(".sticky__close");
+  closeBtn.addEventListener("click", function() {
+    var sticky = document.querySelector(".sticky");
+    sticky.style.display = "none";
+  });
+});
+
+</script>

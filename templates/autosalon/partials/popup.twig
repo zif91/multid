@@ -145,8 +145,15 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 </script>
-<script> onclick="showCreditPopup(
-                            7821,
-                            '/storage/static/images/models/kia/rio-sedan/colors/kristalno-beliy-416x358-mirror.png',
-                            '12 600')"
-                            </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('myButton').addEventListener('click', function() {
+            showCreditPopup(
+                7821,
+                '/storage/static/images/models/kia/rio-sedan/colors/kristalno-beliy-416x358-mirror.png',
+                '12 600'
+            );
+        });
+    });
+</script>
+

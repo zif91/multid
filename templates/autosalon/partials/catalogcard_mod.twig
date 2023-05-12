@@ -7,7 +7,7 @@ display: 1
 }) %#}
 {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ data['tv.configuration_id'] ~ ".jpg"%}
 {% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %}
-<div class="col-lg-4 col-md-6">
+<a href="{{ data['url'] }}" ><div class="col-lg-4 col-md-6">
 	<div class="item mb-3">
 		<img src="{{car_photos| raw}}">
 		<div class="p-4">
@@ -56,3 +56,4 @@ display: 1
 		</div>
 	</div>
 </div>
+</a>

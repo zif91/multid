@@ -1279,13 +1279,13 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 	 background: #616CC1;
 }
  .button_grey {
-	 background: #485478;
+	 background: #485478 !important;
 	 border-radius: 4px;
 	 padding: 18px 15px;
 	 color: #004DC9;
 }
  .button_grey:hover {
-	 box-shadow: 5px 8px 22px rgba(204,204,202,0.4);
+	 box-shadow: 5px 8px 22px rgba(204,204,202,0.4) !important;
 }
  .button_bordered {
 	 background: #FFFFFF;

@@ -73,8 +73,9 @@
                         <div class="col-6">
                             <button class="color1 w-100" data-fancybox="" data-src="#popup">Забронировать</button>
                         </div>
+
                         <div class="col-6">
-                            <button class="color2 w-100" data-fancybox="" data-src="#popup">Купить в кредит</button>
+                            <button class="color2 w-100" id="myButton">Купить в кредит</button>
                         </div>
                     </div>
                 </div>
@@ -222,4 +223,8 @@
         creditForm.scrollIntoView({ behavior: "smooth" });
     }
     </script>
+    onclick="showCreditPopup(
+                            7821,
+                            '/storage/static/images/models/kia/rio-sedan/colors/kristalno-beliy-416x358-mirror.png',
+                            '12 600')"
     {% endblock %}

@@ -54,3 +54,51 @@ extension: 'twig'
     </div>
   </div>
 </div>
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var closeBtn = document.querySelector(".sticky__close");
+    closeBtn.addEventListener("click", function() {
+      var sticky = document.querySelector(".sticky");
+      sticky.style.display = "none";
+    });
+  });
+
+  </script>
+
+  <div id="trade-in-popup" class="popup-fb popup_trade-in" style="display: none;">
+  <div class="popup__header popup__header_trade-in">
+    <div>
+      <div class="popup__heading">Получите лучшее предложение по&nbsp;Trade&nbsp;In</div>
+      <div class="popup__subheading">Оценим ваш автомобиль за 10 минут</div>
+    </div>
+    <div>
+      <div class="popup__descr">Выгода до</div>
+      <div class="popup__nums">250 000 рублей</div>
+    </div>
+    <div class="popup__auto">
+      <img src="/templates/autosalon/images/tradein-popup-car.png" alt="">
+    </div>
+    <img class="popup__header-pic" src="/templates/autosalon/images/money-popup.png" alt="">
+  </div>
+  <div class="popup__content">
+    <div role="form" class="wpcf7" id="" lang="ru-RU" dir="ltr">
+      {{ runSnippet('Form', {
+      formid: 'FormCallback',
+      path: '/templates/autosalon/partials/forms/feedback_popup/',
+      extension: 'twig'
+      }) | raw }}
+    </div>
+  </div>
+</div>
+<div class="sticky">
+  <div class="sticky__close"></div>
+  <a href="#trade-in-popup" data-fancybox="" class="sticky__plate sticky__plate_tradin">
+    <img src="/templates/autosalon//images/sticky-car.png" alt="">
+    <div class="sticky__inner">
+      <div class="sticky__circle"></div>
+      <div class="sticky__caption">Пора обновляться!</div>
+      <div class="sticky__descr">Максимальная выгода от Trade-In</div>
+      <div class="button button_red button_sm"><span>250 000 руб</span></div>
+    </div>
+  </a>
+</div>

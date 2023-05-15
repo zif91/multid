@@ -478,6 +478,12 @@ main {
 .header .contacts * {
   vertical-align: middle;
 }
+
+.header .contacts {
+    display: flex;
+    align-items: center;
+}
+
 .header .contacts .phone {
   font-weight: 600;
   font-size: 15px;
@@ -1062,7 +1068,14 @@ main {
   }
 }
 @media (max-width: 575px) {
-  .header .contacts button {
+  .header .adress {
+    display: block;
+  }
+  .header .flex {
+    justify-content: space-around;
+    gap: 10px 0;
+  }
+    .header .contacts button {
     width: 44px;
     height: 44px;
     background: #d12d1e url('/templates/autosalon/img/phone2.svg') no-repeat center;
@@ -1096,6 +1109,7 @@ main {
   .index-first-block {
     padding: 52px 0 220px;
     background: #35374e url('/templates/autosalon/img/first-block2.png') no-repeat top 0 right 0;
+    background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/major/img/slider.png')!important;
   }
   .index-first-block .text p {
     padding-bottom: 290px;

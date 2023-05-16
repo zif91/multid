@@ -16,14 +16,14 @@ tpl:'@T_FILE:partials/catalogcard',
 %}
 
 
-{#% set cardphoto = runSnippet('morephoto', {
+{% set cardphoto = runSnippet('morephoto', {
 images: resource["car_photos"],
 image: resource.car-photos,
 phpthumb: 'w=570,h=0',
 ownerTPL: '[+wrap+]',
 display: 1
 })
-%#}
+%}
 
 {#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
 {% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
@@ -52,10 +52,10 @@ tpl:'@T_CODE: <div class="gift__item">
 })%}
 
 {#% include('partials/crumbs.twig') %#}
-{#% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %#}
+{% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
 
-{#% set car_photos = resource.car_photos | json %}
-{% set car_photos = car_photos.fieldValue %#}
+{% set car_photos = resource.car_photos | json %}
+{% set car_photos = car_photos.fieldValue %}
 <div class="page-name py-4">
     <div class="container">
         <h1 class="h1 m-0">{{resource.pagetitle}} {{resource.year}} <i></i><span class="color">Цвет: {{resource.car_color}}</span> <span class="number px-1">{{resource.vin}}</span></h1>
@@ -131,7 +131,7 @@ tpl:'@T_CODE: <div class="gift__item">
             <div class="col-lg-6">
                 <div class="photos mb-sm-5 mb-4">
                     <div class="slider-for">
-                        {#% if car_photos and count(car_photos)>0 %}
+                        {% if car_photos and count(car_photos)>0 %}
                         {% for image in car_photos %}
                         <div class="item"><img src="{{image.image}}"></div>
                         {% endfor %}
@@ -146,7 +146,7 @@ tpl:'@T_CODE: <div class="gift__item">
                         {% endfor %}
                         {% else %}
                         <div class="item"><img src="{{image.image}}"></div>
-                        {% endif %#}
+                        {% endif %}
                     </div>
                 </div>
             </div>

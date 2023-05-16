@@ -26,9 +26,10 @@ display: 1
 %}
 
 {#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
-{% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
-action:'caroldprice'}) %}
 
+
+{% set month = runSnippet('helpers', {carmonth: resource['car-price'],
+action:'carmonth'}) %}
 
 {% set vigoda = oldprice - resource['car-price'] %}
 

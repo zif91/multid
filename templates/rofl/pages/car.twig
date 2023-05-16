@@ -16,17 +16,10 @@ tpl:'@T_FILE:partials/catalogcard',
 %}
 
 
-{% set cardphoto = runSnippet('morephoto', {
-images: resource["car_photos"],
-image: resource.car-photos,
-phpthumb: 'w=570,h=0',
-ownerTPL: '[+wrap+]',
-display: 1
-})
-%}
 
 {#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
-
+{% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
+action:'caroldprice'}) %}
 
 {% set month = runSnippet('helpers', {carmonth: resource['car-price'],
 action:'carmonth'}) %}

@@ -54,16 +54,7 @@ extension: 'twig'
     </div>
   </div>
 </div>
- <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var closeBtn = document.querySelector(".sticky__close");
-    closeBtn.addEventListener("click", function() {
-      var sticky = document.querySelector(".sticky");
-      sticky.style.display = "none";
-    });
-  });
-
-  </script>
+ 
 
   <div id="trade-in-popup" class="popup-fb popup_trade-in" style="display: none;">
   <div class="popup__header popup__header_trade-in">
@@ -104,3 +95,60 @@ extension: 'twig'
 </div>
 <link rel="stylesheet" href="/templates/autosalon/css/popup.css">
     <link rel="stylesheet" href="/templates/autosalon/css/plates.css">
+<div class="bottom-page-line py-4 d-none d-md-block">
+        <div class="container">
+            <p><span>Ликвидация склада 2022 года.</span> Успей получить свою выгоду</p>
+            <div class="image">
+                <img src="/templates/rofl/img/image.png">
+            </div>
+            <a class="close"></a>
+        </div>
+</div>
+<style type="text/css">
+.bottom-page-line {
+  position: fixed;
+    bottom: 0px;
+    right: 0%;
+    width: 100%;
+  background: #DC6868;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+.bottom-page-line .container {
+  position: relative;
+}
+.bottom-page-line p {
+  font-size: 16px;
+  line-height: 20px;
+}
+.bottom-page-line p span {
+  font-weight: 700;
+}
+.bottom-page-line .close {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  background: url('../img/close.svg');
+  opacity: 1;
+}
+.bottom-page-line .image {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 90px;
+  pointer-events: none;
+}
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var closeBtn = document.querySelector(".sticky__close");
+    closeBtn.addEventListener("click", function() {
+      var sticky = document.querySelector(".sticky");
+      sticky.style.display = "none";
+    });
+  });
+
+  </script>

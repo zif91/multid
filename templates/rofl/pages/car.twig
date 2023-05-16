@@ -32,9 +32,23 @@ action:'caroldprice'}) %}
 {% set month = runSnippet('helpers', {carmonth: resource['car-price'],
 action:'carmonth'}) %}
 
-{% set vigoda = oldprice - resource['car-price'] %}
 
-
+{% set gifts = runSnippet('DocLister', {
+display: 3,
+parents: 24,
+depth: 0,
+tvList:'image,color',
+tpl:'@T_CODE: <div class="gift__item">
+    <div style="background: linear-gradient(to bottom, {{ data[\'tv.color\'] }} 0px, {{ data[\'tv.color\'] }} 123px, #ffffff 123px, #ffffff 100%)" class="gift-item gift-item--transit">
+        <div class="gift-item__text-wrap">
+            <div class="gift-item__text">{{ data.title }}</div>
+        </div>
+        <div class="gift-item__photo-wrap">
+            <img style="max-width:130px" src="{{ runSnippet(\'phpthumb\', {input: data[\'tv.image\'], options:\'w=130,h=130,zc=1\'}) }}" alt="{{ data.title }}" class="gift-item__photo">
+        </div>
+    </div>
+</div>'
+})%}
 
 {#% include('partials/crumbs.twig') %#}
 {% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}

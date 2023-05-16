@@ -10,7 +10,7 @@ action:'caroldprice'}) %}
 
 {% set arrPhotos = data['tv.car_photos']|json_encode() %}
 <div class="item">
-    {{ randomPhoto() }}
+
 	<a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="w-100"></a>
 	<div class="text p-3 position-relative">
 		<div class="name mb-1">

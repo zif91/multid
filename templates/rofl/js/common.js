@@ -134,12 +134,13 @@ tradeinButton.addEventListener('click', function() {
 */
 // Get references to the input elements
 $(window).on('load', function() {
+	$(".bottom-page-line .close").click(function() {
+		$(".bottom-page-line").hide();
+	});
 	$(".bottom-page-line").click(function() {
 		$("#exampleModal").modal("show");
 	});
-    $(".bottom-page-line .close").click(function() {
-      $(".bottom-page-line").hide();
-    });
+
 	$('#brand').on('change', function() {
 		var selected = $(this).val();
 		$("#model option").each(function(item) {
@@ -158,6 +159,7 @@ $(window).on('load', function() {
 	});
 	// code here
 });
+
 function openModal() {
-  $('#exampleModal').modal('show');
+	$('#exampleModal').modal('show');
 }

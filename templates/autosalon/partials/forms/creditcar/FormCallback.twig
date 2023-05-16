@@ -3,7 +3,13 @@
     <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
 			
 			<div class="top-text mb-4 pb-2">
-			Акция действует до <span id="dateend"> 31 мая</span>			</div>
+			Ежемесячный платеж - <span style="background: #d93e3a;
+    padding: 6px;
+    border-radius: 7px;
+    font-size: 17px;
+    color: white;">
+   	{{(resource['car-price'] / 80)|number_format(0, '.', '&nbsp;')|raw }}
+    </span>Акция действует до <span id="dateend"> 31 мая</span>			</div>
 			<div class="row">
                    {{ data['form.messages'] | raw }}
                 <div class="col-md-3 col-sm-3">

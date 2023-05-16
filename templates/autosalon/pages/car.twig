@@ -82,20 +82,18 @@
                         return false;" class="car-plate__button button button_grey w-100 color2">В кредит</a>
                         </div>
                     </div>
-                    <div >{{ runSnippet('Form', {
-    formid: 'FormCallback',
-    path: '/templates/autosalon/partials/forms/creditcar/',
-    extension: 'twig'
-    }) | raw }}   </div>
-                    
+                    <div class="pt-3">{{ runSnippet('Form', {
+                        formid: 'FormCallback',
+                        path: '/templates/autosalon/partials/forms/creditcar/',
+                        extension: 'twig'
+                        }) | raw }} </div>
                 </div>
             </div>
         </div>
     </div>
     {% include('partials/banks.twig') %}
-
-<div class="container">{% include "/partials/advantages.twig" %}</div>
-<div class="container">{% include "/partials/actions2.twig" %}</div>
+    <div class="container">{% include "/partials/advantages.twig" %}</div>
+    <div class="container">{% include "/partials/actions2.twig" %}</div>
     <div class="catalog-page pb-4">
         <div class="block-name mb-5" style="font-weight: 700;
     font-size: 28px;

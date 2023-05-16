@@ -45,6 +45,7 @@ TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
 tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
 filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %#} 
+{% set catalog_number = baseSettings['catalog_number'] %}
 
 {% set models = runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' , _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')' , parents: catalog_number, depth: 1, addWhereList: 'isfolder=1 AND c.template=20 AND published=1', api: 1,
 	})

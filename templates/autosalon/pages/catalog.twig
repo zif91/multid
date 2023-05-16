@@ -43,7 +43,9 @@ TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class
 TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
 tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
-filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %} {% set models=runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' , _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')' , parents: 593, depth: 1, addWhereList: 'isfolder=1 AND c.template=20' , orderBy: 'car-price' , order: 'RAND()' , tvSortType: 'SIGNED' , tvList:'car-price,old-car-price,mark_id,model_id', api: 1, debug:0, noneTPL:'@CODE: <div class="container">
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %} 
+
+{% set models=runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' , _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')' , parents: catalog_number, depth: 1, addWhereList: 'isfolder=1 AND c.template=20' , orderBy: 'car-price' , order: 'RAND()' , tvSortType: 'SIGNED' , tvList:'car-price,old-car-price,mark_id,model_id', api: 1, debug:0, noneTPL:'@CODE: <div class="container">
 	<div class="row">
 		<div class="col text-center">
 			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
@@ -115,6 +117,7 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 			</div>
 			<div class="row" id="catalog">
 				{{DLCatalog |raw}}
+				{{catalog_number}}
 			</div>
 		</div>
 		    {% include('partials/banks.twig') %}

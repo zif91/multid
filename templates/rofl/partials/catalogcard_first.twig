@@ -8,6 +8,7 @@ display: 1
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
 
+{# Получаем случайное изображения (ссылку) из поля "Фотографии" (car_photos) #}
 {% set randomPhotoLink = runSnippet('helpers', {jsonPhotos: data['tv.car_photos'],
     action:'randomPhoto'})
 %}

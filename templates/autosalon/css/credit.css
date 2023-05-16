@@ -1,0 +1,15 @@
+.ui-slider-horizontal .ui-slider-range-max {
+	background-color: #F72446;
+}
+.ui-corner-all {
+	border-radius: 10px;
+}
+.calc select {
+    margin: 10px 0 0 0;
+    height: 50px;
+    appearance: none;
+    padding: 0 25px;
+    font-size: 16px;
+    background: #FBFBFB url(img/select.svg) no-repeat right 20px top 50%;
+    border-radius: 10px;
+}

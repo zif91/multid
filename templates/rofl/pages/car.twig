@@ -68,10 +68,15 @@ tpl:'@T_CODE: <div class="gift__item">
                 <div class="price-block mb-4 p-sm-4 p-3">
                     <div class="price mb-3">
                         Цена:
-                        <span id="car-price" class="d-block mt-2">{{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽</span>
+                        <span id="" class="dblock mt-2" style="
+    color: gray;
+    text-decoration: line-through;
+    font-size: 18px;
+    padding-right: 26px;
+">{{oldprice |number_format(0, '.', ' ') }} ₽</span>
+                        <span id="car-price" class=" mt-2">{{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽</span>
                     </div>
                     <div class="mb-3">Ставка по кредиту <span id="" class="mt-2" style="
-    /* border: aqua; */
     background: #d93e3a;
     padding: 6px;
     border-radius: 7px;

@@ -21,7 +21,15 @@ api: 1,
 debug: 0,
 })
 %}
+
     {% set marks = marks|json %}
+        {% set models = runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
+parents: catalog_number, 
+depth: 1, 
+addWhereList: 'isfolder=1 AND c.template=20', 
+api: 1,
+    })
+    | json %}
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
 <head>

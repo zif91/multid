@@ -47,13 +47,7 @@ addWhereList: 'c.template=28',
 filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %#} 
 {% set catalog_number = baseSettings['catalog_number'] %}
 
-{% set models = runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
-parents: catalog_number, 
-depth: 1, 
-addWhereList: 'isfolder=1 AND c.template=20', 
-api: 1,
-	})
-	| json %}
+
 
 	{#% set marks = runSnippet('DocLister', {
 _filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
@@ -80,12 +74,6 @@ debug: 0,
 		{% include '/partials/brands.twig' %}
 		{{brand}}
 {{models | dump}}
-{{runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
-parents: catalog_number, 
-depth: 1, 
-addWhereList: 'isfolder=1 AND c.template=20', 
-api: 1,
-	}) }}
 		<div class="catalog-page pb-4">
 			<div class="container">
 				<div class="index-filter-block inner py-sm-4 py-5 px-4">

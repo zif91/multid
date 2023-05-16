@@ -804,6 +804,11 @@ main {
   height: 52px;
   border-radius: 8px;
 }
+.form-block2 input .disabled {
+  background:#485478 !important;
+  color:#fff;
+  font-weight: 600;
+}
 .form-block2 button {
   height: 52px;
   font-weight: 600;

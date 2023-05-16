@@ -137,6 +137,9 @@ $(window).on('load', function() {
 	$(".bottom-page-line").click(function() {
 		$("#exampleModal").modal("show");
 	});
+    $(".bottom-page-line .close").click(function() {
+      $(".bottom-page-line").hide();
+    });
 	$('#brand').on('change', function() {
 		var selected = $(this).val();
 		$("#model option").each(function(item) {

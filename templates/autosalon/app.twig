@@ -13,7 +13,7 @@
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
     {% set marks = runSnippet('DocLister', {
 _filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
-parents: 593,
+parents: catalog_number,
 depth: 0,
 addWhereList: 'isfolder=1 AND c.template=17',
 tpl:'@T_FILE:partials/catalogcard',

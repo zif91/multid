@@ -29,9 +29,8 @@ display: 1
 {% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
 action:'caroldprice'}) %}
 
-{% set month = runSnippet('helpers', {carmonth: resource['car-price'],
-action:'carmonth'}) %}
 
+{% set vigoda = oldprice - resource['car-price'] %}
 
 {% set gifts = runSnippet('DocLister', {
 display: 3,

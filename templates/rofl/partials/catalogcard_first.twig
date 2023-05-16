@@ -8,11 +8,10 @@ display: 1
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
 
-
-<!-- {{ data['tv.car_photos'] }} -->
-
+{% set arrPhotos = data['tv.car_photos']|json_encode() %}
 
 <div class="item">
+    <!-- {{ arrPhotos }} -->
 	<a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="w-100"></a>
 	<div class="text p-3 position-relative">
 		<div class="name mb-1">

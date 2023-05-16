@@ -8,9 +8,9 @@ display: 1
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
 
-{% for key, value in data['tv.car_photos'] %}
-    <!-- {{ key }} -- {{ value }} -->
-{% endfor %}
+
+<!-- {{ data['tv.car_photos'] }} -->
+
 
 <div class="item">
 	<a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="w-100"></a>

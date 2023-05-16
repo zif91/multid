@@ -80,6 +80,12 @@ debug: 0,
 		{% include '/partials/brands.twig' %}
 		{{brand}}
 {{models | dump}}
+{{runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
+parents: catalog_number, 
+depth: 1, 
+addWhereList: 'isfolder=1 AND c.template=20', 
+api: 1,
+	}) }}
 		<div class="catalog-page pb-4">
 			<div class="container">
 				<div class="index-filter-block inner py-sm-4 py-5 px-4">

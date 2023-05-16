@@ -137,6 +137,58 @@ extension: 'twig'
     </div>
   </div>
 </div>
+<div class="bottom-page-line py-4 d-md-none">
+        <div class="container">
+            <p><span>Ликвидация склада 2022 года.</span> Успей получить свою выгоду</p>
+            <div class="image">
+                <img src="/templates/rofl/img/image.png">
+            </div>
+            <a class="close"></a>
+        </div>
+</div>
+<style type="text/css">
+.bottom-page-line {
+  position: fixed;
+    bottom: 0px;
+    right: 0%;
+    width: 100%;
+  background: #DC6868;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+.bottom-page-line .container {
+  position: relative;
+}
+.bottom-page-line p {
+  font-size: 16px;
+    line-height: 20px;
+    padding-right: 55%;
+    z-index: 3;
+    position: relative;
+}
+.bottom-page-line p span {
+  font-weight: 700;
+}
+.bottom-page-line .close {
+  position: absolute;
+    top: 0%;
+    transform: translateY(-50%);
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background: url(/templates/rofl/img/close.svg);
+    opacity: 1;
+}
+.bottom-page-line .image {
+  position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    pointer-events: none;
+    z-index: 2;
+    max-width: 50%;
+}
+</style>
   <script>
   document.addEventListener("DOMContentLoaded", function() {
     var closeBtn = document.querySelector(".sticky__close");

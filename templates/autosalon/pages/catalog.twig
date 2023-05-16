@@ -46,15 +46,21 @@ tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
 filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %#} 
 
-{% set models=runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' , _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')' , parents: catalog_number, depth: 1, addWhereList: 'isfolder=1 AND c.template=20 AND published=1' , orderBy: 'car-price' , order: 'RAND()' , tvSortType: 'SIGNED' , tvList:'car-price,old-car-price,mark_id,model_id', api: 1, debug:0, noneTPL:'@CODE: <div class="container">
-	<div class="row">
-		<div class="col text-center">
-			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-		</div>
-	</div>
-	</div>',
+{% set models = runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' , _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')' , parents: catalog_number, depth: 1, addWhereList: 'isfolder=1 AND c.template=20 AND published=1', api: 1,
 	})
 	| json %}
+
+	{#% set marks = runSnippet('DocLister', {
+_filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
+parents: catalog_number,
+depth: 0,
+addWhereList: 'isfolder=1 AND c.template=17',
+tpl:'@T_FILE:partials/catalogcard',
+api: 1,
+debug: 0,
+})
+%#}
+
 	{% block MAIN %}
 	{#% include('partials/crumbs.twig') %#}
 	{#<div class="index-calc-block inner position-relative pt-5 pb-5 text-center">

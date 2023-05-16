@@ -8,6 +8,10 @@ display: 1
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
 
+{% for key, value in data['tv.car_photos'] %}
+    <!-- {{ key }} -- {{ value }} -->
+{% endfor %}
+
 <div class="item">
 	<a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="w-100"></a>
 	<div class="text p-3 position-relative">
@@ -18,7 +22,7 @@ action:'caroldprice'}) %}
 {{ data['tv.modification'] }}		</div>
 		<span class="special d-inline-block mb-2 py-1 px-2">Спецпредложение</span>
 		<div class="about mb-2">
-			{{ ( data['tv.run'] )|number_format(0, '.', ' ') }} км, 
+			{{ ( data['tv.run'] )|number_format(0, '.', ' ') }} км,
 			{{ data['tv.body_type'] }}, {{ data['tv.gear'] }}, {{ data['tv.fuel'] }}, {{ data['tv.engine_volume'] }}, {{ data['tv.engine_power'] }} л. с., {{ data['tv.drive'] }}, {{ data['tv.car_color'] }}
 		</div>
 		<div class="book mb-2">

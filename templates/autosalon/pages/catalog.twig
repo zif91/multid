@@ -19,7 +19,7 @@
 {% if not price_end %}
 {% set price_end = 99999999 %}
 {% endif %}
-{% set DLCatalog = runSnippet('DocLister', {
+{#% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
 display: 20,
@@ -44,7 +44,7 @@ TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class
 TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
 tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
-filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %} 
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %#} 
 
 {% set models=runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' , _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')' , parents: catalog_number, depth: 1, addWhereList: 'isfolder=1 AND c.template=20' , orderBy: 'car-price' , order: 'RAND()' , tvSortType: 'SIGNED' , tvList:'car-price,old-car-price,mark_id,model_id', api: 1, debug:0, noneTPL:'@CODE: <div class="container">
 	<div class="row">
@@ -117,7 +117,33 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 				</div>
 			</div>
 			<div class="row" id="catalog">
-				{{DLCatalog |raw}}
+				{#{DLCatalog |raw}#}
+				{{ runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: catalog_number,
+depth: 2,
+tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
+ownerTPL: '@T_FILE:partials/wrap',
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска123</h1>
+		</div>
+	</div>
+</div>',
+debug: -2,
+tpl:'@T_FILE:partials/catalogcard_mod',
+paginate:'pages',
+TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
+TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
+TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
+tvSortType: 'UNSIGNED',
+addWhereList: 'c.template=28',
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) |raw }} 
 				{{catalog_number}}
 			</div>
 		</div>

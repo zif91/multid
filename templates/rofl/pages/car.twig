@@ -41,8 +41,10 @@ tpl:'@T_CODE: <div class="gift__item">
     </div>
 </div>'
 })%}
+
 {#% include('partials/crumbs.twig') %#}
 {% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
+
 {% set car_photos = resource.car_photos | json %}
 {% set car_photos = car_photos.fieldValue %}
 <div class="page-name py-4">

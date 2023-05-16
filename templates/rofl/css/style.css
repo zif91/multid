@@ -1328,14 +1328,14 @@ main {
 .item-page .data .item p {
   font-weight: 500;
   background: #fff;
-  z-index: 2;
+  /*z-index: 2;*/
 }
 
 .item-page .data .item div {
   float: right;
   width: 40%;
   background: #fff;
-  z-index: 2;
+  /*z-index: 2;*/
 }
 
 .item-page .photos img {

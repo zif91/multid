@@ -270,9 +270,14 @@ function scrollToCreditForm() {
     var endDate = new Date(currentDate.getTime() + 8 * 24 * 60 * 60 * 1000);
 
     var day = endDate.getDate();
-    var month = endDate.toLocaleString('default', { month: 'long' });
+    var month = endDate.getMonth() + 1; // Месяцы в JavaScript нумеруются с 0, поэтому добавляем 1
+    var year = endDate.getFullYear();
 
-    document.getElementById('dateend').textContent = day + ' ' + month;
+    // Форматируем день и месяц, чтобы добавить ведущий ноль при необходимости
+    day = day < 10 ? '0' + day : day;
+    month = month < 10 ? '0' + month : month;
+
+    document.getElementById('dateend').textContent = day + '.' + month + '.' + year;
   }
 
   // Обновление даты при загрузке страницы

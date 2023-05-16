@@ -287,4 +287,65 @@ firstPayInput.on('input', updatePayment);
 termInput.on('change', updatePayment);
 select.on('change',updatePayment);
 });</script>
+<style>.credit-amounts {
+  font-size: 26px;
+    color: #9F5007;
+    margin-bottom: 20px;
+    padding: 0 10px 0 10px;
+    min-height: 30px;
+    text-align: end;
+    line-height: 30px;
+    background: #FFE6CF;
+    border-radius: 5px;
+}
+.credit-text {
+  font-size: 18px;
+    margin-bottom: 20px;
+    padding: 0 10px 0 10px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.calc select {
+  margin: 10px 0 0 0;
+ height: 50px;
+    appearance: none;
+    padding: 0 25px;
+    font-size: 16px;
+    background: #FBFBFB url(img/select.svg) no-repeat right 20px top 50%;
+    border-radius: 10px;
+}
+@media (max-width: 476px) {
+  .credit-amounts {
+  font-size: 16px;
+    color: #9F5007;
+    margin-bottom:    10px;
+    padding: 0 10px 0 10px;
+    min-height: 28px;
+    text-align: end;
+    line-height: 30px;
+    background: #FFE6CF;
+    border-radius: 5px;
+}
+.credit-text {
+  font-size: 12px;
+    margin-bottom: 10px;
+    padding: 0 10px 0 10px;
+    height: 15;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.calc select {
+    margin: 10px 0 0 0;
+    height: 50px;
+    appearance: none;
+    padding: 0 25px;
+    font-size: 16px;
+    background: #FBFBFB url(img/select.svg) no-repeat right 20px top 50%;
+    border-radius: 10px;
+}
+  }
+</style>
 	{% endblock %}

@@ -12,8 +12,8 @@ $(function(){
 	$(".bottom-page-line .close").click(function() {
 		$(".bottom-page-line").hide();
 	});
-	$(".bottom-page-line .close").click(function() {
-      $.fancybox.open("#trade-in-popup");
+	$(".bottom-page-line").click(function() {
+      $.fancybox.open("trade-in-popup");
     });
 	window.showCreditPopup = function(e, t, i) {
                 $("#credit-popup-plate .popup__image").attr("src", ""),

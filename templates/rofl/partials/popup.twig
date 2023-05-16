@@ -96,7 +96,7 @@ extension: 'twig'
 <link rel="stylesheet" href="/templates/autosalon/css/popup.css">
     <link rel="stylesheet" href="/templates/autosalon/css/plates.css">
     
-<div class="bottom-page-line py-4 d-none d-md-block">
+<div class="bottom-page-line py-4 d-md-none">
         <div class="container">
             <p><span>Ликвидация склада 2022 года.</span> Успей получить свою выгоду</p>
             <div class="image">
@@ -120,27 +120,32 @@ extension: 'twig'
 }
 .bottom-page-line p {
   font-size: 16px;
-  line-height: 20px;
+    line-height: 20px;
+    padding-right: 55%;
+    z-index: 3;
+    position: relative;
 }
 .bottom-page-line p span {
   font-weight: 700;
 }
 .bottom-page-line .close {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 16px;
-  width: 24px;
-  height: 24px;
-  background: url('../img/close.svg');
-  opacity: 1;
+    top: 0%;
+    transform: translateY(-50%);
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background: url(/templates/rofl/img/close.svg);
+    opacity: 0;
 }
 .bottom-page-line .image {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 90px;
-  pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    pointer-events: none;
+    z-index: 2;
+    max-width: 50%;
 }
 </style>
 <script>

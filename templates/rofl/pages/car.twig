@@ -2,7 +2,18 @@
 
 {% block MAIN %}
 
-
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 4,
+parents: 27,
+depth: 2,
+_filters: 'AND(tv:car-price:against:~car-price~)',
+filters: 'AND(tv:model:=:' ~ resource.model ~ ')',
+tvList:'car-price,run,engine_power,gear,car_photos,year,image,body_type,model,car_color,engine_volume,fuel,drive',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+})
+%}
 
 
 {% set cardphoto = runSnippet('morephoto', {

@@ -119,7 +119,7 @@ tpl:'@T_CODE: <div class="gift__item">
             <div class="col-lg-6">
                 <div class="photos mb-sm-5 mb-4">
                     <div class="slider-for">
-                        {% if car_photos and count(car_photos)>0 %}
+                        {#% if car_photos and count(car_photos)>0 %}
                         {% for image in car_photos %}
                         <div class="item"><img src="{{image.image}}"></div>
                         {% endfor %}
@@ -134,7 +134,7 @@ tpl:'@T_CODE: <div class="gift__item">
                         {% endfor %}
                         {% else %}
                         <div class="item"><img src="{{image.image}}"></div>
-                        {% endif %}
+                        {% endif %#}
                     </div>
                 </div>
             </div>

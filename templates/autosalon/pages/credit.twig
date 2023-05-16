@@ -22,11 +22,11 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 	<div class="price d-none">10000000</div>
 	<div class="p-5 row">
 		<div class="col-md-1"></div>
-		<h1>Рассчитайте кредит на покупку автомобиля!</h1>
+		{#<h1>Рассчитайте кредит на покупку автомобиля!</h1>#}
 	</div>
 	<div class="row p-sm-0 px-5">
 		<div class="col-md-1"></div>
-		<div class="calc col-md-6">
+		<div class="calc col-md-6 pb-5">
 			<h2>Выгода при покупке в кредит!</h2>
 			<p class="pb-2">Ставка от 4.9% годовых!</p>
 			<div class="item">
@@ -166,7 +166,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 	<div class="container">
 		{% include "/partials/advantages.twig" %}
 	</div>
-	<script>
+	{# <script>
 	// Ожидаем загрузки всего DOM
 	document.addEventListener('DOMContentLoaded', function() {
 
@@ -206,7 +206,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 		monthesSelect.addEventListener('change', calculatePayment);
 	});
 
-	</script>
+	</script>#}
 	<div class="container">
 		{{ runSnippet('Form', {
 		formid: 'FormCallback',

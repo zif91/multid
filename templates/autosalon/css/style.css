@@ -220,7 +220,7 @@
 position: fixed;
     width: 120%;
     /* height: 100%; */
-    left: 15%;
+    left: 2%;
     top: 25%;
     overflow-y: scroll;
     background: transparent;
@@ -1294,12 +1294,12 @@ main {
 
   .popup .block-name {
   font-weight: 500;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 12px;}
 
   .form-block .top-text {
-    font-size: 10px;
-    width: 80%;}
+    font-size: 12px;
+    width: 100%;}
     .form-block .agree input {
     display:none;
 }

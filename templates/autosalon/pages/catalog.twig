@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const priceend = document.querySelector('#price_end');
 
   const updateFilterUrl = () => {
-      
+
     const modelsSelect = document.querySelector('#models');
 
     const brand = marksSelect.value;
@@ -239,6 +239,9 @@ document.addEventListener('DOMContentLoaded', function() {
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.error(errorThrown);
     });
+
+    modelsSelect.addEventListener('change', updateFilterUrl);
+
   };
 
   $("#slider-range").slider({
@@ -258,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
 
   marksSelect.addEventListener('change', updateFilterUrl);
-  modelsSelect.addEventListener('change', updateFilterUrl);
+  // modelsSelect.addEventListener('change', updateFilterUrl);
   pricestart.addEventListener('change', updateFilterUrl);
   priceend.addEventListener('change', updateFilterUrl);
 });

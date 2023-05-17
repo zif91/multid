@@ -1346,6 +1346,11 @@ font-size: 14px;
     border-radius: 8px;
 }
 
+.choices__list {
+    height: 150px;
+    padding-bottom: 15px;
+}
+
 .choices__item.choices__item--selectable {
     margin-top: 9px;
 }
@@ -1360,12 +1365,16 @@ font-size: 14px;
 
 .choices__list--single {
     padding: unset;
+    min-height: 35px;
+    display: flex;
+    align-items: center;
 }
 
 .choices__list--dropdown {
     border: 1px solid #000;
     border-radius: 5px;
     max-height: 150px;
+    margin-top: 3px;
 }
 
 @media (min-width: 640px) {
@@ -1375,7 +1384,7 @@ font-size: 14px;
 }
 
 .is-open .choices__list--dropdown .choices__item--selectable.is-highlighted {
-    color: #a4a4a4;
+    color: #fff;
 }
 
 .choices__list::-webkit-scrollbar {

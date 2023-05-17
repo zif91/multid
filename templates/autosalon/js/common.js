@@ -53,4 +53,14 @@ $(function() {
 			}
 		]
 	});
+
+	// Подключение плагина Choices для декорирования <select>
+	const decoreSelect = () => {
+	    const element = document.querySelector('#marks');
+        const choices = new Choices(element, {
+            searchEnabled: false,
+        });
+    }
+
+    decoreSelect();
 });

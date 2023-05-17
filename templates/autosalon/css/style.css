@@ -1343,9 +1343,17 @@ font-size: 14px;
 }
 
 .choices__item.choices__item--selectable {
-    margin-top: 13px;
+    margin-top: 9px;
 }
 
 .choices__list--dropdown .choices__item--selectable.is-highlighted:after {
     display: none;
+}
+
+.choices[data-type*=select-one]:after {
+    display: none;
+}
+
+.choices__list--single {
+    padding: unset;
 }

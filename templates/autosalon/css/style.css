@@ -1383,6 +1383,7 @@ font-size: 14px;
     border-radius: 5px;
     max-height: 150px;
     margin-top: 3px!important;
+    z-index: 3!important;
 }
 
 @media (min-width: 640px) {

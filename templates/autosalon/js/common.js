@@ -55,19 +55,15 @@ $(function() {
 	});
 
 	// Подключение плагина Choices для декорирования <select>
-	const decoreSelect = () => {
+    // Аргументом передается селектор (класс/id) тега <select>
+	const decoreSelect = (selector) => {
 
-	    const marks = document.querySelector('#marks');
-        //const models = document.querySelector('#models');
-
-        const choicesMarks = new Choices(marks, {
+        const choicesMarks = new Choices(selector, {
             searchEnabled: false,
         });
 
-        /*const choicesModels = new Choices(models, {
-            searchEnabled: false,
-        });*/
     }
 
-    decoreSelect();
+    const marks = document.querySelector('#marks');
+    decoreSelect(marks);
 });

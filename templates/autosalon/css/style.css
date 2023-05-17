@@ -1365,9 +1365,6 @@ font-size: 14px;
 
 .choices__list--single {
     padding: unset;
-    min-height: 35px;
-    display: flex;
-    align-items: center;
 }
 
 .choices__list--dropdown {

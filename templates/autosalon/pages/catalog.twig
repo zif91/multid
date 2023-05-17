@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const updateFilterUrl = () => {
     const brand = marksSelect.value;
     // const model = modelsSelect.value;
-    const model = modelsSelect.dataset.value;
+    const model = modelsSelect ? modelsSelect.dataset.value : false;
     const priceStart = pricestart.value;
     const priceEnd = priceend.value;
 

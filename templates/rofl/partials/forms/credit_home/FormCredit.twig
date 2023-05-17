@@ -1,12 +1,11 @@
 <form class="p-md-5 p-4 text-center">
-
     <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
     <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
     {{ data['form.messages'] | raw }}
     <div class="block-name mb-sm-5 mb-4 text-light">
         Выгодные условия на покупку <br />Вашего автомобиля в Кредит!
     </div>
-        <div class="timer d-inline-block mb-4 p-4">
+    <div class="timer d-inline-block mb-4 p-4">
         <p class="mb-2">Успей получить скидку! Осталось:</p>
         <div class="item d-inline-block position-relative mr-4">
             <span class="d-block days">8</span>
@@ -32,9 +31,9 @@
         <div class="col-md-4 col-sm-6 mb-4">
             <input type="text" value="{{ data.mobile_tel }}" name="mobile_tel" placeholder="Ваш телефон" class="form-control">
         </div>
-        <div class="col-md-4 col-sm-6 mb-4">   
-         <button class="btn btn-danger" style="    height: 44px;
-    padding: 0 60px 0 20px;
+        <div class="col-md-4 col-sm-6 mb-4">
+            <button class="w-100 btn btn-danger" 
+    style="height: 44px;
     -webkit-border-radius: 36px;
     -moz-border-radius: 36px;
     border-radius: 36px;
@@ -42,5 +41,4 @@
     font-weight: 500;
     font-size: 14px;">Получить условия и цену</button></div>
     </div>
-   
 </form>

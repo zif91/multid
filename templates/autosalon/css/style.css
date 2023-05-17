@@ -1367,6 +1367,17 @@ font-size: 14px;
     padding: unset;
 }
 
+.choices__list.choices__list--single {
+    display: flex!important;
+    height: 41px!important;
+    align-items: center;
+}
+
+.choices__item.choices__item--selectable {
+    margin: 0!important;
+    padding: 0!important;
+}
+
 .choices__list--dropdown {
     border: 1px solid #000!important;
     border-radius: 5px;

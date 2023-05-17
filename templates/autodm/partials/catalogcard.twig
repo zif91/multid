@@ -6,11 +6,17 @@ total: 1,
 display: 1
 }) %#}
 {#{ data['tv.car_photos'] }#}
+
+{# Получаем случайное изображения (ссылку) из поля "Фотографии" (car_photos) #}
+{% set randomPhotoLink = runSnippet('helpers', {jsonPhotos: data['tv.car_photos'],
+    action:'randomPhoto'})
+%}
+
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
 <div class="col-xl-3 col-lg-4 col-md-6 h-auto">
     <div class="item">
-        <a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="image"></a>
+        <a href="{{ data['url'] }}"><img src="{{ randomPhotoLink }}" class="image"></a>
         <div class="flex">
             <a href="{{ data['url'] }}" class="d-block name">{{ data['title'] }}</a>
             <div class="nal"><span></span> В наличии</div>

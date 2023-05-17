@@ -1322,3 +1322,30 @@ font-size: 14px;
     height: 52px;
     border-radius: 8px
 }
+
+.choices__inner {
+    height: 52px;
+    border-radius: 8px;
+    appearance: none;
+    font-weight: 500;
+    color: #98AEC3;
+    background: #ffffff url(/templates/autosalon/img/select.svg) no-repeat right 10px top 50%;
+    padding-left: 1rem!important;
+    padding-right: 1rem!important;
+    margin: 0;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.choices__item.choices__item--selectable {
+    margin-top: 13px;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted:after {
+    display: none;
+}

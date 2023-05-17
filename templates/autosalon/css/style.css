@@ -1368,10 +1368,10 @@ font-size: 14px;
 }
 
 .choices__list--dropdown {
-    border: 1px solid #000;
+    border: 1px solid #000!important;
     border-radius: 5px;
     max-height: 150px;
-    margin-top: 3px;
+    margin-top: 3px!important;
 }
 
 @media (min-width: 640px) {
@@ -1381,7 +1381,7 @@ font-size: 14px;
 }
 
 .is-open .choices__list--dropdown .choices__item--selectable.is-highlighted {
-    color: #fff;
+    background-color: #fff;
 }
 
 .choices__list::-webkit-scrollbar {

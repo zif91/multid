@@ -164,19 +164,12 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 document.addEventListener('DOMContentLoaded', function() {
   const marksSelect = document.querySelector('#marks');
   const modelsSelect = document.querySelector('#models');
-  console.log('ModelSelect ' + modelsSelect);
   const pricestart = document.querySelector('#price_start');
   const priceend = document.querySelector('#price_end');
-
-    // Создаем новый элемент select
-    let nodeModels = document.createElement('select');
-    nodeModels.classList.add('w-100', 'px-3');
-    nodeModels.id = 'models';
 
   const updateFilterUrl = () => {
     const brand = marksSelect.value;
     const model = modelsSelect.value;
-    console.log('model ' + model);
     const priceStart = pricestart.value;
     const priceEnd = priceend.value;
 
@@ -209,25 +202,33 @@ document.addEventListener('DOMContentLoaded', function() {
       /* Если выпадающий список уже был декорирован плагином Choices -
        удаляем список и создаем базовый <select> для встаки значений из ajax
        (в декорированный список новые ajax-значения не подставятся) */
-      if(document.querySelector('.choices.models')) {
-
-          // Помещаем новый элемент select перед декорированным списком
-          document.querySelector('.choices.models').before(nodeModels);
-
-          // Удаляем декорированный список
-          document.querySelector('.choices.models').remove();
-      }
+      // if(document.querySelector('.choices.models')) {
+      //     // Создаем базовый узел
+      //     let nodeModels = document.createElement('select');
+      //     nodeModels.classList.add('w-100', 'px-3');
+      //     nodeModels.id = 'models';
+      //
+      //     // Добавляем на новый элемент обработчик
+      //     // (т.к. страрый элемент modelsSelect уже не существует)
+      //     nodeModels.addEventListener('change', updateFilterUrl);
+      //
+      //     // Помещаем его перед декорированным списком
+      //     document.querySelector('.choices.models').before(nodeModels);
+      //
+      //     // Удаляем декорированный список
+      //     document.querySelector('.choices.models').remove();
+      // }
 
       $('#catalog').html(catalogHtml);
       $('#models').html(modelsHtml);
 
       /* После получения пунктов <options> стилизируем выпадающий список плагином */
-      const choicesModels = new Choices(document.querySelector('#models'), {
-          searchEnabled: false,
-          classNames: {
-            containerOuter: 'choices models'
-          },
-      });
+      // const choicesModels = new Choices(document.querySelector('#models'), {
+      //     searchEnabled: false,
+      //     classNames: {
+      //       containerOuter: 'choices models'
+      //     },
+      // });
 
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
@@ -252,9 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
 
   marksSelect.addEventListener('change', updateFilterUrl);
-    // Добавляем на новый элемент обработчик
-    nodeModels.addEventListener('change', updateFilterUrl);
-  //modelsSelect.addEventListener('change', updateFilterUrl);
+  modelsSelect.addEventListener('change', updateFilterUrl);
   pricestart.addEventListener('change', updateFilterUrl);
   priceend.addEventListener('change', updateFilterUrl);
 });

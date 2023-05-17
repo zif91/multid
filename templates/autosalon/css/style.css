@@ -1342,6 +1342,10 @@ font-size: 14px;
     font-family: 'Montserrat', sans-serif;
 }
 
+.is-open .choices__inner {
+    border-radius: 8px;
+}
+
 .choices__item.choices__item--selectable {
     margin-top: 9px;
 }

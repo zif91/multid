@@ -164,14 +164,14 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 document.addEventListener('DOMContentLoaded', function() {
   const marksSelect = document.querySelector('#marks');
   // const modelsSelect = document.querySelector('#models');
-  const modelsSelect = document.querySelector('.choices.models .choices__list--single .choices__item');
+  const modelsSelect = document.querySelector('.choices.models') ? document.querySelector('.choices.models .choices__list--single .choices__item') : false;
   const pricestart = document.querySelector('#price_start');
   const priceend = document.querySelector('#price_end');
 
   const updateFilterUrl = () => {
     const brand = marksSelect.value;
     // const model = modelsSelect.value;
-    const model = modelsSelect ? modelsSelect.dataset.value : false;
+    let model = (modelsSelect !== false) ? modelsSelect.dataset.value : false;
     const priceStart = pricestart.value;
     const priceEnd = priceend.value;
 

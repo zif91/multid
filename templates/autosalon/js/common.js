@@ -66,4 +66,8 @@ $(function() {
 
     const marks = document.querySelector('#marks');
     decoreSelect(marks);
+
+    const models = document.querySelector('#models > option');
+    console.log(models);
+    
 });

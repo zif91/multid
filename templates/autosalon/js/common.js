@@ -56,8 +56,12 @@ $(function() {
 
 	// Подключение плагина Choices для декорирования <select>
 	const decoreSelect = () => {
-	    const element = document.querySelector('#marks');
-        const choices = new Choices(element, {
+	    const marks = document.querySelector('#marks');
+        const models = document.querySelector('#models');
+        const choicesMarks = new Choices(marks, {
+            searchEnabled: false,
+        });
+        const choicesModels = new Choices(models, {
             searchEnabled: false,
         });
     }

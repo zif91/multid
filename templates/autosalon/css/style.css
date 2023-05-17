@@ -1373,7 +1373,7 @@ font-size: 14px;
     align-items: center;
 }
 
-.choices__item.choices__item--selectable {
+.choices__list--single .choices__item.choices__item--selectable {
     margin: 0!important;
     padding: 0!important;
 }

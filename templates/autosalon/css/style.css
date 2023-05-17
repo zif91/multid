@@ -1382,6 +1382,7 @@ font-size: 14px;
 
 .is-open .choices__list--dropdown .choices__item--selectable.is-highlighted {
     background-color: #fff;
+    color: #a4a4a4;
 }
 
 .choices__list::-webkit-scrollbar {

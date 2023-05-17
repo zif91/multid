@@ -44,7 +44,7 @@ TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class
 TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
 tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
-filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %#} 
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %#}
 {% set catalog_number = baseSettings['catalog_number'] %}
 
 
@@ -72,7 +72,7 @@ debug: 0,
 	</div>#}
 	<div class="container pt-5">
 		{% include '/partials/brands.twig' %}
-	
+
 		<div class="catalog-page pb-4">
 			<div class="container">
 				<div class="index-filter-block inner py-sm-4 py-5 px-4">
@@ -147,7 +147,7 @@ TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class
 TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
 tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
-filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) |raw }} 
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) |raw }}
 			</div>
 		</div>
 		    {% include('partials/banks.twig') %}
@@ -198,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .done(function(data) {
       const catalogHtml = $(data).find('#catalog').html();
       const modelsHtml = $(data).find('#models').html();
+      console.log(modelsHtml);
       $('#catalog').html(catalogHtml);
       $('#models').html(modelsHtml);
     })

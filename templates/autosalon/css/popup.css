@@ -1102,13 +1102,7 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 	 color: #646A9B;
 	 text-decoration: none;
 }
- p {
-	 font: 400 16px/1.9 "Montserrat";
-	 margin: 20px 0;
-}
- p a {
-	 display: inline-block;
-}
+
  .half-bg-screen {
 	 background: #fff;
 	 background: -moz-linear-gradient(top,#fff 0,#fff 50%,#F2F3F7 50%,#F2F3F7 100%);
@@ -1313,9 +1307,7 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 	 .caption {
 		 font-size: 28px;
 	}
-	 p {
-		 font-size: 14px;
-	}
+	
 	 .text-cols {
 		 margin: 0 -20px;
 	}
@@ -1328,9 +1320,7 @@ input[type="checkbox"], input[type="file"], input[type="radio"] {
 		 font-size: 30px;
 		 margin-bottom: 30px;
 	}
-	 p {
-		 margin: 10px 0;
-	}
+	
 	 .accent-text p {
 		 font-size: 18px;
 		 margin: 15px 0;

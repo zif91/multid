@@ -1362,7 +1362,7 @@ font-size: 14px;
     padding: unset;
 }
 
-.is-open .choices__list.choices__list--dropdown {
+.choices__list--dropdown {
     border: 1px solid #000;
     border-radius: 5px;
     max-height: 150px;

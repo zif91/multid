@@ -24,9 +24,9 @@ debug: 0,
 
     {% set marks = marks|json %}
         {% set models = runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
-parents: catalog_number, 
-depth: 1, 
-addWhereList: 'isfolder=1 AND c.template=20', 
+parents: catalog_number,
+depth: 1,
+addWhereList: 'isfolder=1 AND c.template=20',
 api: 1,
     })
     | json %}
@@ -51,7 +51,7 @@ api: 1,
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/templates/autosalon/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="/templates/autosalon/css/popup.css">
-
+    <link rel="stylesheet" href="/templates/autosalon/css/choices.min.css">
 
     <link rel="stylesheet" href="/templates/autosalon/css/style.css">
     <link rel="stylesheet" href="/templates/autosalon/css/slick.css">

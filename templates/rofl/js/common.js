@@ -165,77 +165,43 @@ function openModal() {
 }
 
 
-
 document.addEventListener("DOMContentLoaded", function() {
-    const now = new Date();
-    const endDate2 = new Date(now.getTime() + (7 * 24 * 60 * 60 * 1000) + (23 * 60 * 60 * 1000));
-
-    const options = { day: 'numeric', month: 'long', year: 'numeric' };
-    const formattedEndDate = endDate2.toLocaleDateString('ru-RU', options);
-
-    const parts = formattedEndDate.split(' ');
-    const day = parts[0];
-    const month = parts[1];
-    const year = parts[2];
-
-    const formattedDate = day + ' ' + month + ' ' + year + ' года';
-
-
-
   // Получаем текущую дату
-var currentDate = new Date();
+  var currentDate = new Date();
 
-// Добавляем 8 дней к текущей дате
-currentDate.setDate(currentDate.getDate() + 8);
+  // Добавляем 8 дней к текущей дате
+  currentDate.setDate(currentDate.getDate() + 8);
 
-// Форматируем дату в виде "дд.мм.гггг"
-var day = currentDate.getDate();
-var month = currentDate.getMonth() + 1; // Месяцы в JavaScript начинаются с 0, поэтому добавляем 1
-var year = currentDate.getFullYear();
-var endDateValue = day + '.' + month + '.' + year;
-    console.log('endDateValue:', endDateValue);
-
-// Преобразуем строку в дату
-    var endDate = new Date(endDateValue);
-    console.log('endDate:', endDate);
-
-// Обновляем значения таймера каждую секунду
-    var timerInterval = setInterval(function() {
+  // Обновляем значения таймера каждую секунду
+  var timerInterval = setInterval(function() {
     // Получаем элементы таймера
     var daysElement = document.querySelector('.timer .item span.days');
-    console.log('daysElement:', daysElement);
     var hoursElement = document.querySelector('.timer .item span.hours');
-    console.log('hoursElement:', hoursElement);
     var minutesElement = document.querySelector('.timer .item span.minutes');
-    console.log('minutesElement:', minutesElement);
     var secondsElement = document.querySelector('.timer .item span.seconds');
-    console.log('secondsElement:', secondsElement);
 
     // Проверяем, что элементы существуют
     if (daysElement && hoursElement && minutesElement && secondsElement) {
-    // Вычисляем оставшееся время до окончания акции
-    var remainingTime = endDate - new Date();
-    console.log('remainingTime:', remainingTime);
+      // Вычисляем оставшееся время до окончания акции
+      var remainingTime = currentDate - new Date();
 
-    // Получаем количество дней, часов, минут и секунд
-    var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+      // Получаем количество дней, часов, минут и секунд
+      var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
-    // Обновляем значения таймера
-    daysElement.textContent = days;
-    hoursElement.textContent = hours;
-    minutesElement.textContent = minutes;
-    secondsElement.textContent = seconds < 10 ? '0' + seconds : seconds;
-    console.log('days:', days, 'hours:', hours, 'minutes:', minutes, 'seconds:', seconds);
+      // Обновляем значения таймера
+      daysElement.textContent = days;
+      hoursElement.textContent = hours;
+      minutesElement.textContent = minutes;
+      secondsElement.textContent = seconds < 10 ? '0' + seconds : seconds;
 
-    // Если время закончилось, останавливаем таймер
-    if (remainingTime < 0) {
-    clearInterval(timerInterval);
-}
-}
-}, 1000);
-
-
+      // Если время закончилось, останавливаем таймер
+      if (remainingTime < 0) {
+        clearInterval(timerInterval);
+      }
+    }
+  }, 1000);
 });
+

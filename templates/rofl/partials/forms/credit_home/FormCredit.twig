@@ -1,6 +1,97 @@
 
 
 
+<script type="text/javascript">document.addEventListener("DOMContentLoaded", function() {
+        const deadline = document.querySelector('.index-first-block h2');
+        const now = new Date();
+        const endDate2 = new Date(now.getTime() + (7 * 24 * 60 * 60 * 1000) + (23 * 60 * 60 * 1000));
+
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const formattedEndDate = endDate2.toLocaleDateString('ru-RU', options);
+
+        const parts = formattedEndDate.split(' ');
+        const day = parts[0];
+        const month = parts[1];
+        const year = parts[2];
+
+        const formattedDate = day + ' ' + month + ' ' + year + ' года';
+
+        deadline.textContent = deadline.textContent.replace('2023 года', formattedDate);
+
+
+        // Получаем элемент input с идентификатором enddate
+        var endDateInput = document.getElementById('enddate');
+        console.log('endDateInput:', endDateInput);
+
+// Получаем значение из input
+        var endDateValue = endDateInput.value;
+        console.log('endDateValue:', endDateValue);
+
+// Преобразуем строку в дату
+        var endDate = new Date(endDateValue);
+        console.log('endDate:', endDate);
+
+// Обновляем значения таймера каждую секунду
+        var timerInterval = setInterval(function() {
+            // Получаем элементы таймера
+            var daysElement = document.querySelector('.timer .item span.days');
+            console.log('daysElement:', daysElement);
+            var hoursElement = document.querySelector('.timer .item span.hours');
+            console.log('hoursElement:', hoursElement);
+            var minutesElement = document.querySelector('.timer .item span.minutes');
+            console.log('minutesElement:', minutesElement);
+            var secondsElement = document.querySelector('.timer .item span.seconds');
+            console.log('secondsElement:', secondsElement);
+
+            // Проверяем, что элементы существуют
+            if (daysElement && hoursElement && minutesElement && secondsElement) {
+                // Вычисляем оставшееся время до окончания акции
+                var remainingTime = endDate - new Date();
+                console.log('remainingTime:', remainingTime);
+
+                // Получаем количество дней, часов, минут и секунд
+                var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+                // Обновляем значения таймера
+                daysElement.textContent = days;
+                hoursElement.textContent = hours;
+                minutesElement.textContent = minutes;
+                secondsElement.textContent = seconds < 10 ? '0' + seconds : seconds;
+                console.log('days:', days, 'hours:', hours, 'minutes:', minutes, 'seconds:', seconds);
+
+                // Если время закончилось, останавливаем таймер
+                if (remainingTime < 0) {
+                    clearInterval(timerInterval);
+                }
+            }
+        }, 1000);
+
+
+    });</script>
+
+<div class="timer d-inline-block mb-4 p-4">
+    <p class="mb-2">Успей получить скидку! Осталось:</p>
+    <div class="item d-inline-block position-relative mr-4">
+        <span class="d-block days">8</span>
+        Дней
+    </div>
+    <div class="item d-inline-block position-relative mr-4">
+        <span class="d-block hours">1</span>
+        Час
+    </div>
+    <div class="item d-inline-block position-relative mr-4">
+        <span class="d-block minutes">59</span>
+        Мин
+    </div>
+    <div class="item d-inline-block position-relative">
+        <span class="d-block seconds">59</span>
+        Сек
+    </div></div>
+</div>
+
 
 <form class="p-md-5 p-4 text-center">
     <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
@@ -11,30 +102,10 @@
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-6 mb-4">
-                    <input name="brand" value="{{data.brand}}" type="text" placeholder="Интересующий Вас автомобиль" class="form-control">
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <input name="desired_amount" value="{{data.desired_amount}}" type="text" placeholder="Стоимость" class="form-control numbers">
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <select name="credit_term" value="{{data.credit_term}}"class="form-select">
-                        <option>Срок: 12 месяцев</option>
-                        <option>Срок: 18 месяцев</option>
-                        <option>Срок: 24 месяцев</option>
-                        <option>Срок: 30 месяцев</option>
-                        <option>Срок: 36 месяцев</option>
-                        <option>Срок: 42 месяцев</option>
-                        <option>Срок: 48 месяцев</option>
-                    </select>
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
                     <input name="first_name" value="{{data.first_name}}" type="text" placeholder="Ваше имя" class="form-control">
                 </div>
                 <div class="col-md-4 col-sm-6 mb-4">
                     <input type="text" value="{{ data.mobile_tel }}" name="mobile_tel" placeholder="Ваш телефон" class="form-control">
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <input value="{{ data.email }}" name="email" type="text" placeholder="Ваш e-mail" class="form-control">
                 </div>
             </div>
             <button class="btn btn-danger mt-2">Получить условия и цену</button>

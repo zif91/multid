@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
       $('#models').html(modelsHtml);
 
       /* После получения пунктов <options> стилизируем выпадающий список плагином */
-      const choicesModels = new Choices(modelsSelect, {
+      const choicesModels = new Choices($('#models'), {
           searchEnabled: false,
           classNames: {
             containerOuter: 'choices models'

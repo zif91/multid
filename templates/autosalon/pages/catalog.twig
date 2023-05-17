@@ -198,9 +198,15 @@ document.addEventListener('DOMContentLoaded', function() {
     .done(function(data) {
       const catalogHtml = $(data).find('#catalog').html();
       const modelsHtml = $(data).find('#models').html();
-      console.log(modelsHtml);
+
       $('#catalog').html(catalogHtml);
       $('#models').html(modelsHtml);
+
+      /* После получения пунктов <options> стилизируем выпадающий список плагином */
+      const choicesMarks = new Choices(modelsSelect, {
+          searchEnabled: false,
+      });
+
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.error(errorThrown);

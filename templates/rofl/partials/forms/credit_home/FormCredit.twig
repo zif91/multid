@@ -6,44 +6,41 @@
         Выгодные условия на покупку <br />Вашего автомобиля в Кредит!
     </div>
     <style>
-    .item span {
+        .item span {
     color: #000;
     font-size: 36px;
     line-height: 48px;
     }
     </style>
-    <div class="timer d-inline-block mb-4 p-4"
-    style="border-radius: 22px;
-    background: #fff;">
-        <p class="mb-2">Успей получить скидку! Осталось:</p>
-        <div class="item d-inline-block position-relative mr-4">
-            <span class="d-block days">8</span>
-            Дней
-        </div>
-        <div class="item d-inline-block position-relative mr-4">
-            <span class="d-block hours">1</span>
-            Час
-        </div>
-        <div class="item d-inline-block position-relative mr-4">
-            <span class="d-block minutes">59</span>
-            Мин
-        </div>
-        <div class="item d-inline-block position-relative">
-            <span class="d-block seconds">59</span>
-            Сек
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-4 col-sm-6 mb-4">
-            <input name="first_name" value="{{data.first_name}}" type="text" placeholder="Ваше имя" class="form-control">
+            <div class="timer d-inline-block mb-4 p-4" style="border-radius: 22px;
+    background: #fff;">
+                <p class="mb-2">Успей получить скидку! Осталось:</p>
+                <div class="item d-inline-block position-relative mr-4">
+                    <span class="d-block days">8</span>
+                    Дней
+                </div>
+                <div class="item d-inline-block position-relative mr-4">
+                    <span class="d-block hours">1</span>
+                    Час
+                </div>
+                <div class="item d-inline-block position-relative mr-4">
+                    <span class="d-block minutes">59</span>
+                    Мин
+                </div>
+                <div class="item d-inline-block position-relative">
+                    <span class="d-block seconds">59</span>
+                    Сек
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+            <input name="first_name" value="{{data.first_name}}" type="text" placeholder="Ваше имя" class="form-control mb-4">
             <input type="text" value="{{ data.mobile_tel }}" name="mobile_tel" placeholder="Ваш телефон" class="form-control">
         </div>
-        {#<div class="col-md-4 col-sm-6 mb-4">
-            
-        </div>#}
         <div class="col-md-4 col-sm-6 mb-4">
-            <button class="w-100 btn btn-danger" 
-    style="height: 44px;
+            <button class="w-100 btn btn-danger" style="height: 44px;
     -webkit-border-radius: 36px;
     -moz-border-radius: 36px;
     border-radius: 36px;

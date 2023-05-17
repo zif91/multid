@@ -167,7 +167,6 @@ function openModal() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    const deadline = document.querySelector('.index-first-block h2');
     const now = new Date();
     const endDate2 = new Date(now.getTime() + (7 * 24 * 60 * 60 * 1000) + (23 * 60 * 60 * 1000));
 
@@ -181,15 +180,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const formattedDate = day + ' ' + month + ' ' + year + ' года';
 
-    deadline.textContent = deadline.textContent.replace('2023 года', formattedDate);
 
 
-    // Получаем элемент input с идентификатором enddate
-    var endDateInput = document.getElementById('enddate');
-    console.log('endDateInput:', endDateInput);
+  // Получаем текущую дату
+var currentDate = new Date();
 
-// Получаем значение из input
-    var endDateValue = endDateInput.value;
+// Добавляем 8 дней к текущей дате
+currentDate.setDate(currentDate.getDate() + 8);
+
+// Форматируем дату в виде "дд.мм.гггг"
+var day = currentDate.getDate();
+var month = currentDate.getMonth() + 1; // Месяцы в JavaScript начинаются с 0, поэтому добавляем 1
+var year = currentDate.getFullYear();
+var endDateValue = day + '.' + month + '.' + year;
     console.log('endDateValue:', endDateValue);
 
 // Преобразуем строку в дату

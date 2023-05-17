@@ -163,15 +163,15 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 	<script>
 document.addEventListener('DOMContentLoaded', function() {
   const marksSelect = document.querySelector('#marks');
-  // const modelsSelect = document.querySelector('#models');
-  const modelsSelect = document.querySelector('.choices.models') ? document.querySelector('.choices.models .choices__list--single .choices__item') : false;
+  const modelsSelect = document.querySelector('#models');
+  //const modelsSelect = document.querySelector('.choices.models') ? document.querySelector('.choices.models .choices__list--single .choices__item') : false;
   const pricestart = document.querySelector('#price_start');
   const priceend = document.querySelector('#price_end');
 
   const updateFilterUrl = () => {
     const brand = marksSelect.value;
     // const model = modelsSelect.value;
-    let model = (modelsSelect !== false) ? modelsSelect.dataset.value : false;
+    //let model = (modelsSelect !== false) ? modelsSelect.dataset.value : false;
     const priceStart = pricestart.value;
     const priceEnd = priceend.value;
 
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
 
   marksSelect.addEventListener('change', updateFilterUrl);
-  //modelsSelect.addEventListener('change', updateFilterUrl);
+  modelsSelect.addEventListener('change', updateFilterUrl);
   pricestart.addEventListener('change', updateFilterUrl);
   priceend.addEventListener('change', updateFilterUrl);
 });

@@ -96,7 +96,7 @@ extension: 'twig'
 				<div class="row mb-4">
 					<div class="col-6">
 						<p class="mb-2">Выберите марку</p>
-                        <select class="w-100 px-3" id="marks">
+						<select class="w-100 px-3" id="marks">
 													<option>Выбрать...</option>
 							{% for item in marks %}
 							<option>{{ item.pagetitle }}</option>
@@ -132,36 +132,6 @@ extension: 'twig'
 			</div>
 		</div>
 	</div>
-
-    <div class="row" id="catalog">
-        {#{DLCatalog |raw}#}
-        {{ runSnippet('DocLister', {
-            id: 'catalog',
-            controller: 'catalog_filters',
-            display: 20,
-            parents: catalog_number,
-            depth: 2,
-            tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
-            ownerTPL: '@T_FILE:partials/wrap',
-            noneTPL:'@CODE: <div class="container">
-	<div class="row">
-		<div class="col text-center">
-			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска123</h1>
-		</div>
-	</div>
-</div>',
-            tpl:'@T_FILE:partials/catalogcard_mod',
-            paginate:'pages',
-            TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
-            TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
-            TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
-            TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
-            TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
-            tvSortType: 'UNSIGNED',
-            addWhereList: 'c.template=28',
-            filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) |raw }}
-    </div>
-
 	{% include('partials/brands.twig') %}
 </div>
 </div>

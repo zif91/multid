@@ -167,7 +167,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const pricestart = document.querySelector('#price_start');
   const priceend = document.querySelector('#price_end');
 
-  const updateFilterUrl = () => {
+  const updateFilterUrl = (e) => {
+      console.log(e.currentTarget);
     const brand = marksSelect.value;
     const model = modelsSelect.value;
     const priceStart = pricestart.value;

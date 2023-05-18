@@ -235,6 +235,8 @@ document.addEventListener('DOMContentLoaded', function() {
       $('#catalog').html(catalogHtml);
       $('#models').html(modelsHtml);
 
+      choicesModels.init();
+
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.error(errorThrown);

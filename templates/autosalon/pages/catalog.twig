@@ -222,13 +222,13 @@ document.addEventListener('DOMContentLoaded', function() {
       $('#catalog').html(catalogHtml);
       $('#models').html(modelsHtml);
 
-      // /* После получения пунктов <options> стилизируем выпадающий список плагином */
-      // const choicesModels = new Choices(document.querySelector('#models'), {
-      //     searchEnabled: false,
-      //     classNames: {
-      //       containerOuter: 'choices models'
-      //     },
-      // });
+      /* После получения пунктов <options> стилизируем выпадающий список плагином */
+      const choicesModels = new Choices(document.querySelector('#models'), {
+          searchEnabled: false,
+          classNames: {
+            containerOuter: 'choices models'
+          },
+      });
 
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

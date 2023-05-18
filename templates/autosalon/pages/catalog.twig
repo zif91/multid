@@ -178,7 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const updateFilterUrl = (e) => {
       //if (e.currentTarget.id == 'marks') console.log('Get marks');
 
-    choicesModels.destroy();
+      choicesModels.clearStore();
+      //choicesModels.destroy();
 
     const brand = marksSelect.value;
     const model = modelsSelect.value;
@@ -235,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
       $('#catalog').html(catalogHtml);
       $('#models').html(modelsHtml);
 
-      choicesModels.init();
+
 
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

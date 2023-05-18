@@ -57,11 +57,9 @@ $(function() {
 	// Подключение плагина Choices для декорирования <select>
     // Аргументом передается селектор (класс/id) тега <select>
 	const decoreSelect = (selector) => {
-
         const choicesMarks = new Choices(selector, {
             searchEnabled: false,
         });
-
     }
 
     const marks = document.querySelector('#marks');

@@ -167,8 +167,16 @@ document.addEventListener('DOMContentLoaded', function() {
   const pricestart = document.querySelector('#price_start');
   const priceend = document.querySelector('#price_end');
 
+    /* После получения пунктов <options> стилизируем выпадающий список плагином */
+    const choicesModels = new Choices(document.querySelector('#models'), {
+        searchEnabled: false,
+        classNames: {
+            containerOuter: 'choices models'
+        },
+    });
+
   const updateFilterUrl = (e) => {
-      if(e.currentTarget.id == 'marks') console.log('Get marks');
+      if (e.currentTarget.id == 'marks') console.log('Get marks');
     const brand = marksSelect.value;
     const model = modelsSelect.value;
     const priceStart = pricestart.value;
@@ -219,17 +227,10 @@ document.addEventListener('DOMContentLoaded', function() {
           // // Удаляем декорированный список
           // document.querySelector('.choices.models').remove();
       // }
+      
 
       $('#catalog').html(catalogHtml);
       $('#models').html(modelsHtml);
-
-      /* После получения пунктов <options> стилизируем выпадающий список плагином */
-      const choicesModels = new Choices(document.querySelector('#models'), {
-          searchEnabled: false,
-          classNames: {
-            containerOuter: 'choices models'
-          },
-      });
 
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

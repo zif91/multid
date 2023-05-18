@@ -96,7 +96,7 @@ extension: 'twig'
 				<div class="row mb-4">
 					<div class="col-6">
 						<p class="mb-2">Выберите марку</p>
-						<!--{{ marks }}-->
+						<!--{{ marks|json }}-->
                         <select class="w-100 px-3" id="marks">
 													<option>Выбрать...</option>
 							{% for item in marks %}

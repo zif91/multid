@@ -176,7 +176,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
   const updateFilterUrl = (e) => {
-      if (e.currentTarget.id == 'marks') console.log('Get marks');
+      //if (e.currentTarget.id == 'marks') console.log('Get marks');
+
+    choicesModels.destroy();
+
     const brand = marksSelect.value;
     const model = modelsSelect.value;
     const priceStart = pricestart.value;
@@ -227,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // // Удаляем декорированный список
           // document.querySelector('.choices.models').remove();
       // }
-      
+
 
       $('#catalog').html(catalogHtml);
       $('#models').html(modelsHtml);

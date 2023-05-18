@@ -1,4 +1,4 @@
-{% extends 'app.twig' %}
+{% extends './app.twig' %}
 {% block MAIN %}
 {#% cache 'main' ~ resource.id %#}
 {% set brand = runSnippet('_get', {key: 'brand'}) %}
@@ -210,6 +210,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	const priceend = document.querySelector('#price_end');
 	const filterButton = document.querySelector('#filterbutton');
 
+    /* Декорируем выпадающий список моделей плагином Choices */
+    let choicesModels = new Choices(document.querySelector('#models'), {
+        searchEnabled: false,
+        classNames: {
+            containerOuter: 'choices models'
+        },
+    });
+
 	const updateFilterUrl = () => {
 		const brand = marksSelect.value;
 		const model = modelsSelect.value;
@@ -251,7 +259,22 @@ document.addEventListener('DOMContentLoaded', function() {
 			})
 			.done(function(data) {
 				const modelsHtml = $(data).find('#models').html();
+
+                /* Для реализации обновления списка моделей с использованием плагина Choices */
+
+                // Перед вставкой новых (полученных с сервера) моделей
+                // Удаляем декорирование плагином (откат к базовой структуре select-option)
+                choicesModels.destroy();
+
 				$('#models').html(modelsHtml);
+
+                // Снова декорируем заполненный новыми значениями моделей список
+                choicesModels = new Choices(document.querySelector('#models'), {
+                    searchEnabled: false,
+                    classNames: {
+                        containerOuter: 'choices models'
+                    },
+                });
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) {
 				console.error(errorThrown);

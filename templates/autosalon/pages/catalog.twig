@@ -178,8 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const updateFilterUrl = (e) => {
       //if (e.currentTarget.id == 'marks') console.log('Get marks');
 
-    choicesModels.destroy();
-
     const brand = marksSelect.value;
     const model = modelsSelect.value;
     const priceStart = pricestart.value;
@@ -233,6 +231,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
       $('#catalog').html(catalogHtml);
+
+      choicesModels.destroy();
+
       $('#models').html(modelsHtml);
 
       /* После получения пунктов <options> стилизируем выпадающий список плагином */

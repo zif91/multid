@@ -105,13 +105,13 @@ debug: 0,
 
 						<div class="col-lg-3 col-md-4 col-sm-6">
 							<div class="item mb-4 pl-5">
-								<div class="price-item" data-startPrice="0" data-endPrice="500000">до 500 000 ₽</div>
+								<div class="price-item" data-startprice="0" data-endprice="500000">до 500 000 ₽</div>
 							</div>
 						</div>
 
 						<div class="col-lg-3 col-md-4 col-sm-6">
 							<div class="item mb-4 pl-5">
-								<div class="price-item" data-startPrice="500000" data-endPrice="1000000">до 1 000 000 ₽</div>
+								<div class="price-item" data-startprice="500000" data-endprice="1000000">до 1 000 000 ₽</div>
 							</div>
 						</div>
 
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
 
-  priceItem.forEach(item => {item.onclick = (e) => console.log(e.currentTarget)};
+  priceItem.forEach(item => {item.onclick = (e) => console.log(e.currentTarget)});
 
   marksSelect.addEventListener('change', updateFilterUrl);
   modelsSelect.addEventListener('change', updateFilterUrl);

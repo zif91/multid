@@ -202,13 +202,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const updateFilterUrl = (e) => {
     
+    const brand, model, priceStart, priceEnd; 
+
     if(e.tagName == 'BUTTON' && e.id == 'filterbutton') {
     	brand = model = priceStart = priceEnd = false;	
     } else {
-	    const brand = marksSelect.value;
-	    const model = modelsSelect.value;
-	    const priceStart = e.currentTarget.dataset.startprice;
-	    const priceEnd = e.currentTarget.dataset.endprice;
+	    brand = marksSelect.value;
+	    model = modelsSelect.value;
+	    priceStart = e.currentTarget.dataset.startprice;
+	    priceEnd = e.currentTarget.dataset.endprice;
     }
 
     /* Для слайдера диапазона цен */

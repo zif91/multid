@@ -63,6 +63,6 @@ $(function() {
     }
 
     const marks = document.querySelector('#marks');
-    decoreSelect(marks);
+    if (marks) decoreSelect(marks);
 
 });

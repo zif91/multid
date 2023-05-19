@@ -205,8 +205,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const brand = marksSelect.value;
     const model = modelsSelect.value;
 
-    const priceStart = false;
-    const priceEnd = false;
+    let priceStart = false;
+    let priceEnd = false;
     
     if(e.tagName == 'BUTTON' && e.id == 'filterbutton') {
     	brand = model = priceStart = priceEnd = false;	

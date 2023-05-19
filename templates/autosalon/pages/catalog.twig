@@ -104,12 +104,12 @@ debug: 0,
 						</div>
 
 						{% set step = 500000 %}
-						{% for i in price_start..price_end %}
+						{% for i in 0..10000000 %}
 						    {% if i%step == 0 %}
 						        <!-- {{ i }} -->
 						    {% endif %}
 						{% endfor %}
-						
+
 						<div class="col-lg-3 col-md-4 col-sm-6">
 							<div class="item mb-4 pl-5">
 								<div class="price-item" data-startprice="0" data-endprice="500000">до 500 000 ₽</div>

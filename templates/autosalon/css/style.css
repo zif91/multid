@@ -1414,3 +1414,14 @@ font-size: 14px;
 .is-open .choices__list--dropdown .choices__item,  .choices__item {
     padding: 9px 0px 0px 15px;
 }
+
+.index-prices-block .price-item {
+  font-size: 18px;
+  line-height: 22px;
+  background: url('../img/prices.png') no-repeat 0 5px;
+}
+
+@media (max-width: 991px) {
+  .index-prices-block .price-item {
+    font-size: 16px;
+  }

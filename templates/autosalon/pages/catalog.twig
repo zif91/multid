@@ -105,14 +105,15 @@ debug: 0,
 
 {% set arrPrices = [500000, 1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000, 4500000,5000000, 5500000, 6000000, 6500000, 7000000, 7500000, 8000000, 8500000, 9000000, 9500000, 10000000] %}
 {% set step = 500000 %}
-
-						{% for price in arrPrices %}
-							<div class="col-lg-3 col-md-4 col-sm-6">
-								<div class="item mb-4 pl-5">
-									<div class="price-item" data-startprice="{{ price - step}}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
+						<div сlass="index-prices-block">
+							{% for price in arrPrices %}
+								<div class="col-lg-3 col-md-4 col-sm-6">
+									<div class="mb-4 pl-5">
+										<div class="price-item" data-startprice="{{ price - step}}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
+									</div>
 								</div>
-							</div>
-						{% endfor %}
+							{% endfor %}
+						</div>
 
 						<!--div class="col-lg-3 col-md-4 col-sm-6">
 							<div class="item mb-4 pl-5">

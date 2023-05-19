@@ -103,6 +103,13 @@ debug: 0,
 							</div>
 						</div>
 
+						{% set step = 500000 %}
+						{% for i in price_start..price_end %}
+						    {% if i%step == 0 %}
+						        <!-- {{ i }} -->
+						    {% endif %}
+						{% endfor %}
+						
 						<div class="col-lg-3 col-md-4 col-sm-6">
 							<div class="item mb-4 pl-5">
 								<div class="price-item" data-startprice="0" data-endprice="500000">до 500 000 ₽</div>
@@ -195,13 +202,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const brand = marksSelect.value;
     const model = modelsSelect.value;
-    //const priceStart = pricestart.value;
-    //const priceEnd = priceend.value;
-
     const priceStart = e.currentTarget.dataset.startprice;
     const priceEnd = e.currentTarget.dataset.endprice;
-
-    console.log(priceStart + ' ' + priceEnd);
+    
+    /* Для слайдера диапазона цен */
+    //const priceStart = pricestart.value;
+    //const priceEnd = priceend.value;
 
     let url = '/katalog-novyh-avtomobilej/?';
     if (brand && brand !== 'Выбрать...') {
@@ -253,7 +259,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
-  $("#slider-range").slider({
+  /* Слайдер диапазона цен */
+  /*$("#slider-range").slider({
     range: true,
     min: 100000,
     max: 10000000,
@@ -266,13 +273,16 @@ document.addEventListener('DOMContentLoaded', function() {
       updateFilterUrl();
     }
   });
+
   $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
-  $("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
+  $("#price_end").val($("#slider-range").slider("values", 1) + " руб."); */
 
   priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
 
   marksSelect.addEventListener('change', updateFilterUrl);
   modelsSelect.addEventListener('change', updateFilterUrl);
+
+  /* Для слайдера диапазона цен */
   // pricestart.addEventListener('change', updateFilterUrl);
   // priceend.addEventListener('change', updateFilterUrl);
 });

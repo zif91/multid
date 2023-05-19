@@ -103,12 +103,12 @@ debug: 0,
 							</div>
 						</div>
 
-						{#{% set step = 500000 %}
-						{% for i in 0..10000000 %}
-						    {% if i%step == 0 %}
-						        <!-- {{ i }} -->
+						{% set step = 5 %}
+						{% for i in 0..100 %}
+						    {% if (i%step) == 0 %}
+						         {{ i }}
 						    {% endif %}
-						{% endfor %}#}
+						{% endfor %}
 
 						<div class="col-lg-3 col-md-4 col-sm-6">
 							<div class="item mb-4 pl-5">

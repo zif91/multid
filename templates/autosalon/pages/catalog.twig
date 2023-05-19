@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб."); */
 
   priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
-  filterButton.onclick = (e) => updateFilterUrl(e);
+  filterButton.onclick = (e) => updateFilterUrl(e, true);
 
   marksSelect.addEventListener('change', updateFilterUrl);
   modelsSelect.addEventListener('change', updateFilterUrl);

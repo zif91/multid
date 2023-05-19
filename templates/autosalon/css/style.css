@@ -1421,6 +1421,14 @@ font-size: 14px;
     margin-top: 20px;
 }
 
+.index-prices-block-wrap::-webkit-scrollbar-thumb {
+    background-color: gray;
+}
+
+.index-prices-block-wrap::-webkit-scrollbar {
+    width: 3px;
+}
+
 .index-prices-block {
     display: flex;
     flex-wrap: wrap;

@@ -201,17 +201,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
   const updateFilterUrl = (e) => {
-    
-    const brand, model, priceStart, priceEnd; 
 
+    const brand = marksSelect.value;
+    const model = modelsSelect.value;
+    
+    const priceStart, priceEnd = false;
+    
     if(e.tagName == 'BUTTON' && e.id == 'filterbutton') {
     	brand = model = priceStart = priceEnd = false;	
     } else {
-	    brand = marksSelect.value;
-	    model = modelsSelect.value;
-	    priceStart = e.currentTarget.dataset.startprice;
-	    priceEnd = e.currentTarget.dataset.endprice;
+    	 priceStart = e.currentTarget.dataset.startprice;
+         priceEnd = e.currentTarget.dataset.endprice;
     }
+    
 
     /* Для слайдера диапазона цен */
     //const priceStart = pricestart.value;

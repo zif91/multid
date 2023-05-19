@@ -102,14 +102,28 @@ debug: 0,
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4">
+
+						<div class="col-lg-3 col-md-4 col-sm-6">
+							<div class="item mb-4 pl-5">
+								<div class="price-item" data-startPrice="0" data-endPrice="500000">до 500 000 ₽</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-4 col-sm-6">
+							<div class="item mb-4 pl-5">
+								<div class="price-item" data-startPrice="500000" data-endPrice="1000000">до 1 000 000 ₽</div>
+							</div>
+						</div>
+
+						{# <div class="col-lg-4">
 							<p class="mb-2">Цена</p>
 							<div class="flex">
 								<input id="price_start" type="text" id="amount" class="px-2" readonly>
 								<input id="price_end" type="text" id="amount2" class="px-2" readonly>
 							</div>
 							<div id="slider-range" class="mb-4"></div>
-						</div>
+						</div> #}
+
 						<div class="col-lg-4">
 							<p class="mb-2"> </p>
 							<div class="flex">
@@ -167,6 +181,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const pricestart = document.querySelector('#price_start');
   const priceend = document.querySelector('#price_end');
 
+  const priceItem = document.querySelectorAll('.price-item');
+
     /* Декорируем выпадающий список моделей плагином Choices */
     let choicesModels = new Choices(document.querySelector('#models'), {
         searchEnabled: false,
@@ -175,12 +191,15 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-  const updateFilterUrl = (e) => {
+  const updateFilterUrl = () => {
 
     const brand = marksSelect.value;
     const model = modelsSelect.value;
     const priceStart = pricestart.value;
     const priceEnd = priceend.value;
+
+    //const priceStart = priceItem.dataset.startPrice;
+    //const priceEnd = priceItem.dataset.endPrice;;
 
     let url = '/katalog-novyh-avtomobilej/?';
     if (brand && brand !== 'Выбрать...') {
@@ -247,6 +266,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
+
+  priceItem.forEach(item => {item.onclick = (e) => console.log(e.currentTarget)};
 
   marksSelect.addEventListener('change', updateFilterUrl);
   modelsSelect.addEventListener('change', updateFilterUrl);

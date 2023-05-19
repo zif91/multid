@@ -1380,7 +1380,7 @@ font-size: 14px;
 
 .choices__list--dropdown {
     border: 1px solid #000!important;
-    border-radius: 5px;
+    border-radius: 5px!important;
     max-height: 150px;
     margin-top: 3px!important;
     z-index: 3!important;

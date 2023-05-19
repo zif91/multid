@@ -204,8 +204,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const brand = marksSelect.value;
     const model = modelsSelect.value;
-    const priceStart = e.currentTarget.dataset.startprice;
-    const priceEnd = e.currentTarget.dataset.endprice;
+    const priceStart = e.currentTarget ? e.currentTarget.dataset.startprice : false;
+    const priceEnd = e.currentTarget ? e.currentTarget.dataset.endprice : false;
     
     //if(e.tagName == 'BUTTON' && e.id == 'filterbutton')
     //brand = model = false;

@@ -191,15 +191,17 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-  const updateFilterUrl = () => {
+  const updateFilterUrl = (e) => {
 
     const brand = marksSelect.value;
     const model = modelsSelect.value;
-    const priceStart = pricestart.value;
-    const priceEnd = priceend.value;
+    //const priceStart = pricestart.value;
+    //const priceEnd = priceend.value;
 
-    //const priceStart = priceItem.dataset.startPrice;
-    //const priceEnd = priceItem.dataset.endPrice;;
+    const priceStart = e.currentTarget.dataset.startprice;
+    const priceEnd = e.currentTarget.dataset.endprice;
+
+    console.log(priceStart + ' ' priceEnd);
 
     let url = '/katalog-novyh-avtomobilej/?';
     if (brand && brand !== 'Выбрать...') {
@@ -267,12 +269,12 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
 
-  priceItem.forEach(item => {item.onclick = (e) => console.log(e.currentTarget)});
+  priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
 
   marksSelect.addEventListener('change', updateFilterUrl);
   modelsSelect.addEventListener('change', updateFilterUrl);
-  pricestart.addEventListener('change', updateFilterUrl);
-  priceend.addEventListener('change', updateFilterUrl);
+  // pricestart.addEventListener('change', updateFilterUrl);
+  // priceend.addEventListener('change', updateFilterUrl);
 });
 
 </script>

@@ -103,13 +103,20 @@ debug: 0,
 							</div>
 						</div>
 
+						<div class="col-lg-4">
+							<p class="mb-2"> </p>
+							<div class="flex">
+								<div class="button text-right">
+									<button id="filterbutton">Показать</button>
+								</div>
+							</div>
+						</div>
+
 {% set arrPrices = [500000, 1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000, 4500000,5000000, 5500000, 6000000, 6500000, 7000000, 7500000, 8000000, 8500000, 9000000, 9500000, 10000000] %}
 {% set step = 500000 %}
 						<div сlass="index-prices-block">
 							{% for price in arrPrices %}
-								<div class="price-item-wrapper">
-										<div class="price-item" data-startprice="{{ price - step}}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
-								</div>
+								<div class="price-item pl-5" data-startprice="{{ price - step}}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
 							{% endfor %}
 						</div>
 
@@ -128,14 +135,6 @@ debug: 0,
 							<div id="slider-range" class="mb-4"></div>
 						</div> #}
 
-						<div class="col-lg-4">
-							<p class="mb-2"> </p>
-							<div class="flex">
-								<div class="button text-right">
-									<button id="filterbutton">Показать</button>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

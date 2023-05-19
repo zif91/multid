@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-  const updateFilterUrl = (e) => {
+  const updateFilterUrl = (e, clear = false) => {
 
     const brand = marksSelect.value;
     const model = modelsSelect.value;
@@ -208,13 +208,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let priceStart = false;
     let priceEnd = false;
     
-    if(e.tagName == 'BUTTON' && e.id == 'filterbutton') {
-    	brand = model = priceStart = priceEnd = false;	
-    } else {
+    if(e.id != 'filterbutton' ) {
     	 priceStart = e.currentTarget.dataset.startprice;
          priceEnd = e.currentTarget.dataset.endprice;
     }
-    
 
     /* Для слайдера диапазона цен */
     //const priceStart = pricestart.value;
@@ -236,6 +233,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (priceEnd) {
       url += `priceend=${priceEnd}&`;
     }
+
+    // Если передан флаг сброса фильтра
+    if (clear) url = '/katalog-novyh-avtomobilej/';
 
     $.ajax({
       url: url,

@@ -201,14 +201,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
   const updateFilterUrl = (e) => {
-
-    const brand = marksSelect.value;
-    const model = modelsSelect.value;
-    const priceStart = e.currentTarget ? e.currentTarget.dataset.startprice : false;
-    const priceEnd = e.currentTarget ? e.currentTarget.dataset.endprice : false;
     
-    //if(e.tagName == 'BUTTON' && e.id == 'filterbutton')
-    //brand = model = false;
+    if(e.tagName == 'BUTTON' && e.id == 'filterbutton') {
+    	brand = model = priceStart = priceEnd = false;	
+    } else {
+	    const brand = marksSelect.value;
+	    const model = modelsSelect.value;
+	    const priceStart = e.currentTarget.dataset.startprice;
+	    const priceEnd = e.currentTarget.dataset.endprice;
+    }
 
     /* Для слайдера диапазона цен */
     //const priceStart = pricestart.value;
@@ -283,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб."); */
 
   priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
-  filterButton.onclick = () => updateFilterUrl();
+  filterButton.onclick = (e) => updateFilterUrl(e);
 
   marksSelect.addEventListener('change', updateFilterUrl);
   modelsSelect.addEventListener('change', updateFilterUrl);

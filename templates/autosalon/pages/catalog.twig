@@ -188,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
   //const pricestart = document.querySelector('#price_start');
   //const priceend = document.querySelector('#price_end');
 
-
   const priceItem = document.querySelectorAll('.price-item');
   const filterButton = document.querySelector('#filterbutton');
 
@@ -288,7 +287,10 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб."); */
 
+  // В "e" находится инициатор события (тег диапазона цен)
   priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
+  
+  // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
   filterButton.onclick = (e) => updateFilterUrl(e, true);
 
   marksSelect.addEventListener('change', updateFilterUrl);

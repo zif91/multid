@@ -1447,7 +1447,7 @@ font-size: 14px;
     padding-left: 30px;
   }
 
-  .index-filter-block .button_clear {
+  .index-filter-block .button_clear button {
       min-width: 200px;
   }
 }
@@ -1463,6 +1463,8 @@ font-size: 14px;
     height: 200px;
   }
   .price-item {
-    width: auto;
+    width: 65%;
+    margin: 0 auto 20px;
+    font-size: 18px;
   }
 }

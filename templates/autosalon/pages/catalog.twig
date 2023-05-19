@@ -80,8 +80,8 @@ debug: 0,
 						Выбрать автомобиль
 					</div>
 					<div class="row">
-						<div class="col-lg-6 col-md-6">
-							<div class="row mb-4">
+						<div class="col-lg-6 col-md-12">
+							<div class="row">
 								<div class="col-6">
 									<p class="mb-2">Выберите марку</p>
 									<select class="w-100 px-3" id="marks">
@@ -103,18 +103,19 @@ debug: 0,
 							</div>
 						</div>
 
-						<div class="col-lg-6">
+						<div class="col-lg-6 col-md-12">
 							<p class="mb-2"> </p>
 							<div class="flex">
 								<div class="button text-right">
-									<button id="filterbutton">Показать</button>
+									<button class="button_clear" id="filterbutton">Показать</button>
 								</div>
 							</div>
 						</div>
 
-{% set arrPrices = [500000, 1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000, 4500000,5000000, 5500000, 6000000, 6500000, 7000000, 7500000, 8000000, 8500000, 9000000, 9500000, 10000000] %}
+{% set arrPrices = [500000, 1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000, 4500000,5000000, 5500000, 6000000, 6500000, 7000000, 7500000, 8000000, 8500000, 9000000, 9500000, 10000000]
+ %}
 {% set step = 500000 %}
-						<div сlass="index-prices-block">
+						<div class="index-prices-block">
 							{% for price in arrPrices %}
 								<div class="price-item" data-startprice="{{ price - step}}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
 							{% endfor %}

@@ -134,6 +134,9 @@ tradeinButton.addEventListener('click', function() {
 */
 // Get references to the input elements
 $(window).on('load', function() {
+	$(document).ready(function(){
+  $(".owl-carousel").owlCarousel();
+});
 	$(".bottom-page-line .close").click(function() {
 		$(".bottom-page-line").hide();
 	});

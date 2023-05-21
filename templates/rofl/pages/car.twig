@@ -166,6 +166,8 @@ tpl:'@T_CODE: <div class="gift__item">
         path: '/templates/rofl/partials/forms/credit/',
         extension: 'twig'
         }) | raw }}
+        {% include('partials/banks.twig') %}
+
         <div class="auto-info pb-3">
             <h2 class="h2 mb-4">Состояние автомобиля</h2>
             <div class="row">

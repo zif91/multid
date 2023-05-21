@@ -21,6 +21,8 @@ tpl:'@T_FILE:partials/catalogcard',
 		</div>
 	</div>
 </div>
+{% include('partials/banks.twig') %}
+
 <div class="container py-5 mb-5 d-none d-sm-block">
 	{{resource.content |raw }}
 </div>

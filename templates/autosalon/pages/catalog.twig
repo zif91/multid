@@ -19,6 +19,14 @@
 {% if not price_end %}
 {% set price_end = 99999999 %}
 {% endif %}
+
+{# Диапазоны цен для выбора авто (вместо слайдера цен) #}
+{% set arrPrices = [500000, 1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000, 4500000,5000000, 5500000, 6000000, 6500000, 7000000, 7500000, 8000000, 8500000, 9000000, 9500000, 10000000]
+ %}
+
+{# Шаг диапазона цен #} 
+{% set step = 500000 %}
+
 {#% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
@@ -107,14 +115,11 @@ debug: 0,
 							<p class="mb-2"> </p>
 							<div class="flex">
 								<div class="button button_clear text-right">
-									<button id="filterbutton">Показать</button>
+									<button id="filterbutton">Сбросить фильтр</button>
 								</div>
 							</div>
 						</div>
 
-{% set arrPrices = [500000, 1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000, 4500000,5000000, 5500000, 6000000, 6500000, 7000000, 7500000, 8000000, 8500000, 9000000, 9500000, 10000000]
- %}
-{% set step = 500000 %}
 						<div class="index-prices-block-wrap">
 							<div class="index-prices-block">
 								{% for price in arrPrices %}
@@ -122,12 +127,6 @@ debug: 0,
 								{% endfor %}
 							</div>
 						</div>
-
-						<!--div class="col-lg-3 col-md-4 col-sm-6">
-							<div class="item mb-4 pl-5">
-								<div class="price-item" data-startprice="500000" data-endprice="1000000">до 1 000 000 ₽</div>
-							</div>
-						</div-->
 
 						{# <div class="col-lg-4">
 							<p class="mb-2">Цена</p>
@@ -184,10 +183,13 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 document.addEventListener('DOMContentLoaded', function() {
   const marksSelect = document.querySelector('#marks');
   const modelsSelect = document.querySelector('#models');
-  const pricestart = document.querySelector('#price_start');
-  const priceend = document.querySelector('#price_end');
+  
+  /* Для слайдера диапазона цен */
+  //const pricestart = document.querySelector('#price_start');
+  //const priceend = document.querySelector('#price_end');
 
   const priceItem = document.querySelectorAll('.price-item');
+  const filterButton = document.querySelector('#filterbutton');
 
     /* Декорируем выпадающий список моделей плагином Choices */
     let choicesModels = new Choices(document.querySelector('#models'), {
@@ -197,13 +199,19 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-  const updateFilterUrl = (e) => {
+  const updateFilterUrl = (e, clear = false) => {
 
     const brand = marksSelect.value;
     const model = modelsSelect.value;
-    const priceStart = e.currentTarget.dataset.startprice;
-    const priceEnd = e.currentTarget.dataset.endprice;
+
+    let priceStart = false;
+    let priceEnd = false;
     
+    if(e.id != 'filterbutton' ) {
+    	 priceStart = e.currentTarget.dataset.startprice;
+         priceEnd = e.currentTarget.dataset.endprice;
+    }
+
     /* Для слайдера диапазона цен */
     //const priceStart = pricestart.value;
     //const priceEnd = priceend.value;
@@ -224,6 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (priceEnd) {
       url += `priceend=${priceEnd}&`;
     }
+
+    // Если передан флаг сброса фильтра
+    if (clear) url = '/katalog-novyh-avtomobilej/';
 
     $.ajax({
       url: url,
@@ -276,7 +287,11 @@ document.addEventListener('DOMContentLoaded', function() {
   $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
   $("#price_end").val($("#slider-range").slider("values", 1) + " руб."); */
 
+  // В "e" находится инициатор события (тег диапазона цен)
   priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
+  
+  // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
+  filterButton.onclick = (e) => updateFilterUrl(e, true);
 
   marksSelect.addEventListener('change', updateFilterUrl);
   modelsSelect.addEventListener('change', updateFilterUrl);

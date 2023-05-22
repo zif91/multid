@@ -121,11 +121,11 @@ debug: 0,
 						</div>
 
 						<div class="index-prices-block-wrap">
-							<div class="index-prices-block" id="prices">
+							<select class="index-prices-block" id="prices">
 								{% for price in arrPrices %}
-									<div class="price-item" data-startprice="{{ price - step}}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
+									<option class="price-item" data-startprice="{{ price - step}}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
 								{% endfor %}
-							</div>
+							</select>
 						</div>
 
 						{# <div class="col-lg-4">

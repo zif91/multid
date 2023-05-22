@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const filterButton = document.querySelector('#filterbutton');
 
-    // Декорируем выпадающий список цен плагином Choices */
+    // Декорируем выпадающий список марок плагином Choices */
     let choicesMarks = new Choices(document.querySelector('#marks'), {
         searchEnabled: false,
     });
@@ -233,17 +233,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const brand = marksSelect.value;
     const model = modelsSelect.value;
 
-    console.log(pricesSelect.value);
-
     let priceStart = false;
     let priceEnd = false;
 
+    /* Если выбрана цена */
     if (pricesSelect.value !== 'Выбрать...') {
+    	/* Получаем цены "от" и "до" из атрибута value */
     	priceStart = pricesSelect.value.split(':')[0];
     	priceEnd = pricesSelect.value.split(':')[1];
 	}
 
+	/* Если передан флаг сброса фильтра */
 	if (clear) {
+		// Сбрасываем выбранную цену
 		choicesPrices.destroy();
 		choicesPrices.init();
 	}
@@ -284,13 +286,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
       $('#catalog').html(catalogHtml);
 
-      if(clear) { 
+      // Если передан флаг сброса фильтра
+      if(clear) {
+      	// Удаляем декорирование плагином (откат к базовой структуре select-option)
 	  	choicesMarks.destroy();
+	  	// Вставляем полученные марки в базовый список select-option 
 	  	$('#marks').html(marksHtml);
+	  	// Снова декорируем заполненный новыми значениями список марок
       	choicesMarks.init();
 	  }
-
-	  /* Для реализации обновления списка моделей с использованием плагина Choices */
 
       // Перед вставкой новых (полученных с сервера) моделей
       // Удаляем декорирование плагином (откат к базовой структуре select-option)
@@ -299,15 +303,13 @@ document.addEventListener('DOMContentLoaded', function() {
       // Вставляем полученные модели в базовый список select-option
       $('#models').html(modelsHtml);
 
-      // Снова декорируем заполненный новыми значениями моделей список
+      // Снова декорируем заполненный новыми значениями список моделей
       choicesModels = new Choices(document.querySelector('#models'), {
           searchEnabled: false,
           classNames: {
               containerOuter: 'choices models'
           },
       });
-
-      document.querySelector('#models').innerText = 'Тест';
 
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
@@ -336,11 +338,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // В "e" находится инициатор события (тег диапазона цен)
   //priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
 
+  // Обработчик кнопки сброса фильтра
   // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
   filterButton.onclick = (e) => updateFilterUrl(e, true);
+
+  // Обработчик выбора цен
   pricesSelect.onchange = updateFilterUrl;
 
+  // Обработчик выбора марок
   marksSelect.addEventListener('change', updateFilterUrl);
+
+  // Обработчик выбора моделей
   modelsSelect.addEventListener('change', updateFilterUrl);
 
   /* Для слайдера диапазона цен */

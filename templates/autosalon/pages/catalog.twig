@@ -287,9 +287,10 @@ document.addEventListener('DOMContentLoaded', function() {
       if(clear) { 
 	  	choicesMarks.destroy();
 	  	$('#marks').html(marksHtml);
-	  	choicesMarks = new Choices(document.querySelector('#marks'), {
+	  	/*choicesMarks = new Choices(document.querySelector('#marks'), {
         	searchEnabled: false,
-      	});
+      	});*/
+      	choicesMarks.init();
 	  }
 
 	  /* Для реализации обновления списка моделей с использованием плагина Choices */
@@ -302,12 +303,13 @@ document.addEventListener('DOMContentLoaded', function() {
       $('#models').html(modelsHtml);
 
       // Снова декорируем заполненный новыми значениями моделей список
-      choicesModels = new Choices(document.querySelector('#models'), {
+      choicesModels.init();
+      /*choicesModels = new Choices(document.querySelector('#models'), {
           searchEnabled: false,
           classNames: {
               containerOuter: 'choices models'
           },
-      });
+      });*/
 
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

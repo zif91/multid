@@ -120,14 +120,15 @@ debug: 0,
 							</div>
 						</div>
 
-
-                        <select id="prices">
-                             <option>Выбрать...</option>
-                             {% for price in arrPrices %}
-                                 <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
-                             {% endfor %}
-                        </select>
-
+						<div class="col-6">
+							<p class="mb-2">Выберите цену</p>
+	                        <select id="prices">
+	                             <option>Выбрать...</option>
+	                             {% for price in arrPrices %}
+	                                 <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
+	                             {% endfor %}
+	                        </select>
+                        </div>
                          {# Диапазоны цен блоком с пунктами #}
 						 {#
                              <div class="index-prices-block-wrap">

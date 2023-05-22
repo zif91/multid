@@ -122,6 +122,7 @@ debug: 0,
 
 
                         <select id="prices">
+                             <option>Выбрать...</option>
                              {% for price in arrPrices %}
                                  <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
                              {% endfor %}
@@ -228,13 +229,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log(pricesSelect.value);
 
-    let priceStart = false;
-    let priceEnd = false;
+    let priceStart = pricesSelect.value.split(':')[0];
+    let priceEnd = pricesSelect.value.split(':')[1];
 
-    if(e.id != 'filterbutton' ) {
+    //if(e.id != 'filterbutton' ) {
     	 //priceStart = e.currentTarget.dataset.startprice;
          //priceEnd = e.currentTarget.dataset.endprice;
-    }
+    //}
 
     /* Для слайдера диапазона цен */
     //const priceStart = pricestart.value;

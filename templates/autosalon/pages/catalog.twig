@@ -218,7 +218,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let choicesPrices = new Choices(document.querySelector('#prices'), {
         searchEnabled: false,
         classNames: {
-            containerOuter: 'choices prices'
+            containerOuter: 'choices prices',
+            shouldSort: false,
         },
     });
 
@@ -232,10 +233,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let priceStart = pricesSelect.value.split(':')[0];
     let priceEnd = pricesSelect.value.split(':')[1];
 
-    //if(e.id != 'filterbutton' ) {
-    	 //priceStart = e.currentTarget.dataset.startprice;
-         //priceEnd = e.currentTarget.dataset.endprice;
-    //}
+    if(clear) {
+    	marksSelect.value = modelsSelect.value = pricesSelect.value = 'Выбрать...'; 
+    	priceStart = priceEnd = false;
+    }
 
     /* Для слайдера диапазона цен */
     //const priceStart = pricestart.value;

@@ -243,6 +243,10 @@ document.addEventListener('DOMContentLoaded', function() {
     	priceEnd = pricesSelect.value.split(':')[1];
 	}
 
+	if (clear) {
+		choicesPrices.destroy();
+	}
+
     /* Для слайдера диапазона цен */
     //const priceStart = pricestart.value;
     //const priceEnd = priceend.value;

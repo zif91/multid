@@ -24,7 +24,7 @@
 {% set arrPrices = [500000, 1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000, 4500000,5000000, 5500000, 6000000, 6500000, 7000000, 7500000, 8000000, 8500000, 9000000, 9500000, 10000000]
  %}
 
-{# Шаг диапазона цен #} 
+{# Шаг диапазона цен #}
 {% set step = 500000 %}
 
 {#% set DLCatalog = runSnippet('DocLister', {
@@ -121,7 +121,7 @@ debug: 0,
 						</div>
 
 						<div class="index-prices-block-wrap">
-							<div class="index-prices-block">
+							<div class="index-prices-block" id="prices">
 								{% for price in arrPrices %}
 									<div class="price-item" data-startprice="{{ price - step}}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
 								{% endfor %}
@@ -183,7 +183,7 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 document.addEventListener('DOMContentLoaded', function() {
   const marksSelect = document.querySelector('#marks');
   const modelsSelect = document.querySelector('#models');
-  
+
   /* Для слайдера диапазона цен */
   //const pricestart = document.querySelector('#price_start');
   //const priceend = document.querySelector('#price_end');
@@ -199,6 +199,14 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
+    /* Декорируем выпадающий список цен плагином Choices */
+    let choicesPrices = new Choices(document.querySelector('#prices'), {
+        searchEnabled: false,
+        classNames: {
+            containerOuter: 'choices prices'
+        },
+    });
+
   const updateFilterUrl = (e, clear = false) => {
 
     const brand = marksSelect.value;
@@ -206,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let priceStart = false;
     let priceEnd = false;
-    
+
     if(e.id != 'filterbutton' ) {
     	 priceStart = e.currentTarget.dataset.startprice;
          priceEnd = e.currentTarget.dataset.endprice;
@@ -289,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // В "e" находится инициатор события (тег диапазона цен)
   priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
-  
+
   // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
   filterButton.onclick = (e) => updateFilterUrl(e, true);
 

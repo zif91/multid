@@ -235,9 +235,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log(pricesSelect.value);
 
+    let priceStart = false;
+    let priceEnd = false;
+
     if (pricesSelect.value !== 'Выбрать...') {
-    	let priceStart = pricesSelect.value.split(':')[0];
-    	let priceEnd = pricesSelect.value.split(':')[1];
+    	priceStart = pricesSelect.value.split(':')[0];
+    	priceEnd = pricesSelect.value.split(':')[1];
 	}
 
     /* Для слайдера диапазона цен */

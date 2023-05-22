@@ -275,10 +275,19 @@ document.addEventListener('DOMContentLoaded', function() {
     .done(function(data) {
       const catalogHtml = $(data).find('#catalog').html();
       const modelsHtml = $(data).find('#models').html();
+      const marksHtml = $(data).find('#marks').html();
 
       $('#catalog').html(catalogHtml);
 
-      /* Для реализации обновления списка моделей с использованием плагина Choices */
+      if(clear) { 
+	  	choicesMarks.destroy();
+	  	$('#marks').html(modelsHtml);
+	  	choicesMarks = new Choices(document.querySelector('#marks'), {
+        	searchEnabled: false,
+      	});
+	  }
+
+	  /* Для реализации обновления списка моделей с использованием плагина Choices */
 
       // Перед вставкой новых (полученных с сервера) моделей
       // Удаляем декорирование плагином (откат к базовой структуре select-option)
@@ -294,6 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
               containerOuter: 'choices models'
           },
       });
+
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.error(errorThrown);

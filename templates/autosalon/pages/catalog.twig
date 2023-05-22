@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
 
   // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
-  filterButton.onclick = (e) => updateFilterUrl(e, true);
+  filterButton.onclick = updateFilterUrl(e, true);
   pricesSelect.onchange = updateFilterUrl;
 
   marksSelect.addEventListener('change', updateFilterUrl);

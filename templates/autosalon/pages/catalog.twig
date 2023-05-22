@@ -235,10 +235,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log(pricesSelect.value);
 
-    let priceStart = pricesSelect.value.split(':')[0];
-    let priceEnd = pricesSelect.value.split(':')[1];
-
-    //if(clear) brand = model = priceStart = priceEnd = false;
+    if (pricesSelect.value !== 'Выбрать...') {
+    	let priceStart = pricesSelect.value.split(':')[0];
+    	let priceEnd = pricesSelect.value.split(':')[1];
+	}
 
     /* Для слайдера диапазона цен */
     //const priceStart = pricestart.value;
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if(clear) { 
 	  	choicesMarks.destroy();
-	  	$('#marks').html(modelsHtml);
+	  	$('#marks').html(marksHtml);
 	  	choicesMarks = new Choices(document.querySelector('#marks'), {
         	searchEnabled: false,
       	});

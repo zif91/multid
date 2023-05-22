@@ -239,7 +239,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let priceEnd = pricesSelect.value.split(':')[1];
 
     if(clear) {
-    	marksSelect.value = modelsSelect.value = pricesSelect.value = 'Выбрать...'; 
+    	marksSelect.setAttribute('value', 'Выбрать...');
+    	modelsSelect.setAttribute('value', 'Выбрать...');
+    	pricesSelect.setAttribute('value', 'Выбрать...');
     	priceStart = priceEnd = false;
     }
 

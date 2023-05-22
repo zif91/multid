@@ -1454,7 +1454,7 @@ font-size: 14px;
 }
 
 .index-filter-block .button_clear {
-    margin: 0 auto;
+  padding-left: 0;
 }
 
 .index-filter-block .button_clear button {

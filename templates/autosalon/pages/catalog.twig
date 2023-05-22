@@ -112,15 +112,6 @@ debug: 0,
 						</div>
 
 						<div class="col-lg-6 col-md-12">
-							<p class="mb-2"> </p>
-							<div class="flex">
-								<div class="button button_clear text-right">
-									<button id="filterbutton">Сбросить фильтр</button>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-6">
 							<p class="mb-2">Выберите цену</p>
 	                        <select id="prices">
 	                             <option>Выбрать...</option>
@@ -129,6 +120,15 @@ debug: 0,
 	                             {% endfor %}
 	                        </select>
                         </div>
+
+						<div class="col-lg-6 col-md-12">
+							<p class="mb-2"> </p>
+							<div class="flex">
+								<div class="button button_clear text-right">
+									<button id="filterbutton">Сбросить фильтр</button>
+								</div>
+							</div>
+						</div>
                          {# Диапазоны цен блоком с пунктами #}
 						 {#
                              <div class="index-prices-block-wrap">

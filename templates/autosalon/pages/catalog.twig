@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
   filterButton.onclick = (e) => updateFilterUrl(e, true);
-  pricesSelect.onchange = () => updateFilterUrl;
+  pricesSelect.onchange = updateFilterUrl;
 
   marksSelect.addEventListener('change', updateFilterUrl);
   modelsSelect.addEventListener('change', updateFilterUrl);

@@ -1457,6 +1457,10 @@ font-size: 14px;
   padding-left: 0;
 }
 
+.index-filter-block .prices-label {
+  margin-top: 15px;
+}
+
 .index-filter-block .button_clear button {
     min-width: 200px;
 }
@@ -1469,6 +1473,9 @@ font-size: 14px;
     font-size: 16px;
     width: 42%;
     padding-left: 30px;
+  }
+  .index-filter-block .button_clear {
+    margin: 10px auto 0;
   }
 
 }

@@ -66,8 +66,8 @@
                         </div>
                     </div>
                     <div class="credit mb-4 p-3 flex">
-                        <p>В кредит от {{(resource['car-price'] / 80)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
-                        <span>Ставка от 5%</span>
+                        <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
+                        <span>Ставка от 1.6%</span>
                     </div>
                     <div class="buttons row">
                         <div class="col-6">
@@ -78,7 +78,7 @@
                             <a href="#" onclick="showCreditPopup(
                         {{ resource['id'] }},
                         '',
-                        '{{(resource['car-price'] / 80) | number_format(0, ' ', ' ')}}');
+                        '{{(resource['car-price'] / 96) | number_format(0, ' ', ' ')}}');
                         return false;" class="car-plate__button button button_grey w-100 color2">В кредит</a>
                         </div>
                     </div>

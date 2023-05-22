@@ -287,9 +287,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if(clear) { 
 	  	choicesMarks.destroy();
 	  	$('#marks').html(marksHtml);
-	  	/*choicesMarks = new Choices(document.querySelector('#marks'), {
-        	searchEnabled: false,
-      	});*/
       	choicesMarks.init();
 	  }
 
@@ -303,13 +300,12 @@ document.addEventListener('DOMContentLoaded', function() {
       $('#models').html(modelsHtml);
 
       // Снова декорируем заполненный новыми значениями моделей список
-      choicesModels.init();
-      /*choicesModels = new Choices(document.querySelector('#models'), {
+      choicesModels = new Choices(document.querySelector('#models'), {
           searchEnabled: false,
           classNames: {
               containerOuter: 'choices models'
           },
-      });*/
+      });
 
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

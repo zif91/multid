@@ -120,15 +120,23 @@ debug: 0,
 							</div>
 						</div>
 
-                        {# Диапазоны цен блоком с пунктами #}
-						 <div class="index-prices-block-wrap">
-							<div class="index-prices-block" id="prices">
-								{% for price in arrPrices %}
-									<div class="price-item" data-startprice="{{ price - step }}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
-								{% endfor %}
-							</div>
-						</div>
 
+                        <select id="prices">
+                             {% for price in arrPrices %}
+                                 <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
+                             {% endfor %}
+                        </select>
+
+                         {# Диапазоны цен блоком с пунктами #}
+						 {#
+                             <div class="index-prices-block-wrap">
+                                <div class="index-prices-block" id="prices">
+                                    {% for price in arrPrices %}
+                                        <div class="price-item" data-startprice="{{ price - step }}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                         #}
 
                         {# Диапазоны цен слайдером #}
 						{# <div class="col-lg-4">
@@ -202,13 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-    /* Декорируем выпадающий список цен плагином Choices */
-    /*let choicesPrices = new Choices(document.querySelector('#prices'), {
+    // Декорируем выпадающий список цен плагином Choices */
+    let choicesPrices = new Choices(document.querySelector('#prices'), {
         searchEnabled: false,
         classNames: {
             containerOuter: 'choices prices'
         },
-    });*/
+    });
 
   const updateFilterUrl = (e, clear = false) => {
 

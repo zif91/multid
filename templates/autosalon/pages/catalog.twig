@@ -87,11 +87,11 @@ debug: 0,
 					<div class="name mb-4">
 						Выбрать автомобиль
 					</div>
-					<div class="row">
+					<div class="row index-filter-block__body">
 						<div class="col-lg-6 col-md-12">
 							<div class="row">
-								<div class="col-6">
-									<p class="mb-2">Выберите марку</p>
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<p class="marks-label mb-2">Выберите марку</p>
 									<select class="w-100 px-3" id="marks">
 										<option>Выбрать...</option>
 										{% for item in marks %}
@@ -99,8 +99,8 @@ debug: 0,
 										{% endfor %}
 									</select>
 								</div>
-								<div class="col-6">
-									<p class="mb-2">Выберите модель</p>
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<p class="models-label mb-2">Выберите модель</p>
 									<select id="models" class="w-100 px-3">
 										<option>Выбрать...</option>
 										{% for item in models %}
@@ -111,6 +111,17 @@ debug: 0,
 							</div>
 						</div>
 
+						{# Диапазоны цен выпадающим списком #}
+						<div class="col-lg-6 col-md-12">
+							<p class="prices-label mb-2">Выберите цену</p>
+	                        <select id="prices">
+	                             <option>Выбрать...</option>
+	                             {% for price in arrPrices %}
+	                                 <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
+	                             {% endfor %}
+	                        </select>
+                        </div>
+
 						<div class="col-lg-6 col-md-12">
 							<p class="mb-2"> </p>
 							<div class="flex">
@@ -119,15 +130,6 @@ debug: 0,
 								</div>
 							</div>
 						</div>
-
-
-                        <select id="prices">
-                             <option>Выбрать...</option>
-                             {% for price in arrPrices %}
-                                 <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
-                             {% endfor %}
-                        </select>
-
                          {# Диапазоны цен блоком с пунктами #}
 						 {#
                              <div class="index-prices-block-wrap">
@@ -206,6 +208,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const filterButton = document.querySelector('#filterbutton');
 
+    // Декорируем выпадающий список марок плагином Choices */
+    let choicesMarks = new Choices(document.querySelector('#marks'), {
+        searchEnabled: false,
+    });
+
     /* Декорируем выпадающий список моделей плагином Choices */
     let choicesModels = new Choices(document.querySelector('#models'), {
         searchEnabled: false,
@@ -219,8 +226,8 @@ document.addEventListener('DOMContentLoaded', function() {
         searchEnabled: false,
         classNames: {
             containerOuter: 'choices prices',
-            shouldSort: false,
         },
+        shouldSort: false,
     });
 
   const updateFilterUrl = (e, clear = false) => {
@@ -228,15 +235,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const brand = marksSelect.value;
     const model = modelsSelect.value;
 
-    console.log(pricesSelect.value);
+    let priceStart = false;
+    let priceEnd = false;
 
-    let priceStart = pricesSelect.value.split(':')[0];
-    let priceEnd = pricesSelect.value.split(':')[1];
+    /* Если выбрана цена */
+    if (pricesSelect.value !== 'Выбрать...') {
+    	/* Получаем цены "от" и "до" из атрибута value */
+    	priceStart = pricesSelect.value.split(':')[0];
+    	priceEnd = pricesSelect.value.split(':')[1];
+	}
 
-    if(clear) {
-    	marksSelect.value = modelsSelect.value = pricesSelect.value = 'Выбрать...'; 
-    	priceStart = priceEnd = false;
-    }
+	/* Если передан флаг сброса фильтра */
+	if (clear) {
+		// Сбрасываем выбранную цену
+		choicesPrices.destroy();
+		choicesPrices.init();
+	}
 
     /* Для слайдера диапазона цен */
     //const priceStart = pricestart.value;
@@ -270,10 +284,19 @@ document.addEventListener('DOMContentLoaded', function() {
     .done(function(data) {
       const catalogHtml = $(data).find('#catalog').html();
       const modelsHtml = $(data).find('#models').html();
+      const marksHtml = $(data).find('#marks').html();
 
       $('#catalog').html(catalogHtml);
 
-      /* Для реализации обновления списка моделей с использованием плагина Choices */
+      // Если передан флаг сброса фильтра
+      if(clear) {
+      	// Удаляем декорирование плагином (откат к базовой структуре select-option)
+	  	choicesMarks.destroy();
+	  	// Вставляем полученные марки в базовый список select-option 
+	  	$('#marks').html(marksHtml);
+	  	// Снова декорируем заполненный новыми значениями список марок
+      	choicesMarks.init();
+	  }
 
       // Перед вставкой новых (полученных с сервера) моделей
       // Удаляем декорирование плагином (откат к базовой структуре select-option)
@@ -282,13 +305,14 @@ document.addEventListener('DOMContentLoaded', function() {
       // Вставляем полученные модели в базовый список select-option
       $('#models').html(modelsHtml);
 
-      // Снова декорируем заполненный новыми значениями моделей список
+      // Снова декорируем заполненный новыми значениями список моделей
       choicesModels = new Choices(document.querySelector('#models'), {
           searchEnabled: false,
           classNames: {
               containerOuter: 'choices models'
           },
       });
+
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.error(errorThrown);
@@ -316,11 +340,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // В "e" находится инициатор события (тег диапазона цен)
   //priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
 
+  // Обработчик кнопки сброса фильтра
   // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
   filterButton.onclick = (e) => updateFilterUrl(e, true);
+
+  // Обработчик выбора цен
   pricesSelect.onchange = updateFilterUrl;
 
+  // Обработчик выбора марок
   marksSelect.addEventListener('change', updateFilterUrl);
+
+  // Обработчик выбора моделей
   modelsSelect.addEventListener('change', updateFilterUrl);
 
   /* Для слайдера диапазона цен */

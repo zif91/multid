@@ -206,6 +206,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const filterButton = document.querySelector('#filterbutton');
 
+    // Декорируем выпадающий список цен плагином Choices */
+    let choicesMarks = new Choices(document.querySelector('#marks'), {
+        searchEnabled: false,
+    });
+
     /* Декорируем выпадающий список моделей плагином Choices */
     let choicesModels = new Choices(document.querySelector('#models'), {
         searchEnabled: false,
@@ -219,8 +224,8 @@ document.addEventListener('DOMContentLoaded', function() {
         searchEnabled: false,
         classNames: {
             containerOuter: 'choices prices',
-            shouldSort: false,
         },
+        shouldSort: false,
     });
 
   const updateFilterUrl = (e, clear = false) => {

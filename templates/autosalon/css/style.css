@@ -1500,6 +1500,9 @@ font-size: 14px;
   .price-item {
     width: 100%;
   }
+  .index-filter-block .models-label {
+    margin-top: 15px;
+  }
 }
 
 @media (max-width: 400px) {

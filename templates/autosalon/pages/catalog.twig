@@ -87,11 +87,11 @@ debug: 0,
 					<div class="name mb-4">
 						Выбрать автомобиль
 					</div>
-					<div class="row">
+					<div class="row index-filter-block__body">
 						<div class="col-lg-6 col-md-12">
 							<div class="row">
-								<div class="col-6">
-									<p class="mb-2">Выберите марку</p>
+								<div class="col-lg-6 col-md-12 col-sm-12">
+									<p class="marks-label mb-2">Выберите марку</p>
 									<select class="w-100 px-3" id="marks">
 										<option>Выбрать...</option>
 										{% for item in marks %}
@@ -99,8 +99,8 @@ debug: 0,
 										{% endfor %}
 									</select>
 								</div>
-								<div class="col-6">
-									<p class="mb-2">Выберите модель</p>
+								<div class="col-lg-6 col-md-12 col-sm-12">
+									<p class="models-label mb-2">Выберите модель</p>
 									<select id="models" class="w-100 px-3">
 										<option>Выбрать...</option>
 										{% for item in models %}

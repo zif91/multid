@@ -122,7 +122,7 @@ debug: 0,
 							<p class="mb-2"> </p>
 							<div class="flex filter-buttons-wrapper">
                                 <div class="button button_find text-right">
-                                    <button>Найти</button>
+                                    <button id="findbutton">Найти</button>
                                 </div>
 								<div class="button button_clear text-right">
 									<button id="filterbutton">Сбросить</button>
@@ -207,30 +207,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const filterButton = document.querySelector('#filterbutton');
 
-    // Декорируем выпадающий список марок плагином Choices */
-    let choicesMarks = new Choices(document.querySelector('#marks'), {
-        silent: true,
-        searchEnabled: false,
-    });
+  // Для прокрутки по кнопке "Найти"
+  const catalog = document.querySelector('#catalog');
 
-    /* Декорируем выпадающий список моделей плагином Choices */
-    let choicesModels = new Choices(document.querySelector('#models'), {
-        silent: true,
-        searchEnabled: false,
-        classNames: {
-            containerOuter: 'choices models'
-        },
-    });
+  // Декорируем выпадающий список марок плагином Choices */
+  let choicesMarks = new Choices(document.querySelector('#marks'), {
+      silent: true,
+      searchEnabled: false,
+  });
 
-    // Декорируем выпадающий список цен плагином Choices */
-    let choicesPrices = new Choices(document.querySelector('#prices'), {
-        silent: true,
-        searchEnabled: false,
-        classNames: {
-            containerOuter: 'choices prices',
-        },
-        shouldSort: false,
-    });
+  /* Декорируем выпадающий список моделей плагином Choices */
+  let choicesModels = new Choices(document.querySelector('#models'), {
+      silent: true,
+      searchEnabled: false,
+      classNames: {
+          containerOuter: 'choices models'
+      },
+  });
+
+  // Декорируем выпадающий список цен плагином Choices */
+  let choicesPrices = new Choices(document.querySelector('#prices'), {
+      silent: true,
+      searchEnabled: false,
+      classNames: {
+          containerOuter: 'choices prices',
+      },
+      shouldSort: false,
+  });
+
+  /* Плавная прокрутка по кнопке "Найти" */
+  const findButton = document.querySelector('#findbutton');
+  findButton.addEventListener('click', () => catalog.scrollIntoView({behavior: "smooth"}))
 
   const updateFilterUrl = (e, clear = false) => {
 

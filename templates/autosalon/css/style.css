@@ -1453,12 +1453,27 @@ font-size: 14px;
     cursor: pointer;
 }
 
-.index-filter-block .button_clear {
-  padding-left: 0;
+.index-filter-block .filter-buttons-wrapper {
+    justify-content: center;
 }
 
-.index-filter-block .button_clear button {
-    min-width: 200px;
+.filter-buttons-wrapper .button_find button,
+.filter-buttons-wrapper .button_clear button {
+    min-width: 190px;
+}
+
+.filter-buttons-wrapper .button_clear button {
+    background: #000;
+}
+
+.filter-buttons-wrapper .button_find {
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+.filter-buttons-wrapper .button_clear {
+    padding-left: 15px;
+    padding-right: 0;
 }
 
 @media (max-width: 991px) {
@@ -1472,9 +1487,6 @@ font-size: 14px;
     font-size: 16px;
     width: 42%;
     padding-left: 30px;
-  }
-  .index-filter-block .button_clear {
-    margin: 10px auto 0;
   }
 
 }

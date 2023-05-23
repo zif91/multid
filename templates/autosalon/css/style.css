@@ -1463,7 +1463,7 @@ font-size: 14px;
 }
 
 .filter-buttons-wrapper .button_clear button {
-    background: #000;
+    background: #111;
 }
 
 .filter-buttons-wrapper .button_find {
@@ -1471,9 +1471,17 @@ font-size: 14px;
     padding-right: 15px;
 }
 
+.filter-buttons-wrapper .button_find button:hover {
+    background: #a12318;
+}
+
 .filter-buttons-wrapper .button_clear {
     padding-left: 15px;
     padding-right: 0;
+}
+
+.filter-buttons-wrapper .button_clear button:hover {
+    background: #3c3c3c;
 }
 
 @media (max-width: 991px) {
@@ -1526,7 +1534,6 @@ font-size: 14px;
   .filter-buttons-wrapper .button_find {
       padding-right: 0;
   }
-
   .filter-buttons-wrapper .button_clear {
       padding-left: 0;
   }

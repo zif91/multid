@@ -17,7 +17,7 @@
 {% endif %}
 {% set price_end = runSnippet('_get', {key: 'priceend'}) %}
 {% if not price_end %}
-{% set price_end = 99999999 %}
+{% set price_end = 10000000 %}
 {% endif %}
 
 {# Шаг диапазона цен #}
@@ -209,11 +209,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Декорируем выпадающий список марок плагином Choices */
     let choicesMarks = new Choices(document.querySelector('#marks'), {
+        silent: true,
         searchEnabled: false,
     });
 
     /* Декорируем выпадающий список моделей плагином Choices */
     let choicesModels = new Choices(document.querySelector('#models'), {
+        silent: true,
         searchEnabled: false,
         classNames: {
             containerOuter: 'choices models'
@@ -222,6 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Декорируем выпадающий список цен плагином Choices */
     let choicesPrices = new Choices(document.querySelector('#prices'), {
+        silent: true,
         searchEnabled: false,
         classNames: {
             containerOuter: 'choices prices',
@@ -306,6 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Снова декорируем заполненный новыми значениями список моделей
       choicesModels = new Choices(document.querySelector('#models'), {
+          silent: true,
           searchEnabled: false,
           classNames: {
               containerOuter: 'choices models'

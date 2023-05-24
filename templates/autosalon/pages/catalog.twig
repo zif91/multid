@@ -23,7 +23,7 @@
 {# Шаг диапазона цен #}
 {% set step = 500000 %}
 
-{% set DLCatalogRange = runSnippet('DocLister', {
+{#  % set DLCatalogRange = runSnippet('DocLister', {
     id: 'catalog',
     controller: 'catalog_filters',
     _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
@@ -38,7 +38,7 @@
     api: 0,
     debug:0
 })
-%}
+%#}
 
 {# % set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',

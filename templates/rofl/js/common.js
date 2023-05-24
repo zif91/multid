@@ -134,6 +134,12 @@ tradeinButton.addEventListener('click', function() {
 */
 // Get references to the input elements
 $(window).on('load', function() {
+$(document).ready(function(){
+  $(".owl-carousel").owlCarousel({
+    items: 5, // Устанавливаем количество элементов, которые нужно показывать одновременно
+    dots: false // Отключаем отображение точек внизу
+  });
+});
 	$(".bottom-page-line .close").click(function() {
 		$(".bottom-page-line").hide();
 	});

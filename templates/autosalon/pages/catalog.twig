@@ -17,8 +17,12 @@
 {% endif %}
 {% set price_end = runSnippet('_get', {key: 'priceend'}) %}
 {% if not price_end %}
-{% set price_end = 99999999 %}
+{% set price_end = 10000000 %}
 {% endif %}
+
+{# Шаг диапазона цен #}
+{% set step = 500000 %}
+
 {#% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
@@ -79,11 +83,11 @@ debug: 0,
 					<div class="name mb-4">
 						Выбрать автомобиль
 					</div>
-					<div class="row">
-						<div class="col-lg-4 col-md-6">
-							<div class="row mb-4">
-								<div class="col-6">
-									<p class="mb-2">Выберите марку</p>
+					<div class="row index-filter-block__body">
+						<div class="col-lg-6 col-md-12">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<p class="marks-label mb-2">Выберите марку</p>
 									<select class="w-100 px-3" id="marks">
 										<option>Выбрать...</option>
 										{% for item in marks %}
@@ -91,8 +95,8 @@ debug: 0,
 										{% endfor %}
 									</select>
 								</div>
-								<div class="col-6">
-									<p class="mb-2">Выберите модель</p>
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<p class="models-label mb-2">Выберите модель</p>
 									<select id="models" class="w-100 px-3">
 										<option>Выбрать...</option>
 										{% for item in models %}
@@ -102,22 +106,50 @@ debug: 0,
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-4">
+
+						{# Диапазоны цен выпадающим списком #}
+						<div class="col-lg-6 col-md-12">
+							<p class="prices-label mb-2">Выберите цену</p>
+	                        <select id="prices">
+	                             <option>Выбрать...</option>
+	                             {% for price in range(step, price_end, step) %}
+	                                 <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
+	                             {% endfor %}
+	                        </select>
+                        </div>
+
+						<div class="col-lg-12 col-md-12">
+							<p class="mb-2"> </p>
+							<div class="flex filter-buttons-wrapper">
+                                <div class="button button_find text-right">
+                                    <button id="findbutton">Найти</button>
+                                </div>
+								<div class="button button_clear text-right">
+									<button id="filterbutton">Сбросить</button>
+								</div>
+							</div>
+						</div>
+                         {# Диапазоны цен блоком с пунктами #}
+						 {#
+                             <div class="index-prices-block-wrap">
+                                <div class="index-prices-block" id="prices">
+                                    {% for price in arrPrices %}
+                                        <div class="price-item" data-startprice="{{ price - step }}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                         #}
+
+                        {# Диапазоны цен слайдером #}
+						{# <div class="col-lg-4">
 							<p class="mb-2">Цена</p>
 							<div class="flex">
 								<input id="price_start" type="text" id="amount" class="px-2" readonly>
 								<input id="price_end" type="text" id="amount2" class="px-2" readonly>
 							</div>
 							<div id="slider-range" class="mb-4"></div>
-						</div>
-						<div class="col-lg-4">
-							<p class="mb-2"> </p>
-							<div class="flex">
-								<div class="button text-right">
-									<button id="filterbutton">Показать</button>
-								</div>
-							</div>
-						</div>
+						</div> #}
+
 					</div>
 				</div>
 			</div>
@@ -164,23 +196,74 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 document.addEventListener('DOMContentLoaded', function() {
   const marksSelect = document.querySelector('#marks');
   const modelsSelect = document.querySelector('#models');
-  const pricestart = document.querySelector('#price_start');
-  const priceend = document.querySelector('#price_end');
 
-    /* Декорируем выпадающий список моделей плагином Choices */
-    let choicesModels = new Choices(document.querySelector('#models'), {
-        searchEnabled: false,
-        classNames: {
-            containerOuter: 'choices models'
-        },
-    });
+  /* Для слайдера диапазона цен */
+  //const pricestart = document.querySelector('#price_start');
+  //const priceend = document.querySelector('#price_end');
 
-  const updateFilterUrl = (e) => {
+  //const priceItem = document.querySelectorAll('.price-item');
+
+  const pricesSelect = document.querySelector('#prices');
+
+  const filterButton = document.querySelector('#filterbutton');
+
+  // Для прокрутки по кнопке "Найти"
+  const catalog = document.querySelector('#catalog');
+
+  // Декорируем выпадающий список марок плагином Choices */
+  let choicesMarks = new Choices(document.querySelector('#marks'), {
+      silent: true,
+      searchEnabled: false,
+  });
+
+  /* Декорируем выпадающий список моделей плагином Choices */
+  let choicesModels = new Choices(document.querySelector('#models'), {
+      silent: true,
+      searchEnabled: false,
+      classNames: {
+          containerOuter: 'choices models'
+      },
+  });
+
+  // Декорируем выпадающий список цен плагином Choices */
+  let choicesPrices = new Choices(document.querySelector('#prices'), {
+      silent: true,
+      searchEnabled: false,
+      classNames: {
+          containerOuter: 'choices prices',
+      },
+      shouldSort: false,
+  });
+
+  /* Плавная прокрутка по кнопке "Найти" */
+  const findButton = document.querySelector('#findbutton');
+  findButton.addEventListener('click', () => catalog.scrollIntoView({behavior: "smooth"}))
+
+  const updateFilterUrl = (e, clear = false) => {
 
     const brand = marksSelect.value;
     const model = modelsSelect.value;
-    const priceStart = pricestart.value;
-    const priceEnd = priceend.value;
+
+    let priceStart = false;
+    let priceEnd = false;
+
+    /* Если выбрана цена */
+    if (pricesSelect.value !== 'Выбрать...') {
+    	/* Получаем цены "от" и "до" из атрибута value */
+    	priceStart = pricesSelect.value.split(':')[0];
+    	priceEnd = pricesSelect.value.split(':')[1];
+	}
+
+	/* Если передан флаг сброса фильтра */
+	if (clear) {
+		// Сбрасываем выбранную цену
+		choicesPrices.destroy();
+		choicesPrices.init();
+	}
+
+    /* Для слайдера диапазона цен */
+    //const priceStart = pricestart.value;
+    //const priceEnd = priceend.value;
 
     let url = '/katalog-novyh-avtomobilej/?';
     if (brand && brand !== 'Выбрать...') {
@@ -199,6 +282,9 @@ document.addEventListener('DOMContentLoaded', function() {
       url += `priceend=${priceEnd}&`;
     }
 
+    // Если передан флаг сброса фильтра
+    if (clear) url = '/katalog-novyh-avtomobilej/';
+
     $.ajax({
       url: url,
       method: 'GET',
@@ -207,10 +293,19 @@ document.addEventListener('DOMContentLoaded', function() {
     .done(function(data) {
       const catalogHtml = $(data).find('#catalog').html();
       const modelsHtml = $(data).find('#models').html();
+      const marksHtml = $(data).find('#marks').html();
 
       $('#catalog').html(catalogHtml);
 
-      /* Для реализации обновления списка моделей с использованием плагина Choices */
+      // Если передан флаг сброса фильтра
+      if(clear) {
+      	// Удаляем декорирование плагином (откат к базовой структуре select-option)
+	  	choicesMarks.destroy();
+	  	// Вставляем полученные марки в базовый список select-option
+	  	$('#marks').html(marksHtml);
+	  	// Снова декорируем заполненный новыми значениями список марок
+      	choicesMarks.init();
+	  }
 
       // Перед вставкой новых (полученных с сервера) моделей
       // Удаляем декорирование плагином (откат к базовой структуре select-option)
@@ -219,20 +314,23 @@ document.addEventListener('DOMContentLoaded', function() {
       // Вставляем полученные модели в базовый список select-option
       $('#models').html(modelsHtml);
 
-      // Снова декорируем заполненный новыми значениями моделей список
+      // Снова декорируем заполненный новыми значениями список моделей
       choicesModels = new Choices(document.querySelector('#models'), {
+          silent: true,
           searchEnabled: false,
           classNames: {
               containerOuter: 'choices models'
           },
       });
+
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.error(errorThrown);
     });
   };
 
-  $("#slider-range").slider({
+  /* Слайдер диапазона цен */
+  /*$("#slider-range").slider({
     range: true,
     min: 100000,
     max: 10000000,
@@ -245,13 +343,29 @@ document.addEventListener('DOMContentLoaded', function() {
       updateFilterUrl();
     }
   });
-  $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
-  $("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
 
+  $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
+  $("#price_end").val($("#slider-range").slider("values", 1) + " руб."); */
+
+  // В "e" находится инициатор события (тег диапазона цен)
+  //priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
+
+  // Обработчик кнопки сброса фильтра
+  // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
+  filterButton.onclick = (e) => updateFilterUrl(e, true);
+
+  // Обработчик выбора цен
+  pricesSelect.onchange = updateFilterUrl;
+
+  // Обработчик выбора марок
   marksSelect.addEventListener('change', updateFilterUrl);
+
+  // Обработчик выбора моделей
   modelsSelect.addEventListener('change', updateFilterUrl);
-  pricestart.addEventListener('change', updateFilterUrl);
-  priceend.addEventListener('change', updateFilterUrl);
+
+  /* Для слайдера диапазона цен */
+  // pricestart.addEventListener('change', updateFilterUrl);
+  // priceend.addEventListener('change', updateFilterUrl);
 });
 
 </script>

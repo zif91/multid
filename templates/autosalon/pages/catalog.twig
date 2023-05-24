@@ -23,7 +23,7 @@
 {# Шаг диапазона цен #}
 {% set step = 500000 %}
 
-{#  % set DLCatalogRange = runSnippet('DocLister', {
+{% set DLCatalogRange = runSnippet('DocLister', {
     id: 'catalog',
     controller: 'catalog_filters',
     _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
@@ -34,11 +34,14 @@
     orderBy: 'car-price',
     tvList:'car-price',
     filter: 'filters',
+    ownerTPL: '@CODE: [+dl.wrap+]',
+    filterTpl: '@CODE: {{ data['wrap'] | raw }}',
+    tpl:'@CODE: <!-- {{ data['min'] }} - {{ data['max'] }} -->',
     filterTplRange: '@CODE: <!-- {{ data['min'] }} - {{ data['max'] }} -->',
     api: 0,
     debug:0
 })
-%#}
+%}
 
 {# % set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
@@ -99,6 +102,7 @@ debug: 0,
 				<div class="index-filter-block inner py-sm-4 py-5 px-4">
 					<div class="name mb-4">
 						Выбрать автомобиль
+                        {{ DLCatalogRange }}
 					</div>
 					<div class="row index-filter-block__body">
 						<div class="col-lg-6 col-md-12">

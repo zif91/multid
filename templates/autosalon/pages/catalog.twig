@@ -53,7 +53,7 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
 
   {% set ranges = runSnippet('DocLister', {
       parents: catalog_number,
-      depth: 0,
+      depth: 1,
       tvList:'car-price',
       addWhereList: 'c.template=28',
       tpl:'@CODE: [+tv.car-price+], [+pagetitle+],',

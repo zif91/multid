@@ -51,19 +51,6 @@ addWhereList: 'c.template=28',
 filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %#}
 {% set catalog_number = baseSettings['catalog_number'] %}
 
-  {% set ranges = runSnippet('DocLister', {
-      parents: catalog_number,
-      depth: 0,
-      tvList:'car-price',
-      addWhereList: 'c.template=28',
-      tpl:'@CODE: [+tv.car-price+], [+pagetitle+],',
-      api: 1,
-      debug: 0,
-  })
-  %}
-
-  {% set ranges = marks|json %}
-
 	{#% set marks = runSnippet('DocLister', {
 _filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
 parents: catalog_number,
@@ -93,7 +80,6 @@ debug: 0,
 				<div class="index-filter-block inner py-sm-4 py-5 px-4">
 					<div class="name mb-4">
 						Выбрать автомобиль
-                        <!-- {{ ranges }} -->
 					</div>
 					<div class="row index-filter-block__body">
 						<div class="col-lg-6 col-md-12">

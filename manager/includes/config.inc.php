@@ -4,11 +4,11 @@
  */
 $database_type     = 'mysqli';
 $database_server   = 'localhost';
-$database_user     = 'jacov9sw_multi';
-$database_password = 'KBTE&Ar3';
+$database_user     = 'test';
+$database_password = '1234';
 $database_connection_charset = 'utf8';
 $database_connection_method = 'SET CHARACTER SET';
-$dbase             = '`jacov9sw_multi`';
+$dbase             = 'test';
 $table_prefix      = 'evo_';
 
 $lastInstallTime = '1675356170';

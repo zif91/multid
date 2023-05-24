@@ -56,7 +56,7 @@ filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-
       depth: 0,
       tvList:'car-price',
       addWhereList: 'c.template=28',
-      tpl:'@CODE: [+tv.car-price+]',
+      tpl:'@CODE: [+tv.car-price+], [+pagetitle+],',
       api: 1,
       debug: 0,
   })

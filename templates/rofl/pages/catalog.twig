@@ -1,10 +1,11 @@
 {% extends './app.twig' %}
+{% set catalog_number = baseSettings['catalog_number'] %}
 
 {% set DLCatalog = runSnippet('DocLister', {
 		id: 'catalog',
 		controller: 'catalog_filters',
 		display: 20,
-		parents: 27,
+		parents: catalog_number,
 		depth: 2,
 		tvList:'car-price,run,engine_power,gear,year,image,car_photos,body_type,car_color,engine_volume,fuel,drive',
 		ownerTPL: '@T_FILE:partials/wrap',

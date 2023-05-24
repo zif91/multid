@@ -1,7 +1,6 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-	{% set catalog_number = baseSettings['catalog_number'] %}
-
+{% set catalog_number = baseSettings['catalog_number'] %}
 {#% cache 'main' ~ resource.id %#}
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
@@ -107,7 +106,7 @@ rowTpl:'@CODE: <div class="index-calc-block position-relative pt-5 pb-5 text-cen
 							{{runSnippet('DocLister', {
 							id: 'catalog',
 							display: 6,
-							parents: 27,
+							parents: catalog_number,
 							depth: 5,
 							orderBy: 'car-price',
 							order: 'RAND()',
@@ -126,7 +125,7 @@ rowTpl:'@CODE: <div class="index-calc-block position-relative pt-5 pb-5 text-cen
 						{{runSnippet('DocLister', {
 						id: 'catalog',
 						display: 6,
-						parents: 27,
+						parents: catalog_number,
 						depth: 5,
 						orderBy: 'car-price',
 						order: 'RAND()',
@@ -143,7 +142,7 @@ tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',		
 						{{runSnippet('DocLister', {
 						id: 'catalog',
 						display: 6,
-						parents: 27,
+						parents: catalog_number,
 						depth: 5,
 						orderBy: 'car-price',
 						order: 'RAND()',
@@ -159,7 +158,7 @@ tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',		
 						{{runSnippet('DocLister', {
 						id: 'catalog',
 						display: 6,
-						parents: 27,
+						parents: catalog_number,
 						depth: 5,
 						orderBy: 'car-price',
 						order: 'RAND()',
@@ -175,7 +174,7 @@ tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',		
 						{{runSnippet('DocLister', {
 						id: 'catalog',
 						display: 6,
-						parents: 27,
+						parents: catalog_number,
 						depth: 5,
 						orderBy: 'car-price',
 						order: 'RAND()',

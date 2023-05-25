@@ -9,15 +9,18 @@ $(function() {
 		arrows: false,
 		asNavFor: '.slider-nav'
 	});
-	$(".bottom-page-line .close").click(function() {
-		$(".bottom-page-line").hide();
-	});
-	$(".bottom-page-line").click(function() {
-		$.fancybox.open({
-			src: '#trade-in-popup',
-			type: 'inline'
-		});
-	});
+	$(".bottom-page-line .close").click(function(event) {
+    event.stopPropagation(); // Остановить распространение события
+    $(".bottom-page-line").hide();
+});
+
+$(".bottom-page-line").click(function() {
+    $.fancybox.open({
+        src: '#trade-in-popup',
+        type: 'inline'
+    });
+});
+
 
 	window.showCreditPopup = function(e, t, i) {
 		$("#credit-popup-plate .popup__image").attr("src", ""),

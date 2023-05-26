@@ -24,12 +24,12 @@
 {% set step = 500000 %}
 
 {% set DLCatalog = runSnippet('DocLister', {
-_id: 'catalog',
+id: 'catalog',
 controller: 'catalog_filters',
 display: 4,
 parents: catalog_number,
-depth: 3,
-addWhereList: 'isfolder=0 AND c.template=28',
+depth: 2,
+addWhereList: 'c.template=28',
 orderBy: 'car-price',
 order: 'RAND()',
 tvSortType: 'SIGNED',

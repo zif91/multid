@@ -28,7 +28,7 @@ id: 'catalog',
 controller: 'catalog_filters',
 display: 4,
 parents: catalog_number,
-depth: 3,
+depth: 1,
 orderBy: 'car-price',
 order: 'RAND()',
 tvSortType: 'SIGNED',
@@ -40,9 +40,9 @@ filterRangeSeparator: ':',
 filterValuesSeparator: '|',
 filterDelimiter: '||',
 filterList: '42,43,19',
-filterTpl: '@CODE: {{ data['wrap'] | raw }}',
-filterOwnerRange: '@CODE:  {{ data['wrap'] | raw }}',
-filterTplRange: '@CODE: {{ data['min'] }} - {{ data['max'] }}',
+filterTpl: '@T_FILE:partials/filters/tpl',
+filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+filterTplRange: '@T_FILE:partials/filters/tplRange',
 tvSortType: 'UNSIGNED',
 api: 0,
 debug:0,
@@ -138,7 +138,7 @@ debug: 0,
 							</div>
 						</div>
 
-            <!-- {{ DLCatalog|raw }} -->
+            <!-- {{ DLCatalog }} -->
 
 						{# Диапазоны цен выпадающим списком #}
 						<div class="col-lg-6 col-md-12">

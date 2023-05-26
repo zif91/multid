@@ -26,32 +26,22 @@
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
-display: 4,
+display: 20,
 parents: catalog_number,
 depth: 2,
-addWhereList: 'c.template=28',
-tvSortType: 'SIGNED',
-tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image,mark_id',
+tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
 ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard_mod',
-filter: 'filters',
-filterRangeSeparator: ':',
-filterValuesSeparator: '|',
-filterDelimiter: '||',
-filterList: '42,43,19',
-filterTpl: '@T_FILE:partials/filters/test/TESTtpl',
-filterOwnerRange: '@T_FILE:partials/filters/test/TESTownerRange',
-filterTplRange: '@T_FILE:partials/filters/test/TESTtplRange',
-tvSortType: 'UNSIGNED',
-api: 0,
-debug:0,
 noneTPL:'@CODE: <div class="container">
   <div class="row">
     <div class="col text-center">
-      <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+      <h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска123</h1>
     </div>
   </div>
 </div>',
+tpl:'@T_FILE:partials/catalogcard_mod',
+tvSortType: 'UNSIGNED',
+addWhereList: 'c.template=28',
+_filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')'
 })
 %}
 

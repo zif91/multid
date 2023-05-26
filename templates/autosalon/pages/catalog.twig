@@ -23,6 +23,39 @@
 {# Шаг диапазона цен #}
 {% set step = 500000 %}
 
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 4,
+parents: catalog_number,
+depth: 1,
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image,mark_id',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+filter: 'filters',
+filterRangeSeparator: ':',
+filterValuesSeparator: '|',
+filterDelimiter: '||',
+filterList: '42,43,19',
+filterTpl: '@T_FILE:partials/filters/tpl',
+filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+filterTplRange: '@T_FILE:partials/filters/tplRange',
+tvSortType: 'UNSIGNED',
+api: 0,
+debug:0,
+noneTPL:'@CODE: <div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+    </div>
+  </div>
+</div>',
+})
+%}
+
 {# % set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
@@ -104,6 +137,8 @@ debug: 0,
 								</div>
 							</div>
 						</div>
+
+            <!-- {{ DLCatalog|raw }} -->
 
 						{# Диапазоны цен выпадающим списком #}
 						<div class="col-lg-6 col-md-12">

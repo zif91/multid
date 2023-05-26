@@ -23,7 +23,7 @@
 {# Шаг диапазона цен #}
 {% set step = 500000 %}
 
-{#% set DLCatalog = runSnippet('DocLister', {
+{% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
 display: 20,
@@ -43,7 +43,7 @@ tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
 filters: 'AND(tv:car-price:>:0;tv:car-price:<:10000000)'
 })
-%#}
+%}
 
 {# % set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
@@ -102,6 +102,9 @@ debug: 0,
 				<div class="index-filter-block inner py-sm-4 py-5 px-4">
 					<div class="name mb-4">
 						Выбрать автомобиль
+
+            <!-- {{ DLCatalog|raw }} -->
+            
 					</div>
 					<div class="row index-filter-block__body">
 						<div class="col-lg-6 col-md-12">
@@ -126,8 +129,6 @@ debug: 0,
 								</div>
 							</div>
 						</div>
-
-            <!-- {{ DLCatalog|raw }} -->
 
 						{# Диапазоны цен выпадающим списком #}
 						<div class="col-lg-6 col-md-12">

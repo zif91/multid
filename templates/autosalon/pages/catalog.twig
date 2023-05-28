@@ -23,7 +23,7 @@
 {# Шаг диапазона цен #}
 {% set step = 500000 %}
 
-{% set DLCatalog = runSnippet('DocLister', {
+{#% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
 display: 20,
@@ -49,7 +49,7 @@ tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
 filters: 'AND(tv:mark_id:like:Chery;tv:car-price:>:0;tv:car-price:<:10000000)'
 })
-%}
+%#}
 
 {# % set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',

@@ -140,12 +140,17 @@ $(document).ready(function(){
     dots: false // Отключаем отображение точек внизу
   });
 });
-	$(".bottom-page-line .close").click(function() {
-		$(".bottom-page-line").hide();
-	});
-	$(".bottom-page-line").click(function() {
-		$("#exampleModal").modal("show");
-	});
+	$(".bottom-page-line .close").click(function(event) {
+    event.stopPropagation(); // Остановить распространение события
+    $(".bottom-page-line").hide();
+});
+
+$(".bottom-page-line").click(function() {
+    $.fancybox.open({
+        src: '#trade-in-popup',
+        type: 'inline'
+    });
+});
 
 	$('#brand').on('change', function() {
 		var selected = $(this).val();

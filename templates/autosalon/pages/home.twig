@@ -331,13 +331,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		};
 	};
 
-	const updateModels = (e, clear = false) => {
-        let url = '';
-	    const brand = marksSelect.value;
+	const updateModels = () => {
+		const brand = marksSelect.value;
 
-		if (brand && brand !== 'Выбрать...' || clear) {
-		    if (clear) url = `/katalog-novyh-avtomobilej/`;
-		    else url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
+		if (brand && brand !== 'Выбрать...') {
+			const url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
 			$.ajax({
 				url: url,
 				method: 'GET',
@@ -345,17 +343,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			})
 			.done(function(data) {
 				const modelsHtml = $(data).find('#models').html();
-                const marksHtml = $(data).find('#marks').html();
-
-				// Если передан флаг сброса фильтра
-                if(clear) {
-                    // Удаляем декорирование плагином (откат к базовой структуре select-option)
-                    choicesMarks.destroy();
-                    // Вставляем полученные марки в базовый список select-option
-                    $('#marks').html(marksHtml);
-                    // Снова декорируем заполненный новыми значениями список марок
-                    choicesMarks.init();
-                }
 
                 /* Для реализации обновления списка моделей с использованием плагина Choices */
 
@@ -379,9 +366,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	};
 
-	marksSelect.addEventListener('change', function(e) {
-		updateModels(e);
-		updateFilterUrl(e);
+	marksSelect.addEventListener('change', function() {
+		updateModels();
+		updateFilterUrl();
 	});
 	modelsSelect.addEventListener('change', updateFilterUrl);
 
@@ -390,10 +377,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Обработчик кнопки сброса фильтра
     // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
-    clearButton.addEventListener('click', (e) => {
-        updateModels(e, true);
-        updateFilterUrl(e, true);
-    });
+
+    clearButton.onclick = (e) => updateFilterUrl(e, true);
 
 	//pricestart.addEventListener('change', updateFilterUrl);
 	//priceend.addEventListener('change', updateFilterUrl);

@@ -1554,3 +1554,9 @@ font-size: 14px;
     font-size: 14px;
   }
 }
+
+.filter-buttons-wrapper .button_find #filterbutton:disabled {
+    background: #831c13;
+    color: #b3b3b3;
+}
+

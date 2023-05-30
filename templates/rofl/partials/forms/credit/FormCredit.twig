@@ -3,51 +3,112 @@
     <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
     {{ data['form.messages'] | raw }}
     <div class="credit-block px-4 py-5 mb-5 text-light" id="creditform">
-    <div class="name text-center mb-5">
-        Выгоднее - в кредит! Скидка до 100 000 руб!
-    </div>
-    <div class="row">
-        <div class="col-xl-3 col-md-6">
-            <div class="field mb-4">
-                <p class="mb-2">Первый взнос</p>
-                <input id="firstpayment" type="text" class="form-control" placeholder="{{ (resource['car-price'])/8|number_format(0, '.', ' ') }} ₽">
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="field mb-4">
-                <p class="mb-2">Срок кредита</p>
-                <input value="{{ data.credit_term }}" id="monthes" type="text" class="form-control" placeholder="24 месяца">
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="field mb-4">
-                <p class="mb-2">Ежемесячный платеж</p>
-                <input id="monthly" value="{{ data.month_pay }}" type="text" class="form-control other" placeholder="{{ (resource['car-price'])/20|number_format(0, '.', ' ') }} ₽">
-            </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="field mb-4 pt-sm-0 pt-4">
-                <p class="mb-2">Ваша выгода</p>
-                <div class="discount text-center text-light">
-                    Скидка - 100 000 руб!
+      <div class="name text-center mb-3">
+          Выгоднее - в кредит! Скидка до 100 000 руб!
+      </div>
+
+      <div class="container">
+        <div class="row text-center">
+
+          <div class="col-xl-6 col-md-12">
+            <div class="d-flex-column ">
+              <div class = "title1"> Первоначальный взнос </div>
+
+              <div class="item">
+                <input type="text" id="first-pay" readonly>
+                <div class = "svg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                  </svg>
                 </div>
+                <div id="slider-range-max3">
+                  <div class="marker d-flex md-row ">
+                    <div class="marker-0"></div>
+                    <div class="marker marker-25"></div>
+                    <div class="marker marker-50"></div>
+                    <div class="marker marker-100"></div>
+                  </div>
+                </div>                       
+              </div>
+
+              <div class="sum d-flex md-row">
+                <div class="number-0">0 ₽</div>
+                <div class="number-25">250 000 ₽</div>
+                <div class="number-50">500 000 ₽</div>
+                <div class="number-100">1 000 000 ₽></div>
+              </div>
+                                    
+              <div class = "title2"> Срок кредита </div>
+              <div class="item">
+                <input type="text" id="amounter2" readonly>
+                <div class = "svg2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                  </svg>
+                </div>    
+                <div id="slider-range-max2">
+                  <div class="month d-flex md-row">
+                    <div class="marker-1"></div>
+                    <div class="marker-6"></div>
+                    <div class="marker-12"></div>
+                    <div class="marker-18"></div>
+                    <div class="marker-24"></div>
+                    <div class="marker-30"></div>
+                    <div class="marker-36"></div>
+                    <div class="marker-42"></div>
+                    <div class="marker-48"></div>
+                    <div class="marker-54"></div>
+                    <div class="marker-60"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="month d-flex md-row">
+                  <div class="month-6">мес.</div>
+                  <div class="month-12">1 год</div>
+                  <div class="month-18"></div>
+                  <div class="month-24">2 года</div>
+                  <div class="month-30"></div>
+                  <div class="month-36">3 года</div>
+                  <div class="month-42"></div>
+                  <div class="month-48">4 года</div>
+                  <div class="month-54"></div>
+                  <div class="month-60">5лет</div>
+              </div>
             </div>
-        </div>
-        <div class="col-xl-3 col-md-6">
-           <div class="field mb-4 pt-sm-0 pt-4">
-                <p class="mb-2">Ваше имя</p>
-                <input name="first_name" value="{{ data.first_name }}" type="text" class="form-control {{ data['first_name.classname'] }}" id="calc-input-5" type="text" placeholder="Иван" />
+          </div>
+
+          <div class="col-xl-6 col-md-12">
+            <div class="field">
+              <div class="d-flex justify-content-between pt-1">
+                  <span class="credit-text text-start pt-3">Сумма кредита:</span>
+                  <span class="credit-amounts text-end pt-3"  id="summ">123 ₽</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                  <span class="credit-text text-start pt-4">Первоначальный взнос:</span>
+                  <span class="credit-amounts text-end pt-4"  id="first-pay2">123 ₽</span>
+              </div>        
+              <div class="d-flex justify-content-between">
+                  <span class="credit-text text-start pt-4">Срок кредита:</span>
+                  <span class="credit-amounts pt-4 pb-3"   id="mes">123 месяцев</span>
+              </div>
+              <div class ="hr"> <hr/> </div>
             </div>
-        </div> 
-        <div class="col-xl-3 col-md-6">
-           <div class="field mb-4 pt-sm-0 pt-4">
-            <p class="mb-2">Ваш телефон</p>
-            </label>
-            <input value="{{ data.mobile_tel }}" name="mobile_tel"  class="form-control py-2 border-1 phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
-        </div>
+            <div class="field mb-1">
+              <div class="d-flex justify-content-between">
+                  <span class="credit-text text-start pt-4">Ежемесячный платеж:</span>
+                  <span class="credit-monthly text-end pt-3" id="paymentSpan2">0 ₽/мес</span>
+              </div>
+              <div class="d-flex justify-content-between pt-3">
+                  <span class="credit-text text-start pt-3 ">Ваша выгода:</span>
+                  <span class="discount text-end pt-3 text-danger" id="cashback" >Скидка -100 000 ₽!</span>
+              </div>
+                  <button type="submit" class="btn btn-danger mt-5 w-100">Оформить кредит!</button>
+
+            </div> 
+          </div>
+    
+        </div>    
+      </div>
     </div>
-    <div class="text-center pt-3 col">
-        <button type="submit" class="btn btn-danger">Оставить заявку</button>
-    </div>
-</div>
+  </div>
 </form>

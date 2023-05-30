@@ -9,7 +9,11 @@ outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
 		<div class="flex">
 			<div class="logo">
 				<a href="/">
-					<img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=130,h=45,far=C,f=png,q=1'}) }}">
+					{#<img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=130,h=45,far=C,f=png,q=1'}) }}">#}
+					<div class="d-inline-block" style="
+    vertical-align: middle;
+    margin-left: 35px;
+">{{baseSettings.longtitle}}<div class="d-block">{{baseSettings.description}}</div></div>
 					<span class="d-inline-block">
 						Лучший дилер
 						<br/>

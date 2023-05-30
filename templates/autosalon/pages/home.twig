@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let url = '';
 	    const brand = marksSelect.value;
 
-		if (brand && brand !== 'Выбрать...' || clear) {
+		if ((brand && brand !== 'Выбрать...') || clear) {
 		    if (clear) url = `/katalog-novyh-avtomobilej/`;
 		    else url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
 			$.ajax({
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработчик кнопки сброса фильтра
     // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
     clearButton.addEventListener('click', (e) => {
-        updateModels(e, true)
+        updateModels(e, true);
         updateFilterUrl(e, true);
     });
 }

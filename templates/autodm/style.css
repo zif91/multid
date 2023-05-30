@@ -1510,11 +1510,26 @@ color:red;
   border-radius: 10px;
 }
 
-.item-page .price {
-  margin-bottom: 50px;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 42px;
+.item-page .price-block {
+    display: flex;
+    flex-direction: row;
+    gap: 16px
+}
+
+.price-block .price {
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+}
+
+.price-block .oldprice {
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 42px;
+    text-decoration: line-through;
+    color: #ccc;
 }
 
 .item-page .buttons {
@@ -2918,6 +2933,14 @@ color:red;
     margin-bottom: 25px;
     font-size: 24px;
     line-height: 28px;
+  }
+
+  .item-page .oldprice {
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 28px;
+    text-decoration: line-through;
+    color: #ccc;
   }
 
   .item-page .icons-block .item {

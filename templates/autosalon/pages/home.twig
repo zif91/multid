@@ -137,7 +137,7 @@ extension: 'twig'
                         <button id="filterbutton">Показать</button>
                     </div>
                     <div class="button button_clear text-right">
-                        <button id="filterbutton2">Сбросить</button>
+                        <button id="clearbutton">Сбросить</button>
                     </div>
                 </div>
             </div>
@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	//const priceend = document.querySelector('#price_end');
 
 	const filterButton = document.querySelector('#filterbutton');
+    const clearButton = document.querySelector('#clearbutton');
 
     /* Декорируем выпадающий список моделей плагином Choices */
     let choicesModels = new Choices(document.querySelector('#models'), {
@@ -272,12 +273,10 @@ document.addEventListener('DOMContentLoaded', function() {
         shouldSort: false,
     });
 
-	const updateFilterUrl = () => {
+	const updateFilterUrl = (clear = false) => {
 		const brand = marksSelect.value;
 		const model = modelsSelect.value;
 
-		//const priceStart = pricestart.value;
-		//const priceEnd = priceend.value;
 
         let priceStart = false;
         let priceEnd = false;
@@ -288,6 +287,17 @@ document.addEventListener('DOMContentLoaded', function() {
             priceStart = pricesSelect.value.split(':')[0];
             priceEnd = pricesSelect.value.split(':')[1];
         }
+
+        /* Если передан флаг сброса фильтра */
+        if (clear) {
+            // Сбрасываем выбранную цену
+            choicesPrices.destroy();
+            choicesPrices.init();
+        }
+
+        /* Для слайдера диапазона цен */
+        //const priceStart = pricestart.value;
+        //const priceEnd = priceend.value;
 
 		let url = '/katalog-novyh-avtomobilej/?';
 		if (brand && brand !== 'Выбрать...') {
@@ -305,6 +315,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (priceEnd) {
 			url += `priceend=${priceEnd}&`;
 		}
+
+        // Если передан флаг сброса фильтра
+        if (clear) url = '/katalog-novyh-avtomobilej/';
 
 		filterButton.disabled = false;
 		filterButton.onclick = function() {
@@ -355,6 +368,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Обработчик выбора цен
     pricesSelect.onchange = updateFilterUrl;
+
+    // Обработчик кнопки сброса фильтра
+    // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
+    clearButton.onclick = () => updateFilterUrl(true);
 
 	//pricestart.addEventListener('change', updateFilterUrl);
 	//priceend.addEventListener('change', updateFilterUrl);

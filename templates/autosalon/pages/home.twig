@@ -317,14 +317,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			url += `priceend=${priceEnd}&`;
 		}
 
+
+        filterButton.disabled = false;
+
         // Если передан флаг сброса фильтра
         if (clear) {
             url = '/katalog-novyh-avtomobilej/?';
             filterButton.disabled = true;
         }
 
-		filterButton.disabled = false;
-		filterButton.onclick = function() {
+        filterButton.onclick = function() {
 			window.location.href = url.slice(0, -1);
 		};
 	};

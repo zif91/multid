@@ -114,6 +114,7 @@ extension: 'twig'
 					</div>
 				</div>
 			</div>
+
 			<div class="col-lg-4">
 				<p class="mb-2">Цена</p>
 				<div class="flex">
@@ -122,6 +123,7 @@ extension: 'twig'
 				</div>
 				<div id="slider-range" class="mb-4"></div>
 			</div>
+
 			<div class="col-lg-4">
 				<p class="mb-2"> </p>
 				<div class="flex">
@@ -130,6 +132,7 @@ extension: 'twig'
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 	{% include('partials/brands.twig') %}
@@ -216,6 +219,12 @@ document.addEventListener('DOMContentLoaded', function() {
         classNames: {
             containerOuter: 'choices models'
         },
+    });
+
+    // Декорируем выпадающий список марок плагином Choices */
+    let choicesMarks = new Choices(document.querySelector('#marks'), {
+        silent: true,
+        searchEnabled: false,
     });
 
 	const updateFilterUrl = () => {

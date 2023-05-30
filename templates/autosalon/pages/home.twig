@@ -318,7 +318,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
         // Если передан флаг сброса фильтра
-       // if (clear) url = '/katalog-novyh-avtomobilej/';
+        if (clear) {
+            url = '/katalog-novyh-avtomobilej/?';
+            filterButton.disabled = true;
+        }
 
 		filterButton.disabled = false;
 		filterButton.onclick = function() {

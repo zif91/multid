@@ -95,11 +95,11 @@ extension: 'twig'
 		<div class="name mb-4">
 			Выбрать автомобиль
 		</div>
-		<div class="row">
-			<div class="col-lg-4 col-md-6">
-				<div class="row mb-4">
-					<div class="col-6">
-						<p class="mb-2">Выберите марку</p>
+		<div class="row index-filter-block__body">
+			<div class="col-lg-6 col-md-12">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<p class="marks-label mb-2">Выберите марку</p>
 						<select class="w-100 px-3" id="marks">
 													<option>Выбрать...</option>
 							{% for item in marks %}
@@ -107,8 +107,8 @@ extension: 'twig'
 							{% endfor %}
 						</select>
 					</div>
-					<div class="col-6">
-						<p class="mb-2">Выберите модель</p>
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<p class="models-label mb-2">Выберите модель</p>
 						<select id="models" class="w-100 px-3">
 							<option>Выбрать...</option>
 						{% for item in models %}

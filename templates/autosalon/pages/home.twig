@@ -20,8 +20,12 @@
 {% endif %}
 {% set price_end = runSnippet('_get', {key: 'priceend'}) %}
 {% if not price_end %}
-    {% set price_end = 9999999 %}
+    {% set price_end = 10000000 %}
 {% endif %}
+
+{# Шаг диапазона цен #}
+{% set step = 500000 %}
+
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
@@ -115,24 +119,52 @@ extension: 'twig'
 				</div>
 			</div>
 
-			<div class="col-lg-4">
-				<p class="mb-2">Цена</p>
-				<div class="flex">
-					<input id="price_start" type="text" id="amount" class="px-2" readonly>
-					<input id="price_end" type="text" id="amount2" class="px-2" readonly>
-				</div>
-				<div id="slider-range" class="mb-4"></div>
-			</div>
+            {# Диапазоны цен выпадающим списком #}
+            <div class="col-lg-6 col-md-12">
+                <p class="prices-label mb-2">Выберите цену</p>
+                <select id="prices">
+                    <option>Выбрать...</option>
+                    {% for price in range(step, price_end, step) %}
+                        <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-			<div class="col-lg-4">
-				<p class="mb-2"> </p>
-				<div class="flex">
-					<div class="button text-right">
-						<button id="filterbutton">Показать</button>
-					</div>
-				</div>
-			</div>
+            <div class="col-lg-12 col-md-12">
+                <p class="mb-2"> </p>
+                <div class="flex filter-buttons-wrapper">
+                    <div class="button button_find text-right">
+                        <button id="filterbutton">Показать</button>
+                    </div>
+                    <div class="button button_clear text-right">
+                        <button id="filterbutton2">Сбросить</button>
+                    </div>
+                </div>
+            </div>
 
+            {# Диапазоны цен слайдером #}
+			{#
+                <div class="col-lg-4">
+                    <p class="mb-2">Цена</p>
+                    <div class="flex">
+                        <input id="price_start" type="text" id="amount" class="px-2" readonly>
+                        <input id="price_end" type="text" id="amount2" class="px-2" readonly>
+                    </div>
+                    <div id="slider-range" class="mb-4"></div>
+                </div>
+            #}
+
+            {# Старая разметка кнопки "Показать" #}
+			{#
+                <div class="col-lg-4">
+                    <p class="mb-2"> </p>
+                    <div class="flex">
+                        <div class="button text-right">
+                            <button id="filterbutton">Показать</button>
+                        </div>
+                    </div>
+                </div>
+            #}
 		</div>
 	</div>
 	{% include('partials/brands.twig') %}
@@ -209,8 +241,11 @@ extension: 'twig'
 document.addEventListener('DOMContentLoaded', function() {
 	const marksSelect = document.querySelector('#marks');
 	const modelsSelect = document.querySelector('#models');
-	const pricestart = document.querySelector('#price_start');
-	const priceend = document.querySelector('#price_end');
+    const pricesSelect = document.querySelector('#prices');
+
+	//const pricestart = document.querySelector('#price_start');
+	//const priceend = document.querySelector('#price_end');
+
 	const filterButton = document.querySelector('#filterbutton');
 
     /* Декорируем выпадающий список моделей плагином Choices */
@@ -227,11 +262,32 @@ document.addEventListener('DOMContentLoaded', function() {
         searchEnabled: false,
     });
 
+    // Декорируем выпадающий список цен плагином Choices */
+    let choicesPrices = new Choices(document.querySelector('#prices'), {
+        silent: true,
+        searchEnabled: false,
+        classNames: {
+            containerOuter: 'choices prices',
+        },
+        shouldSort: false,
+    });
+
 	const updateFilterUrl = () => {
 		const brand = marksSelect.value;
 		const model = modelsSelect.value;
-		const priceStart = pricestart.value;
-		const priceEnd = priceend.value;
+
+		//const priceStart = pricestart.value;
+		//const priceEnd = priceend.value;
+
+        let priceStart = false;
+        let priceEnd = false;
+
+        /* Если выбрана цена */
+        if (pricesSelect.value !== 'Выбрать...') {
+            /* Получаем цены "от" и "до" из атрибута value */
+            priceStart = pricesSelect.value.split(':')[0];
+            priceEnd = pricesSelect.value.split(':')[1];
+        }
 
 		let url = '/katalog-novyh-avtomobilej/?';
 		if (brand && brand !== 'Выбрать...') {
@@ -296,10 +352,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		updateFilterUrl();
 	});
 	modelsSelect.addEventListener('change', updateFilterUrl);
-	pricestart.addEventListener('change', updateFilterUrl);
-	priceend.addEventListener('change', updateFilterUrl);
 
-	$("#slider-range").slider({
+    // Обработчик выбора цен
+    pricesSelect.onchange = updateFilterUrl;
+
+	//pricestart.addEventListener('change', updateFilterUrl);
+	//priceend.addEventListener('change', updateFilterUrl);
+
+	/*$("#slider-range").slider({
 		range: true,
 		min: 100000,
 		max: 10000000,
@@ -311,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	});
 	$("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
-	$("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
+	$("#price_end").val($("#slider-range").slider("values", 1) + " руб.");*/
 
 	filterButton.disabled = true;
 });

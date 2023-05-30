@@ -19,7 +19,7 @@
 				order:  'ASC',
 				tvSortType: 'SIGNED',
 				filters: 'AND(tv:car-price:>:170000)',
-				tvList:'car-price,old-car-price,image,run,engine_power,gear,year,engine_volume',
+				tvList:'car-price,old-car-price,image,run,engine_power,gear,year,engine_volume,car-photos,car_photos',
 				ownerTPL: '@T_FILE:partials/wrap',
 				tpl:'@T_FILE:partials/catalogcard',
 				paginate:'pages',
@@ -52,6 +52,8 @@
 				filterTplRadio: '@T_FILE:partials/filters/tplRadio'
 				}) |raw}}
 			</div></main>
+					{% include('partials/banks.twig') %}
+
 <div class="container py-5 mb-5 d-none d-sm-block">
 	{{resource.content |raw }}
 </div>

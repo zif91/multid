@@ -379,9 +379,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	};
 
-	marksSelect.addEventListener('change', function() {
-		updateModels();
-		updateFilterUrl();
+	marksSelect.addEventListener('change', function(e) {
+		updateModels(e);
+		updateFilterUrl(e);
 	});
 	modelsSelect.addEventListener('change', updateFilterUrl);
 

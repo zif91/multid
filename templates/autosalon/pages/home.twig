@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let url = '';
 	    const brand = marksSelect.value;
 
-		if ((brand && brand !== 'Выбрать...') || clear) {
+		if (brand && brand !== 'Выбрать...' || clear) {
 		    if (clear) url = `/katalog-novyh-avtomobilej/`;
 		    else url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
 			$.ajax({
@@ -394,8 +394,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateModels(e, true);
         updateFilterUrl(e, true);
     });
-}
-
 
 	//pricestart.addEventListener('change', updateFilterUrl);
 	//priceend.addEventListener('change', updateFilterUrl);

@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	//const priceend = document.querySelector('#price_end');
 
 	const filterButton = document.querySelector('#filterbutton');
-    const clearButton = document.querySelector('#clearbutton');
+    //const clearButton = document.querySelector('#clearbutton');
 
     /* Декорируем выпадающий список моделей плагином Choices */
     let choicesModels = new Choices(document.querySelector('#models'), {
@@ -276,7 +276,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	const updateFilterUrl = (clear = false) => {
 		const brand = marksSelect.value;
 		const model = modelsSelect.value;
-
 
         let priceStart = false;
         let priceEnd = false;
@@ -371,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Обработчик кнопки сброса фильтра
     // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
-    clearButton.onclick = () => updateFilterUrl(true);
+    //clearButton.onclick = () => updateFilterUrl(true);
 
 	//pricestart.addEventListener('change', updateFilterUrl);
 	//priceend.addEventListener('change', updateFilterUrl);

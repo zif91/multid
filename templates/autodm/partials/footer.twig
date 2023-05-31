@@ -1,99 +1,64 @@
-    <footer class="footer">
-        <div class="container-fluid flex">
-            <div class="left-block">
-                <div class="logo">
-                    <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
-                </div>
-{{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'phone'}) | raw}}                <a href="/policy" class="rules">Политика конфиденциальности</a>
-                <button type="button"data-toggle="modal" data-target="#oneclick">Заказать звонок</button>
+<footer class="footer">
+    <div class="container-fluid flex">
+        <div class="left-block">
+            <div class="logo">
+                <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
             </div>
-            <nav>
-                <p>Каталог</p>
-                <ul>
-                    <li><a href="/avtomobili-s-probegom">Автомобили с пробегом</a></li>
-                    
-                </ul>
-            </nav>
-            <nav>
-                <p>Акции</p>
-                <ul>
-                    <li><a href="/akcii2">Спецпредложения</a></li>
-                  
-                </ul>
-            </nav>
-           
-            <nav>
-                <p>Контакты</p>
-                <ul>
-                    <li><a href="#adres">Мы на карте</a></li>
-                </ul>
-            </nav>
+            {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'phone'}) | raw}}                <a href="/policy" class="rules">Политика конфиденциальности</a>
+            <button type="button"data-toggle="modal" data-target="#oneclick">Заказать звонок</button>
         </div>
-    </footer>
-     <div class="copy-block">
-        <div class="container-fluid">
-            Информация о технических характеристиках, составе комплектаций, цветовой гамме и стоимости автомобилей, а также действующих акциях, сроках и условиях их проведения, указанных на сайте {{baseSettings.domain}}, носит информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями пунктом 2 статьи 437 Гражданского кодекса Российской Федерации. Для получения подробной информации обращайтесь к специалистам нашей компании.
-            Обращаем Ваше внимание на то, что сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями ч. 2 ст. 437 Гражданского кодекса Российской Федерации. Срок проведения акций с 1 января по 31 декабря 2023 года. Все цены на сайте указаны с учетом скидок. Для получения подробной информации о стоимости автомобилей, пожалуйста, обращайтесь к менеджерам отдела продаж.
-
- 
-
-Оставляя свои персональные данные в любых формах, а также при звонке на номера, указанные на сайте, вы даёте согласие на обработку и использование персональных данных в интересах владельца сайта, в том числе для рассылок, отправки уведомлений и совершения телефонных звонков. Осуществляя навигацию по сайту, вы даете нам право иметь доступ к куки-файлам на вашем устройстве. Все персональные данные подлежат обработке в соответствии с политикой конфиденциальности и защищены Федеральным законом Российской Федерации от 27 июля 2006 г. № 152-ФЗ.
-
- 
-
-Автосалон оказывает услуги кредитования и страхования с помощью партнеров:
-
-  <br>
-
-
-ПАО "БАНК УРАЛСИБ" Лицензия ЦБ РФ №30 от 10 сентября 2015 года. 
-<a  data-fancybox data-type="iframe"  href="/assets/files/uralsib.jpg">Подробнее</a>
-
- <br>
-
-АО "Тинькофф Страхование" Лицензия СЛ № 0191 от 19.05.2015 года. 
-<a  data-fancybox data-type="iframe"  href="/assets/files/tinkoff.pdf">Подробнее</a>
-
-  <br>
-
-
-СПАО "ИНГОССТРАХ" Лицензия ЦБ РФ № 0928-03 от 23 сентября 2015 года. 
-<a  data-fancybox data-type="iframe"  href="/assets/files/ingosstrakh.pdf">Подробнее</a>
-
- <br>
-Сбербанк <a  data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/4923/8f61d8bc9/sberbank.pdf">Подробнее</a>
-
- <br>
-
-Росбанк<a  data-fancybox data-type="iframe"  href="/https://api.genzes.ru/images/banks_license/292c/a07d6113d/rosbank.pdf">Подробнее</a>
-
- <br>
-
-Тинькофф Банк<a  data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/695a/50451f0a3/tinkoff-bank.pdf">Подробнее</a>
-
- <br>
-Альфа-Банк<a  data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/77f3/ce22ccd2e/alfa-bank.pdf">Подробнее</a>
-
- <br>
-
-ВТБ<a  data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/67fc/e965d31b5/vtb.pdf">Подробнее</a>
-
- <br>
-
-Газпромбанк<a  data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/1599/3dcd27306/gazprombank.pdf">Подробнее</a>
-
- <br>
-
-Зенит Банк<a  data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/651f/a4f39c1c4/zenit_license.pdf">Подробнее</a>
-
- <br>
-
-Банк Союз<a  data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/c5c3/7bea35e76/bank-soyuz.pdf">Подробнее</a>
-
- <br>
-
- 
-
-Процентная ставка по кредиту варьируется от 13% годовых на все представленные модели. Сумма кредитования составляет от 300 000 ₽ до 3 000 000 ₽. Срок кредитования от 6 до 84 месяцев. Первоначальный взнос по кредиту от 0% до 70%. Все страховые сервисные услуги при их наличии приобретаются добровольно.
-        </div>
+        <nav>
+            <p>Каталог</p>
+            <ul>
+                <li><a href="/avtomobili-s-probegom">Автомобили с пробегом</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <p>Акции</p>
+            <ul>
+                <li><a href="/akcii2">Спецпредложения</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <p>Контакты</p>
+            <ul>
+                <li><a href="#adres">Мы на карте</a></li>
+            </ul>
+        </nav>
     </div>
+</footer>
+<div class="copy-block">
+    <div class="container-fluid">
+        Информация о технических характеристиках, составе комплектаций, цветовой гамме и стоимости автомобилей, а также действующих акциях, сроках и условиях их проведения, указанных на сайте {{baseSettings.domain}}, носит информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями пунктом 2 статьи 437 Гражданского кодекса Российской Федерации. Для получения подробной информации обращайтесь к специалистам нашей компании.
+        Обращаем Ваше внимание на то, что сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями ч. 2 ст. 437 Гражданского кодекса Российской Федерации. Срок проведения акций с 1 января по 31 декабря 2023 года. Все цены на сайте указаны с учетом скидок. Для получения подробной информации о стоимости автомобилей, пожалуйста, обращайтесь к менеджерам отдела продаж.
+        Оставляя свои персональные данные в любых формах, а также при звонке на номера, указанные на сайте, вы даёте согласие на обработку и использование персональных данных в интересах владельца сайта, в том числе для рассылок, отправки уведомлений и совершения телефонных звонков. Осуществляя навигацию по сайту, вы даете нам право иметь доступ к куки-файлам на вашем устройстве. Все персональные данные подлежат обработке в соответствии с политикой конфиденциальности и защищены Федеральным законом Российской Федерации от 27 июля 2006 г. № 152-ФЗ.
+        Автосалон оказывает услуги кредитования и страхования с помощью партнеров:
+        <br>
+        ПАО "БАНК УРАЛСИБ" Лицензия ЦБ РФ №30 от 10 сентября 2015 года.
+        <a class="link-more" data-fancybox data-type="iframe"  href="/assets/files/uralsib.jpg">Подробнее</a>
+        <br>
+        АО "Тинькофф Страхование" Лицензия СЛ № 0191 от 19.05.2015 года.
+        <a class="link-more" data-fancybox data-type="iframe"  href="/assets/files/tinkoff.pdf">Подробнее</a>
+        <br>
+        СПАО "ИНГОССТРАХ" Лицензия ЦБ РФ № 0928-03 от 23 сентября 2015 года.
+        <a class="link-more" data-fancybox data-type="iframe"  href="/assets/files/ingosstrakh.pdf">Подробнее</a>
+        <br>
+        Сбербанк <a class="link-more" data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/4923/8f61d8bc9/sberbank.pdf">Подробнее</a>
+        <br>
+        Росбанк <a class="link-more" data-fancybox data-type="iframe"  href="/https://api.genzes.ru/images/banks_license/292c/a07d6113d/rosbank.pdf">Подробнее</a>
+        <br>
+        Тинькофф Банк <a class="link-more" data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/695a/50451f0a3/tinkoff-bank.pdf">Подробнее</a>
+        <br>
+        Альфа-Банк <a class="link-more" data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/77f3/ce22ccd2e/alfa-bank.pdf">Подробнее</a>
+        <br>
+        ВТБ <a class="link-more" data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/67fc/e965d31b5/vtb.pdf">Подробнее</a>
+        <br>
+        Газпромбанк <a class="link-more" data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/1599/3dcd27306/gazprombank.pdf">Подробнее</a>
+        <br>
+        Зенит Банк <a class="link-more" data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/651f/a4f39c1c4/zenit_license.pdf">Подробнее</a>
+        <br>
+        Банк Союз <a class="link-more" data-fancybox data-type="iframe"  href="https://api.genzes.ru/images/banks_license/c5c3/7bea35e76/bank-soyuz.pdf">Подробнее</a>
+        <br>
+        Процентная ставка по кредиту варьируется от 13% годовых на все представленные модели. Сумма кредитования составляет от 300 000 ₽ до 3 000 000 ₽. Срок кредитования от 6 до 84 месяцев. Первоначальный взнос по кредиту от 0% до 70%. Все страховые сервисные услуги при их наличии приобретаются добровольно.
+    </div>
+</div>

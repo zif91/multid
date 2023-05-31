@@ -2,18 +2,24 @@
 }) | raw}} #}
 {% set map = runSnippet('map', {zoom:'15',grey:'1', class:'123', coords:baseSettings.salon_coordinates, width:'80', title:baseSettings.pagetitle,color:'#dc143c'
 }) %}<div class="map-block py-5 position-relative" id="map">
-		<div class="container">
-			<div class="contacts d-inline-block p-5 position-relative">
-				<div class="logo mb-5">
-					<a href="/"><img src="{{baseSettings["logo"]}}"></a>
+	<div class="container">
+		<div class="contacts d-inline-block p-5 position-relative">
+			<div class="logo mb-5">
+				<div class="d-inline-block text-danger" style="
+    vertical-align: middle;
+    margin-left: 35px;
+">{{baseSettings.pagetitle}}<div class="d-block text-dark
+
+ font-weight-normal" style="
+    font-size: 14px;">{{baseSettings.description}}</div>
 				</div>
-				<p class="mb-5"> </p>
-                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', class: "phone pl-4 mb-4 d-block", link: '1'}) | raw}} </span>
-            
-				<button  data-fancybox="" data-src="#popup">Заказать звонок</button>
 			</div>
-		</div>
-		<div class="map position-absolute w-100 h-100">
-        {{ map | raw }}
+			<p class="mb-5"> </p>
+			{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', class: "phone pl-4 mb-4 d-block", link: '1'}) | raw}} </span>
+			<button data-fancybox="" data-src="#popup">Заказать звонок</button>
 		</div>
 	</div>
+	<div class="map position-absolute w-100 h-100">
+		{{ map | raw }}
+	</div>
+</div>

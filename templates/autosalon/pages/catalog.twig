@@ -32,6 +32,34 @@ depth: 2,
 tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
 ownerTPL: '@T_FILE:partials/wrap',
 noneTPL:'@CODE: <div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска123</h1>
+    </div>
+  </div>
+</div>',
+tpl:'@CODE: [+pagetitle+]',
+paginate:'pages',
+TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
+TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
+TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
+tvSortType: 'UNSIGNED',
+addWhereList: 'c.template=28',
+filters: 'AND(tv:mark_id:like:Chery;tv:car-price:>:0;tv:car-price:<:10000000)'
+})
+%#}
+
+{# % set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: catalog_number,
+depth: 2,
+tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
+ownerTPL: '@T_FILE:partials/wrap',
+noneTPL:'@CODE: <div class="container">
 	<div class="row">
 		<div class="col text-center">
 			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска123</h1>
@@ -50,8 +78,6 @@ tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
 filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %#}
 {% set catalog_number = baseSettings['catalog_number'] %}
-
-
 
 	{#% set marks = runSnippet('DocLister', {
 _filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
@@ -82,6 +108,9 @@ debug: 0,
 				<div class="index-filter-block inner py-sm-4 py-5 px-4">
 					<div class="name mb-4">
 						Выбрать автомобиль
+
+            <!-- {{ DLCatalog|raw }} -->
+
 					</div>
 					<div class="row index-filter-block__body">
 						<div class="col-lg-6 col-md-12">
@@ -166,7 +195,7 @@ ownerTPL: '@T_FILE:partials/wrap',
 noneTPL:'@CODE: <div class="container">
 	<div class="row">
 		<div class="col text-center">
-			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска123</h1>
+			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
 		</div>
 	</div>
 </div>',

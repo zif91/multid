@@ -20,8 +20,12 @@
 {% endif %}
 {% set price_end = runSnippet('_get', {key: 'priceend'}) %}
 {% if not price_end %}
-    {% set price_end = 9999999 %}
+    {% set price_end = 10000000 %}
 {% endif %}
+
+{# Шаг диапазона цен #}
+{% set step = 500000 %}
+
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
@@ -91,11 +95,11 @@ extension: 'twig'
 		<div class="name mb-4">
 			Выбрать автомобиль
 		</div>
-		<div class="row">
-			<div class="col-lg-4 col-md-6">
-				<div class="row mb-4">
-					<div class="col-6">
-						<p class="mb-2">Выберите марку</p>
+		<div class="row index-filter-block__body">
+			<div class="col-lg-6 col-md-12">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<p class="marks-label mb-2">Выберите марку</p>
 						<select class="w-100 px-3" id="marks">
 													<option>Выбрать...</option>
 							{% for item in marks %}
@@ -103,8 +107,8 @@ extension: 'twig'
 							{% endfor %}
 						</select>
 					</div>
-					<div class="col-6">
-						<p class="mb-2">Выберите модель</p>
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<p class="models-label mb-2">Выберите модель</p>
 						<select id="models" class="w-100 px-3">
 							<option>Выбрать...</option>
 						{% for item in models %}
@@ -114,22 +118,53 @@ extension: 'twig'
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4">
-				<p class="mb-2">Цена</p>
-				<div class="flex">
-					<input id="price_start" type="text" id="amount" class="px-2" readonly>
-					<input id="price_end" type="text" id="amount2" class="px-2" readonly>
-				</div>
-				<div id="slider-range" class="mb-4"></div>
-			</div>
-			<div class="col-lg-4">
-				<p class="mb-2"> </p>
-				<div class="flex">
-					<div class="button text-right">
-						<button id="filterbutton">Показать</button>
-					</div>
-				</div>
-			</div>
+
+            {# Диапазоны цен выпадающим списком #}
+            <div class="col-lg-6 col-md-12">
+                <p class="prices-label mb-2">Выберите цену</p>
+                <select id="prices">
+                    <option>Выбрать...</option>
+                    {% for price in range(step, price_end, step) %}
+                        <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <p class="mb-2"> </p>
+                <div class="flex filter-buttons-wrapper">
+                    <div class="button button_find text-right">
+                        <button id="filterbutton">Показать</button>
+                    </div>
+                    <div class="button button_clear text-right">
+                        <button id="clearbutton">Сбросить</button>
+                    </div>
+                </div>
+            </div>
+
+            {# Диапазоны цен слайдером #}
+			{#
+                <div class="col-lg-4">
+                    <p class="mb-2">Цена</p>
+                    <div class="flex">
+                        <input id="price_start" type="text" id="amount" class="px-2" readonly>
+                        <input id="price_end" type="text" id="amount2" class="px-2" readonly>
+                    </div>
+                    <div id="slider-range" class="mb-4"></div>
+                </div>
+            #}
+
+            {# Старая разметка кнопки "Показать" #}
+			{#
+                <div class="col-lg-4">
+                    <p class="mb-2"> </p>
+                    <div class="flex">
+                        <div class="button text-right">
+                            <button id="filterbutton">Показать</button>
+                        </div>
+                    </div>
+                </div>
+            #}
 		</div>
 	</div>
 	{% include('partials/brands.twig') %}
@@ -206,9 +241,13 @@ extension: 'twig'
 document.addEventListener('DOMContentLoaded', function() {
 	const marksSelect = document.querySelector('#marks');
 	const modelsSelect = document.querySelector('#models');
-	const pricestart = document.querySelector('#price_start');
-	const priceend = document.querySelector('#price_end');
+    const pricesSelect = document.querySelector('#prices');
+
+	//const pricestart = document.querySelector('#price_start');
+	//const priceend = document.querySelector('#price_end');
+
 	const filterButton = document.querySelector('#filterbutton');
+    const clearButton = document.querySelector('#clearbutton');
 
     /* Декорируем выпадающий список моделей плагином Choices */
     let choicesModels = new Choices(document.querySelector('#models'), {
@@ -218,11 +257,46 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-	const updateFilterUrl = () => {
+    // Декорируем выпадающий список марок плагином Choices */
+    let choicesMarks = new Choices(document.querySelector('#marks'), {
+        silent: true,
+        searchEnabled: false,
+    });
+
+    // Декорируем выпадающий список цен плагином Choices */
+    let choicesPrices = new Choices(document.querySelector('#prices'), {
+        silent: true,
+        searchEnabled: false,
+        classNames: {
+            containerOuter: 'choices prices',
+        },
+        shouldSort: false,
+    });
+
+	const updateFilterUrl = (e, clear = false) => {
 		const brand = marksSelect.value;
 		const model = modelsSelect.value;
-		const priceStart = pricestart.value;
-		const priceEnd = priceend.value;
+
+        let priceStart = false;
+        let priceEnd = false;
+
+        /* Если выбрана цена */
+        if (pricesSelect.value !== 'Выбрать...') {
+            /* Получаем цены "от" и "до" из атрибута value */
+            priceStart = pricesSelect.value.split(':')[0];
+            priceEnd = pricesSelect.value.split(':')[1];
+        }
+
+        /* Если передан флаг сброса фильтра */
+        if (clear) {
+            // Сбрасываем выбранную цену
+            choicesPrices.destroy();
+            choicesPrices.init();
+        }
+
+        /* Для слайдера диапазона цен */
+        //const priceStart = pricestart.value;
+        //const priceEnd = priceend.value;
 
 		let url = '/katalog-novyh-avtomobilej/?';
 		if (brand && brand !== 'Выбрать...') {
@@ -241,17 +315,30 @@ document.addEventListener('DOMContentLoaded', function() {
 			url += `priceend=${priceEnd}&`;
 		}
 
-		filterButton.disabled = false;
-		filterButton.onclick = function() {
+
+        filterButton.disabled = false;
+
+        // Если передан флаг сброса фильтра
+        if (clear) {
+            url = '/katalog-novyh-avtomobilej/?';
+            filterButton.disabled = true;
+        }
+
+        filterButton.onclick = function() {
 			window.location.href = url.slice(0, -1);
 		};
 	};
 
-	const updateModels = () => {
-		const brand = marksSelect.value;
+	const updateModels = (e, clear = false) => {
+        let url = '';
+	    const brand = marksSelect.value;
 
-		if (brand && brand !== 'Выбрать...') {
-			const url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
+	    // Если выбран какой-либо бренд ИЛИ передан флаг сброса фильтров (true)
+		if (brand && brand !== 'Выбрать...' || clear) {
+		    // Если передан флаг сброса фильтров
+		    if (clear) url = `/katalog-novyh-avtomobilej/`;
+		    // Иначе - выбран какой-либо бренд
+		    else url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
 			$.ajax({
 				url: url,
 				method: 'GET',
@@ -259,6 +346,17 @@ document.addEventListener('DOMContentLoaded', function() {
 			})
 			.done(function(data) {
 				const modelsHtml = $(data).find('#models').html();
+                const marksHtml = $(data).find('#marks').html();
+
+				// Если передан флаг сброса фильтра
+                if(clear) {
+                    // Удаляем декорирование плагином (откат к базовой структуре select-option)
+                    choicesMarks.destroy();
+                    // Вставляем полученные марки в базовый список select-option
+                    $('#marks').html(marksHtml);
+                    // Снова декорируем заполненный новыми значениями список марок
+                    choicesMarks.init();
+                }
 
                 /* Для реализации обновления списка моделей с использованием плагина Choices */
 
@@ -287,10 +385,21 @@ document.addEventListener('DOMContentLoaded', function() {
 		updateFilterUrl();
 	});
 	modelsSelect.addEventListener('change', updateFilterUrl);
-	pricestart.addEventListener('change', updateFilterUrl);
-	priceend.addEventListener('change', updateFilterUrl);
 
-	$("#slider-range").slider({
+    // Обработчик выбора цен
+    pricesSelect.onchange = updateFilterUrl;
+
+    // Обработчик кнопки сброса фильтра
+    // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
+    clearButton.addEventListener('click', (e) => {
+        updateModels(e, true);
+        updateFilterUrl(e, true);
+    });
+
+	//pricestart.addEventListener('change', updateFilterUrl);
+	//priceend.addEventListener('change', updateFilterUrl);
+
+	/*$("#slider-range").slider({
 		range: true,
 		min: 100000,
 		max: 10000000,
@@ -302,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	});
 	$("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
-	$("#price_end").val($("#slider-range").slider("values", 1) + " руб.");
+	$("#price_end").val($("#slider-range").slider("values", 1) + " руб.");*/
 
 	filterButton.disabled = true;
 });

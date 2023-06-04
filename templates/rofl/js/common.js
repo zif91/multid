@@ -216,3 +216,57 @@ document.addEventListener("DOMContentLoaded", function() {
   }, 1000);
 });
 
+
+$(function() {
+	var slider = $('#slider-range-max3');
+	const firstPayInput = $('#first-pay');
+	const termInput = $('#amounter2');
+	var carPriceInput = document.getElementById('car-price');
+	const carPrice = parseFloat(carPriceInput.textContent.replace(/[^\d\.]+/g, ''));
+	var summ = 1000000;
+	
+	$('#slider-range-max3').slider({
+		range: 'max',
+		min: 0,
+		max: 1000000,
+		value: carPrice,
+		slide: function(event, ui) {
+		  firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
+		  updatePayment();
+		}
+	});
+
+	firstPayInput.val($('#slider-range-max3').slider('value').toLocaleString('ru-RU') + ' ₽');
+
+	$('#slider-range-max2').slider({
+		range: 'max',
+		min: 1,
+		max: 60,
+		value: 48,
+		slide: function(event, ui) {
+		  termInput.val(ui.value + ' месяцев');
+		  updatePayment();
+		}
+	});
+
+	termInput.val($('#slider-range-max2').slider('value') + ' месяцев');
+
+	function updatePayment() {
+		const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+		const term = parseFloat(termInput.val()) || 0;
+		let coefficient = 1.24;
+
+		const payment2 = (carPrice - firstPay) / term * coefficient;
+		const payment = Math.ceil(payment2);
+
+		$('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' ₽');
+		$('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
+		$('#summ').text(summ.toLocaleString('ru-RU') + ' ₽');
+		$('#paymentSpan2').text(payment.toLocaleString('ru-RU') + ' ₽');	
+	}
+	
+	updatePayment();
+	
+	firstPayInput.on('input', updatePayment);
+	termInput.on('change', updatePayment);
+});

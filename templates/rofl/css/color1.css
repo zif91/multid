@@ -34,6 +34,22 @@
   border: 1px solid #d93e3a;
   color: #d93e3a;
 }
+
+.item-page .credit-block .item .ui-widget-content {
+  background: #b71f25;
+}
+.item-page .credit-block .item .ui-state-default,
+.item-page .credit-block .item .ui-widget-content .ui-state-default,
+.item-page .credit-blockc .item .ui-widget-header .ui-state-default,
+.item-page .credit-block .item .ui-button,
+.item-page .credit-block .item html .ui-button.ui-state-disabled:hover,
+.item-page .credit-block .item html .ui-button.ui-state-disabled:active {
+  border: 3px solid #b71f25;
+}
+
+.item-page .credit-block button {
+  background: #b71f25;
+}
 @media (max-width: 767px) {
   .header .phone {
     background: url('../img/phone2.svg');

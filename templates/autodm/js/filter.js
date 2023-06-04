@@ -341,6 +341,7 @@ $(function() {
                         from: from,
                         to: to
                     });
+                    Filter.build();
                 })
             }
 

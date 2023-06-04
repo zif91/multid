@@ -3445,7 +3445,7 @@ background: #e6eef8;  /* fallback for old browsers */
 }
 
 .modal-header {border-bottom: 0px !important}
-
+.modal-footer {border-top: 0px !important;}
 .float-button {
   position: fixed;
   bottom: 30px;

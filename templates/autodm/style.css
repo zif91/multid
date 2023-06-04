@@ -3428,8 +3428,16 @@ background: #e6eef8;  /* fallback for old browsers */
   .callphone-form  input[type='tel'] {
     background: #ffffff url(https://61bu-automobile.ru/templates/autoex/img/inp2.svg) no-repeat 16px 50%;
 }
-
 .callphone-form input[type='tel'] {
+    height: 70px;
+    border-radius: 12px;
+     padding: 0 20px 0 64px; 
+    font-weight: 500;
+}
+.callphone-form  input[type='text'] {
+    background: #ffffff url(https://61bu-automobile.ru/templates/autoex/img/inp1.svg) no-repeat 16px 50%;
+}
+.callphone-form input[type='text'] {
     height: 70px;
     border-radius: 12px;
      padding: 0 20px 0 64px; 

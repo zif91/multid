@@ -1385,6 +1385,7 @@ main {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
+.form-calculate2,
 .item-page .credit-block {
   /* background: linear-gradient(96.72deg, #0f1723 0%, #25344b 100%); */
   background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
@@ -1448,6 +1449,7 @@ main {
   font-size: 18px;
 } */
 
+.form-calculate2 .credit-title,
 .item-page .credit-block .field .credit-title {
   font-family: 'Montserrat';
   font-style: normal;
@@ -1457,6 +1459,7 @@ main {
   color: #F2F3F7;
 }
 
+.form-calculate2 .credit-cont,
 .item-page .credit-block .field .credit-cont {
   font-family: 'Montserrat';
   font-style: normal;
@@ -1466,6 +1469,7 @@ main {
   color: #F2F3F7;
 }
 
+.form-calculate2 .discount,
 .item-page .credit-block .discount {
     width: 235px;
     height: 17px;
@@ -1478,11 +1482,8 @@ main {
     color: #D12D1E;
 }
 
+.form-calculate2 .credit-monthly,
 .item-page .credit-block .credit-monthly{
-  width: 197px;
-  height: 19px;
-  left: 1039px;
-  top: 285px;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
@@ -1492,6 +1493,7 @@ main {
   color: #FFFFFF;
 }
 
+.form-calculate2 .credit-amounts,
 .item-page .credit-block .credit-amounts{
   font-family: 'Montserrat';
   font-style: normal;
@@ -1508,6 +1510,7 @@ main {
   border-radius: 8px;
 }
 
+.form-calculate2 .personal-text,
 .item-page .credit-block .personal-text{
   font-family: 'Montserrat';
   font-style: normal;
@@ -1519,6 +1522,7 @@ main {
   color: #FFFFFF;
 }
 
+.form-calculate2 .personal-link,
 .item-page .credit-block .personal-link{
   display: inline;
 }
@@ -1546,12 +1550,14 @@ main {
   line-height: 28px;
 }
 
+.form-calculate2 .item,
 .item-page .credit-block .item {
   font-size: 16px;
   line-height: 62px;
   color: #81869A;  
 }
 
+.form-calculate2 .item input[type='text'],
 .item-page .credit-block .item input[type='text'] {
   width: 100%;
   height: 40px;
@@ -1575,6 +1581,7 @@ main {
   left: 128px;
 }
 
+.form-calculate2 .title,
 .item-page .credit-block .title{
   width: 182px;
   height: 16px;
@@ -1591,6 +1598,15 @@ main {
   height: 16px;
   left: 206px;
   margin-top: 44px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.form-calculate2 .credit-text{
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -1629,12 +1645,28 @@ main {
   left: 1%;
   transform: translateX(-50%);
   z-index: 0;
-  }
+}
+
+.form-calculate2 .marker-0::after{
+  content: '';
+  width: 1px;
+  height: 6px;
+  background: #F2F3F7;
+  position: absolute;
+  top: 4px;
+  left: 1%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
 
 
+
+.form-calculate2 .marker-25,
 .item-page .credit-block.marker-25{
   left: 25%;
 }
+
+.form-calculate2 .marker-25,
 .item-page .credit-block .marker .marker-25::after{
 content: '';
   width: 1px;
@@ -1646,10 +1678,12 @@ content: '';
   transform: translateX(-50%);
 }
 
+.form-calculate2 .marker-50,
 .item-page .credit-block.marker-50{
   left: 50%;
 }
 
+.form-calculate2 .marker-50::after,
 .item-page .credit-block .marker .marker-50::after{
   content: '';
     width: 1px;
@@ -1666,6 +1700,7 @@ content: '';
   transform: translateX(50%);
 }
 
+.form-calculate2 .marker-100::after,
 .item-page .credit-block .marker .marker-100::after{
     content: '';
     width: 1px;
@@ -1677,6 +1712,7 @@ content: '';
     transform: translateX(-50%);
 }
 
+  .form-calculate2 .month .marker-1::after,
   .item-page .credit-block .month .marker-1::after{
     content: '';
     width: 1px;
@@ -1688,6 +1724,7 @@ content: '';
     transform: translateX(-50%);
   }
 
+    .form-calculate2 .month .marker-6::after,
     .item-page .credit-block .month .marker-6::after{
       content: '';
       width: 1px;
@@ -1699,6 +1736,7 @@ content: '';
       transform: translateX(-50%);
     }
 
+.form-calculate2 .month .marker-12::after,
 .item-page .credit-block .month .marker-12::after{
    content: '';
    width: 1px;
@@ -1710,6 +1748,7 @@ content: '';
    transform: translateX(-50%);
 }
 
+.form-calculate2 .month .marker-18::after,
 .item-page .credit-block .month .marker-18::after{
       content: '';
       width: 1px;
@@ -1721,6 +1760,7 @@ content: '';
       transform: translateX(-50%);
 }
 
+.form-calculate2 .month .marker-24::after,
 .item-page .credit-block .month .marker-24::after{
     content: '';
     width: 1px;
@@ -1732,6 +1772,7 @@ content: '';
     transform: translateX(-50%);
 }
 
+.form-calculate2 .marker-30::after,
 .item-page .credit-block .month .marker-30::after{
   content: '';
   width: 1px;
@@ -1742,6 +1783,8 @@ content: '';
   left: 49%;
   transform: translateX(-50%);
 }
+
+.form-calculate2 .month .marker-36::after,
 .item-page .credit-block .month .marker-36::after{
   content: '';
   width: 1px;
@@ -1753,6 +1796,7 @@ content: '';
   transform: translateX(-50%);
 }
 
+.form-calculate2 .month .marker-42::after,
 .item-page .credit-block .month .marker-42::after{
   content: '';
   width: 1px;
@@ -1764,6 +1808,7 @@ content: '';
   transform: translateX(-50%);
 }
 
+.form-calculate2 .month .marker-48::after,
 .item-page .credit-block .month .marker-48::after{
   content: '';
   width: 1px;
@@ -1775,6 +1820,7 @@ content: '';
   transform: translateX(-50%);
 }
 
+.form-calculate2 .month .marker-54::after,
 .item-page .credit-block .month .marker-54::after{
   content: '';
   width: 1px;
@@ -1786,6 +1832,7 @@ content: '';
   transform: translateX(-50%);
 }
 
+.form-calculate2 .month .marker-60::after,
 .item-page .credit-block .month .marker-60::after{
   content: '';
   width: 1px;
@@ -1800,11 +1847,8 @@ content: '';
 .item-page .credit-block .hr{
   width: 100%;
   height: 1px;
-  background-color: #002334;
-  
+  background-color: #002334;  
 }
-
-
 
   .item-page .credit-block .number-25{
     position: relative;
@@ -1824,11 +1868,13 @@ content: '';
   color: #838383;
 }
 
+.form-calculate2 .number-25,
 .item-page .credit-block .number-25{
    position: relative;
    left: -2%;  
 }
 
+.form-calculate2 .number-50,
 .item-page .credit-block .number-50{
   position: relative;
   left:-7%
@@ -1853,21 +1899,25 @@ content: '';
   color: #838383;
 }
 
+.form-calculate2 .month-12,
 .item-page .credit-block .month-12{
   position: relative;
   left:18px;
 }
 
+.form-calculate2 .month-24,
 .item-page .credit-block .month-24{
   position: relative;
   left:18px;
 }
 
+.form-calculate2 .month-36,
 .item-page .credit-block .month-36{
   position: relative;
   left:18px;
 }
 
+.form-calculate2 .month-48,
 .item-page .credit-block .month-48{
   position: relative;
   left:18px;
@@ -1882,6 +1932,39 @@ content: '';
   color: #000;
 }
 
+.form-calculate2 .number-0,
+.form-calculate2 .number-25,
+.form-calculate2 .number-50,
+.form-calculate2 .number-100{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: right;
+  color: #838383;
+}
+
+.form-calculate2 .month-6,
+.form-calculate2 .month-12,
+.form-calculate2 .month-18,
+.form-calculate2 .month-24,
+.form-calculate2 .month-30,
+.form-calculate2 .month-36,
+.form-calculate2 .month-42,
+.form-calculate2 .month-48,
+.form-calculate2 .month-54,
+.form-calculate2 .month-60{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #838383;
+}
+
+.form-calculate2 .item .ui-widget.ui-widget-content,
 .item-page .credit-block .item .ui-widget.ui-widget-content {
   border: 0;
   margin-bottom: 15px;
@@ -1889,6 +1972,7 @@ content: '';
   z-index: 1;
 }
 
+.form-calculate2 .item .ui-slider-horizontal,
 .item-page .credit-block .item .ui-slider-horizontal {
   height: 4px;
 }
@@ -1899,6 +1983,24 @@ content: '';
 .item-page .credit-block .item .ui-button,
 .item-page .credit-block .item html .ui-button.ui-state-disabled:hover,
 .item-page .credit-block .item html .ui-button.ui-state-disabled:active {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: #fff;
+  width: 16px;
+  height: 16px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: -2px 0 0 -8px;
+}
+
+.form-calculate2 .item .ui-state-default,
+.form-calculate2 .item .ui-widget-content .ui-state-default,
+.form-calculate2 .item .ui-widget-header .ui-state-default,
+.form-calculate2 .item .ui-button,
+.form-calculate2 .item html .ui-button.ui-state-disabled:hover,
+.form-calculate2 .item html .ui-button.ui-state-disabled:active {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -1991,6 +2093,7 @@ content: '';
 }
 
 @media (max-width: 1199px) {
+  .form-calculate2,
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
     border-radius: 14px;
@@ -2020,6 +2123,7 @@ content: '';
 }
 
 @media (max-width: 991px) {
+  .form-calculate2,
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
     border-radius: 14px;
@@ -2109,6 +2213,7 @@ content: '';
 }
 
 @media (max-width: 767px) {
+  .form-calculate2,
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
     border-radius: 14px;

@@ -190,7 +190,7 @@ controller: 'catalog_filters',
 display: 20,
 parents: catalog_number,
 depth: 2,
-tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
+tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type,model',
 ownerTPL: '@T_FILE:partials/wrap',
 noneTPL:'@CODE: <div class="container">
 	<div class="row">
@@ -208,7 +208,7 @@ TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class
 TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
 tvSortType: 'UNSIGNED',
 addWhereList: 'c.template=28',
-filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) |raw }}
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) |raw }}
 			</div>
 		</div>
 		    {% include('partials/banks.twig') %}

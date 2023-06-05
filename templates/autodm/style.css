@@ -1352,10 +1352,6 @@ color:red;
   color: #ABAFBD;
 }
 
-.link-more {
-    color: #ABAFBD;
-}
-
 .navi {
   padding: 50px 0;
   font-size: 14px;
@@ -1514,26 +1510,11 @@ color:red;
   border-radius: 10px;
 }
 
-.item-page .price-block {
-    display: flex;
-    flex-direction: row;
-    gap: 16px
-}
-
-.price-block .price {
-    margin-bottom: 50px;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 42px;
-}
-
-.price-block .oldprice {
-    margin-bottom: 50px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 42px;
-    text-decoration: line-through;
-    color: #ccc;
+.item-page .price {
+  margin-bottom: 50px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
 }
 
 .item-page .buttons {
@@ -2939,14 +2920,6 @@ color:red;
     line-height: 28px;
   }
 
-  .item-page .oldprice {
-    margin-bottom: 25px;
-    font-size: 18px;
-    line-height: 28px;
-    text-decoration: line-through;
-    color: #ccc;
-  }
-
   .item-page .icons-block .item {
     font-size: 14px;
     line-height: 16px;
@@ -3431,25 +3404,48 @@ color:red;
   top: 4px;
 }
 .callphone-form
-{background: #457fca;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #5691c8, #457fca);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+{
+background: #e6eef8;  /* fallback for old browsers */
 
 }
 .callphone-form .modal-title
-{color: white;
+{color: #0077b3;
     margin-bottom: 0;
+    margin: 0px 0px 0px 15px;
     line-height: 1.5;
-    font-size: 1.5em;
+    font-size: 1.45em;
+}
   }
   .callphone-form p {
-    color: white;
+    color: #0077b3;
   }
 
   .callphone-form label {
-    color: white;
+    color: #00aaff;
   }
+  .callphone-form .form-control {
+    padding: 1.375rem 0.75rem;}
+  .callphone-form  input[type='tel'] {
+    background: #ffffff url(https://61bu-automobile.ru/templates/autoex/img/inp2.svg) no-repeat 16px 50%;
+}
+.callphone-form input[type='tel'] {
+    height: 70px;
+    border-radius: 12px;
+     padding: 0 20px 0 64px; 
+    font-weight: 500;
+}
+.callphone-form  input[type='text'] {
+    background: #ffffff url(https://61bu-automobile.ru/templates/autoex/img/inp1.svg) no-repeat 16px 50%;
+}
+.callphone-form input[type='text'] {
+    height: 70px;
+    border-radius: 12px;
+     padding: 0 20px 0 64px; 
+    font-weight: 500;
+}
 
+.modal-header {border-bottom: 0px !important}
+.modal-footer {border-top: 0px !important;}
 .float-button {
   position: fixed;
   bottom: 30px;

@@ -4,7 +4,7 @@
 			<div class="block-name mb-4">
 				Остались вопросы или нужна помощь?
 			</div>
-            
+
 			<div class="top-text mb-4 pb-2">
 				Оставьте заявку на консультацию - и наши менеджеры придут вам на помощь
 			</div>
@@ -23,9 +23,21 @@
 				</div>
 			</div>
 			<div class="agree position-relative">
-				<input type="checkbox" id="agree" class="position-absolute">
+				<input type="checkbox" id="agree" class="position-absolute" required>
 				<label for="agree" class="d-block pl-4">Я даю согласие на обработку персональных данных</label>
 			</div>
+            <div class="agree position-relative">
+                <input type="checkbox" id="check_nationality" class="position-absolute" required>
+                <label for="check_nationality" class="d-block pl-4">Являюсь гражданином РФ</label>
+            </div>
             </form>
 
 		</div>
+
+<style>
+    .agree input[type="checkbox"] {
+        display: block;
+        appearance: auto;
+    }
+
+</style>

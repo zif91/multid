@@ -1386,7 +1386,8 @@ main {
 }
 
 .item-page .credit-block {
-  background: linear-gradient(96.72deg, #0f1723 0%, #25344b 100%);
+  /* background: linear-gradient(96.72deg, #0f1723 0%, #25344b 100%); */
+  background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
   border-radius: 14px;
 }
 
@@ -1447,18 +1448,34 @@ main {
   font-size: 18px;
 } */
 
-.item-page .credit-block .discount {
-  width: 235px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 25px;
-  line-height: 17px;
+.item-page .credit-block .field .credit-title {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: right;
-  color: #D12D1E;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  color: #F2F3F7;
+}
+
+.item-page .credit-block .field .credit-cont {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #F2F3F7;
+}
+
+.item-page .credit-block .discount {
+    width: 235px;
+    height: 17px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: right;
+    color: #D12D1E;
 }
 
 .item-page .credit-block .credit-monthly{
@@ -1475,19 +1492,44 @@ main {
   color: #FFFFFF;
 }
 
+.item-page .credit-block .credit-amounts{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: right;
+  color: #FFFFFF;
+}
+
+.form-calculate2 .btn-danger,
 .item-page .credit-block .btn-danger {
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 17px 79px;
-gap: 10px;
-width: 500px;
-height: 51px;
-left: 738px;
-top: 374px;
-background: #D12D1E;
-border-radius: 8px;
+  background: #D12D1E;
+  border-radius: 8px;
+}
+
+.item-page .credit-block .personal-text{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  align-items: center;
+  letter-spacing: 0.2px;
+  color: #FFFFFF;
+}
+
+.item-page .credit-block .personal-link{
+  display: inline;
+}
+
+.item-page .credit-block .application{
+  position: relative;
+  width: 100%;
+}
+
+.item-page .credit-block.field .label{
+  width: 100%;
 }
 
 .item-page .credit-block {
@@ -1533,28 +1575,28 @@ border-radius: 8px;
   left: 128px;
 }
 
-.item-page .credit-block .title1{
-width: 182px;
-height: 16px;
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
-color: #FFFFFF; 
+.item-page .credit-block .title{
+  width: 182px;
+  height: 16px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF; 
 }
 
 .item-page .credit-block .title2{
-width: 105px;
-height: 16px;
-left: 206px;
-margin-top: 44px;
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
-color: #FFFFFF;
+  width: 105px;
+  height: 16px;
+  left: 206px;
+  margin-top: 44px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
 }
 
 .item-page .credit-block.marker{
@@ -1761,7 +1803,7 @@ content: '';
   background-color: #002334;
   
 }
-.item-page .credit-block .number-25
+
 
 
   .item-page .credit-block .number-25{
@@ -1949,6 +1991,11 @@ content: '';
 }
 
 @media (max-width: 1199px) {
+  .item-page .credit-block {
+    background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
+    border-radius: 14px;
+  }
+
   .header ul li {
     margin-right: 20px;
   }
@@ -1973,6 +2020,11 @@ content: '';
 }
 
 @media (max-width: 991px) {
+  .item-page .credit-block {
+    background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
+    border-radius: 14px;
+  }
+
   .header .btn {
     display: none;
   }
@@ -2057,6 +2109,11 @@ content: '';
 }
 
 @media (max-width: 767px) {
+  .item-page .credit-block {
+    background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
+    border-radius: 14px;
+  }
+
   .menubg {
     position: fixed;
     width: 100%;

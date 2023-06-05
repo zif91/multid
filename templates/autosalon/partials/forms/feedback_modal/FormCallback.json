@@ -10,6 +10,6 @@
   "subject": "Купить автомобиль: Наличные",
   "prepare": "prepareFormConfig",
   "prepareAfterProcess": "CatchFormResult",
-  
+
   "prepareProcess": "saveFormData"
 }

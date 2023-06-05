@@ -6,13 +6,13 @@
     "mobile_tel": {
       "required": "Обязательно к заполнению"
     },
-    "agree": {
-      "required": "Обязательно"
+    "check_nationality": {
+      "required": "Обязательно к заполнению"
     }
   },
   "subject": "Купить автомобиль: Наличные",
   "prepare": "prepareFormConfig",
   "prepareAfterProcess": "CatchFormResult",
-  
+
   "prepareProcess": "saveFormData"
 }

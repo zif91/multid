@@ -2,6 +2,9 @@
   "rules": {
     "mobile_tel": {
       "required": "Обязательно к заполнению"
+    },
+    "check_nationality": {
+      "required": "Обязательно к заполнению"
     }
   },
   "subject": "Купить автомобиль",

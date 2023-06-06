@@ -100,37 +100,36 @@ $(document).ready(function() {
   });
   $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ).toLocaleString('ru-RU') + " р." );
 
-$( "#slider-range-max2" ).slider({
+  $( "#slider-range-max2" ).slider({
     range: "max",
     min: 12,
     max: 88,
     value: 88, // задаем значение по умолчанию
     slide: function( event, ui ) {
-      $( "#amount2" ).val( ui.value + " месяцев");
+      amount2Input.val( ui.value );
       updatePayment();
     }
-});
-  $( "#amount2" ).val( $( "#slider-range-max2" ).slider( "value" ).toLocaleString('ru-RU') + " р." );
+  });
+  amount2Input.val( $( "#slider-range-max2" ).slider( "value" ) + " месяцев" );
 
-// устанавливаем значение по умолчанию в поле "Срок кредита"
-function updatePayment() {
-  var amountInput = $("#amount");
-  if (amountInput.length > 0 && typeof amountInput.val() !== "undefined") {
+  // устанавливаем значение по умолчанию в поле "Срок кредита"
+  updatePayment();
+
+  function updatePayment() {
     var amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
-    var amount2Input = $("#amount2");
-    var paymentSpan = $("#payment");
     var amount2 = parseFloat(amount2Input.val()) || 0;
-    var coefficient = 1.24;
-    
-    // Добавьте проверку, чтобы избежать деления на ноль
+    var paymentSpan = $('#payment');
+
     if (amount2 === 0) {
       paymentSpan.text('0 р/мес.');
     } else {
-      var payment = (amount) / amount2 / 12 * coefficient;
+      var coefficient = 1.24;
+      var payment = amount / amount2 * coefficient;
       paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
     }
   }
-}
+});
+
 
 
 

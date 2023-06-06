@@ -117,11 +117,10 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 {% block SCRIPTS %}
 <script src="static/js/choices.min.js"></script>
 <script src="static/js/select2.js"></script>
-<script type="text/javascript">
-  $(function() {
+<script>
+  $(document).ready(function() {
     const select = $('.-select');
     const programName = $('#program-name');
-    programName.text("Не выбрана программа кредитования"); // устанавливаем значение по умолчанию
     const amountInput = $('#amounter');
     const firstPayInput = $('#first-pay');
     const termInput = $('#amounter2');
@@ -134,16 +133,11 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
       max: price,
       value: 500000,
       slide: function(event, ui) {
-        amountInput.val(formatAmount(ui.value));
+        amountInput.val(ui.value.toLocaleString('ru-RU') + ' р.');
         updatePayment();
         updateFirstPaySlider(ui.value);
-      },
-      change: function(event, ui) {
-        updatePayment();
       }
     });
-
-    amountInput.val(formatAmount($('#slider-range-max').slider('value')));
 
     $('#slider-range-max3').slider({
       range: 'max',
@@ -151,15 +145,10 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
       max: 400000,
       value: 300000,
       slide: function(event, ui) {
-        firstPayInput.val(formatAmount(ui.value));
-        updatePayment();
-      },
-      change: function(event, ui) {
+        firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' р.');
         updatePayment();
       }
     });
-
-    firstPayInput.val(formatAmount($('#slider-range-max3').slider('value')));
 
     $('#slider-range-max2').slider({
       range: 'max',
@@ -169,13 +158,8 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
       slide: function(event, ui) {
         termInput.val(ui.value + ' месяцев');
         updatePayment();
-      },
-      change: function(event, ui) {
-        updatePayment();
       }
     });
-
-    termInput.val($('#slider-range-max2').slider('value') + ' месяцев');
 
     function updateFirstPaySlider(maxValue) {
       const firstPaySlider = $('#slider-range-max3');
@@ -183,14 +167,14 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
       const newMaxValue = Math.min(maxValue, price);
       if (firstPayValue > newMaxValue) {
         firstPaySlider.slider('value', newMaxValue);
-        firstPayInput.val(formatAmount(newMaxValue));
+        firstPayInput.val(newMaxValue.toLocaleString('ru-RU') + ' р.');
       }
       firstPaySlider.slider('option', 'max', newMaxValue);
     }
 
     function updatePayment() {
-      const amount = parseAmount(amountInput.val());
-      let firstPay = parseAmount(firstPayInput.val());
+      const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
+      const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
       const term = parseFloat(termInput.val()) || 0;
       const programValue = select.val();
       let coefficient = 1.24;
@@ -205,14 +189,13 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         // Добавить обработку для остальных программ
       }
 
-      firstPay = Math.min(firstPay, amount); // Устанавливаем первоначальный платеж не больше суммы кредита
-      let payment = (amount - firstPay) / term * coefficient;
-      payment = Math.max(payment, amount); // Устанавливаем минимальный платеж равным сумме кредита
-      paymentSpan.text(formatAmount(payment) + ' р/мес.');
-      $('#first-pay2').text(formatAmount(firstPay) + ' р.');
-      $('#summ').text(formatAmount(amount) + ' р.');
+      const payment = Math.max((amount - firstPay) / term * coefficient, amount);
+
+      paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+      $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' р.');
+      $('#summ').text(amount.toLocaleString('ru-RU') + ' р.');
       $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
-      $('#paymentSpan2').text(formatAmount(payment) + ' р/мес.');
+      $('#paymentSpan2').text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
 
       const selectedOption = select.find('option:selected');
       const programNameText = selectedOption.text().split('(')[0].trim();
@@ -225,16 +208,9 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
     firstPayInput.on('input', updatePayment);
     termInput.on('change', updatePayment);
     select.on('change', updatePayment);
-
-    function formatAmount(value) {
-      return value.toLocaleString('ru-RU') + ' р.';
-    }
-
-    function parseAmount(value) {
-      return parseFloat(value.replace(/\D/g, '')) || 0;
-    }
   });
 </script>
+
 
 
 {% endblock %}

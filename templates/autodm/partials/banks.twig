@@ -9,45 +9,14 @@
             <div class="col">
                 <div class="brands_slider_container">
                     <div class="owl-carousel owl-theme brands_slider">
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center">
-                                <img src="{{  runSnippet('phpthumb', {input: '/assets/images/logos/bank-soyuz.svg', options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                            </div>
-                        </div>
-                         <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center">
-                                <img src="{{  runSnippet('phpthumb', {input: '/assets/images/logos/bank-zenit.svg', options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                            </div>
-                        </div>
-                         <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center">
-                                <img src="{{  runSnippet('phpthumb', {input: '/assets/images/logos/Asset-1.svg', options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                            </div>
-                        </div>
-                         <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center">
-                                <img src="{{  runSnippet('phpthumb', {input: '/assets/images/logos/vtb.svg', options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                            </div>
-                        </div>
-                         <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center">
-                                <img src="{{  runSnippet('phpthumb', {input: '/assets/images/logos/logo-alfa.svg', options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                            </div>
-                        </div>
-                         <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center">
-                                <img src="{{  runSnippet('phpthumb', {input: '/assets/images/logos/tinkoff.svg', options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="{{  runSnippet('phpthumb', {input: '/assets/images/logos/Vector.svg', options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                            </div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center">
-                                <img src="{{  runSnippet('phpthumb', {input: '/assets/images/logos/logo-sber.svg', options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                            </div>
-                        </div>
+                        {% for item in bank_logos["fieldValue"] %}
+    <div class="owl-item">
+        <div class="brands_item d-flex flex-column justify-content-center">
+            <img src="{{ runSnippet('phpthumb', {input: item.image, options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+        </div>
+    </div>
+{% endfor %}
+
                     </div> <!-- Brands Slider Navigation -->
                     <div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
                     <div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>

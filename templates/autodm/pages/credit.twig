@@ -174,16 +174,16 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
     termInput.val($('#slider-range-max2').slider('value') + ' месяцев');
 
     function updateFirstPaySlider(maxValue) {
-      const firstPaySlider = $('#slider-range-max3');
-      const firstPayValue = parseFloat(firstPaySlider.slider('value'));
-      const newMaxValue = Math.min(maxValue, price);
-      const maxValueAllowed = Math.floor(maxValue * 0.9);
-      if (firstPayValue > maxValueAllowed) {
-        firstPaySlider.slider('value', maxValueAllowed);
-        firstPayInput.val(maxValueAllowed.toLocaleString('ru-RU') + ' р.');
-      }
-      firstPaySlider.slider('option', 'max', maxValueAllowed);
-    }
+  const firstPaySlider = $('#slider-range-max3');
+  const firstPayValue = parseFloat(firstPaySlider.slider('value'));
+  const newMaxValue = Math.min(maxValue * 0.9, price);
+  if (firstPayValue > newMaxValue) {
+    firstPaySlider.slider('value', newMaxValue);
+    firstPayInput.val(newMaxValue.toLocaleString('ru-RU') + ' р.');
+  }
+  firstPaySlider.slider('option', 'max', newMaxValue);
+}
+
 
     function updatePayment() {
       const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;

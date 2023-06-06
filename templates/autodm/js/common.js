@@ -125,7 +125,7 @@ function updatePayment() {
     if (amount2 === 0) {
       paymentSpan.text('0 р/мес.');
     } else {
-      var payment = (amount) / amount2 * coefficient;
+      var payment = (amount) / amount2 / 12 * coefficient;
       paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
     }
   }

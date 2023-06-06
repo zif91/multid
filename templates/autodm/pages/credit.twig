@@ -195,6 +195,8 @@ $(function() {
     }
     firstPayInput.val(newFirstPayment.toLocaleString('ru-RU') + ' р.');
     $('#first-pay2').text(newFirstPayment.toLocaleString('ru-RU') + ' р.');
+    $('#summ').text(formatAmount(amount) + ' р.');
+    $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
   }
 
   function updatePayment() {

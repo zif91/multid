@@ -144,17 +144,19 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
     amountInput.val($('#slider-range-max').slider('value').toLocaleString('ru-RU') + ' р.');
 
     $('#slider-range-max3').slider({
-      range: 'max',
-      min: 0,
-      max: 400000,
-      value: 300000,
-      slide: function(event, ui) {
-        const maxValue = parseFloat(amountInput.val().replace(/\D/g, '')) * 0.9;
-        const newValue = Math.min(ui.value, maxValue);
-        firstPayInput.val(newValue.toLocaleString('ru-RU') + ' р.');
-        updatePayment();
-      }
-    });
+  range: 'max',
+  min: 0,
+  max: 400000,
+  value: 300000,
+  slide: function(event, ui) {
+    const maxValue = parseFloat(amountInput.val().replace(/\D/g, '')) * 0.9;
+    const newValue = Math.min(ui.value, maxValue);
+    firstPayInput.val(newValue.toLocaleString('ru-RU') + ' р.');
+    firstPayInput.trigger('input'); // добавляем эту строку для вызова обработчика ввода и обновления значений
+    updatePayment();
+  }
+});
+
 
     firstPayInput.val($('#slider-range-max3').slider('value').toLocaleString('ru-RU') + ' р.');
 

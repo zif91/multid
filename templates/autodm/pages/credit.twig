@@ -127,8 +127,6 @@ $(function() {
   const termInput = $('#amounter2');
   const paymentSpan = $('#payment2');
   const stavka = $('#percent');
-  const summElement = $('#summ');
-  const mesElement = $('#mes');
   const price = parseFloat($('.price').text().replace(/\s+/g, '').replace(/₽/, ''));
 
   const minFirstPaymentPercentage = 0.1; // Минимальный процент первого платежа от суммы кредита
@@ -230,8 +228,6 @@ $(function() {
     }
     paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
     stavka.text(programValue + ' %');
-    summElement.text(amount.toLocaleString('ru-RU') + ' р.');
-    mesElement.text(term.toLocaleString('ru-RU') + ' мес.');
   }
 
   updatePayment();
@@ -257,14 +253,7 @@ $(function() {
   termInput.on('change', updatePayment);
   select.on('change', updatePayment);
 });
-<<<<<<< HEAD
-=======
 
-
-<<<<<<< HEAD
->>>>>>> parent of 6bd383b (Update credit.twig)
-=======
->>>>>>> parent of 6bd383b (Update credit.twig)
 </script>
 
 

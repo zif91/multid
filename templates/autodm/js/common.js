@@ -112,9 +112,6 @@ $( "#slider-range-max2" ).slider({
 });
 
 // устанавливаем значение по умолчанию в поле "Срок кредита"
-$( "#amount2" ).val( $( "#slider-range-max2" ).slider( "value" ) + " месяцев" );
-
-
 function updatePayment() {
   var amountInput = $("#amount");
   if (amountInput.length > 0 && typeof amountInput.val() !== "undefined") {
@@ -122,10 +119,18 @@ function updatePayment() {
     var amount2Input = $("#amount2");
     var paymentSpan = $("#payment");
     var amount2 = parseFloat(amount2Input.val()) || 0;
-    var payment = (amount) / amount2 * 1.24;
-    paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+    var coefficient = 1.24;
+    
+    // Добавьте проверку, чтобы избежать деления на ноль
+    if (amount2 === 0) {
+      paymentSpan.text('0 р/мес.');
+    } else {
+      var payment = (amount) / amount2 * coefficient;
+      paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+    }
   }
 }
+
 
 
   // Call the updatePayment function when the page loads and whenever the inputs change

@@ -137,6 +137,9 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         amountInput.val(formatAmount(ui.value));
         updatePayment();
         updateFirstPaySlider(ui.value);
+      },
+      change: function(event, ui) {
+        updatePayment();
       }
     });
 
@@ -150,6 +153,9 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
       slide: function(event, ui) {
         firstPayInput.val(formatAmount(ui.value));
         updatePayment();
+      },
+      change: function(event, ui) {
+        updatePayment();
       }
     });
 
@@ -162,6 +168,9 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
       value: 88,
       slide: function(event, ui) {
         termInput.val(ui.value + ' месяцев');
+        updatePayment();
+      },
+      change: function(event, ui) {
         updatePayment();
       }
     });
@@ -225,4 +234,5 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
     }
   });
 </script>
+
 {% endblock %}

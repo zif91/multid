@@ -124,7 +124,7 @@ $(document).ready(function() {
       paymentSpan.text('0 р/мес.');
     } else {
       var coefficient = 1.24;
-      var payment = amount / amount2 * coefficient;
+      var payment = amount / (amount2 * 12) * coefficient;
       paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
     }
   }

@@ -127,6 +127,8 @@ $(function() {
   const termInput = $('#amounter2');
   const paymentSpan = $('#payment2');
   const stavka = $('#percent');
+  const summElement = $('#summ');
+  const mesElement = $('#mes');
   const price = parseFloat($('.price').text().replace(/\s+/g, '').replace(/₽/, ''));
 
   const minFirstPaymentPercentage = 0.1; // Минимальный процент первого платежа от суммы кредита
@@ -192,11 +194,11 @@ $(function() {
       newFirstPayment = minFirstPayment;
     } else if (newFirstPayment > maxFirstPayment) {
       newFirstPayment = maxFirstPayment;
+    } else if (newFirstPayment > amount) {
+      newFirstPayment = amount;
     }
     firstPayInput.val(newFirstPayment.toLocaleString('ru-RU') + ' р.');
     $('#first-pay2').text(newFirstPayment.toLocaleString('ru-RU') + ' р.');
-    $('#summ').text(formatAmount(amount) + ' р.');
-    $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
   }
 
   function updatePayment() {
@@ -222,6 +224,8 @@ $(function() {
       firstPayInput.val(minFirstPayment.toLocaleString('ru-RU') + ' р.');
     } else if (firstPay > maxFirstPayment) {
       firstPayInput.val(maxFirstPayment.toLocaleString('ru-RU') + ' р.');
+    } else if (firstPay > amount) {
+      firstPayInput.val(amount.toLocaleString('ru-RU') + ' р.'); // Приведение первого платежа к значению суммы кредита
     }
 
     let payment = (amount - firstPay) / term * coefficient;
@@ -230,8 +234,8 @@ $(function() {
     }
     paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
     stavka.text(programValue + ' %');
-    $('#summ').text(formatAmount(amount) + ' р.');
-    $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
+    summElement.text(amount.toLocaleString('ru-RU') + ' р.');
+    mesElement.text(term.toLocaleString('ru-RU') + ' мес.');
   }
 
   updatePayment();
@@ -250,6 +254,8 @@ $(function() {
       firstPayInput.val(minFirstPayment.toLocaleString('ru-RU') + ' р.');
     } else if (firstPay > maxFirstPayment) {
       firstPayInput.val(maxFirstPayment.toLocaleString('ru-RU') + ' р.');
+    } else if (firstPay > amount) {
+      firstPayInput.val(amount.toLocaleString('ru-RU') + ' р.'); // Приведение первого платежа к значению суммы кредита
     }
     updatePayment();
   });
@@ -257,8 +263,6 @@ $(function() {
   termInput.on('change', updatePayment);
   select.on('change', updatePayment);
 });
-
-
 </script>
 
 

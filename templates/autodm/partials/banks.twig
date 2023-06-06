@@ -1,10 +1,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
 {% set bank_logos = runSnippet('DocInfo', {field: 'images', docid: 35531}) | json%}
-{{dump(bank_logos)}}
+{% set headingbank = runSnippet('DocInfo', {field: 'longtitle', docid: 35531}) | raw %}
+
+{#{dump(bank_logos)}#}
 <div class="brands">
     <div class="container">
-        <h2 class='pb-1'> Предложение от более чем 30 банков партнеров</h2>
+        <h2 class='pb-1'> {{headingbank}}</h2>
         <div class="row">
             <div class="col">
                 <div class="brands_slider_container">

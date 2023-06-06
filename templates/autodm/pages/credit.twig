@@ -153,10 +153,10 @@ $(function() {
     max: 400000,
     value: 25000, // Установка исходного значения первого платежа в 25 000 рублей
     slide: function(event, ui) {
-      firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' р.');
-      updateFirstPayment(ui.value);
+      const newFirstPayment = Math.round(ui.value / 100) * 100; // Округляем значение первого платежа до ближайшего целого числа
+      firstPayInput.val(newFirstPayment.toLocaleString('ru-RU') + ' р.');
+      updateFirstPayment(newFirstPayment);
       updatePayment();
-      updateFirstPayment(ui.value);
     }
   });
 
@@ -258,8 +258,6 @@ $(function() {
   termInput.on('change', updatePayment);
   select.on('change', updatePayment);
 });
-
-
 </script>
 
 

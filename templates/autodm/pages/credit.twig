@@ -194,6 +194,7 @@ $(function() {
       newFirstPayment = maxFirstPayment;
     }
     firstPayInput.val(newFirstPayment.toLocaleString('ru-RU') + ' р.');
+    $('#first-pay2').text(newFirstPayment.toLocaleString('ru-RU') + ' р.');
   }
 
   function updatePayment() {
@@ -213,9 +214,11 @@ $(function() {
       // Добавить обработку для остальных программ
     }
 
-    const payment = (amount - firstPay) / term * coefficient;
+    let payment = (amount - firstPay) / term * coefficient;
+    if (isNaN(payment) || !isFinite(payment) || payment < 0) {
+      payment = 0; // Если платеж получается отрицательным или не является числом, устанавливаем его в 0
+    }
     paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
-    $('#first-pay2').text(firstPayInput.val());
     $('#percent').text(programValue + ' %');
     $('#summ').text(amount.toLocaleString('ru-RU') + ' р.');
     $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');

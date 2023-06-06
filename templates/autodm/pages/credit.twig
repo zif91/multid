@@ -154,6 +154,7 @@ $(function() {
     value: 25000, // Установка исходного значения первого платежа в 25 000 рублей
     slide: function(event, ui) {
       firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' р.');
+      updateFirstPayment(ui.value);
       updatePayment();
       updateFirstPayment(ui.value);
     }

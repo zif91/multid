@@ -155,6 +155,7 @@ $(function() {
     slide: function(event, ui) {
       firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' р.');
       updatePayment();
+      updateFirstPayment(ui.value);
     }
   });
 

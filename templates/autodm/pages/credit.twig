@@ -118,7 +118,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 <script src="static/js/choices.min.js"></script>
 <script src="static/js/select2.js"></script>
 <script>
-  $(function() {
+$(function() {
   const select = $('.-select');
   const programName = $('#program-name');
   programName.text("Не выбрана программа кредитования");
@@ -130,7 +130,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
   const price = parseFloat($('.price').text().replace(/\s+/g, '').replace(/₽/, ''));
 
   const minFirstPaymentPercentage = 0.1; // Минимальный процент первого платежа от суммы кредита
-  const initialFirstPayment = 25000; // Исходное значение первого платежа
+  const maxFirstPaymentPercentage = 0.9; // Максимальный процент первого платежа от суммы кредита
 
   $('#slider-range-max').slider({
     range: 'max',
@@ -151,7 +151,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
     range: 'max',
     min: 0,
     max: 400000,
-    value: initialFirstPayment,
+    value: 25000, // Установка исходного значения первого платежа в 25 000 рублей
     slide: function(event, ui) {
       firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' р.');
       updatePayment();
@@ -186,7 +186,13 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 
   function updateFirstPayment(amount) {
     const minFirstPayment = amount * minFirstPaymentPercentage;
-    const newFirstPayment = Math.max(minFirstPayment, initialFirstPayment);
+    const maxFirstPayment = amount * maxFirstPaymentPercentage;
+    let newFirstPayment = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+    if (newFirstPayment < minFirstPayment) {
+      newFirstPayment = minFirstPayment;
+    } else if (newFirstPayment > maxFirstPayment) {
+      newFirstPayment = maxFirstPayment;
+    }
     firstPayInput.val(newFirstPayment.toLocaleString('ru-RU') + ' р.');
   }
 
@@ -209,7 +215,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 
     const payment = (amount - firstPay) / term * coefficient;
     paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
-    $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' р.');
+    $('#first-pay2').text(firstPayInput.val());
     $('#percent').text(programValue + ' %');
     $('#summ').text(amount.toLocaleString('ru-RU') + ' р.');
     $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
@@ -231,10 +237,23 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
     updatePayment();
   });
 
-  firstPayInput.on('input', updatePayment);
+  firstPayInput.on('input', function() {
+    const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
+    const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+    const minFirstPayment = amount * minFirstPaymentPercentage;
+    const maxFirstPayment = amount * maxFirstPaymentPercentage;
+    if (firstPay < minFirstPayment) {
+      firstPayInput.val(minFirstPayment.toLocaleString('ru-RU') + ' р.');
+    } else if (firstPay > maxFirstPayment) {
+      firstPayInput.val(maxFirstPayment.toLocaleString('ru-RU') + ' р.');
+    }
+    updatePayment();
+  });
+
   termInput.on('change', updatePayment);
   select.on('change', updatePayment);
 });
+
 
 </script>
 

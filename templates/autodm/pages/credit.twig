@@ -190,7 +190,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 
     function updatePayment() {
       const amount = parseAmount(amountInput.val());
-      const firstPay = parseAmount(firstPayInput.val());
+      let firstPay = parseAmount(firstPayInput.val());
       const term = parseFloat(termInput.val()) || 0;
       const programValue = select.val();
       let coefficient = 1.24;
@@ -205,6 +205,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         // Добавить обработку для остальных программ
       }
 
+      firstPay = Math.min(firstPay, amount); // Устанавливаем первоначальный платеж не больше суммы кредита
       let payment = (amount - firstPay) / term * coefficient;
       payment = Math.max(payment, amount); // Устанавливаем минимальный платеж равным сумме кредита
       paymentSpan.text(formatAmount(payment) + ' р/мес.');
@@ -234,5 +235,6 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
     }
   });
 </script>
+
 
 {% endblock %}

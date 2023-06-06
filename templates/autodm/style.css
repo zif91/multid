@@ -1352,6 +1352,10 @@ color:red;
   color: #ABAFBD;
 }
 
+.link-more {
+    color: #ABAFBD;
+}
+
 .navi {
   padding: 50px 0;
   font-size: 14px;
@@ -1510,11 +1514,20 @@ color:red;
   border-radius: 10px;
 }
 
-.item-page .price {
-  margin-bottom: 50px;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 42px;
+.price-block .price {
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+}
+
+.price-block .oldprice {
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 42px;
+    text-decoration: line-through;
+    color: #ccc;
 }
 
 .item-page .buttons {
@@ -2915,9 +2928,17 @@ color:red;
   }
 
   .item-page .price {
-    margin-bottom: 25px;
-    font-size: 24px;
-    line-height: 28px;
+      margin-bottom: 25px;
+      font-size: 24px;
+      line-height: 28px;
+  }
+
+  .item-page .oldprice {
+      margin-bottom: 25px;
+      font-size: 18px;
+      line-height: 28px;
+      text-decoration: line-through;
+      color: #ccc;
   }
 
   .item-page .icons-block .item {
@@ -3415,7 +3436,7 @@ background: #e6eef8;  /* fallback for old browsers */
     line-height: 1.5;
     font-size: 1.45em;
 }
-  }
+
   .callphone-form p {
     color: #0077b3;
   }
@@ -3431,7 +3452,7 @@ background: #e6eef8;  /* fallback for old browsers */
 .callphone-form input[type='tel'] {
     height: 70px;
     border-radius: 12px;
-     padding: 0 20px 0 64px; 
+     padding: 0 20px 0 64px;
     font-weight: 500;
 }
 .callphone-form  input[type='text'] {
@@ -3440,7 +3461,7 @@ background: #e6eef8;  /* fallback for old browsers */
 .callphone-form input[type='text'] {
     height: 70px;
     border-radius: 12px;
-     padding: 0 20px 0 64px; 
+     padding: 0 20px 0 64px;
     font-weight: 500;
 }
 

@@ -223,16 +223,21 @@ $(function() {
 	const termInput = $('#amounter2');
 	var carPriceInput = document.getElementById('car-price');
 	const carPrice = parseFloat(carPriceInput.textContent.replace(/[^\d\.]+/g, ''));
-	var summ = 1000000;
+	var summ = carPrice/100*90;
+	var fprice = carPrice/100*10;
 	
 	$('#slider-range-max3').slider({
 		range: 'max',
 		min: 0,
 		max: 1000000,
-		value: carPrice,
+		value: fprice,
 		slide: function(event, ui) {
+		if(ui.value <= summ) {	
 		  firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
 		  updatePayment();
+		}else{
+			return false;
+		}  
 		}
 	});
 
@@ -261,7 +266,7 @@ $(function() {
 
 		$('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' ₽');
 		$('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
-		$('#summ').text(summ.toLocaleString('ru-RU') + ' ₽');
+		$('#summ').text(carPrice.toLocaleString('ru-RU') + ' ₽');
 		$('#paymentSpan2').text(payment.toLocaleString('ru-RU') + ' ₽');	
 	}
 	

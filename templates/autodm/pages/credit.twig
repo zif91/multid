@@ -228,6 +228,8 @@ $(function() {
     }
     paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
     stavka.text(programValue + ' %');
+    $('#summ').text(formatAmount(amount) + ' р.');
+    $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
   }
 
   updatePayment();

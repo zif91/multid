@@ -194,8 +194,6 @@ $(function() {
       newFirstPayment = minFirstPayment;
     } else if (newFirstPayment > maxFirstPayment) {
       newFirstPayment = maxFirstPayment;
-    } else if (newFirstPayment > amount) {
-      newFirstPayment = amount;
     }
     firstPayInput.val(newFirstPayment.toLocaleString('ru-RU') + ' р.');
     $('#first-pay2').text(newFirstPayment.toLocaleString('ru-RU') + ' р.');
@@ -224,8 +222,6 @@ $(function() {
       firstPayInput.val(minFirstPayment.toLocaleString('ru-RU') + ' р.');
     } else if (firstPay > maxFirstPayment) {
       firstPayInput.val(maxFirstPayment.toLocaleString('ru-RU') + ' р.');
-    } else if (firstPay > amount) {
-      firstPayInput.val(amount.toLocaleString('ru-RU') + ' р.'); // Приведение первого платежа к значению суммы кредита
     }
 
     let payment = (amount - firstPay) / term * coefficient;
@@ -254,8 +250,6 @@ $(function() {
       firstPayInput.val(minFirstPayment.toLocaleString('ru-RU') + ' р.');
     } else if (firstPay > maxFirstPayment) {
       firstPayInput.val(maxFirstPayment.toLocaleString('ru-RU') + ' р.');
-    } else if (firstPay > amount) {
-      firstPayInput.val(amount.toLocaleString('ru-RU') + ' р.'); // Приведение первого платежа к значению суммы кредита
     }
     updatePayment();
   });
@@ -263,6 +257,11 @@ $(function() {
   termInput.on('change', updatePayment);
   select.on('change', updatePayment);
 });
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> parent of 6bd383b (Update credit.twig)
 </script>
 
 

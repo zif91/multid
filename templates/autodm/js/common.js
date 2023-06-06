@@ -110,6 +110,7 @@ $( "#slider-range-max2" ).slider({
       updatePayment();
     }
 });
+  $( "#amount2" ).val( $( "#slider-range-max2" ).slider( "value" ).toLocaleString('ru-RU') + " р." );
 
 // устанавливаем значение по умолчанию в поле "Срок кредита"
 function updatePayment() {

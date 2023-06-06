@@ -132,13 +132,5 @@ $(document).ready(function() {
 
 
 
-
-  // Call the updatePayment function when the page loads and whenever the inputs change
-  updatePayment();
-  amountInput.on('input', updatePayment);
-  amount2Input.on('change', updatePayment);
-});
-
-
 //SHORTENED CODE
 

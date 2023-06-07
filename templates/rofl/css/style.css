@@ -1851,8 +1851,8 @@ content: '';
 }
 
   .item-page .credit-block .number-25{
-    position: relative;
-    left: 0%; 
+    position: absolute;
+    left: 23%;
   }
 
 .item-page .credit-block .number-0,
@@ -1868,14 +1868,17 @@ content: '';
   color: #838383;
 }
 
-.form-calculate2 .number-25,
-.item-page .credit-block .number-25{
+.form-calculate2 .number-25{
    position: relative;
    left: -2%;  
 }
 
-.form-calculate2 .number-50,
 .item-page .credit-block .number-50{
+  position: absolute;
+  left: 47%;
+}
+
+.form-calculate2 .number-50{
   position: relative;
   left:-7%
 }

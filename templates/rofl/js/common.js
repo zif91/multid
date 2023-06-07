@@ -223,21 +223,28 @@ $(function() {
 	const termInput = $('#amounter2');
 	var carPriceInput = document.getElementById('car-price');
 	const carPrice = parseFloat(carPriceInput.textContent.replace(/[^\d\.]+/g, ''));
-	var summ = carPrice/100*90;
-	var fprice = carPrice/100*10;
+	var maxfprice =  parseFloat(carPrice/100*90);
+	var maxfprice =  Math.round(maxfprice);
+	var fprice = parseFloat(carPrice/100*10);
+	var fprice = Math.round(fprice);
+	var sum30 = parseFloat(carPrice/100*30);
+	var sum30 = Math.round(sum30);
+	var sum50 = parseFloat(carPrice/2);
+	var sum50 = Math.round(sum50);
+	
 	
 	$('#slider-range-max3').slider({
 		range: 'max',
-		min: 0,
-		max: 1000000,
+		min: fprice,
+		max: maxfprice,
 		value: fprice,
 		slide: function(event, ui) {
-		if(ui.value <= summ) {	
+		// if(ui.value <= summ) {	
 		  firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
 		  updatePayment();
-		}else{
-			return false;
-		}  
+		// }else{
+		// 	return false;
+		// }  
 		}
 	});
 
@@ -274,4 +281,9 @@ $(function() {
 	
 	firstPayInput.on('input', updatePayment);
 	termInput.on('change', updatePayment);
+
+	document.getElementById("10%").textContent = fprice + ' ₽';
+	document.getElementById("90%").textContent = maxfprice + ' ₽';
+	document.getElementById("30%").textContent = sum30 + ' ₽';
+	document.getElementById("50%").textContent = sum50 + ' ₽';	
 });

@@ -85,12 +85,12 @@ $(document).ready(function() {
   var amount2Input = $('#amount2');
   var paymentSpan = $('#payment');
   var priceDiv = $('.price');
-  var price = parseFloat(priceDiv.text().replace(/\s+/g, '').replace(/₽/, ''));
+  var price = parseInt(priceDiv.text().replace(/\s+/g, '').replace(/₽/, ''));
 
   // Add a slider for the car price using the .price element as the maximum value
   $( "#slider-range-max" ).slider({
     range: "max",
-    min: price/40,
+    min: Math.round(price/40),
     max: price,
     value: 500000,
     slide: function( event, ui ) {
@@ -104,7 +104,7 @@ $(document).ready(function() {
     range: "max",
     min: 12,
     max: 88,
-    value: 88, // задаем значение по умолчанию
+    value: 88,
     slide: function( event, ui ) {
       amount2Input.val( ui.value );
       updatePayment();
@@ -112,23 +112,23 @@ $(document).ready(function() {
   });
   amount2Input.val( $( "#slider-range-max2" ).slider( "value" ) + " месяцев" );
 
-  // устанавливаем значение по умолчанию в поле "Срок кредита"
   updatePayment();
 
   function updatePayment() {
-    var amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
-    var amount2 = parseFloat(amount2Input.val()) || 0;
+    var amount = parseInt(amountInput.val().replace(/\D/g, '')) || 0;
+    var amount2 = parseInt(amount2Input.val()) || 0;
     var paymentSpan = $('#payment');
 
     if (amount2 === 0) {
       paymentSpan.text('0 р/мес.');
     } else {
       var coefficient = 1.24;
-      var payment = amount / (amount2 * 12) * coefficient;
-      paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+      var payment = Math.round(amount / (amount2 * 12) * coefficient);
+      paymentSpan.text(payment.toLocaleString('ru-RU') + ' р/мес.');
     }
   }
 });
+
 
 
 

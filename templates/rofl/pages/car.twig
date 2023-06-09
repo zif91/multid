@@ -78,7 +78,7 @@ tpl:'@T_CODE: <div class="gift__item">
     text-decoration: line-through;
     font-size: 18px;
     padding-right: 26px;
-">{{oldprice |number_format(0, '.', ' ') }} ₽</span>
+">{{(resource['oldprice']) |number_format(0, '.', ' ') }} ₽</span>
                         <span id="car-price" class=" mt-2">{{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽</span>
                     </div>
                     <div class="row">

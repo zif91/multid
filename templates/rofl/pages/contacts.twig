@@ -1,7 +1,8 @@
 {% extends 'app.twig' %}
 
 {% block MAIN %}
-    
+{% set content = runSnippet('DocInfo', {field: content, docid: site_start}) %}
+
 <div class="page-name py-4">
     <div class="container">
         <h1 class="h1 m-0">Контакты</h1>
@@ -13,7 +14,7 @@
 
     <div class="s-address section-36">
         <div class="container">
-            {{baseSettings.content | raw}}
+            {{content | raw}}
         </div>
     </div>
 {% endblock %}

@@ -6,7 +6,9 @@
     <div class="section">
         <div class="container">
           <div class="p-3">
-            {{resource.content | raw}}
+            {% set content = runSnippet('DocInfo', {field: "content", docid: site_start}) %} 
+
+            {{content | raw}}
           </div>
         </div>
     </div>

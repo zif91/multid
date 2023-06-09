@@ -9,8 +9,9 @@
 <div class="col-sm-2"
  data-name="{{ data['name'] }}">
     {#<label for="formModel{{ data['id'] }}" class="form-label small">{{ data['caption'] }}{% if data['unit'] %}, {{ data['unit'] }}{% endif %}</label>#}
-     {% if data['id'] == 43 %}
+    {% if data['id'] == 43 %}
         {{ runSnippet('helpers', {'action':'getModelsByMark'}) | raw }}
+        {{baseSettings['catalog_id']}}
     {% else %}
     
 

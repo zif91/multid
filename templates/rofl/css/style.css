@@ -1559,7 +1559,7 @@ main {
 
 .form-calculate2 .item input[type='text'] {
   width: 100%;
-  height: 40px;
+  height: 50px;
   background: none;
   font-weight: 600;
   font-size: 16px;
@@ -2223,11 +2223,94 @@ content: '';
   }
 }
 
+/*  */
 @media (max-width: 767px) {
   .form-calculate2,
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
     border-radius: 14px;
+  }
+
+  .item-page .credit-block .number-0,
+  .item-page .credit-block .number-25,
+  .item-page .credit-block .number-50,
+  .item-page .credit-block .number-100{
+    font-size: 12px;
+  }
+
+  .form-calculate2 .number-0,
+  .item-page .credit-block .number-0{
+    position: relative;
+    right:6px;
+  }
+
+  .item-page .credit-block .month-6,
+  .item-page .credit-block .month-12,
+  .item-page .credit-block .month-18,
+  .item-page .credit-block .month-24,
+  .item-page .credit-block .month-30,
+  .item-page .credit-block .month-36,
+  .item-page .credit-block .month-42,
+  .item-page .credit-block .month-48,
+  .item-page .credit-block .month-54,
+  .item-page .credit-block .month-60{
+    font-size: 12px;
+  }
+
+  .form-calculate2 .month-48,
+  .item-page .credit-block .month-48{
+    position: relative;
+    left:5px;
+  }
+
+  .form-calculate2 .month-24,
+  .item-page .credit-block .month-24{
+    position: relative;
+    left:5px;
+  }
+
+  .form-calculate2 .month-12,
+  .item-page .credit-block .month-12{
+    position: relative;
+    left:4px;
+  }
+
+  .form-calculate2 .month-36,
+  .item-page .credit-block .month-36{
+    position: relative;
+    left:4px;
+  }
+
+  .form-calculate2 .number-0,
+  .form-calculate2 .number-25,
+  .form-calculate2 .number-50,
+  .form-calculate2 .number-100{
+    font-size: 12px;
+  }
+
+  .form-calculate2 .monthnum{
+    position: relative;
+    top: -10px;
+  }
+
+  .form-calculate2 .sum{
+    position: relative;
+    top: -10px;
+  }
+
+  .form-calculate2 .month-6,
+  .form-calculate2 .month-12,
+  .form-calculate2 .month-18,
+  .form-calculate2 .month-24,
+  .form-calculate2 .month-30,
+  .form-calculate2 .month-36,
+  .form-calculate2 .month-42,
+  .form-calculate2 .month-48,
+  .form-calculate2 .month-54,
+  .form-calculate2 .month-60{
+    font-size: 12px;
+    position: relative;
+    top: 1px;
   }
 
   .menubg {
@@ -2585,4 +2668,88 @@ button .close,
 .actions-page img{
   width: 100%;
 }
+}
+
+@media(min-width: 320px) and (max-width: 568px){
+  .item-page .credit-block .number-0,
+  .item-page .credit-block .number-25,
+  .item-page .credit-block .number-50,
+  .item-page .credit-block .number-100{
+    font-size: 8px;
+  }
+
+  .form-calculate2 .number-0,
+  .item-page .credit-block .number-0{
+    position: relative;
+    right:6px;
+  }
+
+  .item-page .credit-block .month-6,
+  .item-page .credit-block .month-12,
+  .item-page .credit-block .month-18,
+  .item-page .credit-block .month-24,
+  .item-page .credit-block .month-30,
+  .item-page .credit-block .month-36,
+  .item-page .credit-block .month-42,
+  .item-page .credit-block .month-48,
+  .item-page .credit-block .month-54,
+  .item-page .credit-block .month-60{
+    font-size: 8px;
+  }
+
+  .form-calculate2 .month-48,
+  .item-page .credit-block .month-48{
+    position: relative;
+    left:5px;
+  }
+
+  .form-calculate2 .month-24,
+  .item-page .credit-block .month-24{
+    position: relative;
+    left:5px;
+  }
+
+  .form-calculate2 .month-12,
+  .item-page .credit-block .month-12{
+    position: relative;
+    left:4px;
+  }
+
+  .form-calculate2 .month-36,
+  .item-page .credit-block .month-36{
+    position: relative;
+    left:4px;
+  }
+
+  .form-calculate2 .number-0,
+  .form-calculate2 .number-25,
+  .form-calculate2 .number-50,
+  .form-calculate2 .number-100{
+    font-size: 12px;
+  }
+
+  .form-calculate2 .monthnum{
+    position: relative;
+    top: -10px;
+  }
+
+  .form-calculate2 .sum{
+    position: relative;
+    top: -10px;
+  }
+
+  .form-calculate2 .month-6,
+  .form-calculate2 .month-12,
+  .form-calculate2 .month-18,
+  .form-calculate2 .month-24,
+  .form-calculate2 .month-30,
+  .form-calculate2 .month-36,
+  .form-calculate2 .month-42,
+  .form-calculate2 .month-48,
+  .form-calculate2 .month-54,
+  .form-calculate2 .month-60{
+    font-size: 12px;
+    position: relative;
+    top: 1px;
+  }
 }

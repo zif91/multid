@@ -2,24 +2,15 @@
     <div class="pb-2 pb-lg-0 fw-bold">{{ data['caption'] }}{% if data['unit'] %}, {{ data['unit'] }}{% endif %}</div>
     <div class="row m-0 d-block filter-checkbox">{{ data['wrap'] | raw }}</div>
 </div> #}
-
-    {#{ data['wrap'] | raw }#}
-
-
-<div class="col-sm-2"
- data-name="{{ data['name'] }}">
+{#{ data['wrap'] | raw }#}
+<div class="col-sm-2" data-name="{{ data['name'] }}">
     {#<label for="formModel{{ data['id'] }}" class="form-label small">{{ data['caption'] }}{% if data['unit'] %}, {{ data['unit'] }}{% endif %}</label>#}
     {% if data['id'] == 43 %}
-        {{ runSnippet('helpers', {'action':'getModelsByMark'}) | raw }}
-        {{baseSettings['catalog_id']}}
+    {{ runSnippet('helpers', {'action':'getModelsByMark'}) | raw }}
     {% else %}
-    
-
-    <select class="form-select py-2 border-0 choicesCar" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">   
+    <select class="form-select py-2 border-0 choicesCar" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
         <option value="" selected disabled>{{ data['caption'] }}</option>
-        {{ data['wrap'] | raw }}    
+        {{ data['wrap'] | raw }}
     </select>
-        {% endif %}
-
-
+    {% endif %}
 </div>

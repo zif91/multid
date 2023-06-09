@@ -224,19 +224,20 @@ $(function() {
 	var carPriceInput = document.getElementById('car-price');
 	const carPrice = parseFloat(carPriceInput.textContent.replace(/[^\d\.]+/g, ''));
 	var maxfprice =  parseFloat(carPrice/100*90);
-	var maxfprice =  Math.round(maxfprice);
+	var maxfprice =  MyRound(maxfprice);
 	var fprice = parseFloat(carPrice/100*10);
-	var fprice = Math.round(fprice);
+	var fprice = MyRound(fprice);
 	var sum30 = parseFloat(carPrice/100*30);
-	var sum30 = Math.round(sum30);
+	var sum30 = MyRound(sum30);
 	var sum50 = parseFloat(carPrice/2);
-	var sum50 = Math.round(sum50);
+	var sum50 = MyRound(sum50);
 	
 	
 	$('#slider-range-max3').slider({
 		range: 'max',
 		min: fprice,
 		max: maxfprice,
+		step: 1000,
 		value: fprice,
 		slide: function(event, ui) {
 		// if(ui.value <= summ) {	
@@ -285,5 +286,9 @@ $(function() {
 	document.getElementById("10%").textContent = fprice + ' ₽';
 	document.getElementById("90%").textContent = maxfprice + ' ₽';
 	document.getElementById("30%").textContent = sum30 + ' ₽';
-	document.getElementById("50%").textContent = sum50 + ' ₽';	
+	document.getElementById("50%").textContent = sum50 + ' ₽';
+
+	function MyRound(val) {
+		return Math.round(val / 1000) * 1000;
+	  }
 });

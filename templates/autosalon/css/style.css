@@ -1555,8 +1555,312 @@ font-size: 14px;
   }
 }
 
-.filter-buttons-wrapper .button_find #filterbutton:disabled {
-    background: #831c13;
-    color: #b3b3b3;
+.modifications-block h2 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+}
+.modifications-block h3 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+}
+.modifications-block .item {
+    background: #F2F3F7;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.modifications-block .item .item-name {
+    background: #E1E8F5;
+    border-radius: 8px;
+    padding: 13px 44px;
+}
+.modifications-block .item .item-name .name {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    padding-left: 40px;
+    position: relative;
+}
+.modifications-block .item .item-name .name:before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 37px;
+    color: #98AEC3;
+}
+.modifications-block .item .item-name .name:before {
+    content: "+";
+}
+.modifications-block .item .item-name .name:not(.collapsed):before {
+    content: "-";
+}
+.modifications-block .item .item-name .price {
+    border-left: 1px solid #98AEC3;
+    border-right: 1px solid #98AEC3;
+    padding: 0 20px;
+    font-size: 20px;
+    line-height: 24px;
+}
+.modifications-block .item .item-name .price .old {
+    border-right: 1px solid #98AEC3;
+    padding-right: 20px;
+    margin-right: 20px;
+    font-weight: 500;
+    text-decoration-line: line-through;
+    color: #828282;
+    display: inline-block;
+    line-height: 35px;
+}
+.modifications-block .item .item-name .price .new {
+    display: inline-block;
+    font-weight: 700;
+    line-height: 35px;
+}
+.modifications-block .item .item-name .buttons button {
+    height: 35px;
+    padding: 0 12px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 8px;
+}
+.modifications-block .item .item-name .buttons button:nth-child(1) {
+    background: #FF0000;
+}
+.modifications-block .item .item-name .buttons button:nth-child(2) {
+    background: #98AEC3;
+}
+.modifications-block .item .item-name .buttons button:nth-child(3) {
+    background: #35374E;
+    margin-right: 0;
+}
+.modifications-block .item .item-content {
+    padding: 20px 65px;
+}
+.modifications-block .item .item-content select {
+    width: 100%;
+    height: 37px;
+    margin-bottom: 20px;
+    background: #ffffff url('/templates/autosalon/img/select2.svg') no-repeat right 25px top 50%;
+    border-radius: 8px;
+    appearance: none;
+    padding: 0 25px;
+    font-weight: 500;
+    display: none;
+}
+.modifications-block .item .item-content ul {
+    margin-bottom: 35px;
+}
+.modifications-block .item .item-content ul li {
+    display: inline-block;
+}
+.modifications-block .item .item-content ul li:not(:last-child) {
+    padding-right: 40px;
+    margin-right: 40px;
+    border-right: 1px solid #98AEC3;
+}
+.modifications-block .item .item-content ul li a {
+    display: block;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #828282;
+    border: none;
+    background: none;
 }
 
+.modifications-block .item .item-content ul li a.selected,
+.modifications-block .item .item-content ul li a.active {
+    color: #000 !important;
+}
+.modifications-block .item .item-content table {
+    width: 100%;
+}
+.modifications-block .item .item-content table tr td {
+    padding: 0 10px 5px 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #252638;
+}
+.modifications-block .item .item-content table tr td:last-child {
+    font-weight: 500;
+}
+.modifications-block .item .item-name .name .name-wrap {
+    word-break: break-word;
+}
+.modifications-block .item .item-name .credit{
+    display: none;
+}
+.modifications-block .item .item-name .mob-wrap{
+    width: 55%;
+}
+@media (max-width: 1199px) {
+    .modifications-block .item .item-name {
+        padding: 12px 20px;
+    }
+    .modifications-block .item .item-name .price {
+        padding: 0 10px;
+    }
+    .modifications-block .item .item-name .price .old {
+        margin-right: 10px;
+        padding-right: 10px;
+    }
+    .modifications-block .item .item-name .name {
+        padding-left: 30px;
+    }
+    .modifications-block .item .item-content {
+        padding: 20px;
+    }
+    .modifications-block .item .item-name .credit{
+        display: none;
+    }
+}
+@media (max-width: 991px) {
+    .modifications-block .item .item-name .buttons {
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+    .modifications-block .item .item-name .buttons button {
+        padding: 0;
+        width: 32%;
+        margin-top: 20px;
+    }
+    .modifications-block .item .item-name .mob-wrap {
+        width: 100%;
+    }
+    }
+@media (max-width: 767px) {
+    .modifications-block .item .item-name .buttons button {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .modifications-block .item .item-name .credit{
+        display: block;
+    }
+}
+@media (max-width: 575px) {
+    .modifications-block .item .item-content{
+        background: #F2F3F7;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+    .modifications-block .item{
+        background: none;
+    }
+    .modifications-block .item .item-name .mob-wrap{
+        background: #E1E8F5;
+        border-radius: 8px;
+        padding: 5px;
+        width: 100%;
+    }
+    .modifications-block .item .item-name .name, .price, .credit{
+        width: 100%;
+        display: block;
+    }
+    .modifications-block .item .item-name .name:before {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        font-weight: 400;
+        font-size: 24px;
+        color: #98AEC3;
+    }
+    .modifications-block .item .item-name .name:before {
+        content: "+";
+    }
+    .modifications-block .item .item-name .name:not(.collapsed):before {
+        content: "-";
+    }
+    .modifications-block .item .item-name .buttons button {
+        height: 35px;
+        padding: 0 12px;
+        border-radius: 8px;
+        color: #fff;
+        font-weight: 600;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .modifications-block .item .item-name .buttons button:nth-child(1) {
+        background: #FF0000;
+    }
+    .modifications-block .item .item-name .buttons button:nth-child(2) {
+        background: #98AEC3;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .modifications-block .item .item-name .buttons button:nth-child(3) {
+        background: #35374E;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .modifications-block .item .item-name{
+        padding: 5px;
+        background: none;
+    }
+    .modifications-block .item .item-name .name-wrap {
+        font-size: 12px;
+    }
+    .modifications-block .item .item-name .price.d-flex {
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+    }
+    .modifications-block .item .item-name .price {
+        padding: 0;
+        font-size: 12px;
+    }
+    .modifications-block .item .item-name .price .new {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .modifications-block .item .item-name .price .old {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .modifications-block .item .item-name .credit{
+        padding-left: 5px;
+    }
+    .modifications-block .item .item-name .credit span{
+        color: #FF0000;
+        font-size: 11px;
+        font-weight: 600;
+    }
+    .modifications-block .item .item-name .name {
+        margin: 0;
+        padding: 0 0 0 12px;
+    }
+    .modifications-block .item .item-content table tr td {
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .modifications-block .item .item-content ul {
+        display: none;
+    }
+    .modifications-block .item .item-content select {
+        display: block;
+    }
+}

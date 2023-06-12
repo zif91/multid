@@ -1875,6 +1875,8 @@ content: '';
   text-align: right;
   color: #838383;
 }
+ 
+
 
 .form-calculate2 .number-25{
    position: relative;
@@ -1933,7 +1935,37 @@ content: '';
   position: relative;
   left:18px;
 }
-
+@media (max-width: 575.98px) { 
+.item-page .credit-block .number-0,
+.item-page .credit-block .number-25,
+.item-page .credit-block .number-50,
+.item-page .credit-block .number-100{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 17px;
+  text-align: right;
+  color: #838383;}
+  .item-page .credit-block .month-6,
+.item-page .credit-block .month-12,
+.item-page .credit-block .month-18,
+.item-page .credit-block .month-24,
+.item-page .credit-block .month-30,
+.item-page .credit-block .month-36,
+.item-page .credit-block .month-42,
+.item-page .credit-block .month-48,
+.item-page .credit-block .month-54,
+.item-page .credit-block .month-60{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 17px;
+  text-align: center;
+  color: #838383;
+}
+}
 .item-page .credit-block .item span {
   display: block;
   height: 40px;

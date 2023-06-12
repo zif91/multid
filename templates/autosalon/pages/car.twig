@@ -116,11 +116,11 @@
 						</span>
                             </div>
                             <div class="credit">
-                                <span>В кредит за {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} &#8381;/месяц </span>
+                                <span>В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} &#8381;/месяц </span>
                             </div>
                         </div>
                         <div class=" buttons d-flex align-items-center">
-                            <button onclick="showCreditPopup({{ resource['id'] }},'','{{(resource['car-price'] / 96) | number_format(0, ' ', ' ')}}');return false;" >В кредит за {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }}</button>
+                            <button onclick="showCreditPopup({{ resource['id'] }},'','{{(item["offers-price-from"] / 96) | number_format(0, ' ', ' ')}}');return false;" >В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }}</button>
                             <button>Trade-in</button>
                             <button data-fancybox="" data-src="#popup">Забронировать</button>
                         </div>

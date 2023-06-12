@@ -1,8 +1,5 @@
 {
   "rules": {
-    "first_name": {
-      "required": "Обязательно к заполнению"
-    },
     "mobile_tel": {
       "required": "Обязательно к заполнению"
     },

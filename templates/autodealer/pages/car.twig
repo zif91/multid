@@ -1,5 +1,6 @@
 {% extends 'app.twig' %}
-{% block MAIN %}{% set DLCatalog = runSnippet('DocLister', {
+{% block MAIN %}
+{#% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 4,
 parents: 27,
@@ -18,7 +19,7 @@ phpthumb: 'w=570,h=0',
 ownerTPL: '[+wrap+]',
 display: 1
 })
-%}
+%#}
 {#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
 {% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
 action:'caroldprice'}) %}

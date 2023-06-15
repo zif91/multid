@@ -1,10 +1,44 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-{#% cache 'main' ~ resource.id %#}
+    {% set DLCatalog = runSnippet('DocLister', {
+        id: 'catalog',
+        display: 21,
+        parents: 593,
+        depth: 5,
+        tvList:'car-price,old-car-price,configuration_id',
+        ownerTPL: '@T_FILE:partials/wrap',
+        tpl:'@T_FILE:partials/catalogcard',
+        TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
+        noneTPL:'@CODE: <div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+    </div>
+  </div>
+</div>',
+    })
+    %}
+    {#% cache 'main' ~ resource.id %#}
 
-<div class="container">
-	{{resource.content |raw}}</div>
-{% include('partials/contacts.twig') %}
-{#% include '/partials/tradein.twig' %#}
-{#% endcache %#}
+    <div class="container">
+        {{resource.content |raw}}</div>
+
+    <div class="catalog-block">
+        <div class="container-fluid catalog-products" id="catalog">
+            <h3 style="text-align:center;margin-bottom:32px;">Не нашли что искали? Посмотрите специальную подборку!</h3>
+            <div class="catalog-page">
+                <div class="container">
+                    <div class="row">
+                        {{DLCatalog |raw}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-button">
+            <button onclick="window.location.href = '{{ makeUrl(27) }}';">Смотреть все <span></span></button>
+        </div>
+    </div>
+    {% include('partials/contacts.twig') %}
+    {#% include '/partials/tradein.twig' %#}
+    {#% endcache %#}
 {% endblock %}

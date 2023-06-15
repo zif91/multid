@@ -6,8 +6,7 @@ total: 1,
 display: 1
 }) %#}
 {#{ data['tv.car_photos'] }#}
-{% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
-action:'caroldprice'}) %}
+{% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'], action:'caroldprice'}) %}
 {#<div class="col-xl-3 col-lg-4 col-md-6 h-auto">
     <div class="item">
         <a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="image"></a>
@@ -33,17 +32,17 @@ action:'caroldprice'}) %}
             <button class="btn" type="button" data-toggle="modal" data-target="#oneclick">Купить в 1 клик</button>
         </div>
     </div>
-</div>#} 
+</div>#}
 {% set brands2 = runSnippet('DocLister', {
-parents: 593,
-depth: 0,
-orderBy: 'menuindex',
-order: 'ASC',
-tvList:'',
-ownerTPL: '@CODE:     [+dl.wrap+]',
-tpl:'@CODE: <a href="[+url+]" class="col-6 col-sm-4 col-md-3 col-lg-2">[+pagetitle+]</a>',
-api: 0,
-noneTPL:'@CODE: <div class="container">
+    parents: 593,
+    depth: 0,
+    orderBy: 'menuindex',
+    order: 'ASC',
+    tvList:'',
+    ownerTPL: '@CODE:     [+dl.wrap+]',
+    tpl:'@CODE: <a href="[+url+]" class="col-6 col-sm-4 col-md-3 col-lg-2">[+pagetitle+]</a>',
+    api: 0,
+    noneTPL:'@CODE: <div class="container">
     <div class="row">
         <div class="col text-center">
             <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
@@ -53,29 +52,32 @@ noneTPL:'@CODE: <div class="container">
 })
 %}
 {% set photo = runSnippet ('DocLister', {parents: data.id,
-depth: 0,
-orderBy: 'menuindex',
-api: 1,
-order: 'ASC',
-tvList:'configuration_id, car-price, old-car-price',
-ownerTPL: '@CODE:[+dl.wrap+]',
-tpl:'@CODE:[+tv.configuration_id+]'}) %}
+    depth: 0,
+    orderBy: 'menuindex',
+    api: 1,
+    order: 'ASC',
+    tvList:'configuration_id, car-price, old-car-price',
+    ownerTPL: '@CODE:[+dl.wrap+]',
+    tpl:'@CODE:[+tv.configuration_id+]'}) %}
 {% set DLdata = photo | json %}
-{% set photo = "https://s3.multiauto.site/new_cars/" ~ DLdata|first['tv_configuration_id'] ~ ".jpg" %}
+{% set photo = "https://s3.multiauto.site/new_cars/" ~ data['tv.configuration_id'] ~ ".jpg" %}
+{% set priceAsNumber = [data['tv.car-price']]|join|default(0) %}
+{% set priceOnMonth = priceAsNumber / 96 %}
 
-<div class="col-lg-4 col-md-6">
-					<div class="item mb-3">
-						<img src="{{photo | raw}}">
-						<div class="p-4">
-							<div class="name mb-3">
-								{{runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title']  }} 
-							</div>
-							<div class="data pb-2">
-								{#<div class="data-item d-inline-block mr-4 mb-2">
+{% if priceAsNumber > 0 and data['title'] %}
+    <div class="col-lg-4 col-md-6">
+        <div class="item mb-3">
+            <img src="{{photo | raw}}">
+            <div class="p-4">
+                <div class="name mb-3">
+                    {{ data['title']  }}
+                </div>
+                <div class="data pb-2">
+                    {#<div class="data-item d-inline-block mr-4 mb-2">
 									Цвет
 									<span class="d-block mt-2">Белый</span>
 								</div>#}
-								{#<div class="data-item d-inline-block mr-4 mb-2">
+                    {#<div class="data-item d-inline-block mr-4 mb-2">
 									Пробег
 									<span class="d-block mt-2">83 890 км</span>
 								</div>
@@ -83,23 +85,24 @@ tpl:'@CODE:[+tv.configuration_id+]'}) %}
 									Год
 									<span class="d-block mt-2">2010</span>
 								</div>#}
-							</div>
-							<div class="price mb-3">
-								<span class="new mr-2">  {{ DLdata|first['tv_car-price'] }} ₽</span>
-								<span class="old">{{ DLdata|first['tv_old-car-price'] }} ₽</span>
-							</div>
-							<div class="credit mb-3 position-relative">
-{{(DLdata|first['tv_car-price'] / 96) | number_format(0, ' ', ' ')}} рублей в месяц
-								<span class="text-right">Ставка <br/>от 1.6%</span>
-							</div>
-							<div class="buttons row">
-								<div class="col-6">
-									<button  data-fancybox="" data-src="#popup" class="color1 w-100">В один клик</button>
-								</div>
-								<div class="col-6">
-									<button class="color2 w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                </div>
+                <div class="price mb-3">
+                    <span class="new mr-2"> {{ data['tv.car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽ </span>
+                    <span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
+                </div>
+                <div class="credit mb-3 position-relative">
+                    {{ priceOnMonth|number_format(0, '.', '&nbsp;')|raw  }} рублей в месяц
+                    <span class="text-right">Ставка <br/>от 1.6%</span>
+                </div>
+                <div class="buttons row">
+                    <div class="col-6">
+                        <button data-fancybox="" data-src="#popup" class="color1 w-100">В один клик</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="color2 w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

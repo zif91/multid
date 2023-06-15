@@ -8,7 +8,7 @@
 {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %}
 {% set city = runSnippet('UltimateParent', {}) %}
 {% set catalog_number = baseSettings['catalog_number'] %}
-    {% set metaTitle = resource.metaTitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) | parser %}
+    {% set metaTitle = parser (resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle))  %}
 
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
     {% set marks = runSnippet('DocLister', {

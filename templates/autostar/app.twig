@@ -6,7 +6,7 @@
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %}
-        {% set metaTitle = resource.metaTitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) | parser %}
+    {% set metaTitle = parser (resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle))  %}
 
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 

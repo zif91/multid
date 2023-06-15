@@ -18,7 +18,7 @@ api: 1,
 debug: 0,
 })
 %}
-    {% set metaTitle = parser (resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle))  %}
+    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
 
 {% set marks = marks|json %}
 <html lang="ru" prefix="og: http://ogp.me/ns#">

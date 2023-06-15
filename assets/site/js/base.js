@@ -298,6 +298,10 @@ function mainFunc() {
             window.location.href = data.redirect
           }
           $(formContainer).html(data.output);
+          if ($('#metrik-id').length > 0) {
+            var metrikId = $('#metrik-id').text();
+            ym(metrikId, 'reachGoal', 'goals');
+      }
         }
 
         $(form).fadeTo('fast', 1);

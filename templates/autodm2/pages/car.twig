@@ -57,10 +57,10 @@ tpl:'@T_CODE: <div class="gift__item">
                     <div class="slider-nav">
                         {% if car_photos and count(car_photos)>0 %}
                 {% for image in car_photos  %}
-                <div class="item"><img src="{{image.image}}"></div> 
+                <div class="item"><img src="{{image.image}}"></div>
                 {% endfor %}
                 {% else %}
-                <div class="item"><img src="{{image.image}}"></div> 
+                <div class="item"><img src="{{image.image}}"></div>
                 {% endif %}
                     </div>
                 </div>
@@ -110,9 +110,9 @@ tpl:'@T_CODE: <div class="gift__item">
                             <td>Цвет</td>
                             <td>{{resource.car_color}}</td>
                         </tr>
-                        
+
                     </table>
-                    
+
                 </div>
             </div>
             <div class="col-lg-4">
@@ -137,7 +137,7 @@ tpl:'@T_CODE: <div class="gift__item">
                         </div>
                         <div class="col-6">
                             <div class="item">
-                                
+
                                 <span id="payment">30 050 р/мес.</span>
                             </div>
                         </div>
@@ -146,10 +146,10 @@ tpl:'@T_CODE: <div class="gift__item">
                 </div>
                 <div class="price-block">
                     <div class="price">
-                        {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
+                        {{ (resource['car-price'])|number_format(0, '.', '  ') }} ₽
                     </div>
                     <div class="oldprice">
-                        {{ (resource['old-car-price'])|number_format(0, '.', ' ') }} ₽
+                        {{ (resource['old-car-price'])|number_format(0, '.', '  ') }} ₽
                     </div>
                 </div>
                 <div class="flex">
@@ -160,7 +160,7 @@ tpl:'@T_CODE: <div class="gift__item">
                         Специальное предложение
                     </div>
                 </div>
-                
+
                 <div class="buttons">
                     <button type="button"data-toggle="modal" data-target="#oneclick">Забронировать</button>
                     <button type="button"data-toggle="modal" data-target="#oneclick">Получить предложение</button>
@@ -240,14 +240,14 @@ tpl:'@T_CODE: <div class="gift__item">
                             <td>Цвет</td>
                             <td>{{resource.car_color}}</td>
                         </tr>
-                        
+
                     </table>
 
-                        
+
                     </table>
                 </div>
-                
-                
+
+
                 <div class="icons-block">
                     <div class="row">
                         <div class="col-6">
@@ -286,7 +286,7 @@ tpl:'@T_CODE: <div class="gift__item">
 
 </main>
 
-{% set logoid = runSnippet('logo', {brand: resource["longtitle"] } )  %} 
+{% set logoid = runSnippet('logo', {brand: resource["longtitle"] } )  %}
 {{ runSnippet (DocInfo, {docid: logoid, field: image } ) }}
  {#<script type="text/javascript">
  var waitForJQuery = setInterval(function () {

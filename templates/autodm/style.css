@@ -1524,7 +1524,7 @@ color:red;
 .price-block .oldprice {
     margin-bottom: 50px;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 28px;
     line-height: 42px;
     text-decoration: line-through;
     color: #ccc;
@@ -2935,7 +2935,7 @@ color:red;
 
   .item-page .oldprice {
       margin-bottom: 25px;
-      font-size: 18px;
+      font-size: 20px;
       line-height: 28px;
       text-decoration: line-through;
       color: #ccc;

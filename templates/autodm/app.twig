@@ -5,7 +5,7 @@
 {% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
-    {% set metaTitle = baseSettings["salon-name"] ~ resource.metaTitle | default(resource.pagetitle) | parser %}
+    {% set metaTitle = resource.metaTitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) | parser %}
 
 {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %}
 <html lang="ru" prefix="og: http://ogp.me/ns#">

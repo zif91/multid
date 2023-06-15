@@ -7,7 +7,7 @@ parents: baseSettings.catalog_number,
 depth: 2,
 _filters: 'AND(tv:car-price:against:~car-price~)',
 filters: 'AND(tv:model:=:' ~ resource.model ~ ')',
-tvList:'car-price,run,engine_power,gear,year,image,body_type,model,car_color,engine_volume,fuel,drive',
+tvList:'car-price,run,engine_power,gear,year,image,body_type,model,car_color,engine_volume,fuel,drive,car_photos',
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard',
 })

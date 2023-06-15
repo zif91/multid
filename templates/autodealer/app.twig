@@ -48,6 +48,7 @@
     {% cache 'header' ~ cacheKey %}
     {% set brandsarray = runSnippet('getCache', {
 snippetName:'brands_array',
+parent: baseSettings.catalog_number,
 key: 'cacheKey',
 lifetime: '36000',
 }) %}

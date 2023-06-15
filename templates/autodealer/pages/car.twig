@@ -1,6 +1,6 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-{% set DLCatalog = runSnippet('DocLister', {
+{#% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 4,
 parents: baseSettings.catalog_number,
@@ -11,7 +11,7 @@ tvList:'car-price,run,engine_power,gear,year,image,body_type,model,car_color,eng
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard',
 })
-%}
+%#}
 {#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
 {% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
 action:'caroldprice'}) %}
@@ -38,7 +38,7 @@ tpl:'@T_CODE: <div class="gift__item">
 {% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
 {% set car_photos = resource.car_photos | json %}
 {% set car_photos = car_photos.fieldValue %}
-{{dump(car_photos)}}
+{#{dump(car_photos)}#}
 <div class="navi py-4">
         <div class="container">
             <a href="/">Главная</a> → <a href="/avtomobili-s-probegom2"><span>Каталог автомобилей с пробегом</span></a>

@@ -1532,17 +1532,6 @@ main {
   width: 100%;
 }
 
-.application_cr{
-  position: relative;
-  width: 100%;
-  top: 22px;
-}
-
-.application_crmin{
-  position: relative;
-  width: 100%;
-}
-
 .item-page .credit-block.field .label{
   width: 100%;
 }
@@ -2067,118 +2056,6 @@ content: '';
   margin: -2px 0 0 -8px;
 }
 
-.advantage{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  color: #98AEC3;
-}
-
-.cred_text{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  color: #252638;
-}
-
-.line_cred::after{ 
-  display: block; 
-  content:'' ; 
-  width: 4px;
-  height: 60px;
-  background: #D12D1E;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  position: absolute;
-  left: 0; 
-}
-
-
-.title_cred{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 34px;
-  display: flex;
-  align-items: center;
-  color: #182232;
-}
-
-.text_present{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  align-items: center;
-  color: #182232;
-}
-
-.col_cred{
-  width: 100%;
-  height: 60px;
-}
-
-.newform{
-  width: 1165px;
-  height: 330px;
-  position: relative;
-  padding-bottom: 50px;
-  background: #F4F4F4;
-  border-radius: 14px;
-  display: block;
-}
-
-.cred_newform{
-  width: 1165px;
-  height: 270px;
-  top: 58px;
-  position: relative;
-  padding-bottom: 50px;
-  right: 14px;
-  border-radius: 14px;
-  background: url('/templates/rofl/img/credit/bgcar.png');
-}
-
-.cred_formin{
-  width: 400px;
-  height: 671px;
-  position: relative;
-  padding-bottom: 50px;
-  right: 14px;
-  border-radius: 14px;
-  background: url('/templates/rofl/img/credit/back_media.png') no-repeat;
-  display: none;
-}
-
-.img_container{
-  width: auto;
-  height: 200px;
-  position:absolute;
-  bottom: 114px;
-  right: 0;
-  background-repeat: no-repeat; 
-}
-
-.banks_cred{
-  width: auto;
-  display: block;
-}
-
-.banks_credmin{
-  width: auto;
-  display: none;
-}
-
-.atvant_row{
-  width: 60%;
-}
 .item-page .auto-info .item .name {
   font-size: 16px;
   line-height: 20px;
@@ -2286,10 +2163,6 @@ content: '';
   .item-page .bottom-block p {
     font-size: 24px;
   }
-
-  .atvant_row{
-    width: 80%;
-  }
 }
 
 @media (max-width: 991px) {
@@ -2380,12 +2253,9 @@ content: '';
   .item-page .bottom-block p {
     text-align: center;
   }
-
-  .atvant_row{
-    width: 100%;
-  }
 }
 
+/*  */
 @media (max-width: 767px) {
   .form-calculate2,
   .item-page .credit-block {
@@ -2565,24 +2435,6 @@ content: '';
     width: 100%;
     left: 0;
   }
-
-  .newform{
-    display: none;
-  }
-
-  .cred_formin{
-    display: block;
-  
-  }
-
-  .banks_cred{
-    display: none;
-  }
-
-  .banks_credmin{
-    display: block;
-  }
-
 }
 
 @media (max-width: 575px) {
@@ -2851,15 +2703,6 @@ button .close,
 }
 
 @media(min-width: 320px) and (max-width: 568px){
-  .form-calculate2{
-    width: 80%;
-    height: auto;
-  }
-  .cred_formin{
-    width: 300px;
-    height: 671px;
-  }
-  
   .item-page .credit-block .number-0,
   .item-page .credit-block .number-25,
   .item-page .credit-block .number-50,
@@ -2941,15 +2784,4 @@ button .close,
     position: relative;
     top: 1px;
   }
-  .advantage{
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 10px;
-  
-  }
-
-  .text_present{
-    font-size: 18px;
-
-  } 
 }

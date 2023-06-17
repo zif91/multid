@@ -1,7 +1,3 @@
-<form class="form-calculate2 mt-4 p-4" action="">
-    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
-    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
-    {{ data['form.messages'] | raw }}    
 
   <form class="form-calculate2 mt-4 p-4" action="">
     <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">

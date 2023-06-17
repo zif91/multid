@@ -14,7 +14,7 @@
                         {% for item in bank_logos["fieldValue"] %}
     <div class="owl-item">
         <div class="brands_item d-flex flex-column justify-content-center">
-            <img src="{{ runSnippet('phpthumb', {input: item.image, options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+            <img src="{{item.image}}">
         </div>
     </div>
 {% endfor %}

@@ -140,7 +140,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
     <div class="row d-flex justify-content-between">
       {% for item in bank_logos["fieldValue"] %}
       <div class=" col-lg-2 col-md-3 col-sm-4 mb-2">
-        <img src="{{ runSnippet('phpthumb', {input: item.image, options: 'w=161,h=99,far=C,f=png,q=1'}) }}" alt="" />
+        <img src="{{ runSnippet('phpthumb', {input: item.image, options: 'w=161,h=99,far=C,f=png,q=1'}) }}" alt="" style="width:161px; height: 99px;"/>
       </div>
       {% endfor %}
     </div>

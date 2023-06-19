@@ -44,21 +44,17 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
                 <div id="slider-range-max2"></div>
             </div>
             <div class="item">
-Кредитная программа
-<div>
-                <select class="-select py-2 border-0 w-100">
-                    <option value="12" selected >Выберите кредитную программу</option> 
-                    <option value="1,6"  >Первый автомобиль (Ставка 1.6%, Скидка 20%)</option> 
-                    <option value="1,6"  >Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option> 
-
-                    <option value="1,6"  >Медицинский работник  (Ставка 1.6%, Скидка 20%)</option> 
-
-                    <option value="1,6"  >Госпрограмма льготного кредитования (Ставка 1.6%)</option> 
-                    <option value="9,9"  >Стандартная кредитная программа  (Ставка 9.9%)</option> 
-
-
-    </select>
-</div>
+                Кредитная программа
+                <div>
+                    <select id="firstSelect" class="-select py-2 border-0 w-100">
+                        <option value="1,6" selected>Выберите кредитную программу</option>
+                        <option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
+                        <option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
+                        <option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
+                        <option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
+                        <option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
+                    </select>
+                </div>
                 <div id="slider-range-max2"></div>
             </div>
             <div class="row">
@@ -81,35 +77,42 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         }) | raw }}
         </div>
         <div class="col-md-4">
-        <div class="d-flex justify-content-between pt-5">
-            <span class="credit-text text-start">Кредитная ставка:</span>
-            <span class="credit-amounts text-end" id="percent">12%</span>
-            </div>        <div class="d-flex justify-content-between">
-
-             <span class="credit-text text-start">Программа: </span>
-            <span class="credit-amounts text-end"  id="program-name">Стандартная программа</span>
-            </div>        <div class="d-flex justify-content-between">
-
-            <span class="credit-text text-start">Первоначальный взнос:</span>
-            <span class="credit-amounts text-end"  id="first-pay2">25 000</span>
-            </div>        <div class="d-flex justify-content-between">
-
-             <span class="credit-text text-start">Сумма кредита:</span>
-            <span class="credit-amounts text-end"  id="summ">250 000</span>
-            </div>        <div class="d-flex justify-content-between">
-
-             <span class="credit-text text-start">Срок:</span>
-            <span class="credit-amounts"   id="mes">88</span></div>
-              <div class="d-flex justify-content-between">
-
-            <span class="credit-text text-start">Ежемесячный платеж:</span>
-<span class="credit-amounts text-end" id="paymentSpan2">0 р/мес.</span>
-
-        
-        </div></div>
+            <div class="d-flex justify-content-between pt-5">
+                <span class="credit-text text-start">Кредитная ставка:</span>
+                <span class="credit-amounts text-end" id="percent">1,6%</span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span class="credit-text text-start">Программа: </span>
+                <div class="flex justify-content-end">
+                    <select id="secondSelect" class="-select p-0 border-0  w-100 credit-amounts select">
+                        <option value="1,6" selected>Выберите кредитную программу</option>
+                        <option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
+                        <option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
+                        <option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
+                        <option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
+                        <option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span class="credit-text text-start">Первоначальный взнос:</span>
+                <span class="credit-amounts text-end"  id="first-pay2">25 000</span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span class="credit-text text-start">Сумма кредита:</span>
+                <span class="credit-amounts text-end"  id="summ">250 000</span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <span class="credit-text text-start">Срок:</span>
+                <span class="credit-amounts"   id="mes">88</span></div>
+            <div class="d-flex justify-content-between">
+                <span class="credit-text text-start">Ежемесячный платеж:</span>
+                <span class="credit-amounts text-end" id="paymentSpan2">0 р/мес.</span>
+            </div>
+        </div>
     </div>
     <div class="row">
-        
+
     </div>
     {% include('partials/banks.twig') %}
 </main>
@@ -119,7 +122,20 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 <script src="static/js/select2.js"></script>
 <script>
 $(function() {
+
+  const firstSelect = document.getElementById("firstSelect");
+  const secondSelect = document.getElementById("secondSelect");
+
+  firstSelect.addEventListener("change", function() {
+      secondSelect.selectedIndex = this.selectedIndex;
+  });
+
+  secondSelect.addEventListener("change", function() {
+      firstSelect.selectedIndex = this.selectedIndex;
+  });
+
   const select = $('.-select');
+
   const programName = $('#program-name');
   programName.text("Не выбрана программа кредитования");
   const amountInput = $('#amounter');

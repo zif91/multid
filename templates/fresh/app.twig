@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% set site_start = modx.config['site_start'] %}
 {% set cacheKey = md5(site_start ~ json_encode(_GET)) %}
-{% set metaTitle = resource.metaTitle | default(resource.pagetitle) | parser %}
 {% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}
 {% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}
@@ -19,6 +18,8 @@ api: 1,
 debug: 0,
 })
 %}
+    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
+
 {% set marks = marks|json %}
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 

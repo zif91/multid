@@ -14,7 +14,7 @@
                         {% for item in bank_logos["fieldValue"] %}
                         <div class="owl-item">
                             <div class="brands_item d-flex flex-column justify-content-center">
-                                <img src="{{ runSnippet('phpthumb', {input: item.image, options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+                                <img src="{{item.image}}">
                             </div>
                         </div>
                         {% endfor %}
@@ -42,7 +42,7 @@
 
  .brands_slider {
      height: 100%;
-     margin-top: 50px
+     margin-top: 37px
  }
 
  .brands_item {
@@ -51,7 +51,7 @@
 
  .brands_item img {
      max-width: 100%;
-     max-height: 36px;
+     max-height: 50px;
  }
 
  .brands_nav {

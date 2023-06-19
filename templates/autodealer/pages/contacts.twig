@@ -9,11 +9,14 @@
 </div>
 
 {% include('partials/contacts.twig') %}
-
-
+    
+    
     <div class="s-address section-36">
         <div class="container">
-            {{resource.content | raw}}
+            {% set content = runSnippet('DocInfo', {field: "content", docid: site_start}) %} 
+
+            {{content | raw}}
         </div>
     </div>
+     
 {% endblock %}

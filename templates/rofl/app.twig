@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% set site_start = modx.config['site_start'] %}
 {% set cacheKey = md5(site_start ~ json_encode(_GET)) %}
-{% set metaTitle = resource.metaTitle | default(resource.pagetitle) | parser %}
 {% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}
 {% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}
@@ -9,6 +8,9 @@
 {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %}
 {% set city = runSnippet('UltimateParent', {id:site_start}) %}
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
+    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
+
+{% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %}
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
 <head>

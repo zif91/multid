@@ -142,6 +142,8 @@
     </div>
 
     <div class="col-xl-4 col-lg-4 col-12 ml-0 p-2 mt-4 d-lg-none" style="min-height: 600px;">
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    {{ data['form.messages'] | raw }}
       <div class="col-md-12 col-12 p-0">
         <div class="field">
           <div class="d-flex">

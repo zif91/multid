@@ -3,7 +3,7 @@
   <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
   <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
   {{ data['form.messages'] | raw }}
-  <div class="name text-center mb-3 mt-1">
+  <div class="name text-center mb-3 mt-1 pt-3">
      Выгоднее - в кредит! Скидка до 100 000 руб!
   </div>
   <div class="container">

@@ -94,9 +94,6 @@
             </div>
         </div>
     </div>
-    {% include('partials/banks.twig') %}
-    <div class="container">{% include "/partials/advantages.twig" %}</div>
-    <div class="container">{% include "/partials/actions2.twig" %}</div>
     <div class="modifications-block pb-5">
         <h2 class="mb-4">Доступные модификации</h2>
         {% for item in modification %}
@@ -114,7 +111,7 @@
 						    <span class="old d-flex align-items-center">
 							{{item["offers-price-to"]|number_format(0, '.', '&nbsp;')|raw }}
 						</span>
-                            <span class="new d-flex align-items-center">
+                                <span class="new d-flex align-items-center">
 							{{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }}
 						</span>
                             </div>
@@ -247,6 +244,10 @@
             {% endif %}
         {% endfor %}
     </div>
+    {% include('partials/banks.twig') %}
+    <div class="container">{% include "/partials/advantages.twig" %}</div>
+    <div class="container">{% include "/partials/actions2.twig" %}</div>
+
 </div>
 <div class="page-form-block mb-5">
     <div class="container">

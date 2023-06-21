@@ -9,7 +9,23 @@
     <header class="header">
         <div class="container-fluid flex">
             <div class="logo">
-                <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
+                <a href="/">
+                    {#<img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">#}
+                <div style="width: 200px;
+height: 90px; background: #D12D1E; font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+
+color: #FFFFFF;">{{baseSettings.pagetitle}}
+
+                </div>
+
+                </a>
             </div>
                                {{ headermenu|raw}}
 

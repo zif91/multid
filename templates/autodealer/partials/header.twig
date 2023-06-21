@@ -9,7 +9,7 @@ outerTpl: '@CODE:<ul class="pb-5">
     <a class="close position-absolute"></a>
     <div class="container">
         <div class="logo mb-5">
-            <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'f=png,q=1'}) }}"></a>
+            <a href="/"><img src="{#{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'f=png,q=1'}) }#} {{baseSettings["logo"]}}"></a>
         </div>
         {{ headermenumob|raw}}
         <div class="contacts pb-5">

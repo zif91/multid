@@ -1565,7 +1565,7 @@ main {
 .item-page .credit-block .item {
   font-size: 16px;
   line-height: 62px;
-  color: #81869A;  
+  color: #81869A;
 }
 
 .form-calculate2 .item input[type='text'] {
@@ -1574,7 +1574,7 @@ main {
   background: none;
   font-weight: 600;
   font-size: 16px;
-  color: #FFFFFF;   
+  color: #FFFFFF;
 }
 
 .item-page .credit-block .item input[type='text'] {
@@ -1583,7 +1583,7 @@ main {
   background: none;
   font-weight: 600;
   font-size: 16px;
-  color: #FFFFFF;   
+  color: #FFFFFF;
 }
 
 .item-page .credit-block .svg{
@@ -1609,7 +1609,7 @@ main {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #FFFFFF; 
+  color: #FFFFFF;
 }
 
 .item-page .credit-block .title2{
@@ -1866,7 +1866,7 @@ content: '';
 .item-page .credit-block .hr{
   width: 100%;
   height: 1px;
-  background-color: #002334;  
+  background-color: #002334;
 }
 
   .item-page .credit-block .number-25{
@@ -1886,12 +1886,12 @@ content: '';
   text-align: right;
   color: #838383;
 }
- 
+
 
 
 .form-calculate2 .number-25{
    position: relative;
-   left: -2%;  
+   left: -2%;
 }
 
 .item-page .credit-block .number-50{
@@ -1946,7 +1946,7 @@ content: '';
   position: relative;
   left:18px;
 }
-@media (max-width: 575.98px) { 
+@media (max-width: 575.98px) {
 .item-page .credit-block .number-0,
 .item-page .credit-block .number-25,
 .item-page .credit-block .number-50,
@@ -2085,9 +2085,9 @@ content: '';
   color: #252638;
 }
 
-.line_cred::after{ 
-  display: block; 
-  content:'' ; 
+.line_cred::after{
+  display: block;
+  content:'' ;
   width: 4px;
   height: 60px;
   background: #D12D1E;
@@ -2095,7 +2095,7 @@ content: '';
   order: 0;
   flex-grow: 0;
   position: absolute;
-  left: 0; 
+  left: 0;
 }
 
 
@@ -2163,7 +2163,7 @@ content: '';
   position:absolute;
   bottom: 114px;
   right: 0;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
 }
 
 .banks_cred{
@@ -2303,7 +2303,7 @@ content: '';
 }
 
 @media (max-width: 991px) {
-  
+
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
     border-radius: 14px;
@@ -2316,7 +2316,7 @@ content: '';
 
   .form_cred{
     display: none;
-  
+
   }
 
   .header .btn {
@@ -2592,7 +2592,7 @@ content: '';
 
   .cred_formin{
     display: block;
-  
+
   }
 
   .banks_cred{
@@ -2605,7 +2605,7 @@ content: '';
 
   .form_cred{
     display: none;
-  
+
   }
 
 }
@@ -2862,12 +2862,12 @@ button .close,
 .modal-header .close {
   color: white;
 }
-@media (max-width: 575px) { 
+@media (max-width: 575px) {
 .price-range-group {
   margin: 7px;
-} 
+}
 .irs--flat {
-   
+
     margin: 9px;
 }
 .actions-page img{
@@ -2880,7 +2880,7 @@ button .close,
     width: 300px;
     height: 671px;
   }
-  
+
   .item-page .credit-block .number-0,
   .item-page .credit-block .number-25,
   .item-page .credit-block .number-50,
@@ -2972,13 +2972,13 @@ button .close,
     font-size: 12px;
     font-weight: 500;
     line-height: 10px;
-  
+
   }
 
   .text_present{
     font-size: 18px;
 
-  } 
+  }
 }
 
 @media(max-width: 400px){

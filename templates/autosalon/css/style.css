@@ -1699,6 +1699,71 @@ font-size: 14px;
 .modifications-block .item .item-name .mob-wrap{
     width: 55%;
 }
+.wrap-credit-left{
+    width: 100%;
+    position: relative;
+}
+.wrap-credit-left::after  {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -15px;
+    height: 100%;
+    width: 1px;
+    background-color: grey; /* Цвет линии */
+}
+.wrap-credit-left p.credit-left-title{
+    font-size: 16px;
+    font-weight: 700;
+    color: black;
+}
+.wrap-credit-left p.credit-left-sum{
+    font-size: 16px;
+    font-weight: 700;
+    color: #D12D1E;
+    margin-top: 5px;
+}
+.wrap-credit-left .credit-left-rate{
+    display: flex;
+}
+.wrap-credit-left .credit-left-rate span{
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 9px;
+    background: #D02E25;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+.wrap-credit-left .credit-left-action{
+    margin-top: 5px;
+}
+.wrap-credit-left .credit-left-action span:first-child {
+    color: gray;
+}
+.wrap-credit-left .credit-left-action span:last-child {
+    font-weight: 700;
+    color: black;
+    margin-left: 5px;
+}
+.wrap-credit-left .credit-left-timer{
+    margin-top: 5px;
+}
+.wrap-credit-right{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.wrap-credit-right p.credit-right-title{
+    font-size: 16px;
+    font-weight: 700;
+    color: black;
+}
+.wrap-credit-right p.credit-right-p{
+    font-size: 16px;
+    font-weight: 700;
+    color: grey;
+}
+.wrap-cred
 @media (max-width: 1199px) {
     .modifications-block .item .item-name {
         padding: 12px 20px;
@@ -1770,7 +1835,10 @@ font-size: 14px;
     }
     .modifications-block .item .item-name .name, .price, .credit{
         width: 100%;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: start!important;
+
     }
     .modifications-block .item .item-name .name:before {
         position: absolute;
@@ -1862,5 +1930,25 @@ font-size: 14px;
     }
     .modifications-block .item .item-content select {
         display: block;
+    }
+    .wrap-credit-left{
+        margin-bottom: 30px;
+    }
+    .wrap-credit-left::after  {
+        content: '';
+        position: absolute;
+        top: initial;
+        right: initial;
+        bottom: -15px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: grey;
+    }
+    .wrap-credit-left .credit-left-title, .credit-left-sum, .credit-left-action{
+      text-align: center;
+    }
+    .wrap-credit-left .credit-left-rate{
+        justify-content: center;
     }
 }

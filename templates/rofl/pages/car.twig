@@ -42,12 +42,13 @@ tpl:'@T_CODE: <div class="gift__item">
     </div>
 </div>'
 })%}
-{#% include('partials/crumbs.twig') %#}
+
 {% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
 {% set car_photos = resource.car_photos | json %}
 {% set car_photos = car_photos.fieldValue %}
 <div class="page-name py-4">
     <div class="container">
+        {% include('partials/crumbs.twig') %}
         <h1 class="h1 m-0">{{resource.pagetitle}} {{resource.year}} <i></i><span class="color">Цвет: {{resource.car_color}}</span> <span class="number px-1">{{resource.vin}}</span></h1>
     </div>
 </div>
@@ -331,7 +332,7 @@ tpl:'@T_CODE: <div class="gift__item">
 </div>
 <div class="catalog-page pb-1">
     <div class="container">
-        <h2 class="h1 mb-sm-5 mb-4">Похожие автомобили</h1>
+        <h2 class="h1 mb-sm-5 mb-4">Похожие автомобили</h2>
             <div class="row">{{DLCatalog | raw}}</div>
     </div>
 </div>

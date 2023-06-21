@@ -13,16 +13,16 @@
         background-position: right;">
                 <a href="/"></a>
             </div>
-                                          {{ headermenu|raw}}
+                                      {{ headermenu|raw}}
 <div style="text-align: left;
-    margin: 10px;
-    MAX-WIDTH: 149PX;
+    margin: 10px 0px 0px 0px;
+    MAX-WIDTH: 145PX;
     LINE-HEIGHT: 13PX;
     font-size: 11px;">
                 {{baseSettings.salon_location}}
             </div> 
-            <button data-toggle="modal" data-target="#exampleModal" class="btn btn-light ml-xl-5">Заказать звонок</button>
-            {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-md-4 mt-md-2 pt-md-1"}) | raw}}        </div>
+            <button data-toggle="modal" data-target="#exampleModal" class="btn btn-light ml-xl-4">Заказать звонок</button>
+            {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx‑xx‑xx', link: '1', class:"phone pl-md-4 mt-md-2 pt-md-1 ml-1", style: "margin-left: 5px;"}) | raw}}        </div>
     </header>
                        
                 

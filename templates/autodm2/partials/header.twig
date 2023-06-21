@@ -9,9 +9,22 @@
     <div class="menubg"></div>
     <header class="header">
         <div class="container-fluid flex">
-            <div class="logo">
-                <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
-            </div>
+            <a href="/">
+                    {#<img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">#}
+                <div style="width: 200px;
+height: 48px; 
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+justify-content: center;
+color: #D12D1E;">{{baseSettings.description}}
+                </div>
+
+                </a>
                                {{ headermenu|raw}}
 
             <div class="contacts">

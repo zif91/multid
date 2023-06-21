@@ -1438,7 +1438,7 @@ main {
 .item-page .credit-block .field .form-control.other::placeholder {
   color: #fff;
 }
-
+.form_cred .credit-title,
 .form-calculate2 .credit-title,
 .cred_formin .credit-title,
 .newform .credit-title,

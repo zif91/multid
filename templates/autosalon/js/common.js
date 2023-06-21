@@ -69,3 +69,33 @@ $(".bottom-page-line").click(function() {
     if (marks) decoreSelect(marks);
 	*/
 });
+// Функция для обновления отображения времени
+function updateCountdown(days, hours, minutes, seconds) {
+    document.getElementById('day').value = days;
+    document.getElementById('hour').value = hours;
+    document.getElementById('min').value = minutes;
+    document.getElementById('sec').value = seconds;
+}
+
+// Функция для запуска обратного отсчета
+function startCountdown() {
+    var targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 8);
+    targetDate.setHours(targetDate.getHours() + 23);
+    targetDate.setMinutes(targetDate.getMinutes() + 59);
+
+    setInterval(function() {
+        var currentDate = new Date();
+        var timeDifference = targetDate - currentDate;
+
+        var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        updateCountdown(days, hours, minutes, seconds);
+    }, 1000);
+}
+
+// Запуск обратного отсчета при загрузке страницы
+window.onload = startCountdown;

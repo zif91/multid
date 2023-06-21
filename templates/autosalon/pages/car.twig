@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="credit mb-4 p-3 flex">
+                    <div class="credit mb-4 p-3 flex align-items-center">
                         <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
                         <span>Ставка от 1.6%</span>
                     </div>
@@ -82,12 +82,15 @@
                         return false;" class="car-plate__button button button_grey w-100 color2">В кредит</a>
                         </div>
                     </div>
-                    <div class="pt-3">{{ runSnippet('Form', {
+
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12">
+                <div class="pt-3">{{ runSnippet('Form', {
                         formid: 'FormCallback',
                         path: '/templates/autosalon/partials/forms/creditcar/',
                         extension: 'twig'
-                        }) | raw }} </div>
-                </div>
+                    }) | raw }} </div>
             </div>
         </div>
     </div>
@@ -323,38 +326,6 @@ function scrollToCreditForm() {
     creditForm.scrollIntoView({ behavior: "smooth" });
 }
 
-</script>
-<script>
-  // Функция для обновления отображения времени
-  function updateCountdown(days, hours, minutes, seconds) {
-    document.getElementById('day').value = days;
-    document.getElementById('hour').value = hours;
-    document.getElementById('min').value = minutes;
-    document.getElementById('sec').value = seconds;
-  }
-
-  // Функция для запуска обратного отсчета
-  function startCountdown() {
-    var targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 8);
-    targetDate.setHours(targetDate.getHours() + 1);
-    targetDate.setMinutes(targetDate.getMinutes() + 59);
-
-    setInterval(function() {
-      var currentDate = new Date();
-      var timeDifference = targetDate - currentDate;
-
-      var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-      updateCountdown(days, hours, minutes, seconds);
-    }, 1000);
-  }
-
-  // Запуск обратного отсчета при загрузке страницы
-  window.onload = startCountdown;
 </script>
 <script>
   // Функция для обновления отображения даты

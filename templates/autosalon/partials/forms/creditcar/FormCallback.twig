@@ -1,45 +1,69 @@
 <div class="form-block2 mb-5">
-<form>
-    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
-			
-			<div class="top-text mb-4 pb-2">
-			Ежемесячный платеж - <span style="background: #d93e3a;
-    padding: 6px;
-    border-radius: 7px;
-    font-size: 17px;
-    color: white;
-    display: inline-block;
-    margin-right: 10px;">
-   	{{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }}
-    </span>Акция действует до <span id="dateend"> 31 мая</span>			</div>
-			<div class="row">
-                   {{ data['form.messages'] | raw }}
-                <div class="col-3 col-md-3 col-sm-3">
-					<input type="text" disabled class="w-100 mb-3 px-sm-3 disabled" id="day" value="8">
-				</div>
-				<div class="col-3 col-md-3 col-sm-3">
-					<input type="text" disabled class="w-100 mb-3 px-sm-3 disabled" id="hour" value="01">
-				</div>
-				<div class="col-3 col-md-3 col-sm-3">
-					<input type="text" disabled class="w-100 mb-3 px-sm-3 disabled" id="min" value="59">
-				</div>
-				<div class="col-3 col-md-3 col-sm-3">
-					<input type="text" disabled class="w-100 mb-3 px-sm-3 disabled" id="sec" value="59">
-				</div>
-				<div class="col-md-4 col-sm-6">
-					<input type="text" placeholder="+7 (___) ___-__-__" name="mobile_tel" class="w-100 mb-3 px-3 {{ data['mobile_tel.classname'] }}" id="mobile_tel" value="{{ data.mobile_tel }}">
-				</div>
-				<div class="col-md-4 col-sm-6">
-					<input type="text" placeholder="Имя" class="w-100 mb-3 px-3" id="first_name" value="{{ data.first_name }}">
-				</div>
-				<div class="col-md-4">
-					<button class="w-100 mb-3">Купить в кредит</button>
-				</div>
-			</div>
-			<div class="agree position-relative">
-				<input type="checkbox" id="agree" class="position-absolute">
-				<label for="agree" class="d-block pl-4">Я даю согласие на обработку персональных данных</label>
-			</div>
-            </form>
-
-		</div>
+    <form>
+        <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+        <div class="row">
+            {{ data['form.messages'] | raw }}
+            <div class="col-xs-12 col-lg-4">
+                <div class="wrap-credit-left">
+                    <p class="credit-left-title">Ежемесечный платёж по акции:</p>
+                    <p class="credit-left-sum">{{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} Р</p>
+                    <div class="credit-left-rate"><span>Ставка 1.6%</span></div>
+                    <div class="credit-left-action"><span>Акция действует до</span><span id="dateend">01.06.2023</span></div>
+                    <div class="credit-left-timer">
+                        <div class="row">
+                            <div class="col-3 d-flex flex-column align-items-center">
+                                <input type="text" disabled class="w-100 mb-1 px-sm-3 disabled" id="day" value="8">
+                                <p>дней</p>
+                            </div>
+                            <div class="col-3 d-flex flex-column align-items-center">
+                                <input type="text" disabled class="w-100 mb-1 px-sm-3 disabled" id="hour" value="23">
+                                <p>часов</p>
+                            </div>
+                            <div class="col-3 d-flex flex-column align-items-center">
+                                <input type="text" disabled class="w-100 mb-1 px-sm-3 disabled" id="min" value="59">
+                                <p>минут</p>
+                            </div>
+                            <div class="col-3 d-flex flex-column align-items-center">
+                                <input type="text" disabled class="w-100 mb-1 px-sm-3 disabled" id="sec" value="59">
+                                <p>секунд</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-8">
+                <div class="wrap-credit-right">
+                    <p class="credit-right-title">Оставьте заявку на кредит -</p>
+                    <p class="credit-right-p">и наши менеджеры свяжуться с вами!</p>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <p>Ваше имя</p>
+                                <input type="text" placeholder="Имя" class="w-100 my-3 px-3" id="first_name" value="{{ data.first_name }}">
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <p>Ваше телефон</p>
+                                <input type="text" placeholder="+7 (___) ___-__-__" name="mobile_tel" class="w-100 my-3 px-3 {{ data['mobile_tel.classname'] }}" id="mobile_tel" value="{{ data.mobile_tel }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12 my-3">
+                                <button class="w-100">Купить в кредит</button>
+                            </div>
+                            <div class="col-sm-6 col-xs-12 my-3">
+                                <div class="agree position-relative">
+                                    <input type="checkbox" id="agree" class="position-absolute">
+                                    <label for="agree" class="d-block pl-4">Я даю согласие на обработку персональных данных</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

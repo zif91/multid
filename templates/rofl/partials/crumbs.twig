@@ -1,9 +1,9 @@
 {# пащимута не работаит
 
-    
+
 <div class="breadcrumbs">
                     <div class="container">
-  
+
 {{ runSnippet('DLCrumbs', {
 showCurrent: 1,
 sysKey: 'crumbs',
@@ -19,14 +19,15 @@ tplFirst: '@CODE:<a href='/'>Главная</a>'
 
 #}
 {{ runSnippet('DLCrumbs', {
-showCurrent: 1,
-sysKey: 'crumbs',
-ownerTPL: '@CODE:<div class="navi">
-        <div class="container-fluid">
+    showCurrent: 1,
+    sysKey: 'crumbs',
+    tvList: 'model, mark',
+    ownerTPL: '@CODE:<div class="navi">
+        <div class="container-fluid p-0">
             [+crumbs.wrap+]
         </div>
     </div>',
-tpl:'@CODE: <a  itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="[+url+]">[+title+]</a> <span></span>',
-tplCurrent: '@CODE: <a  itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="[+url+]">[+title+]</a> <span></span>',
-addWhereList: 'AND (alias_visible=1 OR id=1)',
+    tpl:'@CODE: <a  itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="[+url+]">[+title+]</a> <span></span>',
+    tplCurrent: '@CODE: <a  itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="/katalog-avtomobilej/?f[42]=[+tv.mark+]&f[43]=[+tv.model+]">[+tv.mark+] [+tv.model+]</a> <span></span> <a  itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="[+url+]">[+title+]</a> <span></span>',
+    addWhereList: 'AND (alias_visible=1 OR id=1)',
 }) | raw}}

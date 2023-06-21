@@ -130,10 +130,17 @@
             <input value="{{ data.mobile_tel }}" name="mobile_tel"  class="form-control py-2 border-1 phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
           </div>
         </div>
-        <div class="text-center pt-3 col-xl-4 col-md-6">
+        <div class="text-center pt-3 pb-3 col-xl-4 col-md-6">
           <button type="submit" class="btn btn-danger w-100 mt-2">Оставить заявку</button>
         </div>
+        
         <div class="col-xl-4 col-md-6 ml-auto">
+        <div class="form-check pl-0 mb-2 mt-0 col-md-10 col-sm-6 d-flex align-items-start justify-content-start">
+          <input class="form-check-input mt-1" type="checkbox"  id="check_nationality" value="1" name="check_nationality" style="margin: 0;">
+          <label class="form-check-label small mt-1 text-left" for="check_nationality"style="font-size: 15px;">
+            Являюсь гражданином РФ
+          </label>
+        </div>
           <p class="personal-text mb-1">
              Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#" class=" personal-link text-danger"> персональных данных</a>
           </p>
@@ -155,21 +162,15 @@
         <label class="lab mb-2">Выберите желаемый автомобиль</label>  
         <select class="select  select_cred py-2 border-0 w-100">
           <option disabled value="12" selected >Марка</option> 
-          <option value="1">1</option> 
-          <option value="2">2</option> 
-          <option value="3">3</option> 
+           
         </select>
         <select class="select select_cred py-2 border-0 w-100 mt-1">
           <option disabled value="12" selected >Модель</option> 
-          <option value="1">1</option> 
-          <option value="2">2</option> 
-          <option value="3">3</option> 
+          
         </select>
         <select class="select select_cred py-2 border-0 w-100 mt-1">
           <option disabled value="12" selected >Объявление</option> 
-          <option value="1">1</option> 
-          <option value="2">2</option> 
-          <option value="3">3</option> 
+          
         </select>
       </div>
 
@@ -180,10 +181,16 @@
       <div class="field mb-4 pt-sm-0 pt-1 text-left">
         <input value="{{ data.mobile_tel }}" name="mobile_tel"  class="form-control py-2 border-1 phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
       </div>
+      <div class="form-check pl-0 col-md-4 col-sm-6 col-12 d-flex align-items-start justify-content-start">
+        <input class="form-check-input mt-1" type="checkbox"  id="check_nationality" value="1" name="check_nationality" style="margin: 0;">
+        <label class="form-check-label small mt-1 text-left" for="check_nationality">
+          Являюсь гражданином РФ
+        </label>
+    </div>
       <div class="text-center pt-2">
         <button type="submit" class="btn btn-danger w-100 mt-1" style="border-radius: 8px;">Оставить заявку</button>
       </div>
-      <p class="pt-1 mb-1" style="font-weight: 400;font-size: 12px;line-height: 150%;letter-spacing: 0.2px;color: #FFFFFF;">
+      <p class="pt-1 mb-1 personal-text" >
          Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#" class="text-danger"> персональных данных</a>
       </p>
     </div> 

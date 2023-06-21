@@ -27,7 +27,7 @@ outerTpl: '@CODE:<ul class="pb-5">
 </nav>
 <header class="mobile-header position-relative">
     <div class="logo" >
-        <a style=" background: url({{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}); filter: contrast(0.5) grayscale(1);
+        <a style=" background: url({#{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }#}{{baseSettings["logo"]}}); filter: contrast(0.5) grayscale(1);
 " href="/"></a>
     </div>
     <a class="menu-button"></a>
@@ -35,7 +35,7 @@ outerTpl: '@CODE:<ul class="pb-5">
 <header class="header py-3">
     <div class="container flex">
         <div class="logo" >
-            <a style="background: url({{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}) center / cover" href="/"></a>
+            <a style="background: url({#{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }#}{{baseSettings["logo"]}}) center / cover" href="/"></a>
         </div>
         <div class="contacts pt-2">
             {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4"}) | raw}}

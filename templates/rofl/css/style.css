@@ -2816,11 +2816,45 @@ button .close,
         position: relative;
         top: 1px;
     }
-
     .advantage {
         font-size: 14px;
         font-weight: 500;
         line-height: 10px;
+    }
+}
 
+.navi {
+    padding: 50px 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #666666;
+}
+
+.navi a {
+    text-decoration: none;
+    color: #666666;
+    display: contents;
+}
+.navi a:hover {
+    color: #d93e3a;
+}
+
+.navi span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 4px;
+    height: 8px;
+    background: url('../img/navi.svg');
+    margin: -2px 8px 0 8px;
+}
+@media (max-width: 575px) {
+    .navi {
+        padding: 14px 0 30px;
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .navi span {
+        margin: -2px 4px 0 4px;
     }
 }

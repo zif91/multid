@@ -1438,18 +1438,10 @@ main {
 .item-page .credit-block .field .form-control.other::placeholder {
   color: #fff;
 }
-
-/* .item-page .credit-block .field .discount {
-  height: 44px;
-  line-height: 44px;
-  background: #405472;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 18px;
-} */
-
+.form_cred .credit-title,
 .form-calculate2 .credit-title,
+.cred_formin .credit-title,
+.newform .credit-title,
 .item-page .credit-block .field .credit-title {
   font-family: 'Montserrat';
   font-style: normal;
@@ -1460,6 +1452,8 @@ main {
 }
 
 .form-calculate2 .credit-cont,
+.newform .credit-cont,
+.cred_formin .credit-cont,
 .item-page .credit-block .field .credit-cont {
   font-family: 'Montserrat';
   font-style: normal;
@@ -1511,6 +1505,7 @@ main {
 }
 
 .form-calculate2 .personal-text,
+.form_cred .personal-text,
 .item-page .credit-block .personal-text{
   font-family: 'Montserrat';
   font-style: normal;
@@ -1535,7 +1530,7 @@ main {
 .application_cr{
   position: relative;
   width: 100%;
-  top: 22px;
+  top: 8px;
 }
 
 .application_crmin{
@@ -2098,6 +2093,32 @@ content: '';
   left: 0;
 }
 
+.form_cred{
+  height: auto;
+  background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
+  border-radius: 14px;
+  }
+
+.form_cred .lab{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.newform .lab,
+.cred_formin .lab{
+  width: 100%;
+  color: #FFFFFF;
+}
+
+.form-calculate2 .form-check-label,
+.newform .form-check-label,
+.cred_formin .form-check-label,
+.form_cred .form-check-label{
+  margin-left: 20px;
+  color: #FFFFFF;
+}
 
 .title_cred{
   font-family: 'Montserrat';
@@ -2147,11 +2168,10 @@ content: '';
 }
 
 .cred_formin{
-  width: 400px;
+  max-width: 400px;
   height: 671px;
   position: relative;
   padding-bottom: 50px;
-  right: 14px;
   border-radius: 14px;
   background: url('/templates/rofl/img/credit/back_media.png') no-repeat;
   display: none;
@@ -2399,6 +2419,14 @@ content: '';
 
   .item-page .bottom-block p {
     text-align: center;
+  }
+
+  .newform{
+    display: none;
+  }
+
+  .cred_formin{
+    display: block;
   }
 }
 

@@ -1438,6 +1438,16 @@ main {
 .item-page .credit-block .field .form-control.other::placeholder {
   color: #fff;
 }
+
+.cred_title{
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 34px;
+color: #252638;
+}
+
 .form_cred .credit-title,
 .form-calculate2 .credit-title,
 .cred_formin .credit-title,
@@ -2066,16 +2076,16 @@ content: '';
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 17px;
   color: #98AEC3;
 }
-
+/*  */
 .cred_text{
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
   color: #252638;
 }
@@ -2135,14 +2145,38 @@ content: '';
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 24px;
-  align-items: center;
+  /* align-items: center; */
   color: #182232;
+  margin: 5px;
+}
+
+.text_presentbank{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 24px;
+  /* align-items: center; */
+  color: #182232;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.text_presentbtext{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 24px;
+  color: #182232;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .col_cred{
-  width: 100%;
+  width: auto;
   height: 60px;
 }
 
@@ -2291,7 +2325,22 @@ content: '';
   color: #fff;
 }
 
+.advant_row{
+  display: flex;
+  justify-content: flex-start;
+}
+
 @media (max-width: 1199px) {
+  .text_present{
+    font-size: 18px;
+    margin: 5px;
+  }
+
+  .text_presentbtext{
+    font-size: 19px;
+    margin-top: -4px;
+  }
+
   .form-calculate2,
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
@@ -2428,6 +2477,17 @@ content: '';
   .cred_formin{
     display: block;
   }
+
+  .text_presentbtext{
+    font-size: 19px;
+    margin-top: 5px;
+  }
+
+  .advant_row{
+    display: flex;
+    justify-content: space-between;
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -3007,13 +3067,32 @@ button .close,
     font-size: 18px;
 
   }
+
+  .text_present{
+    font-size: 16px;
+    line-height: 24px;
+    margin: 5px;
+  }
+  
+  .text_presentbank{
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+  
+  .text_presentbtext{
+    font-size: 16px;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
 }
 
 @media(max-width: 400px){
- .form-calculate2{
+ /* .form-calculate2{
   width: 97%;
   margin: 0;
- }
+ } */
+ 
 }
 
 .navi {

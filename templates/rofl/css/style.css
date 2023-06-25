@@ -547,6 +547,24 @@ main {
   color: #fff;
 }
 
+.btn.btn-black {
+    background: #fff;
+    font-weight: 500;
+    padding: 13px 24px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    font-size: 14px;
+    line-height: 17px;
+    border: 1px solid #000000;
+    color: #000000;
+    border-radius: 8px;
+}
+
+.btn.btn-black:hover {
+    background: #000000;
+    color: #FFFFFF;
+}
+
 .btn.btn-danger {
   color: #fff;
   font-weight: 500;
@@ -584,7 +602,7 @@ main {
 }
 
 .header ul li {
-  margin-right: 20px;
+  margin-right: 70px;
 }
 
 .header ul li:last-child {
@@ -1002,6 +1020,24 @@ main {
   border-radius: 4px;
 }
 
+.catalog-page .item .text .car-year {
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+    height: 20px;
+    color: black;
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+}
+.catalog-page .item .text .text-red {
+    font-size: 12px;
+    font-weight: 700;
+    color: #d93e3a;
+}
+
 .catalog-page .item .text .about {
   font-size: 12px;
   line-height: 18px;
@@ -1384,7 +1420,30 @@ main {
   background: url('/templates/rofl/img/next.svg');
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
+.navi {
+    padding: 50px 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #666666;
+}
 
+.navi a {
+    text-decoration: none;
+    color: #666666;
+    display: contents;
+}
+.navi a:hover {
+    color: #d93e3a;
+}
+
+.navi span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 4px;
+    height: 8px;
+    background: url('../img/navi.svg');
+    margin: -2px 8px 0 8px;
+}
 .form-calculate2,
 .item-page .credit-block {
   /* background: linear-gradient(96.72deg, #0f1723 0%, #25344b 100%); */
@@ -1528,17 +1587,6 @@ main {
 }
 
 .item-page .credit-block .application{
-  position: relative;
-  width: 100%;
-}
-
-.application_cr{
-  position: relative;
-  width: 100%;
-  top: 22px;
-}
-
-.application_crmin{
   position: relative;
   width: 100%;
 }
@@ -2067,131 +2115,6 @@ content: '';
   margin: -2px 0 0 -8px;
 }
 
-.advantage{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  color: #98AEC3;
-}
-
-.cred_text{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  color: #252638;
-}
-
-.line_cred::after{
-  display: block;
-  content:'' ;
-  width: 4px;
-  height: 60px;
-  background: #D12D1E;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  position: absolute;
-  left: 0;
-}
-
-
-.title_cred{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 34px;
-  display: flex;
-  align-items: center;
-  color: #182232;
-}
-
-.text_present{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  align-items: center;
-  color: #182232;
-}
-
-.col_cred{
-  width: 100%;
-  height: 60px;
-}
-
-.newform{
-  width: 1165px;
-  height: 330px;
-  position: relative;
-  padding-bottom: 50px;
-  background: #F4F4F4;
-  border-radius: 14px;
-  display: block;
-}
-
-.cred_newform{
-  width: 1165px;
-  height: 270px;
-  top: 58px;
-  position: relative;
-  padding-bottom: 50px;
-  right: 14px;
-  border-radius: 14px;
-  background: url('/templates/rofl/img/credit/bgcar.png');
-}
-
-.cred_formin{
-  width: 400px;
-  height: 671px;
-  position: relative;
-  padding-bottom: 50px;
-  right: 14px;
-  border-radius: 14px;
-  background: url('/templates/rofl/img/credit/back_media.png') no-repeat;
-  display: none;
-}
-
-.img_container{
-  width: auto;
-  height: 200px;
-  position:absolute;
-  bottom: 114px;
-  right: 0;
-  background-repeat: no-repeat;
-}
-
-.banks_cred{
-  width: auto;
-  display: block;
-}
-
-.banks_credmin{
-  width: auto;
-  display: none;
-}
-
-.select_cred{
-  width: 100%;
-  height: 50px;
-  background: #FFFFFF;
-  border: 1px solid #E6E6E6;
-  border-radius: 8px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #98AEC3;
-}
-
-.form_cred{
-  display: block;
-}
-
 .item-page .auto-info .item .name {
   font-size: 16px;
   line-height: 20px;
@@ -2299,24 +2222,13 @@ content: '';
   .item-page .bottom-block p {
     font-size: 24px;
   }
-
 }
 
 @media (max-width: 991px) {
-
+  .form-calculate2,
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
     border-radius: 14px;
-  }
-
-  .form-calculate2{
-    background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
-    border-radius: 14px;
-  }
-
-  .form_cred{
-    display: none;
-
   }
 
   .header .btn {
@@ -2402,14 +2314,11 @@ content: '';
   }
 }
 
+/*  */
 @media (max-width: 767px) {
+  .form-calculate2,
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
-    border-radius: 14px;
-  }
-
-  .form-calculate2{
-    background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
     border-radius: 14px;
   }
 
@@ -2585,29 +2494,6 @@ content: '';
     width: 100%;
     left: 0;
   }
-
-  .newform{
-    display: none;
-  }
-
-  .cred_formin{
-    display: block;
-
-  }
-
-  .banks_cred{
-    display: none;
-  }
-
-  .banks_credmin{
-    display: block;
-  }
-
-  .form_cred{
-    display: none;
-
-  }
-
 }
 
 @media (max-width: 575px) {
@@ -2831,6 +2717,15 @@ content: '';
   .catalog-page .item:hover {
     margin-bottom: 33px;
   }
+  .navi {
+    padding: 14px 0 30px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .navi span {
+    margin: -2px 4px 0 4px;
+  }
 }
 
 .price-range-input {
@@ -2875,12 +2770,7 @@ button .close,
 }
 }
 
-@media(min-width: 321px) and (max-width: 568px){
-  .cred_formin{
-    width: 300px;
-    height: 671px;
-  }
-
+@media(min-width: 320px) and (max-width: 568px){
   .item-page .credit-block .number-0,
   .item-page .credit-block .number-25,
   .item-page .credit-block .number-50,
@@ -2890,11 +2780,6 @@ button .close,
 
   .form-calculate2 .number-0,
   .item-page .credit-block .number-0{
-    position: relative;
-    right:6px;
-  }
-
-  .form-calculate2 .number-0{
     position: relative;
     right:6px;
   }
@@ -2940,8 +2825,7 @@ button .close,
   .form-calculate2 .number-25,
   .form-calculate2 .number-50,
   .form-calculate2 .number-100{
-    font-size: 8px;
-    top: 0px;
+    font-size: 12px;
   }
 
   .form-calculate2 .monthnum{
@@ -2964,68 +2848,8 @@ button .close,
   .form-calculate2 .month-48,
   .form-calculate2 .month-54,
   .form-calculate2 .month-60{
-    font-size: 8px;
-    position: relative;
-    top: -8px;
-  }
-  .advantage{
     font-size: 12px;
-    font-weight: 500;
-    line-height: 10px;
-
+    position: relative;
+    top: 1px;
   }
-
-  .text_present{
-    font-size: 18px;
-
-  }
-}
-
-@media(max-width: 400px){
- .form-calculate2{
-  width: 97%;
-  margin: 0;
- }
-}
-
-.navi {
-    padding: 50px 0;
-    font-size: 14px;
-    line-height: 17px;
-    color: #666666;
-}
-
-.navi a {
-    text-decoration: none;
-    color: #666666;
-    display: contents;
-}
-.navi a:hover {
-    color: #d93e3a;
-}
-
-.navi span {
-    display: inline-block;
-    vertical-align: middle;
-    width: 4px;
-    height: 8px;
-    background: url('../img/navi.svg');
-    margin: -2px 8px 0 8px;
-}
-.navi span:last-child {
-    background: none;
-}
-
-@media (max-width: 575px) {
-    .navi {
-        padding: 14px 0 30px;
-        font-size: 10px;
-        line-height: 12px;
-    }
-    .navi span {
-        margin: -2px 4px 0 4px;
-    }
-    .navi span:last-child {
-        background: none;
-    }
 }

@@ -8,13 +8,10 @@
     },
     "mobile_tel": {
       "required": "Обязательно к заполнению"
-    },
-    "agree": {
-      "required": "Обязательно к заполнению"
     }
   },
   "subject": "Запрос на кредит",
   "prepare": "prepareFormConfig",
   "prepareAfterProcess": "CatchFormResult",
-  "formControls": "agree"
+  "prepareProcess": "saveFormData"
 }

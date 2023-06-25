@@ -1,0 +1,48 @@
+<form> 
+  <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+  <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+  {{ data['form.messages'] | raw }}
+  <div class="form form_cred p-0">
+      <div class="col-xl-12 col-md-12">
+          <div class="field">
+              <div class="d-flex">
+                <span class="credit-title text-left pt-3">Форма заявки</span>
+              </div>
+            </div>
+          </div> 
+          <div class="field mt-4 mx-3">
+            <label class="lab mb-2">Выберите желаемый автомобиль</label>  
+              <input placeholder="Марка" class="form-control   select  select_cred py-2 border-0 w-100">
+                
+              </input>
+              <input placeholder="Модель" class="form-control   select select_cred py-2 border-0 w-100 mt-1">
+                
+              </input>
+              <input placeholder="Особые пожелания" class="form-control    select select_cred py-2 border-0 w-100 mt-1">
+                
+              </input>
+            </div>
+            <div class="mx-3 field mb-1 mt-4 pt-sm-0 pt-4 text-left">
+                <label class="lab mb-2">Укажите свои данные</label>
+                <input name="first_name" value="{{ data.first_name }}" type="text" class="form-control {{ data['first_name.classname'] }}" id="calc-input-5" type="text" placeholder="Ваше имя" />
+            </div>
+          <div class="mx-3 field mb-4 pt-sm-0 pt-4 text-left">
+            <input value="{{ data.mobile_tel }}" name="mobile_tel"  class="form-control py-2 border-1 phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
+          </div>
+
+          <div class="form-check pl-3">
+            <input class="form-check-input mt-1" type="checkbox"  id="check_nationality" value="1" name="check_nationality" style="margin: 0;">
+            <label class="form-check-label small mt-1" for="check_nationality">
+              Являюсь гражданином РФ
+            </label>
+          </div>
+        
+        <div class="mx-3 text-center">
+          <button type="submit" class="btn btn-danger w-100 mt-1" style="border-radius: 8px;">Оставить заявку</button>
+        </div>
+          <p class="personal-text mx-3 pt-2">
+            Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#" class="personal-link text-danger"> персональных данных</a>
+          </p>
+      </div> 
+      </div>
+</form>

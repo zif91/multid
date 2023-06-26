@@ -2442,6 +2442,10 @@ content: '';
   color: #838383;
 }
 
+/* .text-field-error{
+  color: #FFF;
+} */
+
 @media (max-width: 575.98px) {
   .form-calculate3 .number-0,
   .form-calculate3 .number-25,
@@ -3336,7 +3340,11 @@ button .close,
     background: url('../img/navi.svg');
     margin: -2px 8px 0 8px;
 }
-.form-calculate2,
+.form-calculate2 {
+    background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
+    border-radius: 14px;
+  }
+
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
     border-radius: 14px;

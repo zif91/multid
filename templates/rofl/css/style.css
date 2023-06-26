@@ -1397,6 +1397,12 @@ main {
   display: block;
 }
 
+.form-calculate3{
+  background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
+  border-radius: 14px;
+  display: none;
+}
+
 .item-page .credit-block .name {
   font-weight: 600;
   font-size: 28px;
@@ -2376,11 +2382,6 @@ content: '';
   justify-content: flex-start;
 }
 
-.form-calculate3{
-  background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
-  border-radius: 14px;
-  display: none;
-}
 
 .form-calculate3 .item .ui-state-default,
 .form-calculate3 .item .ui-widget-content .ui-state-default,
@@ -3222,7 +3223,6 @@ button .close,
 }
 
 @media(max-width: 400px){
-<<<<<<< HEAD
   .newform {
     max-width: 300px;
     height: 671px;
@@ -3235,15 +3235,7 @@ button .close,
   .cred_newform{
       max-width: 300px;
       height: 671px;
-  }
- 
-=======
- /* .form-calculate2{
-  width: 97%;
-  margin: 0;
- } */
-
->>>>>>> db92c8a210e73a53c7d47d91ad1baa0a2d5e9141
+  } 
 }
 
 .navi {
@@ -3356,4 +3348,5 @@ button .close,
     background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
     border-radius: 14px;
   }
+}
   

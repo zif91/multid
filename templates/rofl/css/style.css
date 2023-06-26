@@ -3207,13 +3207,13 @@ button .close,
     line-height: 24px;
     margin: 5px;
   }
-  
+
   .text_presentbank{
     font-size: 16px;
     margin-top: 20px;
     margin-left: 5px;
   }
-  
+
   .text_presentbtext{
     font-size: 16px;
     margin-left: 5px;
@@ -3222,6 +3222,7 @@ button .close,
 }
 
 @media(max-width: 400px){
+<<<<<<< HEAD
   .newform {
     max-width: 300px;
     height: 671px;
@@ -3236,6 +3237,13 @@ button .close,
       height: 671px;
   }
  
+=======
+ /* .form-calculate2{
+  width: 97%;
+  margin: 0;
+ } */
+
+>>>>>>> db92c8a210e73a53c7d47d91ad1baa0a2d5e9141
 }
 
 .navi {
@@ -3279,3 +3287,73 @@ button .close,
         background: none;
     }
 }
+.btn.btn-black {
+    background: #fff;
+    font-weight: 500;
+    padding: 13px 24px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    font-size: 14px;
+    line-height: 17px;
+    border: 1px solid #000000;
+    color: #000000;
+    border-radius: 8px;
+}
+
+.btn.btn-black:hover {
+    background: #000000;
+    color: #FFFFFF;
+}
+.catalog-page .item .text .car-year {
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+    height: 20px;
+    color: black;
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+}
+.catalog-page .item .text .text-red {
+    font-size: 12px;
+    font-weight: 700;
+    color: #d93e3a;
+}
+.navi {
+    padding: 50px 0;
+    font-size: 14px;
+    line-height: 17px;
+    color: #666666;
+}
+
+.navi a {
+    text-decoration: none;
+    color: #666666;
+    display: contents;
+}
+.navi a:hover {
+    color: #d93e3a;
+}
+
+.navi span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 4px;
+    height: 8px;
+    background: url('../img/navi.svg');
+    margin: -2px 8px 0 8px;
+}
+.form-calculate2,
+  .item-page .credit-block {
+    background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
+    border-radius: 14px;
+  }
+  @media (max-width: 767px) {
+  .form-calculate2,
+  .item-page .credit-block {
+    background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
+    border-radius: 14px;
+  }
+  

@@ -47,22 +47,25 @@
   </div>
 </form>
 
+{% block css %}
 <style>
-    .form-check {
-        position: relative;
-        padding: 0;
-        align-items: center;
-    }
-    .form-check-input {
-        position: absolute;
-        margin-top: 0.3rem;
-        margin-left: -1.25rem;
-    }
-    .form-check input[type="checkbox"]{
-        display: block!important;
-    }
-    .form-check-label{
-      color: #fff;
-      margin-right: 58px;
-    }
+.newform .text-field-error{
+  color: #FFF;
+}
+
+.form-check-input {
+  position: absolute;
+  margin-top: 0.3rem;
+  margin-left: -1.25rem;
+}
+
+.form-check input[type="checkbox"]{
+  display: block!important;
+}
+
+.form-check-label{
+  color: #fff;
+  margin-left: 10%;
+}
 </style>
+{% endblock %}

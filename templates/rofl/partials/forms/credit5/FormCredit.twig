@@ -31,7 +31,7 @@
       </div>
       <div class="form-check pl-3">
         <input class="form-check-input mt-1" type="checkbox"  id="check_nationality" value="1" name="check_nationality" style="margin: 0;">
-        <label class="form-check-label small mt-1" for="check_nationality">
+        <label class="form-check-label small mt-1 col-12" for="check_nationality">
           Являюсь гражданином РФ
         </label>
       </div>
@@ -41,3 +41,26 @@
     </div>
   </div>
 </form>
+
+{% block css %}
+<style>
+.cred_formin .text-field-error{
+  color: #FFF;
+}
+
+.form-check-input {
+  position: absolute;
+  margin-top: 0.3rem;
+  margin-left: -1.25rem;
+}
+
+.form-check input[type="checkbox"]{
+  display: block!important;
+}
+
+.form-check-label{
+  color: #fff;
+  margin-left: 10%;
+}
+</style>
+{% endblock %}

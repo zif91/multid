@@ -1385,11 +1385,16 @@ main {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-.form-calculate2,
 .item-page .credit-block {
   /* background: linear-gradient(96.72deg, #0f1723 0%, #25344b 100%); */
   background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
   border-radius: 14px;
+}
+
+.form-calculate2{
+  background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
+  border-radius: 14px;
+  display: block;
 }
 
 .item-page .credit-block .name {
@@ -1450,6 +1455,7 @@ color: #252638;
 
 .form_cred .credit-title,
 .form-calculate2 .credit-title,
+.form-calculate3 .credit-title,
 .cred_formin .credit-title,
 .newform .credit-title,
 .item-page .credit-block .field .credit-title {
@@ -1462,6 +1468,7 @@ color: #252638;
 }
 
 .form-calculate2 .credit-cont,
+.form-calculate3 .credit-cont,
 .newform .credit-cont,
 .cred_formin .credit-cont,
 .item-page .credit-block .field .credit-cont {
@@ -1474,6 +1481,7 @@ color: #252638;
 }
 
 .form-calculate2 .discount,
+.form-calculate3 .discount,
 .item-page .credit-block .discount {
     width: 235px;
     height: 17px;
@@ -1487,6 +1495,7 @@ color: #252638;
 }
 
 .form-calculate2 .credit-monthly,
+.form-calculate3 .credit-monthly,
 .item-page .credit-block .credit-monthly{
   font-family: 'Montserrat';
   font-style: normal;
@@ -1498,6 +1507,7 @@ color: #252638;
 }
 
 .form-calculate2 .credit-amounts,
+.form-calculate3 .credit-amounts,
 .item-page .credit-block .credit-amounts{
   font-family: 'Montserrat';
   font-style: normal;
@@ -1509,12 +1519,14 @@ color: #252638;
 }
 
 .form-calculate2 .btn-danger,
+.form-calculate3 .btn-danger,
 .item-page .credit-block .btn-danger {
   background: #D12D1E;
   border-radius: 8px;
 }
 
 .form-calculate2 .personal-text,
+.form-calculate3 .personal-text,
 .form_cred .personal-text,
 .item-page .credit-block .personal-text{
   font-family: 'Montserrat';
@@ -1529,6 +1541,7 @@ color: #252638;
 
 .form_cred .personal-link,
 .form-calculate2 .personal-link,
+.form-calculate3 .personal-link,
 .item-page .credit-block .personal-link{
   display: inline;
 }
@@ -1568,6 +1581,7 @@ color: #252638;
 }
 
 .form-calculate2 .item,
+.form-calculate3 .item,
 .item-page .credit-block .item {
   font-size: 16px;
   line-height: 62px;
@@ -1575,6 +1589,15 @@ color: #252638;
 }
 
 .form-calculate2 .item input[type='text'] {
+  width: 100%;
+  height: 50px;
+  background: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.form-calculate3 .item input[type='text'] {
   width: 100%;
   height: 50px;
   background: none;
@@ -1607,6 +1630,7 @@ color: #252638;
 }
 
 .form-calculate2 .title,
+.form-calculate3 .title,
 .item-page .credit-block .title{
   width: 182px;
   height: 16px;
@@ -1631,6 +1655,7 @@ color: #252638;
   color: #FFFFFF;
 }
 
+.form-calculate3 .credit-text,
 .form-calculate2 .credit-text{
   font-family: 'Montserrat';
   font-style: normal;
@@ -1685,13 +1710,14 @@ color: #252638;
 }
 
 
-
 .form-calculate2 .marker-25,
+.form-calculate3 .marker-25,
 .item-page .credit-block.marker-25{
   left: 25%;
 }
 
 .form-calculate2 .marker-25,
+.form-calculate3 .marker-25,
 .item-page .credit-block .marker .marker-25::after{
 content: '';
   width: 1px;
@@ -1704,18 +1730,20 @@ content: '';
 }
 
 .form-calculate2 .marker-50,
+.form-calculate3 .marker-50,
 .item-page .credit-block.marker-50{
   left: 50%;
 }
 
 .form-calculate2 .marker-50::after,
+.form-calculate3 .marker-50::after,
 .item-page .credit-block .marker .marker-50::after{
   content: '';
     width: 1px;
-    height: 7px;
+    height: 6px;
     background: #F2F3F7;
     position: absolute;
-    top: 3px;
+    top: 4px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -1726,6 +1754,7 @@ content: '';
 }
 
 .form-calculate2 .marker-100::after,
+.form-calculate3 .marker-100::after,
 .item-page .credit-block .marker .marker-100::after{
     content: '';
     width: 1px;
@@ -1738,6 +1767,7 @@ content: '';
 }
 
   .form-calculate2 .month .marker-1::after,
+  .form-calculate3 .month .marker-1::after,
   .item-page .credit-block .month .marker-1::after{
     content: '';
     width: 1px;
@@ -1750,6 +1780,7 @@ content: '';
   }
 
     .form-calculate2 .month .marker-6::after,
+    .form-calculate3 .month .marker-6::after,
     .item-page .credit-block .month .marker-6::after{
       content: '';
       width: 1px;
@@ -1762,6 +1793,7 @@ content: '';
     }
 
 .form-calculate2 .month .marker-12::after,
+.form-calculate3 .month .marker-12::after,
 .item-page .credit-block .month .marker-12::after{
    content: '';
    width: 1px;
@@ -1774,6 +1806,7 @@ content: '';
 }
 
 .form-calculate2 .month .marker-18::after,
+.form-calculate3 .month .marker-18::after,
 .item-page .credit-block .month .marker-18::after{
       content: '';
       width: 1px;
@@ -1786,6 +1819,7 @@ content: '';
 }
 
 .form-calculate2 .month .marker-24::after,
+.form-calculate3 .month .marker-24::after,
 .item-page .credit-block .month .marker-24::after{
     content: '';
     width: 1px;
@@ -1798,6 +1832,7 @@ content: '';
 }
 
 .form-calculate2 .marker-30::after,
+.form-calculate3 .marker-30::after,
 .item-page .credit-block .month .marker-30::after{
   content: '';
   width: 1px;
@@ -1810,6 +1845,7 @@ content: '';
 }
 
 .form-calculate2 .month .marker-36::after,
+.form-calculate3 .month .marker-36::after,
 .item-page .credit-block .month .marker-36::after{
   content: '';
   width: 1px;
@@ -1822,6 +1858,7 @@ content: '';
 }
 
 .form-calculate2 .month .marker-42::after,
+.form-calculate3 .month .marker-42::after,
 .item-page .credit-block .month .marker-42::after{
   content: '';
   width: 1px;
@@ -1834,6 +1871,7 @@ content: '';
 }
 
 .form-calculate2 .month .marker-48::after,
+.form-calculate3 .month .marker-48::after,
 .item-page .credit-block .month .marker-48::after{
   content: '';
   width: 1px;
@@ -1846,6 +1884,7 @@ content: '';
 }
 
 .form-calculate2 .month .marker-54::after,
+.form-calculate3 .month .marker-54::after,
 .item-page .credit-block .month .marker-54::after{
   content: '';
   width: 1px;
@@ -1858,6 +1897,7 @@ content: '';
 }
 
 .form-calculate2 .month .marker-60::after,
+.form-calculate3 .month .marker-54::after,
 .item-page .credit-block .month .marker-60::after{
   content: '';
   width: 1px;
@@ -1875,10 +1915,10 @@ content: '';
   background-color: #002334;
 }
 
-  .item-page .credit-block .number-25{
-    position: absolute;
-    left: 23%;
-  }
+.item-page .credit-block .number-25{
+  position: absolute;
+  left: 23%;
+}
 
 .item-page .credit-block .number-0,
 .item-page .credit-block .number-25,
@@ -1892,8 +1932,6 @@ content: '';
   text-align: right;
   color: #838383;
 }
-
-
 
 .form-calculate2 .number-25{
    position: relative;
@@ -1930,24 +1968,28 @@ content: '';
 }
 
 .form-calculate2 .month-12,
+.form-calculate3 .month-12,
 .item-page .credit-block .month-12{
   position: relative;
   left:18px;
 }
 
 .form-calculate2 .month-24,
+.form-calculate3 .month-12,
 .item-page .credit-block .month-24{
   position: relative;
   left:18px;
 }
 
 .form-calculate2 .month-36,
+.form-calculate3 .month-36,
 .item-page .credit-block .month-36{
   position: relative;
   left:18px;
 }
 
 .form-calculate2 .month-48,
+.form-calculate3 .month-48,
 .item-page .credit-block .month-48{
   position: relative;
   left:18px;
@@ -2024,6 +2066,7 @@ content: '';
   color: #838383;
 }
 
+.form-calculate3 .item .ui-widget.ui-widget-content,
 .form-calculate2 .item .ui-widget.ui-widget-content,
 .item-page .credit-block .item .ui-widget.ui-widget-content {
   border: 0;
@@ -2032,6 +2075,7 @@ content: '';
   z-index: 1;
 }
 
+.form-calculate3 .item .ui-slider-horizontal,
 .form-calculate2 .item .ui-slider-horizontal,
 .item-page .credit-block .item .ui-slider-horizontal {
   height: 4px;
@@ -2124,6 +2168,7 @@ content: '';
 }
 
 .form-calculate2 .form-check-label,
+.form-calculate3 .form-check-label,
 .newform .form-check-label,
 .cred_formin .form-check-label,
 .form_cred .form-check-label{
@@ -2331,6 +2376,104 @@ content: '';
   justify-content: flex-start;
 }
 
+.form-calculate3{
+  background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
+  border-radius: 14px;
+  display: none;
+}
+
+.form-calculate3 .item .ui-state-default,
+.form-calculate3 .item .ui-widget-content .ui-state-default,
+.form-calculate3 .item .ui-widget-header .ui-state-default,
+.form-calculate3 .item .ui-button,
+.form-calculate3 .item html .ui-button.ui-state-disabled:hover,
+.form-calculate3 .item html .ui-button.ui-state-disabled:active {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: #fff;
+  width: 16px;
+  height: 16px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: -2px 0 0 -8px;
+}
+
+.form-calculate3 .number-25{
+  position: relative;
+  left: -2%;
+}
+
+.form-calculate3 .number-50{
+  position: relative;
+  left:-7%
+}
+
+.form-calculate3 .number-0,
+.form-calculate3 .number-25,
+.form-calculate3 .number-50,
+.form-calculate3 .number-100{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: right;
+  color: #838383;
+}
+
+.form-calculate3 .month-6,
+.form-calculate3 .month-12,
+.form-calculate3 .month-18,
+.form-calculate3 .month-24,
+.form-calculate3 .month-30,
+.form-calculate3 .month-36,
+.form-calculate3 .month-42,
+.form-calculate3 .month-48,
+.form-calculate3 .month-54,
+.form-calculate3 .month-60{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #838383;
+}
+
+@media (max-width: 575.98px) {
+  .form-calculate3 .number-0,
+  .form-calculate3 .number-25,
+  .form-calculate3 .number-50,
+  .form-calculate3 .number-100{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 17px;
+    text-align: right;
+    color: #838383;}
+    .form-calculate3k .month-6,
+    .form-calculate3 .month-12,
+    .form-calculate3 .month-18,
+    .form-calculate3 .month-24,
+    .form-calculate3 .month-30,
+    .form-calculate3 .month-36,
+    .form-calculate3 .month-42,
+    .form-calculate3 .month-48,
+    .form-calculate3 .month-54,
+    .form-calculate3 .month-60{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 17px;
+    text-align: center;
+    color: #838383;
+  }
+}
+
 @media (max-width: 1199px) {
   .text_present{
     font-size: 18px;
@@ -2346,6 +2489,10 @@ content: '';
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
     border-radius: 14px;
+  }
+
+  .form-calculate3{
+    display: none;
   }
 
   .header ul li {
@@ -2374,14 +2521,18 @@ content: '';
 
 @media (max-width: 991px) {
 
+  .form-calculate2,
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
     border-radius: 14px;
   }
 
   .form-calculate2{
-    background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
-    border-radius: 14px;
+    display: none;
+  }
+
+  .form-calculate3{
+    display: block;
   }
 
   .form_cred{
@@ -2497,11 +2648,6 @@ content: '';
     border-radius: 14px;
   }
 
-  .form-calculate2{
-    background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
-    border-radius: 14px;
-  }
-
   .item-page .credit-block .number-0,
   .item-page .credit-block .number-25,
   .item-page .credit-block .number-50,
@@ -2509,7 +2655,7 @@ content: '';
     font-size: 12px;
   }
 
-  .form-calculate2 .number-0,
+  .form-calculate3 .number-0,
   .item-page .credit-block .number-0{
     position: relative;
     right:6px;
@@ -2528,57 +2674,57 @@ content: '';
     font-size: 12px;
   }
 
-  .form-calculate2 .month-48,
+  .form-calculate3 .month-48,
   .item-page .credit-block .month-48{
     position: relative;
     left:5px;
   }
 
-  .form-calculate2 .month-24,
+  .form-calculate3 .month-24,
   .item-page .credit-block .month-24{
     position: relative;
     left:5px;
   }
 
-  .form-calculate2 .month-12,
+  .form-calculate3 .month-12,
   .item-page .credit-block .month-12{
     position: relative;
     left:4px;
   }
 
-  .form-calculate2 .month-36,
+  .form-calculate3 .month-36,
   .item-page .credit-block .month-36{
     position: relative;
     left:4px;
   }
 
-  .form-calculate2 .number-0,
-  .form-calculate2 .number-25,
-  .form-calculate2 .number-50,
-  .form-calculate2 .number-100{
+  .form-calculate3 .number-0,
+  .form-calculate3 .number-25,
+  .form-calculate3 .number-50,
+  .form-calculate3 .number-100{
     font-size: 12px;
   }
 
-  .form-calculate2 .monthnum{
+  .form-calculate3 .monthnum{
     position: relative;
     top: -10px;
   }
 
-  .form-calculate2 .sum{
+  .form-calculate3 .sum{
     position: relative;
     top: -10px;
   }
 
-  .form-calculate2 .month-6,
-  .form-calculate2 .month-12,
-  .form-calculate2 .month-18,
-  .form-calculate2 .month-24,
-  .form-calculate2 .month-30,
-  .form-calculate2 .month-36,
-  .form-calculate2 .month-42,
-  .form-calculate2 .month-48,
-  .form-calculate2 .month-54,
-  .form-calculate2 .month-60{
+  .form-calculate3 .month-6,
+  .form-calculate3 .month-12,
+  .form-calculate3 .month-18,
+  .form-calculate3 .month-24,
+  .form-calculate3 .month-30,
+  .form-calculate3 .month-36,
+  .form-calculate3 .month-42,
+  .form-calculate3 .month-48,
+  .form-calculate3 .month-54,
+  .form-calculate3 .month-60{
     font-size: 12px;
     position: relative;
     top: 1px;
@@ -2675,10 +2821,6 @@ content: '';
     left: 0;
   }
 
-  .newform{
-    display: none;
-  }
-
   .cred_formin{
     display: block;
 
@@ -2694,9 +2836,7 @@ content: '';
 
   .form_cred{
     display: none;
-
   }
-
 }
 
 @media (max-width: 575px) {
@@ -2965,11 +3105,6 @@ button .close,
 }
 
 @media(min-width: 321px) and (max-width: 568px){
-  .cred_formin{
-    width: 300px;
-    height: 671px;
-  }
-
   .item-page .credit-block .number-0,
   .item-page .credit-block .number-25,
   .item-page .credit-block .number-50,
@@ -2977,13 +3112,13 @@ button .close,
     font-size: 8px;
   }
 
-  .form-calculate2 .number-0,
+  .form-calculate3 .number-0,
   .item-page .credit-block .number-0{
     position: relative;
     right:6px;
   }
 
-  .form-calculate2 .number-0{
+  .form-calculate3 .number-0{
     position: relative;
     right:6px;
   }
@@ -3001,58 +3136,58 @@ button .close,
     font-size: 8px;
   }
 
-  .form-calculate2 .month-48,
+  .form-calculate3 .month-48,
   .item-page .credit-block .month-48{
     position: relative;
     left:5px;
   }
 
-  .form-calculate2 .month-24,
+  .form-calculate3 .month-24,
   .item-page .credit-block .month-24{
     position: relative;
     left:5px;
   }
 
-  .form-calculate2 .month-12,
+  .form-calculate3 .month-12,
   .item-page .credit-block .month-12{
     position: relative;
     left:4px;
   }
 
-  .form-calculate2 .month-36,
+  .form-calculate3 .month-36,
   .item-page .credit-block .month-36{
     position: relative;
     left:4px;
   }
 
-  .form-calculate2 .number-0,
-  .form-calculate2 .number-25,
-  .form-calculate2 .number-50,
-  .form-calculate2 .number-100{
+  .form-calculate3 .number-0,
+  .form-calculate3 .number-25,
+  .form-calculate3 .number-50,
+  .form-calculate3 .number-100{
     font-size: 8px;
     top: 0px;
   }
 
-  .form-calculate2 .monthnum{
+  .form-calculate3 .monthnum{
     position: relative;
     top: -10px;
   }
 
-  .form-calculate2 .sum{
+  .form-calculate3 .sum{
     position: relative;
     top: -10px;
   }
 
-  .form-calculate2 .month-6,
-  .form-calculate2 .month-12,
-  .form-calculate2 .month-18,
-  .form-calculate2 .month-24,
-  .form-calculate2 .month-30,
-  .form-calculate2 .month-36,
-  .form-calculate2 .month-42,
-  .form-calculate2 .month-48,
-  .form-calculate2 .month-54,
-  .form-calculate2 .month-60{
+  .form-calculate3 .month-6,
+  .form-calculate3 .month-12,
+  .form-calculate3 .month-18,
+  .form-calculate3 .month-24,
+  .form-calculate3 .month-30,
+  .form-calculate3 .month-36,
+  .form-calculate3 .month-42,
+  .form-calculate3 .month-48,
+  .form-calculate3 .month-54,
+  .form-calculate3 .month-60{
     font-size: 8px;
     position: relative;
     top: -8px;
@@ -3061,12 +3196,10 @@ button .close,
     font-size: 12px;
     font-weight: 500;
     line-height: 10px;
-
   }
 
   .text_present{
     font-size: 18px;
-
   }
 
   .text_present{
@@ -3089,11 +3222,28 @@ button .close,
 }
 
 @media(max-width: 400px){
+<<<<<<< HEAD
+  .newform {
+    max-width: 300px;
+    height: 671px;
+  }
+
+  .img_container{
+    display: none;
+  }
+
+  .cred_newform{
+      max-width: 300px;
+      height: 671px;
+  }
+ 
+=======
  /* .form-calculate2{
   width: 97%;
   margin: 0;
  } */
 
+>>>>>>> db92c8a210e73a53c7d47d91ad1baa0a2d5e9141
 }
 
 .navi {

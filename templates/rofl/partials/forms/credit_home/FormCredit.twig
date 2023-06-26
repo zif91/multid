@@ -11,6 +11,10 @@
     font-size: 35px;
     line-height: 48px; 
     }
+
+    .dat-name .text-field-error{
+        color:#fff;
+    }
     </style>
     <div class="row">
         <div class="col-md-4 col-sm-6 mb-4">
@@ -35,9 +39,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6 mb-4">
-            <input name="first_name" value="{{data.first_name}}" type="text" placeholder="Ваше имя" class="form-control mb-5">
-            <input type="text" value="{{ data.mobile_tel }}" name="mobile_tel" placeholder="Ваш телефон" class="form-control">
+        <div class="dat-name col-md-4 col-sm-6 mb-4">
+        <div>
+            <input name="first_name" value="{{data.first_name}}" type="text" placeholder="Ваше имя" class="form-control">
+        </div>
+        <div>
+            <input type="text" value="{{ data.mobile_tel }}" name="mobile_tel" placeholder="Ваш телефон" class="form-control mt-5">
+        </div>
         </div>
         <div class="col-md-4 col-sm-6 mb-4">
             <button class="w-100 btn btn-danger" style="height: 44px;
@@ -49,3 +57,8 @@
     font-size: 14px;">Получить условия и цену</button></div>
     </div>
 </form>
+
+<style>
+
+    
+</style>

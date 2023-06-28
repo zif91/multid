@@ -7,7 +7,15 @@
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
     {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
 
-{% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %}
+{# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}
+
+{% set faviconSizes = [16, 32, 64, 128] %}
+
+{% for size in faviconSizes %}
+  {% set favicon = runSnippet('phpthumb', {input: baseSettings['favicon'], options:'w=' ~ size ~ ',h=' ~ size ~ ',f=png,far=C, zc=L'}) %}
+  <link rel="icon" type="image/png" sizes="{{ size }}x{{ size }}" href="{{ favicon }}" />
+{% endfor %}
+
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
 <head>

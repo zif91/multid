@@ -4,7 +4,24 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="logo mb-5">
-                        <a href="/"><img style="filter: grayscale(100%) brightness(80%) contrast(30%)" src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
+                        <a href="/">
+                            {% if baseSettings["logo"] %}
+                                <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+                            {% else %}
+                                <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                                </div>
+                            {% endif %}
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
@@ -41,7 +58,6 @@
                 <div class="col-md-4 col-sm-6">
                     <button data-toggle="modal" data-target="#popup"  class="mb-4 w-100 btn btn-danger">Заказать звонок</button>
                 </div>
-                <div class="col-12 copy">{{baseSettings["footer"]}}</div>
             </div>
         </div>
     </footer>

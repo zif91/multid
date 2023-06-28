@@ -9,7 +9,24 @@ outerTpl: '@CODE:<ul class="pb-5">
     <a class="close position-absolute"></a>
     <div class="container">
         <div class="logo mb-5">
-            <a href="/"><img src="{#{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'f=png,q=1'}) }#} {{baseSettings["logo"]}}"></a>
+            <a href="/">
+                {% if baseSettings["logo"] %}
+                    <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+                {% else %}
+                    <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                    </div>
+                {% endif %}
+            </a>
         </div>
         {{ headermenumob|raw}}
         <div class="contacts pb-5">
@@ -62,7 +79,7 @@ outerTpl: '@CODE:<ul class="pb-5">
                 <span>Выбрать</span> марку
             </div>
             <div class="row">
-                
+
                 <div class="col-md-3 col-6">
                     {% if brandsarray is not empty %}
                     {% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}

@@ -2,9 +2,24 @@
     <div class="container">
         <div class="flex">
             <div class="logo mb-4">
-                <a style="background: url({{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=214,h=70,far=C,f=png,q=1'}) }}) no-repeat;
-background-size: cover; background-position: center;
-" href="/" class="d-inline-block"></a>
+                {% if baseSettings["logo"] %}
+                    <a style="background: url({{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=214,h=70,far=C,f=png,q=1'}) }}) no-repeat;
+                            background-size: cover; background-position: center;
+                            " href="/" class="d-inline-block"></a>
+                {% else %}
+                    <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                    </div>
+                {% endif %}
             </div>
             <ul class="pt-4 mt-1 mb-4">
                 <li class="d-inline-block"><a href="#" class="text-light">Автомобили в продаже</a></li>

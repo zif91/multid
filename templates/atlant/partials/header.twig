@@ -3,8 +3,8 @@
     tvList: 'image',
     rowTpl: '@CODE:<li class="menu-item"><a href="[+url+]">[+pagetitle+]</a></li>',
     outerTpl: '@CODE:<ul class="menu-list">
-        [+wrap+]</ul>'}) %}    
-    
+        [+wrap+]</ul>'}) %}
+
 
         <header id="header" class="header">
             <div class="container">
@@ -15,7 +15,24 @@
                         </a>
                     </div>
                     <div class="col-auto">
-                        <a href="/" ><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,bg=FFFFFF,f=png,q=1'}) }}" alt="logo" /></a>
+                        <a href="/">
+                            {% if baseSettings["logo"] %}
+                                <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,bg=FFFFFF,f=png,q=1'}) }}">
+                            {% else %}
+                                <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                                </div>
+                            {% endif %}
+                        </a>
                     </div>
                     <div class="col row d-none d-xxl-flex">
                         <div class="col-auto p-0 px-2">
@@ -31,7 +48,7 @@
                             class="form-control input-search"
                             name="input-search"
                             placeholder="Поиск по каталогу"
-                        /></form> 
+                        /></form>
                     </div>
                     <div class="col-auto px-4 row d-none d-xl-flex">
                         <div class="col-auto p-0 px-2">

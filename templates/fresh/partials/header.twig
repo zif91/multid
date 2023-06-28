@@ -8,7 +8,22 @@ outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
 	<nav class="mobile-menu">
 		<a class="close"></a>
 		<div class="logo">
-			<img src="{{baseSettings["logo"]}}">
+            {% if baseSettings["logo"] %}
+                <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+            {% else %}
+                <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                </div>
+            {% endif %}
 		</div>
 		<ul>
 			<li><a href="/katalog-novyh-avtomobilej/">Каталог</a></li>

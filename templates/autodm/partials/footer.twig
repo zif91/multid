@@ -2,18 +2,24 @@
     <div class="container-fluid flex">
         <div class="left-block">
             <div class="logo">
-                <a href="/"> <div style="width: 200px;
-height: 48px; 
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 24px;
-display: flex;
-align-items: center;
-text-transform: uppercase;
-justify-content: center;
-color: #D12D1E;">{{baseSettings.description}}
-                </div></a>
+                <a href="/">
+                    {% if baseSettings["logo"] %}
+                        <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+                    {% else %}
+                        <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                        </div>
+                    {% endif %}
+                </a>
             </div>
             {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'phone'}) | raw}}                <a href="/policy" class="rules">Политика конфиденциальности</a>
             <button type="button"data-toggle="modal" data-target="#oneclick">Заказать звонок</button>

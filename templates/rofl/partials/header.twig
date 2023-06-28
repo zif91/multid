@@ -3,15 +3,30 @@
     tvList: 'image',
     rowTpl: '@CODE:<li class="d-md-inline-block"><a href="[+url+]">[+pagetitle+]</a></li>',
     outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
-        [+wrap+]</ul>'}) %}    
+        [+wrap+]</ul>'}) %}
     <div class="menubg"></div>
     <header class="header py-md-3 py-2">
         <div class="container d-flex position-relative">
             <a class="menu-button"></a>
-            <div class="logo pt-md-1 pt-2 pl-md-0 pl-5 ml-sm-0 ml-2" style="background-image: url({{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}); background-size: contain;
-        background-repeat: no-repeat;
-        background-position: right;">
-                <a href="/"></a>
+            <div class="logo pt-md-1 pt-2 pl-md-0 pl-5 ml-sm-0 ml-2" style="align-items: normal;">
+                <a href="/">
+                    {% if baseSettings["logo"] %}
+                        <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+                    {% else %}
+                        <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                        </div>
+                    {% endif %}
+                </a>
             </div>
                                       {{ headermenu|raw}}
 <div style="text-align: left;
@@ -20,9 +35,8 @@
     LINE-HEIGHT: 13PX;
     font-size: 11px;">
                 {{baseSettings.salon_location}}
-            </div> 
+            </div>
             <button data-toggle="modal" data-target="#exampleModal" class="btn btn-light ml-xl-4">Заказать звонок</button>
             {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx‑xx‑xx', link: '1', class:"phone pl-md-4 mt-md-2 pt-md-1 ml-1", style: "margin-left: 5px;"}) | raw}}        </div>
     </header>
-                       
-                
+

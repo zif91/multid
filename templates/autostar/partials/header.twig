@@ -13,7 +13,24 @@ outerTpl: '@CODE:<ul>
 <nav class="mobile-menu position-fixed w-100 h-100 p-3">
     <a class="close position-absolute"></a>
     <div class="logo mb-5">
-        <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
+        <a href="/">
+            {% if baseSettings["logo"] %}
+                <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+            {% else %}
+                <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                </div>
+            {% endif %}
+        </a>
     </div>
     {{ headermenu|raw}}
     <button data-fancybox data-src="#popup3"  class="btn mb-4 w-100">Заказать звонок</button>

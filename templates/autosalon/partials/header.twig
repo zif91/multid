@@ -9,7 +9,22 @@ outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
 		<div class="flex">
 			<div class="logo">
 				<a href="/">
-					<img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=130,h=45,far=C,f=png,q=1'}) }}">
+                    {% if baseSettings["logo"] %}
+                        <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=130,h=45,far=C,f=png,q=1'}) }}">
+                    {% else %}
+                        <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                        </div>
+                    {% endif %}
 					<span class="d-inline-block">
 						Лучший дилер
 						<br/>
@@ -22,7 +37,7 @@ outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
 				<div><img src="/templates/autosalon/img/map.png" class="mr-3"></div>
 				<div>
 					<span class="d-block"></span>{{baseSettings.salon_location}}
-					
+
 				</div>
 			</div>
 			<div class="contacts">

@@ -5,7 +5,24 @@
             </div>
             <div class="row">
                 <div class="col text-center text-lg-start d-flex d-lg-block flex-column">
-                    <p class="d-none d-lg-block"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}" alt="logo" /></p>
+                    <p class="d-none d-lg-block">
+                        {% if baseSettings["logo"] %}
+                        <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+                        {% else %}
+                    <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                    </div>
+                    {% endif %}
+                    </p>
                     <p class="d-none d-lg-block small">{{baseSettings.salon_location}}</p>
                     <p class="mb-2 small order-2">Пн-Вс: с 9-00 до 21:00</p>
                     <!--<p class="small order-3">Вс: с 10-00 до 20:00</p>-->
@@ -134,4 +151,3 @@
             </div>
         </div>
     </footer>
-    

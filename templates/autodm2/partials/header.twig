@@ -4,27 +4,29 @@
     maxDepth: 1,
     rowTpl: '@CODE:<li><a href="[+url+]">[+pagetitle+]</a></li>',
     outerTpl: '@CODE:<ul>
-        [+wrap+]</ul>'}) %}    
-    
+        [+wrap+]</ul>'}) %}
+
     <div class="menubg"></div>
     <header class="header">
         <div class="container-fluid flex">
             <a href="/">
-                    {#<img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">#}
-                <div style="width: 200px;
-height: 48px; 
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 24px;
-display: flex;
-align-items: center;
-text-transform: uppercase;
-justify-content: center;
-color: #D12D1E;">{{baseSettings.description}}
-                </div>
-
-                </a>
+                {% if baseSettings["logo"] %}
+                    <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+                {% else %}
+                    <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                    </div>
+                {% endif %}
+            </a>
                                {{ headermenu|raw}}
 
             <div class="contacts">
@@ -34,5 +36,4 @@ color: #D12D1E;">{{baseSettings.description}}
         </div>
     </header>
 
-                       
-                
+

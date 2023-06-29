@@ -95,7 +95,11 @@ extension: 'twig'
       <div class="sticky__circle"></div>
       <div class="sticky__caption">Пора обновляться!</div>
       <div class="sticky__descr">Максимальная выгода от Trade-In</div>
-      <div class="button button_red button_sm"><span>150 000 руб</span></div>
+      <div class="button button_red button_sm"><span>{% if baseSettings.vigoda_trade %}
+                        {{baseSettings.vigoda_trade}}
+                    {% else %}
+                      150 000 руб
+                    {% endif %}</span></div>
     </div>
   </a>
 </div>

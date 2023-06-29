@@ -2322,7 +2322,9 @@ color:red;
   font-size: 16px;
   line-height: 19px;
 }
-
+.header .location{
+    display: none;
+}
 @media (max-width: 1510px) {
   .container-fluid {
     width: 1230px;
@@ -2537,7 +2539,17 @@ color:red;
   }
 
   .header .contacts {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .header .location{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      margin-top:20px;
+      font-size: 16px;
   }
 
   .index-first-block form .flex .prices .flex .line {

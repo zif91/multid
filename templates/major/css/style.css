@@ -1140,7 +1140,16 @@ main {
 }
 @media (max-width: 991px) {
   .header .phone {
-    display: none;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .header .location {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
   .header ul li {
     margin-right: 15px;

@@ -64,7 +64,11 @@ extension: 'twig'
     </div>
     <div>
       <div class="popup__descr">Выгода до</div>
-      <div class="popup__nums">150 000 рублей</div>
+      <div class="popup__nums">{% if baseSettings.vigoda_trade %}
+                        {{baseSettings.vigoda_trade}}
+                    {% else %}
+                      150 000 рублей
+                      </div>
     </div>
     <div class="popup__auto">
       <img src="/templates/autosalon/images/tradein-popup-car.png" alt="">

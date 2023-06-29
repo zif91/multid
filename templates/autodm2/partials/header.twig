@@ -11,8 +11,8 @@
         <div class="container-fluid flex">
             <a href="/">
                 {% if baseSettings["logo"] %}
-                    <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                {% else %}
+                        <img src="{{baseSettings["logo"]}}">
+                    {% else %}
                     <div style="width: 200px;
                 height: 48px;
                 font-style: normal;

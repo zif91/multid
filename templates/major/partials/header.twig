@@ -11,7 +11,7 @@ outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
     <div class="container flex">
         <div class="logo">
             {% if baseSettings["logo"] %}
-                <a style="background: url({{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=214,h=70,far=C,f=png,q=1'}) }}) no-repeat;
+                <a style="background: url({{baseSettings["logo"]}}) no-repeat;
                         background-size: cover; background-position: center;
                         " href="/" class="d-inline-block"></a>
             {% else %}

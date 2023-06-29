@@ -33,6 +33,7 @@ outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
 		<div class="contacts mb-sm-5 mb-3">
 			{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"d-block mb-sm-4 mb-2"}) | raw}}
 			<a href="#" class="d-block mb-sm-4 mb-2">info@company.com</a>
+            <a href="#" class="d-block mb-sm-4 mb-2">Адрес: {{baseSettings.salon_location}}</a>
 			<a href="#" class="d-inline-block mr-3"><img src="img/social1.svg"></a>
 			<a href="#" class="d-inline-block"><img src="img/social2.svg"></a>
 		</div>

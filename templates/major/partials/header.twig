@@ -29,6 +29,7 @@ outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
                 </div>
             {% endif %}
         </div>
+        <a class="menu-button"></a>
         <ul class="pt-4 mt-1">
             <li class="d-inline-block"><a href="/katalog-novyh-avtomobilej/">Автомобили в продаже</a></li>
                                         <li class="d-inline-block">{#<button class="btn btn-danger w-100">Заказать звонок</button>#}</li>
@@ -38,6 +39,8 @@ outerTpl: '@CODE:<ul class="pt-md-2 mt-md-1">
             <li class="d-inline-block"><a href="#">Контакты</a></li>#}
         </ul>
         {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone mt-3 pt-2"}) | raw}}
-        <a class="menu-button"></a>
+        <div class="location">
+            <span>Адрес: {{baseSettings.salon_location}}</span>
+        </div>
     </div>
 </header>

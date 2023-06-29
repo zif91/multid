@@ -28,13 +28,17 @@
                     {% endif %}
                 </a>
             </div>
+            <a class="menu-button"></a>
 
             {{ headermenu|raw}}
 
             <div class="contacts">
-{{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}                <button type="button"data-toggle="modal" data-target="#oneclick">Заказать звонок</button>
+                {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}
+                <button type="button" data-toggle="modal" data-target="#oneclick">Заказать звонок</button>
             </div>
-            <a class="menu-button"></a>
+            <div class="location">
+                <span>Адрес: {{baseSettings.salon_location}}</span>
+            </div>
         </div>
     </header>
 

@@ -2532,6 +2532,7 @@ color:red;
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 20px;
   }
   .header .location{
     display: flex;

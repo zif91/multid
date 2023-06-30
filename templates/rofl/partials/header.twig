@@ -6,9 +6,9 @@
         [+wrap+]</ul>'}) %}
     <div class="menubg"></div>
     <header class="header py-md-3 py-2">
-        <div class="container d-flex position-relative">
+        <div class="container d-flex position-relative mob-justify-center">
             <a class="menu-button"></a>
-            <div class="logo pt-md-1 pt-2 pl-md-0 pl-5 ml-sm-0 ml-2" style="align-items: normal;">
+            <div class="logo pt-md-1 pt-2 pl-md-0 pl-5 ml-sm-0 ml-2 mob-logo" style="align-items: normal;">
                 <a href="/">
                     {% if baseSettings["logo"] %}
                         <img src="{{baseSettings["logo"]}}">
@@ -29,7 +29,7 @@
                 </a>
             </div>
                                       {{ headermenu|raw}}
-<div style="text-align: left;
+<div class="mob-text-align-center" style="text-align: left;
     margin: 10px 0px 0px 0px;
     MAX-WIDTH: 145PX;
     LINE-HEIGHT: 13PX;

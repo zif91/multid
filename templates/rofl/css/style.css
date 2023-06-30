@@ -2781,9 +2781,24 @@ content: '';
   }
 
   .header .phone {
-    font-size: 0;
+    background: url('../img/phone2.svg');
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
     width: 44px;
     height: 44px;
+    font-size: 0;
+  }
+  .header .mob-logo{
+      padding: .5rem 0 0 0!important;
+      margin: 0!important;
+  }
+  .header .mob-justify-center{
+      justify-content: center!important;
+  }
+  .header .mob-text-align-center{
+      text-align: center!important;
   }
 
   .cars-in-stock-block .list:last-child {
@@ -3238,7 +3253,7 @@ button .close,
   .cred_newform{
       max-width: 300px;
       height: 671px;
-  } 
+  }
 }
 
 .navi {
@@ -3356,4 +3371,3 @@ button .close,
     border-radius: 14px;
   }
 }
-  

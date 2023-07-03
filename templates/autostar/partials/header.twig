@@ -1,12 +1,14 @@
 {% set headermenu = runSnippet('DLMenu', {
 parents: baseSettings.id,
 tvList: 'image',
+depth: 1,
 rowTpl: '@CODE:<li class="mb-4"><a href="[+url+]">[+pagetitle+]</a></li>',
 outerTpl: '@CODE:<ul class="pb-2">
     [+wrap+]</ul>'}) %}
 {% set headermenu2 = runSnippet('DLMenu', {
 parents: baseSettings.id,
 tvList: 'image',
+depth: 1,
 rowTpl: '@CODE:<li class="d-inline-block"><a href="[+url+]">[+pagetitle+]</a></li>',
 outerTpl: '@CODE:<ul>
     [+wrap+]</ul>'}) %}

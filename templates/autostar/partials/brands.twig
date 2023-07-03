@@ -1,6 +1,9 @@
+    {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+
 {% set brandsarray = runSnippet('getCache', {
 snippetName:'brands_array',
 key: 'cacheKey',
+parent: catalog_number,
 lifetime: '36000',
 }) %}
 <div class="index-brands-block pb-5">

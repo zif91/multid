@@ -8,6 +8,8 @@
 {# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}
 {% set city = runSnippet('UltimateParent', {id:site_start}) %}
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
+    {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+
     {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
 
 {# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}

@@ -8,9 +8,12 @@
             {{resource.content | raw}}
         </div>
     </div>
-    <div class="s-address section-36">
+    <div class="section">
         <div class="container">
-            {{baseSettings.content | raw}}
+          <div class="p-3">
+{% set content = runSnippet('DocInfo', {field: "content", docid: site_start}) %} 
+
+            {{content | raw}}          </div>
         </div>
     </div>
 {% endblock %}

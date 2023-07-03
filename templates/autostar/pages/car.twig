@@ -1,13 +1,15 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
+    {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+
     {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 3,
-parents: 27,
+parents: catalog_number,
 depth: 2,
 _filters: 'AND(tv:car-price:against:~car-price~)',
 filters: 'AND(tv:model:=:' ~ resource.model ~ ')',
-tvList:'car-price,run,engine_power,gear,year,image,body_type,model,car_color,engine_volume,fuel,drive',
+tvList:'car-price,run,engine_power,car-photos,car_photos,gear,year,image,body_type,model,car_color,engine_volume,fuel,drive',
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard',
 })

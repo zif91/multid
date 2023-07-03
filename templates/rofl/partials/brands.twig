@@ -1,4 +1,7 @@
-{% set brandsarray = runSnippet('brands_array', {
+{% set brandsarray = runSnippet('getCache', {
+snippetName:'brands_array',
+key: 'catalog_number',
+lifetime: '36000',
 			parent: catalog_number,
 }) %}
 <div class="cars-in-stock-block pt-5 pb-4">

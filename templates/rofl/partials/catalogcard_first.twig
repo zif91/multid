@@ -7,13 +7,14 @@ display: 1
 }) %#}
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
-
+{% set month = runSnippet('helpers', {carmonth: data['tv.car-price'],
+    action:'carmonth'}) %}
 {# Получаем случайное изображения (ссылку) из поля "Фотографии" (car_photos) #}
 {% set randomPhotoLink = runSnippet('helpers', {jsonPhotos: data['tv.car_photos'],
     action:'randomPhoto'})
 %}
 
-<div class="item">
+{# <div class="item">
 	<a href="{{ data['url'] }}"><img src="{{ randomPhotoLink }}" class="w-100"></a>
 	<div class="text p-3 position-relative">
 		<div class="name mb-1">
@@ -41,4 +42,62 @@ action:'caroldprice'}) %}
 		class="btn btn-danger w-100">Подробнее</button>
 		<button style="border-radius: 8px !important;" data-toggle="modal" data-target="#exampleModal" class="btn btn-light w-100 mt-3">Купить в 1 клик</button>
 	</div>
+</div> #}
+
+<div class="item">
+	<a href="{{ data['url'] }}"><img src="{{ randomPhotoLink }}" class="w-100"></a>
+	<div class="text  p-3 position-relative">
+		<div class="d-flex flex-row">
+			<div class="name mb-1">
+				{{ data['title'] }}
+			</div>
+			<div class="car-year mb-1">
+                {{ data['tv.year'] }}
+            </div>
+		</div>
+		<div class="age mb-1">
+            Поколение: {{ data['tv.modification'] }}
+        </div>
+        <span class="special d-inline-block mb-2 py-1 px-2">Спецпредложение</span>
+		
+		<div class="about mb-2">
+            {{ data['tv.body_type'] }}, {{ data['tv.gear'] }},  {{ data['tv.fuel'] }}, {{ data['tv.engine_power'] }} л. с.,{{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км, {{ data['tv.equipment'] }}
+            {{ data['tv.drive'] }}, {{ data['tv.car_color'] }}
+        </div>
+		<ul>
+            <li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon1.svg">{{ data['tv.body_type'] }}</li>
+            <li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon2.svg">{{ data['tv.gear'] }}</li>
+            <li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon3.svg">{{ data['tv.fuel'] }}, {{ data['tv.engine_power'] }} л. с.</li>
+            <li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon4.svg">{{ data['tv.drive'] }}</li>
+            <li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon5.svg">{{ data['tv.car_color'] }}</li>
+        </ul>
+		<div class="book mb-2 mt-1">
+			<span class="bg-danger d-inline-block align-middle mr-2 mb-1"></span> В наличии
+		</div>
+		<div class="price mb-2">
+			<div class="new">
+				{{ ( data['tv.car-price'])|number_format(0, '.', ' ') }} ₽
+			</div>
+			<span class="old">
+				{{ ( data['tv.old-car-price'])|number_format(0, '.', ' ') }} ₽
+			</span>
+		</div>
+		
+		<div class="mb-1"><span style="font-size: 12px;">Ставка по кредиту</span> <span id="" class="mt-2 text-red" >от 1.6%</span> </div>
+        <div class="mb-3"><span style="font-size: 12px;">Ежемесячный платеж от</span> <span id="" class="mt-2 mb-auto; text-red">{{month|number_format(0, '.', ' ') }} ₽</span>
+        </div>
+		<div class="but_block">
+			<button onclick="window.location.href='{{ data['url'] }}'" class="btn btn-red w-100 p-3 mb-2">Подробнее</button>
+			<button  data-toggle="modal" data-target="#exampleModal" class="btn btn-black2 w-100 p-3" style="border-radius: 8px !important;" >Купить в кредит от 1.6%</button>
+		</div>
+		
+	</div>
 </div>
+
+
+
+
+
+
+
+

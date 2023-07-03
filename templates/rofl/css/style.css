@@ -2131,7 +2131,7 @@ content: '';
   line-height: 17px;
   color: #98AEC3;
 }
-/*  */
+
 .cred_text{
   font-family: 'Montserrat';
   font-style: normal;
@@ -2381,6 +2381,104 @@ content: '';
   justify-content: flex-start;
 }
 
+.car_offer .list .item .text {
+  padding: 15px 15px 34px 15px !important;
+  position: static !important; 
+}
+.car_offer .list .item {
+  margin: 0 17px;
+  border: 1px solid #D0D3D9;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 600px;
+  position: relative;
+}
+
+.car_offer .list .item:hover {
+  margin: 0 17px;
+  border: 1px solid #D0D3D9;
+  border-radius: 12px;
+  overflow: hidden;
+  height: auto;
+  position: relative;
+}
+
+.car_offer .list .item .text .name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  height: 40px;
+}
+
+.car_offer .item .text .car-year {
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 0 4px;
+  height: 20px;
+  color: black;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+}
+
+.car_offer .item .text .text-red {
+  font-size: 12px;
+  font-weight: 700;
+  color: #d93e3a;
+}
+
+.car_offer .item .text .but_block{
+  width: auto;
+  bottom: 0px;
+  position: relative;
+}
+
+.btn.btn-black2{
+  background: #fff;
+  font-weight: 500;
+  padding: 13px 24px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  font-size: 14px;
+  line-height: 17px;
+  border: 1px solid #000000;
+  color: #000000;
+  border-radius: 8px;
+  left: 15px;
+  width: 100%;
+}
+.btn.btn-black2:hover {
+  background: #000000;
+  color: #FFFFFF;
+}
+
+.btn.btn-red{
+  border-radius: 8px;
+  width: 100%  !important;
+  background: #D12D1E;
+  color: #FFFFFF;
+}
+
+.car_offer .list .item:hover .text ul {
+  display: block;
+}
+.car_offer .item .text ul {
+  display: none;
+  padding: 1px;
+}
+
+.car_offer .item .text ul li {
+  font-size: 12px;
+}
+
+.car_offer .item .text ul li img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
 
 .form-calculate3 .item .ui-state-default,
 .form-calculate3 .item .ui-widget-content .ui-state-default,
@@ -2521,6 +2619,9 @@ content: '';
     font-size: 24px;
   }
 
+  .car_offer .list .item {
+    height: 624px;  
+  }
 }
 
 @media (max-width: 991px) {
@@ -2644,6 +2745,9 @@ content: '';
     justify-content: space-between;
   }
 
+  .car_offer .list .item {
+    height: 650px;  
+  }
 }
 
 @media (max-width: 767px) {
@@ -2855,6 +2959,10 @@ content: '';
 
   .form_cred{
     display: none;
+  }
+
+  .car_offer .list .item {
+    height: 607px;  
   }
 }
 

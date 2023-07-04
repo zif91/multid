@@ -47,7 +47,11 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
       <div class="contaimer mt-4">
         <p class="cred_text col-lg-12 col-md-12 mb-4 pl-0">
           После звонка кредитного эксперта приезжайте в автосалон и оформляйте автокредит прямо в салоне без необходимости обращения в отделение банка-партнера.
-          Годовая ставка автокредита <strong>от 4,9%</strong> и зависит от конкретного банка, суммы займа и кредитной программы. Минимальный срок погашения от 61 дня, максимальный — 84 месяца.<strong> При этом любые дополнительные комиссии автосалоном не взимаются.</strong>
+          Годовая ставка автокредита <strong>от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</strong> и зависит от конкретного банка, суммы займа и кредитной программы. Минимальный срок погашения от 61 дня, максимальный — 84 месяца.<strong> При этом любые дополнительные комиссии автосалоном не взимаются.</strong>
         </p>
       </div>
     </div> 
@@ -88,7 +92,11 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
       </div>
       <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-4 pr-3 pl-2">
         <div class="line_cred"></div>
-         <p class="text_present pt-sm-0 text-left">Процентная ставка<br> по кредиту <strong>от 4,9%</strong> </p>
+         <p class="text_present pt-sm-0 text-left">Процентная ставка<br> по кредиту <strong>от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</strong> </p>
       </div>
       <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-4 pr-3 pl-2">
         <div class="line_cred"></div>

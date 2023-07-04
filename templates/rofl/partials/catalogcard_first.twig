@@ -83,7 +83,11 @@ action:'caroldprice'}) %}
 			</span>
 		</div>
 		
-		<div class="mb-1"><span style="font-size: 12px;">Ставка по кредиту</span> <span id="" class="mt-2 text-red" >от 1.6%</span> </div>
+		<div class="mb-1"><span style="font-size: 12px;">Ставка по кредиту</span> <span id="" class="mt-2 text-red" >от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</span> </div>
         <div class="mb-3"><span style="font-size: 12px;">Ежемесячный платеж от</span> <span id="" class="mt-2 mb-auto; text-red">{{month|number_format(0, '.', ' ') }} ₽</span>
         </div>
 		<div class="but_block">

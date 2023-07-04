@@ -71,7 +71,11 @@ tpl:'@T_CODE: <div class="gift__item">
     border-radius: 7px;
     font-size: 17px;
     color: white;
-">от 4.9%</span> </div>
+">от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</span> </div>
                     <div class="price mb-3">
                         Цена:
                         <span id="" class="dblock mt-2" style="

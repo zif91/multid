@@ -92,7 +92,11 @@ action:'caroldprice'}) %}
         </div>
 		<div class="but_block">
 			<button onclick="window.location.href='{{ data['url'] }}'" class="btn btn-red w-100 p-3 mb-2">Подробнее</button>
-			<button  data-toggle="modal" data-target="#exampleModal" class="btn btn-black2 w-100 p-3" style="border-radius: 8px !important;" >Купить в кредит от 1.6%</button>
+			<button  data-toggle="modal" data-target="#exampleModal" class="btn btn-black2 w-100 p-3" style="border-radius: 8px !important;" >Купить в кредит от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</button>
 		</div>
 		
 	</div>

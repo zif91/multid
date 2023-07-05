@@ -1,7 +1,10 @@
+    {% set catalog_number = baseSettings['catalog_number'] %}
+
 {% set gifts = runSnippet('DocLister', {
 display: 4,
-parents: 24,
+parents: catalog_number,
 depth: 0,
+addWhereList: c.template = (13),
 tvList:'image,color',
 tpl:'@T_FILE:partials/actions_actions'
 })

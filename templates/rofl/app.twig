@@ -52,9 +52,10 @@
 
 <body id="top">
     {% if baseSettings.site_id is not empty %}
-  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div> 
+  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    
 
 {% endif %}
+<div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div> 
     {% cache 'header' ~ cacheKey %}
         {% include('partials/header.twig') %}
     {% endcache %}

@@ -64,9 +64,10 @@ debug: 0,
     {{baseSettings.scripts_body | raw}}
 
 {% if baseSettings.site_id is not empty %}
-  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
+  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    
 
 {% endif %}
+<div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
     <main class="main">
         {% block MAIN %}{% endblock %}
         {% include('partials/scripts.twig') %}

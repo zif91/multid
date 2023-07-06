@@ -1,9 +1,11 @@
+{% set catalog_number = baseSettings['id'] %}
 {% set gifts = runSnippet('DocLister', {
-display: 3,
-parents: 24,
-depth: 0,
-tvList:'image,color',
-tpl:'@T_FILE:partials/actions_actions'
+    display: 3,
+    parents: catalog_number,
+    depth: 2,
+    addWhereList: 'c.template = (13)',
+    tvList:'image,color',
+    tpl:'@T_FILE:partials/actions_actions'
 })
 %}
 <div class="index-actions-block pb-5">
@@ -11,7 +13,11 @@ tpl:'@T_FILE:partials/actions_actions'
         Акции
     </div>
     <div class="list pb-4">
-        {{gifts | raw}}
+        {% if gifts is empty %}
+
+        {% else %}
+            {{gifts | raw}}
+        {% endif %}
     </div>
     <div class="bottom-link text-center">
         <a data-fancybox="popup3" data-src="#popup3" href="javascript:;">Узнать подробнее<span></span></a>

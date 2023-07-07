@@ -6,6 +6,8 @@ total: 1,
 display: 1
 }) %#}
 {#{ data['tv.car_photos'] }#}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
+
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
 {#<div class="col-xl-3 col-lg-4 col-md-6 h-auto">
@@ -95,4 +97,4 @@ action:'caroldprice'}) %}
         </div>
     </div>
 </div>
-{{dump(baseSettings)}}
+{#{dump(baseSettings)}#}

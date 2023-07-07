@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="/templates/autostar/css/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
         <link rel="stylesheet" href="/templates/autostar/css/filter.css">      
     {{baseSettings.scripts_head | raw}}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
@@ -45,8 +46,10 @@
 
 <body>
 {% if baseSettings.site_id is not empty %}
-  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">
+
 {% endif %}
+  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
+
         {% cache 'header' ~ cacheKey %}
             {% include('partials/header.twig') %}
         {% endcache %}

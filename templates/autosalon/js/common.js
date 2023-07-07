@@ -79,22 +79,39 @@ function updateCountdown(days, hours, minutes, seconds) {
 
 // Функция для запуска обратного отсчета
 function startCountdown() {
-    var targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 8);
-    targetDate.setHours(targetDate.getHours() + 23);
-    targetDate.setMinutes(targetDate.getMinutes() + 59);
+    function updateTimer() {
+        var targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 7);
+        targetDate.setHours(targetDate.getHours() + 23);
+        targetDate.setMinutes(targetDate.getMinutes() + 59);
 
-    setInterval(function() {
-        var currentDate = new Date();
-        var timeDifference = targetDate - currentDate;
+        var day = String(targetDate.getDate()).padStart(2, '0');
+        var month = String(targetDate.getMonth() + 1).padStart(2, '0');
+        var year = targetDate.getFullYear();
+        var formattedDate = day + '.' + month + '.' + year;
 
-        var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+        var dateendElement = document.getElementById('dateend');
+        dateendElement.textContent = formattedDate;
 
-        updateCountdown(days, hours, minutes, seconds);
-    }, 1000);
+        var intervalId = setInterval(function() {
+            var currentDate = new Date();
+            var timeDifference = targetDate - currentDate;
+
+            var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            updateCountdown(days, hours, minutes, seconds);
+
+            if (timeDifference <= 0) {
+                clearInterval(intervalId);
+                startCountdown(); // Запуск нового таймера после истечения предыдущего
+            }
+        }, 1000);
+    }
+
+    updateTimer();
 }
 
 // Запуск обратного отсчета при загрузке страницы

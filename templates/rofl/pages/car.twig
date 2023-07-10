@@ -49,7 +49,7 @@ tpl:'@T_CODE: <div class="gift__item">
 <div class="page-name py-4">
     <div class="container">
         {% include('partials/crumbs.twig') %}
-        <h1 class="h1 m-0">{{resource.pagetitle}} {{resource.year}} <i></i><span class="color">Цвет: {{resource.car_color}}</span> <span class="number px-1">{{resource.vin}}</span></h1>
+        <h1 class="h1 m-0">{{resource.pagetitle}} {{resource.year}} <i></i><span class="color">VIN: {#{resource.car_color}#}</span> <span class="number px-1">{{resource.vin}}</span></h1>
     </div>
 </div>
 <div class="item-page pb-5">

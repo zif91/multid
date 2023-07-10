@@ -13,6 +13,7 @@ action:'caroldprice'}) %}
 {% set randomPhotoLink = runSnippet('helpers', {jsonPhotos: data['tv.car_photos'],
     action:'randomPhoto'})
 %}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 
 {# <div class="item">
 	<a href="{{ data['url'] }}"><img src="{{ randomPhotoLink }}" class="w-100"></a>

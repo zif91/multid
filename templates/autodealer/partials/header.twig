@@ -57,7 +57,7 @@ outerTpl: '@CODE:<ul class="pb-5">
         <div class="contacts pt-2">
             {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4"}) | raw}}
             <div class="adress pl-4 py-1">
-                Выборгское шоссе, д. 352 лит. А
+                {{baseSettings.salon_location}}
             </div>
         </div>
         <div class="best pl-5 mt-2">

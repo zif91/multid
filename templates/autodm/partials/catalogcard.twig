@@ -29,7 +29,7 @@ action:'caroldprice'}) %}
         </p>
        <div style="display: flex; flex-direction: row;">
   <span style="margin-right: 10px;"><s>{{ (oldprice)|number_format(0, '.', ' ') }} ₽</s></span>
-  <span style="margin-left: auto; color: #b71f25">от от {% if baseSettings.credit_rate is empty %}
+  <span style="margin-left: auto; color: #b71f25">от {% if baseSettings.credit_rate is empty %}
     4.9
 {% else %}
     {{ baseSettings.credit_rate }}

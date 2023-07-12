@@ -2078,7 +2078,7 @@ content: '';
   border: 0;
   margin-bottom: 15px;
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .form-calculate3 .item .ui-slider-horizontal,

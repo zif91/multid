@@ -1,0 +1,41 @@
+{# {{ runSnippet('map', {zoom:'15',grey:'1', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+}) | raw}} #}
+{% set ultimid = runSnippet('UltimateParent', {}) %}
+{% set map = runSnippet('map', {zoom:'15',grey:'1', class:'map', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+}) %}
+<div id="adres" class="index-contacts-block pb-5">
+    <div class="block-name mb-5">
+        Контакты
+    </div>
+    <div class="row">
+        <div class="col-lg-6 p-1">
+            {{ map | raw }}
+        </div>
+        <div class="col-lg-6">
+            <div class="contacts p-sm-5 p-3">
+                <div class="logo mb-5">
+                    <img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=118,h=30,far=C,f=png,q=1'}) }}">
+                </div>
+                <div class="adress mb-4 pl-4">
+                    {{ runSnippet('docInfo', {docid: ultimid, field: 'pagetitle' }) | raw}} , {{baseSettings.salon_location}}
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4 mb-4 d-block"}) | raw}}
+                    </div>
+                    <div class="col-sm-6">
+                        <!--a href="#" class="mail pl-4 mb-4 d-block">info@auto-star.ru</a-->
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="https://yandex.ru/maps/?rtext=~{{baseSettings.salon_coordinates}}" class="way pl-4 mb-sm-0 mb-4 d-block">Проложить маршрут</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="hours pl-4">
+                            Ежедневно с 9:00 до 21:00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

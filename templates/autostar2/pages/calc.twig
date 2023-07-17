@@ -1,0 +1,222 @@
+{% extends 'app.twig' %}
+
+{% block MAIN %}
+    <main class="main container">
+        <div class="calc-page pb-5">
+            <h1 class="h1 mb-sm-5 mb-3">Кредитный калькулятор</h1>
+            <h2 class="h2 mb-4">1. Выберите автомобиль</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="block1 mb-sm-5 mb-4">
+                        <select class="w-100 mb-4 px-3">
+                            <option>Марка</option>
+                            <option>Марка</option>
+                            <option>Марка</option>
+                        </select>
+                        <select class="w-100 mb-4 px-3">
+                            <option>Модель</option>
+                            <option>Модель</option>
+                            <option>Модель</option>
+                        </select>
+                        <select class="w-100 mb-sm-5 mb-4 px-3">
+                            <option>Двигатель</option>
+                            <option>Двигатель</option>
+                            <option>Двигатель</option>
+                        </select>
+                        <div class="price pb-3 pt-lg-3 flex">
+                            <div class="mb-2">1 250 999 ₽</div>
+                            <div class="mb-2">1 950 999 ₽</div>
+                        </div>
+                        <p>Цена на автомобиль указана с учетом действующих акций и возможной выгоды</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="image mb-5">
+                        <img src="../img/calc.png" class="w-100">
+                    </div>
+                </div>
+            </div>
+            <h2 class="h2 mb-4">2. Расчет кредита</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="block2">
+                        <h3 class="h3 mb-4">
+                            Первоначальный взнос
+                        </h3>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="field mb-4 position-relative">
+                                    <input type="text" placeholder="25" class="w-100 px-3">
+                                    <span>%</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="field mb-4 position-relative">
+                                    <input type="text" placeholder="в рублях" class="w-100 px-3">
+                                    <span>руб.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="values mb-3 flex">
+                            <div>0%</div>
+                            <div>80%</div>
+                        </div>
+                        <div id="slider" class="mb-3">
+                            <div id="custom-handle" class="ui-slider-handle"></div>
+                        </div>
+                        <div class="values mb-4 flex">
+                            <div>0</div>
+                            <div>10</div>
+                            <div>20</div>
+                            <div>40</div>
+                            <div>50</div>
+                            <div>60</div>
+                            <div>80</div>
+                        </div>
+                        <h3 class="h3 mb-4">
+                            Срок кредита
+                        </h3>
+                        <div class="values mb-3 flex">
+                            <div>6 мес.</div>
+                            <div>96 мес.</div>
+                        </div>
+                        <div id="slider2" class="mb-3">
+                            <div id="custom-handle2" class="ui-slider-handle"></div>
+                        </div>
+                        <div class="values mb-4 flex">
+                            <div>0</div>
+                            <div>18</div>
+                            <div>36</div>
+                            <div>48</div>
+                            <div>60</div>
+                            <div>78</div>
+                            <div>96</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="block3">
+                        <h3 class="h3 mb-4">
+                            Результаты расчета:
+                        </h3>
+                        <table class="w-100 mb-4">
+                            <tr>
+                                <td>Ежемесячный платеж:</td>
+                                <td>15 049 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>Первоначальный взнос:</td>
+                                <td>340 500 руб.</td>
+                            </tr>
+                            <tr>
+                                <td>Срок кредитования:</td>
+                                <td>30 мес.</td>
+                            </tr>
+                            <tr>
+                                <td>Ставка:</td>
+                                <td>1,6%</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="page-form py-4 mb-5">
+        <div class="container">
+            <div class="name text-center mb-4">
+                Забронировать автомобиль по указанной цене
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <input type="text" class="w-100 mb-4 px-3" placeholder="Имя">
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <input type="text" class="w-100 mb-4 px-3" placeholder="Телефон">
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <select class="w-100 mb-4 px-3">
+                        <option>Возраст</option>
+                        <option>Возраст</option>
+                        <option>Возраст</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <select class="w-100 mb-4 px-3">
+                        <option>Регион</option>
+                        <option>Регион</option>
+                        <option>Регион</option>
+                    </select>
+                </div>
+                <div class="col-lg-8">
+                    <p class="mb-3">Нажимая кнопку, вы принимаете условия <a href="#">Политики конфиденциальности</a>, а также даете согласие на обработку персональных данных</p>
+                </div>
+                <div class="col-lg-4">
+                    <button class="w-100">Отправить заявку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="faq-block pb-5">
+            <div class="name position-relative p-3">
+                Условия
+            </div>
+            <div class="text p-3">
+                Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования.
+            </div>
+            <div class="name position-relative p-3">
+                Условия
+            </div>
+            <div class="text p-3">
+                Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования.
+            </div>
+            <div class="name position-relative p-3">
+                Условия
+            </div>
+            <div class="text p-3">
+                Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования. Условия кредитования, Основные условия кредитования.
+            </div>
+        </div>
+        <div class="text-block pb-5">
+            <div class="name mb-3">
+                Рассчитать кредит на покупку автомобиля Skoda Kodiaq
+            </div>
+            <p class="mb-2">Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.</p>
+        </div>
+    </div>
+{% endblock %}
+{% block SCRIPTS %}
+    <script src="../js/slick.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+        $( function() {
+            var handle = $( "#custom-handle" );
+            $( "#slider" ).slider({
+                min: 0,
+                max: 80,
+                value: 40,
+                create: function() {
+                    handle.text( $( this ).slider( "value" ) + " %");
+                },
+                slide: function( event, ui ) {
+                    handle.text( ui.value  + " %");
+                }
+            });
+        } );
+        $( function() {
+            var handle = $( "#custom-handle2" );
+            $( "#slider2" ).slider({
+                min: 0,
+                max: 96,
+                value: 48,
+                create: function() {
+                    handle.text( $( this ).slider( "value" ) + " мес.");
+                },
+                slide: function( event, ui ) {
+                    handle.text( ui.value  + " мес.");
+                }
+            });
+        } );
+    </script>
+{% endblock %}

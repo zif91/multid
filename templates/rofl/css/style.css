@@ -1903,7 +1903,7 @@ content: '';
 }
 
 .form-calculate2 .month .marker-60::after,
-.form-calculate3 .month .marker-54::after,
+.form-calculate3 .month .marker-60::after,
 .item-page .credit-block .month .marker-60::after{
   content: '';
   width: 1px;
@@ -2078,7 +2078,7 @@ content: '';
   border: 0;
   margin-bottom: 15px;
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .form-calculate3 .item .ui-slider-horizontal,
@@ -2337,7 +2337,7 @@ content: '';
 }
 
 .item-page .advantages .item {
-  height: 170px;
+  height: 190px;
   background: #F4F4F4;
   border-radius: 8px;
 }
@@ -3153,7 +3153,8 @@ content: '';
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    font-size: 11px;
     text-overflow: ellipsis;
     position: relative;
     width: 100%;

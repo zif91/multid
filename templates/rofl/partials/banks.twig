@@ -80,12 +80,55 @@
  }
 
  .brands_prev {
-     left: 40px
+     position: absolute; top: 12px; left: -10px;
  }
 
  .brands_next {
-     right: 40px
+     position: absolute; top: 12px; right: -10px;
  }
+.owl-nav .owl-prev,
+.owl-nav .owl-prev,
+.owl-nav .owl-next {
+    position: absolute;
+    top: 12px;
+    padding: 5px;
+    cursor: pointer;
+    background-size: cover;
+    width: 7px;
+    height: 7px;
+}
+
+.owl-nav .owl-prev {
+    left: -25px;
+    background-image: url(/templates/rofl/img/arrow.svg);
+}
+
+.owl-nav .owl-next {
+    right: -25px;
+    background-image: url(/templates/rofl/img/arrow.svg);
+}
+     
  </style>
 <script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    var owl = $('.brands_slider');
+    owl.owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        navText : ["",""],
+        dots: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    });
+});
 </script>

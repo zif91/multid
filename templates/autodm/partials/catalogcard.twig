@@ -11,6 +11,7 @@ display: 1
 {% set randomPhotoLink = runSnippet('helpers', {jsonPhotos: data['tv.car_photos'],
     action:'randomPhoto'})
 %}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
@@ -28,7 +29,11 @@ action:'caroldprice'}) %}
         </p>
        <div style="display: flex; flex-direction: row;">
   <span style="margin-right: 10px;"><s>{{ (oldprice)|number_format(0, '.', ' ') }} ₽</s></span>
-  <span style="margin-left: auto; color: #b71f25">от 1.6% годовых</span>
+  <span style="margin-left: auto; color: #b71f25">от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}% годовых</span>
 </div>
 
 

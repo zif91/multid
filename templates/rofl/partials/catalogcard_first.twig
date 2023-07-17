@@ -13,6 +13,7 @@ action:'caroldprice'}) %}
 {% set randomPhotoLink = runSnippet('helpers', {jsonPhotos: data['tv.car_photos'],
     action:'randomPhoto'})
 %}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 
 {# <div class="item">
 	<a href="{{ data['url'] }}"><img src="{{ randomPhotoLink }}" class="w-100"></a>
@@ -69,10 +70,10 @@ action:'caroldprice'}) %}
             <li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon2.svg">{{ data['tv.gear'] }}</li>
             <li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon3.svg">{{ data['tv.fuel'] }}, {{ data['tv.engine_power'] }} л. с.</li>
             <li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon4.svg">{{ data['tv.drive'] }}</li>
-            <li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon5.svg">{{ data['tv.car_color'] }}</li>
+            {#<li class="position-relative pl-4 mb-2"><img src="/templates/rofl/img/item-icon5.svg">{{ data['tv.car_color'] }}</li>#}
         </ul>
 		<div class="book mb-2 mt-1">
-			<span class="bg-danger d-inline-block align-middle mr-2 mb-1"></span> В наличии
+			<span class="bg-success d-inline-block align-middle mr-2 mb-1"></span> В наличии
 		</div>
 		<div class="price mb-2">
 			<div class="new">

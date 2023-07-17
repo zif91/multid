@@ -106,10 +106,10 @@ tpl:'@T_CODE: <div class="gift__item">
                 }} ({{resource.engine_power
                 }} л.с.)</td>
                         </tr>
-                        <tr>
+                        {# <tr>
                             <td>Цвет</td>
                             <td>{{resource.car_color}}</td>
-                        </tr>
+                        </tr> #}
 
                     </table>
 
@@ -118,7 +118,11 @@ tpl:'@T_CODE: <div class="gift__item">
             <div class="col-lg-4">
                 <div class="calc">
                     <h2>Выгода при покупке в кредит!</h2>
-                    <p class="pb-2">Ставка от 1.6% годовых!</p>
+                    <p class="pb-2">Ставка от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}% годовых!</p>
                     <div class="item">
                         Сумма кредита
                         <input type="text" id="amount" readonly>
@@ -236,10 +240,10 @@ tpl:'@T_CODE: <div class="gift__item">
                 }} ({{resource.engine_power
                 }} л.с.)</td>
                         </tr>
-                        <tr>
+                        {# <tr>
                             <td>Цвет</td>
                             <td>{{resource.car_color}}</td>
-                        </tr>
+                        </tr> #}
 
                     </table>
 

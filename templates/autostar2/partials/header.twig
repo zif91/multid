@@ -1,0 +1,102 @@
+{% set headermenu = runSnippet('DLMenu', {
+parents: baseSettings.id,
+tvList: 'image',
+maxDepth: 1,
+rowTpl: '@CODE:<li class="mb-4"><a href="[+url+]">[+pagetitle+]</a></li>',
+outerTpl: '@CODE:<ul class="pb-2">
+    [+wrap+]</ul>'}) %}
+{% set headermenu2 = runSnippet('DLMenu', {
+parents: baseSettings.id,
+tvList: 'image',
+maxDepth: 1,
+rowTpl: '@CODE:<li class="d-inline-block"><a href="[+url+]">[+pagetitle+]</a></li>',
+outerTpl: '@CODE:<ul>
+    [+wrap+]</ul>'}) %}
+{#<nav class="mobile-menu position-fixed w-100 h-100 p-3">#}
+{#    <a class="close position-absolute"></a>#}
+{#    <div class="logo mb-5">#}
+{#        <a href="/">#}
+{#            {% if baseSettings["logo"] %}#}
+{#                <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">#}
+{#            {% else %}#}
+{#                <div style="width: 200px;#}
+{#                height: 48px;#}
+{#                font-style: normal;#}
+{#                font-weight: 400;#}
+{#                font-size: 20px;#}
+{#                line-height: 24px;#}
+{#                display: flex;#}
+{#                align-items: center;#}
+{#                text-transform: uppercase;#}
+{#                justify-content: center;#}
+{#                color: #D12D1E;">{{ baseSettings.pagetitle }}#}
+{#                </div>#}
+{#            {% endif %}#}
+{#        </a>#}
+{#    </div>#}
+{#    {{ headermenu|raw}}#}
+{#    <button data-fancybox data-src="#popup3"  class="btn mb-4 w-100">Заказать звонок</button>#}
+{#    {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: "phone d-block mb-2 pl-4"}) | raw}}#}
+{#    <div class="adress pl-4">#}
+{#        {{baseSettings.salon_location}}#}
+{#    </div>#}
+{#</nav>#}
+{#<header class="header py-sm-3 py-2 mb-5">#}
+{#    <div class="container flex">#}
+{#        <div class="logo">#}
+{#            <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>#}
+{#        </div>#}
+{#        {{ headermenu2|raw}}#}
+{#        <button data-fancybox data-src="#popup3"  class="btn">Заказать звонок</button>#}
+{#        {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: "phone mt-2"}) | raw}}#}
+{#        <a class="menu-button mt-2"></a>#}
+{#    </div>#}
+{#    <div class="container flex">#}
+
+{#        {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: "phone d-block d-sm-none p-3 text-white"}) | raw}}#}
+
+{#        <div class="adress d-block d-sm-none py-3 text-white">#}
+{#                    {{baseSettings.salon_location}}#}
+{#        </div>#}
+{#    </div>#}
+{#</header>#}
+
+{#New#}
+<nav class="mobile-menu position-fixed w-100 h-100 p-3">
+    <a class="close position-absolute"></a>
+    <div class="logo mb-5">
+        <a href="/">{% if baseSettings["logo"] %}
+                <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}" alt="logo">
+            {% else %}
+                <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                </div>
+            {% endif %}</a>
+    </div>
+    {{ headermenu|raw}}
+    <button data-fancybox data-src="#popup3"  class="btn mb-4 w-100">Заказать звонок</button>
+    {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: "phone d-block mb-2 pl-4"}) | raw}}
+    <div class="adress pl-4">
+        {{baseSettings.salon_location}}
+    </div>
+</nav>
+<header class="header py-sm-3 py-2 mb-5">
+    <div class="container flex">
+        <div class="logo">
+            <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}" alt="logo"></a>
+        </div>
+        {{ headermenu2|raw}}
+        <button data-fancybox data-src="#popup3"  class="btn">Заказать звонок</button>
+        {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: "phone mt-2"}) | raw}}
+        <a class="menu-button mt-2"></a>
+    </div>
+</header>

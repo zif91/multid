@@ -1,0 +1,170 @@
+    {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+
+{% set brandsarray = runSnippet('brands_array', {
+parent: catalog_number,
+}) %}
+<div class="index-brands-block pb-5">
+	<div class="block-name mb-5">
+		Авто в наличии
+	</div>
+	<div class="list flex">
+
+		<div class="items">
+			{% if brandsarray is not empty %}
+			{% set sliced_brands = brandsarray|slice(8, 8) %}
+			{% for brand in sliced_brands %}
+			<div class="item mb-5">
+				<a href="{{ brand.linkUrl }}" class="position-relative"><img style="width: 51px" src="{{ brand.logoUrl }}"> {{ brand.name }} <span>({{ brand.count }})</span></a>
+			</div>
+			{% endfor %}
+			{% else %}
+			The brands array is not defined or is empty.
+			{% endif %}
+		</div>
+		<div class="items">
+			{% if brandsarray is not empty %}
+			{% set sliced_brands = brandsarray|slice(16, 8) %}
+			{% for brand in sliced_brands %}
+			<div class="item mb-5">
+				<a href="{{ brand.linkUrl }}" class="position-relative"><img style="width: 51px" src="{{ brand.logoUrl }}"> {{ brand.name }} <span>({{ brand.count }})</span></a>
+			</div>
+			{% endfor %}
+			{% else %}
+			The brands array is not defined or is empty.
+			{% endif %}
+		</div>
+		<div class="items">
+			{% if brandsarray is not empty %}
+  {% set sliced_brands = brandsarray|slice(0, 8) %}
+  {% for brand in sliced_brands %}
+    <div class="item mb-5">
+      <a href="{{ brand.linkUrl }}" class="position-relative"><img style="width: 51px" src="{{ brand.logoUrl }}"> {{ brand.name }} <span>({{ brand.count }})</span></a>
+    </div>
+  {% endfor %}
+{% else %}
+  The brands array is not defined or is empty2.
+{% endif %}
+		</div>
+		<div class="items">
+			{% if brandsarray is not empty %}
+			{% set sliced_brands = brandsarray|slice(8, 8) %}
+			{% for brand in sliced_brands %}
+			<div class="item mb-5">
+				<a href="{{ brand.linkUrl }}" class="position-relative"><img style="width: 51px" src="{{ brand.logoUrl }}"> {{ brand.name }} <span>({{ brand.count }})</span></a>
+			</div>
+			{% endfor %}
+			{% else %}
+			The brands array is not defined or is empty.
+			{% endif %}
+		</div>
+	</div>
+	<div class="bottom-link text-center">
+		<button name="showbrands">Показать все <span></span></button>
+	</div>
+</div>
+{#<div class="index-cars-select mb-5">
+	<div class="container">
+		<div class="cars p-sm-5 p-3">
+			<div class="block-name mb-4">
+				<span>Выбрать</span> марку
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-6">
+					{% if brands is not null %}
+					{% set sorted_brands = brands|sort((a, b) => b.menuindex - a.menuindex) %}
+					{% set sliced_brands = sorted_brands|slice(24,8) %}
+					{% for brand in sliced_brands %}
+					<div class="item mb-3 d-flex justify-content-between">
+						<a href="/katalog-avtomobilej/?f[42]={{ brand.value }}" class="justify-content-start">{{ brand.value }}</a>
+						<span class="ml-auto text-light py-1 px-2">{{ brand.count_value }}</span>
+					</div>
+					{% endfor %}
+					{% else %}
+					The brands array is not defined or is empty.
+					{% endif %}
+				</div>
+				<div class="col-md-3 col-6">
+					{% if brands is not null %}
+					{% set sorted_brands = brands|sort((a, b) => b.menuindex - a.menuindex) %}
+					{% set sliced_brands = sorted_brands|slice(16,8) %}
+					{% for brand in sliced_brands %}
+					<div class="item mb-3 d-flex justify-content-between">
+						<a href="/katalog-avtomobilej/?f[42]={{ brand.value }}" class="justify-content-start">{{ brand.value }}</a>
+						<span class="ml-auto text-light py-1 px-2">{{ brand.count_value }}</span>
+					</div>
+					{% endfor %}
+					{% else %}
+					The brands array is not defined or is empty.
+					{% endif %}
+				</div>
+				<div class="col-md-3 col-6">
+					{% if brands is not null %}
+					{% set sorted_brands = brands|sort((a, b) => b.menuindex - a.menuindex) %}
+					{% set sliced_brands = sorted_brands|slice(0,8) %}
+					{% for brand in sliced_brands %}
+					<div class="item mb-3 d-flex justify-content-between">
+						<a href="/katalog-avtomobilej/?f[42]={{ brand.value }}" class="justify-content-start">{{ brand.value }}</a>
+						<span class="ml-auto text-light py-1 px-2">{{ brand.count_value }}</span>
+					</div>
+					{% endfor %}
+					{% else %}
+					The brands array is not defined or is empty.
+					{% endif %}
+				</div>
+				<div class="col-md-3 col-6">
+					{% if brands is not null %}
+					{% set sorted_brands = brands|sort((a, b) => b.menuindex - a.menuindex) %}
+					{% set sliced_brands = sorted_brands|slice(8,8) %}
+					{% for brand in sliced_brands %}
+					<div class="item mb-3 d-flex justify-content-between">
+						<a href="/katalog-avtomobilej/?f[42]={{ brand.value }}" class="justify-content-start">{{ brand.value }}</a>
+						<span class="ml-auto text-light py-1 px-2">{{ brand.count_value }}</span>
+					</div>
+					{% endfor %}
+					{% else %}
+					The brands array is not defined or is empty.
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>#}
+<script type="text/javascript">
+const items = document.querySelectorAll('.index-brands-block .list .items');
+const button = document.querySelector('button[name="showbrands"]');
+
+// hide the fourth and subsequent items initially
+items.forEach(item => {
+	const allItems = item.querySelectorAll('.item');
+	if (allItems.length > 3) {
+		for (let i = 3; i < allItems.length; i++) {
+			allItems[i].style.display = 'none';
+		}
+	}
+});
+
+// add click event listener to the button
+button.addEventListener('click', () => {
+	if (items[0].querySelector('.item:nth-child(4)').style.display === 'none') {
+		// show all items
+		items.forEach(item => {
+			const allItems = item.querySelectorAll('.item');
+			allItems.forEach(item => {
+				item.style.display = 'block';
+			});
+		});
+		button.textContent = 'Скрыть все';
+	} else {
+		// hide the fourth and subsequent items
+		items.forEach(item => {
+			const allItems = item.querySelectorAll('.item');
+			if (allItems.length > 3) {
+				for (let i = 3; i < allItems.length; i++) {
+					allItems[i].style.display = 'none';
+				}
+			}
+		});
+		button.textContent = 'Показать все';
+	}
+});
+</script>

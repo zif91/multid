@@ -1,0 +1,339 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+    <main class="main container">
+        <div class="credit-page pb-5">
+            <h1 class="mb-3">Автокредит</h1>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="image mb-4">
+                        <img src="../img/credit.png">
+                    </div>
+                    <p class="mb-4">Мы возьмем на себя подбор оптимальной кредитной программы и оформление сопутствующих документов. Вам остается лишь выбрать подходящий автомобиль и заполнить кредитную заявку для предварительного одобрения.</p>
+                    <h2 class="mb-4">Преимущества Автокредита</h2>
+                    <div class="row">
+                        <div class="col-sm-4 col-6">
+                            <div class="block mb-4">
+                                <div><img src="../img/credit1.svg"></div>
+                                <div>Первый взнос от 0%</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-6">
+                            <div class="block mb-4">
+                                <div><img src="../img/credit2.svg"></div>
+                                <div>По двум документам</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-6">
+                            <div class="block mb-4">
+                                <div><img src="../img/credit3.svg"></div>
+                                <div>Гарантия на авто 1 год</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <form class="py-4 px-3 mb-4">
+                        <div class="name mb-3">
+                            Форма заявки
+                        </div>
+                        <p class="mb-2">Выберите желаемый автомобиль</p>
+                        <select class="w-100 mb-2 px-3">
+                            <option>Марка</option>
+                            <option>Марка</option>
+                            <option>Марка</option>
+                        </select>
+                        <select class="w-100 mb-2 px-3">
+                            <option>Модель</option>
+                            <option>Модель</option>
+                            <option>Модель</option>
+                        </select>
+                        <select class="w-100 mb-3 px-3">
+                            <option>Объявление</option>
+                            <option>Объявление</option>
+                            <option>Объявление</option>
+                        </select>
+                        <p class="mb-2">Укажите свои данные</p>
+                        <input type="text" class="w-100 mb-2 px-3" placeholder="Ваше имя">
+                        <input type="text" class="w-100 mb-3 px-3" placeholder="+7(___) ___-____">
+                        <button class="w-100 mb-3">Отправить заявку</button>
+                        <div class="bottom-text">
+                            Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#">персональных данных</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <p class="mb-3">После звонка кредитного эксперта приезжайте в автосалон и оформляйте автокредит прямо в салоне без необходимости обращения в отделение банка-партнера. <br/>Годовая ставка автокредита от 4,9% и зависит от конкретного банка, суммы займа и кредитной программы. Минимальный срок погашения от 61 дня, максимальный — 84 месяца. При этом любые дополнительные комисси автосалоном не взимаются.</p>
+        </div>
+        <div class="calc-block pb-5">
+            <div class="block-name mb-3">
+                Выгода при покупке в кредит!
+            </div>
+            <div class="top-text mb-4">
+                Ставка от 0.1% годовых!
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="calc">
+                        <div class="item mb-4">
+                            <div class="name mb-3">
+                                Сумма кредита
+                            </div>
+                            <div class="field mb-4">
+                                <input type="text" id="amount" readonly>
+                                <a class="edit"></a>
+                            </div>
+                            <div id="slider-range-max"></div>
+                            <div class="values pt-3 flex">
+                                <div>250 000 ₽</div>
+                                <div>10 000 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="name mb-3">
+                                Первоначальный взнос
+                            </div>
+                            <div class="field mb-4">
+                                <input type="text" id="amount2" readonly>
+                                <a class="edit"></a>
+                            </div>
+                            <div id="slider-range-max2"></div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="name mb-3">
+                                Срок кредита
+                            </div>
+                            <div class="field mb-4">
+                                <input type="text" id="amount3" readonly>
+                                <a class="edit"></a>
+                            </div>
+                            <div id="slider-range-max3"></div>
+                            <div class="values pt-3 flex">
+                                <div>12 месяцев</div>
+                                <div>88 месяцев</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="result mb-4">
+                        <div class="name mb-4">
+                            Наше предложение
+                        </div>
+                        <table class="w-100 mb-4">
+                            <tr>
+                                <td>Кредитная ставка:</td>
+                                <td>0,1 %</td>
+                            </tr>
+                            <tr>
+                                <td>Программа:</td>
+                                <td>Первый автомобиль</td>
+                            </tr>
+                            <tr>
+                                <td>Первоначальный взнос:</td>
+                                <td>100 000 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>Сумма кредита:</td>
+                                <td>300 000 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>Срок:</td>
+                                <td>14 месяцев</td>
+                            </tr>
+                        </table>
+                        <div class="finish flex">
+                            <div>Ежемесячный платеж:</div>
+                            <div>2 818 ₽/мес.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="credit-form-block mb-5 position-relative">
+            <h2 class="mb-2">Заявка на автокредит</h2>
+            <p class="mb-3">Оставьте заявку и мы перезвоним Вам!</p>
+            <form class="row">
+                <div class="col-sm-6">
+                    <input type="text" class="w-100 mb-3 px-3" placeholder="Ваше имя">
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="w-100 mb-3 px-3" placeholder="+7 (___) ___-__-__">
+                </div>
+                <div class="col-sm-6">
+                    <button class="w-100">Заказать подбор</button>
+                </div>
+                <div class="col-sm-6">
+                    <div class="bottom-text pt-sm-2 pt-3">
+                        Нажимая на кнопку вы даете согласие на обработку <a href="#">персональных данных</a>
+                    </div>
+                </div>
+            </form>
+            <div class="image position-absolute">
+                <img src="../img/woman.png">
+            </div>
+        </div>
+        <div class="credit-advantages-block pb-5">
+            <h2 class="mb-4">Выгодные автокредиты</h2>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item mb-4 position-relative">
+                        <div class="text">
+                            Максимально высокий <span>процент одобряемости</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item mb-4 position-relative">
+                        <div class="text">
+                            <span>2 документа для одобрения</span> кредита на покупку авто
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item mb-4 position-relative">
+                        <div class="text">
+                            Кредит без обязательного страхования <span>КАСКО</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item mb-4 position-relative">
+                        <div class="text">
+                            Процентная ставка по кредиту <span>от 4,9%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item mb-4 position-relative">
+                        <div class="text">
+                            Срок кредита <span>от 6 месяцев до 8 лет</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item mb-4 position-relative">
+                        <div class="text">
+                            <span>15 банков - партнеров</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item mb-4 position-relative">
+                        <div class="text">
+                            Вы из регионов? - <span>оплатим дорогу!</span>
+                            <p>(в случае покупки авто)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item mb-4 position-relative">
+                        <div class="text">
+                            Первоначальный взнос по кредиту <span>от 0%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item mb-4 position-relative">
+                        <div class="text">
+                            Досрочное погашение <span>кредита без штрафов</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="partners-block mb-5">
+            <h2 class="mb-4">Банки-партнёры</h2>
+            <div class="list">
+                <div class="item"><img src="../img/partner.png"></div>
+                <div class="item"><img src="../img/partner.png"></div>
+                <div class="item"><img src="../img/partner.png"></div>
+                <div class="item"><img src="../img/partner.png"></div>
+                <div class="item"><img src="../img/partner.png"></div>
+                <div class="item"><img src="../img/partner.png"></div>
+                <div class="item"><img src="../img/partner.png"></div>
+            </div>
+        </div>
+        <div class="index-contacts-block pb-5">
+            <div class="block-name mb-5">
+                Контакты
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="map">
+                        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Afc323321433963170dc49e43283123c937ade7a3c41b15823731898920486842&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=false"></script>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contacts p-sm-5 p-3">
+                        <div class="logo mb-5">
+                            <img src="../img/logo2.png">
+                        </div>
+                        <div class="adress mb-4 pl-4">
+                            Москва, 85-й км МКАД, вл. 5, с.2
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="#" class="phone pl-4 mb-4 d-block">+7 (800) 888 88 88</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#" class="mail pl-4 mb-4 d-block">info@auto-star.ru</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#" class="way pl-4 mb-sm-0 mb-4 d-block">Проложить маршрут</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="hours pl-4">
+                                    Ежедневно с 8:00 до 21:00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block SCRIPTS %}
+    <script src="../js/slick.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="static/js/choices.min.js"></script>
+    <script src="static/js/select2.js"></script>
+    <script>
+        $( function() {
+            $( "#slider-range-max" ).slider({
+                range: "max",
+                min: 250000,
+                max: 10000000,
+                value: 300000,
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( ui.value  + " ₽");
+                }
+            });
+            $( "#amount" ).val( $( "#slider-range-max" ).slider( "value") + " ₽" );
+        } );
+        $( function() {
+            $( "#slider-range-max2" ).slider({
+                range: "max",
+                min: 100000,
+                max: 1000000,
+                value: 500000,
+                slide: function( event, ui ) {
+                    $( "#amount2" ).val( ui.value  + " ₽");
+                }
+            });
+            $( "#amount2" ).val( $( "#slider-range-max2" ).slider( "value") + " ₽" );
+        } );
+        $( function() {
+            $( "#slider-range-max3" ).slider({
+                range: "max",
+                min: 12,
+                max: 88,
+                value: 24,
+                slide: function( event, ui ) {
+                    $( "#amount3" ).val( ui.value  + " месяцев");
+                }
+            });
+            $( "#amount3" ).val( $( "#slider-range-max3" ).slider( "value") + " месяцев" );
+        } );
+    </script>
+{% endblock %}

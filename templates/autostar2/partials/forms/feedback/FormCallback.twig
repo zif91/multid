@@ -1,0 +1,27 @@
+
+<form class="mt-5"><input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    {{ data['form.messages'] | raw }}
+                <div class="flex">
+                    <h2>Заявка на обратный звонок</h2>
+                    <div class="top-text">
+                        Остались вопросы? <br/>
+                        Мы с радостью ответим Вам
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 ">
+                        <input type="text" class="{{ data['name.classname'] }}" placeholder="Введите ваше имя*" id="formName" name="name" value="{{ data.name }}">
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <input style="width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0 15px" name="phone" id="formPhone" value="{{ data.phone }}"
+                                class="phone-imask {{ data['phone.classname'] }}"
+                                type="tel"  placeholder="Введите ваш телефон*">
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+            </form>

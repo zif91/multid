@@ -1,0 +1,65 @@
+{# <div class="col-12 px-2 pb-3 py-lg-1" data-name="{{ data['name'] }}">
+    <div class="pb-2 pb-lg-0 fw-bold">{{ data['caption'] }}{% if data['unit'] %}, {{ data['unit'] }}{% endif %}</div>
+    <div class="row m-0 d-block filter-checkbox">{{ data['wrap'] | raw }}</div>
+</div> #}
+
+    {#{ data['wrap'] | raw }#}
+
+
+{#<div class="col-sm-2"
+ data-name="{{ data['name'] }}">
+
+     {% if data['id'] == 43 %}
+        {{ runSnippet('helpers', {'action':'getModelsByMark'}) | raw }}
+    {% else %}
+
+
+    <select class="form-select py-2 border-0 choicesCar" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
+        <option value="" selected disabled>{{ data['caption'] }}</option>
+        {{ data['wrap'] | raw }}
+    </select>
+        {% endif %}
+
+
+</div>#}
+
+<div class="col-lg-3 col-md-4 col-sm-6" data-name="{{ data['name'] }}">
+    {% if data['id'] == 43 %}
+        {{ runSnippet('helpers', {'action':'getModelsByMark2'}) | raw }}
+    {% else %}
+            <select class="choicesCar w-100 mb-sm-4 mb-3 px-3" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
+                <option value="" selected disabled>{{ data['caption'] }}</option>
+                {{ data['wrap'] | raw }}
+            </select>
+    {% endif %}
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="Цена от">
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="Цена до">
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="Минимальный пробег">
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="Один владелец">
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="Оригинал ПТС">
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="Онлайн покупка">
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="На гарантии производителя">
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="Выгодя для юр. лиц">
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="Низкий транпортный налог">
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6">
+    <input type="text" class="w-100 mb-sm-4 mb-3 px-3" placeholder="Новинки дня">
+</div>

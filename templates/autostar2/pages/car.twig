@@ -1,8 +1,8 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-    {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
-    {% set DLCatalog = runSnippet('DocLister', {
+{#% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 3,
 parents: catalog_number,
@@ -13,7 +13,7 @@ tvList:'car-price,run,engine_power,car-photos,car_photos,gear,year,image,body_ty
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcar2',
 })
-%}
+%#}
 {% set cardphoto = runSnippet('morephoto', {
 images: resource["car_photos"],
 image: resource.car-photos,
@@ -446,7 +446,7 @@ tpl:'@T_CODE: <div class="gift__item">
         <div class="index-catalog-block2 pb-4">
             <h2 class="mb-4">Автомобили той же марки</h2>
             <div class="row">
-                {{DLCatalog | raw}}
+                {#{DLCatalog | raw}#}
             </div>
         </div>
     {% include('partials/contacts.twig') %}

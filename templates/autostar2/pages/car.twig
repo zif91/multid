@@ -5,7 +5,7 @@
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 3,
-limit: 3,
+queryLimit: 3,
 parents: catalog_number,
 depth: 2,
 _filters: 'AND(tv:car-price:against:~car-price~)',

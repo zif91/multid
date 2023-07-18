@@ -1,0 +1,66 @@
+{% extends 'app.twig' %}
+{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+
+{% set DLCatalog = runSnippet('DocLister', {
+    id: 'catalog',
+    display: 3,
+    parents: catalog_number,
+    depth: 5,
+    orderBy: 'menuindex',
+    order: 'RAND()',
+    tvSortType: 'SIGNED',
+    tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+    ownerTPL: '@T_FILE:partials/wrap',
+    tpl:'@T_FILE:partials/catalogcard2',
+    noneTPL:'@CODE: <div class="container">
+<div class="row">
+<div class="col text-center">
+    <h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+</div>
+</div>
+</div>',
+    paginate:'pages',
+    TplNextP:'',
+    TplPrevP:'',
+    TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+    TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+    TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+    tvSortType: 'UNSIGNED',
+    api: 0
+})
+%}
+{% block MAIN %}
+
+    <main class="main container">
+        {% include('partials/crumbs.twig') %}
+        <div class="actions-item-page pb-5">
+            <div class="image mb-sm-5 mb-4">
+                <img src="/templates/autostar2/img/action4.png">
+            </div>
+            <h1 class="mb-3">Дополнительная скидка 200 000 ₽ при покупке авто в кредит!</h1>
+            <p class="mb-4">Дополнительная скидка 200 000 ₽ при покупке авто в кредит!</p>
+            <p class="mb-4">Если вы задумываетесь о покупке автомобиля в кредит, то у нас для вас отличная новость! Мы предоставляем дополнительную скидку в 200 000 рублей при покупке автомобиля в кредит. Эта скидка может быть решающим фактором в выборе автомобиля и помочь вам сэкономить значительную сумму денег.</p>
+            <p class="mb-4">Если вы задумываетесь о покупке автомобиля в кредит, то у нас для вас отличная новость! Мы предоставляем дополнительную скидку в 200 000 рублей при покупке автомобиля в кредит. Эта скидка может быть решающим фактором в выборе автомобиля и помочь вам сэкономить значительную сумму денег.</p>
+            <p class="mb-4">Если вы задумываетесь о покупке автомобиля в кредит, то у нас для вас отличная новость! Мы предоставляем дополнительную скидку в 200 000 рублей при покупке автомобиля в кредит. Эта скидка может быть решающим фактором в выборе автомобиля и помочь вам сэкономить значительную сумму денег.</p>
+            <p class="mb-4">Если вы задумываетесь о покупке автомобиля в кредит, то у нас для вас отличная новость! Мы предоставляем дополнительную скидку в 200 000 рублей при покупке автомобиля в кредит. Эта скидка может быть решающим фактором в выборе автомобиля и помочь вам сэкономить значительную сумму денег.</p>
+        </div>
+        <div class="index-catalog-block2 pb-4" id="catalog">
+            <h2 class="mb-4">Автомобили по акции</h2>
+            <div class="row">
+                {{DLCatalog |raw}}
+            </div>
+            <div class="bottom-button text-center">
+                <button onclick="window.location.href = '{{ makeUrl(27) }}';">Посмотреть все машины в наличии</button>
+            </div>
+        </div>
+        <div class="other-actions-block mb-5">
+            <h2 class="mb-5">Другие акции</h2>
+            <div class="list">
+                {% include '/partials/action.twig' %}
+            </div>
+        </div>
+        {% include('partials/contacts.twig') %}
+    </main>
+
+{% endblock %}
+

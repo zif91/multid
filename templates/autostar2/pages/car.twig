@@ -39,7 +39,7 @@ action:'carmonth'}) %}
 {% set vigoda = oldprice - resource['car-price'] %}
 {% set gifts = runSnippet('DocLister', {
 display: 3,
-parents: 24,
+parents: catalog_number,
 depth: 0,
 tvList:'image,color',
 tpl:'@T_CODE: <div class="gift__item">

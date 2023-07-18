@@ -1,10 +1,11 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-    {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
-    {% set DLCatalog = runSnippet('DocLister', {
+{#% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 3,
+queryLimit: 3,
 parents: catalog_number,
 depth: 2,
 _filters: 'AND(tv:car-price:against:~car-price~)',
@@ -13,7 +14,7 @@ tvList:'car-price,run,engine_power,car-photos,car_photos,gear,year,image,body_ty
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcar2',
 })
-%}
+%#}
 {% set cardphoto = runSnippet('morephoto', {
 images: resource["car_photos"],
 image: resource.car-photos,

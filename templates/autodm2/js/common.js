@@ -19,8 +19,29 @@ link.addEventListener('click', (event) => {
 	});
 	$('.header .menu-button').click(function() {
 		$('.menubg').fadeIn();
-		$('.header ul').addClass('opened');
+		// $('.header ul').addClass('opened');
+		$('.header ul').toggleClass('opened');
 	});
+
+	let liFirst = document.createElement('li');
+	liFirst.classList.add('left-child1');
+	liFirst.innerHTML = '<button class="left-listClose" id="left-listClose">X</button>';
+	$('.header ul').prepend(liFirst);
+		
+	let liLast = document.createElement('li');
+	liLast.classList.add('left-childlast');
+	liLast.innerHTML = '<button type="button" class="left-listCall" data-toggle="modal" data-target="#oneclick">Заказать звонок</button>';
+	$('.header ul').append(liLast);
+	$('.header ul').remove(liFirst);
+	$('.header ul').remove(liLast);
+
+	const close = document.querySelector('.left-listClose');
+	close.onclick = function () {
+		$('.header ul').toggleClass('opened');
+		$('.header ul').removeClass('left-child1');
+		$('.header ul').remove(liLast);
+	}
+	
 	$('.slider-for').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,

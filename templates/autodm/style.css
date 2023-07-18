@@ -517,6 +517,14 @@ main {
   display: none;
 }
 
+.left-listCall{
+  display: none;
+}
+
+.left-listClose{
+  display: none;
+}
+
 .index-first-block {
   padding: 180px 0 192px;
 }
@@ -2357,6 +2365,14 @@ color:red;
   .actions-page .item button {
     width: 150px;
   }
+
+  .left-listCall{
+    display: none;
+  }
+  
+  .left-listClose{
+    display: none;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -2418,6 +2434,14 @@ color:red;
   .form-select {
     width: 100%
   }
+
+  .left-listCall{
+    display: none;
+  }
+  
+  .left-listClose{
+    display: none;
+  }
 }
 
 @media (max-width: 991px) {
@@ -2456,6 +2480,14 @@ color:red;
     left: 0;
   }
 
+  .left-listCall{
+    display: none;
+  }
+
+  .left-listClose{
+    display: none;
+  }
+
   .header ul li {
     display: block;
     margin: 0;
@@ -2475,8 +2507,6 @@ color:red;
   .index-first-block form .flex select {
     padding: 0 15px;
   }
-
-
 
   .index-first-block form .flex .prices .flex input[type='text'] {
     padding: 0 15px;
@@ -3336,6 +3366,36 @@ color:red;
 
   .brands-block .flex2 .item:nth-child(n+11) {
     display: none;
+  }
+
+  .left-listCall{
+    width: 180px;
+    background-color: #b71f25;
+    color: #fff;
+    height: 50px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    margin-top: 16px;
+    left:3%;
+    display: block;
+  }
+
+  .left-listClose{
+    background-color: #fff;
+    color: #000;
+    max-height: 25px;
+    max-width: 25px;
+    font-size: 20px;
+    display: block;
+    padding-left: 16px;
+
+  }
+
+  .header ul {
+    width: 537px;
+    left: -537px;
   }
 
 }

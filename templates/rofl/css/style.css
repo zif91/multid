@@ -964,7 +964,24 @@ main {
 .catalog-page .item:hover .text .price .new {
   display: inline-block;
 }
-
+.actions-page .item .name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #25344B;
+}
+.actions-page .item p {
+  color: #717171;
+}
+.actions-page .item a {
+  border: 1px solid #25344B;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #25344B;
+}
+.actions-page .item a:hover {
+  color: #fff;
+}
 .catalog-page .item .text .name {
   font-weight: 500;
   font-size: 16px;
@@ -2001,6 +2018,11 @@ content: '';
   left:18px;
 }
 @media (max-width: 575.98px) {
+  .actions-banner {
+    padding: 60px 0;
+    font-size: 24px;
+    line-height: 32px;
+  }
 .item-page .credit-block .number-0,
 .item-page .credit-block .number-25,
 .item-page .credit-block .number-50,

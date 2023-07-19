@@ -1,5 +1,34 @@
 {% extends 'app.twig' %}
-
 {% block MAIN %}
-{% endblock %}
+<div class="page-name py-4">
+	<div class="container">
+		<h1 class="h1 m-0">Об акции</h1>
+	</div>
+</div>
+<div class="action-banner mb-4" style="background: url('img/action3.png') left center/cover;">
+	<div class="container">
+		<div class="text">
+			<h2 class="mb-3">{{resource.pagetitle | raw}}</h2>
+			<p class="mb-4">{{resource.description | raw}}</p>
+			<div class="date d-inline-block">
+				<span class="d-inline-block">Только 5 дней</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="action-text-block pb-5">
+	<div class="container">
+		
+							{{resource.content | raw}}
 
+	</div>
+</div>
+<div class="catalog-page pb-5">
+	<div class="container">
+		<h2 class="h2 mb-4">Посмотреть авто по акции</h2>
+		<div class="row">
+			RFNFKJFU
+		</div>
+	</div>
+</div>
+{% endblock %}

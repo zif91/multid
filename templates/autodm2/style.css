@@ -3805,3 +3805,24 @@ main {
     border-radius: 10px;
   }
 }
+.action-page .top-image {
+  padding: 70px 0 380px;
+  color: #fff;
+}
+.action-page .top-image .text {
+  width: 55%;
+}
+.action-page .top-image .text h1 {
+  font-size: 70px;
+  font-weight: 500;
+}
+.action-page .top-image .text p {
+  font-size: 50px;
+}
+.action-page .text .txt {
+  width: 70%;
+}
+.action-page .text .txt p {
+  font-size: 30px;
+  line-height: 120%;
+}

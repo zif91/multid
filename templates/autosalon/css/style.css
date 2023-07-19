@@ -1968,3 +1968,15 @@ font-size: 14px;
 .modifications-block .item .item-name .credit span.new-price{
     display: none;
 }
+  .actions-top-block {
+    padding: 50px 0;
+  }
+  .actions-top-block .text h1 {
+    font-size: 30px;
+  }
+  .actions-top-block .text p {
+    font-size: 20px;
+  }
+  .action-page p {
+    font-size: 18px;
+  }

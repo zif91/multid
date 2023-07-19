@@ -1,21 +1,17 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-	{{resource | dump}}
-<div class="actions-top-block mb-5" style="background: url('img/actions-top-block.png') left center/cover;">
+	{#{resource | dump}#}
+<div class="actions-top-block mb-5" style="background: url({{resource.image|raw}}) left center/cover;">
 	<div class="container">
 		<div class="text">
-			<h1 class="mb-3">Давайте меняться вместе!</h1>
-			<p>Выгода до 350 000 руб. <br />по программе Trade-in</p>
+			<h1 class="mb-3">{{resource.pagetitle | raw}}</h1>
+			<p>{{resource.description | raw}}</p>
 		</div>
 	</div>
 </div>
 <div class="action-page pb-4">
 	<div class="container">
-		<h2 class="mb-3">Об акции</h2>
-		<p class="mb-2">Отличные выгоды по специальной программе обновления автомобилей от нашего автосалона!</p>
-		<p class="mb-2">При обмене своего автомобиля с пробегом на новый в нашем автосалоне, Вы получите дополнительную выгоду при покупке нового автомобиля — до 350 000 руб.!</p>
-		<p class="mb-2">Интересно? Не стоит больше ждать!</p>
-		<p class="mb-2">Оставьте заявку прямо сейчас, и мы свяжемся с Вами в ближайшее время!</p>
+{{resource.content | raw}}
 	</div>
 </div>
 <div class="container">

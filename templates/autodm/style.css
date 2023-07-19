@@ -473,7 +473,8 @@ main {
 
 .header ul li {
   display: inline-block;
-  margin-right: 105px;
+  /* margin-right: 105px; */
+  margin-right: 84px;
 }
 
 .header ul li:last-child {
@@ -2333,6 +2334,7 @@ color:red;
 .header .location{
     display: none;
 }
+
 @media (max-width: 1510px) {
   .container-fluid {
     width: 1230px;

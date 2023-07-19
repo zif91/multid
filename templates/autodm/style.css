@@ -1950,7 +1950,75 @@ color:red;
   height: 50px;
   border-radius: 10px;
 }
-
+.actions-page {
+  padding-bottom: 50px;
+}
+.actions-page h1 {
+  margin-bottom: 50px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+}
+.actions-page .item {
+  margin-bottom: 40px;
+  border-radius: 10px;
+  height: 308px;
+  position: relative;
+}
+.actions-page .item p {
+  position: absolute;
+  color: #fff;
+  left: 20px;
+  bottom: 40px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+}
+.actions-page .item button {
+  position: absolute;
+  right: 20px;
+  bottom: 32px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  width: 173px;
+  height: 50px;
+  border-radius: 10px;
+}
+.actions-page .item button:hover {
+  filter: brightness(90%);
+}
+.actions-page .item2 {
+  height: 308px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+.actions-page .item2 .content {
+  left: 0;
+  bottom: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 30px 210px 30px 20px;
+}
+.actions-page .item2 .content .name {
+  font-size: 30px;
+  font-weight: 500;
+}
+.actions-page .item2 .content a {
+  right: 20px;
+  bottom: 30px;
+  width: 173px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  background: #2F80ED;
+  font-size: 16px;
+  font-weight: 500;
+}
 .calc-page .bottom-button button:hover {
   opacity: .7;
 }
@@ -3365,7 +3433,30 @@ color:red;
   .brands-block .flex2 .item:nth-child(n+1) {
     display: block;
   }
-
+  .actions-page .item2 .content .name {
+    font-size: 20px;
+  }
+  .actions-page .item2 .content {
+    padding: 20px 150px 20px 20px;
+  }
+  .actions-page .item2 .content a {
+    width: 120px;
+  }
+  .actions-page .item2 {
+    height: 200px;
+  }
+  .action-page .top-image {
+    padding: 40px 0;
+  }
+  .action-page .top-image .text h1 {
+    font-size: 40px;
+  }
+  .action-page .top-image .text p {
+    font-size: 24px;
+  }
+  .action-page .text .txt p {
+    font-size: 18px;
+  }
   .brands-block .flex2 .item:nth-child(n+11) {
     display: none;
   }

@@ -22,7 +22,9 @@ display: 1
             {{ data['title'] }}, {{ data['tv.year'] }}
         </div>
         <div class="age mb-3">
-            {{ data['tv.modification'] }} поколение
+            {% if data['tv.modification'] %}
+                {{ data['tv.modification'] }} поколение
+            {% endif %}
         </div>
         <p class="mb-2">С пробегом / {{ data['tv.year'] }} / {{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км / {{ data['tv.car_color'] }}</p>
         <p class="mb-3">{{ data['tv.engine_volume'] }} {{ data['tv.gear'] }} ({{ data['tv.engine_power'] }} л.с.) {{ data['tv.equipment'] }}</p>

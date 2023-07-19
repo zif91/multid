@@ -1338,6 +1338,8 @@ main {
 .index-catalog-block2 .item .name {
     color: #999;
     font-size: 12px;
+    word-wrap: break-word;
+    width: 70%;
 }
 .index-catalog-block2 .item .name span {
     display: block;

@@ -22,7 +22,9 @@ display: 1
             <div class="flex">
                 <div class="name mb-3">
                     <span class="d-block mb-2">{{ data['title'] }}, {{ data['tv.year'] }}</span>
-                    {{ data['tv.modification'] }} поколение
+                    {% if data['tv.modification'] %}
+                        {{ data['tv.modification'] }} поколение
+                    {% endif %}
                 </div>
                 <div class="status mb-3">
                     <span class="d-inline-block py-1 px-2 color1">В наличии</span>
@@ -51,7 +53,11 @@ display: 1
             <div class="prices row">
                 <div class="col-6">
                     <div class="price-item mb-3">
-                        <span class="old">{{ ( data['tv.old-car-price'] )|number_format(0, '.', ' ') }} ₽</span>
+                        <span class="old">
+                        {% if data['tv.old-car-price'] %}
+                            {{ ( data['tv.old-car-price'] )|number_format(0, '.', ' ') }} ₽
+                        {% endif %}
+                        </span>
                         <div class="new mt-1">{{ ( data['tv.car-price'] )|number_format(0, '.', ' ') }} ₽</div>
                     </div>
                 </div>

@@ -6,7 +6,7 @@
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
-display: 18,
+display: 3,
 parents: catalog_number,
 depth: 5,
 orderBy: 'menuindex',
@@ -42,6 +42,62 @@ filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
 filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
 tvSortType: 'UNSIGNED',
 api: 0
+})
+%}
+{% set DLCatalog2 = runSnippet('DocLister', {
+    id: 'catalog2',
+    display: 3,
+    parents: catalog_number,
+    depth: 5,
+    orderBy: 'menuindex',
+    order: 'RAND()',
+    tvSortType: 'SIGNED',
+    tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+    ownerTPL: '@T_FILE:partials/wrap',
+    tpl:'@T_FILE:partials/catalogcard2',
+    noneTPL:'@CODE: <div class="container">
+<div class="row">
+    <div class="col text-center">
+        <h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+    </div>
+</div>
+</div>',
+    paginate:'pages',
+    TplNextP:'',
+    TplPrevP:'',
+    TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+    TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+    TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+    tvSortType: 'UNSIGNED',
+    api: 0
+})
+%}
+{% set DLCatalog3 = runSnippet('DocLister', {
+    id: 'catalog3',
+    display: 6,
+    parents: catalog_number,
+    depth: 5,
+    orderBy: 'menuindex',
+    order: 'RAND()',
+    tvSortType: 'SIGNED',
+    tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+    ownerTPL: '@T_FILE:partials/wrap',
+    tpl:'@T_FILE:partials/catalogcard2',
+    noneTPL:'@CODE: <div class="container">
+<div class="row">
+<div class="col text-center">
+    <h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+</div>
+</div>
+</div>',
+    paginate:'pages',
+    TplNextP:'',
+    TplPrevP:'',
+    TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+    TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+    TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+    tvSortType: 'UNSIGNED',
+    api: 0
 })
 %}
 {% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
@@ -94,54 +150,86 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
 		</div>
 	</div>
 </div>
+<div class="index-catalog-block pb-4" id="catalog">
+    <div class="row">
+        <div class="col-lg-3">
+            <nav>
+                <div class="name mb-5">
+                    Подборки:
+                </div>
+                <ul>
+                    <li class="mb-5"><a href="?f[19]=0:500000">Седан</a></li>
+                    <li class="mb-5"><a href="?f[19]=500000:1000000">Хетчбэк</a></li>
+                    <li class="mb-5"><a href="?f[19]=1000000:2000000">Универсал</a></li>
+                    <li class="mb-5"><a href="?f[19]=2000000:10000000">Внедорожник</a></li>
+                    <li class="mb-5"><a href="?f[19]=0:500000">Минивэн</a></li>
+                    <li class="mb-5"><a href="?f[19]=500000:1000000">Фургон</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-lg-9">
+            <div class="row">
+                {{DLCatalog |raw}}
+            </div>
+        </div>
+    </div>
 </div>
-<div class="index-catalog-block pb-4 catalog-products" id="catalog">
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="row">
-				{{DLCatalog |raw}}
-			</div>
-		</div>
-	</div>
+<div class="index-catalog-block2 pb-4" id="catalog2">
+    <h2 class="mb-4">Последние поступления</h2>
+    <div class="row">
+        {{DLCatalog2 |raw}}
+    </div>
 </div>
-<div class="bottom-button">
-	<button onclick="window.location.href = '{{ makeUrl(27) }}';">Смотреть все <span></span></button>
+<div class="index-catalog-block2 pb-5 mb-5" id="catalog3">
+    <h2 class="mb-4">Лучшее предложение</h2>
+    <div class="row">
+        {{DLCatalog3 |raw}}
+    </div>
+    <div class="bottom-button text-center">
+        <button onclick="window.location.href = '{{ makeUrl(27) }}';">Посмотреть все машины в наличии</button>
+    </div>
+</div>
+<div class="credit-form-block mb-5 position-relative">
+    <h2 class="mb-2">Заявка на автокредит</h2>
+    <p class="mb-3">Оставьте заявку и мы перезвоним Вам!</p>
+    <form class="row">
+        <div class="col-sm-6">
+            <input type="text" class="w-100 mb-3 px-3" placeholder="Ваше имя">
+        </div>
+        <div class="col-sm-6">
+            <input type="text" class="w-100 mb-3 px-3" placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="col-sm-6">
+            <button class="w-100">Заказать подбор</button>
+        </div>
+        <div class="col-sm-6">
+            <div class="bottom-text pt-sm-2 pt-3">
+                Нажимая на кнопку вы даете согласие на обработку <a href="#">персональных данных</a>
+            </div>
+        </div>
+    </form>
+    <div class="image position-absolute">
+        <img src="/templates/autostar2/img/woman.png">
+    </div>
+</div>
+<div class="partners-block mb-5">
+    <h2 class="mb-4">Банки-партнёры</h2>
+    <div class="list">
+        <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
+        <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
+        <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
+        <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
+        <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
+        <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
+        <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
+    </div>
 </div>
 {% include '/partials/actions.twig' %}
-{#% include '/partials/podbor.twig' %#}
-{#<div class="feedback-block">
-	<div class="container-fluid">
-		{{ runSnippet('Form', {
-		formid: 'FormCallback',
-		path: '/templates/autodm/partials/forms/feedback/',
-		extension: 'twig'
-		}) | raw }}
-	</div>
-</div>
-<script type="text/javascript">
-var waitForJQuery2 = setInterval(function() {
-	if (typeof $ != 'undefined') {
-		$(function() {
-			$("#slider-range").slider({
-				range: true,
-				min: 0,
-				max: 50000,
-				values: [10000, 30000],
-				slide: function(event, ui) {
-					$("#amount").val("Цена от " + ui.values[0] + " р.");
-					$("#amount2").val("Цена до " + ui.values[1] + " р.");
-				}
-			});
-			$("#amount").val("Цена от " + $("#slider-range").slider("values", 0) + " р.");
-			$("#amount2").val("Цена до " + $("#slider-range").slider("values", 1) + " р.");
-		});
-		clearInterval(waitForJQuery2);
-	}
-}, 100);
-</script>#}
-
 {% include('partials/contacts.twig') %}
 {% include '/partials/advantages.twig' %}
-{#% include '/partials/tradein.twig' %#}
-{#% endcache %#}
+{% block SCRIPTS %}
+    <script type="text/javascript" src="../js/slick.min.js"></script>
+    <script src="../js/common.js"></script>
+{% endblock %}
+
 {% endblock %}

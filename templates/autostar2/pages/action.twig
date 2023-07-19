@@ -1,5 +1,34 @@
 {% extends 'app.twig' %}
+{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
+{% set DLCatalog = runSnippet('DocLister', {
+    id: 'catalog',
+    display: 3,
+    parents: catalog_number,
+    depth: 5,
+    orderBy: 'menuindex',
+    order: 'RAND()',
+    tvSortType: 'SIGNED',
+    tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+    ownerTPL: '@T_FILE:partials/wrap',
+    tpl:'@T_FILE:partials/catalogcard2',
+    noneTPL:'@CODE: <div class="container">
+<div class="row">
+<div class="col text-center">
+    <h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+</div>
+</div>
+</div>',
+    paginate:'pages',
+    TplNextP:'',
+    TplPrevP:'',
+    TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+    TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+    TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+    tvSortType: 'UNSIGNED',
+    api: 0
+})
+%}
 {% block MAIN %}
 
     <main class="main container">
@@ -8,9 +37,9 @@
         </div>
         <div class="action-page pb-5">
             <div class="back-link text-center py-3">
-                <a href="#">Назад к <span>акциям</span></a>
+                <a href="#" onclick="window.history.back();">Назад к <span>акциям</span></a>
             </div>
-            <div class="image mb-5 position-relative" style="background: url('../img/action2.png') center/cover;">
+            <div class="image mb-5 position-relative" style="background: url('/templates/autostar2/img/action2.png') center/cover;">
                 <div class="text position-absolute">
                     <div class="name mb-sm-2">
                         Дни открытых дверей <button>Записаться</button>
@@ -27,6 +56,7 @@
             </div>
         </div>
     </main>
+
     <div class="page-form py-4">
         <div class="container">
             <div class="name text-center mb-sm-5 mb-4">
@@ -48,5 +78,6 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
 

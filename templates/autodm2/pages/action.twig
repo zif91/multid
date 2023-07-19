@@ -1,5 +1,25 @@
 {% extends 'app.twig' %}
 
 {% block MAIN %}
+	<main class="action-page pb-4">
+		<div class="container-fluid">
+			<h1 class="mb-4">Об акции</h1>
+		</div>
+		<div class="top-image mb-5" style="background: url({{resource.image|raw}}) left center/cover">
+			<div class="container-fluid">
+				<div class="text">
+					<h1 class="mb-4">{{resource.pagetitle | raw}}</h1>
+					<p>{{resource.description | raw}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="text pb-2">
+			<div class="container-fluid">
+				<div class="txt">
+					{{resource.content | raw}}
+				</div>
+			</div>
+		</div>
+	</main>
 {% endblock %}
 

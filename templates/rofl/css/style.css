@@ -2023,6 +2023,46 @@ main {
   position: relative;
   left: 18px;
 }
+.action-banner {
+    padding: 65px 0 80px;
+    color: #fff;
+  }
+
+  .action-banner .text {
+    width: 58%;
+  }
+
+  .action-banner h2 {
+    font-size: 70px;
+    font-weight: 600;
+  }
+
+  .action-banner p {
+    font-size: 38px;
+    line-height: 140%;
+  }
+
+  .action-banner .date {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 15px 56px;
+    transform: skew(-25deg);
+    background: #F6DD22;
+    color: #000;
+  }
+
+  .action-banner .date span {
+    transform: skew(25deg);
+  }
+
+  .action-text-block {
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  .action-text-block ul {
+    list-style: disc;
+  }
 
 @media (max-width: 575.98px) {
   .actions-banner {
@@ -2614,46 +2654,7 @@ main {
     color: #838383;
   }
 
-  .action-banner {
-    padding: 65px 0 80px;
-    color: #fff;
-  }
 
-  .action-banner .text {
-    width: 58%;
-  }
-
-  .action-banner h2 {
-    font-size: 70px;
-    font-weight: 600;
-  }
-
-  .action-banner p {
-    font-size: 38px;
-    line-height: 140%;
-  }
-
-  .action-banner .date {
-    font-size: 22px;
-    font-weight: 600;
-    padding: 15px 56px;
-    transform: skew(-25deg);
-    background: #F6DD22;
-    color: #000;
-  }
-
-  .action-banner .date span {
-    transform: skew(25deg);
-  }
-
-  .action-text-block {
-    font-size: 20px;
-    line-height: 140%;
-  }
-
-  .action-text-block ul {
-    list-style: disc;
-  }
 }
 
 @media (max-width: 1199px) {

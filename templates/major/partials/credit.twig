@@ -54,31 +54,28 @@
 		</div>
 	</div>
 
-	<script>
-	  $( function() {
-	    $( "#slider-range-max" ).slider({
-	      range: "max",
-	      min: 1000,
-	      max: 10000000,
-	      value: 100000,
-	      slide: function( event, ui ) {
-	        $( "#amount" ).val( ui.value  + " ₽");
-	      }
-	    });
-	    $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) + " ₽");
-	  } );
-	</script>
-	<script>
-	  $( function() {
-	    $( "#slider-range-max2" ).slider({
-	      range: "max",
-	      min: 12,
-	      max: 88,
-	      value: 24,
-	      slide: function( event, ui ) {
-	        $( "#amount2" ).val( ui.value  + " месяцев");
-	      }
-	    });
-	    $( "#amount2" ).val( $( "#slider-range-max2" ).slider( "value" ) + " месяцев");
-	  } );
-	</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    $( "#slider-range-max" ).slider({
+      range: "max",
+      min: 1000,
+      max: 10000000,
+      value: 100000,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( ui.value  + " ₽");
+      }
+    });
+    $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) + " ₽");
+
+    $( "#slider-range-max2" ).slider({
+      range: "max",
+      min: 12,
+      max: 88,
+      value: 24,
+      slide: function( event, ui ) {
+        $( "#amount2" ).val( ui.value  + " месяцев");
+      }
+    });
+    $( "#amount2" ).val( $( "#slider-range-max2" ).slider( "value" ) + " месяцев");
+  });
+</script>

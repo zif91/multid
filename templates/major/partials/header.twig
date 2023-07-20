@@ -49,11 +49,11 @@ outerTpl: '@CODE:<ul>
 
 <div class="menubg"></div>
     <header class="header">
-        <div class="container flex">
+        <div class="container flex" style="min-height: 90px">
             <div class="logo">
                 {% if baseSettings["logo"] %}
                 <a style="background: url({{baseSettings["logo"]}}) no-repeat;
-                        background-size: cover; background-position: center;
+                        background-size: contain; background-position: center;
                         " href="/" class="d-inline-block"></a>
             {% else %}
                 <div style="width: 200px;

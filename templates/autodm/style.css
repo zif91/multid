@@ -2400,7 +2400,12 @@ color:red;
   line-height: 19px;
 }
 .header .location{
-    display: none;
+    /* display: none; */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top:20px;
+    font-size: 16px;
 }
 
 @media (max-width: 1510px) {

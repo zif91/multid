@@ -74,21 +74,37 @@ noneTPL:'@CODE: <div class="container">
 		</div>
 	</div>
 </div>',
+
 })
 | json %}
+
 {% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
 rowTpl:'@CODE:
 <div class="item" style="background: url([+image+]) center/cover;">
 	<div class="container">
+		<div class="text">
 		<div class="top-text mb-3">
 		</div>
 		<div class="text">
 			[+title+]
 		</div>
 							<button>Оставить заявку</button>
+						</div>
 
 	</div>
 </div>'}) %}
+<div class="container">
+				<div class="text">
+					<div class="top-text mb-2">
+						Акция
+					</div>
+					<div class="name mb-4">
+						Только до конца июня новый Teramont в кредит под 4,9%
+					</div>
+					<button>Оставить заявку</button>
+				</div>
+			</div>
+
 {#% include '/partials/brands.twig' %#}
 {#{ runSnippet('Form', {
 formid: 'FormCredit',

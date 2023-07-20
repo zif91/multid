@@ -437,25 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	modelsSelect.addEventListener('change', updateFilterUrl);
 
 	filterButton.disabled = true;
-	$(function(){
-	$('.item-page .modifications-block .item .item-name').click(function() {
-		$(this).toggleClass('active');
-		$(this).next('.item-content').slideToggle();
-	});
-	$('.menubg').click(function() {
-		$('.header .menu-button').removeClass('active');
-		$('.menubg').fadeOut();
-		$('.header ul').removeClass('opened');
-	});
-	$('.header .menu-button').click(function() {
-		$('.header .menu-button').addClass('active');
-		$('.menubg').fadeIn();
-		$('.header ul').addClass('opened');
-	});
-	$('.index-page-slider').slick({
-		arrows: false,
-		dots: true
-	});
+
 	$('.index-catalog-block2 .list').slick({
 	  speed: 300,
 	  slidesToShow: 4,
@@ -482,7 +464,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	    }
 	  ]
 	});
-});
 });
 
 </script>

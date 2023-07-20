@@ -437,8 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	modelsSelect.addEventListener('change', updateFilterUrl);
 
 	filterButton.disabled = true;
-});
-$(function(){
+	$(function(){
 	$('.item-page .modifications-block .item .item-name').click(function() {
 		$(this).toggleClass('active');
 		$(this).next('.item-content').slideToggle();
@@ -484,5 +483,7 @@ $(function(){
 	  ]
 	});
 });
+});
+
 </script>
 {% endblock %}

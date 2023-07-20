@@ -85,3 +85,15 @@ outerTpl: '@CODE:<ul>
             </a>
         </div>
     </header>
+
+    <div class="index-top-line py-3">
+        <div class="container flex">
+            <p>В кредит под {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}% или в рассрочку под 0% <span class="d-inline-block mx-3">|</span> <button>Новые поступления</button></p>
+            <img src="img/car.png">
+            <a href="#" class="link d-block"></a>
+        </div>
+    </div>

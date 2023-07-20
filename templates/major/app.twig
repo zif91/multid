@@ -60,7 +60,7 @@ debug: 0,
 
 <body id="top">
     {% cache 'header' ~ cacheKey %}
-        {% include('partials/header.twig') %}
+    {% include('partials/header.twig') %}
     {% endcache %}
     {{baseSettings.scripts_body | raw}}
 

@@ -84,8 +84,6 @@
       value: 100000,
       slide: function(event, ui) {
         $("#amount").val(ui.value + " ₽");
-      },
-      stop: function(event, ui) {
         updateMonthlyPayment();
       }
     });
@@ -97,8 +95,6 @@
       value: 12, // Установка изначального значения срока кредита - 12 месяцев
       slide: function(event, ui) {
         $("#amount2").val(ui.value + " месяцев");
-      },
-      stop: function(event, ui) {
         updateMonthlyPayment();
       }
     });
@@ -106,7 +102,7 @@
     // Установка изначального значения суммы кредита - 100,000 ₽
     $("#amount").val($("#slider-range-max").slider("value") + " ₽");
 
-    // Инициализация значений при загрузке страницы
+    // Принудительный пересчет ежемесячного платежа при загрузке страницы
     updateMonthlyPayment();
   });
 </script>

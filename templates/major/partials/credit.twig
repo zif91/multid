@@ -56,55 +56,44 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const creditRate = 4.9 / 100; // Кредитная ставка (4.9%)
+  const creditRate = 4.9 / 100;
+  const rangeSliders = [
+    { id: "#slider-range-max", min: 1000, max: 10000000, value: 100000, unit: " ₽" },
+    { id: "#slider-range-max2", min: 12, max: 88, value: 12, unit: " месяцев" }
+  ];
 
-    function calculateMonthlyPayment(loanAmount, loanTermMonths) {
-      const monthlyRate = creditRate / 12; // Ежемесячная процентная ставка
-      const totalPayments = loanTermMonths;
-      const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalPayments));
-      return monthlyPayment.toFixed(2);
-    }
+  function calculateMonthlyPayment(loanAmount, loanTermMonths) {
+    const monthlyRate = creditRate / 12;
+    const totalPayments = loanTermMonths;
+    const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalPayments));
+    return monthlyPayment.toFixed(2);
+  }
 
-    function updateMonthlyPayment() {
-      const loanAmount = parseInt($("#amount").val().replace(/\D/g, ""));
-      const loanTermMonths = parseInt($("#amount2").val().replace(/\D/g, ""));
-      const monthlyPayment = calculateMonthlyPayment(loanAmount, loanTermMonths);
-      $(".payments div:nth-child(2)").text(monthlyPayment + " ₽/мес.");
-    }
+  function updateMonthlyPayment() {
+    const loanAmount = parseInt($(rangeSliders[0].id).slider("value"));
+    const loanTermMonths = parseInt($(rangeSliders[1].id).slider("value"));
+    const monthlyPayment = calculateMonthlyPayment(loanAmount, loanTermMonths);
+    $(".payments div:nth-child(2)").text(monthlyPayment + " ₽/мес.");
+  }
 
-    $("#slider-range-max, #slider-range-max2, #amount, #amount2").on("input change", function() {
-      updateMonthlyPayment();
-    });
-
-    // Инициализация слайдеров
-    $("#slider-range-max").slider({
+  rangeSliders.forEach(slider => {
+    $(slider.id).slider({
       range: "max",
-      min: 1000,
-      max: 10000000,
-      value: 100000,
+      min: slider.min,
+      max: slider.max,
+      value: slider.value,
       slide: function(event, ui) {
-        $("#amount").val(ui.value + " ₽");
+        $(slider.id + "Value").text(ui.value + slider.unit);
         updateMonthlyPayment();
       }
     });
-
-    $("#slider-range-max2").slider({
-      range: "max",
-      min: 12,
-      max: 88,
-      value: 12, // Установка изначального значения срока кредита - 12 месяцев
-      slide: function(event, ui) {
-        $("#amount2").val(ui.value + " месяцев");
-        updateMonthlyPayment();
-      }
-    });
-
-    // Установка изначального значения суммы кредита - 100,000 ₽
-    $("#amount").val($("#slider-range-max").slider("value") + " ₽");
-
-    // Принудительный пересчет ежемесячного платежа при загрузке страницы
-    updateMonthlyPayment();
+    $(slider.id + "Value").text($(slider.id).slider("value") + slider.unit);
   });
+
+  // Update monthly payment after sliders are initialized
+  updateMonthlyPayment();
+});
+
 </script>
 
 

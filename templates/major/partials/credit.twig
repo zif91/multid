@@ -92,17 +92,21 @@
       range: "max",
       min: 12,
       max: 88,
-      value: 24,
+      value: 12, // Установка изначального значения срока кредита - 12 месяцев
       slide: function(event, ui) {
         $("#amount2").val(ui.value + " месяцев");
         updateMonthlyPayment();
       }
     });
 
+    // Установка изначального значения суммы кредита - 100,000 ₽
+    $("#amount").val($("#slider-range-max").slider("value") + " ₽");
+
     // Инициализация значений при загрузке страницы
     updateMonthlyPayment();
   });
 </script>
+
 
 
 

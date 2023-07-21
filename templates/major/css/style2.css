@@ -549,7 +549,7 @@ main {
   font-weight: 500;
 }
 .index-top-line .link {
-  background: url('/templates/autosalon/img/arrow.svg');
+  background: url('/templates/major/img/arrow.svg');
   width: 8px;
   height: 13px;
   margin-top: 13px;
@@ -645,7 +645,7 @@ main {
   border-radius: 8px;
   appearance: none;
   font-weight: 500;
-  background: url('/templates/autosalon/img/select.svg') no-repeat right 20px top 50%;
+  background: url('/templates/major/img/select.svg') no-repeat right 20px top 50%;
 }
 .index-top-form .item input[type='text'] {
   height: 50px;
@@ -680,7 +680,7 @@ main {
   padding: 28px 40% 28px 28px;
   border: 1px solid #DCDCDC;
   border-radius: 8px;
-  background: url('/templates/autosalon/img/bg.svg') no-repeat right top;
+  background: url('/templates/major/img/bg.svg') no-repeat right top;
 }
 .index-credit-block .item span {
   font-weight: 700;
@@ -777,14 +777,14 @@ main {
 }
 .index-catalog-block2 .list .slick-prev {
   right: 70px;
-  background: #f4f4f4 url('/templates/autosalon/img/prev.svg') no-repeat center;
+  background: #f4f4f4 url('/templates/major/img/prev.svg') no-repeat center;
 }
 .index-catalog-block2 .list .slick-next {
   right: 17px;
-  background: #f4f4f4 url('/templates/autosalon/img/next.svg') no-repeat center;
+  background: #f4f4f4 url('/templates/major/img/next.svg') no-repeat center;
 }
 .index-calc-block {
-  background: url('/templates/autosalon/img/index-calc-block.png') center / cover;
+  background: url('/templates/major/img/index-calc-block.png') center / cover;
   color: #fff;
 }
 .index-calc-block .top-text {
@@ -810,7 +810,7 @@ main {
   vertical-align: middle;
   width: 16px;
   height: 16px;
-  background: url('/templates/autosalon/img/edit.svg');
+  background: url('/templates/major/img/edit.svg');
   margin: -2px 0 0 6px;
 }
 .index-calc-block .item .ui-widget.ui-widget-content {
@@ -947,7 +947,7 @@ main {
   transform: translateY(-50%);
   left: 0;
   width: 70px;
-  background: url('/templates/autosalon/img/arrow2.svg') no-repeat right;
+  background: url('/templates/major/img/arrow2.svg') no-repeat right;
   font-weight: 700;
   font-size: 30px;
   line-height: 37px;
@@ -989,7 +989,7 @@ main {
   border-radius: 8px;
   appearance: none;
   font-weight: 500;
-  background: url('/templates/autosalon/img/select.svg') no-repeat right 20px top 50%;
+  background: url('/templates/major/img/select.svg') no-repeat right 20px top 50%;
   color: #98AEC3;
 }
 .trade-in-block .content input[type='text'] {
@@ -997,7 +997,7 @@ main {
   border: 1px solid #E6E6E6;
   border-radius: 8px;
   font-weight: 500;
-  background: url('/templates/autosalon/img/edit.svg') no-repeat right 20px top 50%;
+  background: url('/templates/major/img/edit.svg') no-repeat right 20px top 50%;
 }
 .trade-in-block .item2 {
   padding-left: 100px;
@@ -1009,7 +1009,7 @@ main {
   transform: translateY(-50%);
   left: 0;
   width: 70px;
-  background: url('/templates/autosalon/img/arrow2.svg') no-repeat right;
+  background: url('/templates/major/img/arrow2.svg') no-repeat right;
   font-weight: 700;
   font-size: 30px;
   line-height: 37px;
@@ -1147,7 +1147,7 @@ main {
   margin-left: -80px;
 }
 .footer {
-  background: url('/templates/autosalon/img/footer.png') center / cover;
+  background: url('/templates/major/img/footer.png') center / cover;
   color: #fff;
 }
 .footer .top {
@@ -1363,7 +1363,7 @@ main {
   width: 100%;
   height: 37px;
   margin-bottom: 20px;
-  background: #ffffff url('/templates/autosalon/img/select.svg') no-repeat right 25px top 50%;
+  background: #ffffff url('/templates/major/img/select.svg') no-repeat right 25px top 50%;
   border-radius: 8px;
   appearance: none;
   padding: 0 25px;
@@ -1431,7 +1431,7 @@ main {
   vertical-align: middle;
   width: 16px;
   height: 16px;
-  background: url('/templates/autosalon/img/edit.svg');
+  background: url('/templates/major/img/edit.svg');
   margin: -2px 0 0 6px;
 }
 .credit-block .content .top .item .ui-widget.ui-widget-content {
@@ -1601,7 +1601,7 @@ main {
   border-radius: 8px;
   appearance: none;
   font-weight: 500;
-  background: #ffffff url('/templates/autosalon/img/select.svg') no-repeat right 20px top 50%;
+  background: #ffffff url('/templates/major/img/select.svg') no-repeat right 20px top 50%;
   color: #98AEC3;
 }
 .credit-page form input[type='text'] {
@@ -1654,7 +1654,7 @@ main {
   color: #98AEC3;
 }
 .credit-form form {
-  background: url('/templates/autosalon/img/credit-form.png') center / cover;
+  background: url('/templates/major/img/credit-form.png') center / cover;
   padding: 30px 65px;
   color: #fff;
   position: relative;
@@ -1724,7 +1724,7 @@ main {
     margin: 0 5px;
   }
   .index-calc-block {
-    background: url('/templates/autosalon/img/index-calc-block.png') left center / cover;
+    background: url('/templates/major/img/index-calc-block.png') left center / cover;
   }
   .actions-block .item {
     padding: 20px 20px 180px 20px;

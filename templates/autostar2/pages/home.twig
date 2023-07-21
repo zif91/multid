@@ -28,20 +28,20 @@ TplPrevP:'',
 TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
 TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
 TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
-filter: 'filters',
-filterRangeSeparator: ':',
-filterValuesSeparator: '|',
-filterDelimiter: '||',
-__filterPriceId: 14,
-__filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
-filterList: '19,20,42,43',
-filterTpl: '@T_FILE:partials/filters/tpl',
-filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
-filterTplRange: '@T_FILE:partials/filters/tplRange',
-filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
-filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
-tvSortType: 'UNSIGNED',
-api: 0
+    filter: 'filters',
+    filterRangeSeparator: ':',
+    filterValuesSeparator: '|',
+    filterDelimiter: '||',
+    __filterPriceId: 14,
+    __filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
+    filterList: '19,20,42,43',
+    filterTpl: '@T_FILE:partials/filters/tpl',
+    filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+    filterTplRange: '@T_FILE:partials/filters/tplRange',
+    filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+    filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+    tvSortType: 'UNSIGNED',
+    api: 0
 })
 %}
 {% set DLCatalog2 = runSnippet('DocLister', {
@@ -112,7 +112,7 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
 
 {#{banner |raw}#}
 {% include '/partials/brands.twig' %}
-<div class="index-filter-block2 mb-5 p-sm-5 p-3">
+<div class="index-filter-block2 mb-5 p-sm-5 p-">
 	<div class="name text-center mb-5">
 		Выгодные условия на покупку вашего автомобиля
 	</div>
@@ -150,41 +150,35 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
 		</div>
 	</div>
 </div>
-<div class="index-catalog-block pb-4" id="catalog">
+<div class="index-catalog-block pb-4" >
     <div class="row">
-        <div class="col-lg-3">
-            <nav>
-                <div class="name mb-5">
-                    Подборки:
-                </div>
-                <ul>
-                    <li class="mb-5"><a href="?f[19]=0:500000">Седан</a></li>
-                    <li class="mb-5"><a href="?f[19]=500000:1000000">Хетчбэк</a></li>
-                    <li class="mb-5"><a href="?f[19]=1000000:2000000">Универсал</a></li>
-                    <li class="mb-5"><a href="?f[19]=2000000:10000000">Внедорожник</a></li>
-                    <li class="mb-5"><a href="?f[19]=0:500000">Минивэн</a></li>
-                    <li class="mb-5"><a href="?f[19]=500000:1000000">Фургон</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="col-lg-9">
-            <div class="row">
-                {{DLCatalog |raw}}
-            </div>
+{#        <div class="col-lg-3">#}
+{#            <nav>#}
+{#                <div class="name mb-5">#}
+{#                    Подборки:#}
+{#                </div>#}
+{#                <ul>#}
+{#                    <li class="mb-5"><a href="?f[19]=0:500000">Седан</a></li>#}
+{#                    <li class="mb-5"><a href="?f[19]=500000:1000000">Хетчбэк</a></li>#}
+{#                    <li class="mb-5"><a href="?f[19]=1000000:2000000">Универсал</a></li>#}
+{#                    <li class="mb-5"><a href="?f[19]=2000000:10000000">Внедорожник</a></li>#}
+{#                    <li class="mb-5"><a href="?f[19]=0:500000">Минивэн</a></li>#}
+{#                    <li class="mb-5"><a href="?f[19]=500000:1000000">Фургон</a></li>#}
+{#                </ul>#}
+{#            </nav>#}
+{#        </div>#}
+        <div class="col-lg-9" id="catalog">
+            {{DLCatalog |raw}}
         </div>
     </div>
 </div>
 <div class="index-catalog-block2 pb-4" id="catalog2">
     <h2 class="mb-4">Последние поступления</h2>
-    <div class="row">
-        {{DLCatalog2 |raw}}
-    </div>
+    {{DLCatalog2 |raw}}
 </div>
 <div class="index-catalog-block2 pb-5 mb-5" id="catalog3">
     <h2 class="mb-4">Лучшее предложение</h2>
-    <div class="row">
-        {{DLCatalog3 |raw}}
-    </div>
+    {{DLCatalog3 |raw}}
     <div class="bottom-button text-center">
         <button onclick="window.location.href = '{{ makeUrl(27) }}';">Посмотреть все машины в наличии</button>
     </div>

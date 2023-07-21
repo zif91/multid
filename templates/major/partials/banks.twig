@@ -1,67 +1,17 @@
+{% set bank_logos = runSnippet('DocInfo', {field: 'images', docid: 41118}) | json%}
+{% set headingbank = runSnippet('DocInfo', {field: 'longtitle', docid: 41118}) | raw %}
+{#{dump(bank_logos)}#}
 <div class="partners-block pb-5">
-		<div class="container">
-			<h2 class="h2 mb-4">Банки-партнеры</h2>
-			<div class="row">
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-					<div class="item mb-3">
-						<img src="img/partner.png">
-					</div>
+	<div class="container">
+		<h2 class="h2 mb-4">{{headingbank}}</h2>
+		<div class="row">
+			{% for item in bank_logos["fieldValue"] %}
+			<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+				<div class="item mb-3">
+					<img src="{{item.image}}">
 				</div>
 			</div>
+			{% endfor %}
 		</div>
 	</div>
+</div>

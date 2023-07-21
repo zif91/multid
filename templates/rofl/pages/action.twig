@@ -1,5 +1,75 @@
 {% extends 'app.twig' %}
-
 {% block MAIN %}
-{% endblock %}
+	{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
+{% set DLCatalog = runSnippet('DocLister', {
+		id: 'catalog',
+		controller: 'catalog_filters',
+		display: 21,
+		parents: catalog_number,
+		depth: 2,
+		tvList:'car-price,credit_rate,old-car-price,run,engine_power,gear,year,image,car_photos,body_type,car_color,engine_volume,fuel,drive',
+		ownerTPL: '@T_FILE:partials/wrap',
+		noneTPL:'@CODE: <div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+    </div>
+  </div>
+</div>',
+		tpl:'@T_FILE:partials/catalogcard',
+		paginate:'pages',
+		TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
+		TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
+		TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+		TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
+		TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
+		filter: 'filters',
+		filterRangeSeparator: ':',
+		filterValuesSeparator: '|',
+		filterDelimiter: '||',
+		__filterPriceId: 14,
+		__filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;43:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
+		_filterList: '42,43,14',
+		filterList: '42,43,19',
+		filterTpl: '@T_FILE:partials/filters/tpl',
+		filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+		filterTplRange: '@T_FILE:partials/filters/tplRange',
+		filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+		filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+		tvSortType: 'UNSIGNED'
+	})
+%}
+<div class="page-name py-4">
+	<div class="container">
+		<h1 class="h1 m-0">Об акции</h1>
+	</div>
+</div>
+<div class="action-banner mb-4" style="background: url({{resource.image | raw}}) left center/cover;">
+	<div class="container">
+		<div class="text">
+			<h2 class="mb-3">{{resource.pagetitle | raw}}</h2>
+			<p class="mb-4">{{resource.description | raw}}</p>
+			<div class="date d-inline-block">
+				<span class="d-inline-block">Только 5 дней</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="action-text-block pb-5">
+	<div class="container">
+		
+							{{resource.content | raw}}
+
+	</div>
+</div>
+<div class="catalog-page pb-5">
+	<div class="container">
+		<h2 class="h2 mb-4">Посмотреть авто по акции</h2>
+		<div class="row">
+						{{DLCatalog |raw}}
+
+		</div>
+	</div>
+</div>
+{% endblock %}

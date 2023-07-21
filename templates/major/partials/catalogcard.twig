@@ -51,10 +51,8 @@ noneTPL:'@CODE: <div class="container">
     </div>
 </div>',
 })
-%}               
-<div class="col-lg-3 col-md-4 col-sm-6">
-<div class="item mb-3 p-3">
-    <div class="image text-center mb-2">
+%}
+
 {% set photo = runSnippet ('DocLister', {parents: data.id,
 depth: 0,
 orderBy: 'menuindex',
@@ -65,20 +63,28 @@ ownerTPL: '@CODE:[+dl.wrap+]',
 tpl:'@CODE:[+tv.configuration_id+]'}) %}
 {% set DLdata = photo | json %}
 {% set photo = "https://s3.multiauto.site/new_cars/" ~ DLdata|first['tv_configuration_id'] ~ ".jpg" %}
-        <a href="{{ data['url'] }}"><img src="{{photo | raw}}"></a>
-    </div>
-    <a href="{{ data['url'] }}" class="name mb-3 d-block">{{runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title']  }} 
-</a>
-    <div class="price mb-3">
-        <span class="old">
-        {{ DLdata|first['tv_old-car-price'] }} ₽
-</span>
-        <div class="new">
-            {{ DLdata|first['tv_car-price'] }} ₽
-        </div>
-    </div>
-    <div class="items bg-dark text-light text-center p-2 mb-2">
-        {{random(1, 17)}} автомобилей в наличии
-    </div>
-    <button class="w-100 btn btn-danger" data-fancybox="" data-src="#popup">Купить в один клик</button>
-</div></div>
+
+
+<div class="item position-relative"><a href="{{ data['url'] }}">
+                    <span class="hit position-absolute py-1 px-3">HIT</span>
+                    <div class="image">
+                        <img src="{{photo | raw}}">
+                    </div>
+                    <div class="p-3">
+                        <a href="#" class="name d-block mb-2">{{runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title']  }} </a>
+                        <div class="row data text-center">
+                            
+                        </div>
+                        <div class="price mb-3">
+                            <span class="old d-inline-block mb-1">{{ DLdata|first['tv_old-car-price'] }} ₽</span>
+                            <div class="new">
+                                {{ DLdata|first['tv_car-price'] }} ₽
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <button  data-fancybox="" data-src="#popup" class="w-100 mb-2">В кредит от 4,9%</button>
+                            <button  data-fancybox="" data-src="#popup" class="w-100 mb-2">Забронировать</button>
+                            <button class="w-100">Подробнее</button>
+                        </div>
+                    </div></a>
+                </div>

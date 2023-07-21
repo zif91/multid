@@ -1053,6 +1053,30 @@ main {
   border-radius: 8px;
   margin-top: 25px;
 }
+.actions-top-block {
+  padding: 180px 0 240px;
+  color: #fff;
+}
+.actions-top-block .text {
+  max-width: 440px;
+}
+.actions-top-block .text h1 {
+  font-size: 44px;
+  font-weight: 700;
+}
+.actions-top-block .text p {
+  font-size: 30px;
+  line-height: 140%;
+  font-weight: 500;
+}
+.action-page h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+.action-page p {
+  font-size: 22px;
+  line-height: 30px;
+}
 @media (max-width: 1199px) {
   .header .logo a span {
     display: none !important;
@@ -1964,7 +1988,20 @@ font-size: 14px;
     .wrap-credit-left .credit-left-rate{
         justify-content: center;
     }
+    .actions-top-block {
+    padding: 50px 0;
+  }
+  .actions-top-block .text h1 {
+    font-size: 30px;
+  }
+  .actions-top-block .text p {
+    font-size: 20px;
+  }
+  .action-page p {
+    font-size: 18px;
+  }
 }
 .modifications-block .item .item-name .credit span.new-price{
     display: none;
 }
+  

@@ -965,6 +965,28 @@ main {
   display: inline-block;
 }
 
+.actions-page .item .name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #25344B;
+}
+
+.actions-page .item p {
+  color: #717171;
+}
+
+.actions-page .item a {
+  border: 1px solid #25344B;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #25344B;
+}
+
+.actions-page .item a:hover {
+  color: #fff;
+}
+
 .catalog-page .item .text .name {
   font-weight: 500;
   font-size: 16px;
@@ -1391,13 +1413,13 @@ main {
   border-radius: 14px;
 }
 
-.form-calculate2{
+.form-calculate2 {
   background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
   border-radius: 14px;
   display: block;
 }
 
-.form-calculate3{
+.form-calculate3 {
   background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
   border-radius: 14px;
   display: none;
@@ -1450,13 +1472,13 @@ main {
   color: #fff;
 }
 
-.cred_title{
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 600;
-font-size: 28px;
-line-height: 34px;
-color: #252638;
+.cred_title {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  color: #252638;
 }
 
 .form_cred .credit-title,
@@ -1489,20 +1511,20 @@ color: #252638;
 .form-calculate2 .discount,
 .form-calculate3 .discount,
 .item-page .credit-block .discount {
-    width: 235px;
-    height: 17px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: right;
-    color: #D12D1E;
+  width: 235px;
+  height: 17px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: #D12D1E;
 }
 
 .form-calculate2 .credit-monthly,
 .form-calculate3 .credit-monthly,
-.item-page .credit-block .credit-monthly{
+.item-page .credit-block .credit-monthly {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
@@ -1514,7 +1536,7 @@ color: #252638;
 
 .form-calculate2 .credit-amounts,
 .form-calculate3 .credit-amounts,
-.item-page .credit-block .credit-amounts{
+.item-page .credit-block .credit-amounts {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
@@ -1534,7 +1556,7 @@ color: #252638;
 .form-calculate2 .personal-text,
 .form-calculate3 .personal-text,
 .form_cred .personal-text,
-.item-page .credit-block .personal-text{
+.item-page .credit-block .personal-text {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -1548,27 +1570,27 @@ color: #252638;
 .form_cred .personal-link,
 .form-calculate2 .personal-link,
 .form-calculate3 .personal-link,
-.item-page .credit-block .personal-link{
+.item-page .credit-block .personal-link {
   display: inline;
 }
 
-.item-page .credit-block .application{
+.item-page .credit-block .application {
   position: relative;
   width: 100%;
 }
 
-.application_cr{
+.application_cr {
   position: relative;
   width: 100%;
   top: 8px;
 }
 
-.application_crmin{
+.application_crmin {
   position: relative;
   width: 100%;
 }
 
-.item-page .credit-block.field .label{
+.item-page .credit-block.field .label {
   width: 100%;
 }
 
@@ -1621,14 +1643,14 @@ color: #252638;
   color: #FFFFFF;
 }
 
-.item-page .credit-block .svg{
+.item-page .credit-block .svg {
   position: absolute;
   z-index: 0;
   top: 13px;
   left: 118px;
 }
 
-.item-page .credit-block .svg2{
+.item-page .credit-block .svg2 {
   position: absolute;
   z-index: 0;
   top: 172px;
@@ -1637,7 +1659,7 @@ color: #252638;
 
 .form-calculate2 .title,
 .form-calculate3 .title,
-.item-page .credit-block .title{
+.item-page .credit-block .title {
   width: 182px;
   height: 16px;
   font-family: 'Montserrat';
@@ -1648,7 +1670,7 @@ color: #252638;
   color: #FFFFFF;
 }
 
-.item-page .credit-block .title2{
+.item-page .credit-block .title2 {
   width: 105px;
   height: 16px;
   left: 206px;
@@ -1662,7 +1684,7 @@ color: #252638;
 }
 
 .form-calculate3 .credit-text,
-.form-calculate2 .credit-text{
+.form-calculate2 .credit-text {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -1671,7 +1693,7 @@ color: #252638;
   color: #FFFFFF;
 }
 
-.item-page .credit-block.marker{
+.item-page .credit-block.marker {
   position: absolute;
   top: 100%;
   padding-top: 16px;
@@ -1679,7 +1701,8 @@ color: #252638;
   color: #555;
   letter-spacing: 0.05em;
   transform: translateX(-50%);
-   &::after{
+
+  &::after {
     content: '';
     width: 10px;
     height: 8px;
@@ -1691,7 +1714,7 @@ color: #252638;
   }
 }
 
-.item-page .credit-block .marker .marker-0::after{
+.item-page .credit-block .marker .marker-0::after {
   content: '';
   width: 1px;
   height: 6px;
@@ -1703,7 +1726,7 @@ color: #252638;
   z-index: 0;
 }
 
-.form-calculate2 .marker-0::after{
+.form-calculate2 .marker-0::after {
   content: '';
   width: 1px;
   height: 6px;
@@ -1718,14 +1741,14 @@ color: #252638;
 
 .form-calculate2 .marker-25,
 .form-calculate3 .marker-25,
-.item-page .credit-block.marker-25{
+.item-page .credit-block.marker-25 {
   left: 25%;
 }
 
 .form-calculate2 .marker-25,
 .form-calculate3 .marker-25,
-.item-page .credit-block .marker .marker-25::after{
-content: '';
+.item-page .credit-block .marker .marker-25::after {
+  content: '';
   width: 1px;
   height: 6px;
   background: #F2F3F7;
@@ -1737,109 +1760,109 @@ content: '';
 
 .form-calculate2 .marker-50,
 .form-calculate3 .marker-50,
-.item-page .credit-block.marker-50{
+.item-page .credit-block.marker-50 {
   left: 50%;
 }
 
 .form-calculate2 .marker-50::after,
 .form-calculate3 .marker-50::after,
-.item-page .credit-block .marker .marker-50::after{
+.item-page .credit-block .marker .marker-50::after {
   content: '';
-    width: 1px;
-    height: 6px;
-    background: #F2F3F7;
-    position: absolute;
-    top: 4px;
-    left: 50%;
-    transform: translateX(-50%);
+  width: 1px;
+  height: 6px;
+  background: #F2F3F7;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.item-page .credit-block.marker-100{
+.item-page .credit-block.marker-100 {
   right: 0;
   transform: translateX(50%);
 }
 
 .form-calculate2 .marker-100::after,
 .form-calculate3 .marker-100::after,
-.item-page .credit-block .marker .marker-100::after{
-    content: '';
-    width: 1px;
-    height: 8px;
-    background: #F2F3F7;
-    position: absolute;
-    top: 1px;
-    left: 99%;
-    transform: translateX(-50%);
+.item-page .credit-block .marker .marker-100::after {
+  content: '';
+  width: 1px;
+  height: 8px;
+  background: #F2F3F7;
+  position: absolute;
+  top: 1px;
+  left: 99%;
+  transform: translateX(-50%);
 }
 
-  .form-calculate2 .month .marker-1::after,
-  .form-calculate3 .month .marker-1::after,
-  .item-page .credit-block .month .marker-1::after{
-    content: '';
-    width: 1px;
-    height: 6px;
-    background: #F2F3F7;
-    position: absolute;
-    top: 4px;
-    left: 1%;
-    transform: translateX(-50%);
-  }
+.form-calculate2 .month .marker-1::after,
+.form-calculate3 .month .marker-1::after,
+.item-page .credit-block .month .marker-1::after {
+  content: '';
+  width: 1px;
+  height: 6px;
+  background: #F2F3F7;
+  position: absolute;
+  top: 4px;
+  left: 1%;
+  transform: translateX(-50%);
+}
 
-    .form-calculate2 .month .marker-6::after,
-    .form-calculate3 .month .marker-6::after,
-    .item-page .credit-block .month .marker-6::after{
-      content: '';
-      width: 1px;
-      height: 6px;
-      background: #F2F3F7;
-      position: absolute;
-      top: 4px;
-      left: 9%;
-      transform: translateX(-50%);
-    }
+.form-calculate2 .month .marker-6::after,
+.form-calculate3 .month .marker-6::after,
+.item-page .credit-block .month .marker-6::after {
+  content: '';
+  width: 1px;
+  height: 6px;
+  background: #F2F3F7;
+  position: absolute;
+  top: 4px;
+  left: 9%;
+  transform: translateX(-50%);
+}
 
 .form-calculate2 .month .marker-12::after,
 .form-calculate3 .month .marker-12::after,
-.item-page .credit-block .month .marker-12::after{
-   content: '';
-   width: 1px;
-   height: 6px;
-   background: #F2F3F7;
-   position: absolute;
-   top: 4px;
-   left: 19%;
-   transform: translateX(-50%);
+.item-page .credit-block .month .marker-12::after {
+  content: '';
+  width: 1px;
+  height: 6px;
+  background: #F2F3F7;
+  position: absolute;
+  top: 4px;
+  left: 19%;
+  transform: translateX(-50%);
 }
 
 .form-calculate2 .month .marker-18::after,
 .form-calculate3 .month .marker-18::after,
-.item-page .credit-block .month .marker-18::after{
-      content: '';
-      width: 1px;
-      height: 6px;
-      background: #F2F3F7;
-      position: absolute;
-      top: 4px;
-      left: 29%;
-      transform: translateX(-50%);
+.item-page .credit-block .month .marker-18::after {
+  content: '';
+  width: 1px;
+  height: 6px;
+  background: #F2F3F7;
+  position: absolute;
+  top: 4px;
+  left: 29%;
+  transform: translateX(-50%);
 }
 
 .form-calculate2 .month .marker-24::after,
 .form-calculate3 .month .marker-24::after,
-.item-page .credit-block .month .marker-24::after{
-    content: '';
-    width: 1px;
-    height: 6px;
-    background: #F2F3F7;
-    position: absolute;
-    top: 4px;
-    left: 39%;
-    transform: translateX(-50%);
+.item-page .credit-block .month .marker-24::after {
+  content: '';
+  width: 1px;
+  height: 6px;
+  background: #F2F3F7;
+  position: absolute;
+  top: 4px;
+  left: 39%;
+  transform: translateX(-50%);
 }
 
 .form-calculate2 .marker-30::after,
 .form-calculate3 .marker-30::after,
-.item-page .credit-block .month .marker-30::after{
+.item-page .credit-block .month .marker-30::after {
   content: '';
   width: 1px;
   height: 6px;
@@ -1852,7 +1875,7 @@ content: '';
 
 .form-calculate2 .month .marker-36::after,
 .form-calculate3 .month .marker-36::after,
-.item-page .credit-block .month .marker-36::after{
+.item-page .credit-block .month .marker-36::after {
   content: '';
   width: 1px;
   height: 6px;
@@ -1865,7 +1888,7 @@ content: '';
 
 .form-calculate2 .month .marker-42::after,
 .form-calculate3 .month .marker-42::after,
-.item-page .credit-block .month .marker-42::after{
+.item-page .credit-block .month .marker-42::after {
   content: '';
   width: 1px;
   height: 6px;
@@ -1878,7 +1901,7 @@ content: '';
 
 .form-calculate2 .month .marker-48::after,
 .form-calculate3 .month .marker-48::after,
-.item-page .credit-block .month .marker-48::after{
+.item-page .credit-block .month .marker-48::after {
   content: '';
   width: 1px;
   height: 6px;
@@ -1891,7 +1914,7 @@ content: '';
 
 .form-calculate2 .month .marker-54::after,
 .form-calculate3 .month .marker-54::after,
-.item-page .credit-block .month .marker-54::after{
+.item-page .credit-block .month .marker-54::after {
   content: '';
   width: 1px;
   height: 6px;
@@ -1904,7 +1927,7 @@ content: '';
 
 .form-calculate2 .month .marker-60::after,
 .form-calculate3 .month .marker-60::after,
-.item-page .credit-block .month .marker-60::after{
+.item-page .credit-block .month .marker-60::after {
   content: '';
   width: 1px;
   height: 6px;
@@ -1915,13 +1938,13 @@ content: '';
   transform: translateX(-50%);
 }
 
-.item-page .credit-block .hr{
+.item-page .credit-block .hr {
   width: 100%;
   height: 1px;
   background-color: #002334;
 }
 
-.item-page .credit-block .number-25{
+.item-page .credit-block .number-25 {
   position: absolute;
   left: 23%;
 }
@@ -1929,7 +1952,7 @@ content: '';
 .item-page .credit-block .number-0,
 .item-page .credit-block .number-25,
 .item-page .credit-block .number-50,
-.item-page .credit-block .number-100{
+.item-page .credit-block .number-100 {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -1939,19 +1962,19 @@ content: '';
   color: #838383;
 }
 
-.form-calculate2 .number-25{
-   position: relative;
-   left: -2%;
+.form-calculate2 .number-25 {
+  position: relative;
+  left: -2%;
 }
 
-.item-page .credit-block .number-50{
+.item-page .credit-block .number-50 {
   position: absolute;
   left: 47%;
 }
 
-.form-calculate2 .number-50{
+.form-calculate2 .number-50 {
   position: relative;
-  left:-7%
+  left: -7%
 }
 
 .item-page .credit-block .month-6,
@@ -1963,7 +1986,7 @@ content: '';
 .item-page .credit-block .month-42,
 .item-page .credit-block .month-48,
 .item-page .credit-block .month-54,
-.item-page .credit-block .month-60{
+.item-page .credit-block .month-60 {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -1975,62 +1998,112 @@ content: '';
 
 .form-calculate2 .month-12,
 .form-calculate3 .month-12,
-.item-page .credit-block .month-12{
+.item-page .credit-block .month-12 {
   position: relative;
-  left:18px;
+  left: 18px;
 }
 
 .form-calculate2 .month-24,
 .form-calculate3 .month-12,
-.item-page .credit-block .month-24{
+.item-page .credit-block .month-24 {
   position: relative;
-  left:18px;
+  left: 18px;
 }
 
 .form-calculate2 .month-36,
 .form-calculate3 .month-36,
-.item-page .credit-block .month-36{
+.item-page .credit-block .month-36 {
   position: relative;
-  left:18px;
+  left: 18px;
 }
 
 .form-calculate2 .month-48,
 .form-calculate3 .month-48,
-.item-page .credit-block .month-48{
+.item-page .credit-block .month-48 {
   position: relative;
-  left:18px;
+  left: 18px;
 }
+.action-banner {
+    padding: 65px 0 80px;
+    color: #fff;
+  }
+
+  .action-banner .text {
+    width: 58%;
+  }
+
+  .action-banner h2 {
+    font-size: 70px;
+    font-weight: 600;
+  }
+
+  .action-banner p {
+    font-size: 38px;
+    line-height: 140%;
+  }
+
+  .action-banner .date {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 15px 56px;
+    transform: skew(-25deg);
+    background: #F6DD22;
+    color: #000;
+  }
+
+  .action-banner .date span {
+    transform: skew(25deg);
+  }
+
+  .action-text-block {
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  .action-text-block ul {
+    list-style: disc;
+  }
+
 @media (max-width: 575.98px) {
-.item-page .credit-block .number-0,
-.item-page .credit-block .number-25,
-.item-page .credit-block .number-50,
-.item-page .credit-block .number-100{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 17px;
-  text-align: right;
-  color: #838383;}
+  .actions-banner {
+    padding: 60px 0;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .item-page .credit-block .number-0,
+  .item-page .credit-block .number-25,
+  .item-page .credit-block .number-50,
+  .item-page .credit-block .number-100 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 17px;
+    text-align: right;
+    color: #838383;
+  }
+
   .item-page .credit-block .month-6,
-.item-page .credit-block .month-12,
-.item-page .credit-block .month-18,
-.item-page .credit-block .month-24,
-.item-page .credit-block .month-30,
-.item-page .credit-block .month-36,
-.item-page .credit-block .month-42,
-.item-page .credit-block .month-48,
-.item-page .credit-block .month-54,
-.item-page .credit-block .month-60{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 17px;
-  text-align: center;
-  color: #838383;
+  .item-page .credit-block .month-12,
+  .item-page .credit-block .month-18,
+  .item-page .credit-block .month-24,
+  .item-page .credit-block .month-30,
+  .item-page .credit-block .month-36,
+  .item-page .credit-block .month-42,
+  .item-page .credit-block .month-48,
+  .item-page .credit-block .month-54,
+  .item-page .credit-block .month-60 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 17px;
+    text-align: center;
+    color: #838383;
+  }
 }
-}
+
 .item-page .credit-block .item span {
   display: block;
   height: 40px;
@@ -2043,7 +2116,7 @@ content: '';
 .form-calculate2 .number-0,
 .form-calculate2 .number-25,
 .form-calculate2 .number-50,
-.form-calculate2 .number-100{
+.form-calculate2 .number-100 {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -2062,7 +2135,7 @@ content: '';
 .form-calculate2 .month-42,
 .form-calculate2 .month-48,
 .form-calculate2 .month-54,
-.form-calculate2 .month-60{
+.form-calculate2 .month-60 {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -2123,7 +2196,7 @@ content: '';
   margin: -2px 0 0 -8px;
 }
 
-.advantage{
+.advantage {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
@@ -2132,7 +2205,7 @@ content: '';
   color: #98AEC3;
 }
 
-.cred_text{
+.cred_text {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -2141,9 +2214,9 @@ content: '';
   color: #252638;
 }
 
-.line_cred::after{
+.line_cred::after {
   display: block;
-  content:'' ;
+  content: '';
   width: 4px;
   height: 60px;
   background: #D12D1E;
@@ -2154,13 +2227,13 @@ content: '';
   left: 0;
 }
 
-.form_cred{
+.form_cred {
   height: auto;
   background: linear-gradient(96.91deg, #0F1723 0%, #25344B 70.3%);
   border-radius: 14px;
-  }
+}
 
-.form_cred .lab{
+.form_cred .lab {
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
@@ -2168,7 +2241,7 @@ content: '';
 }
 
 .newform .lab,
-.cred_formin .lab{
+.cred_formin .lab {
   width: 100%;
   color: #FFFFFF;
 }
@@ -2176,12 +2249,12 @@ content: '';
 .form-calculate2 .form-check-label,
 .form-calculate3 .form-check-label,
 .cred_formin .form-check-label,
-.form_cred .form-check-label{
+.form_cred .form-check-label {
   margin-left: 20px;
   color: #FFFFFF;
 }
 
-.title_cred{
+.title_cred {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
@@ -2192,7 +2265,7 @@ content: '';
   color: #182232;
 }
 
-.text_present{
+.text_present {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -2203,7 +2276,7 @@ content: '';
   margin: 5px;
 }
 
-.text_presentbank{
+.text_presentbank {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -2215,7 +2288,7 @@ content: '';
   margin-left: 5px;
 }
 
-.text_presentbtext{
+.text_presentbtext {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -2226,12 +2299,12 @@ content: '';
   margin-top: 5px;
 }
 
-.col_cred{
+.col_cred {
   width: auto;
   height: 60px;
 }
 
-.newform{
+.newform {
   width: 1165px;
   height: 330px;
   position: relative;
@@ -2241,7 +2314,7 @@ content: '';
   display: block;
 }
 
-.cred_newform{
+.cred_newform {
   width: 1165px;
   height: 270px;
   top: 58px;
@@ -2252,7 +2325,7 @@ content: '';
   background: url('/templates/rofl/img/credit/bgcar.png');
 }
 
-.cred_formin{
+.cred_formin {
   max-width: 400px;
   height: 671px;
   position: relative;
@@ -2262,26 +2335,26 @@ content: '';
   display: none;
 }
 
-.img_container{
+.img_container {
   width: auto;
   height: 200px;
-  position:absolute;
+  position: absolute;
   bottom: 114px;
   right: 0;
   background-repeat: no-repeat;
 }
 
-.banks_cred{
+.banks_cred {
   width: auto;
   display: block;
 }
 
-.banks_credmin{
+.banks_credmin {
   width: auto;
   display: none;
 }
 
-.select_cred{
+.select_cred {
   width: 100%;
   height: 50px;
   background: #FFFFFF;
@@ -2293,7 +2366,7 @@ content: '';
   color: #98AEC3;
 }
 
-.form_cred{
+.form_cred {
   display: block;
 }
 
@@ -2376,15 +2449,16 @@ content: '';
   color: #fff;
 }
 
-.advant_row{
+.advant_row {
   display: flex;
   justify-content: flex-start;
 }
 
 .car_offer .list .item .text {
   padding: 15px 15px 34px 15px !important;
-  position: static !important; 
+  position: static !important;
 }
+
 .car_offer .list .item {
   margin: 0 17px;
   border: 1px solid #D0D3D9;
@@ -2429,13 +2503,13 @@ content: '';
   color: #d93e3a;
 }
 
-.car_offer .item .text .but_block{
+.car_offer .item .text .but_block {
   width: auto;
   bottom: 0px;
   position: relative;
 }
 
-.btn.btn-black2{
+.btn.btn-black2 {
   background: #fff;
   font-weight: 500;
   padding: 13px 24px;
@@ -2449,14 +2523,15 @@ content: '';
   left: 15px;
   width: 100%;
 }
+
 .btn.btn-black2:hover {
   background: #000000;
   color: #FFFFFF;
 }
 
-.btn.btn-red{
+.btn.btn-red {
   border-radius: 8px;
-  width: 100%  !important;
+  width: 100% !important;
   background: #D12D1E;
   color: #FFFFFF;
 }
@@ -2464,6 +2539,7 @@ content: '';
 .car_offer .list .item:hover .text ul {
   display: block;
 }
+
 .car_offer .item .text ul {
   display: none;
   padding: 1px;
@@ -2498,20 +2574,20 @@ content: '';
   margin: -2px 0 0 -8px;
 }
 
-.form-calculate3 .number-25{
+.form-calculate3 .number-25 {
   position: relative;
   left: -2%;
 }
 
-.form-calculate3 .number-50{
+.form-calculate3 .number-50 {
   position: relative;
-  left:-7%
+  left: -7%
 }
 
 .form-calculate3 .number-0,
 .form-calculate3 .number-25,
 .form-calculate3 .number-50,
-.form-calculate3 .number-100{
+.form-calculate3 .number-100 {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -2530,7 +2606,7 @@ content: '';
 .form-calculate3 .month-42,
 .form-calculate3 .month-48,
 .form-calculate3 .month-54,
-.form-calculate3 .month-60{
+.form-calculate3 .month-60 {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
@@ -2545,27 +2621,30 @@ content: '';
 } */
 
 @media (max-width: 575.98px) {
+
   .form-calculate3 .number-0,
   .form-calculate3 .number-25,
   .form-calculate3 .number-50,
-  .form-calculate3 .number-100{
+  .form-calculate3 .number-100 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
     line-height: 17px;
     text-align: right;
-    color: #838383;}
-    .form-calculate3k .month-6,
-    .form-calculate3 .month-12,
-    .form-calculate3 .month-18,
-    .form-calculate3 .month-24,
-    .form-calculate3 .month-30,
-    .form-calculate3 .month-36,
-    .form-calculate3 .month-42,
-    .form-calculate3 .month-48,
-    .form-calculate3 .month-54,
-    .form-calculate3 .month-60{
+    color: #838383;
+  }
+
+  .form-calculate3k .month-6,
+  .form-calculate3 .month-12,
+  .form-calculate3 .month-18,
+  .form-calculate3 .month-24,
+  .form-calculate3 .month-30,
+  .form-calculate3 .month-36,
+  .form-calculate3 .month-42,
+  .form-calculate3 .month-48,
+  .form-calculate3 .month-54,
+  .form-calculate3 .month-60 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -2574,15 +2653,17 @@ content: '';
     text-align: center;
     color: #838383;
   }
+
+
 }
 
 @media (max-width: 1199px) {
-  .text_present{
+  .text_present {
     font-size: 18px;
     margin: 5px;
   }
 
-  .text_presentbtext{
+  .text_presentbtext {
     font-size: 19px;
     margin-top: -4px;
   }
@@ -2593,7 +2674,7 @@ content: '';
     border-radius: 14px;
   }
 
-  .form-calculate3{
+  .form-calculate3 {
     display: none;
   }
 
@@ -2620,7 +2701,7 @@ content: '';
   }
 
   .car_offer .list .item {
-    height: 624px;  
+    height: 624px;
   }
 }
 
@@ -2632,15 +2713,15 @@ content: '';
     border-radius: 14px;
   }
 
-  .form-calculate2{
+  .form-calculate2 {
     display: none;
   }
 
-  .form-calculate3{
+  .form-calculate3 {
     display: block;
   }
 
-  .form_cred{
+  .form_cred {
     display: none;
 
   }
@@ -2727,26 +2808,26 @@ content: '';
     text-align: center;
   }
 
-  .newform{
+  .newform {
     display: none;
   }
 
-  .cred_formin{
+  .cred_formin {
     display: block;
   }
 
-  .text_presentbtext{
+  .text_presentbtext {
     font-size: 19px;
     margin-top: 5px;
   }
 
-  .advant_row{
+  .advant_row {
     display: flex;
     justify-content: space-between;
   }
 
   .car_offer .list .item {
-    height: 650px;  
+    height: 650px;
   }
 }
 
@@ -2759,14 +2840,14 @@ content: '';
   .item-page .credit-block .number-0,
   .item-page .credit-block .number-25,
   .item-page .credit-block .number-50,
-  .item-page .credit-block .number-100{
+  .item-page .credit-block .number-100 {
     font-size: 12px;
   }
 
   .form-calculate3 .number-0,
-  .item-page .credit-block .number-0{
+  .item-page .credit-block .number-0 {
     position: relative;
-    right:6px;
+    right: 6px;
   }
 
   .item-page .credit-block .month-6,
@@ -2778,47 +2859,47 @@ content: '';
   .item-page .credit-block .month-42,
   .item-page .credit-block .month-48,
   .item-page .credit-block .month-54,
-  .item-page .credit-block .month-60{
+  .item-page .credit-block .month-60 {
     font-size: 12px;
   }
 
   .form-calculate3 .month-48,
-  .item-page .credit-block .month-48{
+  .item-page .credit-block .month-48 {
     position: relative;
-    left:5px;
+    left: 5px;
   }
 
   .form-calculate3 .month-24,
-  .item-page .credit-block .month-24{
+  .item-page .credit-block .month-24 {
     position: relative;
-    left:5px;
+    left: 5px;
   }
 
   .form-calculate3 .month-12,
-  .item-page .credit-block .month-12{
+  .item-page .credit-block .month-12 {
     position: relative;
-    left:4px;
+    left: 4px;
   }
 
   .form-calculate3 .month-36,
-  .item-page .credit-block .month-36{
+  .item-page .credit-block .month-36 {
     position: relative;
-    left:4px;
+    left: 4px;
   }
 
   .form-calculate3 .number-0,
   .form-calculate3 .number-25,
   .form-calculate3 .number-50,
-  .form-calculate3 .number-100{
+  .form-calculate3 .number-100 {
     font-size: 12px;
   }
 
-  .form-calculate3 .monthnum{
+  .form-calculate3 .monthnum {
     position: relative;
     top: -10px;
   }
 
-  .form-calculate3 .sum{
+  .form-calculate3 .sum {
     position: relative;
     top: -10px;
   }
@@ -2832,7 +2913,7 @@ content: '';
   .form-calculate3 .month-42,
   .form-calculate3 .month-48,
   .form-calculate3 .month-54,
-  .form-calculate3 .month-60{
+  .form-calculate3 .month-60 {
     font-size: 12px;
     position: relative;
     top: 1px;
@@ -2894,15 +2975,18 @@ content: '';
     height: 44px;
     font-size: 0;
   }
-  .header .mob-logo{
-      padding: .5rem 0 0 0!important;
-      margin: 0!important;
+
+  .header .mob-logo {
+    padding: .5rem 0 0 0 !important;
+    margin: 0 !important;
   }
-  .header .mob-justify-center{
-      justify-content: center!important;
+
+  .header .mob-justify-center {
+    justify-content: center !important;
   }
-  .header .mob-text-align-center{
-      text-align: center!important;
+
+  .header .mob-text-align-center {
+    text-align: center !important;
   }
 
   .cars-in-stock-block .list:last-child {
@@ -2944,25 +3028,25 @@ content: '';
     left: 0;
   }
 
-  .cred_formin{
+  .cred_formin {
     display: block;
 
   }
 
-  .banks_cred{
+  .banks_cred {
     display: none;
   }
 
-  .banks_credmin{
+  .banks_credmin {
     display: block;
   }
 
-  .form_cred{
+  .form_cred {
     display: none;
   }
 
   .car_offer .list .item {
-    height: 607px;  
+    height: 607px;
   }
 }
 
@@ -3162,29 +3246,37 @@ content: '';
     margin-top: 6px;
     left: 0;
   }
+
   .cars-in-stock-block .d-flex {
-    display: block!important;
+    display: block !important;
   }
+
   .cars-in-stock-block .list {
     display: inline-block;
     width: 45%;
     margin-right: 4%;
   }
+
   .cars-in-stock-block .list:last-child {
     display: inline-block;
   }
+
   .index-catalog-block .tabs-nav {
     justify-content: start;
   }
+
   .index-catalog-block .tabs-nav li {
     margin-right: 3.5%;
   }
+
   .index-catalog-block .tabs-nav li:nth-child(3n) {
     margin-right: 0;
   }
+
   .index-catalog-block .list {
     margin: 0 -16px 0 0;
   }
+
   .catalog-page .item:hover {
     margin-bottom: 33px;
   }
@@ -3219,36 +3311,40 @@ button .close,
 .modal-header .close {
   color: white;
 }
+
 @media (max-width: 575px) {
-.price-range-group {
-  margin: 7px;
-}
-.irs--flat {
+  .price-range-group {
+    margin: 7px;
+  }
+
+  .irs--flat {
 
     margin: 9px;
-}
-.actions-page img{
-  width: 100%;
-}
+  }
+
+  .actions-page img {
+    width: 100%;
+  }
 }
 
-@media(min-width: 321px) and (max-width: 568px){
+@media(min-width: 321px) and (max-width: 568px) {
+
   .item-page .credit-block .number-0,
   .item-page .credit-block .number-25,
   .item-page .credit-block .number-50,
-  .item-page .credit-block .number-100{
+  .item-page .credit-block .number-100 {
     font-size: 8px;
   }
 
   .form-calculate3 .number-0,
-  .item-page .credit-block .number-0{
+  .item-page .credit-block .number-0 {
     position: relative;
-    right:6px;
+    right: 6px;
   }
 
-  .form-calculate3 .number-0{
+  .form-calculate3 .number-0 {
     position: relative;
-    right:6px;
+    right: 6px;
   }
 
   .item-page .credit-block .month-6,
@@ -3260,48 +3356,48 @@ button .close,
   .item-page .credit-block .month-42,
   .item-page .credit-block .month-48,
   .item-page .credit-block .month-54,
-  .item-page .credit-block .month-60{
+  .item-page .credit-block .month-60 {
     font-size: 8px;
   }
 
   .form-calculate3 .month-48,
-  .item-page .credit-block .month-48{
+  .item-page .credit-block .month-48 {
     position: relative;
-    left:5px;
+    left: 5px;
   }
 
   .form-calculate3 .month-24,
-  .item-page .credit-block .month-24{
+  .item-page .credit-block .month-24 {
     position: relative;
-    left:5px;
+    left: 5px;
   }
 
   .form-calculate3 .month-12,
-  .item-page .credit-block .month-12{
+  .item-page .credit-block .month-12 {
     position: relative;
-    left:4px;
+    left: 4px;
   }
 
   .form-calculate3 .month-36,
-  .item-page .credit-block .month-36{
+  .item-page .credit-block .month-36 {
     position: relative;
-    left:4px;
+    left: 4px;
   }
 
   .form-calculate3 .number-0,
   .form-calculate3 .number-25,
   .form-calculate3 .number-50,
-  .form-calculate3 .number-100{
+  .form-calculate3 .number-100 {
     font-size: 8px;
     top: 0px;
   }
 
-  .form-calculate3 .monthnum{
+  .form-calculate3 .monthnum {
     position: relative;
     top: -10px;
   }
 
-  .form-calculate3 .sum{
+  .form-calculate3 .sum {
     position: relative;
     top: -10px;
   }
@@ -3315,165 +3411,178 @@ button .close,
   .form-calculate3 .month-42,
   .form-calculate3 .month-48,
   .form-calculate3 .month-54,
-  .form-calculate3 .month-60{
+  .form-calculate3 .month-60 {
     font-size: 8px;
     position: relative;
     top: -8px;
   }
-  .advantage{
+
+  .advantage {
     font-size: 12px;
     font-weight: 500;
     line-height: 10px;
   }
 
-  .text_present{
+  .text_present {
     font-size: 18px;
   }
 
-  .text_present{
+  .text_present {
     font-size: 16px;
     line-height: 24px;
     margin: 5px;
   }
 
-  .text_presentbank{
+  .text_presentbank {
     font-size: 16px;
     margin-top: 20px;
     margin-left: 5px;
   }
 
-  .text_presentbtext{
+  .text_presentbtext {
     font-size: 16px;
     margin-left: 5px;
     margin-top: 5px;
   }
 }
 
-@media(max-width: 400px){
+@media(max-width: 400px) {
   .newform {
     max-width: 300px;
     height: 671px;
   }
 
-  .img_container{
+  .img_container {
     display: none;
   }
 
-  .cred_newform{
-      max-width: 300px;
-      height: 671px;
+  .cred_newform {
+    max-width: 300px;
+    height: 671px;
   }
 }
 
 .navi {
-    padding: 50px 0;
-    font-size: 14px;
-    line-height: 17px;
-    color: #666666;
+  padding: 50px 0;
+  font-size: 14px;
+  line-height: 17px;
+  color: #666666;
 }
 
 .navi a {
-    text-decoration: none;
-    color: #666666;
-    display: contents;
+  text-decoration: none;
+  color: #666666;
+  display: contents;
 }
+
 .navi a:hover {
-    color: #d93e3a;
+  color: #d93e3a;
 }
 
 .navi span {
-    display: inline-block;
-    vertical-align: middle;
-    width: 4px;
-    height: 8px;
-    background: url('../img/navi.svg');
-    margin: -2px 8px 0 8px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 4px;
+  height: 8px;
+  background: url('../img/navi.svg');
+  margin: -2px 8px 0 8px;
 }
+
 .navi span:last-child {
-    background: none;
+  background: none;
 }
 
 @media (max-width: 575px) {
-    .navi {
-        padding: 14px 0 30px;
-        font-size: 10px;
-        line-height: 12px;
-    }
-    .navi span {
-        margin: -2px 4px 0 4px;
-    }
-    .navi span:last-child {
-        background: none;
-    }
+  .navi {
+    padding: 14px 0 30px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .navi span {
+    margin: -2px 4px 0 4px;
+  }
+
+  .navi span:last-child {
+    background: none;
+  }
 }
+
 .btn.btn-black {
-    background: #fff;
-    font-weight: 500;
-    padding: 13px 24px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    font-size: 14px;
-    line-height: 17px;
-    border: 1px solid #000000;
-    color: #000000;
-    border-radius: 8px;
+  background: #fff;
+  font-weight: 500;
+  padding: 13px 24px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  font-size: 14px;
+  line-height: 17px;
+  border: 1px solid #000000;
+  color: #000000;
+  border-radius: 8px;
 }
 
 .btn.btn-black:hover {
-    background: #000000;
-    color: #FFFFFF;
+  background: #000000;
+  color: #FFFFFF;
 }
+
 .catalog-page .item .text .car-year {
-    font-weight: 500;
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-    height: 20px;
-    color: black;
-    background: #FFFFFF;
-    -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 0 4px;
+  height: 20px;
+  color: black;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.15);
 }
+
 .catalog-page .item .text .text-red {
-    font-size: 12px;
-    font-weight: 700;
-    color: #d93e3a;
+  font-size: 12px;
+  font-weight: 700;
+  color: #d93e3a;
 }
+
 .navi {
-    padding: 50px 0;
-    font-size: 14px;
-    line-height: 17px;
-    color: #666666;
+  padding: 50px 0;
+  font-size: 14px;
+  line-height: 17px;
+  color: #666666;
 }
 
 .navi a {
-    text-decoration: none;
-    color: #666666;
-    display: contents;
+  text-decoration: none;
+  color: #666666;
+  display: contents;
 }
+
 .navi a:hover {
-    color: #d93e3a;
+  color: #d93e3a;
 }
 
 .navi span {
-    display: inline-block;
-    vertical-align: middle;
-    width: 4px;
-    height: 8px;
-    background: url('../img/navi.svg');
-    margin: -2px 8px 0 8px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 4px;
+  height: 8px;
+  background: url('../img/navi.svg');
+  margin: -2px 8px 0 8px;
 }
-.form-calculate2 {
-    background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
-    border-radius: 14px;
-  }
 
-  .item-page .credit-block {
-    background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
-    border-radius: 14px;
-  }
-  @media (max-width: 767px) {
+.form-calculate2 {
+  background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);
+  border-radius: 14px;
+}
+
+.item-page .credit-block {
+  background: linear-gradient(#0f1723 0%, #25344b 65%, #333333 35%);
+  border-radius: 14px;
+}
+
+@media (max-width: 767px) {
+
   .form-calculate2,
   .item-page .credit-block {
     background: linear-gradient(#0f1723 0%, #25344b 60%, #333333 40%);

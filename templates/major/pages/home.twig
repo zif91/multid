@@ -80,10 +80,13 @@ noneTPL:'@CODE: <div class="container">
 rowTpl:'@CODE:
 <div class="item" style="background: url([+image+]) center/cover;">
 	<div class="container">
-		<div class="top-text mb-3">
-		</div>
 		<div class="text">
-			[+title+]
+			<div class="top-text mb-3">
+			</div>
+			<div class="text">
+				[+title+]
+			</div>
+			<button>Оставить заявку</button>
 		</div>
 	</div>
 </div>'}) %}
@@ -149,15 +152,13 @@ extension: 'twig'
 							{% endfor %}
 						</select>
 					</div>
-
-					
 					<div class="col-6 col-md-3">
 						<p class="mb-2">Фильтровать </p>
-<button id="filterbutton" class="w-100 px-3 select-box btn btn-danger" >Показать</button>
+						<button id="filterbutton" class="w-100 px-3 select-box btn btn-danger">Показать</button>
 					</div>
 					<div class="col-6 col-md-3">
 						<p class="mb-2">Уточните выбор: </p>
-<button class="w-100 px-3 select-box btn btn-danger" onclick="location.href='/katalog-novyh-avtomobilej/podborka-po-parametram'">Больше фильтров</button>
+						<button class="w-100 px-3 select-box btn btn-danger" onclick="location.href='/katalog-novyh-avtomobilej/podborka-po-parametram'">Больше фильтров</button>
 					</div>
 					{#<div class="col-3">
 						<p class="mb-2">Цена от, руб</p>
@@ -165,11 +166,10 @@ extension: 'twig'
 					</div>
 					<div class="col-3">
 						<p class="mb-2">Цена до, руб</p>
-						<input id="max-price"  type="text" placeholder="Не выбрана..." class="w-100 px-3">
+						<input id="max-price" type="text" placeholder="Не выбрана..." class="w-100 px-3">
 					</div>#}
 				</div>
 			</div>
-			
 			{#<div class="buttons mb-3">
 				<p class="mb-2">КПП</p>
 				<div class="row">
@@ -205,40 +205,41 @@ extension: 'twig'
 			<div class="row">
 				<div class="col-lg-4 col-sm-6">
 					<a href="#" data-src="#popupcred" data-fancybox>
-					<div class="item mb-3 position-relative">
-						<span class="d-block mb-2">Купить в кредит</span>
-						Оставьте заявку и мы свяжемся с Вами
-					</div></a>
+						<div class="item mb-3 position-relative">
+							<span class="d-block mb-2">Купить в кредит</span>
+							Оставьте заявку и мы свяжемся с Вами
+						</div>
+					</a>
 				</div>
 				{#<div class="col-lg-4 col-sm-6">
 					<a href="#" data-src="#popup" data-fancybox>
-					<div class="item mb-3 position-relative">
-						<span class="d-block mb-2">Купить в лизинг</span>
-						Оставьте заявку и мы свяжемся с Вами
-					</div>
+						<div class="item mb-3 position-relative">
+							<span class="d-block mb-2">Купить в лизинг</span>
+							Оставьте заявку и мы свяжемся с Вами
+						</div>
 					</a>
 				</div>#}
 				<div class="col-lg-4 col-sm-6">
 					<a href="#" data-src="#popup" data-fancybox>
-					<div class="item mb-3 position-relative">
-						<span class="d-block mb-2">Оценить автомобиль</span>
-						Оставьте заявку и мы свяжемся с Вами
-					</div>
+						<div class="item mb-3 position-relative">
+							<span class="d-block mb-2">Оценить автомобиль</span>
+							Оставьте заявку и мы свяжемся с Вами
+						</div>
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="index-catalog-block pb-4">
+	<div class="index-catalog-block2 pb-5">
 		<div class="container">
-			<div class="block-name mb-5">
-				Предложение дня
-			</div>
-			<div class="row" id="catalog">
+			<h2 class="h2 mb-5">Предложение дня</h2>
+			<div class="list" id="catalog">
 				{{DLCatalog |raw}}
 			</div>
 		</div>
 	</div>
+ {% include '/partials/credit.twig' %}
+
 	<div class="index-catalog-block2 pb-4">
 		<div class="container">
 			<div class="block-name mb-5">
@@ -247,78 +248,84 @@ extension: 'twig'
 			<div class="row">
 				<div class="col-lg-4 col-sm-6">
 					<a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=Седан">
-					<div class="item mb-4 position-relative">
-						<img src="../templates/major/images/item2 5.jpg" class="w-100">
-						<div class="number position-absolute bg-light p-2">
-							647
+						<div class="item mb-4 position-relative">
+							<img src="../templates/major/images/item2 5.jpg" class="w-100">
+							<div class="number position-absolute bg-light p-2">
+								647
+							</div>
+							<div class="name position-absolute text-light w-100 p-3">
+								Седаны
+							</div>
 						</div>
-						<div class="name position-absolute text-light w-100 p-3">
-							Седаны
-						</div>
-					</div></a>
+					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
 					<a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=универсал">
-					<div class="item mb-4 position-relative">
-						<img src="../templates/major/images/item2 6.jpg" class="w-100">
-						<div class="number position-absolute bg-light p-2">
-							142
+						<div class="item mb-4 position-relative">
+							<img src="../templates/major/images/item2 6.jpg" class="w-100">
+							<div class="number position-absolute bg-light p-2">
+								142
+							</div>
+							<div class="name position-absolute text-light w-100 p-3">
+								Универсалы
+							</div>
 						</div>
-						<div class="name position-absolute text-light w-100 p-3">
-							Универсалы
-						</div>
-					</div></a>
+					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
 					<a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=хэтчбек">
-					<div class="item mb-4 position-relative">
-						<img src="../templates/major/images/item2 3.jpg" class="w-100">
-						<div class="number position-absolute bg-light p-2">
-							764
+						<div class="item mb-4 position-relative">
+							<img src="../templates/major/images/item2 3.jpg" class="w-100">
+							<div class="number position-absolute bg-light p-2">
+								764
+							</div>
+							<div class="name position-absolute text-light w-100 p-3">
+								Хэтчбэк
+							</div>
 						</div>
-						<div class="name position-absolute text-light w-100 p-3">
-							Хэтчбэк
-						</div>
-					</div></a>
+					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
 					<a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=внедорожник">
-					<div class="item mb-4 position-relative">
-						<img src="../templates/major/images/item2 1.jpg" class="w-100">
-						<div class="number position-absolute bg-light p-2">
-							892
+						<div class="item mb-4 position-relative">
+							<img src="../templates/major/images/item2 1.jpg" class="w-100">
+							<div class="number position-absolute bg-light p-2">
+								892
+							</div>
+							<div class="name position-absolute text-light w-100 p-3">
+								Внедорожники
+							</div>
 						</div>
-						<div class="name position-absolute text-light w-100 p-3">
-							Внедорожники
-						</div>
-					</div></a>
+					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
 					<a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=лифтбек">
-					<div class="item mb-4 position-relative">
-						<img src="../templates/major/images/item2 4.jpg" class="w-100">
-						<div class="number position-absolute bg-light p-2">
-							182
+						<div class="item mb-4 position-relative">
+							<img src="../templates/major/images/item2 4.jpg" class="w-100">
+							<div class="number position-absolute bg-light p-2">
+								182
+							</div>
+							<div class="name position-absolute text-light w-100 p-3">
+								Лифтбек
+							</div>
 						</div>
-						<div class="name position-absolute text-light w-100 p-3">
-							Лифтбек
-						</div>
-					</div></a>
+					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
 					<a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=купе">
-					<div class="item mb-4 position-relative">
-						<img src="../templates/major/images/item2 2.jpg" class="w-100">
-						<div class="number position-absolute bg-light p-2">
-							68
+						<div class="item mb-4 position-relative">
+							<img src="../templates/major/images/item2 2.jpg" class="w-100">
+							<div class="number position-absolute bg-light p-2">
+								68
+							</div>
+							<div class="name position-absolute text-light w-100 p-3">
+								Купе
+							</div>
 						</div>
-						<div class="name position-absolute text-light w-100 p-3">
-							Купе
-						</div>
-					</div></a>
+					</a>
 				</div>
+			</div>
 		</div>
-	</div>
 </main>
 {#<script type="text/javascript">
 const marksSelect = document.querySelector('#marks');
@@ -378,61 +385,88 @@ modelsSelect.addEventListener('change', function() {
 			console.error(errorThrown);
 		});
 });
+
 </script>#}
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const marksSelect = document.querySelector('#marks');
-    const modelsSelect = document.querySelector('#models');
-    const filterButton = document.querySelector('#filterbutton');
+document.addEventListener('DOMContentLoaded', function() {
+	const marksSelect = document.querySelector('#marks');
+	const modelsSelect = document.querySelector('#models');
+	const filterButton = document.querySelector('#filterbutton');
 
-    const updateFilterUrl = () => {
-      const brand = marksSelect.value;
-      const model = modelsSelect.value;
+	const updateFilterUrl = () => {
+		const brand = marksSelect.value;
+		const model = modelsSelect.value;
 
-      let url = '/katalog-novyh-avtomobilej/?';
-      if (brand && brand !== 'Выбрать...') {
-        url += `brand=${brand}&`;
-      }
+		let url = '/katalog-novyh-avtomobilej/?';
+		if (brand && brand !== 'Выбрать...') {
+			url += `brand=${brand}&`;
+		}
 
-      if (model && model !== 'Выбрать...') {
-        url += `model=${model}&`;
-      }
+		if (model && model !== 'Выбрать...') {
+			url += `model=${model}&`;
+		}
 
-      filterButton.disabled = false;
-      filterButton.onclick = function() {
-        window.location.href = url.slice(0, -1);
-      };
-    };
+		filterButton.disabled = false;
+		filterButton.onclick = function() {
+			window.location.href = url.slice(0, -1);
+		};
+	};
 
-    const updateModels = () => {
-      const brand = marksSelect.value;
+	const updateModels = () => {
+		const brand = marksSelect.value;
 
-      if (brand && brand !== 'Выбрать...') {
-        const url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
-        $.ajax({
-          url: url,
-          method: 'GET',
-          dataType: 'html'
-        })
-        .done(function(data) {
-          const modelsHtml = $(data).find('#models').html();
-          $('#models').html(modelsHtml);
-        })
-        .fail(function(jqXHR, textStatus, errorThrown) {
-          console.error(errorThrown);
-        });
-      }
-    };
+		if (brand && brand !== 'Выбрать...') {
+			const url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
+			$.ajax({
+					url: url,
+					method: 'GET',
+					dataType: 'html'
+				})
+				.done(function(data) {
+					const modelsHtml = $(data).find('#models').html();
+					$('#models').html(modelsHtml);
+				})
+				.fail(function(jqXHR, textStatus, errorThrown) {
+					console.error(errorThrown);
+				});
+		}
+	};
 
-    marksSelect.addEventListener('change', function() {
-      updateModels();
-      updateFilterUrl();
-    });
-    modelsSelect.addEventListener('change', updateFilterUrl);
+	marksSelect.addEventListener('change', function() {
+		updateModels();
+		updateFilterUrl();
+	});
+	modelsSelect.addEventListener('change', updateFilterUrl);
 
-    filterButton.disabled = true;
-  });
+	filterButton.disabled = true;
+
+	$('.index-catalog-block2 .list').slick({
+	  speed: 300,
+	  slidesToShow: 4,
+	  slidesToScroll: 1,
+	  responsive: [
+	    {
+	      breakpoint: 992,
+	      settings: {
+	        slidesToShow: 3
+	      }
+	    },
+	    {
+	      breakpoint: 768,
+	      settings: {
+	        slidesToShow: 2
+	      }
+	    },
+	    {
+	      breakpoint: 576,
+	      settings: {
+	        slidesToShow: 1,
+	        autoplay: true
+	      }
+	    }
+	  ]
+	});
+});
+
 </script>
-
-
 {% endblock %}

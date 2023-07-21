@@ -8,15 +8,15 @@
 
 {#<div class="col-sm-2"
  data-name="{{ data['name'] }}">
-    
+
      {% if data['id'] == 43 %}
         {{ runSnippet('helpers', {'action':'getModelsByMark'}) | raw }}
     {% else %}
-    
 
-    <select class="form-select py-2 border-0 choicesCar" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">   
+
+    <select class="form-select py-2 border-0 choicesCar" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
         <option value="" selected disabled>{{ data['caption'] }}</option>
-        {{ data['wrap'] | raw }}    
+        {{ data['wrap'] | raw }}
     </select>
         {% endif %}
 
@@ -27,9 +27,9 @@
     {% if data['id'] == 43 %}
         {{ runSnippet('helpers', {'action':'getModelsByMark2'}) | raw }}
     {% else %}
-            <select class="choicesCar w-100 mb-sm-4 mb-3 px-3" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
-                <optionvalue="" selected disabled>{{ data['caption'] }}</option>
-                {{ data['wrap'] | raw }}    
-            </select>
-            {% endif %}
-        </div>
+        <select class="choicesCar w-100 mb-sm-4 mb-3 px-3" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
+            <option value="" selected disabled>{{ data['caption'] }}</option>
+            {{ data['wrap'] | raw }}
+        </select>
+    {% endif %}
+</div>

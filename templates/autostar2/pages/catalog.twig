@@ -3,13 +3,12 @@
 
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
-controller: 'catalog_filters',
 display: 18,
 parents: catalog_number,
 depth: 5,
 tvList:'car-price,car_photos,run,engine_power,gear,year,image',
 ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard3',
+tpl:'@T_FILE:partials/catalogcard2',
 paginate:'pages',
 TplNextP:'@CODE:<li><a href="[+link+]"><span class="next"></span></a></li>',
 TplPrevP:'@CODE:<li><a href="[+link+]"><span class="prev"></span></a></li>',
@@ -27,7 +26,7 @@ noneTPL:'@CODE: <div class="container">
 %}
 {% block MAIN %}
 {#% include('partials/crumbs.twig') %#}
-<div class="catalog-page pb-5">
+<div class="catalog-page">
     <div class="filter">
         <div class="flex">
             <select class="px-3">
@@ -47,14 +46,19 @@ noneTPL:'@CODE: <div class="container">
             <button>Показать</button>
         </div>
     </div>
-	<h1 class="h1 mb-4">Каталог автомобилей с пробегом</h1>
-    {{DLCatalog |raw}}
-	<div class="pages text-center">
-		<ul class="d-inline-block">
-			{{ plh['catalog.pages'] | raw }}
-		</ul>
-	</div>
 </div>
+<div class="index-catalog-block2 pb-4" id="catalog">
+    <h2 class="mb-4">Каталог автомобилей с пробегом</h2>
+    {{DLCatalog |raw}}
+</div>
+<div class="catalog-page pb-5">
+    <div class="pages text-center">
+        <ul class="d-inline-block">
+            {{ plh['catalog.pages'] | raw }}
+        </ul>
+    </div>
+</div>
+
 {{runSnippet ('bdebug', {})}}
 {% include 'partials/advantages.twig' %}
 {#<script type="text/javascript">

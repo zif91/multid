@@ -56,26 +56,54 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    $( "#slider-range-max" ).slider({
+    const creditRate = 4.9 / 100; // Кредитная ставка (4.9%)
+
+    function calculateMonthlyPayment(loanAmount, loanTermMonths) {
+      const monthlyRate = creditRate / 12; // Ежемесячная процентная ставка
+      const totalPayments = loanTermMonths;
+      const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalPayments));
+      return monthlyPayment.toFixed(2);
+    }
+
+    function updateMonthlyPayment() {
+      const loanAmount = parseInt($("#amount").val().replace(/\D/g, ""));
+      const loanTermMonths = parseInt($("#amount2").val().replace(/\D/g, ""));
+      const monthlyPayment = calculateMonthlyPayment(loanAmount, loanTermMonths);
+      $(".payments div:nth-child(2)").text(monthlyPayment + " ₽/мес.");
+    }
+
+    $("#slider-range-max, #slider-range-max2, #amount, #amount2").on("input change", function() {
+      updateMonthlyPayment();
+    });
+
+    // Инициализация слайдеров
+    $("#slider-range-max").slider({
       range: "max",
       min: 1000,
       max: 10000000,
       value: 100000,
-      slide: function( event, ui ) {
-        $( "#amount" ).val( ui.value  + " ₽");
+      slide: function(event, ui) {
+        $("#amount").val(ui.value + " ₽");
+        updateMonthlyPayment();
       }
     });
-    $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) + " ₽");
 
-    $( "#slider-range-max2" ).slider({
+    $("#slider-range-max2").slider({
       range: "max",
       min: 12,
       max: 88,
       value: 24,
-      slide: function( event, ui ) {
-        $( "#amount2" ).val( ui.value  + " месяцев");
+      slide: function(event, ui) {
+        $("#amount2").val(ui.value + " месяцев");
+        updateMonthlyPayment();
       }
     });
-    $( "#amount2" ).val( $( "#slider-range-max2" ).slider( "value" ) + " месяцев");
+
+    // Инициализация значений при загрузке страницы
+    updateMonthlyPayment();
   });
 </script>
+
+
+
+https://ibb.co/bvDQ9B8

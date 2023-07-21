@@ -1,24 +1,25 @@
+
 {% set gifts = runSnippet('DocLister', {
-display: 4,
-parents: 24,
-depth: 0,
+display: 3,
+parents: baseSettings.id,
+depth: 2,
+addWhereList: 'c.template = (13)',
 tvList:'image,color',
 tpl:'@T_FILE:partials/actions_actions'
 })
 %}
-<div class="page-name py-4">
-    <div class="container">
-        <h1 class="h1 m-0">Акции</h1>
-    </div>
-</div>
-<div class="actions-page pb-3">
-    <div class="container">
-        <div class="row">
-            {{gifts | raw}}
+
+
+<div class="actions-block pb-4">
+        <div class="container">
+            <h2 class="h2 mb-4">Акции</h2>
+            <div class="row">
+                
+                            {{gifts | raw}}
+
+            </div>
         </div>
     </div>
-</div>
-
 {#% set gifts = runSnippet('DocLister', {
 display: 3,
 parents: 24,

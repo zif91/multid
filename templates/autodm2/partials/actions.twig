@@ -1,4 +1,5 @@
-{% set catalog_number = baseSettings['id'] %}
+{% set site_start = modx.config['site_start'] %}
+
 {% set gifts = runSnippet('DocLister', {
     display: 3,
     parents: site_start,

@@ -4,6 +4,7 @@
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 18,
+controller: 'catalog_filters',
 parents: catalog_number,
 depth: 5,
 tvList:'car-price,car_photos,run,engine_power,gear,year,image',
@@ -22,32 +23,27 @@ noneTPL:'@CODE: <div class="container">
 		</div>
 	</div>
 </div>',
+    filter: 'filters',
+    filterRangeSeparator: ':',
+    filterValuesSeparator: '|',
+    filterDelimiter: '||',
+    __filterPriceId: 14,
+    __filterList: '20:dropdown;42:dropdown;43:dropdown;19:range;',
+    filterList: '20,42,19,43,',
+    filterTpl: '@T_FILE:partials/filters/tpl2',
+    filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+    filterTplRange: '@T_FILE:partials/filters/tplRange2',
+    filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+    filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+    tvSortType: 'UNSIGNED',
+    api: 0
 })
 %}
 {% block MAIN %}
 {#% include('partials/crumbs.twig') %#}
-<div class="catalog-page">
-    <div class="filter">
-        <div class="flex">
-            <select class="px-3">
-                <option>Выберите марку авто</option>
-                <option>Выберите марку авто</option>
-                <option>Выберите марку авто</option>
-            </select>
-            <select class="px-3">
-                <option>Выберите модель авто</option>
-                <option>Выберите модель авто</option>
-                <option>Выберите модель авто</option>
-            </select>
-            <div class="fields flex">
-                <input type="text" class="px-3" placeholder="Цена от">
-                <input type="text" class="px-3" placeholder="Цена до">
-            </div>
-            <button>Показать</button>
-        </div>
-    </div>
-</div>
-<div class="index-catalog-block2 pb-4" id="catalog">
+    {{ plh['catalog.filters'] | raw }}
+
+<div class="index-catalog-block2 pb-4 catalog-products" id="catalog">
     <h2 class="mb-4">Каталог автомобилей с пробегом</h2>
     {{DLCatalog |raw}}
 </div>

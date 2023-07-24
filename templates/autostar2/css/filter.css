@@ -958,6 +958,12 @@
 .price-range-input.range-max {
     border-radius: 0px 16px 16px 0px;
 }
+.price-range-input.range-min2 {
+    border-radius: 6px;
+}
+.price-range-input.range-max2 {
+    border-radius: 6px;
+}
 
 .blockForm__car {
     flex-wrap: wrap;

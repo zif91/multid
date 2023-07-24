@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/templates/rofl/css/filter.css?321113">
     <link rel="stylesheet" href="/templates/rofl/css/color1.css?32111">
+        <link rel="stylesheet" href="/templates/rofl/css/{{baseSettings.color_css}}">      
     {{baseSettings.scripts_head | raw}}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
     {% block HEAD %}{% endblock %}

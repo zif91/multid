@@ -355,11 +355,13 @@ $(function() {
 
             $(document).on('click', '.extrafilter .filterbutton', function(e) {
                 e.preventDefault();
-                let elemId = $('.catalog-products');
-                let elemOffset = $(elemId).offset().top;
-                $('html, body').animate({
-                    scrollTop: elemOffset
-                }, 1000);
+                let elem = $('.catalog-products');
+                if (elem.length) {
+                    let elemOffset = elem.offset().top;
+                    $('html, body').animate({
+                        scrollTop: elemOffset
+                    }, 1000);
+                }
             });
 
             let prevMark = ''; // variable to store previous value of Mark

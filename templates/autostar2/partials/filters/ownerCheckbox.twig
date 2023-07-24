@@ -23,11 +23,13 @@
 
 </div>#}
 
-<div class="col-lg-3 col-md-4 col-sm-6" data-name="{{ data['name'] }}">
+<div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center py-3 px-3" data-name="{{ data['name'] }}">
     {% if data['id'] == 43 %}
-        {{ runSnippet('helpers', {'action':'getModelsByMark2'}) | raw }}
+        <div class="w-100">
+            {{ runSnippet('helpers', {'action':'getModelsByMark2'}) | raw }}
+        </div>
     {% else %}
-        <select class="choicesCar w-100 mb-sm-4 mb-3 px-3" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
+        <select class="choicesCar w-100 px-3 py-0" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
             <option value="" selected disabled>{{ data['caption'] }}</option>
             {{ data['wrap'] | raw }}
         </select>

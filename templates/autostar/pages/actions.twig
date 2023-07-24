@@ -8,7 +8,6 @@
 	<div class="row">
 		{{ runSnippet('DocLister', {
 id: 'catalog',
-controller: 'catalog_filters',
 display: 18,
 parents: catalog_number,
 depth: 5,
@@ -28,23 +27,9 @@ noneTPL:'@CODE: <div class="container">
 		</div>
 	</div>
 </div>',
-filter: 'filters',
-filterRangeSeparator: ':',
-filterValuesSeparator: '|',
-filterDelimiter: '||',
-__filterPriceId: 14,
-__filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;43:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
-_filterList: '42,43,14',
-filterList: '42,43,19',
-filterTpl: '@T_FILE:partials/filters/tpl',
-filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
-filterTplRange: '@T_FILE:partials/filters/tplRange',
-filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
-filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
-tvSortType: 'UNSIGNED'
 }) |raw}}
 
-		
+
 	</div>
 	<div class="pages text-center">
 		<ul class="d-inline-block">

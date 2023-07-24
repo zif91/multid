@@ -960,9 +960,11 @@
 }
 .price-range-input.range-min2 {
     border-radius: 6px;
+    height: 40px;
 }
 .price-range-input.range-max2 {
     border-radius: 6px;
+    height: 40px;
 }
 
 .blockForm__car {

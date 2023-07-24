@@ -54,7 +54,9 @@ display: 1
                 <div class="col-6">
                     <div class="price-item mb-3">
                         <span class="old">
-                        {{oldprice|number_format(0, '.', ' ') }} ₽
+                        {% if data['tv.old-car-price'] %}
+                            {{ ( data['tv.old-car-price'] )|number_format(0, '.', ' ') }} ₽
+                        {% endif %}
                         </span>
                         <div class="new mt-1">{{ ( data['tv.car-price'] )|number_format(0, '.', ' ') }} ₽</div>
                     </div>

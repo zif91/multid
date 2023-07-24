@@ -6,28 +6,17 @@
 <div class="catalog-page pb-5">
 	<h1 class="h1 mb-4">Выгодные предложения</h1>
 	<div class="row">
-		{{ runSnippet('DocLister', {
+		{% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
-display: 18,
+display: 4,
 parents: catalog_number,
-depth: 5,
-tvList:'car-price,car_photos,run,engine_power,gear,year,image',
+depth: 2,
+tvList:'car-price,run,engine_power,gear,year,image,body_type,car_color,engine_volume,fuel,drive,car_photos',
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard',
-paginate:'pages',
-TplNextP:'@CODE:<li><a href="[+link+]"><span class="next"></span></a></li>',
-TplPrevP:'@CODE:<li><a href="[+link+]"><span class="prev"></span></a></li>',
-TplPage:'@CODE:<li class="d-inline-block"><a href="[+link+]" class="d-block ">[+num+]</a></li>',
-TplCurrentPage:'@CODE:<li class="d-inline-block"><a href="[+link+]" class="d-block active">[+num+]</a></li>',
-TplWrapPaginate:'@CODE:[+wrap+]',
-noneTPL:'@CODE: <div class="container">
-	<div class="row">
-		<div class="col text-center">
-			<h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-		</div>
-	</div>
-</div>',
-}) |raw}}
+})
+%}
+			{{DLCatalog |raw}}
 
 
 	</div>

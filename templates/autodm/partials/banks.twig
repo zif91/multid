@@ -4,7 +4,7 @@
 {% set headingbank = runSnippet('DocInfo', {field: 'longtitle', docid: 41118}) | raw %}
 
 {#{dump(bank_logos)}#}
-<div class="brands">
+{#<div class="brands">
     <div class="container">
         <h2 class='pb-1'> {{headingbank}}</h2>
         <div class="row">
@@ -26,74 +26,101 @@
             </div>
         </div>
     </div>
+</div> #}
+<div class="container">
+<div class="partners-block mb-5">
+    <h2 class="mb-4">Банки-партнёры</h2>
+    <div class="list">
+        {% for item in bank_logos["fieldValue"] %}
+            <div class="item"><img src="{{item.image}}"></div>
+{% endfor %}
+    </div>
 </div>
-<style>
- .brands {
-     width: 100%;
-     padding-top: 90px;
-     padding-bottom: 90px
- }
+</div>
+<style type="text/css">
+.partners-block h2 {
+    font-weight: 700;
+    font-size: 24px;
+}
+.partners-block .list {
+    margin: 0 -15px;
+}
+.partners-block .list .item {
+    margin: 0 15px;
+    text-align: center;
+    height: 98px;
+    line-height: 98px;
+    border-radius: 8px;
+    border: 1px solid #F2F3F7;
+}
+.partners-block .list .item:hover img {
+    filter: none;
+}
+.partners-block .list .item img {
+    display: inline-block;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    vertical-align: middle;
+    filter: grayscale(100%);
+}
+.partners-block .list .slick-prev,
+.partners-block .list .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    font-size: 0;
+    z-index: 2;
+    width: 16px;
+    height: 26px;
+}
+.partners-block .list .slick-prev {
+    left: 5px;
+    background: url('/templates/autostar2/img/prev.svg');
+}
+.partners-block .list .slick-next {
+    right: 5px;
+    background: url('/templates/autostar2/img/next.svg');
+}
+</style>
 
- .brands_slider_container {
-     height: 130px;
-     border: solid 1px #e8e8e8;
-     padding-left: 97px;
-     padding-right: 97px;
-     background: #fff;
- }
- @media (max-width: 575.98px) { 
-    .brands_slider_container {
-     padding-left: 9px;
-     padding-right: 9px;
-     background: #fff; }
- }
-
- .brands_slider {
-     height: 100%;
-     margin-top: 37px
- }
-
- .brands_item {
-     height: 100%
- }
-
- .brands_item img {
-     max-width: 100%;
-     max-height: 50px;
- }
-
- .brands_nav {
-     position: absolute;
-     top: 50%;
-     -webkit-transform: translateY(-50%);
-     -moz-transform: translateY(-50%);
-     -ms-transform: translateY(-50%);
-     -o-transform: translateY(-50%);
-     transform: translateY(-50%);
-     padding: 5px;
-     cursor: pointer
- }
-
- .brands_nav i {
-     color: #e5e5e5;
-     -webkit-transition: all 200ms ease;
-     -moz-transition: all 200ms ease;
-     -ms-transition: all 200ms ease;
-     -o-transition: all 200ms ease;
-     transition: all 200ms ease
- }
-
- .brands_nav:hover i {
-     color: #676767
- }
-
- .brands_prev {
-     left: 40px
- }
-
- .brands_next {
-     right: 40px
- }
- </style>
 <script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  $('.partners-block .list').slick({
+    speed: 300,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
+  });
+});
+
+
 </script>

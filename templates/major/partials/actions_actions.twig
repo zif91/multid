@@ -1,10 +1,11 @@
 
-<div class="col-lg-3 col-md-4 col-sm-6">
-    <div class="item mb-4">
-        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139, w=255,zc=1 fltr[]=ric|15|15'}) }}" class="mb-2 rounded rounded-3">
-        <div class="name mb-1">
+<div class="col-lg-4 col-md-6 mb-3">
+                    <div class="item position-relative">
+                        <div class="name mb-3">
             {{ data.title }}
-        </div>
-        <p>Успей до конца года!</p>
-    </div>
-</div>
+                        </div>
+                        <p>            {{ data.description }}
+</p>
+                        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139, w=255,zc=1 fltr[]=ric|15|15'}) }}">
+                    </div>
+                </div>

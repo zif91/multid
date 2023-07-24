@@ -54,28 +54,50 @@
 		</div>
 	</div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    $( "#slider-range-max" ).slider({
-      range: "max",
-      min: 1000,
-      max: 10000000,
-      value: 100000,
-      slide: function( event, ui ) {
-        $( "#amount" ).val( ui.value  + " ₽");
-      }
-    });
-    $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) + " ₽");
+<script>document.addEventListener("DOMContentLoaded", function() {
+  const creditRate = 4.9 / 100;
+  const rangeSliders = [
+    { id: "#slider-range-max", output: "#amount", min: 1000, max: 10000000, value: 100000, unit: " ₽" },
+    { id: "#slider-range-max2", output: "#amount2", min: 12, max: 88, value: 12, unit: " месяцев" }
+  ];
 
-    $( "#slider-range-max2" ).slider({
+  function calculateMonthlyPayment(loanAmount, loanTermMonths) {
+    const monthlyRate = creditRate / 12;
+    const totalPayments = loanTermMonths;
+    const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalPayments));
+    return monthlyPayment.toFixed(2);
+  }
+
+  function updateMonthlyPayment() {
+    const loanAmount = parseInt($(rangeSliders[0].id).slider("value"));
+    const loanTermMonths = parseInt($(rangeSliders[1].id).slider("value"));
+    const monthlyPayment = calculateMonthlyPayment(loanAmount, loanTermMonths);
+    $(".payments div:nth-child(2)").text(monthlyPayment + " ₽/мес.");
+  }
+
+  rangeSliders.forEach(slider => {
+    $(slider.id).slider({
       range: "max",
-      min: 12,
-      max: 88,
-      value: 24,
-      slide: function( event, ui ) {
-        $( "#amount2" ).val( ui.value  + " месяцев");
+      min: slider.min,
+      max: slider.max,
+      value: slider.value,
+      slide: function(event, ui) {
+        $(slider.output).val(ui.value + slider.unit);
+        updateMonthlyPayment();
       }
     });
-    $( "#amount2" ).val( $( "#slider-range-max2" ).slider( "value" ) + " месяцев");
+    $(slider.output).val($(slider.id).slider("value") + slider.unit);
   });
+
+  // Update monthly payment after sliders are initialized
+  updateMonthlyPayment();
+});
+
+
 </script>
+
+
+
+
+
+

@@ -3483,17 +3483,20 @@ color:red;
   .left-listClose{
     background-color: #fff;
     color: #000;
-    max-height: 25px;
-    max-width: 25px;
-    font-size: 20px;
+    /* max-height: 25px; */
+    /* max-width: 25px; */
+    font-size: 28px;
     display: block;
-    padding-left: 16px;
-
+    padding-left: 92%;
+    padding-top: 1%;
+    padding-bottom: 1%;
   }
 
   .header ul {
-    width: 537px;
-    left: -537px;
+    /* width: 537px;
+    left: -537px; */
+    width: 100%;
+    left: -100%;
   }
 
 }

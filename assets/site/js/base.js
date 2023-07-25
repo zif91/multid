@@ -137,13 +137,13 @@ function registerCallTouchRequest(form) {
         sessionId: window.call_value
     };
 
-    if (first_name_input ? .val() !== '') {
+    if (first_name_input && first_name_input.val() !== '') {
         ct_data.fio = first_name_input.val();
     }
-    if (mobile_tel_input ? .val() !== '') {
+    if (mobile_tel_input && mobile_tel_input.val() !== '') {
         ct_data.phoneNumber = mobile_tel_input.val();
     }
-    if (email_input ? .val() !== '') {
+    if (email_input && email_input.val() !== '') {
         ct_data.email = email_input.val();
     }
 

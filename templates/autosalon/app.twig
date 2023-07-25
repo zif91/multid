@@ -72,6 +72,8 @@ api: 1,
 <body>
     {% if baseSettings.site_id is not empty %}
   <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">
+          <div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
+
 {% endif %}
     {% cache 'header' ~ cacheKey %}
         {% include('partials/header.twig') %}

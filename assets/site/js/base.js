@@ -294,14 +294,7 @@ function mainFunc() {
           }
 
         } else {
-          if (data.redirect) {
-            window.location.href = data.redirect
-          }
-          $(formContainer).html(data.output);
-          if ($('#metrik-id').length > 0) {
-            var metrikId = $('#metrik-id').text();
-            ym(metrikId, 'reachGoal', 'goals');
-      }
+          _tmr.push({ type: 'reachGoal', id: 3375876, goal: 'Send_Form'});
         }
 
         $(form).fadeTo('fast', 1);

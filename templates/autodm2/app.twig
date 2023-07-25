@@ -50,6 +50,8 @@
 
 <body>
     <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
+            <div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
+
 {#{dump(test) }#}
         {% cache 'header' ~ cacheKey %}
             {% include('partials/header.twig') %}

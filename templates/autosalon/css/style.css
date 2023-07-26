@@ -2010,7 +2010,10 @@ font-size: 14px;
     opacity: 0.4;
 }
 
-#day, #hour, #min, #sec {
+.flip:hover {
     opacity: 1;
 }
 
+#day, #hour, #min, #sec {
+    opacity: 1;
+}

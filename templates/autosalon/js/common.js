@@ -122,9 +122,12 @@ function startCountdown() {
 }
 function animateFlip(id) {
     var element = document.getElementById(id);
-    element.classList.remove('flip');
-    void element.offsetWidth; // Принудительное "reflow" браузера для сброса состояния анимации
     element.classList.add('flip');
+
+    setTimeout(function() {
+        element.classList.remove('flip');
+    }, 500); // Снимаем класс через 500 мс (0.5 секунды)
 }
+
 // Запуск обратного отсчета при загрузке страницы
 window.onload = startCountdown;

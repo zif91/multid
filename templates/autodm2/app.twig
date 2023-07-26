@@ -40,6 +40,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="/templates/autodm/css/filter.css">      
+    <link rel="stylesheet" href="/templates/autodm2/{{baseSettings.color_css}}">      
+
     {{baseSettings.scripts_head | raw}}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
 
@@ -48,6 +50,8 @@
 
 <body>
     <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
+            <div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
+
 {#{dump(test) }#}
         {% cache 'header' ~ cacheKey %}
             {% include('partials/header.twig') %}

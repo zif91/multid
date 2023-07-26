@@ -3,6 +3,6 @@
                     <div class="item" style="background: linear-gradient( rgba(0,0,0,0.3), rgba(0,0,0,.5) ),  url(
                     {{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=300,zc=1'}) }}{#{data['tv.image']|raw}#}) center/cover;">
                         <p>{{ data.title }}</p>
-                        <button  type="button" data-toggle="modal" data-target="#oneclick">Подробнее</button>
+                        <button  type="button" onclick="location.href='{{data.url}}';">Подробнее</button>
                     </div>
                 </div>

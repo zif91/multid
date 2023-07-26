@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/templates/rofl/css/filter.css?321113">
     <link rel="stylesheet" href="/templates/rofl/css/color1.css?32111">
+        <link rel="stylesheet" href="/templates/rofl/css/{{baseSettings.color_css}}">      
     {{baseSettings.scripts_head | raw}}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
     {% block HEAD %}{% endblock %}
@@ -55,7 +56,8 @@
   <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    
 
 {% endif %}
-<div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div> 
+<div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
+              <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
     {% cache 'header' ~ cacheKey %}
         {% include('partials/header.twig') %}
     {% endcache %}

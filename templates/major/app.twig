@@ -71,7 +71,8 @@ debug: 0,
   <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    
 
 {% endif %}
-<div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
+<div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
+              <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
     <main class="main">
         {% block MAIN %}{% endblock %}
         {% include('partials/scripts.twig') %}

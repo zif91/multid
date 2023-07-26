@@ -1,11 +1,11 @@
-
 <div class="col-lg-4 col-md-4 col-sm-6">
-    <a onclick="openModal()">
-    <div class="item mb-4">
-        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139, w=255,zc=1 fltr[]=ric|15|15'}) }}" class="mb-2 rounded rounded-3">
-        <div class="name mb-1">
-            {{ data.title }}
+    <a href="{{data.url}}">
+        <div class="item mb-4">
+            <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139, w=255,zc=1 fltr[]=ric|15|15'}) }}" class="mb-2 rounded rounded-3">
+            <div class="name mb-1">
+                {{ data.title }}
+            </div>
+            <p>{{ data.description }}</p>
         </div>
-        <p>Успей до конца года!</p>
-    </div></a>
+    </a>
 </div>

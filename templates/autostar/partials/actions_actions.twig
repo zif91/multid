@@ -1,4 +1,4 @@
-<div class="item">
-    <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=300,zc=1'}) }}" class="w-100">
-    <a href="#" class="d-block text-center py-3 px-lg-5 px-3">{{ data.title }}</a>
+<div class="item col-3 px-0">
+    <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=300'}) }}" class="w-100">
+    <a href="{{data.url}}" class="d-block text-center py-3 px-lg-5 px-3">{{ data.title }}</a>
 </div>

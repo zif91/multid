@@ -1,9 +1,11 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
+    {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+
     {% set DLCatalog = runSnippet('DocLister', {
         id: 'catalog',
         display: 18,
-        parents: 27,
+        parents: catalog_number,
         depth: 5,
         tvList:'car-price,old-car-price,configuration_id,gear,car_photos,run,engine_power,gear,year,image,body_type,car_color,engine_volume,fuel,drive',
         ownerTPL: '@T_FILE:partials/wrap',

@@ -55,3 +55,7 @@
 .item-page .bottom-block .btn-light:hover {
   border: 1px solid #0000ff;
 }
+
+.btn.btn-red {
+  background: #0000ff;
+}

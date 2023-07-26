@@ -1,8 +1,9 @@
-{% set catalog_number = baseSettings['id'] %}
+{% set site_start = modx.config['site_start'] %}
+
 {% set gifts = runSnippet('DocLister', {
     display: 3,
-    parents: catalog_number,
-    depth: 2,
+    parents: site_start,
+    depth: 3,
     addWhereList: 'c.template = (13)',
     tvList:'image,color',
     tpl:'@T_FILE:partials/actions_actions'

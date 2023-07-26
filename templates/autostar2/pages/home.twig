@@ -151,7 +151,7 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
 		</div>
 	</div>
 </div>
-<div class="index-catalog-block pb-4" >
+{#<div class="index-catalog-block pb-4" >
     <div class="row">
 {#        <div class="col-lg-3">#}
 {#            <nav>#}
@@ -167,11 +167,15 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
 {#                    <li class="mb-5"><a href="?f[19]=500000:1000000">Фургон</a></li>#}
 {#                </ul>#}
 {#            </nav>#}
-{#        </div>#}
+{#        </div>
         <div class="col-lg-9 catalog-products" id="catalog">
             {{DLCatalog |raw}}
         </div>
     </div>
+</div>#}
+<div class="index-catalog-block2 pb-4" id="catalog2">
+    <h2 class="mb-4">Автомобили в наличии</h2>
+    {{DLCatalog |raw}}
 </div>
 <div class="index-catalog-block2 pb-4" id="catalog2">
     <h2 class="mb-4">Последние поступления</h2>

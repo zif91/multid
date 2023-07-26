@@ -805,6 +805,7 @@ main {
   border-radius: 6px;
   background: #ffffff url('../img/select.svg') no-repeat right 16px top 50%;
   padding: 0 1rem!important;
+  margin: 0!important;
 }
 .catalog-page .filter .fields {
   width: 33%;

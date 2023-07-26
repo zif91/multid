@@ -7,7 +7,7 @@
 id: 'catalog',
 controller: 'catalog_filters',
 display: 3,
-parents: 27,
+parents: catalog_number,
 depth: 5,
 orderBy: 'menuindex',
 order: 'RAND()',
@@ -144,11 +144,11 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
 				<a href="?f[19]=1000000:2000000">до 2 000 000 ₽</a>
 			</div>
 		</div>
-		<div class="col-lg-3 col-md-4 col-sm-6">
+		{#<div class="col-lg-3 col-md-4 col-sm-6">
 			<div class="item mb-4 pl-5">
 				<a href="?f[19]=2000000:10000000">больше 2 000 000 ₽</a>
 			</div>
-		</div>
+		</div>#}
 	</div>
 </div>
 {#<div class="index-catalog-block pb-4" >

@@ -17,7 +17,7 @@ class filter_price_DL_filter extends tv_DL_filter
         $alias = $this->DocLister->TableAlias($this->tvName, $this->extTV->tvValuesTable(), $this->getTableAlias());
         $this->setTableAlias($alias);
         $exists = $this->DocLister->checkTableAlias($this->tvName, "site_tmplvars");
-        $this->field = 'ROUND(`' . $alias . '`.`value` * `' . $alias . '_currencies`.`value`)';
+$this->field = 'ROUND(CAST(`' . $alias . '`.`value` AS DECIMAL(10,2)) * CAST(`' . $alias . '_currencies`.`value` AS DECIMAL(10,2)))';
         if (!$exists) {
             if (!isset($this->modx->placeholders['tvprice_filter_doclister'])) {
                 $this->modx->placeholders['tvprice_filter_doclister'] = true;

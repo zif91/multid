@@ -2005,3 +2005,11 @@ font-size: 14px;
     display: none;
 }
   
+.flip {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0.4;
+}
+
+.flip:hover {
+    opacity: 1;
+}

@@ -72,9 +72,16 @@ $(".bottom-page-line").click(function() {
 // Функция для обновления отображения времени
 function updateCountdown(days, hours, minutes, seconds) {
     document.getElementById('day').value = days;
+    animateFlip('day');
+    
     document.getElementById('hour').value = hours;
+    animateFlip('hour');
+
     document.getElementById('min').value = minutes;
+    animateFlip('min');
+
     document.getElementById('sec').value = seconds;
+    animateFlip('sec');
 }
 
 // Функция для запуска обратного отсчета
@@ -113,6 +120,11 @@ function startCountdown() {
 
     updateTimer();
 }
-
+function animateFlip(id) {
+    var element = document.getElementById(id);
+    element.classList.remove('flip');
+    void element.offsetWidth; // Принудительное "reflow" браузера для сброса состояния анимации
+    element.classList.add('flip');
+}
 // Запуск обратного отсчета при загрузке страницы
 window.onload = startCountdown;

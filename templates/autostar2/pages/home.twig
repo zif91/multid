@@ -14,7 +14,7 @@ order: 'RAND()',
 tvSortType: 'SIGNED',
 tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
 ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard',
+tpl:'@T_FILE:partials/catalogcard2',
 noneTPL:'@CODE: <div class="container">
 	<div class="row">
 		<div class="col text-center">
@@ -34,7 +34,8 @@ TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
     filterDelimiter: '||',
     __filterPriceId: 14,
     __filterList: '18:dropdown;20:dropdown;42:dropdown;43:dropdown;9:dropdown;11:dropdown;10:dropdown;19:range;15:range;16:range;',
-    filterList: '18,20,42,19,9,11,10,43,15,16,',
+    __filterList: '18,20,42,19,9,11,10,43,15,16,',
+    filterList: '18,20,19',
     filterTpl: '@T_FILE:partials/filters/tpl',
     filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
     filterTplRange: '@T_FILE:partials/filters/tplRange',

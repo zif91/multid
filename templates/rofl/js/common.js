@@ -218,19 +218,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 $(function() {
-	var slider = $('#slider-range-max3');
-	const firstPayInput = $('#first-pay');
-	const termInput = $('#amounter2');
-	var carPriceInput = document.getElementById('car-price');
-	const carPrice = parseFloat(carPriceInput.textContent.replace(/[^\d\.]+/g, ''));
-	var maxfprice =  parseFloat(carPrice/100*90);
-	var maxfprice =  MyRound(maxfprice);
-	var fprice = parseFloat(carPrice/100*10);
-	var fprice = MyRound(fprice);
-	var sum30 = parseFloat(carPrice/100*30);
-	var sum30 = MyRound(sum30);
-	var sum50 = parseFloat(carPrice/2);
-	var sum50 = MyRound(sum50);
+    var slider = $('#slider-range-max3');
+    const firstPayInput = $('#first-pay');
+    const termInput = $('#amounter2');
+    var carPriceInput = document.getElementById('car-price');
+
+    // Проверка существования элементов на странице
+    if (!slider.length || !firstPayInput.length || !termInput.length || !carPriceInput) {
+        return;  // Выходим из функции, если одного из элементов нет
+    }
+
+    const carPrice = parseFloat(carPriceInput.textContent.replace(/[^\d\.]+/g, ''));
+    var maxfprice =  parseFloat(carPrice/100*90);
+    maxfprice =  MyRound(maxfprice);
+    var fprice = parseFloat(carPrice/100*10);
+    fprice = MyRound(fprice);
+    var sum30 = parseFloat(carPrice/100*30);
+    sum30 = MyRound(sum30);
+    var sum50 = parseFloat(carPrice/2);
+    sum50 = MyRound(sum50);
 	
 	
 	$('#slider-range-max3').slider({

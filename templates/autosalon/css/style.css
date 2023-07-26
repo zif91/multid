@@ -2006,14 +2006,12 @@ font-size: 14px;
 }
   
 .flip {
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0.4;
+    animation: flip 0.5s;
 }
 
-.flip:hover {
-    opacity: 1;
+@keyframes flip {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
 }
 
-#day, #hour, #min, #sec {
-    opacity: 1;
-}

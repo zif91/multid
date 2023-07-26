@@ -71,17 +71,15 @@ $(".bottom-page-line").click(function() {
 });
 // Функция для обновления отображения времени
 function updateCountdown(days, hours, minutes, seconds) {
-    document.getElementById('day').value = days;
-    animateFlip('day');
-    
-    document.getElementById('hour').value = hours;
-    animateFlip('hour');
-
-    document.getElementById('min').value = minutes;
-    animateFlip('min');
-
-    document.getElementById('sec').value = seconds;
-    animateFlip('sec');
+    var ids = ['day', 'hour', 'min', 'sec'];
+    var values = [days, hours, minutes, seconds];
+    for (var i = 0; i < ids.length; i++) {
+        var element = document.getElementById(ids[i]);
+        if (element.value != values[i]) {
+            animateFlip(ids[i]);
+        }
+        element.value = values[i];
+    }
 }
 
 // Функция для запуска обратного отсчета
@@ -120,14 +118,17 @@ function startCountdown() {
 
     updateTimer();
 }
+// Функция для обновления отображения времени
+
+
 function animateFlip(id) {
     var element = document.getElementById(id);
     element.classList.add('flip');
-
     setTimeout(function() {
         element.classList.remove('flip');
-    }, 500); // Снимаем класс через 500 мс (0.5 секунды)
+    }, 500);
 }
+
 
 // Запуск обратного отсчета при загрузке страницы
 window.onload = startCountdown;

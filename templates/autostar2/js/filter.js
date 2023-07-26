@@ -336,7 +336,7 @@ $(function() {
                 $('.price-range .range-min, .price-range .range-max').on('input', function() {
                     var slider = $(this).closest('.price-range').find('.filter-range-slider').data('ionRangeSlider');
                     var from = Number($(this).closest('.price-range').find('.range-min').prop("value"));
-                    var to = Number($(this).closest('.price-range').find('.range-max').prop("value"));
+                    var to = Number($(this).closest('.price-range').find('.range-max').prop("value"))
                     slider.update({
                         from: from,
                         to: to

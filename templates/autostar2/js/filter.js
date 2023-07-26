@@ -319,39 +319,10 @@ $(function() {
         values_separator: '|',
         selectedCars: [],
         init: function() {
-            let sliders = $('.filter-range-slider');
-            if (sliders.length) {
-                sliders.ionRangeSlider({
-                    skin: "round",
-                    grid: true,
-                    from_shadow: true,
-                    to_shadow: true,
-                    input_values_separator: Filter.range_separator,
-                    onFinish: Filter.build,
-                    onStart: Filter.updateInputs,
-                    onChange: Filter.updateInputs,
-                    prettify: my_prettify
-                });
 
-                $('.price-range .range-min, .price-range .range-max').on('input', function() {
-                    var slider = $(this).closest('.price-range').find('.filter-range-slider').data('ionRangeSlider');
-                    var from = Number($(this).closest('.price-range').find('.range-min').prop("value"));
-                    var to = Number($(this).closest('.price-range').find('.range-max').prop("value"))
-                    slider.update({
-                        from: from,
-                        to: to
-                    });
-                    Filter.build();
-                })
-            }
-
-            function my_prettify(num) {
-                if (num > 9999) {
-                    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-                } else {
-                    return num;
-                }
-            }
+            $('.price-range-input').on('input', function() {
+                Filter.build();
+            })
 
             $(document).on('click', '.extrafilter .filterbutton', function(e) {
                 e.preventDefault();
@@ -364,8 +335,8 @@ $(function() {
                 }
             });
 
-            let prevMark = ''; // variable to store previous value of Mark
-            let prevModel = ''; // variable to store previous value of Model
+            let prevMark = '';
+            let prevModel = '';
             $(document).on('change', '.choicesCar', function(e) {
                 e.preventDefault();
                 if ( $(this).prop('name') == 'f[42]' ) {
@@ -385,13 +356,7 @@ $(function() {
 
                 $('.choicesCar').prop('selectedIndex', 0);
 
-                $('.filter-range-slider').each(function() {
-                    var slider = $(this).data('ionRangeSlider');
-                    slider.update({
-                        from: slider.result.min,
-                        to: slider.result.max
-                    });
-                });
+                $('.price-range-input').val('');
 
                 Filter.build();
                 prevMark = '';
@@ -399,13 +364,6 @@ $(function() {
             });
         },
 
-        updateInputs: function(data) {
-            console.log(data)
-            from = data.from;
-            to = data.to;
-            $(data.input).closest('.price-range').find('.range-min').prop("value", from);
-            $(data.input).closest('.price-range').find('.range-max').prop("value", to);
-        },
         load: function(data) {
             $.ajax({
                 url: location.pathname,
@@ -417,7 +375,6 @@ $(function() {
                     data = $(data);
                     $('.catalog-products').replaceWith($('.catalog-products', data));
                     $('.pagination').replaceWith($('.pagination', data));
-                    //$('.filter-sorting .sorting').replaceWith($('.filter-sorting .sorting', data));
                     let dataFilter = $('.extrafilter [name]', data);
                     console.log(dataFilter)
                     for (let i = 0; i < dataFilter.length; i++) {
@@ -426,61 +383,35 @@ $(function() {
                         if (dataFilter[i].type === 'checkbox' || dataFilter[i].type === 'select-one') {
                             $el.replaceWith(dataFilter[i]);
                         } else {
-                            //console.log($el);
                             $('#loader').removeClass('show');
-                            if ($el.data('ionRangeSlider')) {
-                                $el.data('ionRangeSlider').update({
-                                    from: dataFilter[i].dataset.from,
-                                    to: dataFilter[i].dataset.to
-                                });
-                            }
-                            let c = $el.closest('[data-name]').find('[data-caption]');
-                            $('.filter-box-title', $el.closest('[data-name]')).html($('.filter-box-title', $(dataFilter[i]).closest('[data-name]')).html());
                         }
                     }
                     $('#loader').removeClass('show');
-
-
-
                 }
             });
             history.pushState(null, null, location.pathname + (data ? '?' + decodeURIComponent(data).replace(/\+/g, '%2B') : ''));
         },
         build: function() {
             let data = {};
-            let f43_selected = false; // flag for checking if f=43 is already selected
+            let f43_selected = false;
             $('.extrafilter [name]').each(function(i, el) {
                 let id = el.dataset.id;
                 if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
-                    if (el.dataset && el.dataset.inputType === 'range') {
-                        if (!data[id]) {
-                            data[id] = 'f[' + id + ']=';
-                        }
-                        if (el.value !== el.dataset.min + Filter.range_separator + el.dataset.max) {
-                            data[id] += el.value + Filter.values_separator;
-                        } else {
-                            data[id] += Filter.values_separator;
-                        }
-                    } else {
-                        if (!data[id]) {
-                            data[id] = 'f[' + id + ']=';
-                        }
-                        data[id] += el.value + Filter.values_separator;
+                    if (!data[id]) {
+                        data[id] = 'f[' + id + ']=';
                     }
+                    data[id] += el.value + Filter.values_separator;
 
-                    // check if f=43 is already selected
                     if (el.value === '43' && el.checked) {
                         f43_selected = true;
                     }
                 }
             });
 
-            // if f=43 is already selected and not currently checked, remove it from data
             if (Filter.selectedCars.includes('43') && !f43_selected) {
                 delete data['43'];
             }
 
-            // build query string
             data = Object.values(data).filter(function(el) {
                 [name, value] = el.split('=');
                 if (value === '' || value.replace(/\|/g, '') === '') {

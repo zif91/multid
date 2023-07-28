@@ -1,5 +1,5 @@
 {% extends './app.twig' %}
-{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+{% set catalog_number = baseSettings.catalog_number }) %}
 
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',

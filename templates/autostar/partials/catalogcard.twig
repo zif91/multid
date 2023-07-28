@@ -25,7 +25,7 @@ action:'caroldprice'}) %}
             {{ data['tv.modification'] }}
         </div>
         <p class="mb-2">С пробегом / {{ data['tv.year'] }} / {{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км / {{ data['tv.car_color'] }}</p>
-        <p class="mb-3">{{ data['tv.engine_volume'] }} {{ data['tv.gear'] }} ({{ data['tv.engine_power'] }} л.с.) {{ data['tv.equipment'] }}</p>
+        <p class="mb-3">{{ data['tv.engine_volume'] }} {{ data['tv.gear'] }} ({{ data['tv.engine_power'] }} л.с.) {{ data['tv.equipment'] }}</p> {{ data['parent'] }}
         <div class="status text-center mb-3">
             <span class="d-inline-block">В наличии</span>
         </div>

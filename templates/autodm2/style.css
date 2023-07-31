@@ -1353,6 +1353,17 @@ main {
   color: #646464;
 }
 
+.footer .foot-menu{
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.footer .li-foot{
+  text-align: center;
+}
+
 .copy-block {
   padding: 42px 0;
   background: #FBFBFB;
@@ -2592,6 +2603,15 @@ main {
     display: block;
   }
 
+  .footer .foot-menu{
+    width: 100%;
+    order: 0;
+  }
+
+  .footer .li-foot {
+    text-align: center;
+  }
+
   .index-first-block form .flex select {
     padding: 0 15px;
   }
@@ -2671,6 +2691,20 @@ main {
     justify-content: center;
     margin-top: 20px;
     font-size: 16px;
+  }
+
+  .footer .li-foot{
+    width: 70%;
+    margin-bottom: 10px;
+    text-align: start;
+  }
+
+  .footer .flex .left-block {
+    order: 1;
+    padding-top: 30px;
+    position: relative;
+    left: 60%;
+    bottom: 70px;
   }
 
   .index-first-block form .flex .prices .flex .line {
@@ -3523,6 +3557,29 @@ main {
     left: -100%;
   }
 
+  .footer .foot-menu{
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+
+  .footer .li-foot{
+    cursor: pointer;
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 10px;
+    border-bottom: 1px solid #D9D9D9;
+    margin: 7px;
+  }
+
+  .footer .flex .left-block {
+    order: 1;
+    padding-top: 30px;
+    position: relative;
+    left: 0%;
+    bottom:0px;
+  }
 }
 
 .catalog-block .list .slick-prev,

@@ -1,0 +1,29 @@
+<div class="credit-form-block mb-5 position-relative">
+    <h2 class="mb-2">Заявка на автокредит</h2>
+    <p class="mb-3">Оставьте заявку и мы перезвоним Вам!</p>
+    <form class="row">
+        <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+    {{ data['form.messages'] | raw }}
+        <div class="col-sm-6">
+            <input type="text" name="first_name" 
+                    value="{{ data.first_name }}" class=" {{ data['first_name.classname'] }} w-100 mb-3 px-3" placeholder="Ваше имя">
+        </div>
+        <div class="col-sm-6">
+            <input type="text" name="mobile_tel" 
+                        value="{{ data.mobile_tel }}" class="phone-imask {{ data['mobile_tel.classname'] }} w-100 mb-3 px-3" placeholder="+7 (___) ___-__-__">
+        </div>
+         
+        <div class="col-sm-6">
+            <button class="w-100">Заказать подбор</button>
+        </div>
+        <div class="col-sm-6">
+            <div class="bottom-text pt-sm-2 pt-3">
+                Нажимая на кнопку вы даете согласие на обработку <a href="/policy">персональных данных</a>
+            </div>
+        </div>
+    </form>
+    <div class="image position-absolute">
+        <img src="/templates/autostar2/img/woman.png">
+    </div>
+</div>            

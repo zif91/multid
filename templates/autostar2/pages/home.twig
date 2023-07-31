@@ -187,29 +187,11 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
         <button onclick="window.location.href = '{{ makeUrl(27) }}';">Посмотреть все машины в наличии</button>
     </div>
 </div>
-<div class="credit-form-block mb-5 position-relative">
-    <h2 class="mb-2">Заявка на автокредит</h2>
-    <p class="mb-3">Оставьте заявку и мы перезвоним Вам!</p>
-    <form class="row">
-        <div class="col-sm-6">
-            <input type="text" class="w-100 mb-3 px-3" placeholder="Ваше имя">
-        </div>
-        <div class="col-sm-6">
-            <input type="text" class="w-100 mb-3 px-3" placeholder="+7 (___) ___-__-__">
-        </div>
-        <div class="col-sm-6">
-            <button class="w-100" data-fancybox data-src="#popup3" >Заказать подбор</button>
-        </div>
-        <div class="col-sm-6">
-            <div class="bottom-text pt-sm-2 pt-3">
-                Нажимая на кнопку вы даете согласие на обработку <a href="#">персональных данных</a>
-            </div>
-        </div>
-    </form>
-    <div class="image position-absolute">
-        <img src="/templates/autostar2/img/woman.png">
-    </div>
-</div>
+{{ runSnippet('Form', {
+  formid: 'FormCredit',
+  path: '/templates/autostar/partials/forms/credit3/',
+  extension: 'twig'
+  }) | raw }}
 {% include '/partials/banks.twig' %}
 {% include '/partials/actions.twig' %}
 {% include('partials/contacts.twig') %}

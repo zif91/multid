@@ -78,7 +78,7 @@ TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
     display: 6,
     parents: catalog_number,
     depth: 5,
-    orderBy: 'menuindex asc',
+    orderBy: 'menuindex DESC',
     order: 'RAND()',
     tvSortType: 'SIGNED',
     tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
@@ -97,7 +97,6 @@ TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
     TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
     TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
     TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
-    tvSortType: 'UNSIGNED',
     api: 0
 })
 %}

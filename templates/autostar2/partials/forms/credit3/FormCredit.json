@@ -1,14 +1,11 @@
 {
   "rules": {
-    "name": {
+    "first_name": {
       "required": "Обязательно к заполнению"
     },
-    "phone": {
+    "mobile_tel": {
       "required": "Обязательно к заполнению"
     },
-    "agree": {
-      "required": "Обязательно к заполнению"
-    }
   },
   "subject": "Форма запроса кредита",
   "prepare": "prepareFormConfig",

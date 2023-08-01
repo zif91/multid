@@ -62,7 +62,7 @@ display: 1
                 <div class="col-6">
                     <div class="price-item mb-3">
                         В кредит:
-                        <div class="new my-1 red">30 000 ₽</div>
+                        <div class="new my-1 red">{{ ( data['tv.car-price'] / 80 )|number_format(0, '.', ' ') }} ₽</div>
                         ежемесячный платеж
                     </div>
                 </div>

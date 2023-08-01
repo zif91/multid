@@ -5,7 +5,7 @@
     },
     "mobile_tel": {
       "required": "Обязательно к заполнению"
-    },
+    }
   },
   "subject": "Форма запроса кредита",
   "prepare": "prepareFormConfig",

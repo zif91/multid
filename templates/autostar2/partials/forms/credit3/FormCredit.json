@@ -10,5 +10,4 @@
   "subject": "Форма запроса кредита",
   "prepare": "prepareFormConfig",
   "prepareAfterProcess": "CatchFormResult",
-  "formControls": "agree"
 }

@@ -2,7 +2,7 @@
     <h2 class="mb-2">Заявка на автокредит</h2>
     <p class="mb-3">Оставьте заявку и мы перезвоним Вам!</p>
     <form class="row">
-        <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
     <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
     {{ data['form.messages'] | raw }}
         <div class="col-sm-6">

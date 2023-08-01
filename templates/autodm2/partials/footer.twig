@@ -1,3 +1,9 @@
+    {% set footermenu = runSnippet('DLMenu', {
+    parents: baseSettings["id"],
+    tvList: 'image',
+    rowTpl: '@CODE:<li class="li-foot col-md-4 col-sm-6 col-12"><a href="[+url+]">[+pagetitle+]</a></li>',
+    outerTpl: '@CODE:<ul class="foot-menu row d-flex justify-content-between col-xl-8 col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        [+wrap+]</ul>'}) %}
     <footer class="footer">
         <div class="container-fluid flex">
             <div class="left-block">
@@ -24,27 +30,30 @@
 {{  runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'phone'}) | raw}}                <a href="/policy" class="rules">Политика конфиденциальности</a>
                 <button type="button"data-toggle="modal" data-target="#oneclick">Заказать звонок</button>
             </div>
-            <nav>
+            {# <nav>
                 <p>Каталог</p>
                 <ul>
                     <li><a href="/avtomobili-s-probegom">Автомобили с пробегом</a></li>
 
                 </ul>
-            </nav>
-            <nav>
+            </nav> #}
+            {# <nav>
                 <p>Акции</p>
                 <ul>
                     <li><a href="/akcii2">Спецпредложения</a></li>
 
                 </ul>
-            </nav>
+            </nav> #}
 
-            <nav>
+            {# <nav>
                 <p>Контакты</p>
-                {# <ul>
+                <ul>
                     <li><a href="#adres">Мы на карте</a></li>
-                </ul> #}
-            </nav>
+                </ul>
+            </nav> #}
+
+            {{ footermenu|raw}}
+            
         </div>
     </footer>
      <div class="copy-block">

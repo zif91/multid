@@ -33,7 +33,7 @@ parents: catalog_number, depth: 0, tpl:'@CODE:<option style="z-index:999" value=
                         <div class="col-sm-4 col-6">
                             <div class="block mb-4">
                                 <div><img src="/templates/autostar2/img/credit1.svg"></div>
-                                <div>Первый взнос от 0%</div>
+                                <div>Первый взнос от 0 руб.</div>
                             </div>
                         </div>
                         <div class="col-sm-4 col-6">
@@ -183,7 +183,7 @@ parents: catalog_number, depth: 0, tpl:'@CODE:<option style="z-index:999" value=
                 </div>
             </div>
         </div>
-        <div class="credit-form-block mb-5 position-relative">
+        {#<div class="credit-form-block mb-5 position-relative">
             <h2 class="mb-2">Заявка на автокредит</h2>
             <p class="mb-3">Оставьте заявку и мы перезвоним Вам!</p>
             <form class="row">
@@ -205,7 +205,12 @@ parents: catalog_number, depth: 0, tpl:'@CODE:<option style="z-index:999" value=
             <div class="image position-absolute">
                 <img src="/templates/autostar2/img/woman.png">
             </div>
-        </div>
+        </div>#}
+        {{ runSnippet('Form', {
+  formid: 'FormCredit',
+  path: '/templates/autostar2/partials/forms/credit3/',
+  extension: 'twig'
+  }) | raw }}
         <div class="credit-advantages-block pb-5">
             <h2 class="mb-4">Выгодные автокредиты</h2>
             <div class="row">

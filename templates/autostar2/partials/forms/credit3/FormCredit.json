@@ -9,5 +9,5 @@
   },
   "subject": "Форма запроса кредита",
   "prepare": "prepareFormConfig",
-  "prepareAfterProcess": "CatchFormResult",
+  "prepareAfterProcess": "CatchFormResult"
 }

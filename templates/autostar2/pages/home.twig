@@ -187,11 +187,11 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
         <button onclick="window.location.href = '{{ makeUrl(27) }}';">Посмотреть все машины в наличии</button>
     </div>
 </div>
-{{ runSnippet('Form', {
+{#{ runSnippet('Form', {
   formid: 'FormCredit',
   path: '/templates/autostar2/partials/forms/credit3/',
   extension: 'twig'
-  }) | raw }}
+  }) | raw }#}
 {% include '/partials/banks.twig' %}
 {% include '/partials/actions.twig' %}
 {% include('partials/contacts.twig') %}

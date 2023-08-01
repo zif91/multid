@@ -392,47 +392,61 @@ $(function() {
             history.pushState(null, null, location.pathname + (data ? '?' + decodeURIComponent(data).replace(/\+/g, '%2B') : ''));
         },
         build: function() {
-            let data = {};
-            let f43_selected = false;
-            $('.extrafilter [name]').each(function(i, el) {
-                let id = el.dataset.id;
-                if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
-                    // Обрабатываем поле ввода диапазона цен отдельно
-                    if ($(el).hasClass('price-range-input')) {
-                        let minPrice = $('#min-price').val(); // замените на реальный id элемента
-                        let maxPrice = $('#max-price').val(); // замените на реальный id элемента
-                        if (minPrice || maxPrice) {
-                            data[id] = 'f[' + id + ']=' + minPrice + Filter.range_separator + maxPrice;
-                        }
-                    } else {
+    let data = {};
+    let f43_selected = false;
+    $('.extrafilter [name]').each(function(i, el) {
+        let id = el.dataset.id;
+        if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
+            // Обрабатываем поля ввода диапазона цен отдельно
+            if ($(el).hasClass('price-range-input')) {
+                if ($(el).hasClass('range-min')) {
+                    let minPrice = $(el).val();
+                    if (minPrice) {
                         if (!data[id]) {
                             data[id] = 'f[' + id + ']=';
                         }
-                        data[id] += el.value + Filter.values_separator;
-
-                        if (el.value === '43' && el.checked) {
-                            f43_selected = true;
-                        }
+                        data[id] += minPrice + Filter.range_separator;
                     }
                 }
-            });
-
-            if (Filter.selectedCars.includes('43') && !f43_selected) {
-                delete data['43'];
-            }
-
-            data = Object.values(data).filter(function(el) {
-                [name, value] = el.split('=');
-                if (value === '' || value.replace(/\|/g, '') === '') {
-                    return false;
+                if ($(el).hasClass('range-max')) {
+                    let maxPrice = $(el).val();
+                    if (maxPrice) {
+                        if (!data[id]) {
+                            data[id] = 'f[' + id + ']=';
+                        }
+                        data[id] += maxPrice;
+                    }
                 }
-                return el;
-            }).map(function(el) {
-                return el.slice(0, -1);
-            }).join('&');
+            } else {
+                if (!data[id]) {
+                    data[id] = 'f[' + id + ']=';
+                }
+                data[id] += el.value + Filter.values_separator;
 
-            Filter.load(data);
+                if (el.value === '43' && el.checked) {
+                    f43_selected = true;
+                }
+            }
         }
+    });
+
+    if (Filter.selectedCars.includes('43') && !f43_selected) {
+        delete data['43'];
+    }
+
+    data = Object.values(data).filter(function(el) {
+        [name, value] = el.split('=');
+        if (value === '' || value.replace(/\|/g, '') === '') {
+            return false;
+        }
+        return el;
+    }).map(function(el) {
+        return el.slice(0, -1);
+    }).join('&');
+
+    Filter.load(data);
+}
+
 
     };
     Filter.init();

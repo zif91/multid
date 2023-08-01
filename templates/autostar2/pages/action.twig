@@ -1,5 +1,5 @@
 {% extends 'app.twig' %}
-{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+{#% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
 {% set DLCatalog = runSnippet('DocLister', {
     id: 'catalog',
@@ -28,7 +28,7 @@
     tvSortType: 'UNSIGNED',
     api: 0
 })
-%}
+%#}
 {% block MAIN %}
 
     <main class="main container">
@@ -42,7 +42,7 @@
             <div class="image mb-5 position-relative" style="background: url({{resource.image}}) center/cover;">
                 <div class="text position-absolute">
                     <div class="name mb-sm-2">
-                        {{resource.pagtitle}}
+                        {{resource.pagetitle}}
                     </div>
                     
                     <p>{{resource.description}}</p>

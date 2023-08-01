@@ -406,7 +406,9 @@ tpl:'@T_CODE: <div class="gift__item">
                         <table class="w-100 mb-4">
                             <tr>
                                 <td>Кредитная ставка:</td>
-                                <td>4.9 %</td>
+                                <td>{% if baseSettings.credit_rate is empty %} 4.9{% else %}
+                                    {{ baseSettings.credit_rate }}
+                                {% endif %}%</td>
                             </tr>
                             <tr>
                                 <td>Программа:</td>

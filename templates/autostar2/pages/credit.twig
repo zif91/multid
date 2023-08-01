@@ -50,7 +50,8 @@ parents: catalog_number, depth: 0, tpl:'@CODE:<option style="z-index:999" value=
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                {#<div class="col-lg-5">
+
                     <form class="py-4 px-3 mb-4">
                         <div class="name mb-3">
                             Форма заявки
@@ -79,7 +80,13 @@ parents: catalog_number, depth: 0, tpl:'@CODE:<option style="z-index:999" value=
                             Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#">персональных данных</a>
                         </div>
                     </form>
-                </div>
+                </div>#}<div class="row d-flex col-xl-5 col-lg-4 ml-0 pr-0 pl-0">
+      {{ runSnippet('Form', {
+      formid: 'FormCredit',
+      path: '/templates/rofl/partials/forms/credit3/',
+      extension: 'twig'
+      }) | raw }}
+    </div>
             </div>
             <p class="mb-3">После звонка кредитного эксперта приезжайте в автосалон и оформляйте автокредит прямо в салоне без необходимости обращения в отделение банка-партнера. <br/>Годовая ставка автокредита от 4,9% и зависит от конкретного банка, суммы займа и кредитной программы. Минимальный срок погашения от 61 дня, максимальный — 84 месяца. При этом любые дополнительные комисси автосалоном не взимаются.</p>
         </div>
@@ -145,7 +152,11 @@ parents: catalog_number, depth: 0, tpl:'@CODE:<option style="z-index:999" value=
                         <table class="w-100 mb-4">
                             <tr>
                                 <td>Кредитная ставка:</td>
-                                <td>4.9 %</td>
+                                <td>{% if baseSettings.credit_rate is empty %}
+                4.9
+                {% else %}
+                    {{ baseSettings.credit_rate }}
+                {% endif %}%</td>
                             </tr>
                             <tr>
                                 <td>Программа:</td>
@@ -251,7 +262,7 @@ parents: catalog_number, depth: 0, tpl:'@CODE:<option style="z-index:999" value=
                 <div class="col-lg-4 col-sm-6">
                     <div class="item mb-4 position-relative">
                         <div class="text">
-                            Первоначальный взнос по кредиту <span>от 0%</span>
+                            Первоначальный взнос по кредиту <span>от 0 руб.</span>
                         </div>
                     </div>
                 </div>
@@ -264,18 +275,7 @@ parents: catalog_number, depth: 0, tpl:'@CODE:<option style="z-index:999" value=
                 </div>
             </div>
         </div>
-        <div class="partners-block mb-5">
-            <h2 class="mb-4">Банки-партнёры</h2>
-            <div class="list">
-                <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
-                <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
-                <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
-                <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
-                <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
-                <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
-                <div class="item"><img src="/templates/autostar2/img/partner.png"></div>
-            </div>
-        </div>
+        {% include('partials/banks.twig') %}
         {% include('partials/contacts.twig') %}
     </main>
 

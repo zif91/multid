@@ -402,7 +402,7 @@ $(function() {
                 history.pushState(null, null, newUrl);
             }
         },
-        build: function() {
+build: function() {
     let data = {};
     let tempData = {};
     let f43_selected = false;
@@ -440,14 +440,12 @@ $(function() {
     });
 
     // Merge tempData into data
-    // Merge tempData into data
-Object.keys(tempData).forEach(function(key) {
-    if (tempData[key].endsWith(Filter.range_separator) && !$('.price-range-input.range-max').val()) {
-        tempData[key] = tempData[key].slice(0, -1);  // Remove trailing separator if no max price is set
-    }
-    data[key] = tempData[key];
-});
-
+    Object.keys(tempData).forEach(function(key) {
+        if (tempData[key].endsWith(Filter.range_separator) && !$('.price-range-input.range-max').val()) {
+            tempData[key] = tempData[key].slice(0, -1);  // Remove trailing separator if no max price is set
+        }
+        data[key] = tempData[key];
+    });
 
     if (Filter.selectedCars.includes('43') && !f43_selected) {
         delete data['43'];
@@ -465,6 +463,7 @@ Object.keys(tempData).forEach(function(key) {
 
     Filter.load(data);
 }
+
 
 
 

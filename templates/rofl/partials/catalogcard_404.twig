@@ -24,9 +24,9 @@
                 <div class="name mb-1">
                     {{ data['title'] }} {#<span class="text-light bg-danger p-1 align-middle"></span>#}
                 </div>
-                <div class="age mb-1">
-                    {{ data['tv.modification'] }}
-                </div>
+                {#<div class="age mb-1">
+                Поколение: {{ data['tv.modification'] }}
+            </div>#}
                 <span class="special d-inline-block mb-2 py-1 px-2">Спецпредложение</span>
                 <div class="about mb-2">
                     {{ data['tv.body_type'] }}, {{ data['tv.gear'] }},  {{ data['tv.fuel'] }}, {{ data['tv.engine_power'] }} л. с.,{{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км, {{ data['tv.equipment'] }}

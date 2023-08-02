@@ -403,63 +403,60 @@ $(function() {
             }
         },
         build: function() {
-    let data = {};
-    let f43_selected = false;
-    $(this.el).find('[name]').each(function(i, el) {
-        let id = el.dataset.id;
-        if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
-            // Обрабатываем поля ввода диапазона цен отдельно
-            if ($(el).hasClass('price-range-input')) {
-                if ($(el).hasClass('range-min')) {
-                    let minPrice = $(el).val();
-                    if (minPrice) {
+            let data = {};
+            let f43_selected = false;
+            $(this.el).find('[name]').each(function(i, el) {
+                let id = el.dataset.id;
+                if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
+                    // Обрабатываем поля ввода диапазона цен отдельно
+                    if ($(el).hasClass('price-range-input')) {
+                        let price = '';
+                        if ($(el).hasClass('range-min')) {
+                            let minPrice = $(el).val();
+                            if (minPrice) {
+                                price += minPrice;
+                            }
+                        }
+                        if ($(el).hasClass('range-max')) {
+                            let maxPrice = $(el).val();
+                            if (maxPrice) {
+                                price += Filter.range_separator + maxPrice;
+                            }
+                        }
+                        if (price) {
+                            data[id] = 'f[' + id + ']=' + price;
+                        }
+                    } else {
                         if (!data[id]) {
                             data[id] = 'f[' + id + ']=';
                         }
-                        data[id] += minPrice + Filter.range_separator;
-                    }
-                }
-                if ($(el).hasClass('range-max')) {
-                    let maxPrice = $(el).val();
-                    if (maxPrice) {
-                        if (!data[id]) {
-                            data[id] = 'f[' + id + ']=';
-                        }
-                        data[id] += maxPrice;
-                    }
-                }
-            } else {
-                if (!data[id]) {
-                    data[id] = 'f[' + id + ']=';
-                }
-                data[id] += el.value + Filter.values_separator;
+                        data[id] += el.value + Filter.values_separator;
 
-                if (el.value === '43' && el.checked) {
-                    f43_selected = true;
+                        if (el.value === '43' && el.checked) {
+                            f43_selected = true;
+                        }
+                    }
                 }
+            });
+
+            if (Filter.selectedCars.includes('43') && !f43_selected) {
+                delete data['43'];
             }
+
+            data = Object.values(data).filter(function(el) {
+                [name, value] = el.split('=');
+                if (value === '' || value.replace(/\|/g, '') === '') {
+                    return false;
+                }
+                return el;
+            }).map(function(el) {
+                return el.slice(0, -1);
+            }).join('&');
+
+            Filter.load(data);
         }
-    });
-
-    if (Filter.selectedCars.includes('43') && !f43_selected) {
-        delete data['43'];
-    }
-
-    data = Object.values(data).filter(function(el) {
-        [name, value] = el.split('=');
-        if (value === '' || value.replace(/\|/g, '') === '') {
-            return false;
-        }
-        return el;
-    }).map(function(el) {
-        return el.slice(0, -1);
-    }).join('&');
-
-    Filter.load(data);
-}
 
 
     };
     Filter.init();
 });
-

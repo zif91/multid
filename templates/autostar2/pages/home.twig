@@ -4,7 +4,7 @@
 
 {#% cache 'main' ~ resource.id %#}
 {% set DLCatalog = runSnippet('DocLister', {
-id: 'catalog',
+id: 'catalog-products',
 controller: 'catalog_filters',
 display: 3,
 parents: catalog_number,
@@ -172,7 +172,7 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
         </div>
     </div>
 </div>#}
-<div class="index-catalog-block2 pb-4" id="catalog">
+<div class="index-catalog-block2 pb-4" id="catalog-products">
     <h2 class="mb-4">Автомобили в наличии</h2>
     {{DLCatalog |raw}}
 </div>
@@ -192,7 +192,6 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
   path: '/templates/autostar2/partials/forms/credit3/',
   extension: 'twig'
   }) | raw }}
-
 
 {% include '/partials/banks.twig' %}
 {% include '/partials/actions.twig' %}

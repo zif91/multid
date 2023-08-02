@@ -216,7 +216,7 @@
 .sn {
   font-style: normal;
 }
-.popup {
+.popup { /*
   position: fixed;
   width: 120%;
   height: 100%;
@@ -225,7 +225,7 @@
   overflow-y: scroll;
   background: rgba(1, 1, 1, 0.7);
   z-index: 11;
-  display: none;
+  display: none; */
 }
 .b0 {
   border: 0;

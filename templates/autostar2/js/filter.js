@@ -457,9 +457,14 @@ build: function() {
             return false;
         }
         return el;
-    }).map(function(el) {
+    }).map(function(el, i, arr) {
+    if (i !== arr.length - 1) {
         return el.slice(0, -1);
-    }).join('&');
+    } else {
+        return el;
+    }
+}).join('&');
+
 
     Filter.load(data);
 }

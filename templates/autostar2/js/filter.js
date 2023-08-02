@@ -403,58 +403,67 @@ $(function() {
             }
         },
         build: function() {
-            let data = {};
-            let f43_selected = false;
-            $(this.el).find('[name]').each(function(i, el) {
-                let id = el.dataset.id;
-                if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
-                    // Обрабатываем поля ввода диапазона цен отдельно
-                    if ($(el).hasClass('price-range-input')) {
-                        let price = '';
-                        if ($(el).hasClass('range-min')) {
-                            let minPrice = $(el).val();
-                            if (minPrice) {
-                                price += minPrice;
-                            }
-                        }
-                        if ($(el).hasClass('range-max')) {
-                            let maxPrice = $(el).val();
-                            if (maxPrice) {
-                                price += Filter.range_separator + maxPrice;
-                            }
-                        }
-                        if (price) {
-                            data[id] = 'f[' + id + ']=' + price;
-                        }
-                    } else {
-                        if (!data[id]) {
-                            data[id] = 'f[' + id + ']=';
-                        }
-                        data[id] += el.value + Filter.values_separator;
-
-                        if (el.value === '43' && el.checked) {
-                            f43_selected = true;
-                        }
+    let data = {};
+    let tempData = {};
+    let f43_selected = false;
+    $('.extrafilter [name]').each(function(i, el) {
+        let id = el.dataset.id;
+        if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
+            // Обрабатываем поля ввода диапазона цен отдельно
+            if ($(el).hasClass('price-range-input')) {
+                if (!tempData[id]) {
+                    tempData[id] = 'f[' + id + ']=';
+                }
+                if ($(el).hasClass('range-min')) {
+                    let minPrice = $(el).val();
+                    if (minPrice) {
+                        tempData[id] += minPrice;
                     }
                 }
-            });
-
-            if (Filter.selectedCars.includes('43') && !f43_selected) {
-                delete data['43'];
-            }
-
-            data = Object.values(data).filter(function(el) {
-                [name, value] = el.split('=');
-                if (value === '' || value.replace(/\|/g, '') === '') {
-                    return false;
+                if ($(el).hasClass('range-max')) {
+                    let maxPrice = $(el).val();
+                    if (maxPrice) {
+                        tempData[id] += Filter.range_separator + maxPrice;
+                    }
                 }
-                return el;
-            }).map(function(el) {
-                return el.slice(0, -1);
-            }).join('&');
+            } else {
+                if (!data[id]) {
+                    data[id] = 'f[' + id + ']=';
+                }
+                data[id] += el.value + Filter.values_separator;
 
-            Filter.load(data);
+                if (el.value === '43' && el.checked) {
+                    f43_selected = true;
+                }
+            }
         }
+    });
+
+    // Merge tempData into data
+    Object.keys(tempData).forEach(function(key) {
+        if (tempData[key].endsWith(Filter.range_separator)) {
+            tempData[key] = tempData[key].slice(0, -1);  // Remove trailing separator if no max price is set
+        }
+        data[key] = tempData[key];
+    });
+
+    if (Filter.selectedCars.includes('43') && !f43_selected) {
+        delete data['43'];
+    }
+
+    data = Object.values(data).filter(function(el) {
+        [name, value] = el.split('=');
+        if (value === '' || value.replace(/\|/g, '') === '') {
+            return false;
+        }
+        return el;
+    }).map(function(el) {
+        return el.slice(0, -1);
+    }).join('&');
+
+    Filter.load(data);
+}
+
 
 
     };

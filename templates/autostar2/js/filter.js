@@ -320,11 +320,11 @@ $(function() {
         selectedCars: [],
         init: function() {
 
-            $('.price-range-input').on('input', function() {
+            $(this.el).on('input', '.price-range-input', function() {
                 Filter.build();
             })
 
-            $(document).on('click', '.extrafilter .filterbutton', function(e) {
+            $(this.el).on('click', '.filterbutton', function(e) {
                 e.preventDefault();
                 let elem = $('.catalog-products');
                 if (elem.length) {
@@ -337,7 +337,7 @@ $(function() {
 
             let prevMark = '';
             let prevModel = '';
-            $(document).on('change', '.choicesCar', function(e) {
+            $(this.el).on('change', '.choicesCar', function(e) {
                 e.preventDefault();
                 if ($(this).prop('name') == 'f[42]') {
                     $('[name="f[43]"]').val('');
@@ -351,7 +351,7 @@ $(function() {
                 }
             });
 
-            $(document).on('click', '.Button--reset', function(e) {
+            $(this.el).on('click', '.Button--reset', function(e) {
                 e.preventDefault();
 
                 $('.choicesCar').prop('selectedIndex', 0);
@@ -373,10 +373,15 @@ $(function() {
                 },
                 success: function(data) {
                     data = $(data);
-                    $('.catalog-products').replaceWith($('.catalog-products', data));
-                    $('.pagination').replaceWith($('.pagination', data));
+                    let catalog = $('.catalog-products', data);
+                    let pagination = $('.pagination', data);
+                    if (catalog.length > 0) {
+                        $('.catalog-products').replaceWith(catalog);
+                    }
+                    if (pagination.length > 0) {
+                        $('.pagination').replaceWith(pagination);
+                    }
                     let dataFilter = $('.extrafilter [name]', data);
-                    console.log(dataFilter)
                     for (let i = 0; i < dataFilter.length; i++) {
                         if (!dataFilter[i].id) continue;
                         let $el = $('#' + dataFilter[i].id);
@@ -387,14 +392,20 @@ $(function() {
                         }
                     }
                     $('#loader').removeClass('show');
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error(textStatus, errorThrown);
                 }
             });
-            history.pushState(null, null, location.pathname + (data ? '?' + decodeURIComponent(data).replace(/\+/g, '%2B') : ''));
+            let newUrl = location.pathname + (data ? '?' + decodeURIComponent(data).replace(/\+/g, '%2B') : '');
+            if (newUrl != window.location.href) {
+                history.pushState(null, null, newUrl);
+            }
         },
         build: function() {
     let data = {};
     let f43_selected = false;
-    $('.extrafilter [name]').each(function(i, el) {
+    $(this.el).find('[name]').each(function(i, el) {
         let id = el.dataset.id;
         if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
             // Обрабатываем поля ввода диапазона цен отдельно
@@ -451,3 +462,4 @@ $(function() {
     };
     Filter.init();
 });
+

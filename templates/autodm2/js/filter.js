@@ -387,12 +387,13 @@ function my_prettify(num) {
 },
 
 		updateInputs: function(data) {
-			console.log(data)
-			from = data.from;
-			to = data.to;
-			$(data.input).closest('.price-range').find('.range-min').prop("value", from);
-			$(data.input).closest('.price-range').find('.range-max').prop("value", to);
-		},
+	console.log(data)
+	from = data.from;
+	to = data.to;
+	$(data.input).closest('.price-range-group').find('.range-min').prop("value", from);
+	$(data.input).closest('.price-range-group').find('.range-max').prop("value", to);
+},
+
 		load: function(data) {
 			$.ajax({
 				url: location.pathname,

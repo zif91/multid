@@ -46,6 +46,8 @@ $(function() {
 					slider.update({
 						from: slider.result.min,
 						to: slider.result.max
+						grid: true,
+						grid_num: 10,
 					});
 				});
 

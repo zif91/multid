@@ -1,10 +1,10 @@
-{% set catalog_number2 = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+{#% set catalog_number2 = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %#}
 
 
 {% set DLCatalogno = runSnippet('DocLister', {
 id: 'catalog',
 display: 6,
-parents: catalog_number2,
+parents: 27,
 depth: 5,
 tvList:'car-price,car_photos,run,engine_power,gear,year,image',
 ownerTPL: '@T_FILE:partials/wrap',

@@ -13,6 +13,7 @@ $(function() {
 			if (sliders.length) {
 				sliders.ionRangeSlider({
 					grid: true,
+					grid_num: 10,
 					from_shadow: true,
 					to_shadow: true,
 					input_values_separator: Filter.range_separator,

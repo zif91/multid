@@ -255,44 +255,42 @@ $(function() {
     firstPaySlider.slider('option', 'max', newMaxValue);
   }
 
-  function updatePayment() {
-    const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
-    const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
-    const term = parseFloat(termInput.val()) || 0;
-    const programValue = select.val();
-    let coefficient = 1.24;
+function updatePayment() {
+  const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
+  const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+  const term = parseFloat(termInput.val()) || 0;
+  const programValue = select.val();  // получаем актуальное значение
+  let coefficient = 1.24;
 
-    switch (programValue) {
+  switch (programValue) {
     case "1,6":
-        coefficient = 1 + (16 / 100);
-        break;
+      coefficient = 1 + (16 / 100);
+      break;
     case "9,9":
-        coefficient = 1.24;
-        break;
-    // Добавить обработку для остальных программ
+      coefficient = 1.24;
+      break;
     default:
-        coefficient = (100 + parseFloat(programValue.replace(",", "."))) / 100;
-        break;
-}
-
-
-    const payment = (amount - firstPay) / term * coefficient;
-    paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
-    $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' р.');
-    $('#percent').text(programValue + ' %');
-    $('#summ').text(amount.toLocaleString('ru-RU') + ' р.');
-    $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
-    $('#paymentSpan2').text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
-
-    const selectedOption = select.find('option:selected');
-    const programNameText = selectedOption.text().split('(')[0].trim();
-    if (programNameText === '') {
-      programName.text('Не выбрана программа кредитования');
-    } else {
-      programName.text(programNameText);
-    }
-    console.log(programNameText);
+      coefficient = (100 + parseFloat(programValue.replace(",", "."))) / 100;
+      break;
   }
+
+  const payment = (amount - firstPay) / term * coefficient;
+  paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+  $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' р.');
+  $('#percent').text(programValue + ' %'); // здесь выводим значение programValue
+  $('#summ').text(amount.toLocaleString('ru-RU') + ' р.');
+  $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
+  $('#paymentSpan2').text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+
+  const selectedOption = select.find('option:selected');
+  const programNameText = selectedOption.text().split('(')[0].trim();
+  if (programNameText === '') {
+    programName.text('Не выбрана программа кредитования');
+  } else {
+    programName.text(programNameText);
+  }
+  console.log(programNameText);
+}
 
   updatePayment();
 

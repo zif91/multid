@@ -1,4 +1,3 @@
-
 {% set site_start = modx.config['site_start'] %}
 
 {% set gifts = runSnippet('DocLister', {
@@ -10,22 +9,21 @@
     tpl:'@T_FILE:partials/actions_actions'
 })
 %}
-<div class="index-actions-block pb-5">
-    <div class="name mb-5">
-        Акции
-    </div>
-    <div class="list pb-4 row">
-        {% if gifts is empty %}
+{#<div class="index-actions-block pb-5">#}
+{#    <div class="name mb-5">#}
+{#        Акции#}
+{#    </div>#}
+{#    <div class="list pb-4">#}
+{#        {% if gifts is empty %}#}
 
-        {% else %}
-            {{gifts | raw}}
-        {% endif %}
-    </div>
-    <div class="bottom-link text-center">
-       {# <a data-fancybox="popup3" data-src="#popup3" href="javascript:;">Узнать подробнее<span></span></a>#}
-
-    </div>
-</div>
+{#        {% else %}#}
+{#            {{gifts | raw}}#}
+{#        {% endif %}#}
+{#    </div>#}
+{#    <div class="bottom-link text-center">#}
+{#        <a data-fancybox="popup3" data-src="#popup3" href="javascript:;">Узнать подробнее<span></span></a>#}
+{#    </div>#}
+{#</div>#}
 {#% set gifts = runSnippet('DocLister', {
 display: 3,
 parents: 24,
@@ -40,3 +38,16 @@ tpl:'@T_CODE:
 </div>'
 })
 %#}
+
+{#New#}
+
+    <div class="actions-page pb-5">
+        <h1 class="mb-5">Акции</h1>
+        <div class="row">
+            {% if gifts is empty %}
+
+            {% else %}
+                {{gifts | raw}}
+            {% endif %}
+        </div>
+    </div>

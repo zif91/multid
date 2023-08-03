@@ -32,12 +32,12 @@
     <link rel="mask-icon" href="static/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#5bbad5">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/templates/autostar/css/style.css?123">
-    <link rel="stylesheet" href="/templates/autostar/css/slick.css">
+    <link rel="stylesheet" href="/templates/autostar2/css/style.css?123">
+    <link rel="stylesheet" href="/templates/autostar2/css/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/templates/autostar/css/{{baseSettings.color_css}}">      
-        <link rel="stylesheet" href="/templates/autostar/css/filter.css">      
+
+        <link rel="stylesheet" href="/templates/autostar2/css/filter.css">
     {{baseSettings.scripts_head | raw}}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
 
@@ -48,30 +48,31 @@
 {% if baseSettings.site_id is not empty %}
 
 {% endif %}
-  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
-<div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
+  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    
+  <div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
               <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
+
         {% cache 'header' ~ cacheKey %}
             {% include('partials/header.twig') %}
         {% endcache %}
-        
+
         {{baseSettings.scripts_body | raw}}
         <main class="main container">
-            {% block MAIN %}{% endblock %} 
+            {% block MAIN %}{% endblock %}
             {% include('partials/scripts.twig') %}
         </main>
-        {% cache 'footer' ~ cacheKey %} 
+        {% cache 'footer' ~ cacheKey %}
             {% include('partials/footer.twig') %}
-            {% include('partials/popup.twig') %} 
+            {% include('partials/popup.twig') %}
         {% endcache %}
-        
-         
-        
 
-        
+
+
+
+
     {% block SCRIPTS %}{% endblock %}
 
-   <div id="loader"></div> 
+   <div id="loader"></div>
 </body>
 {% set stats = runSnippet('helpers', {action:'stats'}) | json %}
 <!-- Memory: {{ stats.phpMemory }}, MySQL: {{ stats.queryTime }}, {{ stats.queries }} request(s), PHP: {{ stats.phpTime }}, total: {{ stats.totalTime }}, document retrieved from {{ stats.source }}, ID: {{ resource.id }} -->

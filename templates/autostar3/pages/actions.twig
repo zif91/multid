@@ -1,0 +1,32 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{% include 'partials/actions.twig' %}
+{% set catalog_number = baseSettings['id'] %}
+
+<div class="catalog-page pb-5">
+	<h1 class="h1 mb-4">Выгодные предложения</h1>
+	<div class="row">
+		{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 4,
+parents: catalog_number,
+depth: 2,
+tvList:'car-price,run,engine_power,gear,year,image,body_type,car_color,engine_volume,fuel,drive,car_photos',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+})
+%}
+			{{DLCatalog |raw}}
+
+
+	</div>
+	<div class="pages text-center">
+		<ul class="d-inline-block">
+			{#{ plh['catalog.pages'] | raw }#}
+		</ul>
+	</div>
+</div>
+<div class="container py-5 mb-5 d-none d-sm-block">
+	{{resource.content |raw }}
+</div>
+{% endblock %}

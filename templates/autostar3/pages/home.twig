@@ -1,0 +1,147 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+	{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+
+{#% cache 'main' ~ resource.id %#}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 18,
+parents: catalog_number,
+depth: 5,
+orderBy: 'menuindex',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+paginate:'pages',
+TplNextP:'',
+TplPrevP:'',
+TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+filter: 'filters',
+filterRangeSeparator: ':',
+filterValuesSeparator: '|',
+filterDelimiter: '||',
+__filterPriceId: 14,
+__filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
+filterList: '19,20,42,43',
+filterTpl: '@T_FILE:partials/filters/tpl',
+filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+filterTplRange: '@T_FILE:partials/filters/tplRange',
+filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+tvSortType: 'UNSIGNED',
+api: 0
+})
+%}
+{% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
+rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) center/cover;">
+	<div class="container-fluid">
+		<h1>[+title+]</h1>
+		[+catalog.filters+]
+		</form>
+	</div>
+</div>'}) %}
+{{ plh['catalog.filters'] | raw }}
+
+{#{banner |raw}#}
+{% include '/partials/brands.twig' %}
+<div class="index-filter-block2 mb-5 p-sm-5 p-3">
+	<div class="name text-center mb-5">
+		Выгодные условия на покупку вашего автомобиля
+	</div>
+	{{ runSnippet('Form', {
+              formid: 'FormCallback',
+              path: '/templates/autostar/partials/forms/podbor/',
+              extension: 'twig'
+              }) | raw }} 
+	
+</div>
+<div class="index-prices-block pb-5">
+	<div class="name mb-5">
+		Продажа автомобилей с пробегом
+	</div>
+	<div class="row">
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<div class="item mb-4 pl-5">
+				<a href="?f[19]=0:500000">до 500 000 ₽</a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<div class="item mb-4 pl-5">
+				<a href="?f[19]=500000:1000000">до 1 000 000 ₽</a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<div class="item mb-4 pl-5">
+				<a href="?f[19]=1000000:2000000">до 2 000 000 ₽</a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<div class="item mb-4 pl-5">
+				<a href="?f[19]=2000000:10000000">больше 2 000 000 ₽</a>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="index-catalog-block pb-4 catalog-products" id="catalog">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="row">
+				{{DLCatalog |raw}}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="bottom-button">
+	<button onclick="window.location.href = '{{ makeUrl(27) }}';">Смотреть все <span></span></button>
+</div>
+{% include '/partials/actions.twig' %}
+{#% include '/partials/podbor.twig' %#}
+{#<div class="feedback-block">
+	<div class="container-fluid">
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/autodm/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+	</div>
+</div>
+<script type="text/javascript">
+var waitForJQuery2 = setInterval(function() {
+	if (typeof $ != 'undefined') {
+		$(function() {
+			$("#slider-range").slider({
+				range: true,
+				min: 0,
+				max: 50000,
+				values: [10000, 30000],
+				slide: function(event, ui) {
+					$("#amount").val("Цена от " + ui.values[0] + " р.");
+					$("#amount2").val("Цена до " + ui.values[1] + " р.");
+				}
+			});
+			$("#amount").val("Цена от " + $("#slider-range").slider("values", 0) + " р.");
+			$("#amount2").val("Цена до " + $("#slider-range").slider("values", 1) + " р.");
+		});
+		clearInterval(waitForJQuery2);
+	}
+}, 100);
+</script>#}
+
+{% include('partials/contacts.twig') %}
+{% include '/partials/advantages.twig' %}
+{#% include '/partials/tradein.twig' %#}
+{#% endcache %#}
+{% endblock %}

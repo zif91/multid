@@ -4,7 +4,7 @@
     {{ data['form.messages'] | raw }}
     <div class="fields">
           <input type="text" class="w-100 mb-4 px-3 text-center form-control {{ data['first_name.classname'] }}" placeholder="Имя" id="formName" name="first_name" value="{{ data.first_name }}">
-          <input type="text" class="w-100 mb-4 px-3 text-center form-control phone-imask phone-mask {{ data['mobile_tel.classname'] }}" placeholder="Телефон" type="tel" name="mobile_tel" id="formPhone" value="{{ data.mobile_tel }}" >
+          <input type="tel" class="w-100 mb-4 px-3 text-center form-control phone-imask phone-mask {{ data['mobile_tel.classname'] }}" placeholder="Телефон" name="mobile_tel" id="formPhone" value="{{ data.mobile_tel }}" >
           <input type="checkbox" class="checkbox form-check-input" checked id="checkFormFeedback" value="1" {{ data['c.agree.1'] }} name="agree"><label for="agree1" class="mb-4">Согласие на обработку персональных данных*</label>
           <button class="button w-100">Отправить</button>
     </div>

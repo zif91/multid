@@ -4,6 +4,6 @@
     {% set filter_class = 'col-lg-4 col-sm-6 col-xs-12' %}
 {% endif %}
 {#<div class="{{ filter_class}} px-2 pb-3 py-lg-1 prices" data-name="{{ data['name'] }}">#}
-    <div class="col-lg-3 col-md-4 col-sm-6 row m-0 price-range prices">{{ data['wrap'] | raw }}</div>
-
+{#<div class="row m-0 price-range prices">{{ data['wrap'] | raw }}</div>#}
+{{ data['wrap'] | raw }}
 <!--</div>-->

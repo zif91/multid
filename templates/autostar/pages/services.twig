@@ -1,11 +1,12 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
+    {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
-                            {{  runSnippet('DocLister', 
-                            {display: 20, 
-                              parents: 27, 
-                              depth: 0, 
-                              tvList:'car-price,old-car-price,car_photos', 
+    {{  runSnippet('DocLister',
+                            {display: 20,
+                              parents: catalog_number,
+                              depth: 0,
+                              tvList:'car-price,old-car-price,car_photos',
                               tpl:'@CODE:<section class="section-50 used-cars-block">
                                 <div class="container">
                                   <div class="section__top">
@@ -51,4 +52,4 @@
 {{ data['wrap'] }}
 
 
-{% endblock %} 
+{% endblock %}

@@ -1,5 +1,70 @@
 {% extends 'app.twig' %}
+{#% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
+{% set DLCatalog = runSnippet('DocLister', {
+    id: 'catalog',
+    display: 3,
+    parents: catalog_number,
+    depth: 5,
+    orderBy: 'menuindex',
+    order: 'RAND()',
+    tvSortType: 'SIGNED',
+    tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
+    ownerTPL: '@T_FILE:partials/wrap',
+    tpl:'@T_FILE:partials/catalogcard2',
+    noneTPL:'@CODE: <div class="container">
+<div class="row">
+<div class="col text-center">
+    <h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+</div>
+</div>
+</div>',
+    paginate:'pages',
+    TplNextP:'',
+    TplPrevP:'',
+    TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+    TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+    TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+    tvSortType: 'UNSIGNED',
+    api: 0
+})
+%#}
 {% block MAIN %}
+
+    <main class="main container">
+        <div class="navi py-4">
+            {% include('partials/crumbs.twig') %}
+        </div>
+        <div class="action-page pb-5">
+            <div class="back-link text-center py-3">
+                <a href="#" onclick="window.history.back();">Назад к <span>акциям</span></a>
+            </div>
+            <div class="image mb-5 position-relative" style="background: url({{resource.image}}) center/cover;">
+                <div class="text position-absolute">
+                    <div class="name mb-sm-2">
+                        {{resource.pagetitle}}
+                    </div>
+                    
+                    <p>{{resource.description}}</p>
+                </div>
+            </div>
+            <h1 class="h1 mb-3">{{resource.pagetitle}}</h1>
+            <div class="txt mb-3">
+                {{resource.content | raw}}
+            </div>
+        </div>
+    </main>
+
+    <div class="index-filter-block2 mb-5 p-sm-5 p-3">
+            <div class="name text-center mb-5">
+                Выгодные условия на покупку вашего автомобиля
+            </div>
+            {{ runSnippet('Form', {
+                formid: 'FormCallback',
+                path: '/templates/autostar2/partials/forms/podbor/',
+                extension: 'twig'
+            }) | raw }}
+        </div>
+
 {% endblock %}
 

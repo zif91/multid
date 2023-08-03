@@ -1,6 +1,4 @@
 {% set catalog_number2 = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
-
-
 {% set DLCatalogno = runSnippet('DocLister', {
 id: 'catalog',
 display: 6,
@@ -11,11 +9,11 @@ ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard',
 TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
 noneTPL:'@CODE: <div class="container">
-  <div class="row">
-    <div class="col text-center">
-      <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-    </div>
-  </div>
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
 </div>',
 })
 %}
@@ -23,9 +21,9 @@ noneTPL:'@CODE: <div class="container">
 	<div class="row">
 		<div class="col text-center">
 			<h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-
 		</div>
 	</div>
-			{{DLCatalogno |raw}}
-
+	<div class="row">
+		{{DLCatalogno |raw}}
+	</div>
 </div>

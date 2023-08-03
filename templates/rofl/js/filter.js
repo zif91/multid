@@ -26,24 +26,6 @@ $(function() {
 				e.preventDefault();
 				Filter.build()
 				window.location.href = $(this).attr('href');
-				// let query = '';
-				// $('.extrafilter [name]').each(function(i, el) {
-				// 	let id = el.dataset.id;
-				// 	if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
-				// 		if (el.dataset && el.dataset.inputType === 'range') {
-				// 			if (el.value !== el.dataset.min + Filter.range_separator + el.dataset.max) {
-				// 				query += 'f[' + id + ']=' + el.value + Filter.values_separator;
-				// 			} else {
-				// 				query += 'f[' + id + ']=' + Filter.values_separator;
-				// 			}
-				// 		} else {
-				// 			query += 'f[' + id + ']=' + el.value + Filter.values_separator;
-				// 		}
-				// 	}
-				// });
-
-				// query = query.slice(0, -1);
-				// window.location.href = '/avtomobili-s-probegom2?' + query;
 			});
 
 			$(document).on('change', '.choicesCar', function(e) {
@@ -123,12 +105,18 @@ $(function() {
 				Filter.load(data);
 			}
 		},
-		/*updateInputs: function(data) {
-			from = data.from;
-			to = data.to;
-			$(data.input).closest('.prices').find('.range-min').prop("value", from);
-			$(data.input).closest('.prices').find('.range-max').prop("value", to);
-		},*/
+		// остальной код...
+
+updateInputs: function(data) {
+    console.log(data);
+    let from = data.from;
+    let to = data.to;
+    $(data.input).parent().siblings('.price-range-group').find('.range-min').val(from);
+    $(data.input).parent().siblings('.price-range-group').find('.range-max').val(to);
+},
+
+// остально
+
 		
 		load: function(data) {
 			$.ajax({

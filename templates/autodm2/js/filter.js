@@ -386,15 +386,13 @@ function my_prettify(num) {
     });
 },
 
-updateInputs: function(data) {
-	console.log(data);
-	let from = data.from;
-	let to = data.to;
-	$(data.input).parent().siblings('.price-range-group').find('.range-min').val(from);
-	$(data.input).parent().siblings('.price-range-group').find('.range-max').val(to);
-},
-
-
+		updateInputs: function(data) {
+			console.log(data)
+			from = data.from;
+			to = data.to;
+			$(data.input).closest('.price-range').find('.range-min').prop("value", from);
+			$(data.input).closest('.price-range').find('.range-max').prop("value", to);
+		},
 		load: function(data) {
 			$.ajax({
 				url: location.pathname,

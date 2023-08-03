@@ -31,7 +31,7 @@ $(function() {
 
 			$(document).on('change', '.choicesCar', function(e) {
 				e.preventDefault();
-				if($(this).attr('id') == 'formModel42') {
+				if ($(this).attr('id') == 'formModel42') {
 					Filter.build()
 				}
 			});
@@ -52,7 +52,7 @@ $(function() {
 				Filter.build();
 			});
 		},
-		build: function(reload=true) {
+		build: function(reload = true) {
 			let data = {};
 			let filterList = [];
 			$('.extrafilter [name]').each(function(i, el) {
@@ -64,7 +64,7 @@ $(function() {
 						}
 						if (el.value !== el.dataset.min + Filter.range_separator + el.dataset.max) {
 							data[id] += el.value + Filter.values_separator;
-							if(el.value) {
+							if (el.value) {
 								filterList.push('f[' + id + ']=' + el.value);
 							}
 						} else {
@@ -75,7 +75,7 @@ $(function() {
 							data[id] = 'f[' + id + ']=';
 						}
 						data[id] += el.value + Filter.values_separator;
-						if(el.value) {
+						if (el.value) {
 							filterList.push('f[' + id + ']=' + el.value);
 						}
 					}
@@ -102,23 +102,26 @@ $(function() {
 
 			//console.log('start load')
 
-			if(reload) {
+			if (reload) {
 				Filter.load(data);
 			}
 		},
+		function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+		}
 		// остальной код...
 
-updateInputs: function(data) {
-    console.log(data);
-    let from = data.from;
-    let to = data.to;
-    $(data.input).parent().siblings('.price-range-group').find('.range-min').val(from);
-    $(data.input).parent().siblings('.price-range-group').find('.range-max').val(to);
-},
+		updateInputs: function(data) {
+			console.log(data);
+			let from = numberWithCommas(data.from); // Используем функцию для форматирования числа
+			let to = numberWithCommas(data.to); // Используем функцию для форматирования числа
+			$(data.input).parent().siblings('.price-range-group').find('.range-min').val(from);
+			$(data.input).parent().siblings('.price-range-group').find('.range-max').val(to);
+		},
 
-// остально
+		// остально
 
-		
+
 		load: function(data) {
 			$.ajax({
 				url: location.pathname,
@@ -135,7 +138,7 @@ updateInputs: function(data) {
 						let $el = $('#' + dataFilter[i].id);
 						if (dataFilter[i].type === 'checkbox' || dataFilter[i].type === 'select-one') {
 							$el.replaceWith(dataFilter[i]);
-						} 
+						}
 					}
 					$('#loader').removeClass('show');
 					$('[name="f[43]"]').removeAttr('disabled');

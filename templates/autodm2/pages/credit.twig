@@ -51,20 +51,35 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
                 Кредитная программа
                 <div>
                     <select id="firstSelect" class="-select py-2 border-0 w-100">
-                        <option value="1,6" selected>Выберите кредитную программу</option>
-                        <option value="1,6">Первый автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %} selected>Выберите кредитную программу</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Первый автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
-                        <option value="1,6">Семейный автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Семейный автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
-                        <option value="1,6">Медицинский работник (Ставка {% if baseSettings.credit_rate is empty %}
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Медицинский работник (Ставка {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
-                        <option value="1,6">Госпрограмма льготного кредитования (Ставка {% if baseSettings.credit_rate is empty %}
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Госпрограмма льготного кредитования (Ставка {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}%{% endif %})</option>
@@ -101,20 +116,35 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
              <span class="credit-text text-start">Программа: </span>
                 <div class="flex justify-content-end">
                     <select id="secondSelect" class="-select p-0 border-0  w-100 credit-amounts select">
-                        <option value="1,6" selected>Выберите кредитную программу</option>
-                        <option value="1,6">Первый автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %} selected>Выберите кредитную программу</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Первый автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
-                        <option value="1,6">Семейный автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Семейный автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
-                        <option value="1,6">Медицинский работник (Ставка {% if baseSettings.credit_rate is empty %}
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Медицинский работник (Ставка {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
-                        <option value="1,6">Госпрограмма льготного кредитования (Ставка {% if baseSettings.credit_rate is empty %}
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Госпрограмма льготного кредитования (Ставка {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}%{% endif %})</option>

@@ -1,10 +1,4 @@
-<div class="container">
-	<div class="row">
-		<div class="col text-center">
-			<h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-		</div>
-	</div>
-</div>
+
 
 {% set DLCatalogno = runSnippet('DocLister', {
 id: 'catalog',
@@ -13,7 +7,7 @@ parents: catalog_number,
 depth: 5,
 tvList:'car-price,car_photos,run,engine_power,gear,year,image',
 ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard',
+tpl:'@T_FILE:partials/catalogcard2',
 TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
 noneTPL:'@CODE: <div class="container">
   <div class="row">

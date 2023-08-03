@@ -52,10 +52,22 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
                 <div>
                     <select id="firstSelect" class="-select py-2 border-0 w-100">
                         <option value="1,6" selected>Выберите кредитную программу</option>
-                        <option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
+                        <option value="1,6">Первый автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
+                        <option value="1,6">Семейный автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
+                        <option value="1,6">Медицинский работник (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
+                        <option value="1,6">Госпрограмма льготного кредитования (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%)</option>
                         <option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
                     </select>
                 </div>
@@ -90,9 +102,18 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
                 <div class="flex justify-content-end">
                     <select id="secondSelect" class="-select p-0 border-0  w-100 credit-amounts select">
                         <option value="1,6" selected>Выберите кредитную программу</option>
-                        <option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
+                        <option value="1,6">Первый автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
+                        <option value="1,6">Семейный автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
+                        <option value="1,6">Медицинский работник (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
                         <option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
                         <option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
                     </select>
@@ -209,14 +230,18 @@ $(function() {
     let coefficient = 1.24;
 
     switch (programValue) {
-      case "1,6":
+    case "1,6":
         coefficient = 1 + (16 / 100);
         break;
-      case "9,9":
+    case "9,9":
         coefficient = 1.24;
         break;
-      // Добавить обработку для остальных программ
-    }
+    // Добавить обработку для остальных программ
+    default:
+        coefficient = (100 + parseFloat(programValue.replace(",", "."))) / 100;
+        break;
+}
+
 
     const payment = (amount - firstPay) / term * coefficient;
     paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');

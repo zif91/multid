@@ -3,7 +3,9 @@
 //
 
 $(function() {
-
+	function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+		}
 	var Filter = {
 		el: document.querySelector('.extrafilter'),
 		range_separator: ':',
@@ -106,9 +108,7 @@ $(function() {
 				Filter.load(data);
 			}
 		},
-		function numberWithCommas(x) {
-			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-		}
+		
 		// остальной код...
 
 		updateInputs: function(data) {

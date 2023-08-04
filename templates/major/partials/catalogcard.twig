@@ -82,7 +82,7 @@ id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.config
 <div class="item position-relative"><a href="{{ data['url'] }}">
                     <span class="hit position-absolute py-1 px-3">HIT</span>
                     <div class="image">
-                        <img src="https://s3.multiauto.site/new_cars/{{data.tv.configuration_id}}.jpg">
+                        <img src="https://s3.multiauto.site/new_cars/{{data["tv.configuration_id"]}}.jpg">
                     </div>
                     <div class="p-3">
                         <a href="#" class="name d-block mb-2">{{runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title']  }} </a>

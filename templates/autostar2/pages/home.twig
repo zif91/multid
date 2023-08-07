@@ -1,6 +1,6 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-	{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
 {#% cache 'main' ~ resource.id %#}
 {% set DLCatalog = runSnippet('DocLister', {

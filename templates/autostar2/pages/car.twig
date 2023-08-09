@@ -241,7 +241,7 @@ tpl:'@T_CODE: <div class="gift__item">
 {#            <div class="back-link text-center mb-3">#}
 {#                <a href="#" class="d-inline-block pl-4">Назад к каталогу</a>#}
 {#            </div>#}
-            <h1 class="h1">{{resource.pagetitle}}, {{resource.year}} {{resource.modification}} </h1>
+            <h1 class="h1">{{resource.pagetitle}}, {{resource.year}} {#{resource.modification}#} </h1>
             <div class="top-text mb-3">
                 {{resource.vin}}
             </div>
@@ -301,12 +301,12 @@ tpl:'@T_CODE: <div class="gift__item">
                                 <span class="d-block mt-2">{{resource.drive}}</span>
                             </div>
                         </div>
-                        <div class="col-4">
+                        {#<div class="col-4">
                             <div class="item mb-3">
                                 Цвет:
                                 <span class="d-block mt-2">{{resource.car_color}}</span>
                             </div>
-                        </div>
+                        </div>#}
                         <div class="col-4">
                             <div class="item mb-3">
                                 Владельцев:

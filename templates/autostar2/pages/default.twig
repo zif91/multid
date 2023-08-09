@@ -1,10 +1,55 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
 {#% cache 'main' ~ resource.id %#}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 18,
+controller: 'catalog_filters',
+parents: catalog_number,
+depth: 5,
+tvList:'car-price,car_photos,run,engine_power,gear,year,image',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard2',
+paginate:'pages',
+TplNextP:'@CODE:<li><a href="[+link+]"><span class="next"></span></a></li>',
+TplPrevP:'@CODE:<li><a href="[+link+]"><span class="prev"></span></a></li>',
+TplPage:'@CODE:<li class="d-inline-block"><a href="[+link+]" class="d-block ">[+num+]</a></li>',
+TplCurrentPage:'@CODE:<li class="d-inline-block"><a href="[+link+]" class="d-block active">[+num+]</a></li>',
+TplWrapPaginate:'@CODE:[+wrap+]',
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+    filter: 'filters',
+    filterRangeSeparator: ':',
+    filterValuesSeparator: '|',
+    filterDelimiter: '||',
+    __filterPriceId: 14,
+    __filterList: '20:dropdown;42:dropdown;43:dropdown;19:range;',
+    filterList: '42,19,43,',
+    filterTpl: '@T_FILE:partials/filters/tpl2',
+    filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+    filterTplRange: '@T_FILE:partials/filters/tplRange2',
+    filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+    filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+    tvSortType: 'UNSIGNED',
+    api: 0
+})
+%}
+
 
 <div class="container">
-	{{resource.content |raw}}</div>
+	
+	{{resource.content |raw}}
+<div class="index-catalog-block2 pb-4 catalog-products" id="catalog">
+    <h2 class="mb-4">Возможно Вам будут интересны:</h2>
+    {{DLCatalog |raw}}
+	</div>
+	</div>
 {% include('partials/contacts.twig') %}
 {#% include '/partials/tradein.twig' %#}
 {#% endcache %#}
-{% endblock %}
+{% endblock %} 

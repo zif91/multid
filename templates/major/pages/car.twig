@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 {% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %}
 {% include('partials/crumbs.twig') %}
-<div class="item-page2 pb-5">
+{#<div class="item-page2 pb-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -59,7 +59,43 @@
             </div>
         </div>
     </div>
-</div>
+</div>#}
+<div class="item-page pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="photo mb-sm-5 mb-4">
+                        <img src="{{car_photos}}">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <h1 class="mb-3">{{resource.pagetitle}}</h1>
+                    <div class="price mb-3">
+                        <span class="new mr-2">{{resource["car-price"]}}₽</span>
+                        <span class="old">{{resource["car-old-price"]}}₽</span>
+                    </div>
+                    <div class="credit mb-4">
+                        В кредит от {{(resource["car-price"])/72}} ₽/мес <span class="d-inline-block py-2 px-3 ml-sm-3">Ставка от 5%</span>
+                    </div>
+                    <div class="vin mb-3 flex">
+                        <div><img src="/templates/major/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>
+                        <div><img src="/templates/major/img/vin2.svg"> Проверенный <span>VIN-номер</span></div>
+                    </div>
+                    <div class="buttons row mb-2">
+                        <div class="col-12">
+                            <button class="w-100 mb-3 color1"  data-fancybox="" data-src="#popup">Забронировать</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="w-100 color2"  data-fancybox="" data-src="#popup">Рассчитать кредит</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="w-100 color3"  data-fancybox="" data-src="#popup">Предложить обмен</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <div class="page-form-block mb-5">
     <div class="container">
         {{ runSnippet('Form', {

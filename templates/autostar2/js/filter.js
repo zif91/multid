@@ -313,7 +313,6 @@
 
 
 $(function() {
-
     var Filter = {
         el: document.querySelector('.extrafilter'),
         range_separator: ':',

@@ -402,6 +402,7 @@ $(function() {
                 history.pushState(null, null, newUrl);
             }
         },
+<<<<<<< HEAD
         build: function() {
             let data = {};
             let tempData = {};
@@ -435,6 +436,35 @@ $(function() {
                     if (el.value === '43' && el.checked) {
                         f43_selected = true;
                     }
+=======
+build: function() {
+    let data = {};
+    let tempData = {};
+    let f43_selected = false;
+    $('.extrafilter [name]').each(function(i, el) {
+        let id = el.dataset.id;
+        if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
+            // Обрабатываем поля ввода диапазона цен отдельно
+            if ($(el).hasClass('price-range-input')) {
+                if (!tempData[id]) {
+                    tempData[id] = 'f[' + id + ']=';
+                }
+                if ($(el).hasClass('range-min')) {
+                    let minPrice = $(el).val();
+                    if (minPrice) {
+                        tempData[id] += minPrice;
+                    }
+                }
+                if ($(el).hasClass('range-max')) {
+                    let maxPrice = $(el).val();
+                    if (maxPrice) {
+                        tempData[id] += Filter.range_separator + maxPrice;
+                    }
+                }
+            } else {
+                if (!data[id]) {
+                    data[id] = 'f[' + id + ']=';
+>>>>>>> parent of 6e799123 (Update filter.js)
                 }
 
             });

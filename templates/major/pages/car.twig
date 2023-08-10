@@ -154,160 +154,7 @@
                 </div>
             </div>
         </div>#}
-        <h2 class="mb-4">Доступные модификации</h2>
-            {% for item in modification %}
-            {% if item["group-name"] is not empty %}
-            <div class="modifications-block pb-2">
-                <div class="item mb-2">
-                    <div class="item-name flex">
-                        <div class="name">
-                            Active
-                        </div>
-                        <div class="price">
-                            <span class="old">
-                                2 350 000 ₽ 
-                            </span>
-                            <span class="new">
-                                1 850 000 ₽ 
-                            </span>
-                        </div>
-                        <div class="buttons">
-                            <button>В кредит за 30 000 ₽/мес.</button>
-                            <button>Trade-in</button>
-                            <button>Забронировать</button>
-                        </div>
-                    </div>
-                    <div class="item-content">
-                        <select class="select" id="select">
-                            <option value="val-1">Характеристики</option>
-                            <option value="val-2">Комплектация</option>
-                        </select>
-                        <div class="tabs">
-                            <ul class="tabNavigation" data-sel='[".select"]'>
-                                <li><a href="#t1" class="js-val-1-btn" data-val='["val-1"]'>Характеристики</a></li>
-                                <li><a href="#t2" class="js-val-2-btn" data-val='["val-2"]'>Комплектация</a></li>
-                            </ul>
-                            <div id="t1" class="tab-content">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <table>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <table>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Задние тормоза</td>
-                                                <td>дисковые</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="t2" class="tab-content">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <table>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <table>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Питание двигателя</td>
-                                                <td>непосредственный впрыск</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-{% endif %}
-{% endfor %}
-
-
-
+    
         <div class="main-info pb-3">
             <div class="block-name mb-4">
                 Модификации:
@@ -315,13 +162,13 @@
         </div>
     </div>
 </div>
-<div class="item-botttom-info pb-4">
+<div class="item-page item-botttom-info pb-4">
     <div class="container">
         <div class="accordion" id="itemAccordion">
             {% for item in modification %}
             {% if item["group-name"] is not empty %}
-            <div class="card">
-                <div class="card-header" id="itemHeader">
+            <div class="card item">
+                <div class="item-name card-header" id="itemHeader">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}">
                             <i class="fas fa-plus mr-2"></i>{{item["group-name"]}} {{item["Объем двигателя"]}}см³, {{item["Тип двигателя"]}}, КП {{item["Трансмиссия"]}}, {{item["Привод"]}} привод

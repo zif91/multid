@@ -72,10 +72,10 @@
                     <h1 class="mb-3">{{resource.pagetitle}}</h1>
                     <div class="price mb-3">
                         <span class="new mr-2">{{resource["car-price"]}}₽</span>
-                        <span class="old">{{resource["car-old-price"]}}₽</span>
+                        <span class="old">{{resource["old-car-price"]}}₽</span>
                     </div>
                     <div class="credit mb-4">
-                        В кредит от {{(resource["car-price"])/72}} ₽/мес <span class="d-inline-block py-2 px-3 ml-sm-3">Ставка от 5%</span>
+В кредит от {{ (resource["car-price"] / 72)|round }} ₽/мес <span class="d-inline-block py-2 px-3 ml-sm-3">Ставка от 5%</span>
                     </div>
                     <div class="vin mb-3 flex">
                         <div><img src="/templates/major/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>

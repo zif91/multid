@@ -53,6 +53,10 @@
     {% if baseSettings.site_id is not empty %}
   <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">
 {% endif %}
+{% if baseSettings.metrik_id is not empty %}
+              <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
+{% endif %}
+
     {% cache 'header' ~ cacheKey %}
     {% set brandsarray = runSnippet('getCache', {
 snippetName:'brands_array',

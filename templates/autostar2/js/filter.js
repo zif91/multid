@@ -311,7 +311,7 @@
         }()
 });
 
-User
+
 $(function() {
 
     var Filter = {

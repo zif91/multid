@@ -85,7 +85,7 @@ id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.config
                         <img src="https://s3.multiauto.site/new_cars/{{data["tv.configuration_id"]}}.jpg">
                     </div>
                     <div class="p-3">
-                        <a href="#" class="name d-block mb-2">{{runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title']  }} </a>
+                        <a href="{{data.url}}" class="name d-block mb-2">{{runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title']  }} </a>
                         <div class="row data text-center">
                             
                         </div>
@@ -98,7 +98,7 @@ id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.config
                         <div class="buttons">
                             <button  data-fancybox="" data-src="#popup" class="w-100 mb-2">В кредит от 4,9%</button>
                             <button  data-fancybox="" data-src="#popup" class="w-100 mb-2">Забронировать</button>
-                            <button class="w-100">Подробнее</button>
+                            <button class="w-100" onclick="location.href='{{data.url}}';" >Подробнее</button>
                         </div>
                     </div></a>
                 </div>

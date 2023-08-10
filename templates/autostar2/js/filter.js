@@ -411,21 +411,24 @@ build: function() {
         if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
             // Обрабатываем поля ввода диапазона цен отдельно
             if ($(el).hasClass('price-range-input')) {
-                if (!tempData[id]) {
-                    tempData[id] = 'f[' + id + ']=';
-                }
-                if ($(el).hasClass('range-min')) {
-                    let minPrice = $(el).val();
-                    if (minPrice) {
-                        tempData[id] += minPrice;
-                    }
-                }
-                if ($(el).hasClass('range-max')) {
-                    let maxPrice = $(el).val();
-                    if (maxPrice) {
-                        tempData[id] += Filter.range_separator + maxPrice;
-                    }
-                }
+    if (!tempData[id]) {
+        tempData[id] = 'f[' + id + ']=';
+    }
+
+    let minPrice = $('.price-range-input.range-min').val();
+    let maxPrice = $('.price-range-input.range-max').val();
+    
+    if (minPrice) {
+        tempData[id] += minPrice;
+    }
+
+    if (maxPrice) {
+        if (minPrice) {
+            tempData[id] += Filter.range_separator;
+        }
+        tempData[id] += maxPrice;
+    }
+}
             } else {
                 if (!data[id]) {
                     data[id] = 'f[' + id + ']=';

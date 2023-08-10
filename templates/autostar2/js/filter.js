@@ -311,6 +311,7 @@
         }()
 });
 
+User
 $(function() {
 
     var Filter = {
@@ -402,41 +403,6 @@ $(function() {
                 history.pushState(null, null, newUrl);
             }
         },
-<<<<<<< HEAD
-        build: function() {
-            let data = {};
-            let tempData = {};
-            let f43_selected = false;
-            $('.extrafilter [name]').each(function(i, el) {
-                let id = el.dataset.id;
-                if ($(el).hasClass('price-range-input')) {
-                    if (!tempData[id]) {
-                        tempData[id] = 'f[' + id + ']=';
-                    }
-
-                    let minPrice = $('.price-range-input.range-min').val();
-                    let maxPrice = $('.price-range-input.range-max').val();
-
-                    if (minPrice) {
-                        tempData[id] += minPrice;
-                    }
-
-                    if (maxPrice) {
-                        if (minPrice) {
-                            tempData[id] += Filter.range_separator;
-                        }
-                        tempData[id] += maxPrice;
-                    }
-                } else {
-                    if (!data[id]) {
-                        data[id] = 'f[' + id + ']=';
-                    }
-                    data[id] += el.value + Filter.values_separator;
-
-                    if (el.value === '43' && el.checked) {
-                        f43_selected = true;
-                    }
-=======
 build: function() {
     let data = {};
     let tempData = {};
@@ -464,35 +430,40 @@ build: function() {
             } else {
                 if (!data[id]) {
                     data[id] = 'f[' + id + ']=';
->>>>>>> parent of 6e799123 (Update filter.js)
                 }
+                data[id] += el.value + Filter.values_separator;
 
-            });
-
-            // Merge tempData into data
-            Object.keys(tempData).forEach(function(key) {
-                if (tempData[key].endsWith(Filter.range_separator) && !$('.price-range-input.range-max').val()) {
-                    tempData[key] = tempData[key].slice(0, -1); // Remove trailing separator if no max price is set
+                if (el.value === '43' && el.checked) {
+                    f43_selected = true;
                 }
-                data[key] = tempData[key];
-            });
-
-            if (Filter.selectedCars.includes('43') && !f43_selected) {
-                delete data['43'];
             }
-
-            data = Object.values(data).filter(function(el) {
-                [name, value] = el.split('=');
-                if (value === '' || value.replace(/\|/g, '') === '') {
-                    return false;
-                }
-                return el;
-
-            }).join('&');
-
-
-            Filter.load(data);
         }
+    });
+
+    // Merge tempData into data
+    Object.keys(tempData).forEach(function(key) {
+        if (tempData[key].endsWith(Filter.range_separator) && !$('.price-range-input.range-max').val()) {
+            tempData[key] = tempData[key].slice(0, -1);  // Remove trailing separator if no max price is set
+        }
+        data[key] = tempData[key];
+    });
+
+    if (Filter.selectedCars.includes('43') && !f43_selected) {
+        delete data['43'];
+    }
+
+    data = Object.values(data).filter(function(el) {
+        [name, value] = el.split('=');
+        if (value === '' || value.replace(/\|/g, '') === '') {
+            return false;
+        }
+        return el;
+    
+}).join('&');
+
+
+    Filter.load(data);
+}
 
 
 

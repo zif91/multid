@@ -172,18 +172,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const targetSpan = document.querySelector('.timer .date');
     targetSpan.textContent = `до ${targetDate.getDate()} ${getMonthInGenitive(targetDate.getMonth())}`;
 
-
-    // Получить текущую дату и добавить 7 дней
-    let endDate = new Date();
-    endDate.setDate(endDate.getDate() + 7);
-
-    // Форматирование даты
-    let formattedDate = endDate.getDate() + ' ' + endDate.toLocaleString('ru', { month: 'long' });
-    document.querySelector('.timer .date').textContent = 'до ' + formattedDate;
-
     function updateCounter() {
         let now = new Date().getTime();
-        let distance = endDate - now;
+        let distance = targetDate - now;
 
         // Вычислить дни, часы, минуты, секунды
         let days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -212,8 +203,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Запустить функцию в первый раз
     updateCounter();
-
 });
+
 
 </script>
 

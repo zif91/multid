@@ -1,20 +1,14 @@
-<div class="credit-form mb-5">
+<div class="bottom-page-form mb-5">
     <div class="container">
-        <form>
-
-            <div class="fields">
+        <form class="text-light p-sm-5 p-4">
             <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
             {{ data['form.messages'] | raw }}
-                <div class="name mb-4">
-                    Заявка на кредит
-                </div>
-                <input type="text"  name="first_name" id="first_name" value="{{ data.first_name }}" placeholder="Ваше имя" class="w-100 mb-2 px-3">
-                <input type="text" name="mobile_tel" id="formPhone" value="{{ data.mobile_tel }}" placeholder="+7 (___)-___-__-__" class="phone-imask {{ data['mobile_tel.classname'] }} w-100 mb-2 px-3">
-                <button class="btn btn-danger w-100 mb-3"  type="submit">Отправить заявку</button>
-                <div class="bottom-text">
-                    Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#">персональных данных</a>
-                </div>
+            <div class="name mb-3">
+                Остались вопросы или нужна помощь?
             </div>
+            <p class="mb-5">Оставьте заявку на консультацию - и наши менеджеры придут на помощь</p>
+            <input name="mobile_tel" id="formPhone" value="{{ data.mobile_tel }}" placeholder="+7 (___)-___-__-__" class="mr-md-2 mb-md-0 mb-3 phone-imask {{ data['mobile_tel.classname'] }}" type="text">
+            <button type="submit" class="btn btn-danger">Получить предложение</button>
         </form>
     </div>
 </div>

@@ -385,7 +385,7 @@ main {
   color: #000;
 }
 .header.new .contacts .adress {
-  background: url('/templates/autodealer/adress6.svg') no-repeat 0 1px;
+  background: url('/templates/autodealer/imgadress6.svg') no-repeat 0 1px;
 }
 .header.new .best {
   color: #fff;
@@ -402,14 +402,14 @@ main {
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 8px;
-  background: url('/templates/autodealer/phone.svg') no-repeat 0 1px;
+  background: url('/templates/autodealer/imgphone.svg') no-repeat 0 1px;
 }
 .header .contacts .adress {
   font-size: 12px;
   line-height: 15px;
 }
 .header .best {
-  background: url('/templates/autodealer/best.svg') no-repeat 0 0;
+  background: url('/templates/autodealer/imgbest.svg') no-repeat 0 0;
   width: 196px;
   font-size: 11px;
   line-height: 13px;
@@ -627,7 +627,7 @@ main {
 }
 .best-offers-block .item:hover {
   color: #fff;
-  background: url('/templates/autodealer/offer.png') center / cover !important;
+  background: url('/templates/autodealer/imgoffer.png') center / cover !important;
 }
 .best-offers-block .item:hover:after {
   content: "";
@@ -658,7 +658,7 @@ main {
   font-weight: 600;
 }
 .bottom-page-form form {
-  background: url('/templates/autodealer/bottom-page-form.png') center / cover;
+  background: url('/templates/autodealer/imgbottom-page-form.png') center / cover;
   border-radius: 16px;
 }
 .bottom-page-form form .name {
@@ -674,7 +674,7 @@ main {
   width: 269px;
   height: 51px;
   padding: 0 20px 0 50px;
-  background: #ffffff url('/templates/autodealer/phone.svg') no-repeat 20px 50%;
+  background: #ffffff url('/templates/autodealer/imgphone.svg') no-repeat 20px 50%;
   border-radius: 10px;
   vertical-align: middle;
 }
@@ -693,7 +693,7 @@ main {
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 8px;
-  background: url('/templates/autodealer/phone.svg') no-repeat 0 1px;
+  background: url('/templates/autodealer/imgphone.svg') no-repeat 0 1px;
 }
 .bottom-map-block .content .contacts .btn {
   height: 51px;
@@ -703,7 +703,7 @@ main {
   left: 0;
 }
 .footer {
-  background: url('/templates/autodealer/footer.png') center / cover;
+  background: url('/templates/autodealer/imgfooter.png') center / cover;
 }
 .footer .contacts .phone {
   display: block;
@@ -711,7 +711,7 @@ main {
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 8px;
-  background: url('/templates/autodealer/phone.svg') no-repeat 0 1px;
+  background: url('/templates/autodealer/imgphone.svg') no-repeat 0 1px;
 }
 .footer .contacts .adress {
   font-size: 12px;
@@ -726,7 +726,7 @@ main {
   color: rgba(255, 255, 255, 0.38);
 }
 .footer .best {
-  background: url('/templates/autodealer/best.svg') no-repeat 0 0;
+  background: url('/templates/autodealer/imgbest.svg') no-repeat 0 0;
   width: 196px;
   font-size: 11px;
   line-height: 13px;
@@ -770,21 +770,21 @@ main {
   right: 20px;
   width: 24px;
   height: 24px;
-  background: url('/templates/autodealer/close.svg');
+  background: url('/templates/autodealer/imgclose.svg');
   opacity: 1;
 }
 .mobile-menu .contacts .phone {
   color: #fff;
-  background: url('/templates/autodealer/mob-phone.svg') no-repeat 0 1px;
+  background: url('/templates/autodealer/imgmob-phone.svg') no-repeat 0 1px;
 }
 .mobile-menu .contacts .adress {
-  background: url('/templates/autodealer/mob-adress.svg') no-repeat 0 2px;
+  background: url('/templates/autodealer/imgmob-adress.svg') no-repeat 0 2px;
 }
 .mobile-menu .btn {
   font-weight: 600;
 }
 .mobile-menu .best {
-  background: url('/templates/autodealer/best2.svg') no-repeat 0 0;
+  background: url('/templates/autodealer/imgbest2.svg') no-repeat 0 0;
   font-size: 10px;
   line-height: 12px;
 }
@@ -812,7 +812,7 @@ main {
 }
 .popup input[type='text'].phone {
   padding: 0 22px 0 50px;
-  background: #ffffff url('/templates/autodealer/phone.svg') no-repeat 20px 50%;
+  background: #ffffff url('/templates/autodealer/imgphone.svg') no-repeat 20px 50%;
 }
 .popup .agree {
   position: relative;
@@ -873,7 +873,7 @@ main {
   display: inline-block;
   width: 12px;
   height: 12px;
-  background: url('/templates/autodealer/delete.svg');
+  background: url('/templates/autodealer/imgdelete.svg');
 }
 .catalog-page .searched {
   font-weight: 500;
@@ -912,7 +912,7 @@ main {
   vertical-align: middle;
   width: 24px;
   height: 24px;
-  background: url('/templates/autodealer/car.svg');
+  background: url('/templates/autodealer/imgcar.svg');
   margin: -2px 12px 0 0;
 }
 .catalog-page .item .bottom-link {
@@ -967,7 +967,7 @@ main {
   left: 0;
   width: 28px;
   height: 28px;
-  background: url('/templates/autodealer/li.svg');
+  background: url('/templates/autodealer/imgli.svg');
 }
 .item-page .discount {
   border: 6px solid #F5FAFF;
@@ -988,7 +988,7 @@ main {
   vertical-align: middle;
   width: 24px;
   height: 24px;
-  background: url('/templates/autodealer/car.svg');
+  background: url('/templates/autodealer/imgcar.svg');
   margin: -2px 12px 0 0;
 }
 .item-page .but {
@@ -1043,7 +1043,7 @@ main {
   display: inline-block;
 }
 .steps-block .flex {
-  background: url('/templates/autodealer/steps.svg') no-repeat top center;
+  background: url('/templates/autodealer/imgsteps.svg') no-repeat top center;
 }
 .steps-block .flex .item {
   width: 20%;
@@ -1096,7 +1096,7 @@ main {
   display: block;
 }
 .timer-block {
-  background: url('/templates/autodealer/timer-block.png') center / cover;
+  background: url('/templates/autodealer/imgtimer-block.png') center / cover;
   color: #fff;
 }
 .timer-block form {
@@ -1255,7 +1255,7 @@ main {
   text-decoration: underline;
 }
 .credit-form form {
-  background: url('/templates/autodealer/credit-form.png') center / cover;
+  background: url('/templates/autodealer/imgcredit-form.png') center / cover;
   padding: 65px 60px;
   color: #fff;
 }
@@ -1302,7 +1302,7 @@ main {
   filter: grayscale(100%);
 }
 .credit-banner .banner {
-  background: url('/templates/autodealer/credit-banner.png') center / cover;
+  background: url('/templates/autodealer/imgcredit-banner.png') center / cover;
   padding: 50px 58px;
   color: #fff;
 }
@@ -1356,7 +1356,7 @@ main {
   display: inline-block;
   width: 18px;
   height: 18px;
-  background: url('/templates/autodealer/edit.svg');
+  background: url('/templates/autodealer/imgedit.svg');
   vertical-align: middle;
 }
 .calc-block .calc .item .ui-widget.ui-widget-content {
@@ -1415,7 +1415,7 @@ main {
   font-size: 20px;
 }
 .calc-banner {
-  background: url('/templates/autodealer/calc-banner.png') center / cover;
+  background: url('/templates/autodealer/imgcalc-banner.png') center / cover;
   padding: 120px 0;
   color: #fff;
 }

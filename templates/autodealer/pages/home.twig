@@ -26,11 +26,11 @@ filterDelimiter: '||',
 __filterPriceId: 14,
 filterList: '42,43,19',
 _filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
-filterTpl: '@T_FILE:partials/filters/tpl',
+filterTpl: '@T_FILE:partials/filters/tpl2',
 filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
 filterTplRange: '@T_FILE:partials/filters/tplRange',
-filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
-filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox2',
+filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox2',
 tvSortType: 'UNSIGNED',
 api: 0,
 noneTPL:'@CODE: <div class="container">
@@ -61,42 +61,12 @@ rowTpl:'@CODE: <div class="index-first-block text-light" style="background: url(
 '}) %}
 
 {{banner |raw}}
-{{ plh['catalog.filters'] | raw }}
+{#{ plh['catalog.filters'] | raw }#}
 <div class="timer-block pt-5 pb-3 mb-5">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<form>
-						<div class="name mb-4">
-							Быстрый подбор автомобиль
-						</div>
-						<select class="w-100 mb-2 px-3">
-							<option>Марка</option>
-							<option>Марка</option>
-							<option>Марка</option>
-						</select>
-						<select class="w-100 mb-2 px-3">
-							<option>Модель</option>
-							<option>Модель</option>
-							<option>Модель</option>
-						</select>
-						<select class="w-100 mb-2 px-3">
-							<option>КПП</option>
-							<option>КПП</option>
-							<option>КПП</option>
-						</select>
-						<p class="mb-2">Цена, до</p>
-						<div class="number mb-3">
-							<span class="minus"></span>
-							<input type="text" value="1" class="w-100 px-4">
-							<span class="plus"></span>
-						</div>
-						<div class="link text-center mb-3">
-							<a href="#">Сбросить фильтр</a>
-						</div>
-						<button class="w-100 btn middle mb-4">Подобрать автомобиль</button>
-					</form>
-				</div>
+					{{ plh['catalog.filters'] | raw }}
+
 				<div class="col-md-6">
 					<div class="timer text-center">
 						<div class="name mb-2">

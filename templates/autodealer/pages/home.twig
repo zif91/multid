@@ -62,6 +62,72 @@ rowTpl:'@CODE: <div class="index-first-block text-light" style="background: url(
 
 {{banner |raw}}
 {{ plh['catalog.filters'] | raw }}
+<div class="timer-block pt-5 pb-3 mb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<form>
+						<div class="name mb-4">
+							Быстрый подбор автомобиль
+						</div>
+						<select class="w-100 mb-2 px-3">
+							<option>Марка</option>
+							<option>Марка</option>
+							<option>Марка</option>
+						</select>
+						<select class="w-100 mb-2 px-3">
+							<option>Модель</option>
+							<option>Модель</option>
+							<option>Модель</option>
+						</select>
+						<select class="w-100 mb-2 px-3">
+							<option>КПП</option>
+							<option>КПП</option>
+							<option>КПП</option>
+						</select>
+						<p class="mb-2">Цена, до</p>
+						<div class="number mb-3">
+							<span class="minus"></span>
+							<input type="text" value="1" class="w-100 px-4">
+							<span class="plus"></span>
+						</div>
+						<div class="link text-center mb-3">
+							<a href="#">Сбросить фильтр</a>
+						</div>
+						<button class="w-100 btn middle mb-4">Подобрать автомобиль</button>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<div class="timer text-center">
+						<div class="name mb-2">
+							Специальное предложение <br/>
+							на покупку авто
+						</div>
+						<span class="date d-inline-block py-3 px-4">до 15 июня</span>
+						<button>Посмотреть авто по акции</button>
+						<div class="flex pt-4 mb-4">
+							<div class="item">
+								<span class="d-block mb-2">13</span>
+								дней
+							</div>
+							<div class="item">
+								<span class="d-block mb-2">12</span>
+								часов
+							</div>
+							<div class="item">
+								<span class="d-block mb-2">48</span>
+								минут
+							</div>
+							<div class="item">
+								<span class="d-block mb-2">16</span>
+								секунд
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% include('partials/brands.twig') %}
 
 
@@ -71,7 +137,7 @@ rowTpl:'@CODE: <div class="index-first-block text-light" style="background: url(
               path: '/templates/autodealer/partials/forms/feedback/',
               extension: 'twig'
               }) | raw }} 
-
+ 
 {#% include '/partials/podbor.twig' %#}
 {# <div class="feedback-block">
 	<div class="container-fluid">

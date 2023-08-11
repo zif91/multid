@@ -3,7 +3,7 @@
 {% if data['id'] == 43 %}
         {{ runSnippet('helpers', {'action':'getModelsByMark'}) | raw }}
     {% else %}
-<select class="w-100 mb-2 px-3" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
+<select class="w-100 mb-2 px-3 choicesCar" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">
 {{ data['wrap'] | raw }}
 </select>
 {% endif %}

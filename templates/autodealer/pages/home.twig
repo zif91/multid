@@ -156,7 +156,22 @@ extension: 'twig'
 {#% include '/partials/tradein.twig' %#}
 {#% endcache %#}
 <script type="text/javascript">
+function getMonthInGenitive(monthNumber) {
+    const monthsGenitive = [
+        'января', 'февраля', 'марта', 'апреля', 'мая', 'июня',
+        'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+    ];
+
+    return monthsGenitive[monthNumber];
+}
+
 document.addEventListener("DOMContentLoaded", function() {
+    let targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 7);
+
+    const targetSpan = document.querySelector('.timer .date');
+    targetSpan.textContent = `до ${targetDate.getDate()} ${getMonthInGenitive(targetDate.getMonth())}`;
+
 
     // Получить текущую дату и добавить 7 дней
     let endDate = new Date();

@@ -1,7 +1,7 @@
 <div class="price-range-group d-flex">
-    <input type="text" class="number price-range-input range-min w-100 px-4" name="f[ {{ data['id'] }} ][]" 
+    <input type="text" class="number price-range-input range-min w-100 px-4" name="f[ {{ data['id'] }} ][]" data-id="min_price"
     id="{{ data['hash'] }}"  value="{{ data['min'] }}" />
-    <input type="text" class="number price-range-input range-max w-100 px-4" name="f[ {{ data['id'] }} ][]" 
+    <input type="text" class="number price-range-input range-max w-100 px-4" name="f[ {{ data['id'] }} ][]" data-id="max_price"
     id="{{ data['hash'] }}"  value="{{ data['max'] }}" />
 </div>
 {#<div class="price-range-slider w-100">

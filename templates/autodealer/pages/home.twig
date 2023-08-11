@@ -45,23 +45,9 @@ noneTPL:'@CODE: <div class="container">
 
 
 {% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
-rowTpl:'@CODE: <div class="index-first-block text-light" style="background: url([+image+]) center/cover;">
-		<div class="container">
-			<div class="top-text mb-4">
-				При покупке любого авто в кредит - выгода
-			</div>
-			<div class="price mb-4">
-				<span class="d-block">до</span>
-				350 000 ₽
-			</div>
-			<button class="btn btn-danger big" data-fancybox="popup" data-src="#popup">Получить предложение</button>
-		</div>
-	</div>
+rowTpl:'@CODE: 
 
-'}) %}
 
-{{banner |raw}}
-{#{ plh['catalog.filters'] | raw }#}
 <div class="timer-block pt-5 pb-3 mb-5">
 		<div class="container">
 			<div class="row">
@@ -74,7 +60,7 @@ rowTpl:'@CODE: <div class="index-first-block text-light" style="background: url(
 							на покупку авто
 						</div>
 						<span class="date d-inline-block py-3 px-4">до 15 июня</span>
-						<button>Посмотреть авто по акции</button>
+						<button data-fancybox="popup" data-src="#popup">Посмотреть авто по акции</button>
 						<div class="flex pt-4 mb-4">
 							<div class="item">
 								<span class="d-block mb-2">13</span>
@@ -98,6 +84,11 @@ rowTpl:'@CODE: <div class="index-first-block text-light" style="background: url(
 			</div>
 		</div>
 	</div>
+'}) %}
+
+{{banner |raw}}
+{#{ plh['catalog.filters'] | raw }#}
+
 {% include('partials/brands.twig') %}
 
 

@@ -116,7 +116,38 @@ rowTpl:'@CODE:
 		</div>
 	</div>
 	{% include '/partials/banks.twig' %}
-
+<div class="credit-banner mb-5">
+		<div class="container">
+			<div class="banner">
+				<div class="row">
+					<div class="col-lg-5">
+						<div class="text">
+							<p class="mb-2">Рассрочка</p>
+							<div class="percent mb-2">
+								0%
+							</div>
+							на весь <br/>модельный ряд
+						</div>
+					</div>
+					<div class="col-lg-7">
+						<div class="row">
+							<div class="col-6">
+								<div class="item pl-sm-4 pl-2">
+									выгода до <br/>500 000 ₽
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="item pl-sm-4 pl-2">
+									автомобили <br/>в наличии
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% include '/partials/actions.twig' %}
 {{ runSnippet('Form', {
 formid: 'FormCallback',
 path: '/templates/autodealer/partials/forms/feedback/',

@@ -3,7 +3,10 @@
 
 
 $(function() {
-
+	$(document).on('change', '.price-range-input', function(e) {
+    e.preventDefault();
+    Filter.build();
+});
 	var Filter = {
 		el: document.querySelector('.extrafilter'),
 		range_separator: ':',

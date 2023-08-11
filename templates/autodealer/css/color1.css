@@ -411,7 +411,7 @@
   border-left: 12px solid #bf151b;
 }
 .credit-catalog .item a {
-  background: url('..templates/autodealer/img/credit-arrow.svg') no-repeat left bottom;
+  background: url('../img/credit-arrow.svg') no-repeat left bottom;
 }
 .calc-block .calc .ui-widget-content {
   background: #bf151b;

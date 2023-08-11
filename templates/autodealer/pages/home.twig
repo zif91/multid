@@ -155,4 +155,51 @@ extension: 'twig'
 {% include('partials/contacts.twig') %}
 {#% include '/partials/tradein.twig' %#}
 {#% endcache %#}
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Получить текущую дату и добавить 7 дней
+    let endDate = new Date();
+    endDate.setDate(endDate.getDate() + 7);
+
+    // Форматирование даты
+    let formattedDate = endDate.getDate() + ' ' + endDate.toLocaleString('ru', { month: 'long' });
+    document.querySelector('.timer .date').textContent = 'до ' + formattedDate;
+
+    function updateCounter() {
+        let now = new Date().getTime();
+        let distance = endDate - now;
+
+        // Вычислить дни, часы, минуты, секунды
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Устанавливаем значения на странице
+        let timerItems = document.querySelectorAll('.timer .item .d-block');
+        timerItems[0].textContent = days;
+        timerItems[1].textContent = hours;
+        timerItems[2].textContent = minutes;
+        timerItems[3].textContent = seconds;
+
+        // Если время вышло
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            document.querySelector('.timer .name').textContent = 'Акция завершилась';
+            document.querySelector('.timer .date').textContent = '';
+            document.querySelector('.timer .flex').style.display = 'none';
+        }
+    }
+
+    // Обновляем обратный отсчет каждую секунду
+    let timerInterval = setInterval(updateCounter, 1000);
+
+    // Запустить функцию в первый раз
+    updateCounter();
+
+});
+
+</script>
+
 {% endblock %}

@@ -4,7 +4,7 @@
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
-display: 20,
+display: 4,
 parents: 27,
 depth: 5,
 orderBy: 'car-price',
@@ -92,7 +92,19 @@ rowTpl:'@CODE:
 
 {% include('partials/brands.twig') %}
 
+<div class="actions-block pb-3">
+		<div class="container">
+			<div class="flex">
+				<div class="block-name mb-4">
+					Автомобили <span>по специальному предложению</span>
+				</div>
+				<a href="/avtomobili-s-probegom2" class="top-link mb-4">Показать все автомобили →</a>
+			</div>
+			{{DLCatalog|raw}}
 
+
+		</div>
+</div>			
 {% include '/partials/advantages.twig' %}
 		{{ runSnippet('Form', {
               formid: 'FormCallback',

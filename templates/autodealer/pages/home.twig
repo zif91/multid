@@ -14,7 +14,7 @@ tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard',
 paginate:'pages',
-TplNextP:'',
+TplNextP:'',mu
 TplPrevP:'',
 TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
 TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
@@ -34,86 +34,94 @@ filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox2',
 tvSortType: 'UNSIGNED',
 api: 0,
 noneTPL:'@CODE: <div class="container">
-  <div class="row">
-    <div class="col text-center">
-      <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-    </div>
-  </div>
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
 </div>',
 })
 %}
-
-
 {% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
-rowTpl:'@CODE: 
-
-
+rowTpl:'@CODE:
 <div class="timer-block pt-5 pb-3 mb-5" style="background: url([+image+]) center / cover;
 ">
-		<div class="container">
-			<div class="row">
-					[+catalog.filters+]
-
-				<div class="col-md-6">
-					<div class="timer text-center">
-						<div class="name mb-2">
-							Специальное предложение <br/>
-							на покупку авто
+	<div class="container">
+		<div class="row">
+			[+catalog.filters+]
+			<div class="col-md-6">
+				<div class="timer text-center">
+					<div class="name mb-2">
+						Специальное предложение <br />
+						на покупку авто
+					</div>
+					<span class="date d-inline-block py-3 px-4">до 15 июня</span>
+					<button data-toggle="modal" data-target="#popup">Посмотреть авто по акции</button>
+					<div class="flex pt-4 mb-4">
+						<div class="item">
+							<span class="d-block mb-2">13</span>
+							дней
 						</div>
-						<span class="date d-inline-block py-3 px-4">до 15 июня</span>
-						<button data-toggle="modal" data-target="#popup">Посмотреть авто по акции</button>
-						<div class="flex pt-4 mb-4">
-							<div class="item">
-								<span class="d-block mb-2">13</span>
-								дней
-							</div>
-							<div class="item">
-								<span class="d-block mb-2">12</span>
-								часов
-							</div>
-							<div class="item">
-								<span class="d-block mb-2">48</span>
-								минут
-							</div>
-							<div class="item">
-								<span class="d-block mb-2">16</span>
-								секунд
-							</div>
+						<div class="item">
+							<span class="d-block mb-2">12</span>
+							часов
+						</div>
+						<div class="item">
+							<span class="d-block mb-2">48</span>
+							минут
+						</div>
+						<div class="item">
+							<span class="d-block mb-2">16</span>
+							секунд
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 '}) %}
-
 {{banner |raw}}
 {#{ plh['catalog.filters'] | raw }#}
-
 {% include('partials/brands.twig') %}
-
 <div class="actions-block pb-3">
-		<div class="container">
-			<div class="flex">
-				<div class="block-name mb-4">
-					Автомобили <span>по специальному предложению</span>
-				</div>
-				<a href="/avtomobili-s-probegom2" class="top-link mb-4">Показать все автомобили →</a>
+	<div class="container">
+		<div class="flex">
+			<div class="block-name mb-4">
+				Автомобили <span>по специальному предложению</span>
 			</div>
-						<div class="row">
-
-			{{DLCatalog|raw}}
-
-</div>
+			<a href="/avtomobili-s-probegom2" class="top-link mb-4">Показать все автомобили →</a>
 		</div>
-</div>			
+		<div class="row">
+			{{DLCatalog|raw}}
+		</div>
+	</div>
+</div>
 {% include '/partials/advantages.twig' %}
-		{{ runSnippet('Form', {
-              formid: 'FormCallback',
-              path: '/templates/autodealer/partials/forms/feedback/',
-              extension: 'twig'
-              }) | raw }} 
- 
+<div class="credit-form mb-5">
+		<div class="container">
+			<form>
+				<div class="fields">
+					<div class="name mb-4">
+						Заявка на кредит
+					</div>
+					<input type="text" placeholder="Ваше имя" class="w-100 mb-2 px-3">
+					<input type="text" placeholder="+7 (___)-___-__-__" class="w-100 mb-2 px-3">
+					<button class="btn btn-danger w-100 mb-3">Отправить заявку</button>
+					<div class="bottom-text">
+						Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#">персональных данных</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	{% include '/partials/banks.twig' %}
+
+{{ runSnippet('Form', {
+formid: 'FormCallback',
+path: '/templates/autodealer/partials/forms/feedback/',
+extension: 'twig'
+}) | raw }}
 {#% include '/partials/podbor.twig' %#}
 {# <div class="feedback-block">
 	<div class="container-fluid">
@@ -126,7 +134,6 @@ rowTpl:'@CODE:
 </div>#}
 {#% include('partials/actions.twig') %#}
 {% include('partials/contacts.twig') %}
-
 {#% include '/partials/tradein.twig' %#}
 {#% endcache %#}
 {% endblock %}

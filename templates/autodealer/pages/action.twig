@@ -1,5 +1,24 @@
 {% extends 'app.twig' %}
-
 {% block MAIN %}
 {% endblock %}
-
+<div class="calc-banner mb-5" style="background: url({{resource.image}}) center/cover;">
+	<div class="container">
+		<div class="text">
+			<p class="mb-4">{{resource.pagetitle}}</p>
+			<button class="btn btn-danger big w-100" data-toggle="modal" data-target="#popup">Получить предложение</button>
+		</div>
+	</div>
+</div>
+<div class="calc-block pb-5 mb-4">
+	<div class="container">
+		<div class="block-name mb-3">
+			{{resource.pagetitle}}
+		</div>
+		<div class="top-text mb-4">
+			{{resource.description}}
+		</div>
+		<div class="row">
+			{{resource.content | raw}}
+		</div>
+	</div>
+</div>

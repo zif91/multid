@@ -1,0 +1,1660 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuOKfMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyYMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuBWYMZg.ttf) format('truetype');
+}
+.up {
+  text-transform: uppercase;
+}
+.none {
+  text-decoration: none;
+}
+.th {
+  font-weight: 100;
+}
+.el {
+  font-weight: 200;
+}
+.l {
+  font-weight: 300;
+}
+.reg {
+  font-weight: 400;
+}
+.med {
+  font-weight: 500;
+}
+.sb {
+  font-weight: 600;
+}
+.bold {
+  font-weight: 700;
+}
+.eb {
+  font-weight: 800;
+}
+.black {
+  font-weight: 900;
+}
+.un {
+  text-decoration: underline;
+}
+.in {
+  display: inline-block;
+}
+.vam {
+  vertical-align: middle;
+}
+.rel {
+  position: relative;
+}
+.bl {
+  display: block;
+}
+.abs {
+  position: absolute;
+}
+.tr {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.try {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.trx {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tc {
+  display: table-cell;
+  vertical-align: middle;
+}
+.dn {
+  display: none;
+}
+.tac {
+  text-align: center;
+}
+.tal {
+  text-align: left;
+}
+.tar {
+  text-align: right;
+}
+.taj {
+  text-align: justify;
+}
+.it {
+  font-style: italic;
+}
+.sn {
+  font-style: normal;
+}
+.b0 {
+  border: 0;
+}
+.bn {
+  background: none;
+}
+.w100 {
+  width: 100%;
+}
+.h100 {
+  height: 100%;
+}
+.wa {
+  width: auto;
+}
+.p0 {
+  padding: 0;
+}
+.m0 {
+  margin: 0;
+}
+.poi {
+  cursor: pointer;
+}
+.auto {
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+}
+.noup {
+  text-transform: none;
+}
+.fix {
+  position: fixed;
+}
+.tn {
+  transform: none;
+}
+.bf {
+  background: #fff;
+}
+.cf {
+  color: #fff;
+}
+.c0 {
+  color: #000;
+}
+.ap {
+  appearance: none;
+}
+.nw {
+  white-space: nowrap;
+}
+.ma {
+  margin: 0 auto;
+}
+.oh {
+  overflow: hidden;
+}
+.pen {
+  pointer-events: none;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #fff;
+  overflow-x: hidden;
+}
+body,
+th,
+td {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+}
+body,
+form,
+object,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+img,
+table {
+  border: none;
+}
+table {
+  border-collapse: collapse;
+}
+table td {
+  padding: 0;
+}
+a {
+  color: #000;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+a:hover {
+  text-decoration: none;
+}
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 0;
+  font-family: 'Inter', sans-serif;
+}
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder,
+button:focus::-webkit-input-placeholder,
+select:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder,
+button:focus::-moz-placeholder,
+select:focus::-moz-placeholder {
+  color: transparent;
+}
+input:focus:-moz-placeholder,
+textarea:focus:-moz-placeholder,
+button:focus:-moz-placeholder,
+select:focus:-moz-placeholder {
+  color: transparent;
+}
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder,
+button:focus:-ms-input-placeholder,
+select:focus:-ms-input-placeholder {
+  color: transparent;
+}
+button,
+input[type='submit'] {
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  cursor: pointer;
+  border: 0;
+}
+ol,
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+.an {
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+section,
+header,
+footer,
+nav,
+main {
+  display: block;
+}
+* {
+  outline: none!important;
+}
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.flex2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+}
+.header.new .logo {
+  margin-top: 10px;
+}
+.header.new .logo a {
+  width: auto;
+  height: auto;
+  background: none !important;
+}
+.header.new .contacts .phone {
+  color: #fff;
+}
+.header.new .contacts .phone span {
+  color: #000;
+}
+.header.new .contacts .adress {
+  background: url('/templates/autodealer/adress6.svg') no-repeat 0 1px;
+}
+.header.new .best {
+  color: #fff;
+}
+.header .logo a {
+  display: block;
+  text-decoration: none;
+  width: 151px;
+  height: 63px;
+}
+.header .contacts .phone {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 8px;
+  background: url('/templates/autodealer/phone.svg') no-repeat 0 1px;
+}
+.header .contacts .adress {
+  font-size: 12px;
+  line-height: 15px;
+}
+.header .best {
+  background: url('/templates/autodealer/best.svg') no-repeat 0 0;
+  width: 196px;
+  font-size: 11px;
+  line-height: 13px;
+}
+.header .best span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+.btn.big {
+  font-weight: 600;
+  font-size: 20px!important;
+  line-height: 24px!important;
+  padding: 26px 58px!important;
+  border-radius: 17px!important;
+}
+.btn.middle {
+  font-weight: 600;
+  font-size: 18px!important;
+  line-height: 22px!important;
+  padding: 20px 45px!important;
+  border-radius: 17px!important;
+}
+.btn.btn-danger {
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 11px 44px;
+  border-radius: 7px;
+}
+.btn.btn-outline-danger {
+  background: none;
+}
+.top-menu {
+  background: #000!important;
+}
+.top-menu .menu-button {
+  font-weight: 500;
+}
+.top-menu .catalog {
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+  margin-top: 8px;
+  z-index: 5;
+  display: none;
+}
+.top-menu .catalog .block-name {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+  color: #000;
+}
+.top-menu .catalog .item a {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5E6472;
+}
+.top-menu .catalog .item a span {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.top-menu .catalog .item a span.empty {
+  background: #DDDDDD;
+}
+.index-first-block {
+  padding: 90px 0 210px;
+}
+.index-first-block .top-text {
+  font-weight: 600;
+  font-size: 34.4528px;
+  line-height: 42px;
+  max-width: 420px;
+}
+.index-first-block .price {
+  font-weight: 500;
+  font-size: 57.6595px;
+  line-height: 70px;
+}
+.index-first-block .price span {
+  font-weight: 500;
+  font-size: 21.5431px;
+  line-height: 26px;
+}
+.index-filter-block {
+  margin-top: -124px;
+}
+.index-filter-block.inner {
+  margin-top: 0;
+  box-shadow: 0px 5px 10px 0px rgba(59, 119, 181, 0.05);
+}
+.index-filter-block.inner .filter {
+  box-shadow: none;
+}
+.index-filter-block.inner .filter .name {
+  font-size: 18px;
+  line-height: 140%;
+}
+.index-filter-block .filter {
+  box-shadow: 0px 18px 35px rgba(136, 178, 222, 0.13);
+  border-radius: 16px;
+  background: #fff;
+}
+.index-filter-block .filter .name {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+}
+.index-filter-block .filter .top-link {
+  text-decoration: underline;
+}
+.index-filter-block .filter .clear-link {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  text-decoration-line: underline;
+  color: #A4A4A4;
+}
+.form-select {
+  height: 51px;
+  color: #5E6472;
+  border: 1px solid rgba(169, 180, 189, 0.2);
+  border-radius: 10px;
+  appearance: none;
+}
+.bg-light {
+  background: #fff !important;
+}
+.number {
+  position: relative;
+}
+.number input[type='text'] {
+  height: 51px;
+  color: #5E6472;
+  border: 1px solid rgba(169, 180, 189, 0.2);
+  border-radius: 10px;
+}
+.number span {
+  position: absolute;
+  right: 18px;
+  cursor: pointer;
+  width: 8px;
+  height: 4px;
+}
+.number span.plus {
+  top: 50%;
+  margin-top: -7px;
+}
+.number span.minus {
+  bottom: 50%;
+  margin-bottom: -7px;
+}
+.index-cars-select.inner .cars {
+  border: 0;
+  box-shadow: 0px 5px 10px rgba(59, 119, 181, 0.05);
+}
+.index-cars-select.inner2 .cars {
+  border: 0;
+  margin-top: 0;
+}
+.index-cars-select .cars {
+  background: #FFFFFF;
+  border: 6px solid #F5FAFF;
+  border-radius: 16px;
+  margin-top: -20px;
+}
+.index-cars-select .cars .block-name {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+}
+.index-cars-select .cars .item a {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5E6472;
+}
+.index-cars-select .cars .item a span {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.index-cars-select .cars .item a span.empty {
+  background: #DDDDDD;
+}
+.best-offers-block {
+  background: linear-gradient(0deg, #f9f9f9, #f9f9f9), #f8f8f8;
+}
+.best-offers-block .block-name {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+}
+.best-offers-block .item {
+  border-radius: 16px;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  position: relative;
+}
+.best-offers-block .item:hover {
+  color: #fff;
+  background: url('/templates/autodealer/offer.png') center / cover !important;
+}
+.best-offers-block .item:hover:after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  width: 31px;
+  height: 31px;
+}
+.best-offers-block .item:hover .number {
+  color: #fff;
+}
+.best-offers-block .item .number {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+}
+.advantages-block.inner {
+  background: #f9f9f9;
+}
+.advantages-block .block-name {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+  display: inline-block;
+}
+.advantages-block .item2 p span {
+  font-weight: 600;
+}
+.bottom-page-form form {
+  background: url('/templates/autodealer/bottom-page-form.png') center / cover;
+  border-radius: 16px;
+}
+.bottom-page-form form .name {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+}
+.bottom-page-form form p {
+  font-size: 13px;
+  line-height: 16px;
+}
+.bottom-page-form form input[type='text'] {
+  width: 269px;
+  height: 51px;
+  padding: 0 20px 0 50px;
+  background: #ffffff url('/templates/autodealer/phone.svg') no-repeat 20px 50%;
+  border-radius: 10px;
+  vertical-align: middle;
+}
+.bottom-page-form form button {
+  height: 51px;
+  vertical-align: middle;
+}
+.bottom-map-block .content .contacts {
+  z-index: 3;
+  box-shadow: 0px 18px 35px rgba(136, 178, 222, 0.13);
+  border-radius: 16px;
+}
+.bottom-map-block .content .contacts .phone {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 8px;
+  background: url('/templates/autodealer/phone.svg') no-repeat 0 1px;
+}
+.bottom-map-block .content .contacts .btn {
+  height: 51px;
+}
+.bottom-map-block .content .map {
+  top: 0;
+  left: 0;
+}
+.footer {
+  background: url('/templates/autodealer/footer.png') center / cover;
+}
+.footer .contacts .phone {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 8px;
+  background: url('/templates/autodealer/phone.svg') no-repeat 0 1px;
+}
+.footer .contacts .adress {
+  font-size: 12px;
+  line-height: 15px;
+}
+.footer .copy {
+  font-size: 10px;
+  line-height: 12px;
+  color: rgba(255, 255, 255, 0.38);
+}
+.footer .copy a {
+  color: rgba(255, 255, 255, 0.38);
+}
+.footer .best {
+  background: url('/templates/autodealer/best.svg') no-repeat 0 0;
+  width: 196px;
+  font-size: 11px;
+  line-height: 13px;
+  color: rgba(255, 255, 255, 0.38);
+}
+.footer .best span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+.mobile-header {
+  height: 56px;
+  background: #000;
+  display: none;
+}
+.mobile-header .logo a {
+  display: block;
+  width: 129px;
+  height: 56px;
+}
+.mobile-header .menu-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  width: 21px;
+  height: 16px;
+}
+.mobile-menu {
+  top: 0;
+  left: 0;
+  z-index: 20;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 18px 0;
+  display: none;
+}
+.mobile-menu .close {
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  background: url('/templates/autodealer/close.svg');
+  opacity: 1;
+}
+.mobile-menu .contacts .phone {
+  color: #fff;
+  background: url('/templates/autodealer/mob-phone.svg') no-repeat 0 1px;
+}
+.mobile-menu .contacts .adress {
+  background: url('/templates/autodealer/mob-adress.svg') no-repeat 0 2px;
+}
+.mobile-menu .btn {
+  font-weight: 600;
+}
+.mobile-menu .best {
+  background: url('/templates/autodealer/best2.svg') no-repeat 0 0;
+  font-size: 10px;
+  line-height: 12px;
+}
+.mobile-menu .best span {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+}
+.popup {
+  box-shadow: 0px 18px 35px rgba(136, 178, 222, 0.13);
+  border-radius: 16px;
+}
+.popup .name {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+}
+.popup input[type='text'] {
+  height: 51px;
+  padding: 0 22px;
+  background: #fff;
+  border: 1px solid rgba(169, 180, 189, 0.2);
+  border-radius: 10px;
+}
+.popup input[type='text'].phone {
+  padding: 0 22px 0 50px;
+  background: #ffffff url('/templates/autodealer/phone.svg') no-repeat 20px 50%;
+}
+.popup .agree {
+  position: relative;
+}
+.popup .agree input[type='checkbox'] {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.popup .checkbox + label {
+  cursor: pointer;
+  font-size: 10px;
+  line-height: 12px;
+  color: #A3A3A3;
+}
+.popup .btn {
+  height: 51px;
+}
+.navi {
+  font-size: 16px;
+  line-height: 19px;
+}
+.h1 h1 {
+  font-weight: 600;
+  font-size: 34.4528px;
+  line-height: 42px;
+  display: inline-block;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.catalog-page .top-filter {
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0px 18px 35px 0px rgba(136, 178, 222, 0.13);
+}
+.catalog-page .block-name {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.catalog-page .top-link {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #A4A4A4;
+}
+.catalog-page .tags .tag {
+  font-weight: 500;
+  color: #5E6472;
+}
+.catalog-page .tags .tag span {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.catalog-page .tags .tag .delete {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: url('/templates/autodealer/delete.svg');
+}
+.catalog-page .searched {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+}
+.catalog-page .item {
+  border: 6px solid #F5FAFF;
+  border-radius: 16px;
+}
+.catalog-page .item .name {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.catalog-page .item .price {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+}
+.catalog-page .item .info-block {
+  font-size: 12px;
+  line-height: 15px;
+  color: #868686;
+}
+.catalog-page .item .info-block span {
+  color: #000;
+  font-size: 14px;
+  line-height: 17px;
+}
+.catalog-page .item .btn {
+  height: 51px;
+}
+.catalog-page .item .btn span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  background: url('/templates/autodealer/car.svg');
+  margin: -2px 12px 0 0;
+}
+.catalog-page .item .bottom-link {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration-line: underline;
+  color: #5E6472;
+}
+.catalog-page .navigation .pagination .page-item .page-link {
+  font-weight: 500;
+  font-size: 18.2424px;
+  line-height: 150%;
+  color: #6B7280;
+  padding: 8px 15px;
+}
+.item-page .photos .slider-nav {
+  margin: 0 -5px;
+}
+.item-page .photos .slider-nav .item {
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.item-page .params .name {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.item-page .params table tr td {
+  padding: 0 10px 6px 0;
+}
+.item-page .params table tr td:first-child {
+  font-size: 12px;
+  line-height: 15px;
+  color: #868686;
+}
+.item-page .params table tr td:last-child {
+  padding-right: 0;
+}
+.item-page .price {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+}
+.item-page ul li:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 28px;
+  height: 28px;
+  background: url('/templates/autodealer/li.svg');
+}
+.item-page .discount {
+  border: 6px solid #F5FAFF;
+  border-radius: 16px;
+  padding: 20px 20px 20px 50px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+}
+.item-page .btn-danger {
+  height: 66px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+}
+.item-page .btn-danger span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  background: url('/templates/autodealer/car.svg');
+  margin: -2px 12px 0 0;
+}
+.item-page .but {
+  height: 50px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 5px;
+}
+.item-page .but.bl {
+  box-shadow: 0px 4px 12px rgba(226, 29, 37, 0.22);
+  color: #fff;
+  background: #000;
+}
+.item-page .but.wh {
+  background: none;
+}
+.item-page .text-block {
+  background: linear-gradient(0deg, #f9f9f9, #f9f9f9), linear-gradient(180deg, #f8f8f8 0%, #f8f8f8 100%);
+  border-radius: 16px;
+}
+.item-page .text-block p {
+  font-weight: 500;
+  color: #51B522;
+}
+.item-page .text-block p.red {
+  color: #E02026;
+}
+.item-page .text-block p.orange {
+  color: #FF9900;
+}
+.item-page .main-text p {
+  font-size: 16px;
+  line-height: 166.52%;
+}
+.page-banner {
+  padding: 346px 0 60px;
+}
+.page-banner p {
+  max-width: 420px;
+  font-weight: 600;
+  font-size: 34.4528px;
+  line-height: 42px;
+}
+.steps-block {
+  background: linear-gradient(0deg, #f9f9f9, #f9f9f9), #f8f8f8;
+}
+.steps-block .block-name {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+  display: inline-block;
+}
+.steps-block .flex {
+  background: url('/templates/autodealer/steps.svg') no-repeat top center;
+}
+.steps-block .flex .item {
+  width: 20%;
+}
+.steps-block .flex .item:nth-child(2n) {
+  margin-top: 60px;
+}
+.steps-block .flex .item .icon {
+  background: #fff;
+  width: 207px;
+  height: 207px;
+  line-height: 207px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+}
+.steps-block .flex .item .icon img {
+  vertical-align: middle;
+}
+.steps-block .flex .item .icon span {
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  width: 37px;
+  height: 37px;
+  color: #fff;
+  text-align: center;
+  line-height: 37px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.steps-block .flex .item .name {
+  margin-top: -30px;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 23px;
+  z-index: 3;
+}
+.steps-block .flex .item .time {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  border: 2px solid #D6D6D6;
+  filter: drop-shadow(0px 18px 35px rgba(136, 178, 222, 0.13));
+  border-radius: 16px;
+}
+.steps-block .flex .item .btn {
+  display: block;
+}
+.timer-block {
+  background: url('/templates/autodealer/timer-block.png') center / cover;
+  color: #fff;
+}
+.timer-block form {
+  max-width: 380px;
+  margin: 0 auto;
+}
+.timer-block form .name {
+  font-size: 22px;
+  font-weight: 500;
+}
+.timer-block form select {
+  height: 51px;
+  border-radius: 10px;
+  border: 1px solid rgba(169, 180, 189, 0.2);
+  appearance: none;
+}
+.timer-block form .link a {
+  text-decoration: underline;
+}
+.timer-block form .btn {
+  border-radius: 17px;
+  border: 3px solid #FFF;
+  box-shadow: 0px 4px 12px 0px rgba(226, 29, 37, 0.22);
+  color: #fff;
+}
+.timer-block .timer .name {
+  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 30px;
+}
+.timer-block .timer .date {
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #222;
+  margin-bottom: 90px;
+}
+.timer-block .timer button {
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 25px 40px;
+}
+.timer-block .timer .item {
+  width: 23.5%;
+  font-size: 20px;
+  font-weight: 500;
+}
+.timer-block .timer .item span {
+  font-size: 40px;
+  line-height: 130%;
+  padding: 18px 0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #5e6472 0%, rgba(94, 100, 114, 0) 100%);
+}
+.actions-block .block-name {
+  font-size: 22px;
+  font-weight: 500;
+}
+.actions-block .top-link {
+  font-weight: 500;
+  text-decoration: underline;
+}
+.actions-block .item {
+  border-radius: 8px;
+  border: 1px solid #D9D9D9;
+}
+.actions-block .item .action {
+  color: #fff;
+  left: 10px;
+  top: 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.actions-block .item .name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.actions-block .item .way {
+  color: #5E6472;
+  font-size: 12px;
+}
+.actions-block .item .price .old {
+  color: #4D4D4D;
+  font-size: 16px;
+  text-decoration: line-through;
+}
+.actions-block .item .price .new {
+  font-weight: 700;
+  font-size: 24px;
+}
+.actions-block .item .payment {
+  color: #5E6472;
+  font-size: 12px;
+  font-weight: 500;
+}
+.actions-block .item .payment span {
+  font-weight: 700;
+}
+.actions-block .item .buttons button {
+  height: 48px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  font-weight: 500;
+  background: none;
+}
+.actions-block .item .buttons button:nth-child(1) {
+  color: #5E6472;
+  border: 1px solid #5E6472;
+}
+.actions-block .item .buttons button:nth-child(3) {
+  color: #fff;
+}
+.auto-sale-form form {
+  color: #fff;
+  border-radius: 14px;
+  background: linear-gradient(140deg, #0f1723 0%, #25344b 100%);
+  padding: 0 158px;
+}
+.auto-sale-form form .name {
+  font-size: 26px;
+  font-weight: 500;
+}
+.auto-sale-form form p {
+  font-weight: 500;
+}
+.auto-sale-form form select {
+  height: 51px;
+  border-radius: 10px;
+  border: 1px solid rgba(169, 180, 189, 0.2);
+  appearance: none;
+}
+.auto-sale-form form input[type='text'] {
+  height: 51px;
+  border-radius: 10px;
+  border: 1px solid rgba(169, 180, 189, 0.2);
+}
+.auto-sale-form form .btn {
+  height: 51px;
+  padding: 0;
+}
+.auto-sale-form form .bottom-text {
+  font-size: 12px;
+}
+.auto-sale-form form .bottom-text a {
+  text-decoration: underline;
+}
+.credit-form form {
+  background: url('/templates/autodealer/credit-form.png') center / cover;
+  padding: 65px 60px;
+  color: #fff;
+}
+.credit-form form .fields {
+  max-width: 400px;
+}
+.credit-form form .name {
+  font-size: 26px;
+  font-weight: 500;
+}
+.credit-form form input[type='text'] {
+  height: 51px;
+  border-radius: 10px;
+  border: 1px solid rgba(169, 180, 189, 0.2);
+}
+.credit-form form .btn {
+  height: 51px;
+  padding: 0;
+}
+.credit-form form .bottom-text {
+  font-size: 12px;
+}
+.credit-form form .bottom-text a {
+  text-decoration: underline;
+}
+.banks-block .block-name {
+  display: inline-block;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 500;
+}
+.banks-block .item {
+  border-radius: 8px;
+  border: 1px solid #F2F3F7;
+  height: 98px;
+  line-height: 98px;
+}
+.banks-block .item:hover img {
+  filter: none;
+}
+.banks-block .item img {
+  vertical-align: middle;
+  max-width: 90%;
+  filter: grayscale(100%);
+}
+.credit-banner .banner {
+  background: url('/templates/autodealer/credit-banner.png') center / cover;
+  padding: 50px 58px;
+  color: #fff;
+}
+.credit-banner .banner .text {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 130%;
+}
+.credit-banner .banner .text p {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 90%;
+}
+.credit-banner .banner .text .percent {
+  font-weight: 700;
+  font-size: 200px;
+  line-height: 90%;
+}
+.credit-banner .banner .item {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 26px;
+}
+.credit-catalog .item a {
+  font-size: 18px;
+  filter: grayscale(100%);
+  color: #000;
+}
+.credit-catalog .item a:hover {
+  filter: none;
+}
+.calc-block .block-name {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+}
+.calc-block .top-text {
+  font-size: 20px;
+  line-height: 24px;
+}
+.calc-block .calc .item .field input[type='text'] {
+  width: 100px;
+  padding: 0;
+  height: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.calc-block .calc .item .field .edit {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url('/templates/autodealer/edit.svg');
+  vertical-align: middle;
+}
+.calc-block .calc .item .ui-widget.ui-widget-content {
+  border: 0;
+}
+.calc-block .calc .item .ui-widget-header {
+  background: #F2F3F7;
+}
+.calc-block .calc .item .ui-slider-horizontal {
+  height: 4px;
+}
+.calc-block .calc .item .ui-state-default,
+.calc-block .calc .item .ui-widget-content .ui-state-default,
+.calc-block .calc .item .ui-widget-header .ui-state-default,
+.calc-block .calc .item .ui-button,
+.calc-block .calc .item html .ui-button.ui-state-disabled:hover,
+.calc-block .calc .item html .ui-button.ui-state-disabled:active {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -2px 0 0 -8px;
+}
+.calc-block .calc .item .values {
+  color: #838383;
+}
+.calc-block .result {
+  border-radius: 20px;
+  background: #F2F3F7;
+  padding: 45px 27px;
+}
+.calc-block .result .name {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+.calc-block .result table tr:first-child td:last-child {
+  font-size: 28px;
+}
+.calc-block .result table tr td {
+  padding: 0 20px 20px 0;
+}
+.calc-block .result table tr td:last-child {
+  text-align: right;
+  padding-right: 0;
+  font-weight: 500;
+  font-size: 16px;
+}
+.calc-block .result .finish div:last-child {
+  font-weight: 600;
+  font-size: 20px;
+}
+.calc-banner {
+  background: url('/templates/autodealer/calc-banner.png') center / cover;
+  padding: 120px 0;
+  color: #fff;
+}
+.calc-banner .text {
+  max-width: 355px;
+}
+.calc-banner .text p {
+  font-weight: 600;
+  font-size: 34.453px;
+  line-height: 40px;
+}
+.calc-banner .text .btn {
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+.actions-calc {
+  background: #F2F3F7;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  padding: 20px 25px 1px 25px;
+}
+.actions-calc .item {
+  padding-bottom: 70px;
+  height: 100%;
+}
+.actions-calc .item .name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 150%;
+}
+.actions-calc .item .action {
+  font-size: 12px;
+  line-height: 150%;
+}
+.actions-calc .item .action span {
+  font-weight: 700;
+}
+.actions-calc .item table tr td {
+  line-height: 160.9%;
+}
+.actions-calc .item table tr td:last-child {
+  font-weight: 500;
+}
+.actions-calc .item table tr td.bold {
+  font-weight: 700;
+}
+.actions-calc .item button {
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  border-radius: 8px;
+  color: #fff;
+  background: #000;
+  font-weight: 600;
+}
+.actions-calc .item .bottom-text {
+  line-height: 160.9%;
+}
+@media (max-width: 1199px) {
+  .steps-block .flex {
+    background: none;
+  }
+  .steps-block .flex .item {
+    width: 23%;
+  }
+}
+@media (max-width: 991px) {
+  .top-menu .btn.btn-danger {
+    padding: 13px 20px;
+  }
+  .steps-block .flex .item {
+    width: 48%;
+  }
+  .steps-block .flex .item:nth-child(2n) {
+    margin-top: 0;
+  }
+  .top-menu .btn.btn-danger {
+    padding: 13px 16px;
+  }
+  .auto-sale-form form {
+    padding: 0 30px;
+  }
+  .credit-banner .banner .text {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    display: none;
+  }
+  .top-menu {
+    display: none;
+  }
+  .mobile-header {
+    display: block;
+  }
+  .mobile-menu.opened {
+    display: block;
+  }
+  .index-filter-block .filter .clear-link {
+    display: block;
+    margin: 15px 0 0 0;
+    text-align: center;
+  }
+  .index-filter-block .btn {
+    width: 100%;
+  }
+  .index-cars-select .row .col-md-4:last-child {
+    display: none;
+  }
+  .bottom-page-form form input[type='text'] {
+    width: 100%;
+  }
+  .bottom-page-form form .btn {
+    width: 100%;
+  }
+  .timer-block .timer .date {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 575px) {
+  .index-first-block {
+    text-align: center;
+    padding: 100px 0 150px;
+  }
+  .index-first-block .top-text {
+    font-size: 21px;
+    line-height: 25px;
+  }
+  .index-first-block .price {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .btn.big {
+    font-size: 16px!important;
+    line-height: 19px!important;
+  }
+  .index-filter-block .filter .name {
+    text-align: center;
+    width: 100%;
+  }
+  .btn.middle {
+    font-size: 15px!important;
+    line-height: 18px!important;
+  }
+  .index-cars-select .cars .block-name {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .index-cars-select .cars .item a {
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .index-cars-select .cars .item a span {
+    font-size: 9px;
+    line-height: 11px;
+  }
+  .best-offers-block .block-name {
+    text-align: center;
+    font-size: 18px;
+    line-height: 22px;
+    display: block;
+  }
+  .advantages-block .block-name {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .advantages-block .item {
+    text-align: center;
+  }
+  .bottom-page-form form {
+    text-align: center;
+  }
+  .bottom-map-block .content .contacts {
+    margin-top: 230px;
+  }
+  .footer {
+    text-align: center;
+  }
+  .footer .contacts {
+    text-align: left;
+    width: 220px;
+    margin: 0 auto;
+  }
+  .footer .best {
+    text-align: left;
+    width: 210px;
+    margin: 0 auto;
+  }
+  .h1 h1 {
+    text-align: center;
+    font-size: 22px;
+    line-height: 27px;
+  }
+  .navi {
+    display: none;
+  }
+  h1 {
+    margin-top: 30px;
+  }
+  .steps-block .flex .item {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 40px;
+  }
+  .page-banner {
+    padding: 220px 0 40px;
+  }
+  .page-banner p {
+    font-size: 27.9924px;
+    line-height: 34px;
+  }
+  .auto-sale-form form .name {
+    line-height: 32px;
+  }
+  .credit-form form {
+    padding: 30px;
+  }
+  .credit-banner .banner {
+    padding: 30px;
+  }
+  .credit-banner .banner .text .percent {
+    font-size: 160px;
+  }
+  .credit-banner .banner .item {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .calc-block .result {
+    padding: 30px 20px;
+  }
+  .calc-banner {
+    padding: 50px 0;
+  }
+}

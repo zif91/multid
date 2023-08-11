@@ -1222,7 +1222,6 @@ main {
 }
 
 .price-range-group {
-  border: 1px solid rgba(169, 180, 189, 0.2);
   border-radius: 36px;
 }
 .price-range-input.range-min, .price-range-input.range-max {

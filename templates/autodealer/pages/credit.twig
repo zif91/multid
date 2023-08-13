@@ -145,11 +145,15 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         max: max,
         value: value,
         slide: function(event, ui) {
-            let percentage = (ui.value - min) / (max - min) * 100;
-                $(selector + ' .ui-slider-range').css('width', percentage + '%');
+        let percentage = (ui.value - min) / (max - min) * 100;
+        $(selector + ' .ui-slider-range').css('width', percentage + '%');
           $(selector + '-value').val(ui.value + unit);
           if(selector === "#slider-range-max") {
               $("#amount").val(ui.value + unit);
+          } else if(selector === "#slider-range-max2") {
+              $("#amount2").val(ui.value + unit);
+          } else if(selector === "#slider-range-max3") {
+              $("#amount3").val(ui.value + unit);
           }
           adjustDownPaymentRange();
           updateResults();
@@ -157,6 +161,10 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         create: function() {
           if(selector === "#slider-range-max") {
               $("#amount").val(value + unit);
+          } else if(selector === "#slider-range-max2") {
+              $("#amount2").val(value + unit);
+          } else if(selector === "#slider-range-max3") {
+              $("#amount3").val(value + unit);
           }
         }
       });
@@ -201,6 +209,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
     updateResults();
 
 });
+
 
 
 </script>

@@ -6,6 +6,19 @@ maxDepth: 1,
 rowTpl: '@CODE:<li class="mb-2"><a href="[+url+]" class="text-light">[+pagetitle+]</a></li>',
 outerTpl: '@CODE:<ul class="pb-5">
     [+wrap+]</ul>'}) %}
+
+{% set headermenu = runSnippet('DLMenu', {
+parents: baseSettings["id"],
+tvList: 'image',
+maxDepth: 1,
+rowTpl: '@CODE:            <a href="[+url+]" class="mr-4 text-light">[+pagetitle+]</a>',
+
+outerTpl: '@CODE:
+    <nav>
+            [+wrap+]
+            <button class="btn btn-danger" data-toggle="modal" data-target="#popup" >Заказать звонок</button>
+        </nav>'}) %}
+
 <nav class="mobile-menu position-fixed w-100 h-100 text-light">
     <a class="close position-absolute"></a>
     <div class="container">
@@ -70,11 +83,7 @@ outerTpl: '@CODE:<ul class="pb-5">
 <nav class="top-menu py-2 bg-dark text-light">
     <div class="container flex position-relative">
         <a class="menu-button pl-4 mt-2 pt-1">Каталог автомобилей с пробегом</a>
-        <nav>
-            <!--a href="#" class="mr-4 text-light">Акции</a-->
-            <a href="/kontakty1" class="mr-4 text-light">Контакты</a>
-            <button class="btn btn-danger" data-toggle="modal" data-target="#popup" >Заказать звонок</button>
-        </nav>
+        {{headermenu |raw}}
         <div class="catalog position-absolute w-100 p-5">
             <div class="block-name mb-4">
                 <span>Выбрать</span> марку

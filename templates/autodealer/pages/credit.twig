@@ -143,7 +143,10 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
             min: min,
             max: max,
             value: value,
+                
             slide: function(event, ui) {
+                let percentage = (ui.value - min) / (max - min) * 100;
+                $(selector + ' .ui-slider-range').css('width', percentage + '%');
                 if (slideCallback) {
                     slideCallback(ui.value);
                 }

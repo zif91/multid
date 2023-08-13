@@ -2,6 +2,7 @@
 {% set headermenumob = runSnippet('DLMenu', {
 parents: baseSettings["id"],
 tvList: 'image',
+maxDepth: 1,
 rowTpl: '@CODE:<li class="mb-2"><a href="[+url+]" class="text-light">[+pagetitle+]</a></li>',
 outerTpl: '@CODE:<ul class="pb-5">
     [+wrap+]</ul>'}) %}

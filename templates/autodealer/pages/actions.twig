@@ -1,23 +1,61 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
+	{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
+controller: 'catalog_filters',
 display: 4,
-parents: 27,
-depth: 2,
-tvList:'car-price,run,engine_power,gear,year,image,body_type,car_color,engine_volume,fuel,drive',
+parents: catalog_number,
+depth: 5,
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard',
+paginate:'pages',
+TplNextP:'',
+TplPrevP:'',
+TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+filter: 'filters',
+filterRangeSeparator: ':',
+filterValuesSeparator: '|',
+filterDelimiter: '||',
+__filterPriceId: 14,
+filterList: '42,43,19',
+_filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
+filterTpl: '@T_FILE:partials/filters/tpl2',
+filterOwnerRange: '@T_FILE:partials/filters/ownerRange2',
+filterTplRange: '@T_FILE:partials/filters/tplRange2',
+filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox2',
+filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox2',
+tvSortType: 'UNSIGNED',
+api: 0,
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
 })
 %}
 
-		{% include 'partials/actions.twig' %}
+{% include 'partials/actions.twig' %}
 	
-<div class="catalog-page pb-1">
+<div class="actions-block pb-3">
 	<div class="container">
-		<h2 class="h1 mb-sm-5 mb-4">Автомобили по акции</h2>
+		<div class="flex">
+			<div class="block-name mb-4">
+				Автомобили <span>по специальному предложению</span>
+			</div>
+			<a href="/avtomobili-s-probegom2" class="top-link mb-4">Показать все автомобили →</a>
+		</div>
 		<div class="row">
-			{{DLCatalog |raw}}
+			{{DLCatalog|raw}}
 		</div>
 	</div>
 </div>

@@ -1,11 +1,13 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
 {#% cache 'main' ~ resource.id %#}
+{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
 display: 4,
-parents: 27,
+parents: catalog_number,
 depth: 5,
 orderBy: 'car-price',
 order: 'RAND()',

@@ -582,7 +582,7 @@ main {
   background: #FFFFFF;
   border: 6px solid #F5FAFF;
   border-radius: 16px;
-  margin-top: -20px;
+  margin-top: 10px;
 }
 .index-cars-select .cars .block-name {
   font-weight: 500;

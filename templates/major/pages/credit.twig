@@ -148,14 +148,12 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 <script src="static/js/select2.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-
     function updateResults() {
-        const carPrice = parseFloat($("input[data-price]").val());
+        const creditAmount = $("#slider-range-max3").slider("value");
         const downPayment = $("#slider-range-max").slider("value");
         const term = $("#slider-range-max2").slider("value");
-        const creditAmount = $("#slider-range-max3").slider("value");
-        const creditRate = 0.1; // Процентная ставка кредита в месяц. Вы можете изменить это значение.
-        const monthlyPayment = (creditAmount * (creditRate / 12)) / (1 - Math.pow(1 + creditRate / 12, -term));
+        const creditRate = 0.1;
+        const monthlyPayment = (creditAmount - downPayment) * (creditRate / 12) / (1 - Math.pow(1 + creditRate / 12, -term));
 
         $(".tbl1 tr:nth-child(1) td:nth-child(2)").text(creditAmount.toLocaleString() + " ₽");
         $(".tbl1 tr:nth-child(2) td:nth-child(2)").text(downPayment.toLocaleString() + " ₽");
@@ -163,43 +161,59 @@ $(document).ready(function() {
         $(".tbl2 tr:nth-child(1) td:nth-child(2)").text(Math.round(monthlyPayment).toLocaleString() + " ₽/мес.");
     }
 
-    function initializeSlider(selector, min, max, value, unit, step = 1) {
-        $(selector).slider({
-            range: "max",
-            min: min,
-            max: max,
-            value: value,
-            step: step,
-            slide: function(event, ui) {
-                if (selector === "#slider-range-max") {
-                    $("#amount").val(ui.value + unit);
-                } else if (selector === "#slider-range-max2") {
-                    $("#amount2").val(ui.value + (ui.value > 12 && ui.value < 60 ? " месяца" : " месяцев"));
-                } else if (selector === "#slider-range-max3") {
-                    $("#amount3").val(ui.value + unit);
-                }
-                updateResults();
-            },
-            create: function() {
-                if (selector === "#slider-range-max") {
-                    $("#amount").val(value + unit);
-                } else if (selector === "#slider-range-max2") {
-                    $("#amount2").val(value + (value > 12 && value < 60 ? " месяца" : " месяцев"));
-                } else if (selector === "#slider-range-max3") {
-                    $("#amount3").val(value + unit);
-                }
-            }
-        });
+    function updateDownPaymentSlider() {
+        const creditAmount = $("#slider-range-max3").slider("value");
+        const minDownPayment = creditAmount * 0.1;
+        const maxDownPayment = creditAmount * 0.9;
+
+        $("#slider-range-max").slider("option", "min", minDownPayment);
+        $("#slider-range-max").slider("option", "max", maxDownPayment);
+
+        // Убедимся, что текущее значение внутри нового диапазона.
+        const currentDownPayment = $("#slider-range-max").slider("value");
+        if (currentDownPayment > maxDownPayment || currentDownPayment < minDownPayment) {
+            $("#slider-range-max").slider("value", minDownPayment);
+            $("#amount").val(minDownPayment.toLocaleString() + " ₽");
+        }
     }
 
-    initializeSlider("#slider-range-max", 10000, 900000, 250000, " ₽", 10000); // 10% - 90% от 1 000 000
-    initializeSlider("#slider-range-max2", 12, 60, 12, "");
-    initializeSlider("#slider-range-max3", 100000, 5000000, 1000000, " ₽", 10000);
+    $("#slider-range-max3").slider({
+        range: "max",
+        min: 100000,
+        max: 5000000,
+        value: 1000000,
+        slide: function(event, ui) {
+            $("#amount3").val(ui.value + " ₽");
+            updateDownPaymentSlider();
+            updateResults();
+        }
+    });
 
-    // Первичное обновление результатов
+    $("#slider-range-max").slider({
+        range: "max",
+        min: 10000,
+        max: 900000,
+        value: 250000,
+        slide: function(event, ui) {
+            $("#amount").val(ui.value + " ₽");
+            updateResults();
+        }
+    });
+
+    $("#slider-range-max2").slider({
+        range: "max",
+        min: 12,
+        max: 60,
+        value: 12,
+        slide: function(event, ui) {
+            $("#amount2").val(ui.value + (ui.value > 12 && ui.value < 60 ? " месяца" : " месяцев"));
+            updateResults();
+        }
+    });
+
     updateResults();
-
 });
+
 
 
 </script>

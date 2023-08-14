@@ -21,7 +21,7 @@ order: 'RAND()',
 tvSortType: 'SIGNED',
 tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
 ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard',
+tpl:'@T_FILE:partials/catalogcard_first',
 paginate:'pages',
 TplNextP:'',
 TplPrevP:'',
@@ -137,7 +137,7 @@ noneTPL:'@CODE: <div class="container">
 <div class="index-catalog-block2 pb-5">
 	<div class="container">
 		<h2 class="h2 mb-5">Предложение дня</h2>
-		<div class="list" id="catalog">
+		<div class="list row" id="catalog">
 			{{DLCatalog |raw}}
 		</div>
 	</div>

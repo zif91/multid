@@ -168,7 +168,7 @@
             {% for item in modification %}
             {% if item["group-name"] is not empty %}
             <div class="card item">
-                <div class="item-name card-header" id="itemHeader">
+                <div class="item-name " id="itemHeader">
                     <h2 class="mb-0">
                         <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}">
                             <i class="fas fa-plus mr-2"></i>{{item["group-name"]}} {{item["Объем двигателя"]}}см³, {{item["Тип двигателя"]}}, КП {{item["Трансмиссия"]}}, {{item["Привод"]}} привод

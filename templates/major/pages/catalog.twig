@@ -134,12 +134,10 @@ noneTPL:'@CODE: <div class="container">
 			{% include '/partials/brands.twig' %}</div>
 	</div>
 </div>
-<div class="index-catalog-block index-catalog-block2 pb-4" id="catalog">
+<div class="index-catalog-block2 pb-5">
 	<div class="container">
-		<div class="block-name mb-5">
-			{{resource.pagetitle}}
-		</div>
-		<div class="row list"  id="catalog">
+		<h2 class="h2 mb-5">Предложение дня</h2>
+		<div class="list" id="catalog">
 			{{DLCatalog |raw}}
 		</div>
 	</div>
@@ -213,5 +211,6 @@ modelsSelect.addEventListener('change', function() {
 			console.error(errorThrown);
 		});
 });
+
 </script>
 {% endblock %}

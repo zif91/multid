@@ -105,11 +105,13 @@ tpl:'@T_CODE: <div class="gift__item">
                                 <td>{{resource.drive}}</td>
                             </tr>
                         </table>
-                        <div class="price mb-4">
+                        <div class="row">
+                        <div class="price mb-4 col-6">
                             {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
                         </div>
-                        <div class="price mb-4">
+                        <div class=" mb-4 col-6">
                             {{ (resource['old-car-price'])|number_format(0, '.', ' ') }} ₽
+                        </div>
                         </div>
                         <ul class="pb-3">
                             <li class="pl-5 position-relative mb-4">ПТС: Оригинал</li>

@@ -149,17 +149,34 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 <script type="text/javascript">
 $(document).ready(function() {
 
-    function initializeSlider(selector, min, max, value, unit) {
+    function updateResults() {
+        const carPrice = parseFloat($("input[data-price]").val());
+        const downPayment = $("#slider-range-max").slider("value");
+        const term = $("#slider-range-max2").slider("value");
+        const creditAmount = $("#slider-range-max3").slider("value");
+        const creditRate = 0.1; // Процентная ставка кредита в месяц. Вы можете изменить это значение.
+        const monthlyPayment = (creditAmount * (creditRate / 12)) / (1 - Math.pow(1 + creditRate / 12, -term));
+
+        $(".tbl1 tr:nth-child(1) td:nth-child(2)").text(creditAmount.toLocaleString() + " ₽");
+        $(".tbl1 tr:nth-child(2) td:nth-child(2)").text(downPayment.toLocaleString() + " ₽");
+        $(".tbl1 tr:nth-child(3) td:nth-child(2)").text(term + " месяцев");
+        $(".tbl2 tr:nth-child(1) td:nth-child(2)").text(Math.round(monthlyPayment).toLocaleString() + " ₽/мес.");
+    }
+
+    function initializeSlider(selector, min, max, value, unit, step = 1) {
         $(selector).slider({
             range: "max",
             min: min,
             max: max,
             value: value,
+            step: step,
             slide: function(event, ui) {
                 if (selector === "#slider-range-max") {
                     $("#amount").val(ui.value + unit);
                 } else if (selector === "#slider-range-max2") {
                     $("#amount2").val(ui.value + (ui.value > 12 && ui.value < 60 ? " месяца" : " месяцев"));
+                } else if (selector === "#slider-range-max3") {
+                    $("#amount3").val(ui.value + unit);
                 }
                 updateResults();
             },
@@ -168,32 +185,22 @@ $(document).ready(function() {
                     $("#amount").val(value + unit);
                 } else if (selector === "#slider-range-max2") {
                     $("#amount2").val(value + (value > 12 && value < 60 ? " месяца" : " месяцев"));
+                } else if (selector === "#slider-range-max3") {
+                    $("#amount3").val(value + unit);
                 }
             }
         });
     }
 
-    function updateResults() {
-        const carPrice = parseFloat($("input[data-price]").val());
-        const downPayment = $("#slider-range-max").slider("value");
-        const term = $("#slider-range-max2").slider("value");
-        const creditAmount = carPrice - downPayment;
-        const creditRate = 0.1; // Процентная ставка кредита в месяц. Вы можете изменить это значение.
-        const monthlyPayment = (creditAmount + (creditAmount * creditRate)) / term;
-
-        $(".tbl1 tr:nth-child(1) td:nth-child(2)").text(creditAmount.toLocaleString() + " ₽");
-        $(".tbl1 tr:nth-child(2) td:nth-child(2)").text(downPayment.toLocaleString() + " ₽");
-        $(".tbl1 tr:nth-child(3) td:nth-child(2)").text(term + " месяцев");
-        $(".tbl2 tr:nth-child(1) td:nth-child(2)").text(Math.round(monthlyPayment).toLocaleString() + " ₽/мес.");
-    }
-
-    initializeSlider("#slider-range-max", 0, 1000000, 250000, " ₽");
+    initializeSlider("#slider-range-max", 10000, 900000, 250000, " ₽", 10000); // 10% - 90% от 1 000 000
     initializeSlider("#slider-range-max2", 12, 60, 12, "");
+    initializeSlider("#slider-range-max3", 100000, 5000000, 1000000, " ₽", 10000);
 
     // Первичное обновление результатов
     updateResults();
 
 });
+
 
 </script>
 {% endblock %}

@@ -149,68 +149,51 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 <script type="text/javascript">
 $(document).ready(function() {
 
-    // Инициализация слайдеров
     function initializeSlider(selector, min, max, value, unit) {
-      $(selector).slider({
-        range: "max",
-        min: min,
-        max: max,
-        value: value,
-        slide: function(event, ui) {
-          if (selector === "#slider-range-max") {
-              $("#amount").val(ui.value + unit);
-          } else if (selector === "#slider-range-max2") {
-              $("#amount2").val(ui.value + unit);
-          }
-          adjustDownPaymentRange();
-          updateResults();
-        },
-        create: function() {
-          if (selector === "#slider-range-max") {
-              $("#amount").val(value + unit);
-          } else if (selector === "#slider-range-max2") {
-              $("#amount2").val(value + unit);
-          }
-        }
-      });
+        $(selector).slider({
+            range: "max",
+            min: min,
+            max: max,
+            value: value,
+            slide: function(event, ui) {
+                if (selector === "#slider-range-max") {
+                    $("#amount").val(ui.value + unit);
+                } else if (selector === "#slider-range-max2") {
+                    $("#amount2").val(ui.value + (ui.value > 12 && ui.value < 60 ? " месяца" : " месяцев"));
+                }
+                updateResults();
+            },
+            create: function() {
+                if (selector === "#slider-range-max") {
+                    $("#amount").val(value + unit);
+                } else if (selector === "#slider-range-max2") {
+                    $("#amount2").val(value + (value > 12 && value < 60 ? " месяца" : " месяцев"));
+                }
+            }
+        });
     }
 
-    function adjustDownPaymentRange() {
-      const creditValue = $("#slider-range-max").slider("value");
-      const minDownPayment = creditValue * 0.1;
-      const maxDownPayment = creditValue * 0.9;
-      $("#slider-range-max2").slider("option", "min", minDownPayment);
-      $("#slider-range-max2").slider("option", "max", maxDownPayment);
-      
-      // Adjust the downpayment slider's value if it's out of the new bounds
-      let currentDownPayment = $("#slider-range-max2").slider("value");
-      if (currentDownPayment < minDownPayment || currentDownPayment > maxDownPayment) {
-          $("#slider-range-max2").slider("value", minDownPayment);
-      }
+    function updateResults() {
+        const carPrice = parseFloat($("input[data-price]").val());
+        const downPayment = $("#slider-range-max").slider("value");
+        const term = $("#slider-range-max2").slider("value");
+        const creditAmount = carPrice - downPayment;
+        const creditRate = 0.1; // Процентная ставка кредита в месяц. Вы можете изменить это значение.
+        const monthlyPayment = (creditAmount + (creditAmount * creditRate)) / term;
+
+        $(".tbl1 tr:nth-child(1) td:nth-child(2)").text(creditAmount.toLocaleString() + " ₽");
+        $(".tbl1 tr:nth-child(2) td:nth-child(2)").text(downPayment.toLocaleString() + " ₽");
+        $(".tbl1 tr:nth-child(3) td:nth-child(2)").text(term + " месяцев");
+        $(".tbl2 tr:nth-child(1) td:nth-child(2)").text(Math.round(monthlyPayment).toLocaleString() + " ₽/мес.");
     }
 
     initializeSlider("#slider-range-max", 0, 1000000, 250000, " ₽");
-    initializeSlider("#slider-range-max2", 12, 60, 12, " месяцев");
-
-    // Функция обновления результатов
-    function updateResults() {
-      const creditRate = 0.1; // 0,1%
-      const downPayment = $("#slider-range-max").slider("value");
-      const term = $("#slider-range-max2").slider("value");
-      const creditAmount = parseFloat($("input[data-price]").val()) - downPayment;
-      const monthlyPayment = (creditAmount + (creditAmount * creditRate / 100)) / term;
-
-      // Обновляем таблицу
-      $(".tbl1 tr:nth-child(1) td:nth-child(2)").text(creditAmount.toLocaleString() + " ₽");
-      $(".tbl1 tr:nth-child(2) td:nth-child(2)").text(downPayment.toLocaleString() + " ₽");
-      $(".tbl1 tr:nth-child(3) td:nth-child(2)").text(term + " месяцев");
-      $(".tbl2 tr:nth-child(1) td:nth-child(2)").text(monthlyPayment.toFixed(0).toLocaleString() + " ₽/мес.");
-    }
+    initializeSlider("#slider-range-max2", 12, 60, 12, "");
 
     // Первичное обновление результатов
-    adjustDownPaymentRange();
     updateResults();
 
 });
+
 </script>
 {% endblock %}

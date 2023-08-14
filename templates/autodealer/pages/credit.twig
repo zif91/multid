@@ -89,7 +89,11 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
                         <table class="w-100 mb-4">
                             <tbody><tr>
                                 <td>Кредитная ставка:</td>
-                                <td>0,1 %</td>
+                                <td>{% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</td>
                             </tr>
                             <tr>
                                 <td>Программа:</td>

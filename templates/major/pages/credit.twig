@@ -161,33 +161,37 @@ $(document).ready(function() {
         $(".tbl2 tr:nth-child(1) td:nth-child(2)").text(Math.round(monthlyPayment).toLocaleString() + " ₽/мес.");
     }
 
-    function updateDownPaymentSlider() {
-        const creditAmount = $("#slider-range-max3").slider("value");
-        const minDownPayment = creditAmount * 0.1;
-        const maxDownPayment = creditAmount * 0.9;
-
-        $("#slider-range-max").slider("option", "min", minDownPayment);
-        $("#slider-range-max").slider("option", "max", maxDownPayment);
-
-        // Убедимся, что текущее значение внутри нового диапазона.
-        const currentDownPayment = $("#slider-range-max").slider("value");
-        if (currentDownPayment > maxDownPayment || currentDownPayment < minDownPayment) {
-            $("#slider-range-max").slider("value", minDownPayment);
-            $("#amount").val(minDownPayment.toLocaleString() + " ₽");
-        }
+    function updateDownPaymentSlider(creditAmount) {
+    const minDownPayment = 0.1 * creditAmount;
+    const maxDownPayment = 0.9 * creditAmount;
+    let currentDownPayment = $("#slider-range-max").slider("value");
+    
+    if (currentDownPayment < minDownPayment) {
+        currentDownPayment = minDownPayment;
+    } else if (currentDownPayment > maxDownPayment) {
+        currentDownPayment = maxDownPayment;
     }
+    
+    $("#slider-range-max").slider("option", "min", minDownPayment);
+    $("#slider-range-max").slider("option", "max", maxDownPayment);
+    $("#slider-range-max").slider("value", currentDownPayment);
+    
+    $("#amount").val(currentDownPayment.toLocaleString() + " ₽");
+}
+
 
     $("#slider-range-max3").slider({
-        range: "max",
-        min: 100000,
-        max: 5000000,
-        value: 1000000,
-        slide: function(event, ui) {
-            $("#amount3").val(ui.value + " ₽");
-            updateDownPaymentSlider();
-            updateResults();
-        }
-    });
+    range: "max",
+    min: 100000,
+    max: 1000000,
+    value: 500000,
+    slide: function(event, ui) {
+        $("#amount3").val(ui.value.toLocaleString() + " ₽");
+        updateDownPaymentSlider(ui.value);
+        updateResults();
+    }
+});
+
 
     $("#slider-range-max").slider({
         range: "max",

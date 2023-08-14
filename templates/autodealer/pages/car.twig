@@ -106,13 +106,14 @@ tpl:'@T_CODE: <div class="gift__item">
                             </tr>
                         </table>
                         <div class="row">
-                        <div class="price mb-4 col-6">
-                            {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
-                        </div>
-                        <div class=" mb-4 col-6 align-text-bottom" style="font-size: 17px;
+                            <div class=" mb-4 col-6 align-text-bottom text-decoration-line-through" style="font-size: 17px;
     text-align: start;">
                             {{ (resource['old-car-price'])|number_format(0, '.', ' ') }} ₽
                         </div>
+                        <div class="price mb-4 col-6">
+                            {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
+                        </div>
+
                         </div>
                         <ul class="pb-3">
                             <li class="pl-5 position-relative mb-4">ПТС: Оригинал</li>

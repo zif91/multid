@@ -26,41 +26,33 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
             <div class="col-lg-7">
                 <div class="text">
                     <div class="image mb-4">
-                        <img src="img/credit.png">
+                        <img src="/templates/major/img/credit.png">
                     </div>
                     <p class="mb-4">Мы возьмем на себя подбор оптимальной кредитной программы и оформление сопутствующих документов. Вам остается лишь выбрать подходящий автомобиль и заполнить кредитную заявку для предварительного одобрения.</p>
                     <h2 class="mb-4">Преимущества Автокредита</h2>
                     <div class="blocks pb-2">
                         <div class="block d-inline-block mr-4 mb-4">
-                            <div><img src="img/credit1.svg"></div>
+                            <div><img src="/templates/major/img/credit1.svg"></div>
                             <div>Первый взнос <br />от 0%</div>
                         </div>
                         <div class="block d-inline-block mr-4 mb-4">
-                            <div><img src="img/credit2.svg"></div>
+                            <div><img src="/templates/major/img/credit2.svg"></div>
                             <div>По двум <br />документам</div>
                         </div>
                         <div class="block d-inline-block mr-4 mb-4">
-                            <div><img src="img/credit3.svg"></div>
+                            <div><img src="/templates/major/img/credit3.svg"></div>
                             <div>Гарантия <br />на авто 1 год</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-5">
-                <form class="p-4 mb-4">
-                    <h2 class="mb-3">Форма заявки</h2>
-                    <p class="mb-2">Выберите желаемый автомобиль</p>
-                    <input type="text" placeholder="Ваше имя" class="mb-2 px-3 w-100">
-                    <input type="text" placeholder="Ваше имя" class="mb-2 px-3 w-100">
-                    <input type="text" placeholder="Ваше имя" class="mb-2 px-3 w-100">
-                    <p class="mb-2">Укажите свои данные</p>
-                    <input type="text" placeholder="Ваше имя" class="mb-2 px-3 w-100">
-                    <input type="text" placeholder="+7(___) ___-____" class="mb-4 px-3 w-100">
-                    <button class="w-100 mb-4">Отправить заявку</button>
-                    <div class="bottom-text">
-                        Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#">персональных данных</a>
-                    </div>
-                </form>
+                {{ runSnippet('Form', {
+        formid: 'FormCredit',
+        path: '/templates/major/partials/forms/credit3/',
+        extension: 'twig'
+        }) | raw }}
+                
             </div>
         </div>
         <div class="text">

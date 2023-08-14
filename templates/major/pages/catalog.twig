@@ -1,11 +1,11 @@
 {% extends './app.twig' %}
-{% set brand = runSnippet('_get', {key: 'brand'}) %}
+{% set brand = _GET.brand %}
 {% if not brand %}
-    {% set brand = '' %}
+{% set brand = 'hyundai' %}
 {% endif %}
-{% set model = runSnippet('_get', {key: 'model'}) %}
+{% set model = _GET.model %}
 {% if not model %}
-    {% set model = '' %}
+{% set model = '' %}
 {% endif %}
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',

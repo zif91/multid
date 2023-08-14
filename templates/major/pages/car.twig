@@ -164,7 +164,8 @@
 </div>
 <div class="item-page item-botttom-info pb-4">
     <div class="container">
-        <div class="accordion" id="itemAccordion">
+        <div class="accordion " id="itemAccordion">
+            <div class="modifications-block">
             {% for item in modification %}
             {% if item["group-name"] is not empty %}
             <div class="card item">
@@ -225,6 +226,7 @@
             </div>
             {% endif %}
             {% endfor %}
+        </div>
         </div>
     </div>
 </div>

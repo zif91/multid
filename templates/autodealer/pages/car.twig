@@ -108,6 +108,9 @@ tpl:'@T_CODE: <div class="gift__item">
                         <div class="price mb-4">
                             {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
                         </div>
+                        <div class="price mb-4">
+                            {{ (resource['old-car-price'])|number_format(0, '.', ' ') }} ₽
+                        </div>
                         <ul class="pb-3">
                             <li class="pl-5 position-relative mb-4">ПТС: Оригинал</li>
                             <li class="pl-5 position-relative mb-4">Гарантия юридической чистоты</li>
@@ -128,7 +131,7 @@ tpl:'@T_CODE: <div class="gift__item">
                 </div>
             </div>
             <div class="row pt-4">
-                <div class="col-md-6">
+                <div class="col-12">
                     <div class="text-block mb-4 p-4">
                         <p class="mb-3">Данные о розыске и запрете на регистрацию не найдены</p>
                         <p class="mb-3">{% if resource.owners %}
@@ -138,15 +141,11 @@ tpl:'@T_CODE: <div class="gift__item">
                             {% endif %} - владельцев в ПТС</p>
                         <p class="mb-3">Данные совпадаютс ПТС</p>
                         <p>Данные о ДТП не найдены</p>
+                                                <p>Не работал в такси</p>
+
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="text-block  mb-4 p-4">
-                        <p class="mb-3 red">3 записи в истории пробегов</p>
-                        <p class="mb-3 orange">4 записи в истории эксплуатации</p>
-                        <p>Не работал в такси</p>
-                    </div>
-                </div>
+                
             </div>
             <div class="main-text">
                 {{resource.content}}

@@ -288,6 +288,7 @@ tpl:'@T_CODE: <div class="gift__item">
     </div>
     {% include('partials/banks.twig') %}
 <p style="color:white">{{resource.id}}</p>
+<p style="color:white">{{resource.parent}}</p>
 </main>
 
 {% set logoid = runSnippet('logo', {brand: resource["longtitle"] } )  %}

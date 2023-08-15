@@ -3892,3 +3892,12 @@ main {
   font-size: 30px;
   line-height: 120%;
 }
+@media (max-width: 476px) {
+
+.action-page .top-image .text h1 {
+  font-size: 50px;
+}
+.action-page .top-image .text p {
+  font-size: 30px;
+}
+}

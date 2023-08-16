@@ -9,9 +9,9 @@ depth: 1,
 orderBy: 'car-price',
 order: 'RAND()',
 tvSortType: 'SIGNED',
-tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image, configuration_id, body_type',
+tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
 __ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard_mod',
+tpl:'@T_FILE:partials/catalogcard',
 noneTPL:'@CODE: <div class="container">
     <div class="row">
         <div class="col text-center">
@@ -56,7 +56,7 @@ id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.config
 <div class="index-page-slider text-light">
 <div class="item other" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.25)), url({{car_photos}}) center/cover;">
         <div class="container">
-            <div class="top-text mb-3">
+            <div class="top-text mt-3 mb-3">
             </div>
             <div class="text">
                 {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}} 

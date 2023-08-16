@@ -131,28 +131,33 @@ $(function() {
 		},*/
 		
 		load: function(data) {
-			$.ajax({
-				url: location.pathname,
-				data: data.replace(/\+/g, '%2B'),
-				beforeSend: function() {
-					$('#loader').addClass('show');
-					$('[name="f[43]"]').attr('disabled', 'disabled');
-				},
-				success: function(data) {
-					data = $(data);
-					let dataFilter = $('.extrafilter [name]', data);
-					for (let i = 0; i < dataFilter.length; i++) {
-						if (!dataFilter[i].id) continue;
-						let $el = $('#' + dataFilter[i].id);
-						if (dataFilter[i].type === 'checkbox' || dataFilter[i].type === 'select-one') {
-							$el.replaceWith(dataFilter[i]);
-						} 
-					}
-					$('#loader').removeClass('show');
-					$('[name="f[43]"]').removeAttr('disabled');
-				}
-			});
+	let currentModelValue = $('[name="f[43]"]').val(); // Добавим это перед AJAX
+
+	$.ajax({
+		url: location.pathname,
+		data: data.replace(/\+/g, '%2B'),
+		beforeSend: function() {
+			$('#loader').addClass('show');
+			$('[name="f[43]"]').attr('disabled', 'disabled');
 		},
+		success: function(data) {
+			data = $(data);
+			let dataFilter = $('.extrafilter [name]', data);
+			for (let i = 0; i < dataFilter.length; i++) {
+				if (!dataFilter[i].id) continue;
+				let $el = $('#' + dataFilter[i].id);
+				if (dataFilter[i].type === 'checkbox' || dataFilter[i].type === 'select-one') {
+					$el.replaceWith(dataFilter[i]);
+				} 
+			}
+			$('#loader').removeClass('show');
+			$('[name="f[43]"]').removeAttr('disabled');
+
+			$('[name="f[43]"]').val(currentModelValue); // И это после AJAX
+		}
+	});
+},
+
 
 	};
 	Filter.init();

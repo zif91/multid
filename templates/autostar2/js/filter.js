@@ -374,43 +374,54 @@ $(function() {
         },
 
         load: function(data) {
-            $.ajax({
-                url: location.pathname,
-                data: data.replace(/\+/g, '%2B'),
-                beforeSend: function() {
-                    $('#loader').addClass('show');
-                },
-                success: function(data) {
-                    data = $(data);
-                    let catalog = $('.catalog-products', data);
-                    let pagination = $('.pagination', data);
-                    if (catalog.length > 0) {
-                        $('.catalog-products').replaceWith(catalog);
-                    }
-                    if (pagination.length > 0) {
-                        $('.pagination').replaceWith(pagination);
-                    }
-                    let dataFilter = $('.extrafilter [name]', data);
-                    for (let i = 0; i < dataFilter.length; i++) {
-                        if (!dataFilter[i].id) continue;
-                        let $el = $('#' + dataFilter[i].id);
-                        if (dataFilter[i].type === 'checkbox' || dataFilter[i].type === 'select-one') {
-                            $el.replaceWith(dataFilter[i]);
-                        } else {
-                            $('#loader').removeClass('show');
-                        }
-                    }
+    // Шаг 1: Сохраните текущие выбранные значения перед отправкой AJAX-запроса
+    let selectedValues = {};
+    $('.choicesCar').each(function() {
+        selectedValues[$(this).prop('name')] = $(this).val();
+    });
+
+    $.ajax({
+        url: location.pathname,
+        data: data.replace(/\+/g, '%2B'),
+        beforeSend: function() {
+            $('#loader').addClass('show');
+        },
+        success: function(data) {
+            data = $(data);
+            let catalog = $('.catalog-products', data);
+            let pagination = $('.pagination', data);
+            if (catalog.length > 0) {
+                $('.catalog-products').replaceWith(catalog);
+            }
+            if (pagination.length > 0) {
+                $('.pagination').replaceWith(pagination);
+            }
+            let dataFilter = $('.extrafilter [name]', data);
+            for (let i = 0; i < dataFilter.length; i++) {
+                if (!dataFilter[i].id) continue;
+                let $el = $('#' + dataFilter[i].id);
+                if (dataFilter[i].type === 'checkbox' || dataFilter[i].type === 'select-one') {
+                    $el.replaceWith(dataFilter[i]);
+                } else {
                     $('#loader').removeClass('show');
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error(textStatus, errorThrown);
                 }
-            });
-            let newUrl = location.pathname + (data ? '?' + decodeURIComponent(data).replace(/\+/g, '%2B') : '');
-            if (newUrl != window.location.href) {
-                history.pushState(null, null, newUrl);
+            }
+            $('#loader').removeClass('show');
+
+            // Шаг 2: Восстановите ранее выбранные значения
+            for (let name in selectedValues) {
+                $('[name="' + name + '"]').val(selectedValues[name]);
             }
         },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error(textStatus, errorThrown);
+        }
+    });
+    let newUrl = location.pathname + (data ? '?' + decodeURIComponent(data).replace(/\+/g, '%2B') : '');
+    if (newUrl != window.location.href) {
+        history.pushState(null, null, newUrl);
+    }
+},
 
         build: function() {
             let data = {};

@@ -125,7 +125,7 @@
                         </span>
                     </div>
                     <div class="buttons">
-                        <button>В кредит за {{ (item['offers-price-from'] / 82) | round | number_format(0, '.', ' ') }} ₽/мес.</button>
+                        <button class="scroll-btn">В кредит за {{ (item['offers-price-from'] / 82) | round | number_format(0, '.', ' ') }} ₽/мес.</button>
                         <button>Trade-in</button>
                         <button>Забронировать</button>
                     </div>
@@ -278,7 +278,7 @@
         </div>#}
     </div>
 </div>
-<div class="container py-5">
+<div class="container py-5" id="creditblock">
     <div class="row">
         {{ runSnippet('Form', {
         formid: 'FormCredit',
@@ -399,5 +399,15 @@ $(document).ready(function() {
     updateResults();
 });
 
+</script>
+<script>
+const buttons = document.querySelectorAll('.scroll-btn');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        const creditBlock = document.getElementById('creditblock');
+        creditBlock.scrollIntoView({ behavior: 'smooth' });
+    });
+});
 </script>
 {% endblock %}

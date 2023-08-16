@@ -104,7 +104,7 @@
         }) | raw }}
     </div>
 </div>
-{# <div class="item-page pb-5">
+<div class="item-page pb-5">
     <div class="container">
         <div class="modifications-block pb-2">
             {% for item in modification %}
@@ -256,7 +256,7 @@
             </div>
             {% endif %}
             {% endfor %}
-        </div>#}
+        </div>
         {#<div class="main-info pb-3">
             <div class="block-name mb-4">
                 Основная информация
@@ -304,79 +304,6 @@
                 </div>
             </div>
         </div>#}
-        <div class="item-page item-botttom-info pb-4">
-    <div class="container">
-        <div class="accordion " id="itemAccordion">
-            <div class="modifications-block">
-            {% for item in modification %}
-            {% if item["group-name"] is not empty %}
-            <div class="card item">
-                <div class="item-name " id="itemHeader">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}">
-                            <i class="fas fa-plus mr-2"></i>{{item["group-name"]}} {{item["Объем двигателя"]}}см³, {{item["Тип двигателя"]}}, КП {{item["Трансмиссия"]}}, {{item["Привод"]}} привод
-                        </button>
-                    </h2>
-                </div>
-                <div id="id_{{item["complectation-id"]}}" class="collapse" aria-labelledby="itemHeader" data-parent="#itemAccordion">
-                    <div class="card-body">
-                        <ul class="nav tabNavigation mb-4" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="exterior-tab" data-toggle="tab" href="#exterior_{{item["complectation-id"]}}" role="tab" aria-controls="exterior" aria-selected="true">ТТХ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="interior-tab" data-toggle="tab" href="#interior_{{item["complectation-id"]}}" role="tab" aria-controls="interior" aria-selected="false">Комплектация</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="exterior_{{item["complectation-id"]}}" role="tabpanel" aria-labelledby="exterior-tab">
-                                <table class="w-100 mb-5">
-                                    {% for key, value in item %}
-                                    {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
-                                    <tr>
-                                        <td>{{ key }}</td>  <td>{{ value }}</td>
-                                    </tr>
-                                    {% endif %}
-                                    {% endfor %}
-                                </table>
-                            </div>
-                            <div class="tab-pane fade" id="interior_{{item["complectation-id"]}}" role="tabpanel" aria-labelledby="interior-tab">
-                                <table class="w-100 mb-5">
-                                    {% set options = runSnippet ('takeoptions', {
-                                    complectation_id: item["complectation-id"], }) %}
-                                    {% for item in options %}
-                                    {% for key, value in item %}
-                                    {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
-                                    <tr>
-                                        <td>{{ key }} </td> 
-                                        {% if value == 1 %}
-                                        <td>Есть</td>
-                                        {% elseif value > 1 %}
-                                        <td> {{ value }} руб. </td>
-                                        {% else %}
-                                        <td>{{ value }}</td>
-                                    </tr>
-                                    {% endif %}
-                                    {% endif %}
-                                    {% endfor %}
-                                    {% endfor %}
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
         <div class="main-info pb-3">
             <div class="block-name mb-4">
                 Модификации:

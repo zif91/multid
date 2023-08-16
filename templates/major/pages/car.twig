@@ -136,10 +136,10 @@
                     </select>
                     <div class="tabs">
                         <ul class="tabNavigation" data-sel='[".select"]'>
-                            <li><a href="#t1" class="js-val-1-btn active" data-val='["val-1"]'>Характеристики</a></li>
-                            <li><a href="#t2" class="js-val-2-btn" data-val='["val-2"]'>Комплектация</a></li>
-                        </ul>
-                        <div id="t1" class="tab-content active">
+    <li><a href="#t1_{{item["complectation-id"]}}" class="js-val-1-btn active" data-val='["val-1"]'>Характеристики</a></li>
+    <li><a href="#t2_{{item["complectation-id"]}}" class="js-val-2-btn" data-val='["val-2"]'>Комплектация</a></li>
+</ul>
+<div id="t1_{{item['complectation-id']}}" class="tab-content active">
                             {% set displayItems = {} %}
                             {% for key, value in item %}
                             {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
@@ -186,7 +186,7 @@
 {% set halfway = (displayItems|length / 2)|round %}
 {% set firstHalf = displayItems|slice(0, halfway) %}
 {% set secondHalf = displayItems|slice(halfway) %}
-                        <div id="t2" class="tab-content">
+<div id="t2_{{item['complectation-id']}}" class="tab-content">
                             <div class="row">
                                 <div class="col-md-6">
                                     <table>

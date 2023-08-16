@@ -74,7 +74,11 @@
                     <span class="old">{{resource["old-car-price"]}}₽</span>
                 </div>
                 <div class="credit mb-4">
-                    В кредит от {{ (resource["car-price"] / 72)|round }} ₽/мес <span class="d-inline-block py-2 px-3 ml-sm-3">Ставка от 5%</span>
+                    В кредит от {{ (resource["car-price"] / 72)|round }} ₽/мес <span class="d-inline-block py-2 px-3 ml-sm-3">Ставка от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</span>
                 </div>
                 <div class="vin mb-3 flex">
                     <div><img src="/templates/major/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>
@@ -85,7 +89,7 @@
                         <button class="w-100 mb-3 color1" data-fancybox="" data-src="#popup">Забронировать</button>
                     </div>
                     <div class="col-6">
-                        <button class="w-100 color2" data-fancybox="" data-src="#popup">Рассчитать кредит</button>
+                        <button class="w-100 color2 scroll-btn">Рассчитать кредит</button>
                     </div>
                     <div class="col-6">
                         <button class="w-100 color3" data-fancybox="" data-src="#popup">Предложить обмен</button>
@@ -126,8 +130,8 @@
                     </div>
                     <div class="buttons">
                         <button class="scroll-btn">В кредит за {{ (item['offers-price-from'] / 82) | round | number_format(0, '.', ' ') }} ₽/мес.</button>
-                        <button>Trade-in</button>
-                        <button>Забронировать</button>
+                        <button data-fancybox="" data-src="#popup">Trade-in</button>
+                        <button data-fancybox="" data-src="#popup">Забронировать</button>
                     </div>
                 </div>
                 <div class="item-content collapse" id="id_{{item['complectation-id']}}">

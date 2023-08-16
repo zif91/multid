@@ -172,18 +172,20 @@
                                 </div>
                             </div>
                         </div>
-                        {% set options = runSnippet ('takeoptions', { complectation_id: item["complectation-id"], }) %}
-                        {% for item in options %}
-                        {% for key, value in item %}
-                        {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
-                        {% set row = {'key': key, 'value': value} %}
-                        {% set displayItems = displayItems|merge([row]) %}
-                        {% endif %}
-                        {% endfor %}
-                        {% endfor %}
-                        {% set halfway = (displayItems|length / 2)|round %}
-                        {% set firstHalf = displayItems|slice(0, halfway) %}
-                        {% set secondHalf = displayItems|slice(halfway) %}
+                        {% set displayItems = [] %} <!-- Очищаем displayItems здесь -->
+
+{% set options = runSnippet ('takeoptions', { complectation_id: item["complectation-id"], }) %}
+{% for item in options %}
+    {% for key, value in item %}
+        {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
+            {% set row = {'key': key, 'value': value} %}
+            {% set displayItems = displayItems|merge([row]) %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+{% set halfway = (displayItems|length / 2)|round %}
+{% set firstHalf = displayItems|slice(0, halfway) %}
+{% set secondHalf = displayItems|slice(halfway) %}
                         <div id="t2" class="tab-content">
                             <div class="row">
                                 <div class="col-md-6">

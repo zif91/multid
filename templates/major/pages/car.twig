@@ -299,18 +299,34 @@ function scrollToCreditForm() {
 {% endblock %}
 {% block SCRIPTS %}
 <script>
-        $(function(){
-            $('#select').change(function(){
-              var colorSelection = $('#select').val();
-              $('.js-'+colorSelection+'-btn').trigger('click');
-            })
-            $('a').on('click',function(){
-              var sel = $(this).parent().parent('ul').data('sel'),
-                  val = $(this).data('val');
-              for (i=0; i<=sel.length; i++) {
-                $(sel[i]).val(val[i]);
-              }
+        document.addEventListener('DOMContentLoaded', function() {
+    let tabs = document.querySelectorAll('.tabNavigation li a');
+
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Убираем активный класс со всех табов
+            tabs.forEach(function(innerTab) {
+                innerTab.classList.remove('active');
             });
+
+            // Добавляем активный класс к кликнутому табу
+            tab.classList.add('active');
+
+            let target = tab.getAttribute('href');
+            let tabContents = document.querySelectorAll('.tab-content');
+
+            // Скрываем все содержимое табов
+            tabContents.forEach(function(tabContent) {
+                tabContent.style.display = 'none';
+            });
+
+            // Показываем содержимое активного таба
+            document.querySelector(target).style.display = 'block';
         });
+    });
+});
+
     </script>
 {% endblock %}

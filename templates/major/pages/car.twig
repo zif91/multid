@@ -124,7 +124,7 @@
                         </span>
                     </div>
                     <div class="buttons">
-                        <button>В кредит за {{item['offers-price-from'] / 82 |number_format(0, '.', ' ')}} ₽/мес.</button>
+                        <button>В кредит за {{ (item['offers-price-from'] / 82) | round | number_format(0, '.', ' ') }} ₽/мес.</button>
                         <button>Trade-in</button>
                         <button>Забронировать</button>
                     </div>

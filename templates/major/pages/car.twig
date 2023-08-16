@@ -117,7 +117,7 @@
                     </div>
                     <div class="price">
                         <span class="old">
-                            {{item['offers-price-to']|number_format(0, '.', ' ')}} ₽₽
+                            {{item['offers-price-to']|number_format(0, '.', ' ')}} ₽
                         </span>
                         <span class="new">
                             {{item['offers-price-from']|number_format(0, '.', ' ')}} ₽
@@ -143,58 +143,35 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <table>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
+                                       {% for key, value in item %}
+                                    {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
+                                    <tr>
+                                        <td>{{ key }}</td>  <td>{{ value }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endfor %}
                                     </table>
                                 </div>
                                 <div class="col-md-6">
                                     <table>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Задние тормоза</td>
-                                            <td>дисковые</td>
-                                        </tr>
+                                        {% set options = runSnippet ('takeoptions', {
+                                    complectation_id: item["complectation-id"], }) %}
+                                    {% for item in options %}
+                                    {% for key, value in item %}
+                                    {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
+                                    <tr>
+                                        <td>{{ key }} </td> 
+                                        {% if value == 1 %}
+                                        <td>Есть</td>
+                                        {% elseif value > 1 %}
+                                        <td> {{ value }} руб. </td>
+                                        {% else %}
+                                        <td>{{ value }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endfor %}
                                     </table>
                                 </div>
                             </div>

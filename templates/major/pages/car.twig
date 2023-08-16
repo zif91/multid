@@ -296,4 +296,19 @@ function scrollToCreditForm() {
 }
 
 </script>
+<script>
+        $(function(){
+            $('#select').change(function(){
+              var colorSelection = $('#select').val();
+              $('.js-'+colorSelection+'-btn').trigger('click');
+            })
+            $('a').on('click',function(){
+              var sel = $(this).parent().parent('ul').data('sel'),
+                  val = $(this).data('val');
+              for (i=0; i<=sel.length; i++) {
+                $(sel[i]).val(val[i]);
+              }
+            });
+        });
+    </script>
 {% endblock %}

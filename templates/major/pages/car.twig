@@ -186,7 +186,7 @@
                                 <a class="nav-link" id="interior-tab" data-toggle="tab" href="#interior_{{item["complectation-id"]}}" role="tab" aria-controls="interior" aria-selected="false">Комплектация</a>
                             </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        {#<div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="exterior_{{item["complectation-id"]}}" role="tabpanel" aria-labelledby="exterior-tab">
                                 <table class="w-100 mb-5">
                                     {% for key, value in item %}
@@ -220,7 +220,158 @@
                                     {% endfor %}
                                 </table>
                             </div>
+                        </div>#}
+                        <div class="modifications-block pb-5">
+        <h2 class="mb-4">Доступные модификации</h2>
+        {% for item in modification %}
+            {% if item["group-name"] is not empty %}
+                <h3 class="mb-3" id="itemAccordion">{{item["Объем двигателя"]}}см³ | {{item["Тип двигателя"]}} | КП {{item["Трансмиссия"]}} | {{item["Привод"]}}</h3>
+                <div class="item mb-2">
+                    <div class="item-name flex " id="itemHeader">
+                        <div class=" d-flex align-items-center justify-content-between mob-wrap">
+                            <div class="name btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}">
+                                <div class="name-wrap">
+                                    {{item["group-name"]}}
+                                </div>
+                            </div>
+                            <div class="price d-flex">
+                            <span class="old d-flex align-items-center">
+                            {{item["offers-price-to"]|number_format(0, '.', '&nbsp;')|raw }} ₽
+                        </span>
+                                <span class="new d-flex align-items-center">
+                            {{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }} ₽
+                        </span>
+                            </div>
+                            <div class="credit">
+                                <span>В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} &#8381;/месяц </span>
+                                <span class="new-price">{{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
+                            </div>
                         </div>
+                        <div class=" buttons d-flex align-items-center">
+                            <button onclick="showCreditPopup({{ resource['id'] }},'','{{(item["offers-price-from"] / 96) | number_format(0, ' ', ' ')}}');return false;" >В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} ₽ в месяц</button>
+                            <button>Trade-in</button>
+                            <button data-fancybox="" data-src="#popup">Забронировать</button>
+                        </div>
+                    </div>
+
+                    <div id="id_{{item['complectation-id']}}" class="collapse" aria-labelledby="itemHeader" data-parent="#itemAccordion">
+                        <div class="item-content">
+                            <select class="select" id="select_{{item['complectation-id']}}" onchange="changeTab('{{item['complectation-id']}}')">
+                                <option value="exterior">Характеристики</option>
+                                <option value="interior">Комплектация</option>
+                            </select>
+                            <div class="tabs">
+                                <ul class="nav mb-4" id="myTab_{{item['complectation-id']}}" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="exterior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#exteriorid_{{item['complectation-id']}}" role="tab" aria-controls="exterior" aria-selected="true">Характеристики</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="interior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#interiorid_{{item['complectation-id']}}" role="tab" aria-controls="interior" aria-selected="false">Комплектация</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent_{{item['complectation-id']}}">
+                                    <div class="tab-pane fade show active" id="exteriorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="exterior-tab">
+                                        {% set filteredItems = {} %}
+                                        {% set keys = [] %}
+                                        {% set values = [] %}
+                                        {% for key, value in item %}
+                                            {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
+                                                {% set filteredItems = filteredItems|merge({key: value}) %}
+                                                {% set keys = keys|merge([key]) %}
+                                                {% set values = values|merge([value]) %}
+                                            {% endif %}
+                                        {% endfor %}
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                                <table>
+                                                    <tbody>
+                                                    {% for i in range(0, keys|length // 2) %}
+                                                        <tr>
+                                                            <td>{{ keys[i] }}</td>
+                                                            <td>{{ values[i] }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <table>
+                                                    <tbody>
+                                                    {% for i in range(keys|length // 2, keys|length) %}
+                                                        <tr>
+                                                            <td>{{ keys[i] }}</td>
+                                                            <td>{{ values[i] }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="interiorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="interior-tab">
+                                        {% set options = runSnippet('takeoptions', { complectation_id: item['complectation-id'] }) %}
+                                        {% set column1 = [] %}
+                                        {% set column2 = [] %}
+                                        {% set index = 0 %}
+                                        {% for item in options %}
+                                            {% for key, value in item %}
+                                                {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
+                                                    {% if index % 2 == 0 %}
+                                                        {% set column1 = column1|merge([{ 'key': key, 'value': value }]) %}
+                                                    {% else %}
+                                                        {% set column2 = column2|merge([{ 'key': key, 'value': value }]) %}
+                                                    {% endif %}
+                                                    {% set index = index + 1 %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <table>
+                                                    <tbody>
+                                                    {% for item in column1 %}
+                                                        <tr>
+                                                            <td>{{ item['key'] }}</td>
+                                                            {% if item['value'] == 1 %}
+                                                                <td>Есть</td>
+                                                            {% elseif item['value'] > 1 %}
+                                                                <td>{{ item['value'] }} руб.</td>
+                                                            {% else %}
+                                                                <td>{{ item['value'] }}</td>
+                                                            {% endif %}
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <table>
+                                                    <tbody>
+                                                    {% for item in column2 %}
+                                                        <tr>
+                                                            <td>{{ item['key'] }}</td>
+                                                            {% if item['value'] == 1 %}
+                                                                <td>Есть</td>
+                                                            {% elseif item['value'] > 1 %}
+                                                                <td>{{ item['value'] }} руб.</td>
+                                                            {% else %}
+                                                                <td>{{ item['value'] }}</td>
+                                                            {% endif %}
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
                     </div>
                 </div>
             </div>

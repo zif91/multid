@@ -2008,3 +2008,10 @@ main {
     padding: 20px;
   }
 }
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}

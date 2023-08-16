@@ -1,10 +1,10 @@
 $(function(){
-	$('.item-page .item .link').click(function() {
+	/*$('.item-page .item .link').click(function() {
 		$(this).toggleClass('active');
 		$(this).parent().toggleClass('opened');
 		$(this).parent().find('.top-block').toggle();
 		$(this).parent().find('.hidden-block').toggleClass('opened');
-	});
+	});*/
 	$('.brands-block .bottom-link a').click(function() {
 		$('.brands-block .list').show();
 	});

@@ -54,13 +54,13 @@ id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.config
 {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ configuration_id ~ ".jpg"%}
 {#{dump(resource)}#}
 <div class="index-page-slider text-light">
-<div class="item other" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.25)), url({{car_photos}}) center/cover;">
+    <div class="item other" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.25)), url({{car_photos}}) center/cover;">
         <div class="container">
             <div class="top-text mt-3 mb-3">
             </div>
             <div class="text">
-                {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}} 
-            </div> 
+                {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
+            </div>
         </div>
     </div>
 </div>
@@ -68,30 +68,32 @@ id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.config
 <div class="item-page pb-5">
     <div class="container position-relative">
         <img style="width: 300px; height: auto" src="" class="logo position-absolute">
-        <h1 class="mb-2"> {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}} 
-</h1>
+        <h1 class="mb-2"> {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
+        </h1>
         <div class="top-text mb-4">
             Успешная модель, которая стала еще лучше
         </div>
-
         <div class="top-info mb-4 w-100">
             <div class="image text-center">
                 <img src="{{car_photos|raw}}">
             </div>
             <div class="text">
                 <div class="name mb-3">
-                    {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}} 
+                    {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
                 </div>
                 <span class="items text-light mb-3 py-2 px-3 d-inline-block bg-dark">4 автомобиля</span> <br />
                 <span class="price d-inline-block py-2 px-3">от 3 378 000 ₽</span>
             </div>
         </div>
-        
-        {{DLCatalog|raw}}
-        
+        <div class="index-catalog-block2 pb-5">
+            <div class="container">
+                <div class="list" id="catalog">
+                    {{DLCatalog |raw}}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
 <div class="page-form-block mb-5">
     <div class="container">
         {{ runSnippet('Form', {
@@ -335,6 +337,7 @@ function scrollToForm() {
     var form = document.getElementById("FormCallback");
     form.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 }
+
 </script>
 {{runSnippet('takemodels', {configuration_id: resource['configuration_id'] })
 }}

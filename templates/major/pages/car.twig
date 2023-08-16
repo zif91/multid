@@ -113,14 +113,14 @@
             <div class="item mb-2">
                 <div class="item-name flex">
                     <div class="name" type="button" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}">
-                        Active
+                        {{item["group-name"]}}
                     </div>
                     <div class="price">
                         <span class="old">
-                            2 350 000 ₽
+                            {{item['offers-price-to']}} ₽
                         </span>
                         <span class="new">
-                            1 850 000 ₽
+                            {{item['offers-price-from']}} ₽
                         </span>
                     </div>
                     <div class="buttons">

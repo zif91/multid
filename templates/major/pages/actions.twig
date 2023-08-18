@@ -13,13 +13,14 @@ tpl:'@T_FILE:partials/catalogcard',
 
 		{% include 'partials/actions.twig' %}
 	
-<div class="catalog-page pb-1">
-	<div class="container">
-		<h2 class="h1 mb-sm-5 mb-4">Автомобили по акции</h2>
-		<div class="row">
+
+<div class="index-catalog-block2 pb-5">
+    <div class="container">
+        <h2 class="h2 m-5 ">Предложение дня</h2>
+        <div class="list row d-flex justify-content-center" id="catalog">
 			{{DLCatalog |raw}}
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 <div class="container py-5 mb-5 d-none d-sm-block">
 	{{resource.content |raw }}

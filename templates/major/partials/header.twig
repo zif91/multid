@@ -69,7 +69,11 @@ outerTpl: '@CODE:<ul>
                 color: #D12D1E;">{{ baseSettings.pagetitle }}
                 </div>
             {% endif %}
-            </div>
+            </div><a class="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
             {{headermenu|raw}}
             <div class="phone">
                 {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}
@@ -78,11 +82,7 @@ outerTpl: '@CODE:<ul>
             {#<div class="location">
             <span>Адрес: {{baseSettings.salon_location}}</span>
             </div>#}
-            <a class="menu-button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </a>
+            
         </div>
     </header>
                     

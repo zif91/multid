@@ -4,7 +4,7 @@
 {% set brand = _GET.brand %}
 {% if not brand %}
 {% set brand = 'hyundai' %}
-{% endif %}
+{% endif %} 
 {% set model = _GET.model %}
 {% if not model %}
 {% set model = '' %}
@@ -195,9 +195,9 @@ extension: 'twig'
 				{% include('partials/brands.twig') %}
 			</div>
 		</div>
-		<div class="button text-center pt-3">
+		{#<div class="button text-center pt-3">
 			<button class="btn btn-danger">Смотреть все модели</button>
-		</div>
+		</div>#}
 	</div>
 	</div>
 	<div class="index-credit-block mb-4">

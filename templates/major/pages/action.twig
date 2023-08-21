@@ -1,5 +1,29 @@
 {% extends 'app.twig' %}
 
 {% block MAIN %}
+	    <main class="main container">
+        <div class="navi py-4">
+            {% include('partials/crumbs.twig') %}
+        </div>
+        <div class="action-page pb-5">
+            <div class="back-link text-center py-3">
+                <a href="#" onclick="window.history.back();">Назад к <span>акциям</span></a>
+            </div>
+            <div class="image mb-5 position-relative" style="background: url({{resource.image}}) center/cover;">
+                <div class="text position-absolute">
+                    <div class="name mb-sm-2">
+                        {{resource.pagetitle}}
+                    </div>
+                    
+                    <p>{{resource.description}}</p>
+                </div>
+            </div>
+            <h1 class="h1 mb-3">{{resource.pagetitle}}</h1>
+            <div class="txt mb-3">
+                {{resource.content | raw}}
+            </div>
+        </div>
+    </main>
+    
 {% endblock %}
 

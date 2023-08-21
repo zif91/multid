@@ -1,5 +1,5 @@
 
-<div class="col-lg-4 col-md-6 mb-3">
+<div class="col-lg-4 col-md-6 mb-3"><a href="{{ data.url }}">
                     <div class="item position-relative">
                         <div class="name mb-3">
             {{ data.title }}
@@ -7,5 +7,5 @@
                         <p>            {{ data.description }}
 </p>
                         <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139, w=255,zc=1 fltr[]=ric|15|15'}) }}">
-                    </div>
+                    </div></a>
                 </div>

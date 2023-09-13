@@ -1,0 +1,16 @@
+{% set bank_logos = runSnippet('DocInfo', {field: 'images', docid: 41118}) | json%}
+{% set headingbank = runSnippet('DocInfo', {field: 'longtitle', docid: 41118}) | raw %}
+<div class="banks-block pb-4">
+    <div class="container">
+        <div class="block-name mb-4">
+            {{headingbank}}
+        </div>
+        <div class="row">
+            {% for item in bank_logos["fieldValue"] %}
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                <div class="item text-center mb-3"><img src="{{item.image}}"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

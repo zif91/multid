@@ -28,7 +28,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         <div class="calc col-md-6">
             <h2>Выгода при покупке в кредит!</h2>
             <p class="pb-2">Ставка от {% if baseSettings.credit_rate is empty %}
-    4.9
+    1.6
 {% else %}
     {{ baseSettings.credit_rate }}
 {% endif %}% годовых!</p>
@@ -51,11 +51,38 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
                 Кредитная программа
                 <div>
                     <select id="firstSelect" class="-select py-2 border-0 w-100">
-                        <option value="1,6" selected>Выберите кредитную программу</option>
-                        <option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %} selected>Выберите кредитную программу</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Первый автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Семейный автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Медицинский работник (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Госпрограмма льготного кредитования (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%{% endif %})</option>
                         <option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
                     </select>
                 </div>
@@ -89,11 +116,38 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
              <span class="credit-text text-start">Программа: </span>
                 <div class="flex justify-content-end">
                     <select id="secondSelect" class="-select p-0 border-0  w-100 credit-amounts select">
-                        <option value="1,6" selected>Выберите кредитную программу</option>
-                        <option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
-                        <option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %} selected>Выберите кредитную программу</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Первый автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Семейный автомобиль (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Медицинский работник (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%{% endif %}, Скидка 20%)</option>
+                        <option {% if baseSettings.credit_rate is empty %}
+value="1,6"
+{% else %}
+value="{{ baseSettings.credit_rate }}"    {% endif %}>Госпрограмма льготного кредитования (Ставка {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}%{% endif %})</option>
                         <option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
                     </select>
                 </div>
@@ -201,40 +255,42 @@ $(function() {
     firstPaySlider.slider('option', 'max', newMaxValue);
   }
 
-  function updatePayment() {
-    const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
-    const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
-    const term = parseFloat(termInput.val()) || 0;
-    const programValue = select.val();
-    let coefficient = 1.24;
+function updatePayment() {
+  const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
+  const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+  const term = parseFloat(termInput.val()) || 0;
+  const programValue = select.val();  // получаем актуальное значение
+  let coefficient = 1.24;
 
-    switch (programValue) {
-      case "1,6":
-        coefficient = 1 + (16 / 100);
-        break;
-      case "9,9":
-        coefficient = 1.24;
-        break;
-      // Добавить обработку для остальных программ
-    }
-
-    const payment = (amount - firstPay) / term * coefficient;
-    paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
-    $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' р.');
-    $('#percent').text(programValue + ' %');
-    $('#summ').text(amount.toLocaleString('ru-RU') + ' р.');
-    $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
-    $('#paymentSpan2').text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
-
-    const selectedOption = select.find('option:selected');
-    const programNameText = selectedOption.text().split('(')[0].trim();
-    if (programNameText === '') {
-      programName.text('Не выбрана программа кредитования');
-    } else {
-      programName.text(programNameText);
-    }
-    console.log(programNameText);
+  switch (programValue) {
+    case "1,6":
+      coefficient = 1 + (16 / 100);
+      break;
+    case "9,9":
+      coefficient = 1.24;
+      break;
+    default:
+      coefficient = (100 + parseFloat(programValue.replace(",", "."))) / 100;
+      break;
   }
+
+  const payment = (amount - firstPay) / term * coefficient;
+  paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+  $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' р.');
+  $('#percent').text(programValue + ' %'); // здесь выводим значение programValue
+  $('#summ').text(amount.toLocaleString('ru-RU') + ' р.');
+  $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
+  $('#paymentSpan2').text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' р/мес.');
+
+  const selectedOption = select.find('option:selected');
+  const programNameText = selectedOption.text().split('(')[0].trim();
+  if (programNameText === '') {
+    programName.text('Не выбрана программа кредитования');
+  } else {
+    programName.text(programNameText);
+  }
+  console.log(programNameText);
+}
 
   updatePayment();
 

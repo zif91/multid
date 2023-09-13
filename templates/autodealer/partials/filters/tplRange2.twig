@@ -1,0 +1,25 @@
+<div class="price-range-group d-flex">
+    <input type="text" class="number price-range-input range-min w-100 px-4" name="f[ {{ data['id'] }} ][]" data-id="{{ data['id'] }}"
+    id="{{ data['hash'] }}"  value="{{ data['min'] }}" />
+    <input type="text" class="number price-range-input range-max w-100 px-4" name="f[ {{ data['id'] }} ][]" 
+    id="{{ data['hash'] }}"  value="{{ data['max'] }}" />
+</div>
+{#<div class="price-range-slider w-100">
+    <input 
+    type="hidden" 
+    class="price-range-slider-js filter-range-slider" 
+    name="f[ {{ data['id'] }} ][]" 
+    id="{{ data['hash'] }}" 
+    data-input-type="range" 
+    data-id="{{ data['id'] }}" 
+    value="" 
+    data-min="{{ data['min'] }}" 
+    data-max="{{ data['max'] }}" 
+    data-from="{{ data['from'] }}" 
+    data-to="{{ data['to'] }}" 
+    data-step="{{ data['step'] }}" 
+    data-type="double" 
+    data-grid="false" 
+    />
+</div>
+#}

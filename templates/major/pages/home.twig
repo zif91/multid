@@ -4,7 +4,7 @@
 {% set brand = _GET.brand %}
 {% if not brand %}
 {% set brand = 'hyundai' %}
-{% endif %}
+{% endif %} 
 {% set model = _GET.model %}
 {% if not model %}
 {% set model = '' %}
@@ -16,12 +16,12 @@ filters: 'AND(tv:mark_id:=:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
 _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
 display: 4,
 parents: 593,
-depth: 1,
-addWhereList: 'isfolder=1 AND c.template=20',
+depth: 2,
+addWhereList: 'c.template=28',
 orderBy: 'car-price',
 order: 'RAND()',
 tvSortType: 'SIGNED',
-tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image,mark_id,model_id',
+tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard',
 paginate:'pages',
@@ -86,7 +86,7 @@ rowTpl:'@CODE:
 			<div class="text">
 				[+title+]
 			</div>
-			<button>Оставить заявку</button>
+			<button  data-src="#popup" data-fancybox="">Оставить заявку</button>
 		</div>
 	</div>
 </div>'}) %}
@@ -195,9 +195,9 @@ extension: 'twig'
 				{% include('partials/brands.twig') %}
 			</div>
 		</div>
-		<div class="button text-center pt-3">
+		{#<div class="button text-center pt-3">
 			<button class="btn btn-danger">Смотреть все модели</button>
-		</div>
+		</div>#}
 	</div>
 	</div>
 	<div class="index-credit-block mb-4">

@@ -14,32 +14,34 @@ display: 1
 
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
-<div class="col-lg-4 col-md-6">
-    <div class="item p-2 mb-4">
-        <a href="{{ data['url'] }}"><img src="{{ randomPhotoLink }}" class="w-100 mb-2"></a>
-        <div class="p-2">
-            <div class="name mb-3">
-                {{ data['title'] }}
-            </div>
-            <div class="price d-inline-block mb-3">
-                {{ ( data['tv.car-price'] )|number_format(0, '.', ' ') }} ₽
-            </div>
-            <div class="flex">
-                <div class="info-block mb-3">
-                    Цвет
-                    <span class="d-block mt-2">{{ data['tv.car_color'] }}</span>
+
+
+<div class="col-lg-3 col-sm-6">
+    <a href="{{ data['url'] }}">
+                    <div class="item mb-3 position-relative">
+                        <span class="action position-absolute py-1 px-3">акция</span>
+                        <div class="image pt-2 pl-2 pr-2 text-center">
+                            <img src="{{ randomPhotoLink }}">
+                        </div>
+                        <div class="p-3">
+                            <a href="{{ data['url'] }}" class="name mb-2">{{ data['title'] }} {{ data['tv.year'] }} г.в.</a>
+                            <div class="way mb-2">
+                                Пробег: {{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км.
+                            </div>
+                            <div class="price mb-3">
+                                <span class="old">{{ ( data['tv.old-car-price'] )|number_format(0, '.', ' ') }} ₽</span>
+                                <div class="new mt-1">
+                                    {{ ( data['tv.car-price'] )|number_format(0, '.', ' ') }} ₽
+                                </div>
+                            </div>
+                            <div class="payment mb-4">
+                                Ежемесячный платеж <span>{{ (( data['tv.car-price'] )/82)|number_format(0, '.', ' ') }} ₽</span>
+                            </div>
+                            <div class="buttons">
+                                <button class="w-100 mb-2" data-toggle="modal" data-target="#popup" >В кредит от 4,9%</button>
+                                <button class="w-100 mb-2" data-toggle="modal" data-target="#popup" >Купить по trade - in</button>
+                                <button onclick="location.href='{{ data['url'] }}';" class="w-100">Подробнее</button>
+                            </div>
+                        </div>
+                    </div></a>
                 </div>
-                <div class="info-block mb-3">
-                    Пробег
-                    <span class="d-block mt-2">{{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км</span>
-                </div>
-                <div class="info-block mb-3">
-                    Год
-                    <span class="d-block mt-2">{{ data['tv.year'] }}</span>
-                </div>
-            </div>
-            <button data-toggle="modal" data-target="#popup" class="btn btn-danger w-100 mb-3"><span></span> Купить в 1 клик!</button>
-            <a href="{{ data['url'] }}" class="bottom-link">Подробнее об авто</a>
-        </div>
-    </div>
-</div>

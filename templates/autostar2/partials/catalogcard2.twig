@@ -16,7 +16,7 @@ display: 1
     action:'caroldprice'}) %}
 
 <div class="col-xl-4 col-md-6">
-    <div class="item mb-4">
+    <a href="{{data.url}}"><div class="item mb-4">
         <img src="{{ randomPhotoLink }}">
         <div class="p-sm-4 p-3">
             <div class="flex">
@@ -62,7 +62,7 @@ display: 1
                 <div class="col-6">
                     <div class="price-item mb-3">
                         В кредит:
-                        <div class="new my-1 red">30 000 ₽</div>
+                        <div class="new my-1 red">{{ ( data['tv.car-price'] / 80 )|number_format(0, '.', ' ') }} ₽</div>
                         ежемесячный платеж
                     </div>
                 </div>
@@ -80,5 +80,5 @@ display: 1
                 </div>
             </div>
         </div>
-    </div>
+    </div></a>
 </div>

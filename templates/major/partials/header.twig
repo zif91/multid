@@ -69,31 +69,31 @@ outerTpl: '@CODE:<ul>
                 color: #D12D1E;">{{ baseSettings.pagetitle }}
                 </div>
             {% endif %}
-            </div>
-            {{headermenu|raw}}
-            <div class="phone">
-                <a href="#">8 (800) 888-77-22</a>
-                <a href="#">заказать экспресс-звонок</a>
-            </div>
-            {#<div class="location">
-            <span>Адрес: {{baseSettings.salon_location}}</span>
-            </div>#}
-            <a class="menu-button">
+            </div><a class="menu-button">
                 <span></span>
                 <span></span>
                 <span></span>
             </a>
+            {{headermenu|raw}}
+            <div class="phone pb-1">
+                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}
+                <a href="#" data-src="#popup" data-fancybox="">заказать экспресс-звонок</a>
+            </div>
+            {#<div class="location">
+            <span>Адрес: {{baseSettings.salon_location}}</span>
+            </div>#}
+            
         </div>
     </header>
-
+                    
     <div class="index-top-line py-3">
         <div class="container flex">
             <p>В кредит под {% if baseSettings.credit_rate is empty %}
     4.9
 {% else %}
     {{ baseSettings.credit_rate }}
-{% endif %}% или в рассрочку под 0% <span class="d-inline-block mx-3">|</span> <button>Новые поступления</button></p>
-            <img src="img/car.png">
-            <a href="#" class="link d-block"></a>
+{% endif %}% или в рассрочку под 0% <span class="d-inline-block mx-3">|</span> <button  data-src="#popup" data-fancybox="">Новые поступления</button></p>
+            <img src="/templates/major/img/car.png">
+            <a href="#" data-src="#popup" data-fancybox="" class="link d-block"></a>
         </div>
     </div>

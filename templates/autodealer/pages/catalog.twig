@@ -7,7 +7,7 @@ controller: 'catalog_filters',
 display: 18,
 parents: catalog_number,
 depth: 2,
-tvList:'car-price,run,engine_power,gear,year,image,car_photos,body_type,car_color,engine_volume,fuel,drive',
+tvList:'car-price,car-old-price,old-car-price,run,engine_power,gear,year,image,car_photos,body_type,car_color,engine_volume,fuel,drive',
 ownerTPL: '@T_FILE:partials/wrap',
 noneTPL:'@CODE: <div class="container">
 	<div class="row">
@@ -48,7 +48,7 @@ tvSortType: 'UNSIGNED'
 </div>
 <div class="h1">
 	<div class="container">
-		<h1>Каталог автомобилей с пробегом</h1>
+		<h1 style="margin-bottom:124px">Каталог автомобилей с пробегом</h1>
 	</div>
 </div>
 <div class="index-calc-block inner position-relative pt-5 pb-5 text-center">
@@ -60,15 +60,16 @@ tvSortType: 'UNSIGNED'
 	</div>
 </div>
 {#% include '/partials/brands.twig' %#}
-<div class="catalog-page pb-5">
+
+<div class="actions-block pb-3">
 	<div class="container">
+		<div class="flex">
+			<div class="block-name mb-4">
+			</div>
+		</div>
 		<div class="row">
 			{{DLCatalog |raw}}
 		</div>
-		<nav aria-label="Page navigation" class="navigation" style="max-width: 100vw;
-    overflow: scroll;">
-			{{ plh['catalog.pages'] | raw }}
-		</nav>
 	</div>
 </div>
 {% include '/partials/advantages.twig' %}

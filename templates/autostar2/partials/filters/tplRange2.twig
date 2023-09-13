@@ -3,10 +3,10 @@
 {#	<input type="text" class="price-range-input range-max" value="{{ data['max'] }}" placeholder="{{ data['hash'] }}">#}
 {#</div>#}
 <div class="col-lg-2 col-md-3 col-sm-6 d-flex px-3 ">
-    <input type="text" class="price-range-input range-min range-min2  px-3 w-100" value="{{ data['min'] }}" placeholder="{{ data['caption'] }} мин.">
+    <input type="text" name="min_price"  data-id="19" class="price-range-input range-min range-min2  px-3 w-100" value="{{ data['min'] }}" placeholder="{{ data['caption'] }} мин." id="range-min">
 </div>
 <div class="col-lg-2 col-md-3 col-sm-6 d-flex px-3 ">
-    <input type="text" class="price-range-input range-max range-max2 px-3 w-100" value="{{ data['max'] }}" placeholder="{{ data['caption'] }} макс.">
+    <input type="text" name="max_price"  data-id="19" class="price-range-input range-max range-max2 px-3 w-100" value="{{ data['max'] }}" placeholder="{{ data['caption'] }} макс." id="range-max">
 </div>
 <div class="price-range-slider flex d-none">
     <input type="hidden" class="price-range-slider-js filter-range-slider" name="f[ {{ data['id'] }} ][]" id="{{ data['hash'] }}" data-input-type="range" data-id="{{ data['id'] }}" value="" data-min="{{ data['min'] }}" data-max="{{ data['max'] }}" data-from="{{ data['from'] }}" data-to="{{ data['to'] }}" data-step="{{ data['step'] }}" data-type="double" data-grid="false" />

@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/templates/autodealer/css/filter.css?3213">
     <link rel="stylesheet" href="/templates/autodealer/css/color1.css?321">
+    <link rel="stylesheet" href="/templates/autodealer/css/style_new.css"> 
     {{baseSettings.scripts_head | raw}}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
     {% block HEAD %}{% endblock %}
@@ -53,6 +54,10 @@
     {% if baseSettings.site_id is not empty %}
   <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">
 {% endif %}
+{% if baseSettings.metrik_id is not empty %}
+              <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
+{% endif %}
+
     {% cache 'header' ~ cacheKey %}
     {% set brandsarray = runSnippet('getCache', {
 snippetName:'brands_array',

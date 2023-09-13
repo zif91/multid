@@ -9,12 +9,22 @@ jQuery(function($){
 });
 
 $(function(){
+	const link = document.getElementById("float-button");
+
+// добавляем слушатель события 'click'
+link.addEventListener('click', (event) => {
+  // предотвращаем переход по ссылке по умолчанию
+  event.preventDefault();
+  // вызываем функцию, которая показывает модальное окно
+  $('#callphone').modal('show');
+});
 	$('.top-menu .menu-button').click(function() {
 		$('.top-menu .catalog').show();
 	});
 	$('.mobile-menu .close').click(function() {
 		$('.mobile-menu').removeClass('opened');
 	});
+
 	$('.mobile-header .menu-button').click(function() {
 		$('.mobile-menu').addClass('opened');
 	});

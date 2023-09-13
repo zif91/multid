@@ -1,26 +1,34 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-
 {% set catalog = runSnippet('DocLister', {
-    display: 20,
-    parents: resource.id,
-    depth: 0,
-    tvList: "car-price,old-car-price,car_photos",
-    ownerTPL: '@T_FILE:partials/wrap',
-    tpl: "@T_FILE:partials/catalogcard",
-    debug: 0,
-    addWhereList: 'isfolder=1',
-})  %}
+display: 20,
+parents: resource.id,
+depth: 1,
+tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl: "@T_FILE:partials/catalogcard_mod",
+debug: 0,
+addWhereList: 'c.template=28',
+}) %}
+{#<div class="index-catalog-block2 pb-4">
+    <div class="container">
+        <div class="block-name mb-5">
+            {{resource.pagetitle}}
+        </div>
+                <div class="list row" id="catalog">
 
-<div class="index-catalog-block pb-4">
-        <div class="container">
-            <div class="block-name mb-5">
-{{resource.pagetitle}}
-            </div>
-            <div class="row">
             {{catalog |raw}}
-            </div>
         </div>
     </div>
-
+</div>#}
+<main>
+<div class="index-catalog-block2 pb-5">
+    <div class="container">
+        <h2 class="h2 m-5 ">Предложение дня</h2>
+        <div class="list row d-flex justify-content-center" id="catalog">
+            {{catalog |raw}}
+        </div>
+    </div>
+</div>
+</main>
 {% endblock %}

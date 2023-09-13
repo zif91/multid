@@ -3,7 +3,10 @@
 
 
 $(function() {
-
+	$(document).on('change', '.price-range-input', function(e) {
+    e.preventDefault();
+    Filter.build();
+});
 	var Filter = {
 		el: document.querySelector('.extrafilter'),
 		range_separator: ':',
@@ -71,34 +74,30 @@ $(function() {
 			});
 		},
 		build: function(reload=true) {
-			let data = {};
-			let filterList = [];
-			$('.extrafilter [name]').each(function(i, el) {
-				let id = el.dataset.id;
-				if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
-					if (el.dataset && el.dataset.inputType === 'range') {
-						if (!data[id]) {
-							data[id] = 'f[' + id + ']=';
-						}
-						if (el.value !== el.dataset.min + Filter.range_separator + el.dataset.max) {
-							data[id] += el.value + Filter.values_separator;
-							if(el.value) {
-								filterList.push('f[' + id + ']=' + el.value);
-							}
-						} else {
-							data[id] += Filter.values_separator;
-						}
-					} else {
-						if (!data[id]) {
-							data[id] = 'f[' + id + ']=';
-						}
-						data[id] += el.value + Filter.values_separator;
-						if(el.value) {
-							filterList.push('f[' + id + ']=' + el.value);
-						}
-					}
-				}
-			});
+    let data = {};
+    let filterList = [];
+    $('.extrafilter [name]').each(function(i, el) {
+        let id = el.dataset.id;
+        if ((el.type === 'checkbox' && el.checked) || (el.type !== 'checkbox')) {
+            if (el.classList.contains('price-range-input')) {
+                if (!data[id]) {
+                    data[id] = 'f[' + id + ']=';
+                }
+                let minPrice = $(el).closest('.price-range-group').find('.range-min').val();
+                let maxPrice = $(el).closest('.price-range-group').find('.range-max').val();
+                data[id] += minPrice + Filter.range_separator + maxPrice + Filter.values_separator;
+                filterList.push('f[' + id + ']=' + minPrice + Filter.range_separator + maxPrice);
+            } else {
+                if (!data[id]) {
+                    data[id] = 'f[' + id + ']=';
+                }
+                data[id] += el.value + Filter.values_separator;
+                if(el.value) {
+                    filterList.push('f[' + id + ']=' + el.value);
+                }
+            }
+        }
+    });
 
 			data = Object.values(data).filter(function(el) {
 				[name, value] = el.split('=');

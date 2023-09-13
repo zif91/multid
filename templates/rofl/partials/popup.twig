@@ -106,7 +106,7 @@ extension: 'twig'
 <link rel="stylesheet" href="/templates/autosalon/css/popup.css">
     <link rel="stylesheet" href="/templates/autosalon/css/plates.css">
 
-<div class="bottom-page-line py-4 d-md-none">
+<div class="bottom-page-line py-4 d-none">
         <div class="container">
             <p><span>Ликвидация склада 2022 года.</span> Успей получить свою выгоду</p>
             <div class="image">
@@ -168,3 +168,43 @@ extension: 'twig'
   });
 
   </script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<div class="float-button " id="float-button">
+  <a href="#" data-toggle="modal" data-target="#callphone"><i class="bi bi-telephone"></i></a><div class="waves-container">
+    <div class="waves"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+window.addEventListener('load', function() {
+// Проверяем, было ли уже показано окно в этой сессии
+if (!localStorage.getItem('isPopupShown')) {
+  // Запускаем таймер на 60 секунд
+  setTimeout(function() {
+    // Получаем элемент модального окна
+    var modalElement = document.getElementById('callphone');
+    // Открываем модальное окно
+    $(modalElement).modal('show');
+    // Сохраняем информацию о том, что окно уже было показано
+    localStorage.setItem('isPopupShown', true);
+  }, 60000);
+}
+});
+
+let domElement = document.getElementById("float-button");
+
+setInterval(function() {
+  domElement.heartBeat(1500);
+}, 5000);
+
+</script>
+
+
+{{ runSnippet('Form', {
+                            formid: 'FormCallback',
+                            path: '/templates/autodm/partials/forms/feedback_modal_call/',
+                            extension: 'twig'
+                        })  | raw }}

@@ -99,10 +99,10 @@ rowTpl:'@CODE: <div class="index-calc-block position-relative pt-5 pb-5 text-cen
 					<li class="mb-2"><a href="#t5" data-toggle="tab" class="position-relative"><img src="/templates/rofl/img/tab5.png"><span>Минивэн</span></a>
 				</ul>
 			</div>
-			<div class="col-xl-9 col-lg-8 car_offer">
+			<div class="col-xl-9 col-lg-8 car_offer catalog-page">
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="t1" role="tabpanel">
-						<div class="list">
+						<div class="row">
 							{{runSnippet('DocLister', {
 							id: 'catalog',
 							display: 6,
@@ -112,7 +112,7 @@ rowTpl:'@CODE: <div class="index-calc-block position-relative pt-5 pb-5 text-cen
 							order: 'RAND()',
 							tvSortType: 'SIGNED',
 							tvList:'car-price,credit_rate,old-car-price,car_photos, images, run,engine_power,gear,year, image, body_type, drive, body_type, fuel, car_color,engine_volume',
-							tpl:'@T_FILE:partials/catalogcard_first',
+							tpl:'@T_FILE:partials/catalogcard',
 							filters:'AND(tv:body_type:against:Седан)',
 							tvSortType: 'UNSIGNED',
 							api: 0
@@ -120,8 +120,8 @@ rowTpl:'@CODE: <div class="index-calc-block position-relative pt-5 pb-5 text-cen
 							}}
 						</div>
 					</div>
-					<div class="tab-pane fade" id="t2" role="tabpanel">
-						<div class="list">
+					<div class="tab-pane fade  catalog-page" id="t2" role="tabpanel">
+						<div class="row">
 						{{runSnippet('DocLister', {
 						id: 'catalog',
 						display: 6,
@@ -130,15 +130,15 @@ rowTpl:'@CODE: <div class="index-calc-block position-relative pt-5 pb-5 text-cen
 						orderBy: 'car-price',
 						order: 'RAND()',
 						tvSortType: 'SIGNED',
-tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,year, image',						tpl:'@T_FILE:partials/catalogcard_first',
+tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,year, image',						tpl:'@T_FILE:partials/catalogcard',
 						filters:'AND(tv:body_type:against:Хэтчбек)',
 						tvSortType: 'UNSIGNED',
 						api: 0
 						}) |raw
 						}}</div>
 					</div>
-					<div class="tab-pane fade" id="t3" role="tabpanel">
-						<div class="list">
+					<div class="tab-pane fade  catalog-page" id="t3" role="tabpanel">
+						<div class="row">
 						{{runSnippet('DocLister', {
 						id: 'catalog',
 						display: 6,
@@ -147,14 +147,14 @@ tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,yea
 						orderBy: 'car-price',
 						order: 'RAND()',
 						tvSortType: 'SIGNED',
-tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,year, image',						tpl:'@T_FILE:partials/catalogcard_first',
+tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,year, image',						tpl:'@T_FILE:partials/catalogcard',
 						filters:'AND(tv:body_type:against:Универсал)',
 						tvSortType: 'UNSIGNED',
 						api: 0
 						}) |raw
 						}}</div>
 					</div>
-					<div class="tab-pane fade" id="t4" role="tabpanel"><div class="list">
+					<div class="tab-pane fade  catalog-page" id="t4" role="tabpanel"><div class="row">
 						{{runSnippet('DocLister', {
 						id: 'catalog',
 						display: 6,
@@ -164,13 +164,13 @@ tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,yea
 						order: 'RAND()',
 						tvSortType: 'SIGNED',
 tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,year, image',						filters:'AND(tv:body_type:against:Внедорожник)',
-						tpl:'@T_FILE:partials/catalogcard_first',
+						tpl:'@T_FILE:partials/catalogcard',
 						tvSortType: 'UNSIGNED',
 						api: 0
 						}) |raw
 						}}</div>
 					</div>
-					<div class="tab-pane fade" id="t5" role="tabpanel"><div class="list">
+					<div class="tab-pane fade  catalog-page" id="t5" role="tabpanel"><div class="row">
 						{{runSnippet('DocLister', {
 						id: 'catalog',
 						display: 6,
@@ -180,7 +180,7 @@ tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,yea
 						order: 'RAND()',
 						tvSortType: 'SIGNED',
 						filters:'AND(tv:body_type:against:Минивэн)',
-tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,year, image',						tpl:'@T_FILE:partials/catalogcard_first',
+tvList:'car-price,old-car-price,car_photos,credit_rate,run,engine_power,gear,year, image',						tpl:'@T_FILE:partials/catalogcard',
 						tvSortType: 'UNSIGNED',
 						api: 0
 						}) |raw

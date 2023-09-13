@@ -3589,3 +3589,156 @@ button .close,
     border-radius: 14px;
   }
 }
+.float-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.float-button a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-color: #0099cc;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.float-button a:hover {
+  background-color: #0077b3;
+}
+
+.float-button i {
+  position: relative;
+  top: 4px;
+}
+
+.callphone-form {
+  background: #e6eef8;
+  /* fallback for old browsers */
+
+}
+
+.callphone-form .modal-title {
+  color: #0077b3;
+  margin-bottom: 0;
+  margin: 0px 0px 0px 15px;
+  line-height: 1.5;
+  font-size: 1.45em;
+}
+
+.callphone-form p {
+  color: #0077b3;
+}
+
+.callphone-form label {
+  color: #00aaff;
+}
+
+.callphone-form .form-control {
+  padding: 1.375rem 0.75rem;
+}
+
+.callphone-form input[type='tel'] {
+  background: #ffffff url(https://61bu-automobile.ru/templates/autoex/img/inp2.svg) no-repeat 16px 50%;
+}
+
+.callphone-form input[type='tel'] {
+  height: 70px;
+  border-radius: 12px;
+  padding: 0 20px 0 64px;
+  font-weight: 500;
+}
+
+.callphone-form input[type='text'] {
+  background: #ffffff url(https://61bu-automobile.ru/templates/autoex/img/inp1.svg) no-repeat 16px 50%;
+}
+
+.callphone-form input[type='text'] {
+  height: 70px;
+  border-radius: 12px;
+  padding: 0 20px 0 64px;
+  font-weight: 500;
+}
+
+.modal-header {
+  border-bottom: 0px !important
+}
+
+.modal-footer {
+  border-top: 0px !important;
+}
+
+.float-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+}
+
+.float-button a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-color: #0099cc;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+
+.float-button:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  border: 50%;
+  border: 2px solid #4fbaea;
+  left: -30px;
+  right: -30px;
+  top: -30px;
+  bottom: -30px;
+  border-radius: 50%;
+  animation: animate 1.5s linear infinite;
+  background-color: rgba(66, 170, 255, 0.3);
+}
+
+.float-button:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  border: 50%;
+  border: 1px solid #4fbaea;
+  left: -20px;
+  right: -20px;
+  top: -20px;
+  bottom: -20px;
+  border-radius: 50%;
+  animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}

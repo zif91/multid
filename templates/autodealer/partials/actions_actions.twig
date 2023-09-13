@@ -1,10 +1,6 @@
-
-<div class="col-lg-3 col-md-4 col-sm-6">
+<div class="col-md-4 col-sm-6"><a href="{{data.url}}">
     <div class="item mb-4">
-        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139, w=255,zc=1 fltr[]=ric|15|15'}) }}" class="mb-2 rounded rounded-3">
-        <div class="name mb-1">
-            {{ data.title }}
-        </div>
-        <p>Успей до конца года!</p>
-    </div>
+        <img src="{{data['tv.image']}}" class="w-100 mb-3">
+        <a href="{{data.url}}" class="d-block pb-5">{{ data.title }}</a>
+    </div></a>
 </div>

@@ -1,6 +1,6 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-	{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
 {#% cache 'main' ~ resource.id %#}
 {% set DLCatalog = runSnippet('DocLister', {
@@ -9,19 +9,13 @@ controller: 'catalog_filters',
 display: 3,
 parents: catalog_number,
 depth: 5,
-orderBy: 'menuindex',
-order: 'RAND()',
+orderBy: 'car-price',
+order: 'ASC',
 tvSortType: 'SIGNED',
 tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard2',
-noneTPL:'@CODE: <div class="container">
-	<div class="row">
-		<div class="col text-center">
-			<h2 class="display-5 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-		</div>
-	</div>
-</div>',
+noneTPL:'@T_FILE:partials/noitems',
 paginate:'pages',
 TplNextP:'',
 TplPrevP:'',
@@ -35,7 +29,7 @@ TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
     __filterPriceId: 14,
     __filterList: '18:dropdown;20:dropdown;42:dropdown;43:dropdown;9:dropdown;11:dropdown;10:dropdown;19:range;15:range;16:range;',
     __filterList: '18,20,42,19,9,11,10,43,15,16,',
-    filterList: '20,19, 42, 43',
+    filterList: '19, 42, 43',
     filterTpl: '@T_FILE:partials/filters/tpl',
     filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
     filterTplRange: '@T_FILE:partials/filters/tplRange',
@@ -50,7 +44,7 @@ TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
     display: 3,
     parents: catalog_number,
     depth: 5,
-    orderBy: 'menuindex',
+    orderBy: 'id',
     order: 'RAND()',
     tvSortType: 'SIGNED',
     tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
@@ -78,7 +72,7 @@ TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
     display: 6,
     parents: catalog_number,
     depth: 5,
-    orderBy: 'menuindex',
+    orderBy: 'id DESC',
     order: 'RAND()',
     tvSortType: 'SIGNED',
     tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image',
@@ -97,7 +91,6 @@ TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
     TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
     TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
     TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
-    tvSortType: 'UNSIGNED',
     api: 0
 })
 %}
@@ -173,7 +166,7 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
         </div>
     </div>
 </div>#}
-<div class="index-catalog-block2 pb-4" id="catalog">
+<div class="index-catalog-block2 pb-4 catalog-products" id="catalog-products">
     <h2 class="mb-4">Автомобили в наличии</h2>
     {{DLCatalog |raw}}
 </div>
@@ -188,29 +181,12 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
         <button onclick="window.location.href = '{{ makeUrl(27) }}';">Посмотреть все машины в наличии</button>
     </div>
 </div>
-<div class="credit-form-block mb-5 position-relative">
-    <h2 class="mb-2">Заявка на автокредит</h2>
-    <p class="mb-3">Оставьте заявку и мы перезвоним Вам!</p>
-    <form class="row">
-        <div class="col-sm-6">
-            <input type="text" class="w-100 mb-3 px-3" placeholder="Ваше имя">
-        </div>
-        <div class="col-sm-6">
-            <input type="text" class="w-100 mb-3 px-3" placeholder="+7 (___) ___-__-__">
-        </div>
-        <div class="col-sm-6">
-            <button class="w-100" data-fancybox data-src="#popup3" >Заказать подбор</button>
-        </div>
-        <div class="col-sm-6">
-            <div class="bottom-text pt-sm-2 pt-3">
-                Нажимая на кнопку вы даете согласие на обработку <a href="#">персональных данных</a>
-            </div>
-        </div>
-    </form>
-    <div class="image position-absolute">
-        <img src="/templates/autostar2/img/woman.png">
-    </div>
-</div>
+{{ runSnippet('Form', {
+  formid: 'FormCredit',
+  path: '/templates/autostar2/partials/forms/credit3/',
+  extension: 'twig'
+  }) | raw }}
+
 {% include '/partials/banks.twig' %}
 {% include '/partials/actions.twig' %}
 {% include('partials/contacts.twig') %}

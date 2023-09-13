@@ -105,8 +105,15 @@ tpl:'@T_CODE: <div class="gift__item">
                                 <td>{{resource.drive}}</td>
                             </tr>
                         </table>
-                        <div class="price mb-4">
+                        <div class="row">
+                            <div class=" mb-4 col-4 align-text-bottom text-decoration-line-through" style="font-size: 17px; padding-top: 11px;
+    text-align: start;"><s>
+                            {{ (resource['old-car-price'])|number_format(0, '.', ' ') }} ₽</s>
+                        </div>
+                        <div class="price mb-4 col-6" id="car_price_for_calc">
                             {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
+                        </div>
+
                         </div>
                         <ul class="pb-3">
                             <li class="pl-5 position-relative mb-4">ПТС: Оригинал</li>
@@ -128,7 +135,7 @@ tpl:'@T_CODE: <div class="gift__item">
                 </div>
             </div>
             <div class="row pt-4">
-                <div class="col-md-6">
+                <div class="col-12">
                     <div class="text-block mb-4 p-4">
                         <p class="mb-3">Данные о розыске и запрете на регистрацию не найдены</p>
                         <p class="mb-3">{% if resource.owners %}
@@ -138,25 +145,180 @@ tpl:'@T_CODE: <div class="gift__item">
                             {% endif %} - владельцев в ПТС</p>
                         <p class="mb-3">Данные совпадаютс ПТС</p>
                         <p>Данные о ДТП не найдены</p>
+                                                <p>Не работал в такси</p>
+
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="text-block  mb-4 p-4">
-                        <p class="mb-3 red">3 записи в истории пробегов</p>
-                        <p class="mb-3 orange">4 записи в истории эксплуатации</p>
-                        <p>Не работал в такси</p>
-                    </div>
-                </div>
+                
             </div>
             <div class="main-text">
                 {{resource.content}}
             </div>
         </div>
-    </div> {% include '/partials/advantages.twig' %}
+    </div> 
+<div class="calc-block pb-5 mb-4">
+        <div class="container">
+            <div class="block-name mb-3">
+                Выгода при покупке в кредит!
+            </div>
+            <div class="top-text mb-4">
+                Ставка от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}% годовых!
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="calc">
+                        <div class="item mb-4 d-none">
+                            <div class="name mb-3">
+                                Сумма кредита
+                            </div>
+                            <div class="field mb-4">
+                                <input type="text" id="amount" readonly="">
+                                <a class="edit"></a>
+                            </div>
+                            <div id="slider-range-max" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header ui-slider-range-max" style=""></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0.512821%;"></span></div>
+                            <div class="values pt-3 flex">
+                                <div>250 000 ₽</div>
+                                <div>10 000 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="name mb-3">
+                                Первоначальный взнос
+                            </div>
+                            <div class="field mb-4">
+                                <input type="text" id="amount2" readonly="">
+                                <a class="edit"></a>
+                            </div>
+                            <div id="slider-range-max2" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header ui-slider-range-max" style=""></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 44.4444%;"></span></div>
+                        </div>
+                        <div class="item mb-4">
+                            <div class="name mb-3">
+                                Срок кредита
+                            </div>
+                            <div class="field mb-4">
+                                <input type="text" id="amount3" readonly="">
+                                <a class="edit"></a>
+                            </div>
+                            <div id="slider-range-max3" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header ui-slider-range-max" style=""></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 15.7895%;"></span></div>
+                            <div class="values pt-3 flex">
+                                <div>12 месяцев</div>
+                                <div>88 месяцев</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="result mb-4">
+                        <div class="name mb-4">
+                            Наше предложение
+                        </div>
+                        <table class="w-100 mb-4">
+                            <tbody><tr>
+                                <td>Кредитная ставка:</td>
+                                <td>{% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</td>
+                            </tr>
+                            <tr>
+                                <td>Программа:</td>
+                                <td>Первый автомобиль</td>
+                            </tr>
+                            <tr>
+                                <td>Первоначальный взнос:</td>
+                                <td>100 000 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>Сумма кредита:</td>
+                                <td>300 000 ₽</td>
+                            </tr>
+                            <tr>
+                                <td>Срок:</td>
+                                <td>14 месяцев</td>
+                            </tr>
+                        </tbody></table>
+                        <div class="finish flex">
+                            <div>Ежемесячный платеж:</div>
+                            <div>2 818 ₽/мес.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-button text-center pt-3">
+                <button class="btn btn-danger big" data-toggle="modal" data-target="#popup">Рассчитать кредит</button>
+            </div>
+        </div>
+    </div>
+    {% include '/partials/advantages.twig' %}
 {{ runSnippet('Form', {
 formid: 'FormCallback',
 path: '/templates/autodealer/partials/forms/feedback/',
 extension: 'twig'
 }) | raw }}
 {% include('partials/contacts.twig') %}
+{% endblock %}
+{% block SCRIPTS %}
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script>
+$(document).ready(function() {
+
+    let maxCreditValue = parseFloat($("#car_price_for_calc").text().replace(' ', '').replace('₽', ''));
+
+    function initializeSlider(selector, min, max, value, unit) {
+        $(selector).slider({
+            range: "max",
+            min: min,
+            max: max,
+            value: value,
+            slide: function(event, ui) {
+                $(selector + '-value').val(ui.value + unit);
+                updateResults();
+            },
+            create: function() {
+                $(selector + '-value').val(value + unit);
+            }
+        });
+    }
+
+    function updateResults() {
+        const creditRate = 0.069; // 6.9% 
+        const carPrice = maxCreditValue;
+        const downPayment = $("#slider-range-max2").slider("value");
+        const creditAmount = carPrice - downPayment;
+        const term = $("#slider-range-max3").slider("value");
+        const monthlyPayment = (creditAmount * (1 + creditRate) / term);
+
+        // Ensure the down payment doesn't exceed the car price
+        if (downPayment > carPrice) {
+            $("#slider-range-max2").slider("value", carPrice);
+            updateResults();
+            return;
+        }
+
+        // Update the input values
+        $("#amount2").val(downPayment.toLocaleString() + " ₽");
+        $("#amount3").val(term + " месяцев");
+
+        // Update the displayed values
+        $(".result table td:nth-child(2)").eq(2).text(downPayment.toLocaleString() + " ₽");
+        $(".result table td:nth-child(2)").eq(3).text(creditAmount.toLocaleString() + " ₽");
+        $(".result table td:nth-child(2)").eq(4).text(term + " месяцев");
+        $(".result .finish div:nth-child(2)").text(monthlyPayment.toFixed(0).toLocaleString() + " ₽/мес.");
+    }
+
+    initializeSlider("#slider-range-max2", 0, maxCreditValue, 0.1 * maxCreditValue, " ₽");
+    initializeSlider("#slider-range-max3", 12, 88, 24, " месяцев");
+
+    // Initial update
+    updateResults();
+});
+
+</script>
 {% endblock %}

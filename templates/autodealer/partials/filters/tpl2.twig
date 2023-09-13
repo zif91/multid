@@ -1,0 +1,30 @@
+<div class="col-md-6">
+	<form class="extrafilter">
+		<div class="name mb-4">
+			Быстрый подбор автомобиль
+		</div>
+		
+		{#<select class="w-100 mb-2 px-3">
+			<option>Модель</option>
+			<option>Модель</option>
+			<option>Модель</option>
+		</select>
+		<select class="w-100 mb-2 px-3">
+			<option>КПП</option>
+			<option>КПП</option>
+			<option>КПП</option>
+		</select>#}
+		{{ data['wrap'] | raw }}
+		{#<p class="mb-2">Цена, до</p>
+		<div class="number mb-3">
+			<span class="minus"></span>
+			<input type="text" value="1" class="w-100 px-4">
+			<span class="plus"></span>
+		</div>#}
+
+		{#<div class="link text-center mb-3">
+			<a href="#" class=".Button--reset">Сбросить фильтр</a>
+		</div>#}
+		<button class="filterbutton w-100 btn middle mb-4">Подобрать автомобиль</button>
+	</form>
+</div>

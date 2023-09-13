@@ -1,7 +1,8 @@
     {% set footermenu = runSnippet('DLMenu', {
     parents: baseSettings["id"],
     tvList: 'image',
-    rowTpl: '@CODE:<li class="li-foot col-md-4 col-sm-6 col-12"><a href="[+url+]">[+pagetitle+]</a></li>',
+    maxDepth: 1,
+    rowTpl: '@CODE:<li class="li-foot col-md-2 col-sm-6 col-12"><a href="[+url+]">[+pagetitle+]</a></li>',
     outerTpl: '@CODE:<ul class="foot-menu row d-flex justify-content-between col-xl-8 col-lg-9 col-md-12 col-sm-12 col-xs-12">
         [+wrap+]</ul>'}) %}
     <footer class="footer">

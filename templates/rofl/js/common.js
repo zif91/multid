@@ -6,6 +6,15 @@ $(function() {
 		$(this).addClass('hide');
 		$('.index-calc-block .row .col-lg-3').show();
 	});
+	const link = document.getElementById("float-button");
+
+// добавляем слушатель события 'click'
+link.addEventListener('click', (event) => {
+  // предотвращаем переход по ссылке по умолчанию
+  event.preventDefault();
+  // вызываем функцию, которая показывает модальное окно
+  $('#callphone').modal('show');
+});
 	$('.menubg').click(function() {
 		$('.menubg').fadeOut();
 		$('.header ul').removeClass('opened');

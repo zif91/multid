@@ -10,14 +10,13 @@
             <div class="col-xl-7 col-lg-6">
                 <div class="photos mb-5">
                     <div class="slider-for mb-3">
+                        <pre>{{dump (car_photos) }}</pre>
                         <div>
-                            <div class="slider-main">
                                 {% for car in car_photos.fieldValue %}
                                 <div class="item">
                                     <img class="rounded border border-dark" src="{{ car.image }}">
                                 </div>
                                 {% endfor %}
-                            </div>
                             {# If you want to use slider-nav later, uncomment and populate it similarly #}
                             
                             <div class="slider-nav">

@@ -11,350 +11,347 @@
                 <div class="photos mb-5">
                     <div class="slider-for mb-3">
                         <div>
-                                {% for car in car_photos.fieldValue %}
-                                <div class="item">
-                                    <img class="rounded border border-dark" src="{{ car.image }}">
-                                </div>
-                                {% endfor %}
-                            {# If you want to use slider-nav later, uncomment and populate it similarly #}
-                            
-                            <div class="slider-nav">
-                                {% for car in car_photos.fieldValue %}
-                                <div class="item">
-                                    <img src="{{ car.image }}">
-                                </div>
-                                {% endfor %}
+                            <div class="item">
+                                <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
                             </div>
-                            
+                            {# If you want to use slider-nav later, uncomment and populate it similarly #}
+                            {#
+                            <div class="slider-nav">
+                                <div class="item">
+                                    <img src="{{ car_photos.fieldValue[0].image }}">
+                                </div>
+                            </div>
+                            #}
                         </div>
                     </div>
-                    <div class="col-xl-5 col-lg-6">
-                        <div class="info mb-5">
-                            <h1 class="mb-4">
-                                {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
-                            </h1>
-                            <div class="top-text mb-2">
-                                Стоимость
-                            </div>
-                            {#<table class="w-100 mb-3">
-                                <tr>
-                                    <td>Год выпуска</td>
-                                    <td>2021</td>
-                                </tr>
-                                <tr>
-                                    <td>Двигатель</td>
-                                    <td>2.7 л / 163 л.с / Бензин</td>
-                                </tr>
-                                <tr>
-                                    <td>Коробка</td>
-                                    <td>Автомат</td>
-                                </tr>
-                                <tr>
-                                    <td>Привод</td>
-                                    <td>Полный</td>
-                                </tr>
-                                <tr>
-                                    <td>Цвет</td>
-                                    <td>Белый</td>
-                                </tr>
-                            </table>#}
-                            <div class="data pt-3 pr-3 pl-3 mb-3">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="data-item mb-3 pt-1">
-                                            <div></div>
-                                            <div><span>Цена от:</span> {{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</div>
-                                        </div>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="info mb-5">
+                        <h1 class="mb-4">
+                            {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
+                        </h1>
+                        <div class="top-text mb-2">
+                            Стоимость
+                        </div>
+                        {#<table class="w-100 mb-3">
+                            <tr>
+                                <td>Год выпуска</td>
+                                <td>2021</td>
+                            </tr>
+                            <tr>
+                                <td>Двигатель</td>
+                                <td>2.7 л / 163 л.с / Бензин</td>
+                            </tr>
+                            <tr>
+                                <td>Коробка</td>
+                                <td>Автомат</td>
+                            </tr>
+                            <tr>
+                                <td>Привод</td>
+                                <td>Полный</td>
+                            </tr>
+                            <tr>
+                                <td>Цвет</td>
+                                <td>Белый</td>
+                            </tr>
+                        </table>#}
+                        <div class="data pt-3 pr-3 pl-3 mb-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="data-item mb-3 pt-1">
+                                        <div></div>
+                                        <div><span>Цена от:</span> {{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="data-item mb-3 pt-1">
-                                            <div></div>
-                                            <div><span>Цена до:</span> {{resource['old-car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</div>
-                                        </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="data-item mb-3 pt-1">
+                                        <div></div>
+                                        <div><span>Цена до:</span> {{resource['old-car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="credit mb-4 p-3 flex align-items-center">
-                                <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
-                                <span>Ставка от 1.6%</span>
+                        </div>
+                        <div class="credit mb-4 p-3 flex align-items-center">
+                            <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
+                            <span>Ставка от 1.6%</span>
+                        </div>
+                        <div class="buttons row">
+                            <div class="col-6">
+                                <button class="color1 w-100" data-fancybox="" data-src="#popup">Забронировать</button>
                             </div>
-                            <div class="buttons row">
-                                <div class="col-6">
-                                    <button class="color1 w-100" data-fancybox="" data-src="#popup">Забронировать</button>
-                                </div>
-                                <div class="col-6">
-                                    {#<button class="color2 w-100" id="myButton">Купить в кредит</button> #}
-                                    <a href="#" onclick="showCreditPopup(
+                            <div class="col-6">
+                                {#<button class="color2 w-100" id="myButton">Купить в кредит</button> #}
+                                <a href="#" onclick="showCreditPopup(
                         {{ resource['id'] }},
                         '',
                         '{{(resource['car-price'] / 96) | number_format(0, ' ', ' ')}}');
                         return false;" class="car-plate__button button button_grey w-100 color2">В кредит</a>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12">
-                        <div class="pt-3">{{ runSnippet('Form', {
-                            formid: 'FormCallback',
-                            path: '/templates/autosalon/partials/forms/creditcar/',
-                            extension: 'twig'
-                            }) | raw }} </div>
                     </div>
                 </div>
+                <div class="col-xl-12 col-lg-12">
+                    <div class="pt-3">{{ runSnippet('Form', {
+                        formid: 'FormCallback',
+                        path: '/templates/autosalon/partials/forms/creditcar/',
+                        extension: 'twig'
+                        }) | raw }} </div>
+                </div>
             </div>
-            {#<div class="modifications-block pb-5">
-                <h2 class="mb-4">Доступные модификации</h2>
-                {% for item in modification %}
-                {% if item["group-name"] is not empty %}
-                <h3 class="mb-3" id="itemAccordion">{{item["Объем двигателя"]}}см³ | {{item["Тип двигателя"]}} | КП {{item["Трансмиссия"]}} | {{item["Привод"]}}</h3>
-                <div class="item mb-2">
-                    <div class="item-name flex " id="itemHeader">
-                        <div class=" d-flex align-items-center justify-content-between mob-wrap">
-                            <div class="name btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}">
-                                <div class="name-wrap">
-                                    {{item["group-name"]}}
-                                </div>
-                            </div>
-                            <div class="price d-flex">
-                                <span class="old d-flex align-items-center">
-                                    {{item["offers-price-to"]|number_format(0, '.', '&nbsp;')|raw }} ₽
-                                </span>
-                                <span class="new d-flex align-items-center">
-                                    {{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }} ₽
-                                </span>
-                            </div>
-                            <div class="credit">
-                                <span>В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} &#8381;/месяц </span>
-                                <span class="new-price">{{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
+        </div>
+        {#<div class="modifications-block pb-5">
+            <h2 class="mb-4">Доступные модификации</h2>
+            {% for item in modification %}
+            {% if item["group-name"] is not empty %}
+            <h3 class="mb-3" id="itemAccordion">{{item["Объем двигателя"]}}см³ | {{item["Тип двигателя"]}} | КП {{item["Трансмиссия"]}} | {{item["Привод"]}}</h3>
+            <div class="item mb-2">
+                <div class="item-name flex " id="itemHeader">
+                    <div class=" d-flex align-items-center justify-content-between mob-wrap">
+                        <div class="name btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}">
+                            <div class="name-wrap">
+                                {{item["group-name"]}}
                             </div>
                         </div>
-                        <div class=" buttons d-flex align-items-center">
-                            <button onclick="showCreditPopup({{ resource['id'] }},'','{{(item["offers-price-from"] / 96) | number_format(0, ' ', ' ')}}');return false;">В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} ₽ в месяц</button>
-                            <button>Trade-in</button>
-                            <button data-fancybox="" data-src="#popup">Забронировать</button>
+                        <div class="price d-flex">
+                            <span class="old d-flex align-items-center">
+                                {{item["offers-price-to"]|number_format(0, '.', '&nbsp;')|raw }} ₽
+                            </span>
+                            <span class="new d-flex align-items-center">
+                                {{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }} ₽
+                            </span>
+                        </div>
+                        <div class="credit">
+                            <span>В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} &#8381;/месяц </span>
+                            <span class="new-price">{{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
                         </div>
                     </div>
-                    <div id="id_{{item['complectation-id']}}" class="collapse" aria-labelledby="itemHeader" data-parent="#itemAccordion">
-                        <div class="item-content">
-                            <select class="select" id="select_{{item['complectation-id']}}" onchange="changeTab('{{item['complectation-id']}}')">
-                                <option value="exterior">Характеристики</option>
-                                <option value="interior">Комплектация</option>
-                            </select>
-                            <div class="tabs">
-                                <ul class="nav mb-4" id="myTab_{{item['complectation-id']}}" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="exterior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#exteriorid_{{item['complectation-id']}}" role="tab" aria-controls="exterior" aria-selected="true">Характеристики</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="interior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#interiorid_{{item['complectation-id']}}" role="tab" aria-controls="interior" aria-selected="false">Комплектация</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content" id="myTabContent_{{item['complectation-id']}}">
-                                    <div class="tab-pane fade show active" id="exteriorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="exterior-tab">
-                                        {% set filteredItems = {} %}
-                                        {% set keys = [] %}
-                                        {% set values = [] %}
-                                        {% for key, value in item %}
-                                        {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
-                                        {% set filteredItems = filteredItems|merge({key: value}) %}
-                                        {% set keys = keys|merge([key]) %}
-                                        {% set values = values|merge([value]) %}
-                                        {% endif %}
-                                        {% endfor %}
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-6">
-                                                <table>
-                                                    <tbody>
-                                                        {% for i in range(0, keys|length // 2) %}
-                                                        <tr>
-                                                            <td>{{ keys[i] }}</td>
-                                                            <td>{{ values[i] }}</td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="col-xs-12 col-md-6">
-                                                <table>
-                                                    <tbody>
-                                                        {% for i in range(keys|length // 2, keys|length) %}
-                                                        <tr>
-                                                            <td>{{ keys[i] }}</td>
-                                                            <td>{{ values[i] }}</td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                    <div class=" buttons d-flex align-items-center">
+                        <button onclick="showCreditPopup({{ resource['id'] }},'','{{(item["offers-price-from"] / 96) | number_format(0, ' ', ' ')}}');return false;">В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} ₽ в месяц</button>
+                        <button>Trade-in</button>
+                        <button data-fancybox="" data-src="#popup">Забронировать</button>
+                    </div>
+                </div>
+                <div id="id_{{item['complectation-id']}}" class="collapse" aria-labelledby="itemHeader" data-parent="#itemAccordion">
+                    <div class="item-content">
+                        <select class="select" id="select_{{item['complectation-id']}}" onchange="changeTab('{{item['complectation-id']}}')">
+                            <option value="exterior">Характеристики</option>
+                            <option value="interior">Комплектация</option>
+                        </select>
+                        <div class="tabs">
+                            <ul class="nav mb-4" id="myTab_{{item['complectation-id']}}" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="exterior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#exteriorid_{{item['complectation-id']}}" role="tab" aria-controls="exterior" aria-selected="true">Характеристики</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="interior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#interiorid_{{item['complectation-id']}}" role="tab" aria-controls="interior" aria-selected="false">Комплектация</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent_{{item['complectation-id']}}">
+                                <div class="tab-pane fade show active" id="exteriorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="exterior-tab">
+                                    {% set filteredItems = {} %}
+                                    {% set keys = [] %}
+                                    {% set values = [] %}
+                                    {% for key, value in item %}
+                                    {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
+                                    {% set filteredItems = filteredItems|merge({key: value}) %}
+                                    {% set keys = keys|merge([key]) %}
+                                    {% set values = values|merge([value]) %}
+                                    {% endif %}
+                                    {% endfor %}
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-6">
+                                            <table>
+                                                <tbody>
+                                                    {% for i in range(0, keys|length // 2) %}
+                                                    <tr>
+                                                        <td>{{ keys[i] }}</td>
+                                                        <td>{{ values[i] }}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="interiorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="interior-tab">
-                                        {% set options = runSnippet('takeoptions', { complectation_id: item['complectation-id'] }) %}
-                                        {% set column1 = [] %}
-                                        {% set column2 = [] %}
-                                        {% set index = 0 %}
-                                        {% for item in options %}
-                                        {% for key, value in item %}
-                                        {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
-                                        {% if index % 2 == 0 %}
-                                        {% set column1 = column1|merge([{ 'key': key, 'value': value }]) %}
-                                        {% else %}
-                                        {% set column2 = column2|merge([{ 'key': key, 'value': value }]) %}
-                                        {% endif %}
-                                        {% set index = index + 1 %}
-                                        {% endif %}
-                                        {% endfor %}
-                                        {% endfor %}
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <table>
-                                                    <tbody>
-                                                        {% for item in column1 %}
-                                                        <tr>
-                                                            <td>{{ item['key'] }}</td>
-                                                            {% if item['value'] == 1 %}
-                                                            <td>Есть</td>
-                                                            {% elseif item['value'] > 1 %}
-                                                            <td>{{ item['value'] }} руб.</td>
-                                                            {% else %}
-                                                            <td>{{ item['value'] }}</td>
-                                                            {% endif %}
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <table>
-                                                    <tbody>
-                                                        {% for item in column2 %}
-                                                        <tr>
-                                                            <td>{{ item['key'] }}</td>
-                                                            {% if item['value'] == 1 %}
-                                                            <td>Есть</td>
-                                                            {% elseif item['value'] > 1 %}
-                                                            <td>{{ item['value'] }} руб.</td>
-                                                            {% else %}
-                                                            <td>{{ item['value'] }}</td>
-                                                            {% endif %}
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                        <div class="col-xs-12 col-md-6">
+                                            <table>
+                                                <tbody>
+                                                    {% for i in range(keys|length // 2, keys|length) %}
+                                                    <tr>
+                                                        <td>{{ keys[i] }}</td>
+                                                        <td>{{ values[i] }}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="tab-pane fade" id="interiorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="interior-tab">
+                                    {% set options = runSnippet('takeoptions', { complectation_id: item['complectation-id'] }) %}
+                                    {% set column1 = [] %}
+                                    {% set column2 = [] %}
+                                    {% set index = 0 %}
+                                    {% for item in options %}
+                                    {% for key, value in item %}
+                                    {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
+                                    {% if index % 2 == 0 %}
+                                    {% set column1 = column1|merge([{ 'key': key, 'value': value }]) %}
+                                    {% else %}
+                                    {% set column2 = column2|merge([{ 'key': key, 'value': value }]) %}
+                                    {% endif %}
+                                    {% set index = index + 1 %}
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% endfor %}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <table>
+                                                <tbody>
+                                                    {% for item in column1 %}
+                                                    <tr>
+                                                        <td>{{ item['key'] }}</td>
+                                                        {% if item['value'] == 1 %}
+                                                        <td>Есть</td>
+                                                        {% elseif item['value'] > 1 %}
+                                                        <td>{{ item['value'] }} руб.</td>
+                                                        {% else %}
+                                                        <td>{{ item['value'] }}</td>
+                                                        {% endif %}
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table>
+                                                <tbody>
+                                                    {% for item in column2 %}
+                                                    <tr>
+                                                        <td>{{ item['key'] }}</td>
+                                                        {% if item['value'] == 1 %}
+                                                        <td>Есть</td>
+                                                        {% elseif item['value'] > 1 %}
+                                                        <td>{{ item['value'] }} руб.</td>
+                                                        {% else %}
+                                                        <td>{{ item['value'] }}</td>
+                                                        {% endif %}
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {% endif %}
-                {% endfor %}
-            </div>#}
-            {% include('partials/banks.twig') %}
-            <div class="container">{% include "/partials/advantages.twig" %}</div>
-            <div class="container">{% include "/partials/actions2.twig" %}</div>
-        </div>
-        <div class="page-form-block mb-5">
-            <div class="container">
-                {{ runSnippet('Form', {
-                formid: 'FormCallback',
-                path: '/templates/autosalon/partials/forms/feedback/',
-                extension: 'twig'
-                }) | raw }}
             </div>
-        </div>
-        {#<div class="item-page2 pb-5">
-            <div class="container">
-                <div class="main-info pb-3">
-                    <div class="block-name mb-4">
-                        Основная информация
-                    </div>
-                    <div class="item py-3 px-4">
-                        <div><img src="../templates/major/img/item-icon7.svg"></div>
-                        <div>
-                            <span class="d-block">Цвет</span>
-                            Черный сапфир металлик
-                        </div>
-                    </div>
-                    <div class="item py-3 px-4">
-                        <div><img src="../templates/major/img/item-icon8.svg"></div>
-                        <div>
-                            <span class="d-block">Привод</span>
-                            Полный
-                        </div>
-                    </div>
-                    <div class="item py-3 px-4">
-                        <div><img src="../templates/major/img/item-icon9.svg"></div>
-                        <div>
-                            <span class="d-block">Кузов</span>
-                            Седан
-                        </div>
-                    </div>
-                    <div class="item py-3 px-4">
-                        <div><img src="../templates/major/img/item-icon10.svg"></div>
-                        <div>
-                            <span class="d-block">Салон</span>
-                            Центральная часть сидений черная с синими и серыми элементами, боковины сидений черные, черная панель приборов, черное ковровое покрытие, серый потолок
-                        </div>
-                    </div>
-                    <div class="item py-3 px-4">
-                        <div><img src="../templates/major/img/item-icon11.svg"></div>
-                        <div>
-                            <span class="d-block">Двигатель</span>
-                            Бензин
-                        </div>
-                    </div>
-                    <div class="item py-3 px-4">
-                        <div><img src="../templates/major/img/item-icon12.svg"></div>
-                        <div>
-                            <span class="d-block">Коробка</span>
-                            АКПП
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endif %}
+            {% endfor %}
         </div>#}
-        <script>
-        function changeTab(complectationId) {
-            var selectElement = document.getElementById("select_" + complectationId);
-            var selectedValue = selectElement.value;
+        {% include('partials/banks.twig') %}
+        <div class="container">{% include "/partials/advantages.twig" %}</div>
+        <div class="container">{% include "/partials/actions2.twig" %}</div>
+    </div>
+    <div class="page-form-block mb-5">
+        <div class="container">
+            {{ runSnippet('Form', {
+            formid: 'FormCallback',
+            path: '/templates/autosalon/partials/forms/feedback/',
+            extension: 'twig'
+            }) | raw }}
+        </div>
+    </div>
+    {#<div class="item-page2 pb-5">
+        <div class="container">
+            <div class="main-info pb-3">
+                <div class="block-name mb-4">
+                    Основная информация
+                </div>
+                <div class="item py-3 px-4">
+                    <div><img src="../templates/major/img/item-icon7.svg"></div>
+                    <div>
+                        <span class="d-block">Цвет</span>
+                        Черный сапфир металлик
+                    </div>
+                </div>
+                <div class="item py-3 px-4">
+                    <div><img src="../templates/major/img/item-icon8.svg"></div>
+                    <div>
+                        <span class="d-block">Привод</span>
+                        Полный
+                    </div>
+                </div>
+                <div class="item py-3 px-4">
+                    <div><img src="../templates/major/img/item-icon9.svg"></div>
+                    <div>
+                        <span class="d-block">Кузов</span>
+                        Седан
+                    </div>
+                </div>
+                <div class="item py-3 px-4">
+                    <div><img src="../templates/major/img/item-icon10.svg"></div>
+                    <div>
+                        <span class="d-block">Салон</span>
+                        Центральная часть сидений черная с синими и серыми элементами, боковины сидений черные, черная панель приборов, черное ковровое покрытие, серый потолок
+                    </div>
+                </div>
+                <div class="item py-3 px-4">
+                    <div><img src="../templates/major/img/item-icon11.svg"></div>
+                    <div>
+                        <span class="d-block">Двигатель</span>
+                        Бензин
+                    </div>
+                </div>
+                <div class="item py-3 px-4">
+                    <div><img src="../templates/major/img/item-icon12.svg"></div>
+                    <div>
+                        <span class="d-block">Коробка</span>
+                        АКПП
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>#}
+    <script>
+    function changeTab(complectationId) {
+        var selectElement = document.getElementById("select_" + complectationId);
+        var selectedValue = selectElement.value;
 
-            if (selectedValue === "exterior") {
-                document.getElementById("exterior-tabid_" + complectationId).click();
-            } else if (selectedValue === "interior") {
-                document.getElementById("interior-tabid_" + complectationId).click();
-            }
+        if (selectedValue === "exterior") {
+            document.getElementById("exterior-tabid_" + complectationId).click();
+        } else if (selectedValue === "interior") {
+            document.getElementById("interior-tabid_" + complectationId).click();
         }
+    }
 
-        </script>
-        <script>
-        function scrollToCreditForm() {
-            const creditForm = document.getElementById("creditform");
-            creditForm.scrollIntoView({ behavior: "smooth" });
-        }
+    </script>
+    <script>
+    function scrollToCreditForm() {
+        const creditForm = document.getElementById("creditform");
+        creditForm.scrollIntoView({ behavior: "smooth" });
+    }
 
-        </script>
-        <script>
-        // Функция для обновления отображения даты
-        function updateEndDate() {
-            var currentDate = new Date();
-            var endDate = new Date(currentDate.getTime() + 8 * 24 * 60 * 60 * 1000);
+    </script>
+    <script>
+    // Функция для обновления отображения даты
+    function updateEndDate() {
+        var currentDate = new Date();
+        var endDate = new Date(currentDate.getTime() + 8 * 24 * 60 * 60 * 1000);
 
-            var day = endDate.getDate();
-            var month = endDate.getMonth() + 1; // Месяцы в JavaScript нумеруются с 0, поэтому добавляем 1
-            var year = endDate.getFullYear();
+        var day = endDate.getDate();
+        var month = endDate.getMonth() + 1; // Месяцы в JavaScript нумеруются с 0, поэтому добавляем 1
+        var year = endDate.getFullYear();
 
-            // Форматируем день и месяц, чтобы добавить ведущий ноль при необходимости
-            day = day < 10 ? '0' + day : day;
-            month = month < 10 ? '0' + month : month;
+        // Форматируем день и месяц, чтобы добавить ведущий ноль при необходимости
+        day = day < 10 ? '0' + day : day;
+        month = month < 10 ? '0' + month : month;
 
-            document.getElementById('dateend').textContent = day + '.' + month + '.' + year;
-        }
+        document.getElementById('dateend').textContent = day + '.' + month + '.' + year;
+    }
 
-        // Обновление даты при загрузке страницы
-        window.onload = updateEndDate;
+    // Обновление даты при загрузке страницы
+    window.onload = updateEndDate;
 
-        </script>
-        {% endblock %}
+    </script>
+    {% endblock %}

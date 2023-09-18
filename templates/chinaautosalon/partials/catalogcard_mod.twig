@@ -5,11 +5,11 @@ tpl: '@CODE:[+image.thumb+]',
 total: 1,
 display: 1
 }) %#}
-{% set car_photos = "https://s3.multiauto.site/new_cars/" ~ data['tv.configuration_id'] ~ ".jpg"%}
+{% set car_photos = data['tv.car_photos'] | json %}
 {#% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %#}
 <a href="{{ data['url'] }}" ><div class="col-lg-4 col-md-6">
 	<div class="item mb-3">
-		<img src="{{car_photos| raw}}">
+		<img src="{{ car_photos.fieldValue[0].image }}">
 		<div class="p-4">
 			<div class="name mb-3">
 				{{ data['pagetitle'] }} {{data[tv.body_type]}}

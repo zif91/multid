@@ -11,7 +11,9 @@
             <div class="col-xl-7 col-lg-6">
                 <div class="photos mb-5">
                     <div class="slider-for mb-3">
+                        <pre>{{dump (car_photos) }}</pre>
                         <div class="item"><img class="rounded border border-dark" src="{{car_photos|raw}}"></div>
+                        }
                     </div>
                     {#<div class="slider-nav">
                         <div class="item"><img src="img/preview.png"></div>
@@ -96,7 +98,7 @@
             </div>
         </div>
     </div>
-    <div class="modifications-block pb-5">
+    {#<div class="modifications-block pb-5">
         <h2 class="mb-4">Доступные модификации</h2>
         {% for item in modification %}
             {% if item["group-name"] is not empty %}
@@ -246,7 +248,7 @@
                 </div>
             {% endif %}
         {% endfor %}
-    </div>
+    </div>#}
     {% include('partials/banks.twig') %}
     <div class="container">{% include "/partials/advantages.twig" %}</div>
     <div class="container">{% include "/partials/actions2.twig" %}</div>

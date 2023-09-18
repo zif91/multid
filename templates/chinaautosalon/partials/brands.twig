@@ -3,13 +3,13 @@ parents: catalog_number,
 depth: 0,
 orderBy: 'menuindex',
 order: 'ASC',
-tvList:'',
+tvList:'image',
 addWhereList: 'c.template=17',
 
 ownerTPL: '@CODE:     [+dl.wrap+]',
 tpl:'@CODE:<div class="col-lg-1 col-md-2 col-3">
 						<div class="item mb-2 p-2 text-center">
-							<a href="[+url+]"><img src="[+description+]"></a>
+							<a href="[+url+]"><img src="[+tv.image+]"></a>
 							<a href="[+url+]" class="d-block mt-2" style="  min-height: 2.3em;">[+pagetitle+]</a>
 						</div>
 					</div>

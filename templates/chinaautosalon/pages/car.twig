@@ -11,14 +11,14 @@
                 <div class="photos mb-5">
                     <div class="slider-for mb-3">
                         <div>
-                            {% for car in car_photos.fieldValue %}
+                            {#% for car in car_photos.fieldValue %}
                             <div class="item">
                                 <img class="rounded border border-dark" src="{{ car.image }}">
                             </div>
-                            {% endfor %}
-                            {#<div class="item">
+                            {% endfor %#}
+                            {<div class="item">
                                 <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
-                            </div>#}
+                            </div>}
                             {# If you want to use slider-nav later, uncomment and populate it similarly #}
                             {#
                             <div class="slider-nav">

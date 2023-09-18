@@ -1,0 +1,391 @@
+{% extends 'app.twig' %}
+{#% set brand = runSnippet('DocLister',{
+parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle+]">[+pagetitle+]</option>'
+}) %#}
+{#{{ runSnippet('DocLister', {display: 20, parents: 27, depth: 0, tvList:'car-price,old-car-price,car_photos', tpl:'@CODE:<section class="section-50 used-cars-block">
+	<div class="container">
+		<div class="section__top">
+			<h2 class="section-title title-black mb-36">[+pagetitle+]<a class="catalog-link" href="[+url+]">
+					Все модели<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M8 16.5L14 10.4154L8.1669 4.5" stroke="#F72446" stroke-width="3" stroke-linecap="round" />
+					</svg>
+				</a>
+			</h2>
+			<div class="cards">
+				[+news+]
+			</div>
+		</div>
+</section>',prepare:'FolderCars'
+}) |raw}} #}
+{% block MAIN %}
+<main class="item-page">
+	<div class="price d-none">10000000</div>
+	<div class="p-5 row">
+		<div class="col-md-1"></div>
+		{#<h1>Рассчитайте кредит на покупку автомобиля!</h1>#}
+	</div>
+	<div class="row p-sm-0 px-5">
+		<div class="col-md-1"></div>
+		<div class="calc col-md-6 pb-5">
+			<h2>Выгода при покупке в кредит!</h2>
+			<p class="pb-2">Ставка от 1.6% годовых!</p>
+			<div class="item">
+				Сумма кредита
+				<input type="text" id="amounter" readonly>
+				<div id="slider-range-max"></div>
+			</div>
+			<div class="item">
+				Первоначальный взнос
+				<input type="text" id="first-pay" readonly>
+				<div id="slider-range-max3"></div>
+			</div>
+			<div class="item">
+				Срок кредита
+				<input type="text" id="amounter2" readonly>
+				<div id="slider-range-max2"></div>
+			</div>
+			<div class="item">
+				Кредитная программа
+				<div>
+					<select class="-select py-2 border-0 w-100">
+						<option value="12" selected>Выберите кредитную программу</option>
+						<option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
+						<option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
+						<option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
+						<option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
+						<option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
+					</select>
+				</div>
+				<div id="slider-range-max2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="item">
+						<span> Платеж от</span>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="item">
+						<span id="payment2">30 050 ₽/мес.</span>
+					</div>
+				</div>
+			</div>
+			{#<button type="button" data-toggle="modal" data-target="#oneclick">Рассчитать кредит</button>#}
+			{{ runSnippet('Form', {
+			formid: 'FormCredit',
+			path: '/templates/autodm/partials/forms/credit3/',
+			extension: 'twig'
+			}) | raw }}
+		</div>
+		<div class="col-md-4">
+			<div class="d-flex justify-content-between pt-5">
+				<span class="credit-text text-start">Кредитная ставка:</span>
+				<span class="credit-amounts text-end" id="percent">12%</span>
+			</div>
+			<div class="d-flex justify-content-between">
+				<span class="credit-text text-start">Программа: </span>
+				<span class="credit-amounts text-end" id="program-name">Стандартная программа</span>
+			</div>
+			<div class="d-flex justify-content-between">
+				<span class="credit-text text-start">Первоначальный взнос:</span>
+				<span class="credit-amounts text-end" id="first-pay2">123</span>
+			</div>
+			<div class="d-flex justify-content-between">
+				<span class="credit-text text-start">Сумма кредита:</span>
+				<span class="credit-amounts text-end" id="summ">123</span>
+			</div>
+			<div class="d-flex justify-content-between">
+				<span class="credit-text text-start">Срок:</span>
+				<span class="credit-amounts" id="mes">123</span></div>
+			<div class="d-flex justify-content-between">
+				<span class="credit-text text-start">Ежемесячный платеж:</span>
+				<span class="credit-amounts text-end" id="paymentSpan2">0 ₽/мес.</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+	</div>
+	<div class="steps-block pt-5 pb-sm-5 pb-3 mb-5">
+		<div class="container">
+			<div class="block-name mb-5">
+				Как мы работаем?
+			</div>
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="item mb-4 p-sm-4 p-3">
+								<div class="text position-relative">
+									<div class="number position-absolute">01.</div>
+									<div class="name mb-2">
+										Шаг первый
+									</div>
+									Знакомство: Мы начинаем с тщательного изучения Ваших потребностей и желаний, чтобы найти идеальный автомобиль для Вас.
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="item mb-4 p-sm-4 p-3">
+								<div class="text position-relative">
+									<div class="number position-absolute">02.</div>
+									<div class="name mb-2">
+										Шаг второй
+									</div>
+									Подбор: Наши эксперты помогут Вам выбрать автомобиль из нашего широкого ассортимента, учитывая Ваши предпочтения и бюджет.</br>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="item mb-4 p-sm-4 p-3">
+								<div class="text position-relative">
+									<div class="number position-absolute">03.</div>
+									<div class="name mb-2">
+										Шаг третий
+									</div>
+									Финансирование: Мы предлагаем гибкое финансирование на лучших условиях, чтобы помочь Вам получить нужный автомобиль.
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="item mb-4 p-sm-4 p-3">
+								<div class="text position-relative">
+									<div class="number position-absolute">04.</div>
+									<div class="name mb-2">
+										Шаг четвертый
+									</div>
+									Гарантия: Мы предлагаем длительную гарантию на все новые автомобили, чтобы вы могли чувствовать себя уверенно.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% include('partials/banks.twig') %}
+	<div class="container">
+		{% include "/partials/advantages.twig" %}
+	</div>
+	{# <script>
+	// Ожидаем загрузки всего DOM
+	document.addEventListener('DOMContentLoaded', function() {
+
+		// Открываем FancyBox по клику на кнопке
+		const openPopupBtn = document.querySelector('#open-popup-btn');
+		openPopupBtn.addEventListener('click', function() {
+			const popupForm = document.querySelector('#popup');
+			$.fancybox.open({
+				src: popupForm,
+				type: 'inline',
+				opts: {
+					afterClose: function() {
+						// Сброс полей формы при закрытии окна
+						const firstpayInput = document.querySelector('#firstpay');
+						const monthesSelect = document.querySelector('#monthes');
+						const paymentInput = document.querySelector('#payment');
+						firstpayInput.value = '';
+						monthesSelect.value = '';
+						paymentInput.value = '86 500 руб';
+					}
+				}
+			});
+		});
+
+		// Рассчет ежемесячного платежа
+		function calculatePayment() {
+			const firstPay = parseFloat(document.querySelector('#firstpay').value) || 0;
+			const monthes = parseFloat(document.querySelector('#monthes').value) || 0;
+			const payment = (firstPay / monthes).toFixed(2);
+			document.querySelector('#payment').value = `${payment} руб`;
+		}
+
+		// Обновление ежемесячного платежа при изменении полей
+		const firstpayInput = document.querySelector('#firstpay');
+		const monthesSelect = document.querySelector('#monthes');
+		firstpayInput.addEventListener('input', calculatePayment);
+		monthesSelect.addEventListener('change', calculatePayment);
+	});
+
+	</script>#}
+	<div class="container">
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/autosalon/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+	</div>
+	{% include "/partials/contacts.twig" %}
+	{% endblock %}
+	{% block SCRIPTS %}
+	<script src="static/js/choices.min.js"></script>
+	<script src="static/js/select2.js"></script>
+	<script type="text/javascript">
+$(function() {
+  const select = $('.-select');
+  const programName = $('#program-name');
+  programName.text("Не выбрана программа кредитования"); // устанавливаем значение по умолчанию
+  const amountInput = $('#amounter');
+  const firstPayInput = $('#first-pay');
+  const termInput = $('#amounter2');
+  const paymentSpan = $('#payment2');
+  const stavka = $('#percent');
+  const price = parseFloat($('.price').text().replace(/\s+/g, '').replace(/₽/, ''));
+
+  $('#slider-range-max').slider({
+    range: 'max',
+    min: price / 40,
+    max: price,
+    value: 500000,
+    slide: function(event, ui) {
+      amountInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
+      updatePayment();
+      updateFirstPaySlider(ui.value);
+    }
+  });
+
+  amountInput.val($('#slider-range-max').slider('value').toLocaleString('ru-RU') + ' ₽');
+
+  $('#slider-range-max3').slider({
+    range: 'max',
+    min: 0,
+    max: 400000,
+    value: 300000,
+    slide: function(event, ui) {
+      firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
+      updatePayment();
+    }
+  });
+
+  firstPayInput.val($('#slider-range-max3').slider('value').toLocaleString('ru-RU') + ' ₽');
+
+  $('#slider-range-max2').slider({
+    range: 'max',
+    min: 12,
+    max: 96,
+    value: 96,
+    slide: function(event, ui) {
+      termInput.val(ui.value + ' месяцев');
+      updatePayment();
+    }
+  });
+
+  termInput.val($('#slider-range-max2').slider('value') + ' месяцев');
+
+  function updateFirstPaySlider(maxValue) {
+    const firstPaySlider = $('#slider-range-max3');
+    const firstPayValue = parseFloat(firstPaySlider.slider('value'));
+    const newMaxValue = Math.min(maxValue, price);
+    if (firstPayValue > newMaxValue) {
+      firstPaySlider.slider('value', newMaxValue);
+      firstPayInput.val(newMaxValue.toLocaleString('ru-RU') + ' ₽');
+    }
+    firstPaySlider.slider('option', 'max', newMaxValue);
+  }
+
+  function updatePayment() {
+    const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
+    const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+    const term = parseFloat(termInput.val()) || 0;
+    const programValue = select.val();
+    let coefficient = 1.24;
+
+    switch (programValue) {
+      case "1,6":
+        coefficient = 1 + (16 / 100);
+        break;
+      case "9,9":
+        coefficient = 1.24;
+        break;
+      // Добавить обработку для остальных программ
+    }
+
+    const payment = (amount - firstPay) / term * coefficient;
+    paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' ₽/мес.');
+    $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' ₽');
+    $('#percent').text(programValue + ' %');
+    $('#summ').text(amount.toLocaleString('ru-RU') + ' ₽');
+    $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
+    $('#paymentSpan2').text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' ₽/мес.');
+
+    const selectedOption = select.find('option:selected');
+    const programNameText = selectedOption.text().split('(')[0].trim();
+    if (programNameText === '') {
+      programName.text('Не выбрана программа кредитования');
+    } else {
+      programName.text(programNameText);
+    }
+    console.log(programNameText);
+  }
+
+  updatePayment();
+
+  amountInput.on('input', updatePayment);
+  firstPayInput.on('input', updatePayment);
+  termInput.on('change', updatePayment);
+  select.on('change', updatePayment);
+});
+</script>
+<style>.credit-amounts {
+  font-size: 26px;
+    color: #9F5007;
+    margin-bottom: 20px;
+    padding: 0 10px 0 10px;
+    min-height: 30px;
+    text-align: end;
+    line-height: 30px;
+    background: #FFE6CF;
+    border-radius: 5px;
+}
+.credit-text {
+  font-size: 18px;
+    margin-bottom: 20px;
+    padding: 0 10px 0 10px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.calc select {
+  margin: 10px 0 0 0;
+ height: 50px;
+    appearance: none;
+    padding: 0 25px;
+    font-size: 16px;
+    background: #D12D1E url(/templates/autosalon/img/select.svg) no-repeat right 20px top 50%;
+    border-radius: 10px;
+}
+@media (max-width: 476px) {
+  .credit-amounts {
+  font-size: 16px;
+    color: #9F5007;
+    margin-bottom:    10px;
+    padding: 0 10px 0 10px;
+    min-height: 28px;
+    text-align: end;
+    line-height: 30px;
+    background: #FFE6CF;
+    border-radius: 5px;
+}
+.credit-text {
+  font-size: 12px;
+    margin-bottom: 10px;
+    padding: 0 10px 0 10px;
+    height: 15;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+}
+.calc select {
+    margin: 10px 0 0 0;
+    height: 50px;
+    appearance: none;
+    padding: 0 25px;
+    font-size: 16px;
+    background: #D12D1E url(/templates/autosalon/img/select.svg) no-repeat right 20px top 50%;
+    border-radius: 10px;
+}
+  }
+</style>
+        <link rel="stylesheet" href="/templates/autosalon/css/credit.css">
+
+	{% endblock %}

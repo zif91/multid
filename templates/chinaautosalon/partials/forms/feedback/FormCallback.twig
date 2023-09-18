@@ -1,0 +1,43 @@
+<div class="form-block mb-5">
+<form>
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+			<div class="block-name mb-4">
+				Остались вопросы или нужна помощь?
+			</div>
+
+			<div class="top-text mb-4 pb-2">
+				Оставьте заявку на консультацию - и наши менеджеры придут вам на помощь
+			</div>
+			<div class="row">
+                   {{ data['form.messages'] | raw }}
+				<div class="col-md-4 col-sm-6">
+					<p class="mb-2">Ваш телефон</p>
+					<input type="text" placeholder="+7 (___) ___-__-__" name="mobile_tel" class="w-100 mb-3 px-3 {{ data['mobile_tel.classname'] }}" id="mobile_tel" value="{{ data.mobile_tel }}">
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<p class="mb-2">Ваше имя</p>
+					<input type="text" placeholder="Например: Андрей" class="w-100 mb-3 px-3" id="first_name" value="{{ data.first_name }}">
+				</div>
+				<div class="col-md-4">
+					<button class="w-100 mb-3">Перезвоните мне</button>
+				</div>
+			</div>
+			<div class="agree position-relative">
+				<input type="checkbox" id="agree" class="position-absolute" required>
+				<label for="agree" class="d-block pl-4">Я даю согласие на обработку персональных данных</label>
+			</div>
+            <div class="agree position-relative">
+                <input type="checkbox" id="check_nationality" class="position-absolute" required>
+                <label for="check_nationality" class="d-block pl-4">Являюсь гражданином РФ</label>
+            </div>
+            </form>
+
+		</div>
+
+<style>
+    .agree input[type="checkbox"] {
+        display: block;
+        appearance: auto;
+    }
+
+</style>

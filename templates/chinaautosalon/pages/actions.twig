@@ -1,0 +1,27 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 4,
+parents: 27,
+depth: 2,
+tvList:'car-price,run,engine_power,gear,year,image,body_type,car_color,engine_volume,fuel,drive',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+})
+%}
+
+		{% include 'partials/actions.twig' %}
+	
+<div class="catalog-page pb-1">
+	<div class="container">
+		<h2 class="h1 mb-sm-5 mb-4">Автомобили по акции</h2>
+		<div class="row">
+			{{DLCatalog |raw}}
+		</div>
+	</div>
+</div>
+<div class="container py-5 mb-5 d-none d-sm-block">
+	{{resource.content |raw }}
+</div>
+{% endblock %}

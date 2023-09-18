@@ -1,0 +1,59 @@
+{#% set thumb = runSnippet('morephoto', {
+images: data['tv.car_photos'],
+phpthumb: 'w=250,h=168,zc=C',
+tpl: '@CODE:[+image.thumb+]',
+total: 1,
+display: 1
+}) %#}
+{% set car_photos = "https://s3.multiauto.site/new_cars/" ~ data['tv.configuration_id'] ~ ".jpg"%}
+{% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %}
+<a href="{{ data['url'] }}" ><div class="col-lg-4 col-md-6">
+	<div class="item mb-3">
+		<img src="{{car_photos| raw}}">
+		<div class="p-4">
+			<div class="name mb-3">
+				{{ data['pagetitle'] }} {{data[tv.body_type]}}
+			</div>
+			<div class="data pb-2">
+				<div class="data-item d-inline-block mr-4 mb-2">
+					Комплектаций
+					<span class="d-inline-block mt-2">{{ modification|length }}</span>
+				</div>
+				{#<div class="data-item d-inline-block mr-4 mb-2">
+					Пробег
+					<span class="d-block mt-2">83 890 км</span>
+				</div>
+				<div class="data-item d-inline-block mr-4 mb-2">
+					Год
+					<span class="d-block mt-2">2010</span>
+				</div>#}
+			</div>
+			<div class="price mb-3">
+				<span class="new mr-2"> {{ data['tv.car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽ </span>
+				<span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
+			</div>
+			<div class="credit mb-3 position-relative">
+				{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}} рублей в месяц
+				<span class="text-right">Ставка <br />от 1.6%</span>
+			</div>
+			<div class="buttons row">
+				{#<div class="col-6">
+					<button  id="myButton" class="color1 w-100">Купить в кредит</button>
+				</div>#}
+				<div class="col-6"> 
+					<a href="#" onclick="showCreditPopup(
+                        {{ data['id'] }},
+                        '',
+                        '{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}}');
+                        return false;"
+                      class="car-plate__button button button_red">В кредит</a>
+
+                </div>
+				<div class="col-6">
+					<button class="color2 w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</a>

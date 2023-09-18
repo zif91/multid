@@ -1,0 +1,23 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+	{#{resource | dump}#}
+<div class="actions-top-block mb-5" style="background: url({{resource.image|raw}}) left center/cover;">
+	<div class="container">
+		<div class="text">
+			<h1 class="mb-3">{{resource.pagetitle | raw}}</h1>
+			<p>{{resource.description | raw}}</p>
+		</div>
+	</div>
+</div>
+<div class="action-page pb-4">
+	<div class="container">
+{{resource.content | raw}}
+	</div>
+</div>
+<div class="container">
+	{% include "/partials/advantages.twig" %}
+</div>
+<div class="container">
+	{% include "/partials/contacts.twig" %}
+</div>
+{% endblock %}

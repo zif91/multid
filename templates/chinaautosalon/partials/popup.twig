@@ -1,0 +1,212 @@
+<div class="modal fade" id="oneclick" tabindex="-1" role="dialog" aria-labelledby="oneclick" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background: #b71f25;">
+      <!--div class="modal-header">
+        <h5 class="modal-title" id="oneclick">Форма обратной связи</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div-->
+      <!--div class="modal-body">
+        Оставьте заявку - и наш менеджер свяжется с Вами в ближайшее время      </div-->{#{ runSnippet('Form', {
+      formid: 'FormCallback',
+      path: '/templates/autodm/partials/forms/feedback_modal/',
+      extension: 'twig'
+      }) | raw }#}
+      <!--div class="modal-footer">
+        <button type="button" class="btn btn-primary">Отправить</button>
+      </div-->
+    </div>
+  </div>
+</div>
+{{ runSnippet('Form', {
+formid: 'FormCallback',
+path: '/templates/rofl/partials/forms/feedback_modal/',
+extension: 'twig'
+}) | raw }}
+{{ runSnippet('Form', {
+formid: 'FormCallback',
+path: '/templates/rofl/partials/forms/feedback_modal_bron/',
+extension: 'twig'
+}) | raw }}
+<div class="modal fade" id="tradein" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Закажите оценку Вашего автомобиля в TradeIn:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              {{ runSnippet('Form', {
+              formid: 'FormTradeIn',
+              path: '/templates/rofl/partials/forms/tradeIn/',
+              extension: 'twig'
+              }) | raw }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="trade-in-popup" class="popup-fb popup_trade-in" style="display: none;">
+  <div class="popup__header popup__header_trade-in">
+    <div>
+      <div class="popup__heading">Получите лучшее предложение по&nbsp;Trade&nbsp;In</div>
+      <div class="popup__subheading">Оценим ваш автомобиль за 10 минут</div>
+    </div>
+    <div>
+      <div class="popup__descr">Выгода до</div>
+      <div class="popup__nums">{% if baseSettings.vigoda_trade %}
+                        {{baseSettings.vigoda_trade}}
+                    {% else %}
+                      150 000 рублей
+                                          {% endif %}
+
+                      </div>
+    </div>
+    <div class="popup__auto">
+      <img src="/templates/autosalon/images/tradein-popup-car.png" alt="">
+    </div>
+    <img class="popup__header-pic" src="/templates/autosalon/images/money-popup.png" alt="">
+  </div>
+  <div class="popup__content">
+    <div role="form" class="wpcf7" id="" lang="ru-RU" dir="ltr">
+      {{ runSnippet('Form', {
+      formid: 'FormCallback',
+      path: '/templates/autosalon/partials/forms/feedback_popup/',
+      extension: 'twig'
+      }) | raw }}
+    </div>
+  </div>
+</div>
+<div class="sticky">
+  <div class="sticky__close"></div>
+  <a href="#trade-in-popup" data-fancybox="" class="sticky__plate sticky__plate_tradin">
+    <img src="/templates/autosalon//images/sticky-car.png" alt="">
+    <div class="sticky__inner">
+      <div class="sticky__circle"></div>
+      <div class="sticky__caption">Пора обновляться!</div>
+      <div class="sticky__descr">Максимальная выгода от Trade-In</div>
+      <div class="button button_red button_sm"><span>{% if baseSettings.vigoda_trade %}
+                        {{baseSettings.vigoda_trade}}
+                    {% else %}
+                      150 000 рублей
+                    {% endif %}</span></div>
+    </div>
+  </a>
+</div>
+<div id="credit-popup-plate" class="popup-fb fancybox-content" style="display: none;">
+  <div class="popup__header">
+    <div>
+      <div class="popup__heading">Получите расчет платежей по автокредиту</div>
+      <div class="popup__subheading popup__car_name"></div>
+    </div>
+    <div>
+      <div class="popup__descr">В кредит от</div>
+      <div class="popup__nums popup__price">20 300 руб/мес</div>
+    </div>
+    <div class="popup__auto">
+      <img class="popup__image" src="/templates/autosalon/images/1614546302_4-p-avto-na-belom-fone-4.png" alt="">
+    </div>
+    <img class="popup__header-pic" src="/templates/autosalon/images/percent.png" alt="">
+  </div>
+  <div class="popup__content">
+    <div role="form" class="wpcf7" id="" lang="ru-RU" dir="ltr">
+      {{ runSnippet('Form', {
+      formid: 'FormCallback',
+      path: '/templates/autosalon/partials/forms/feedback_popup/',
+      extension: 'twig'
+      }) | raw }}
+      {#<form data-id="credit" id="car-credit-modification-line-extended" action="#" method="post" class="wpcf7-form" novalidate="novalidate">
+        <span class="wpcf7-form-row">
+          <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33">
+            <span class="wpcf7-form-control-wrap-label">Как вас зовут?</span>
+            <input type="text" name="name" value="" class="wpcf7-form-control" placeholder="введите">
+          </span>
+          <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33">
+            <span class="wpcf7-form-control-wrap-label">Телефон</span>
+            <input type="tel" name="phone" value="" class="wpcf7-form-control error" placeholder="+7   (   )   -   -" aria-invalid="true">
+          </span>
+          <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33 wpcf7-form-control-wrap-button">
+            <button type="submit" class="button button_red ">Отправить заявку</button>
+          </span>
+        </span>
+        <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap_checkbox" style="margin-top: 10px">
+          <label class="checkbox changed">
+            <input type="checkbox" id="" name="agreement" value="">
+            <span class="checkbox__field">Даю согласие на обработку персональных данных</span>
+          </label>
+        </span>
+      </form>#}
+    </div>
+  </div>
+</div>
+<div class="bottom-page-line py-4 d-md-none">
+        <div class="container">
+            <p><span>Ликвидация склада 2022 года.</span> Успей получить свою выгоду</p>
+            <div class="image">
+                <img src="/templates/rofl/img/image.png">
+            </div>
+            <a class="close"></a>
+        </div>
+</div>
+<style type="text/css">
+.bottom-page-line {
+  position: fixed;
+    bottom: 0px;
+    right: 0%;
+    width: 100%;
+  background: #DC6868;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+.bottom-page-line .container {
+  position: relative;
+}
+.bottom-page-line p {
+  font-size: 16px;
+    line-height: 20px;
+    padding-right: 55%;
+    z-index: 3;
+    position: relative;
+}
+.bottom-page-line p span {
+  font-weight: 700;
+}
+.bottom-page-line .close {
+  position: absolute;
+    top: 0%;
+    transform: translateY(-50%);
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background: url(/templates/rofl/img/close.svg);
+    opacity: 1;
+}
+.bottom-page-line .image {
+  position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    pointer-events: none;
+    z-index: 2;
+    max-width: 50%;
+}
+</style>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var closeBtn = document.querySelector(".sticky__close");
+    closeBtn.addEventListener("click", function() {
+      var sticky = document.querySelector(".sticky");
+      sticky.style.display = "none";
+    });
+  });
+
+  </script>
+  

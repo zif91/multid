@@ -1,0 +1,30 @@
+<footer class="footer">
+	<div class="container flex">
+		<ul>
+			<li class="d-inline-block">
+				<a href="/katalog-novyh-avtomobilej/">Каталог новых автомобилей</a>
+			</li>
+			<li class="d-inline-block">
+				<a href="kredit">Кредит на автомобили</a>
+			</li>
+			<li class="d-inline-block">   
+				<a href="kontakty">Контакты</a>
+			</li>
+		</ul>
+		<div class="copy text-right">
+			© 2023 Автосалон
+			<a href="/policy" class="d-block">Политика конфиденциальности</a>
+		</div> 
+	</div>
+	<div class="container"><p style="font-size: 8px;" class="pt-1">
+            <p style="font-size: 10px" class="123">{{baseSettings.footer |raw}}</p>
+
+</p></div>
+</footer>
+<div class="popup" id="popup" style="display: none; width: 96%;">
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/autosalon/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+</div>

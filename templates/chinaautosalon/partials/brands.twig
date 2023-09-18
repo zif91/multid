@@ -1,0 +1,37 @@
+{% set brands2 = runSnippet('DocLister', {
+parents: catalog_number,
+depth: 0,
+orderBy: 'menuindex',
+order: 'ASC',
+tvList:'',
+addWhereList: 'c.template=17',
+
+ownerTPL: '@CODE:     [+dl.wrap+]',
+tpl:'@CODE:<div class="col-lg-1 col-md-2 col-3">
+						<div class="item mb-2 p-2 text-center">
+							<a href="[+url+]"><img src="[+description+]"></a>
+							<a href="[+url+]" class="d-block mt-2" style="  min-height: 2.3em;">[+pagetitle+]</a>
+						</div>
+					</div>
+',
+api: 0,
+noneTPL:'@CODE: <div class="container">
+	<div class="row align-items-end d-flex">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+})
+%}
+<div class="index-brands-block pb-5">
+				<div class="block-name mb-4">
+					Выберите марку
+				</div>
+				<div class="row  align-items-end d-flex">
+											{{brands2 | raw}}	
+
+					
+				</div>
+			</div>
+

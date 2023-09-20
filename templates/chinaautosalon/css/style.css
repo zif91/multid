@@ -522,7 +522,7 @@ main {
 }
 .index-first-block {
   background: #35374e url('/templates/autosalon/img/first-block.png') no-repeat top 0 right 80px;
-  padding: 118px 370px;
+  padding: 118px 0 370px;
   color: #fff;
 }
 .index-first-block .text {

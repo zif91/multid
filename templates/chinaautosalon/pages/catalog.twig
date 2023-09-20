@@ -109,7 +109,6 @@ debug: 0,
 					<div class="name mb-4">
 						Выбрать автомобиль
 
-            <!-- {{ DLCatalog|raw }} -->
 
 					</div>
 					<div class="row index-filter-block__body">
@@ -294,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //const priceStart = pricestart.value;
     //const priceEnd = priceend.value;
 
-    let url = '/katalog-novyh-avtomobilej/?';
+    let url = '/katalog-avtomobilej156150/?';
     if (brand && brand !== 'Выбрать...') {
       url += `brand=${brand}&`;
     }
@@ -312,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Если передан флаг сброса фильтра
-    if (clear) url = '/katalog-novyh-avtomobilej/';
+    if (clear) url = '/katalog-avtomobilej156150/';
 
     $.ajax({
       url: url,

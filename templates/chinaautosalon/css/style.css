@@ -1179,7 +1179,8 @@ main {
   .index-first-block {
     padding: 52px 0 220px;
     background: #35374e url('/templates/autosalon/img/first-block2.png') no-repeat top 0 right 0;
-    background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/major/img/slider.png')!important;
+    /* background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/major/img/slider.png')!important; */
+    background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/chinaautosalon/img/banner-1.png')!important;
   }
   .index-first-block .text p {
     padding-bottom: 290px;

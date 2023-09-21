@@ -69,21 +69,24 @@ $(".bottom-page-line").click(function() {
     if (marks) decoreSelect(marks);
 	*/
 });
-// Функция для обновления отображения времени
+// Функция для обновления отображения времени// Функция для обновления отображения времени
 function updateCountdown(days, hours, minutes, seconds) {
     var ids = ['day', 'hour', 'min', 'sec'];
     var values = [days, hours, minutes, seconds];
     for (var i = 0; i < ids.length; i++) {
         var element = document.getElementById(ids[i]);
-        if (element.value != values[i]) {
+        if (element && element.value != values[i]) {
             animateFlip(ids[i]);
+            element.value = values[i];
         }
-        element.value = values[i];
     }
 }
 
 // Функция для запуска обратного отсчета
 function startCountdown() {
+    var dateendElement = document.getElementById('dateend');
+    if (!dateendElement) return; // Если элемент dateend отсутствует, выходим из функции
+
     function updateTimer() {
         var targetDate = new Date();
         targetDate.setDate(targetDate.getDate() + 7);
@@ -95,7 +98,6 @@ function startCountdown() {
         var year = targetDate.getFullYear();
         var formattedDate = day + '.' + month + '.' + year;
 
-        var dateendElement = document.getElementById('dateend');
         dateendElement.textContent = formattedDate;
 
         var intervalId = setInterval(function() {
@@ -118,17 +120,16 @@ function startCountdown() {
 
     updateTimer();
 }
-// Функция для обновления отображения времени
-
 
 function animateFlip(id) {
     var element = document.getElementById(id);
-    element.classList.add('flip');
-    setTimeout(function() {
-        element.classList.remove('flip');
-    }, 500);
+    if (element) {
+        element.classList.add('flip');
+        setTimeout(function() {
+            element.classList.remove('flip');
+        }, 500);
+    }
 }
-
 
 // Запуск обратного отсчета при загрузке страницы
 window.onload = startCountdown;

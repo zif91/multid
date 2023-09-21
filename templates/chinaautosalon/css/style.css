@@ -330,6 +330,11 @@ table {
 table td {
   padding: 0;
 }
+p a {
+  display: inline;
+  text-decoration: underline;
+}
+
 a {
   color: #000;
   cursor: pointer;
@@ -338,8 +343,6 @@ a {
   -ms-transition: all 200ms ease;
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
-  display: inline; 
-  text-decoration: underline;
 }
 a:hover {
   text-decoration: none;

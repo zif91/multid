@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
         //const priceStart = pricestart.value;
         //const priceEnd = priceend.value;
 
-		let url = '/katalog-novyh-avtomobilej/?';
+		let url = '/katalog-avtomobilej156150/?';
 		if (brand && brand !== 'Выбрать...') {
 			url += `brand=${brand}&`;
 		}
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Если передан флаг сброса фильтра
         if (clear) {
-            url = '/katalog-novyh-avtomobilej/?';
+            url = '/katalog-avtomobilej156150/?';
             filterButton.disabled = true;
         }
 
@@ -336,9 +336,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	    // Если выбран какой-либо бренд ИЛИ передан флаг сброса фильтров (true)
 		if (brand && brand !== 'Выбрать...' || clear) {
 		    // Если передан флаг сброса фильтров
-		    if (clear) url = `/katalog-novyh-avtomobilej/`;
+		    if (clear) url = `/katalog-avtomobilej156150/`;
 		    // Иначе - выбран какой-либо бренд
-		    else url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
+		    else url = `/katalog-avtomobilej156150/?brand=${brand}`;
 			$.ajax({
 				url: url,
 				method: 'GET',

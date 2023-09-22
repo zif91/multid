@@ -2,7 +2,7 @@
 {% block MAIN %}
 {# {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%} #}
 {% set car_photos = resource.car_photos | json %}
-{% set car_photos = car_photos.fieldValue | reserve %}
+{% set car_photos = car_photos.fieldValue %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 {#% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %#}
 <div class="container">

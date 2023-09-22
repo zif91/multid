@@ -24,7 +24,7 @@
                             <img src="{{ car_photos.fieldValue[0].image }}">
                         {% else %}
                         {% for image in car_photos %}
-                            <div class="item"><img src="{{image.image}}"></div>
+                            <div class="item"><img style="margin-right:auto; margin-left:auto; height:5em; src="{{image.image}}"></div>
                         {% endfor %}
                         {% endif %}
                     </div>   

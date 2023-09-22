@@ -949,6 +949,28 @@ main {
 .item-page .photos .slider-nav .item img {
   display: inline-block;
 }
+
+.item-page .photos .slider-for .slick-prev,
+.item-page .photos .slider-for .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  font-size: 0;
+  z-index: 2;
+  width: 22px;
+  height: 37px;
+}
+.item-page .photos .slider-for .slick-prev {
+  left: 76px;
+  background: url('img/prev.svg');
+}
+
+.item-page .photos .slider-for .slick-next {
+  right: 76px;
+  background: url('img/next.svg');
+}
+
 .item-page .info h1 {
   font-weight: 600;
   font-size: 28px;
@@ -1082,6 +1104,11 @@ main {
   font-size: 22px;
   line-height: 30px;
 }
+
+.listdown{
+  display: none;
+}
+
 @media (max-width: 1199px) {
   .header .logo a span {
     display: none !important;
@@ -1177,9 +1204,15 @@ main {
   .header nav ul li a {
     display: inline-block;
   }
+  .listdown{
+    display: block;
+    position: absolute;
+    left: 65%;
+    margin-top:-3px;
+  }
   .header nav ul li:first-child a {
     padding-right: 30px;
-    background: url('/templates/autosalon/img/caret.svg') no-repeat right;
+    /* background: url('/templates/autosalon/img/caret.svg') no-repeat right; */
   }
   .index-first-block {
     padding: 52px 0 220px;
@@ -1578,11 +1611,25 @@ font-size: 14px;
     .filter-buttons-wrapper .button_clear {
         padding: 7px 0 0;
     }
+
+    .listdown{
+      display: block;
+      position: absolute;
+      left: 67%;
+      margin-top:-3px;
+    }
 }
 
 @media (max-width: 400px) {
   .price-item {
     font-size: 14px;
+  }
+
+  .listdown{
+    display: block;
+    position: absolute;
+    left: 70%;
+    margin-top:-3px;
   }
 }
 

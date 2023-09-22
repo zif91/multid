@@ -949,6 +949,28 @@ main {
 .item-page .photos .slider-nav .item img {
   display: inline-block;
 }
+
+.item-page .photos .slider-for .slick-prev,
+.item-page .photos .slider-for .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  font-size: 0;
+  z-index: 2;
+  width: 22px;
+  height: 37px;
+}
+.item-page .photos .slider-for .slick-prev {
+  left: 76px;
+  background: url('img/prev.svg');
+}
+
+.item-page .photos .slider-for .slick-next {
+  right: 76px;
+  background: url('img/next.svg');
+}
+
 .item-page .info h1 {
   font-weight: 600;
   font-size: 28px;

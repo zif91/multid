@@ -10,8 +10,26 @@ ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard',
 })
 %}
+{% set catalog_number = baseSettings['id'] %}
+{% set gifts = runSnippet('DocLister', {
+    display: 3,
+    parents: resource.id,
+    depth: 2,
+    addWhereList: 'c.template = (13)',
+    tvList:'image,color',
+    tpl:'@T_FILE:partials/actions_actions'
+})
+%}
 
-		{% include 'partials/actions.twig' %}
+<div class="row">
+    {% if gifts is empty %}
+
+    {% else %}
+        {{gifts | raw}}
+    {% endif %}
+</div>
+
+		{# {% include 'partials/actions.twig' %} #}
 	
 <div class="catalog-page pb-1">
 	<div class="container">

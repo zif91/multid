@@ -3,6 +3,8 @@
 {# {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%} #}
 {% set car_photos = resource.car_photos | json %}
 {% set car_photos = car_photos.fieldValue %}
+{# {{dump(car_photos)}} #}
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 {#% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %#}
 <div class="container">
@@ -14,7 +16,7 @@
                         {% if resource.car_photos is empty %}
                             <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
                         {% else %}
-                        {% for image in car_photos %}
+                        {% for image in car_photos | reverse %}
                             <div class="item"><img src="{{image.image}}"></div>
                         {% endfor %}
                         {% endif %}
@@ -23,7 +25,7 @@
                         {% if resource.car_photos is empty %}
                             <img src="{{ car_photos.fieldValue[0].image }}">
                         {% else %}
-                        {% for image in car_photos %}
+                        {% for image in car_photos | reverse %}
                             <div class="item"><img style="margin-right:auto; margin-left:auto; height:5em;" src="{{image.image}}"></div>
                         {% endfor %}
                         {% endif %}

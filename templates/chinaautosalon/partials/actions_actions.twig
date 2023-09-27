@@ -1,5 +1,5 @@
 
-<div class="col-lg-3 col-md-4 col-sm-6">
+{# <div class="col-lg-3 col-md-4 col-sm-6">
     <div class="item mb-4">
         <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139, w=255,zc=1 fltr[]=ric|15|15'}) }}" class="mb-2 rounded rounded-3">
         <div class="name mb-1">
@@ -7,4 +7,48 @@
         </div>
         <p>Успей до конца года!</p>
     </div>
-</div>
+</div> #}
+
+<div class="col-lg-4 col-md-6 mb-3 pr-3">
+    <div class="item position-relative col-lg-12 col-md-12 p-0" style="width:355px; height:550px; background: #F2F3F7; border-radius:20px;">
+        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=240, w=365,zc=1 fltr[]=ric|15|15'}) }}" style="border-radius:20px 20px 0 0;">
+        <div class="container">      
+            <div class="name_title mt-3 ml-1 mr-1">
+                {{ data.title }}
+            
+           
+                        <p>            {{ data.description }}
+                        </p>
+         </div>
+         
+                    <div class="text-center mb-1">
+                         <button  type="button" onclick="location.href='{{data.url}}';" class="details_promo">Подробнее</button>
+                    </div>   
+            </div>            
+        </div>                
+    </div>
+
+
+<style>
+.name_title{
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+}
+.details_promo{
+    color: #fff;
+    font-weight: 600;
+    font-size:20px;
+    width: 90%;
+    height: 80px;
+    background: #D12D1E;
+    border-radius: 8px;
+    position:absolute;
+    top:80%;
+    left:5%;
+}
+</style>

@@ -44,6 +44,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 				<input type="text" id="amounter2" readonly>
 				<div id="slider-range-max2"></div>
 			</div>
+			<div class="bg-danger mt-3 pb-1 pr-1 pl-1" style="border-radius: 10px;">
 			<div class="item">
 				Кредитная программа
 				<div>
@@ -55,6 +56,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 						<option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
 						<option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
 					</select>
+				</div>
 				</div>
 				<div id="slider-range-max2"></div>
 			</div>
@@ -309,8 +311,8 @@ $(function() {
 
     const selectedOption = select.find('option:selected');
     const programNameText = selectedOption.text().split('(')[0].trim();
-    if (programNameText === '') {
-      programName.text('Не выбрана программа кредитования');
+    if (programNameText === 'Выберите кредитную программу') {
+      programName.text('');
     } else {
       programName.text(programNameText);
     }

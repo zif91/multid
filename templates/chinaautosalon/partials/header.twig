@@ -50,8 +50,24 @@ outerTpl: '@CODE:<ul>
 			</div>
 		</div>
 		<nav>
-		{# <img class="listdown" src="/templates/autosalon/img/caret.svg"> #}
 			{{headermenu|raw}}
 		</nav>
 	</div>
 </header>
+ {% block SCRIPTS %}
+ <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+ <script type="text/javascript">
+ $(document).ready(function() {
+    let firstMenuItem = $('.header ul li:first-child');
+	if (firstMenuItem) {
+	var img = document.createElement("img");
+	img.setAttribute("src", "/templates/chinaautosalon/img/caret.svg");
+	img.setAttribute("class", "listdown");
+	img.setAttribute("width", "20");
+	img.setAttribute("height", "20");
+	img.setAttribute("display", "none");
+	firstMenuItem.append(img);
+	}  
+});
+ </script>
+ {% endblock %}

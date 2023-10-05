@@ -1108,10 +1108,6 @@ main {
   line-height: 30px;
 }
 
-.listdown{
-  display: none;
-}
-
 @media (max-width: 1199px) {
   .header .logo a span {
     display: none !important;
@@ -1199,12 +1195,12 @@ main {
   }
   .header nav ul {
     text-align: center;
-    height: 20px;
-    overflow: hidden;
-  }
-  .header nav ul:hover {
     height: auto;
+    /* overflow: hidden; */
   }
+  /* .header nav ul:hover {
+    height: auto;
+  } */
   .header nav ul li {
     display: block !important;
   }
@@ -1214,12 +1210,7 @@ main {
   .header nav ul li a {
     display: inline-block;
   }
-  .listdown{
-    display: block;
-    margin-top: -18px;
-    position: relative;
-    left: 58%;
-  }
+
   /* .header nav ul li:first-child a {
     padding-right: 30px;
     background: url('/templates/autosalon/img/caret.svg') no-repeat right;
@@ -1622,12 +1613,6 @@ font-size: 14px;
         padding: 7px 0 0;
     }
 
-    /* .listdown{
-      display: block;
-      position: absolute;
-      left: 67%;
-      margin-top:-3px;
-    } */
 }
 
 @media (max-width: 400px) {
@@ -1642,12 +1627,6 @@ font-size: 14px;
     
   }
 
-  /* .listdown{
-    display: block;
-    position: absolute;
-    left: 70%;
-    margin-top:-3px;
-  } */
 }
 
 .modifications-block h2 {

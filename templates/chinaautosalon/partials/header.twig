@@ -5,7 +5,7 @@ maxDepth: 1,
 rowTpl: '@CODE:
 
 <li class="d-md-inline-block"><a href="[+url+]">[+pagetitle+]</a></li>',
-outerTpl: '@CODE:<ul>
+outerTpl: '@CODE:<ul id="headerMenu" class="collapse navbar-collapse">
     [+wrap+]</ul>'}) %}
 <header class="header">
 	<div class="container">
@@ -49,27 +49,12 @@ outerTpl: '@CODE:<ul>
 				</div>
 			</div>
 		</div>
-		<nav>
-		{# <img class="listdown" src="/templates/autosalon/img/caret.svg"> #}
+		<nav class="navbar navbar-expand-md navbar-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu" aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
 			{{headermenu|raw}}
 		</nav>
 	</div>
 </header>
-
-{% block SCRIPTS %}
- <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
- <script type="text/javascript">
- $(document).ready(function() {
-    let firstMenuItem = $('.header ul li:first-child');
-  if (firstMenuItem) {
-  var img = document.createElement("img");
-  img.setAttribute("src", "/templates/chinaautosalon/img/caret.svg");
-  img.setAttribute("class", "listdown");
-  img.setAttribute("width", "20");
-  img.setAttribute("height", "20");
-//   img.setAttribute("display", "none");
-  firstMenuItem.append(img);
-  }  
-});
- </script>
- {% endblock %}

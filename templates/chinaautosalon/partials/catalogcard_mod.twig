@@ -32,7 +32,9 @@ display: 1
 			</div>
 			<div class="price mb-3">
 				<span class="new mr-2"> {{ data['tv.car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽ </span>
+				{% if data['tv.old-car-price'] !="" %}
 				<span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
+				{% endif %}
 			</div>
 			<div class="credit mb-3 position-relative">
 				{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}} рублей в месяц

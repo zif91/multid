@@ -1122,6 +1122,11 @@ main {
     padding: 30px;
     background: #f2f3f7;
   }
+  .header .flex {
+    justify-content: space-evenly;
+    gap: 10px 0;
+  }
+
 }
 @media (max-width: 991px) {
   .header .adress {
@@ -1138,6 +1143,10 @@ main {
     width: 100%;
     text-align: center !important;
     padding-top: 20px;
+  }
+  .header .flex {
+    justify-content: space-between;
+    gap: 10px 0;
   }
 }
 @media (max-width: 767px) {
@@ -1171,8 +1180,12 @@ main {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    object-position: center;
-    
+    object-position: center; 
+  }
+
+  .header .flex {
+    justify-content: space-evenly;
+    gap: 10px 0;
   }
 }
 @media (max-width: 575px) {

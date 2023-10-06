@@ -1,3 +1,4 @@
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 <div class="form-block2 mb-5">
     <form>
         <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
@@ -7,7 +8,11 @@
                 <div class="wrap-credit-left">
                     <p class="credit-left-title">Ежемесячный платёж по акции:</p>
                     <p class="credit-left-sum">{{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} ₽</p>
-                    <div class="credit-left-rate"><span>Ставка 1.6%</span></div>
+                    <div class="credit-left-rate"><span>Ставка {% if baseSettings.credit_rate is empty %}
+                                        1.6
+                                    {% else %}
+                                        {{ baseSettings.credit_rate }}
+                                    {% endif %}%</span></div>
                     <div class="credit-left-action"><span>Акция действует до</span><span id="dateend"></span></div>
                     <div class="credit-left-timer">
                         <div class="row">

@@ -2,7 +2,10 @@
 		<div class="container">
 			<h2 class="h2 mb-2">Рассчёт кредита</h2>
 			<div class="top-text mb-4">
-				Ставка от <span>4.9%</span> годовых!
+				Ставка от <span>{% if baseSettings.credit_rate is empty %}4.9
+                                {% else %}
+                                	{{ baseSettings.credit_rate }}
+                                {% endif %}%</span> годовых!
 			</div>
 			<div class="item mb-4">
 				<p class="mb-2">Первоначальный взнос</p>

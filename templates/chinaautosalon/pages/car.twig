@@ -107,7 +107,12 @@
                     </div>
                     <div class="credit mb-4 p-3 flex align-items-center">
                         <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
-                        <span>Ставка от 1.6%</span>
+                        {# <span>Ставка от 1.6%</span> #}
+                        <span>Ставка от {% if baseSettings.credit_rate is empty %}
+                                        1.6
+                                    {% else %}
+                                        {{ baseSettings.credit_rate }}
+                                    {% endif %}%</span>
                     </div>
                     <div class="buttons row">
                         <div class="col-6">
@@ -127,7 +132,7 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="pt-3">{{ runSnippet('Form', {
                     formid: 'FormCallback',
-                    path: '/templates/autosalon/partials/forms/creditcar/',
+                    path: '/templates/chinaautosalon/partials/forms/creditcar/',
                     extension: 'twig'
                     }) | raw }} </div>
             </div>

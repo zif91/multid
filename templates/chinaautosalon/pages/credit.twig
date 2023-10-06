@@ -17,6 +17,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 		</div>
 </section>',prepare:'FolderCars'
 }) |raw}} #}
+
 {% block MAIN %}
 <main class="item-page">
 	<div class="price d-none">10000000</div>
@@ -28,7 +29,12 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 		<div class="col-md-1"></div>
 		<div class="calc col-md-6 pb-5">
 			<h2>Выгода при покупке в кредит!</h2>
-			<p class="pb-2">Ставка от 1.6% годовых!</p>
+			{# <p class="pb-2">Ставка от 1.6% годовых!</p> #}
+			<p class="pb-2">Ставка от {% if baseSettings.credit_rate is empty %}
+                                        1.6
+                                    {% else %}
+                                        {{ baseSettings.credit_rate }}
+                                    {% endif %}% годовых!</p>
 			<div class="item">
 				Сумма кредита
 				<input type="text" id="amounter" readonly>
@@ -49,7 +55,12 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 				Кредитная программа
 				<div>
 					<select class="-select py-2 border-0 w-100">
-						<option value="1,6" selected>Выберите кредитную программу</option>
+					{% if baseSettings.credit_rate is empty %}
+                                        <option value="1,6" selected>Выберите кредитную программу</option>
+                                    {% else %}
+                                        <option value="{{ baseSettings.credit_rate }}" selected>Выберите кредитную программу</option>
+                                    {% endif %}
+						{# <option value="1,6" selected>Выберите кредитную программу</option> #}
 						<option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
 						<option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
 						<option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
@@ -285,18 +296,22 @@ $(function() {
   }
 
   function updatePayment() {
+	var creditRateString = '{{ baseSettings.credit_rate }}';
+	var creditRateNumber = parseFloat(creditRateString);
     const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
     const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
     const term = parseFloat(termInput.val()) || 0;
     const programValue = select.val();
     let coefficient = 1.24;
-
     switch (programValue) {
       case "1,6":
         coefficient = 1 + (16 / 100);
         break;
       case "9,9":
         coefficient = 1.24;
+        break;
+		case "{{ baseSettings.credit_rate }}":
+        coefficient = 1 + ( creditRateNumber * 10 / 100);
         break;
       // Добавить обработку для остальных программ
     }
@@ -327,7 +342,8 @@ $(function() {
   select.on('change', updatePayment);
 });
 </script>
-<style>.credit-amounts {
+<style>
+.credit-amounts {
   font-size: 26px;
     color: #9F5007;
     margin-bottom: 20px;

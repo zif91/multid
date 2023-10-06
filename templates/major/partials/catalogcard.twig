@@ -34,6 +34,7 @@ action:'caroldprice'}) %#}
         </div>
     </div>
 </div>#} 
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 {% set brands2 = runSnippet('DocLister', {
 parents: 593,
 depth: 0,
@@ -96,7 +97,11 @@ id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.config
                             </div>
                         </div>
                         <div class="buttons">
-                            <button  data-fancybox="" data-src="#popup" class="w-100 mb-2">В кредит от 4,9%</button>
+                            <button  data-fancybox="" data-src="#popup" class="w-100 mb-2">В кредит от {% if baseSettings.credit_rate is empty %}
+                                                                                                4.9
+                                                                                            {% else %}
+                                                                                    {{ baseSettings.credit_rate }}
+                                                                                    {% endif %}%</button>
                             <button  data-fancybox="" data-src="#popup" class="w-100 mb-2">Забронировать</button>
                             <button class="w-100" onclick="location.href='{{data.url}}';" >Подробнее</button>
                         </div>

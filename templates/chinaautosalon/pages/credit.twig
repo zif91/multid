@@ -56,16 +56,21 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 				<div>
 					<select class="-select py-2 border-0 w-100">
 					{% if baseSettings.credit_rate is empty %}
-                                        <option value="1,6" selected>Выберите кредитную программу</option>
-                                    {% else %}
-                                        <option value="{{ baseSettings.credit_rate }}" selected>Выберите кредитную программу</option>
-                                    {% endif %}
-						{# <option value="1,6" selected>Выберите кредитную программу</option> #}
-						<option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
-						<option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
-						<option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
-						<option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
-						<option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
+                    <option value="1,6" selected>Выберите кредитную программу</option>
+					<option value="1,6">Первый автомобиль (Ставка 1.6%, Скидка 20%)</option>
+					<option value="1,6">Семейный автомобиль (Ставка 1.6%, Скидка 20%)</option>
+					<option value="1,6">Медицинский работник (Ставка 1.6%, Скидка 20%)</option>
+					<option value="1,6">Госпрограмма льготного кредитования (Ставка 1.6%)</option>
+					<option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
+                        {% else %}
+                    <option value="{{ baseSettings.credit_rate }}" selected>Выберите кредитную программу</option>
+					<option value="{{ baseSettings.credit_rate }}">Первый автомобиль (Ставка {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
+					<option value="{{ baseSettings.credit_rate }}">Первый автомобиль (Ставка {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
+					<option value="{{ baseSettings.credit_rate }}">Семейный автомобиль (Ставка {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
+					<option value="{{ baseSettings.credit_rate }}">Медицинский работник (Ставка {{ baseSettings.credit_rate }}%, Скидка 20%)</option>
+					<option value="{{ baseSettings.credit_rate }}">Госпрограмма льготного кредитования (Ставка {{ baseSettings.credit_rate }}%)</option>
+					<option value="9,9">Стандартная кредитная программа (Ставка 9.9%)</option>
+                        {% endif %}
 					</select>
 				</div>
 				</div>
@@ -308,7 +313,8 @@ $(function() {
         coefficient = 1 + (16 / 100);
         break;
       case "9,9":
-        coefficient = 1.24;
+        // coefficient = 1.24;
+        coefficient = 1 + (99 / 100);
         break;
 		case "{{ baseSettings.credit_rate }}":
         coefficient = 1 + ( creditRateNumber * 10 / 100);

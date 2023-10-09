@@ -9,9 +9,9 @@
     </div>
 </div> #}
 
-<div class="col-lg-4 col-md-4 mb-3 pr-3 d-flex justify-content-center">
+{# <div class="col-lg-4 col-md-4 mb-3 pr-3 d-flex justify-content-center">
     <div class="item position-relative col-lg-12 col-md-12 p-0" style="width:365px; height:560px; background: #F2F3F7; border-radius:20px;">
-        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=240, w=365,zc=1 fltr[]=ric|15|15'}) }}" style="border-radius:20px 20px 0 0;">
+        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=240, w=365,zc=1 fltr[]=ric|15|15'}) }}" style="border-radius:20px 20px 0 0; object-fit: none; object-position: right;">
         <div class="container d-flex flex-column pr-3 pl-3">      
             <div class="name_title mt-3 mr-1 pr-3 pl-3">
              {{ data.title }}
@@ -26,10 +26,22 @@
             </div>   
         </div>            
     </div>                
-</div>
+</div> #}
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100" style="background: #F2F3F7; border-radius:20px;">
+            <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=240, w=365,zc=1 fltr[]=ric|15|15'}) }}" class="card-img-top" style="border-radius:20px 20px 0 0;">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <h5 class="card-title pr-3 pl-3">{{ data.title }}</h5>
+                <p class="card-text flex-grow-1 pr-3 pl-3">{{ data.description }}</p>
+                <div class="text-center">
+                    <button onclick="location.href='{{data.url}}';" class="btn btn-danger mt-2 details_promo">Подробнее</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <style>
-.name_title{
+.card-title{
     font-family: Montserrat;
     font-size: 20px;
     font-weight: 700;
@@ -38,25 +50,22 @@
     text-align: left;
     color: #000000;
 }
-.details_promo{
-    color: #fff;
-    font-weight: 600;
-    font-size:20px;
-    width: 90%;
-    height: 80px;
-    background: #D12D1E;
-    border-radius: 8px;
-    position:absolute;
-    top:83%;
-    left:5%;
-}
-.akcii_desc{
+
+.card-text{
     font-family: Montserrat;
     font-size: 18px;
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
-
 }
+.details_promo{
+    font-weight: 600;
+    font-size:20px;
+    width: 90%;
+    height: 80px;
+    background: #D12D1E;
+    border-radius: 8px;
+}
+
 </style>

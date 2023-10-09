@@ -10,14 +10,14 @@
 </div> #}
 
 <div class="col-lg-4 col-md-4 mb-3 pr-3 d-flex justify-content-center">
-    <div class="item position-relative col-lg-12 col-md-12 p-0" style="width:355px; height:550px; background: #F2F3F7; border-radius:20px;">
+    <div class="item position-relative col-lg-12 col-md-12 p-0" style="width:365px; height:560px; background: #F2F3F7; border-radius:20px;">
         <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=240, w=365,zc=1 fltr[]=ric|15|15'}) }}" style="border-radius:20px 20px 0 0;">
         <div class="container d-flex flex-column pr-3 pl-3">      
-            <div class="name_title mt-3 ml-1 mr-1">
+            <div class="name_title mt-3 mr-1 pr-3 pl-3">
              {{ data.title }}
             </div>
             <div class="mt-1">
-                <p class="akcii_desc">           
+                <p class="akcii_desc pr-3 pl-3">           
                     {{ data.description }}
                 </p>
             </div>
@@ -47,7 +47,7 @@
     background: #D12D1E;
     border-radius: 8px;
     position:absolute;
-    top:80%;
+    top:83%;
     left:5%;
 }
 .akcii_desc{

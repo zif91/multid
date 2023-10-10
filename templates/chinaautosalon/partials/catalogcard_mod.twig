@@ -8,6 +8,9 @@ display: 1
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 {% set car_photos = data['tv.car_photos'] | json %}
 {% set last_photo = car_photos.fieldValue[car_photos.fieldValue|length - 1].image %}
+{% if data['tv.car-price'] is empty %}
+			
+{% else %}
 {#% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %#}
 <a href="{{ data['url'] }}" ><div class="col-lg-4 col-md-6">
 	<div class="item mb-3">
@@ -67,3 +70,4 @@ display: 1
 	</div>
 </div>
 </a>
+{% endif %}

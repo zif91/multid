@@ -3,6 +3,15 @@ $(function() {
 		$(this).parent().hide();
 		$('.index-brands-block .row .col-3').show();
 	});
+    const link = document.getElementById("float-button");
+
+        // добавляем слушатель события 'click'
+        link.addEventListener('click', (event) => {
+        // предотвращаем переход по ссылке по умолчанию
+        event.preventDefault();
+        // вызываем функцию, которая показывает модальное окно
+        $('#callphone').modal('show');
+        });
 	$('.slider-for').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,

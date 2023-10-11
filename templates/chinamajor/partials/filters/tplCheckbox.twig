@@ -1,0 +1,11 @@
+{#<div class="col px-1 pb-1 row m-0">
+    <div class="form-check mb-0">
+        <input type="checkbox" name="f[{{ data['id'] }}][]" id="{{ data['hash'] }}" data-input-type="checkbox" data-id="{{ data['id'] }}" class="form-check-input" {{ data['checked'] }} {{ data['disabled']}} value="{{ data['value'] }}">
+        <label class="form-check-label" for="{{ data['hash'] }}">{{ data['caption'] }} <span class="small text-muted"><small>({{ data['count'] }})</small></span></label>
+    </div>
+</div> #}
+
+{# <option for="{{ data['hash'] }}" name="f[{{ data['id'] }}][]" id="{{ data['hash'] }}" data-input-type="radio" data-id="{{ data['id'] }}" class="form-check-input form-select" {{ data['selected'] }} {{ data['disabled']}} value="{{ data['value'] }}">{{ data['caption'] }}</option>
+ #}
+
+<option {% if data['selected'] %}selected{% endif %} {{ data['disabled']}} id="{{ data['hash'] }}" value="{{ data['value'] }}">{{ data['caption'] }}</option>

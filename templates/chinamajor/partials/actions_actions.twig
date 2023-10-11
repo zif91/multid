@@ -1,0 +1,12 @@
+
+<div class="col-lg-4 col-md-6 mb-3"><a href="{{ data.url }}">
+                    <div class="item position-relative">
+                        <div class="name mb-3">
+            {{ data.title }}
+                        </div>
+                        <p>  
+                            {{ data.description }}
+                        </p>
+                        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139,zc=1 fltr[]=ric|15|15'}) }}" style="max-width:100%;">
+                    </div></a>
+                </div>

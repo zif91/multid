@@ -1,0 +1,69 @@
+{# <script src="https://unpkg.com/imask"></script>
+<script type="text/javascript">
+var phoneMask = IMask(
+  document.getElementById('formPhone'), {
+    mask: '+{7}(000)000-00-00'
+  });
+</script> #}
+<form>
+<div class="block-name p-sm-5 p-4">
+        Рассчитать кредит
+    </div>
+    <div class="p-sm-5 p-4">
+        <div class="row">
+          <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+                <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+                {{ data['form.messages'] | raw }}
+            <div class="col-md-3">
+                <p class="mb-2">Сумма кредита</p>
+                <input name="loanAmount" class="w-100 px-3 mb-md-5 mb-4">
+                </input>
+            </div>
+            <div class="col-md-2">
+                <p class="mb-2">Первый взнос</p>
+                <select name="initialPayment" class="w-100 px-3 mb-md-5 mb-4">
+                    <option>10%</option>
+                    <option>20%</option>
+                    <option>30%</option>
+                    <option>40%</option>
+                    <option>50%</option>
+                    <option>60%</option>
+                    <option>70%</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <p class="mb-2">Срок кредита</p>
+                <select name="loanTerm" class="w-100 px-3 mb-md-5 mb-4">
+                    {% for i in range(12, 81, 6) %}
+                       <option>{{ i }} месяцев</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-5">
+                <p class="mb-2">Ежемесячный платеж</p>
+                <div class="mb-5 price text-light" style="font-size:16px !Important">
+                    Отправьте форму для расчета
+                </div>
+            </div>
+        </div>
+        <div class="bg p-sm-5 p-4 text-light" style="background: url('/templates/major/img/bg.png') center/cover;">
+            <div class="name mb-3">
+                Дополнительная скидка <br />
+                100 000 рублей за покупку в кредит
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-md-0 mb-4">
+                    <p class="mb-2">Имя</p>
+                    <input type="text" placeholder="Иван" class="w-100 px-3 {{ data['first_name.classname'] }}" id="formName" name="first_name" value="{{ data.first_name }}">
+                </div>
+                <div class="col-md-4 mb-md-0 mb-2">
+                    <p class="mb-2">Телефон</p>
+                    <input type="text" name="mobile_tel" id="mobile_tel" value="{{ data.mobile_tel }}" placeholder="+7 (___) ___-__-__" class="{{ data['mobile_tel.classname'] }} w-100 px-3">
+                </div>
+                <div class="col-md-4">
+                    <button class="w-100 mt-4">Оставить заявку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>

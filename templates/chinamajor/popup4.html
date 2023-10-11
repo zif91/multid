@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="color4.css">
+	<link rel="stylesheet" href="slick.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+</head>
+<body>
+	<div class="menubg"></div>
+	<header class="header py-3">
+		<div class="container flex">
+			<div class="logo">
+				<a href="/" class="d-inline-block"></a>
+			</div>
+			<ul class="pt-4 mt-1">
+				<li class="d-inline-block"><a href="#">Автомобили в продаже</a></li>
+				<li class="d-inline-block"><a href="#">Услуги</a></li>
+				<li class="d-inline-block"><a href="#">О компании</a></li>
+				<li class="d-inline-block"><a href="#">Контакты</a></li>
+			</ul>
+			<a href="tel:+78008887722" class="phone mt-3 pt-2">8(800)888-77-22</a>
+			<a class="menu-button"></a>
+		</div>
+	</header>
+	<main class="text-center py-5">
+		<div class="container">
+			<a data-fancybox="popup" data-src="#popup" href="javascript:;">Вызвать окно</a>
+			<div class="popup" id="popup" style="display: none; width: 100%; max-width: 965px;">
+				<div class="block-name p-sm-5 p-4">
+					Рассчитать кредит
+				</div>
+				<div class="p-sm-5 p-4">
+					<div class="row">
+						<div class="col-md-4">
+							<p class="mb-2">Первый взнос</p>
+							<select class="w-100 px-3 mb-md-5 mb-4">
+								<option>10% (346 000 руб)</option>
+								<option>10% (346 000 руб)</option>
+								<option>10% (346 000 руб)</option>
+							</select>
+						</div>
+						<div class="col-md-4">
+							<p class="mb-2">Срок кредита</p>
+							<select class="w-100 px-3 mb-md-5 mb-4">
+								<option>36 месяцев</option>
+								<option>36 месяцев</option>
+								<option>36 месяцев</option>
+							</select>
+						</div>
+						<div class="col-md-4">
+							<p class="mb-2">Сумма платеже каждый месяц</p>
+							<div class="mb-5 price text-light">
+								86 500 руб
+							</div>
+						</div>
+					</div>
+					<div class="bg p-sm-5 p-4 text-light" style="background: url('img/bg.png') center/cover;">
+						<div class="name mb-3">
+							Дополнительная скидка <br/>
+							100 000 рублей за покупку в кредит
+						</div>
+						<div class="row">
+							<div class="col-md-4 mb-md-0 mb-4">
+								<p class="mb-2">Первый взнос</p>
+								<input type="text" placeholder="Иван" class="w-100 px-3">
+							</div>
+							<div class="col-md-4 mb-md-0 mb-2">
+								<p class="mb-2">Телефон</p>
+								<input type="text" placeholder="+7 (___) ___-__-__" class="w-100 px-3">
+							</div>
+							<div class="col-md-4">
+								<button class="w-100 mt-4">Оставить заявку</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="footer py-4 text-light">
+		<div class="container">
+			<div class="flex">
+				<div class="logo mb-4">
+					<a href="/" class="d-inline-block"></a>
+				</div>
+				<ul class="pt-4 mt-1 mb-4">
+					<li class="d-inline-block"><a href="#" class="text-light">Автомобили в продаже</a></li>
+					<li class="d-inline-block"><a href="#" class="text-light">Услуги</a></li>
+					<li class="d-inline-block"><a href="#" class="text-light">О компании</a></li>
+					<li class="d-inline-block"><a href="#" class="text-light">Контакты</a></li>
+				</ul>
+			</div>
+			<div class="line mb-3"></div>
+			<div class="flex">
+				<div class="copy">
+					Для повышения удобства работы с сайтом компания Major использует файлы cookie. <br/>
+					В cookie содержатся данные о прошлых посещениях сайта.
+				</div>
+				<a href="tel:+78008887722" class="phone mt-2">8(800)888-77-22</a>
+			</div>
+		</div>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/slick.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+</html>

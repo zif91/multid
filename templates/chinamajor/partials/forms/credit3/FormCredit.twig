@@ -1,0 +1,16 @@
+<form class="p-4 mb-4">
+    <h2 class="mb-3">Форма заявки</h2>
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+    {{ data['form.messages'] | raw }}
+    <p class="mb-2">Укажите желаемый автомобиль</p>
+    <input type="text" placeholder="Марка" class="mb-2 px-3 w-100">
+    <input type="text" placeholder="Модель" class="mb-2 px-3 w-100">
+    <p class="mb-2">Укажите свои данные</p>
+    <input type="text" name="first_name" value="{{ data.first_name }}" placeholder="Ваше имя" class="mb-2 px-3 w-100">
+    <input name="mobile_tel" value="{{ data.mobile_tel }}" type="text" placeholder="+7(___) ___-____" class="mb-4 px-3 w-100 phone-imask">
+    <button class="w-100 mb-4">Отправить заявку</button>
+    <div class="bottom-text">
+        Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#">персональных данных</a>
+    </div>
+</form>

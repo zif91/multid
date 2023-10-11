@@ -1,0 +1,190 @@
+{% extends './app.twig' %}
+{% set brand = runSnippet('_get', {key: 'brand'}) %}
+{% if not brand %}
+    {% set brand = '' %}
+{% endif %}
+{% set model = runSnippet('_get', {key: 'model'}) %}
+{% if not model %}
+    {% set model = '' %}
+{% endif %}
+
+{% set body = runSnippet('_get', {key: 'body'}) %}
+{% if not body %}
+    {% set body = '' %}
+{% endif %}
+{% set price_start = runSnippet('_get', {key: 'pricestart'}) %}
+{% if not price_start %}
+    {% set price_start = 0 %}
+{% endif %}
+{% set price_end = runSnippet('_get', {key: 'priceend'}) %}
+{% if not price_end %}
+    {% set price_end = 99999999 %}
+{% endif %}
+
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 20,
+parents: 593,
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' ,
+depth: 2,
+tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
+ownerTPL: '@T_FILE:partials/wrap',
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+tpl:'@T_FILE:partials/catalogcard_mod',
+paginate:'pages',
+TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
+TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
+TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
+tvSortType: 'UNSIGNED',
+addWhereList: 'c.template=28'
+})
+%}
+{% set models = runSnippet('DocLister', {
+id: 'catalog',
+filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' ,
+_filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
+parents: 593,
+depth: 1,
+addWhereList: 'isfolder=1 AND c.template=20',
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,mark_id,model_id',
+api: 1,
+debug:0,
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+})
+| json %}
+{% block MAIN %}
+{% include('partials/crumbs.twig') %}
+<div class="index-top-form pb-4 inner">
+	<div class="container flex">
+		<div class="fields mb-3">
+			<div class="row">
+				<div class="col-3">
+					<p class="mb-2">Марка</p>
+					<select class="w-100 px-3 select-box" id="marks">
+						<option>Выбрать...</option>
+						{% for item in marks %}
+						<option>{{ item.pagetitle }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="col-3">
+					<p class="mb-2">Модель</p>
+					<select class="w-100 px-3 select-box" id="models">
+						<option>Выбрать...</option>
+						{% for item in models %}
+						<option>{{ item.pagetitle }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="col-3">
+					<p class="mb-2">Цена от</p>
+					<input type="text" class="w-100 px-3 select-box" id="price_start">
+				</div>
+				<div class="col-3">
+					<p class="mb-2">Цена до</p>
+					<input type="text" class="w-100 px-3 select-box" id="price_end">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="index-catalog-block index-catalog-block2  pb-4" id="catalog">
+	<div class="container">
+		<div class="block-name mb-5">
+			{{resource.pagetitle}}
+		</div>
+		<div class="row list"  id="catalog">
+			{{DLCatalog |raw}}
+		</div>
+	</div>
+</div>
+{#{runSnippet ('bdebug', {})}#}
+{#% include 'partials/actions.twig' %#}
+<div class="page-form-block mb-5">
+	<div class="container">
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/major/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+	</div>
+</div>
+<script type="text/javascript">
+window.onload = function() {
+  const marksSelect = $('#marks');
+  const modelsSelect = $('#models');
+  const priceStartInput = $('#price_start');
+  const priceEndInput = $('#price_end');
+
+  const updateCatalog = () => {
+  const brand = marksSelect.val();
+  const model = modelsSelect.val();
+  const priceStart = priceStartInput.val();
+  const priceEnd = priceEndInput.val();
+
+  const url = new URL(window.location.href);
+  url.searchParams.set('brand', brand);
+
+  if (model && model !== 'Выбрать...') { // Добавляем проверку на значение "Выбрать..."
+    url.searchParams.set('model', model);
+  } else {
+    url.searchParams.delete('model');
+  }
+
+  if (priceStart) {
+    url.searchParams.set('pricestart', priceStart);
+  } else {
+    url.searchParams.delete('pricestart');
+  }
+
+  if (priceEnd) {
+    url.searchParams.set('priceend', priceEnd);
+  } else {
+    url.searchParams.delete('priceend');
+  }
+
+  $.ajax({
+    url: url.toString(),
+    method: 'GET',
+    dataType: 'html'
+  })
+    .done(function(data) {
+      const catalogHtml = $('<div>').html(data).find('#catalog').html();
+      const modelsHtml = $('<div>').html(data).find('#models').html();
+      $('#catalog').html(catalogHtml);
+      $('#models').html(modelsHtml);
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      console.error(errorThrown);
+    });
+};
+
+  marksSelect.on('change', updateCatalog);
+  modelsSelect.on('change', updateCatalog);
+  priceStartInput.on('change', updateCatalog);
+  priceEndInput.on('change', updateCatalog);
+};
+
+</script>
+{% endblock %}

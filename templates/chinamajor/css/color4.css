@@ -1,0 +1,68 @@
+.header .logo a {
+  background: url('img/logo4.svg') center / cover;
+}
+.index-page-slider .slick-dots li.slick-active button {
+  border: 3px solid #97c15c;
+}
+.index-top-counts {
+  background: #97c15c;
+}
+.index-top-counts .item:hover div:first-child {
+  color: #97c15c;
+}
+.index-top-form .buttons button:hover {
+  background: #97c15c;
+  border: 1px solid #97c15c;
+}
+.index-credit-block .item:before {
+  background: #97c15c;
+}
+.index-catalog-block .item .price .new {
+  color: #97c15c;
+}
+.index-catalog-block .item ul li:before {
+  background: #97c15c;
+}
+.btn.btn-danger {
+  border: 1px solid #97c15c;
+  color: #97c15c;
+}
+.btn.btn-danger:hover {
+  background: #97c15c;
+}
+.navi a {
+  color: #97c15c;
+}
+.page-form-block form button {
+  background: #97c15c;
+}
+.brands-block .bottom-link a {
+  color: #97c15c;
+}
+.item-page .top-info .text .price {
+  color: #97c15c;
+}
+.item-page .item .link {
+  background: url('img/plus4.svg');
+}
+.item-page .item .top-block .price {
+  color: #97c15c;
+}
+.item-page .item .hidden-block .info2 .price {
+  color: #97c15c;
+}
+.item-page2 .info .top-text span {
+  background: #97c15c;
+}
+.item-page2 .info .checkbox + label a {
+  color: #97c15c;
+}
+.item-page2 .info .checkbox + label .discount {
+  background: url('img/discount4.svg');
+}
+.popup .price {
+  background: #97c15c;
+}
+.popup .bg button {
+  background: #97c15c;
+}

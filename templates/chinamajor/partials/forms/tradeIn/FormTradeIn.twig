@@ -1,0 +1,2435 @@
+
+<script>
+
+</script>
+<form>
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+    {{ data['form.messages'] | raw }}
+    <div class="credit-block px-4 py-5 mb-5 text-light" id="creditform">
+        <div class="row">
+            <div class="col-xl-12 col-md-12">
+                <div class="field mb-4">
+                    <p class="mb-2">
+                        Марка вашей машины</p>
+                    <select id="brand" type="text" class="form-control" name="brand" value="{{ data.brand }}">
+<option value="Марка">Марка</option>
+<option value="AC">AC</option>
+<option value="Acura">Acura</option>
+<option value="Alfa Romeo">Alfa Romeo</option>
+<option value="Audi">Audi</option>
+<option value="BAIC">BAIC</option>
+<option value="BMW">BMW</option>
+<option value="Brabus">Brabus</option>
+<option value="Brilliance">Brilliance</option>
+<option value="Buick">Buick</option>
+<option value="BYD">BYD</option>
+<option value="Cadillac">Cadillac</option>
+<option value="Changan">Changan</option>
+<option value="ChangFeng">ChangFeng</option>
+<option value="Chery">Chery</option>
+<option value="EXEED">EXEED</option>
+<option value="Chevrolet">Chevrolet</option>
+<option value="Chrysler">Chrysler</option>
+<option value="Citroen">Citroen</option>
+<option value="Dacia">Dacia</option>
+<option value="Daewoo">Daewoo</option>
+<option value="Datsun">Datsun</option>
+<option value="Dodge">Dodge</option>
+<option value="DongFeng">DongFeng</option>
+<option value="FAW">FAW</option>
+<option value="Fiat">Fiat</option>
+<option value="Ford">Ford</option>
+<option value="Foton">Foton</option>
+<option value="GAC">GAC</option>
+<option value="ГАЗ">ГАЗ</option>
+<option value="Geely">Geely</option>
+<option value="Genesis">Genesis</option>
+<option value="GMC">GMC</option>
+<option value="Great Wall">Great Wall</option>
+<option value="Haval">Haval</option>
+<option value="Honda">Honda</option>
+<option value="Hyundai">Hyundai</option>
+<option value="Infiniti">Infiniti</option>
+<option value="International">International</option>
+<option value="Isuzu">Isuzu</option>
+<option value="JAC">JAC</option>
+<option value="Jeep">Jeep</option>
+<option value="Kia">Kia</option>
+<option value="Land Rover">Land Rover</option>
+<option value="Lexus">Lexus</option>
+<option value="Lifan">Lifan</option>
+<option value="Mercedes-Benz">Mercedes-Benz</option>
+<option value="MINI">MINI</option>
+<option value="Mitsubishi">Mitsubishi</option>
+<option value="Москвич">Москвич</option>
+<option value="Nissan">Nissan</option>
+<option value="Opel">Opel</option>
+<option value="Peugeot">Peugeot</option>
+<option value="Porsche">Porsche</option>
+<option value="Renault">Renault</option>
+<option value="SEAT">SEAT</option>
+<option value="Skoda">Skoda</option>
+<option value="Smart">Smart</option>
+<option value="Subaru">Subaru</option>
+<option value="Suzuki">Suzuki</option>
+<option value="УАЗ">УАЗ</option>
+<option value="LADA (ВАЗ)">LADA (ВАЗ)</option>
+<option value="Другая марка">Другая марка</option>
+                    </select>
+                </div>
+                <div class="field mb-4">
+                    <p class="mb-2">Модель</p>
+                    <select id="model" value="{{data.model}}" type="text" class="form-control">
+  <option data-tag="Другая марка" value="Другая модель">Другая модель</option>
+  <option data-tag="AC" value="378 GT Zagato">378 GT Zagato</option>
+  <option data-tag="AC" value="Ace">Ace</option>
+  <option data-tag="AC" value="Aceca">Aceca</option>
+  <option data-tag="AC" value="Cobra">Cobra</option>
+  <option data-tag="Acura" value="CL">CL</option>
+  <option data-tag="Acura" value="CSX">CSX</option>
+  <option data-tag="Acura" value="EL">EL</option>
+  <option data-tag="Acura" value="ILX">ILX</option>
+  <option data-tag="Acura" value="Integra">Integra</option>
+  <option data-tag="Acura" value="Legend">Legend</option>
+  <option data-tag="Acura" value="MDX">MDX</option>
+  <option data-tag="Acura" value="NSX">NSX</option>
+  <option data-tag="Acura" value="RDX">RDX</option>
+  <option data-tag="Acura" value="RL">RL</option>
+  <option data-tag="Acura" value="RLX">RLX</option>
+  <option data-tag="Acura" value="RSX">RSX</option>
+  <option data-tag="Acura" value="SLX">SLX</option>
+  <option data-tag="Acura" value="TL">TL</option>
+  <option data-tag="Acura" value="TLX">TLX</option>
+  <option data-tag="Acura" value="TSX">TSX</option>
+  <option data-tag="Acura" value="ZDX">ZDX</option>
+  <option data-tag="Alfa Romeo" value="105/115">105/115</option>
+  <option data-tag="Alfa Romeo" value="145">145</option>
+  <option data-tag="Alfa Romeo" value="146">146</option>
+  <option data-tag="Alfa Romeo" value="147">147</option>
+  <option data-tag="Alfa Romeo" value="155">155</option>
+  <option data-tag="Alfa Romeo" value="156">156</option>
+  <option data-tag="Alfa Romeo" value="159">159</option>
+  <option data-tag="Alfa Romeo" value="164">164</option>
+  <option data-tag="Alfa Romeo" value="166">166</option>
+  <option data-tag="Alfa Romeo" value="1900">1900</option>
+  <option data-tag="Alfa Romeo" value="2600">2600</option>
+  <option data-tag="Alfa Romeo" value="33">33</option>
+  <option data-tag="Alfa Romeo" value="4C">4C</option>
+  <option data-tag="Alfa Romeo" value="6">6</option>
+  <option data-tag="Alfa Romeo" value="6C">6C</option>
+  <option data-tag="Alfa Romeo" value="75">75</option>
+  <option data-tag="Alfa Romeo" value="8C Competizione">8C Competizione</option>
+  <option data-tag="Alfa Romeo" value="90">90</option>
+  <option data-tag="Alfa Romeo" value="Alfasud">Alfasud</option>
+  <option data-tag="Alfa Romeo" value="Alfetta">Alfetta</option>
+  <option data-tag="Alfa Romeo" value="Arna">Arna</option>
+  <option data-tag="Alfa Romeo" value="Brera">Brera</option>
+  <option data-tag="Alfa Romeo" value="Disco Volante">Disco Volante</option>
+  <option data-tag="Alfa Romeo" value="Giulia">Giulia</option>
+  <option data-tag="Alfa Romeo" value="Giulietta">Giulietta</option>
+  <option data-tag="Alfa Romeo" value="GT">GT</option>
+  <option data-tag="Alfa Romeo" value="GTA Coupe">GTA Coupe</option>
+  <option data-tag="Alfa Romeo" value="GTV">GTV</option>
+  <option data-tag="Alfa Romeo" value="MiTo">MiTo</option>
+  <option data-tag="Alfa Romeo" value="Montreal">Montreal</option>
+  <option data-tag="Alfa Romeo" value="RZ">RZ</option>
+  <option data-tag="Alfa Romeo" value="Spider">Spider</option>
+  <option data-tag="Alfa Romeo" value="Sprint">Sprint</option>
+  <option data-tag="Alfa Romeo" value="Stelvio">Stelvio</option>
+  <option data-tag="Alfa Romeo" value="SZ">SZ</option>
+  <option data-tag="Alfa Romeo" value="Tonale">Tonale</option>
+  <option data-tag="Audi" value="100">100</option>
+  <option data-tag="Audi" value="200">200</option>
+  <option data-tag="Audi" value="50">50</option>
+  <option data-tag="Audi" value="80">80</option>
+  <option data-tag="Audi" value="90">90</option>
+  <option data-tag="Audi" value="920">920</option>
+  <option data-tag="Audi" value="A1">A1</option>
+  <option data-tag="Audi" value="A2">A2</option>
+  <option data-tag="Audi" value="A3">A3</option>
+  <option data-tag="Audi" value="A4">A4</option>
+  <option data-tag="Audi" value="A4 allroad">A4 allroad</option>
+  <option data-tag="Audi" value="A5">A5</option>
+  <option data-tag="Audi" value="A6">A6</option>
+  <option data-tag="Audi" value="A6 allroad">A6 allroad</option>
+  <option data-tag="Audi" value="A7">A7</option>
+  <option data-tag="Audi" value="A8">A8</option>
+  <option data-tag="Audi" value="Cabriolet">Cabriolet</option>
+  <option data-tag="Audi" value="Coupe">Coupe</option>
+  <option data-tag="Audi" value="e-tron">e-tron</option>
+  <option data-tag="Audi" value="e-tron GT">e-tron GT</option>
+  <option data-tag="Audi" value="e-tron S">e-tron S</option>
+  <option data-tag="Audi" value="e-tron S Sportback">e-tron S Sportback</option>
+  <option data-tag="Audi" value="e-tron Sportback">e-tron Sportback</option>
+  <option data-tag="Audi" value="NSU RO 80">NSU RO 80</option>
+  <option data-tag="Audi" value="Q2">Q2</option>
+  <option data-tag="Audi" value="Q2L">Q2L</option>
+  <option data-tag="Audi" value="Q3">Q3</option>
+  <option data-tag="Audi" value="Q3 Sportback">Q3 Sportback</option>
+  <option data-tag="Audi" value="Q4 e-tron">Q4 e-tron</option>
+  <option data-tag="Audi" value="Q4 Sportback e-tron">Q4 Sportback e-tron</option>
+  <option data-tag="Audi" value="Q5">Q5</option>
+  <option data-tag="Audi" value="Q5 e-tron">Q5 e-tron</option>
+  <option data-tag="Audi" value="Q5 Sportback">Q5 Sportback</option>
+  <option data-tag="Audi" value="Q5L">Q5L</option>
+  <option data-tag="Audi" value="Q6">Q6</option>
+  <option data-tag="Audi" value="Q7">Q7</option>
+  <option data-tag="Audi" value="Q8">Q8</option>
+  <option data-tag="Audi" value="Q8 e-tron">Q8 e-tron</option>
+  <option data-tag="Audi" value="Q8 Sportback e-tron">Q8 Sportback e-tron</option>
+  <option data-tag="Audi" value="Quattro">Quattro</option>
+  <option data-tag="Audi" value="R8">R8</option>
+  <option data-tag="Audi" value="R8 LMP">R8 LMP</option>
+  <option data-tag="Audi" value="RS 2">RS 2</option>
+  <option data-tag="Audi" value="RS 3">RS 3</option>
+  <option data-tag="Audi" value="RS 4">RS 4</option>
+  <option data-tag="Audi" value="RS 5">RS 5</option>
+  <option data-tag="Audi" value="RS 6">RS 6</option>
+  <option data-tag="Audi" value="RS 7">RS 7</option>
+  <option data-tag="Audi" value="RS e-tron GT">RS e-tron GT</option>
+  <option data-tag="Audi" value="RS Q3">RS Q3</option>
+  <option data-tag="Audi" value="RS Q3 Sportback">RS Q3 Sportback</option>
+  <option data-tag="Audi" value="RS Q8">RS Q8</option>
+  <option data-tag="Audi" value="S1">S1</option>
+  <option data-tag="Audi" value="S2">S2</option>
+  <option data-tag="Audi" value="S3">S3</option>
+  <option data-tag="Audi" value="S4">S4</option>
+  <option data-tag="Audi" value="S5">S5</option>
+  <option data-tag="Audi" value="S6">S6</option>
+  <option data-tag="Audi" value="S7">S7</option>
+  <option data-tag="Audi" value="S8">S8</option>
+  <option data-tag="Audi" value="SQ2">SQ2</option>
+  <option data-tag="Audi" value="SQ5">SQ5</option>
+  <option data-tag="Audi" value="SQ5 Sportback">SQ5 Sportback</option>
+  <option data-tag="Audi" value="SQ7">SQ7</option>
+  <option data-tag="Audi" value="SQ8">SQ8</option>
+  <option data-tag="Audi" value="SQ8 e-tron">SQ8 e-tron</option>
+  <option data-tag="Audi" value="SQ8 Sportback e-tron">SQ8 Sportback e-tron</option>
+  <option data-tag="Audi" value="TT">TT</option>
+  <option data-tag="Audi" value="TT RS">TT RS</option>
+  <option data-tag="Audi" value="TTS">TTS</option>
+  <option data-tag="Audi" value="Typ R">Typ R</option>
+  <option data-tag="Audi" value="V8">V8</option>
+  <option data-tag="BAIC" value="A1">A1</option>
+  <option data-tag="BAIC" value="BJ2020">BJ2020</option>
+  <option data-tag="BAIC" value="BJ2021">BJ2021</option>
+  <option data-tag="BAIC" value="BJ2026">BJ2026</option>
+  <option data-tag="BAIC" value="BJ212">BJ212</option>
+  <option data-tag="BAIC" value="BJ40">BJ40</option>
+  <option data-tag="BAIC" value="BJ80">BJ80</option>
+  <option data-tag="BAIC" value="EU260">EU260</option>
+  <option data-tag="BAIC" value="Jeep 2500">Jeep 2500</option>
+  <option data-tag="BAIC" value="Luba (XB624)">Luba (XB624)</option>
+  <option data-tag="BAIC" value="U5">U5</option>
+  <option data-tag="BAIC" value="U7">U7</option>
+  <option data-tag="BAIC" value="X3">X3</option>
+  <option data-tag="BAIC" value="X5">X5</option>
+  <option data-tag="BAIC" value="X7">X7</option>
+  <option data-tag="BMW" value="02 (E10)">02 (E10)</option>
+  <option data-tag="BMW" value="1 серии">1 серии</option>
+  <option data-tag="BMW" value="1M">1M</option>
+  <option data-tag="BMW" value="2 серии">2 серии</option>
+  <option data-tag="BMW" value="2 серии Active Tourer">2 серии Active Tourer</option>
+  <option data-tag="BMW" value="2 серии Gran Tourer">2 серии Gran Tourer</option>
+  <option data-tag="BMW" value="2000 C/CS">2000 C/CS</option>
+  <option data-tag="BMW" value="3 серии">3 серии</option>
+  <option data-tag="BMW" value="3/15">3/15</option>
+  <option data-tag="BMW" value="315">315</option>
+  <option data-tag="BMW" value="3200">3200</option>
+  <option data-tag="BMW" value="321">321</option>
+  <option data-tag="BMW" value="326">326</option>
+  <option data-tag="BMW" value="327">327</option>
+  <option data-tag="BMW" value="340">340</option>
+  <option data-tag="BMW" value="4 серии">4 серии</option>
+  <option data-tag="BMW" value="5 серии">5 серии</option>
+  <option data-tag="BMW" value="501">501</option>
+  <option data-tag="BMW" value="502">502</option>
+  <option data-tag="BMW" value="503">503</option>
+  <option data-tag="BMW" value="507">507</option>
+  <option data-tag="BMW" value="6 серии">6 серии</option>
+  <option data-tag="BMW" value="600">600</option>
+  <option data-tag="BMW" value="7 серии">7 серии</option>
+  <option data-tag="BMW" value="700">700</option>
+  <option data-tag="BMW" value="8 серии">8 серии</option>
+  <option data-tag="BMW" value="E3">E3</option>
+  <option data-tag="BMW" value="E9">E9</option>
+  <option data-tag="BMW" value="i3">i3</option>
+  <option data-tag="BMW" value="i4">i4</option>
+  <option data-tag="BMW" value="i7">i7</option>
+  <option data-tag="BMW" value="i8">i8</option>
+  <option data-tag="BMW" value="iX">iX</option>
+  <option data-tag="BMW" value="iX1">iX1</option>
+  <option data-tag="BMW" value="iX3">iX3</option>
+  <option data-tag="BMW" value="M1">M1</option>
+  <option data-tag="BMW" value="M2">M2</option>
+  <option data-tag="BMW" value="M3">M3</option>
+  <option data-tag="BMW" value="M4">M4</option>
+  <option data-tag="BMW" value="M5">M5</option>
+  <option data-tag="BMW" value="M6">M6</option>
+  <option data-tag="BMW" value="M8">M8</option>
+  <option data-tag="BMW" value="New Class">New Class</option>
+  <option data-tag="BMW" value="X1">X1</option>
+  <option data-tag="BMW" value="X2">X2</option>
+  <option data-tag="BMW" value="X3">X3</option>
+  <option data-tag="BMW" value="X3 M">X3 M</option>
+  <option data-tag="BMW" value="X4">X4</option>
+  <option data-tag="BMW" value="X4 M">X4 M</option>
+  <option data-tag="BMW" value="X5">X5</option>
+  <option data-tag="BMW" value="X5 M">X5 M</option>
+  <option data-tag="BMW" value="X6">X6</option>
+  <option data-tag="BMW" value="X6 M">X6 M</option>
+  <option data-tag="BMW" value="X7">X7</option>
+  <option data-tag="BMW" value="XM">XM</option>
+  <option data-tag="BMW" value="Z1">Z1</option>
+  <option data-tag="BMW" value="Z3">Z3</option>
+  <option data-tag="BMW" value="Z3 M">Z3 M</option>
+  <option data-tag="BMW" value="Z4">Z4</option>
+  <option data-tag="BMW" value="Z4 M">Z4 M</option>
+  <option data-tag="BMW" value="Z8">Z8</option>
+  <option data-tag="Brabus" value="7.3S">7.3S</option>
+  <option data-tag="Brabus" value="E V12">E V12</option>
+  <option data-tag="Brabus" value="M V12">M V12</option>
+  <option data-tag="Brabus" value="ML 63 Biturbo">ML 63 Biturbo</option>
+  <option data-tag="Brabus" value="SV12">SV12</option>
+  <option data-tag="Buick" value="Cascada">Cascada</option>
+  <option data-tag="Buick" value="Century">Century</option>
+  <option data-tag="Buick" value="Electra">Electra</option>
+  <option data-tag="Buick" value="Enclave">Enclave</option>
+  <option data-tag="Buick" value="Encore">Encore</option>
+  <option data-tag="Buick" value="Encore GX">Encore GX</option>
+  <option data-tag="Buick" value="Envision">Envision</option>
+  <option data-tag="Buick" value="Estate Wagon">Estate Wagon</option>
+  <option data-tag="Buick" value="Excelle">Excelle</option>
+  <option data-tag="Buick" value="GL8">GL8</option>
+  <option data-tag="Buick" value="GS">GS</option>
+  <option data-tag="Buick" value="LaCrosse">LaCrosse</option>
+  <option data-tag="Buick" value="LeSabre">LeSabre</option>
+  <option data-tag="Buick" value="Limited">Limited</option>
+  <option data-tag="Buick" value="Lucerne">Lucerne</option>
+  <option data-tag="Buick" value="Park Avenue">Park Avenue</option>
+  <option data-tag="Buick" value="Rainer">Rainer</option>
+  <option data-tag="Buick" value="Reatta">Reatta</option>
+  <option data-tag="Buick" value="Regal">Regal</option>
+  <option data-tag="Buick" value="Rendezvous">Rendezvous</option>
+  <option data-tag="Buick" value="Riviera">Riviera</option>
+  <option data-tag="Buick" value="Roadmaster">Roadmaster</option>
+  <option data-tag="Buick" value="Skyhawk">Skyhawk</option>
+  <option data-tag="Buick" value="Skylark">Skylark</option>
+  <option data-tag="Buick" value="Special">Special</option>
+  <option data-tag="Buick" value="Super">Super</option>
+  <option data-tag="Buick" value="Terraza">Terraza</option>
+  <option data-tag="Buick" value="Velite 6">Velite 6</option>
+  <option data-tag="Buick" value="Verano">Verano</option>
+  <option data-tag="Buick" value="Wildcat">Wildcat</option>
+  <option data-tag="Cadillac" value="Allante">Allante</option>
+  <option data-tag="Cadillac" value="ATS">ATS</option>
+  <option data-tag="Cadillac" value="ATS-V">ATS-V</option>
+  <option data-tag="Cadillac" value="BLS">BLS</option>
+  <option data-tag="Cadillac" value="Brougham">Brougham</option>
+  <option data-tag="Cadillac" value="Catera">Catera</option>
+  <option data-tag="Cadillac" value="CT4">CT4</option>
+  <option data-tag="Cadillac" value="CT4-V">CT4-V</option>
+  <option data-tag="Cadillac" value="CT5">CT5</option>
+  <option data-tag="Cadillac" value="CT5-V">CT5-V</option>
+  <option data-tag="Cadillac" value="CT6">CT6</option>
+  <option data-tag="Cadillac" value="CTS">CTS</option>
+  <option data-tag="Cadillac" value="CTS-V">CTS-V</option>
+  <option data-tag="Cadillac" value="DeVille">DeVille</option>
+  <option data-tag="Cadillac" value="DTS">DTS</option>
+  <option data-tag="Cadillac" value="Eldorado">Eldorado</option>
+  <option data-tag="Cadillac" value="ELR">ELR</option>
+  <option data-tag="Cadillac" value="Escalade">Escalade</option>
+  <option data-tag="Cadillac" value="Escalade-V">Escalade-V</option>
+  <option data-tag="Cadillac" value="Fleetwood">Fleetwood</option>
+  <option data-tag="Cadillac" value="LSE">LSE</option>
+  <option data-tag="Cadillac" value="Lyriq">Lyriq</option>
+  <option data-tag="Cadillac" value="Series 62">Series 62</option>
+  <option data-tag="Cadillac" value="Seville">Seville</option>
+  <option data-tag="Cadillac" value="Sixty Special">Sixty Special</option>
+  <option data-tag="Cadillac" value="SRX">SRX</option>
+  <option data-tag="Cadillac" value="STS">STS</option>
+  <option data-tag="Cadillac" value="XLR">XLR</option>
+  <option data-tag="Cadillac" value="XT4">XT4</option>
+  <option data-tag="Cadillac" value="XT5">XT5</option>
+  <option data-tag="Cadillac" value="XT6">XT6</option>
+  <option data-tag="Cadillac" value="XTS">XTS</option>
+  <option data-tag="Changan" value="Alsvin V7">Alsvin V7</option>
+  <option data-tag="Changan" value="Auchan A600 EV">Auchan A600 EV</option>
+  <option data-tag="Changan" value="Benni">Benni</option>
+  <option data-tag="Changan" value="Benni EC/EV">Benni EC/EV</option>
+  <option data-tag="Changan" value="CM-8">CM-8</option>
+  <option data-tag="Changan" value="CS15">CS15</option>
+  <option data-tag="Changan" value="CS35">CS35</option>
+  <option data-tag="Changan" value="CS35PLUS">CS35PLUS</option>
+  <option data-tag="Changan" value="CS55">CS55</option>
+  <option data-tag="Changan" value="CS55PLUS">CS55PLUS</option>
+  <option data-tag="Changan" value="CS75">CS75</option>
+  <option data-tag="Changan" value="CS75PLUS">CS75PLUS</option>
+  <option data-tag="Changan" value="CS85">CS85</option>
+  <option data-tag="Changan" value="CS95">CS95</option>
+  <option data-tag="Changan" value="CX20">CX20</option>
+  <option data-tag="Changan" value="Eado">Eado</option>
+  <option data-tag="Changan" value="Linmax">Linmax</option>
+  <option data-tag="Changan" value="Raeton">Raeton</option>
+  <option data-tag="Changan" value="Shenlan SL03">Shenlan SL03</option>
+  <option data-tag="Changan" value="UNI-K">UNI-K</option>
+  <option data-tag="Changan" value="UNI-T">UNI-T</option>
+  <option data-tag="Changan" value="UNI-V">UNI-V</option>
+  <option data-tag="Changan" value="Z-Shine">Z-Shine</option>
+  <option data-tag="ChangFeng" value="Flying">Flying</option>
+  <option data-tag="ChangFeng" value="SUV (CS6)">SUV (CS6)</option>
+  <option data-tag="Chery" value="Amulet (A15)">Amulet (A15)</option>
+  <option data-tag="Chery" value="Arrizo 3">Arrizo 3</option>
+  <option data-tag="Chery" value="Arrizo 6">Arrizo 6</option>
+  <option data-tag="Chery" value="Arrizo 7">Arrizo 7</option>
+  <option data-tag="Chery" value="B13">B13</option>
+  <option data-tag="Chery" value="Bonus (A13)">Bonus (A13)</option>
+  <option data-tag="Chery" value="Bonus 3 (E3/A19)">Bonus 3 (E3/A19)</option>
+  <option data-tag="Chery" value="CrossEastar (B14)">CrossEastar (B14)</option>
+  <option data-tag="Chery" value="E5">E5</option>
+  <option data-tag="Chery" value="eQ5">eQ5</option>
+  <option data-tag="Chery" value="Fora (A21)">Fora (A21)</option>
+  <option data-tag="Chery" value="IndiS (S18D)">IndiS (S18D)</option>
+  <option data-tag="Chery" value="Karry">Karry</option>
+  <option data-tag="Chery" value="Kimo (A1)">Kimo (A1)</option>
+  <option data-tag="Chery" value="M11 (A3)">M11 (A3)</option>
+  <option data-tag="Chery" value="Oriental Son (B11)">Oriental Son (B11)</option>
+  <option data-tag="Chery" value="QQ6 (S21)">QQ6 (S21)</option>
+  <option data-tag="Chery" value="QQme">QQme</option>
+  <option data-tag="Chery" value="Sweet (QQ)">Sweet (QQ)</option>
+  <option data-tag="Chery" value="Tiggo (T11)">Tiggo (T11)</option>
+  <option data-tag="Chery" value="Tiggo 2">Tiggo 2</option>
+  <option data-tag="Chery" value="Tiggo 2 Pro">Tiggo 2 Pro</option>
+  <option data-tag="Chery" value="Tiggo 3">Tiggo 3</option>
+  <option data-tag="Chery" value="Tiggo 3x">Tiggo 3x</option>
+  <option data-tag="Chery" value="Tiggo 3xe">Tiggo 3xe</option>
+  <option data-tag="Chery" value="Tiggo 4">Tiggo 4</option>
+  <option data-tag="Chery" value="Tiggo 4 Pro">Tiggo 4 Pro</option>
+  <option data-tag="Chery" value="Tiggo 5">Tiggo 5</option>
+  <option data-tag="Chery" value="Tiggo 7">Tiggo 7</option>
+  <option data-tag="Chery" value="Tiggo 7 Pro">Tiggo 7 Pro</option>
+  <option data-tag="Chery" value="Tiggo 7 Pro Max">Tiggo 7 Pro Max</option>
+  <option data-tag="Chery" value="Tiggo 8">Tiggo 8</option>
+  <option data-tag="Chery" value="Tiggo 8 Pro">Tiggo 8 Pro</option>
+  <option data-tag="Chery" value="Tiggo 8 Pro Max">Tiggo 8 Pro Max</option>
+  <option data-tag="Chery" value="Very (A13)">Very (A13)</option>
+  <option data-tag="Chery" value="Windcloud (A11)">Windcloud (A11)</option>
+  <option data-tag="Chevrolet" value="3000-Series">3000-Series</option>
+  <option data-tag="Chevrolet" value="Alero">Alero</option>
+  <option data-tag="Chevrolet" value="Apache">Apache</option>
+  <option data-tag="Chevrolet" value="Astra">Astra</option>
+  <option data-tag="Chevrolet" value="Astro">Astro</option>
+  <option data-tag="Chevrolet" value="Avalanche">Avalanche</option>
+  <option data-tag="Chevrolet" value="Aveo">Aveo</option>
+  <option data-tag="Chevrolet" value="Bel Air">Bel Air</option>
+  <option data-tag="Chevrolet" value="Beretta">Beretta</option>
+  <option data-tag="Chevrolet" value="Blazer">Blazer</option>
+  <option data-tag="Chevrolet" value="Blazer K5">Blazer K5</option>
+  <option data-tag="Chevrolet" value="Bolt">Bolt</option>
+  <option data-tag="Chevrolet" value="Bolt EUV">Bolt EUV</option>
+  <option data-tag="Chevrolet" value="C-10">C-10</option>
+  <option data-tag="Chevrolet" value="C/K">C/K</option>
+  <option data-tag="Chevrolet" value="Camaro">Camaro</option>
+  <option data-tag="Chevrolet" value="Caprice">Caprice</option>
+  <option data-tag="Chevrolet" value="Captiva">Captiva</option>
+  <option data-tag="Chevrolet" value="Captiva Sport">Captiva Sport</option>
+  <option data-tag="Chevrolet" value="Cavalier">Cavalier</option>
+  <option data-tag="Chevrolet" value="Celebrity">Celebrity</option>
+  <option data-tag="Chevrolet" value="Celta">Celta</option>
+  <option data-tag="Chevrolet" value="Chevelle">Chevelle</option>
+  <option data-tag="Chevrolet" value="Chevette">Chevette</option>
+  <option data-tag="Chevrolet" value="Citation">Citation</option>
+  <option data-tag="Chevrolet" value="Cobalt">Cobalt</option>
+  <option data-tag="Chevrolet" value="Colorado">Colorado</option>
+  <option data-tag="Chevrolet" value="Corsa">Corsa</option>
+  <option data-tag="Chevrolet" value="Corsica">Corsica</option>
+  <option data-tag="Chevrolet" value="Corvair">Corvair</option>
+  <option data-tag="Chevrolet" value="Corvette">Corvette</option>
+  <option data-tag="Chevrolet" value="Cruze">Cruze</option>
+  <option data-tag="Chevrolet" value="Cruze (HR)">Cruze (HR)</option>
+  <option data-tag="Chevrolet" value="CSV CR8">CSV CR8</option>
+  <option data-tag="Chevrolet" value="Damas">Damas</option>
+  <option data-tag="Chevrolet" value="Deluxe">Deluxe</option>
+  <option data-tag="Chevrolet" value="El Camino">El Camino</option>
+  <option data-tag="Chevrolet" value="Epica">Epica</option>
+  <option data-tag="Chevrolet" value="Equinox">Equinox</option>
+  <option data-tag="Chevrolet" value="Evanda">Evanda</option>
+  <option data-tag="Chevrolet" value="Express">Express</option>
+  <option data-tag="Chevrolet" value="Fleetmaster">Fleetmaster</option>
+  <option data-tag="Chevrolet" value="Groove">Groove</option>
+  <option data-tag="Chevrolet" value="HHR">HHR</option>
+  <option data-tag="Chevrolet" value="Impala">Impala</option>
+  <option data-tag="Chevrolet" value="Kalos">Kalos</option>
+  <option data-tag="Chevrolet" value="Lacetti">Lacetti</option>
+  <option data-tag="Chevrolet" value="Lanos">Lanos</option>
+  <option data-tag="Chevrolet" value="Lumina">Lumina</option>
+  <option data-tag="Chevrolet" value="Lumina APV">Lumina APV</option>
+  <option data-tag="Chevrolet" value="LUV D-MAX">LUV D-MAX</option>
+  <option data-tag="Chevrolet" value="Malibu">Malibu</option>
+  <option data-tag="Chevrolet" value="Master">Master</option>
+  <option data-tag="Chevrolet" value="Matiz">Matiz</option>
+  <option data-tag="Chevrolet" value="Menlo">Menlo</option>
+  <option data-tag="Chevrolet" value="Metro">Metro</option>
+  <option data-tag="Chevrolet" value="Monte Carlo">Monte Carlo</option>
+  <option data-tag="Chevrolet" value="Monza">Monza</option>
+  <option data-tag="Chevrolet" value="MW">MW</option>
+  <option data-tag="Chevrolet" value="Nexia">Nexia</option>
+  <option data-tag="Chevrolet" value="Niva">Niva</option>
+  <option data-tag="Chevrolet" value="Nova">Nova</option>
+  <option data-tag="Chevrolet" value="Nubira">Nubira</option>
+  <option data-tag="Chevrolet" value="Omega">Omega</option>
+  <option data-tag="Chevrolet" value="Onix">Onix</option>
+  <option data-tag="Chevrolet" value="Orlando">Orlando</option>
+  <option data-tag="Chevrolet" value="Prizm">Prizm</option>
+  <option data-tag="Chevrolet" value="Rezzo">Rezzo</option>
+  <option data-tag="Chevrolet" value="S-10 Pickup">S-10 Pickup</option>
+  <option data-tag="Chevrolet" value="Sail">Sail</option>
+  <option data-tag="Chevrolet" value="Seeker">Seeker</option>
+  <option data-tag="Chevrolet" value="Silverado">Silverado</option>
+  <option data-tag="Chevrolet" value="Sonic">Sonic</option>
+  <option data-tag="Chevrolet" value="Spark">Spark</option>
+  <option data-tag="Chevrolet" value="Special DeLuxe">Special DeLuxe</option>
+  <option data-tag="Chevrolet" value="Spin">Spin</option>
+  <option data-tag="Chevrolet" value="SS">SS</option>
+  <option data-tag="Chevrolet" value="SSR">SSR</option>
+  <option data-tag="Chevrolet" value="Starcraft">Starcraft</option>
+  <option data-tag="Chevrolet" value="Suburban">Suburban</option>
+  <option data-tag="Chevrolet" value="Tacuma">Tacuma</option>
+  <option data-tag="Chevrolet" value="Tahoe">Tahoe</option>
+  <option data-tag="Chevrolet" value="Tavera">Tavera</option>
+  <option data-tag="Chevrolet" value="Tracker">Tracker</option>
+  <option data-tag="Chevrolet" value="TrailBlazer">TrailBlazer</option>
+  <option data-tag="Chevrolet" value="Trans Sport">Trans Sport</option>
+  <option data-tag="Chevrolet" value="Traverse">Traverse</option>
+  <option data-tag="Chevrolet" value="Trax">Trax</option>
+  <option data-tag="Chevrolet" value="Uplander">Uplander</option>
+  <option data-tag="Chevrolet" value="Van">Van</option>
+  <option data-tag="Chevrolet" value="Vectra">Vectra</option>
+  <option data-tag="Chevrolet" value="Venture">Venture</option>
+  <option data-tag="Chevrolet" value="Viva">Viva</option>
+  <option data-tag="Chevrolet" value="Volt">Volt</option>
+  <option data-tag="Chevrolet" value="Zafira">Zafira</option>
+  <option data-tag="Chrysler" value="180">180</option>
+  <option data-tag="Chrysler" value="200">200</option>
+  <option data-tag="Chrysler" value="300">300</option>
+  <option data-tag="Chrysler" value="300 Letter Series">300 Letter Series</option>
+  <option data-tag="Chrysler" value="300C">300C</option>
+  <option data-tag="Chrysler" value="300M">300M</option>
+  <option data-tag="Chrysler" value="Aspen">Aspen</option>
+  <option data-tag="Chrysler" value="Cirrus">Cirrus</option>
+  <option data-tag="Chrysler" value="Concorde">Concorde</option>
+  <option data-tag="Chrysler" value="Cordoba">Cordoba</option>
+  <option data-tag="Chrysler" value="Crossfire">Crossfire</option>
+  <option data-tag="Chrysler" value="Daytona">Daytona</option>
+  <option data-tag="Chrysler" value="Dynasty">Dynasty</option>
+  <option data-tag="Chrysler" value="ES">ES</option>
+  <option data-tag="Chrysler" value="Fifth Avenue">Fifth Avenue</option>
+  <option data-tag="Chrysler" value="Imperial">Imperial</option>
+  <option data-tag="Chrysler" value="Imperial Crown">Imperial Crown</option>
+  <option data-tag="Chrysler" value="Intrepid">Intrepid</option>
+  <option data-tag="Chrysler" value="LeBaron">LeBaron</option>
+  <option data-tag="Chrysler" value="LHS">LHS</option>
+  <option data-tag="Chrysler" value="Nassau">Nassau</option>
+  <option data-tag="Chrysler" value="Neon">Neon</option>
+  <option data-tag="Chrysler" value="New Yorker">New Yorker</option>
+  <option data-tag="Chrysler" value="Newport">Newport</option>
+  <option data-tag="Chrysler" value="Pacifica">Pacifica</option>
+  <option data-tag="Chrysler" value="Prowler">Prowler</option>
+  <option data-tag="Chrysler" value="PT Cruiser">PT Cruiser</option>
+  <option data-tag="Chrysler" value="Saratoga">Saratoga</option>
+  <option data-tag="Chrysler" value="Sebring">Sebring</option>
+  <option data-tag="Chrysler" value="Six">Six</option>
+  <option data-tag="Chrysler" value="Stratus">Stratus</option>
+  <option data-tag="Chrysler" value="TC by Maserati">TC by Maserati</option>
+  <option data-tag="Chrysler" value="Town & Country">Town & Country</option>
+  <option data-tag="Chrysler" value="Viper">Viper</option>
+  <option data-tag="Chrysler" value="Vision">Vision</option>
+  <option data-tag="Chrysler" value="Voyager">Voyager</option>
+  <option data-tag="Chrysler" value="Windsor">Windsor</option>
+  <option data-tag="Citroen" value="2 CV">2 CV</option>
+  <option data-tag="Citroen" value="AMI">AMI</option>
+  <option data-tag="Citroen" value="AX">AX</option>
+  <option data-tag="Citroen" value="Berlingo">Berlingo</option>
+  <option data-tag="Citroen" value="BX">BX</option>
+  <option data-tag="Citroen" value="C-Crosser">C-Crosser</option>
+  <option data-tag="Citroen" value="C-Elysee">C-Elysee</option>
+  <option data-tag="Citroen" value="C-Quatre">C-Quatre</option>
+  <option data-tag="Citroen" value="C-Triomphe">C-Triomphe</option>
+  <option data-tag="Citroen" value="C-ZERO">C-ZERO</option>
+  <option data-tag="Citroen" value="C1">C1</option>
+  <option data-tag="Citroen" value="C2">C2</option>
+  <option data-tag="Citroen" value="C3">C3</option>
+  <option data-tag="Citroen" value="C3 Aircross">C3 Aircross</option>
+  <option data-tag="Citroen" value="C3 Picasso">C3 Picasso</option>
+  <option data-tag="Citroen" value="C4">C4</option>
+  <option data-tag="Citroen" value="C4 Aircross">C4 Aircross</option>
+  <option data-tag="Citroen" value="C4 Cactus">C4 Cactus</option>
+  <option data-tag="Citroen" value="C4 Picasso">C4 Picasso</option>
+  <option data-tag="Citroen" value="C4 SpaceTourer">C4 SpaceTourer</option>
+  <option data-tag="Citroen" value="C5">C5</option>
+  <option data-tag="Citroen" value="C5 Aircross">C5 Aircross</option>
+  <option data-tag="Citroen" value="C5 X">C5 X</option>
+  <option data-tag="Citroen" value="C6">C6</option>
+  <option data-tag="Citroen" value="C8">C8</option>
+  <option data-tag="Citroen" value="CX">CX</option>
+  <option data-tag="Citroen" value="DS">DS</option>
+  <option data-tag="Citroen" value="DS3">DS3</option>
+  <option data-tag="Citroen" value="DS4">DS4</option>
+  <option data-tag="Citroen" value="DS5">DS5</option>
+  <option data-tag="Citroen" value="Dyane">Dyane</option>
+  <option data-tag="Citroen" value="E-Mehari">E-Mehari</option>
+  <option data-tag="Citroen" value="Evasion">Evasion</option>
+  <option data-tag="Citroen" value="GS">GS</option>
+  <option data-tag="Citroen" value="Jumpy">Jumpy</option>
+  <option data-tag="Citroen" value="LN">LN</option>
+  <option data-tag="Citroen" value="Nemo">Nemo</option>
+  <option data-tag="Citroen" value="Saxo">Saxo</option>
+  <option data-tag="Citroen" value="SM">SM</option>
+  <option data-tag="Citroen" value="SpaceTourer">SpaceTourer</option>
+  <option data-tag="Citroen" value="Traction Avant">Traction Avant</option>
+  <option data-tag="Citroen" value="Visa">Visa</option>
+  <option data-tag="Citroen" value="Xantia">Xantia</option>
+  <option data-tag="Citroen" value="XM">XM</option>
+  <option data-tag="Citroen" value="Xsara">Xsara</option>
+  <option data-tag="Citroen" value="Xsara Picasso">Xsara Picasso</option>
+  <option data-tag="Citroen" value="ZX">ZX</option>
+  <option data-tag="Dacia" value="1300">1300</option>
+  <option data-tag="Dacia" value="1310">1310</option>
+  <option data-tag="Dacia" value="1410">1410</option>
+  <option data-tag="Dacia" value="Dokker">Dokker</option>
+  <option data-tag="Dacia" value="Duster">Duster</option>
+  <option data-tag="Dacia" value="Jogger">Jogger</option>
+  <option data-tag="Dacia" value="Lodgy">Lodgy</option>
+  <option data-tag="Dacia" value="Logan">Logan</option>
+  <option data-tag="Dacia" value="Nova">Nova</option>
+  <option data-tag="Dacia" value="Pick-Up">Pick-Up</option>
+  <option data-tag="Dacia" value="Sandero">Sandero</option>
+  <option data-tag="Dacia" value="Solenza">Solenza</option>
+  <option data-tag="Dacia" value="Spring">Spring</option>
+  <option data-tag="Dacia" value="SuperNova">SuperNova</option>
+  <option data-tag="Daewoo" value="Alpheon">Alpheon</option>
+  <option data-tag="Daewoo" value="Arcadia">Arcadia</option>
+  <option data-tag="Daewoo" value="Chairman">Chairman</option>
+  <option data-tag="Daewoo" value="Damas">Damas</option>
+  <option data-tag="Daewoo" value="Espero">Espero</option>
+  <option data-tag="Daewoo" value="Evanda">Evanda</option>
+  <option data-tag="Daewoo" value="G2X">G2X</option>
+  <option data-tag="Daewoo" value="Gentra">Gentra</option>
+  <option data-tag="Daewoo" value="Kalos">Kalos</option>
+  <option data-tag="Daewoo" value="Korando">Korando</option>
+  <option data-tag="Daewoo" value="Lacetti">Lacetti</option>
+  <option data-tag="Daewoo" value="Lacetti Premiere">Lacetti Premiere</option>
+  <option data-tag="Daewoo" value="Lanos">Lanos</option>
+  <option data-tag="Daewoo" value="Leganza">Leganza</option>
+  <option data-tag="Daewoo" value="LeMans">LeMans</option>
+  <option data-tag="Daewoo" value="Magnus">Magnus</option>
+  <option data-tag="Daewoo" value="Matiz">Matiz</option>
+  <option data-tag="Daewoo" value="Matiz Creative">Matiz Creative</option>
+  <option data-tag="Daewoo" value="Musso">Musso</option>
+  <option data-tag="Daewoo" value="Nexia">Nexia</option>
+  <option data-tag="Daewoo" value="Nubira">Nubira</option>
+  <option data-tag="Daewoo" value="Prince">Prince</option>
+  <option data-tag="Daewoo" value="Racer">Racer</option>
+  <option data-tag="Daewoo" value="Rezzo">Rezzo</option>
+  <option data-tag="Daewoo" value="Royale">Royale</option>
+  <option data-tag="Daewoo" value="Sens">Sens</option>
+  <option data-tag="Daewoo" value="Tacuma">Tacuma</option>
+  <option data-tag="Daewoo" value="Tico">Tico</option>
+  <option data-tag="Daewoo" value="Tosca">Tosca</option>
+  <option data-tag="Daewoo" value="Winstorm">Winstorm</option>
+  <option data-tag="Datsun" value="240Z">240Z</option>
+  <option data-tag="Datsun" value="280Z">280Z</option>
+  <option data-tag="Datsun" value="280ZX">280ZX</option>
+  <option data-tag="Datsun" value="720">720</option>
+  <option data-tag="Datsun" value="Bluebird">Bluebird</option>
+  <option data-tag="Datsun" value="Cherry">Cherry</option>
+  <option data-tag="Datsun" value="GO">GO</option>
+  <option data-tag="Datsun" value="GO+">GO+</option>
+  <option data-tag="Datsun" value="Laurel">Laurel</option>
+  <option data-tag="Datsun" value="mi-DO">mi-DO</option>
+  <option data-tag="Datsun" value="on-DO">on-DO</option>
+  <option data-tag="Datsun" value="Stanza">Stanza</option>
+  <option data-tag="Datsun" value="Sunny">Sunny</option>
+  <option data-tag="Datsun" value="Urvan">Urvan</option>
+  <option data-tag="Datsun" value="Violet">Violet</option>
+  <option data-tag="Fiat" value="124">124</option>
+  <option data-tag="Fiat" value="124 Spider">124 Spider</option>
+  <option data-tag="Fiat" value="124 Sport Spider">124 Sport Spider</option>
+  <option data-tag="Fiat" value="125">125</option>
+  <option data-tag="Fiat" value="126">126</option>
+  <option data-tag="Fiat" value="127">127</option>
+  <option data-tag="Fiat" value="128">128</option>
+  <option data-tag="Fiat" value="130">130</option>
+  <option data-tag="Fiat" value="131">131</option>
+  <option data-tag="Fiat" value="132">132</option>
+  <option data-tag="Fiat" value="2300">2300</option>
+  <option data-tag="Fiat" value="238">238</option>
+  <option data-tag="Fiat" value="500">500</option>
+  <option data-tag="Fiat" value="500L">500L</option>
+  <option data-tag="Fiat" value="500X">500X</option>
+  <option data-tag="Fiat" value="508">508</option>
+  <option data-tag="Fiat" value="600">600</option>
+  <option data-tag="Fiat" value="900T">900T</option>
+  <option data-tag="Fiat" value="Albea">Albea</option>
+  <option data-tag="Fiat" value="Argenta">Argenta</option>
+  <option data-tag="Fiat" value="Barchetta">Barchetta</option>
+  <option data-tag="Fiat" value="Brava">Brava</option>
+  <option data-tag="Fiat" value="Bravo">Bravo</option>
+  <option data-tag="Fiat" value="Cinquecento">Cinquecento</option>
+  <option data-tag="Fiat" value="Coupe">Coupe</option>
+  <option data-tag="Fiat" value="Croma">Croma</option>
+  <option data-tag="Fiat" value="Doblo">Doblo</option>
+  <option data-tag="Fiat" value="Duna">Duna</option>
+  <option data-tag="Fiat" value="Egea">Egea</option>
+  <option data-tag="Fiat" value="Fiorino">Fiorino</option>
+  <option data-tag="Fiat" value="Freemont">Freemont</option>
+  <option data-tag="Fiat" value="Fullback">Fullback</option>
+  <option data-tag="Fiat" value="Idea">Idea</option>
+  <option data-tag="Fiat" value="Linea">Linea</option>
+  <option data-tag="Fiat" value="Marea">Marea</option>
+  <option data-tag="Fiat" value="Multipla">Multipla</option>
+  <option data-tag="Fiat" value="Palio">Palio</option>
+  <option data-tag="Fiat" value="Panda">Panda</option>
+  <option data-tag="Fiat" value="Punto">Punto</option>
+  <option data-tag="Fiat" value="Qubo">Qubo</option>
+  <option data-tag="Fiat" value="Regata">Regata</option>
+  <option data-tag="Fiat" value="Ritmo">Ritmo</option>
+  <option data-tag="Fiat" value="Scudo">Scudo</option>
+  <option data-tag="Fiat" value="Sedici">Sedici</option>
+  <option data-tag="Fiat" value="Seicento">Seicento</option>
+  <option data-tag="Fiat" value="Siena">Siena</option>
+  <option data-tag="Fiat" value="Stilo">Stilo</option>
+  <option data-tag="Fiat" value="Strada">Strada</option>
+  <option data-tag="Fiat" value="Tempra">Tempra</option>
+  <option data-tag="Fiat" value="Tipo">Tipo</option>
+  <option data-tag="Fiat" value="Ulysse">Ulysse</option>
+  <option data-tag="Fiat" value="Uno">Uno</option>
+  <option data-tag="Fiat" value="X 1/9">X 1/9</option>
+  <option data-tag="Ford" value="Aerostar">Aerostar</option>
+  <option data-tag="Ford" value="Aspire">Aspire</option>
+  <option data-tag="Ford" value="B-MAX">B-MAX</option>
+  <option data-tag="Ford" value="Bronco">Bronco</option>
+  <option data-tag="Ford" value="Bronco Sport">Bronco Sport</option>
+  <option data-tag="Ford" value="Bronco-II">Bronco-II</option>
+  <option data-tag="Ford" value="C-MAX">C-MAX</option>
+  <option data-tag="Ford" value="Capri">Capri</option>
+  <option data-tag="Ford" value="Consul">Consul</option>
+  <option data-tag="Ford" value="Contour">Contour</option>
+  <option data-tag="Ford" value="Cortina">Cortina</option>
+  <option data-tag="Ford" value="Cougar">Cougar</option>
+  <option data-tag="Ford" value="Country Squire">Country Squire</option>
+  <option data-tag="Ford" value="Crown Victoria">Crown Victoria</option>
+  <option data-tag="Ford" value="Custom">Custom</option>
+  <option data-tag="Ford" value="Econoline">Econoline</option>
+  <option data-tag="Ford" value="Econovan">Econovan</option>
+  <option data-tag="Ford" value="EcoSport">EcoSport</option>
+  <option data-tag="Ford" value="Edge">Edge</option>
+  <option data-tag="Ford" value="Equator">Equator</option>
+  <option data-tag="Ford" value="Escape">Escape</option>
+  <option data-tag="Ford" value="Escort">Escort</option>
+  <option data-tag="Ford" value="Escort (North America)">Escort (North America)</option>
+  <option data-tag="Ford" value="Everest">Everest</option>
+  <option data-tag="Ford" value="Evos">Evos</option>
+  <option data-tag="Ford" value="Excursion">Excursion</option>
+  <option data-tag="Ford" value="Expedition">Expedition</option>
+  <option data-tag="Ford" value="Explorer">Explorer</option>
+  <option data-tag="Ford" value="Explorer Sport Trac">Explorer Sport Trac</option>
+  <option data-tag="Ford" value="F-150">F-150</option>
+  <option data-tag="Ford" value="F-2">F-2</option>
+  <option data-tag="Ford" value="Fairlane">Fairlane</option>
+  <option data-tag="Ford" value="Fairmont">Fairmont</option>
+  <option data-tag="Ford" value="Falcon">Falcon</option>
+  <option data-tag="Ford" value="Festiva">Festiva</option>
+  <option data-tag="Ford" value="Fiesta">Fiesta</option>
+  <option data-tag="Ford" value="Fiesta ST">Fiesta ST</option>
+  <option data-tag="Ford" value="Five Hundred">Five Hundred</option>
+  <option data-tag="Ford" value="Flex">Flex</option>
+  <option data-tag="Ford" value="Focus">Focus</option>
+  <option data-tag="Ford" value="Focus RS">Focus RS</option>
+  <option data-tag="Ford" value="Focus ST">Focus ST</option>
+  <option data-tag="Ford" value="Freda">Freda</option>
+  <option data-tag="Ford" value="Freestar">Freestar</option>
+  <option data-tag="Ford" value="Freestyle">Freestyle</option>
+  <option data-tag="Ford" value="Fusion">Fusion</option>
+  <option data-tag="Ford" value="Fusion (North America)">Fusion (North America)</option>
+  <option data-tag="Ford" value="Galaxie">Galaxie</option>
+  <option data-tag="Ford" value="Galaxy">Galaxy</option>
+  <option data-tag="Ford" value="GPA">GPA</option>
+  <option data-tag="Ford" value="Granada">Granada</option>
+  <option data-tag="Ford" value="Granada (North America)">Granada (North America)</option>
+  <option data-tag="Ford" value="GT">GT</option>
+  <option data-tag="Ford" value="GT40">GT40</option>
+  <option data-tag="Ford" value="Ikon">Ikon</option>
+  <option data-tag="Ford" value="Ixion">Ixion</option>
+  <option data-tag="Ford" value="KA">KA</option>
+  <option data-tag="Ford" value="Kuga">Kuga</option>
+  <option data-tag="Ford" value="Laser">Laser</option>
+  <option data-tag="Ford" value="LTD Country Squire">LTD Country Squire</option>
+  <option data-tag="Ford" value="LTD Crown Victoria">LTD Crown Victoria</option>
+  <option data-tag="Ford" value="M151">M151</option>
+  <option data-tag="Ford" value="Mainline">Mainline</option>
+  <option data-tag="Ford" value="Maverick">Maverick</option>
+  <option data-tag="Ford" value="Model A">Model A</option>
+  <option data-tag="Ford" value="Model T">Model T</option>
+  <option data-tag="Ford" value="Mondeo">Mondeo</option>
+  <option data-tag="Ford" value="Mondeo ST">Mondeo ST</option>
+  <option data-tag="Ford" value="Mustang">Mustang</option>
+  <option data-tag="Ford" value="Mustang Mach-E">Mustang Mach-E</option>
+  <option data-tag="Ford" value="Orion">Orion</option>
+  <option data-tag="Ford" value="Probe">Probe</option>
+  <option data-tag="Ford" value="Puma">Puma</option>
+  <option data-tag="Ford" value="Puma ST">Puma ST</option>
+  <option data-tag="Ford" value="Ranchero">Ranchero</option>
+  <option data-tag="Ford" value="Ranger">Ranger</option>
+  <option data-tag="Ford" value="Ranger (North America)">Ranger (North America)</option>
+  <option data-tag="Ford" value="S-MAX">S-MAX</option>
+  <option data-tag="Ford" value="Scorpio">Scorpio</option>
+  <option data-tag="Ford" value="Sierra">Sierra</option>
+  <option data-tag="Ford" value="Spectron">Spectron</option>
+  <option data-tag="Ford" value="Taunus">Taunus</option>
+  <option data-tag="Ford" value="Taurus">Taurus</option>
+  <option data-tag="Ford" value="Taurus X">Taurus X</option>
+  <option data-tag="Ford" value="Telstar">Telstar</option>
+  <option data-tag="Ford" value="Tempo">Tempo</option>
+  <option data-tag="Ford" value="Territory">Territory</option>
+  <option data-tag="Ford" value="Thunderbird">Thunderbird</option>
+  <option data-tag="Ford" value="Torino">Torino</option>
+  <option data-tag="Ford" value="Tourneo Connect">Tourneo Connect</option>
+  <option data-tag="Ford" value="Tourneo Courier">Tourneo Courier</option>
+  <option data-tag="Ford" value="Tourneo Custom">Tourneo Custom</option>
+  <option data-tag="Ford" value="Transit Connect">Transit Connect</option>
+  <option data-tag="Ford" value="Transit Custom">Transit Custom</option>
+  <option data-tag="Ford" value="V8">V8</option>
+  <option data-tag="Ford" value="Windstar">Windstar</option>
+  <option data-tag="Ford" value="Zephyr">Zephyr</option>
+  <option data-tag="GAC" value="GE3">GE3</option>
+  <option data-tag="GAC" value="GN8">GN8</option>
+  <option data-tag="GAC" value="GS5">GS5</option>
+  <option data-tag="GAC" value="GS8">GS8</option>
+  <option data-tag="ГАЗ" value="12 ЗИМ">12 ЗИМ</option>
+  <option data-tag="ГАЗ" value="13 «Чайка»">13 «Чайка»</option>
+  <option data-tag="ГАЗ" value="14 «Чайка»">14 «Чайка»</option>
+  <option data-tag="ГАЗ" value="18">18</option>
+  <option data-tag="ГАЗ" value="21 «Волга»">21 «Волга»</option>
+  <option data-tag="ГАЗ" value="22 «Волга»">22 «Волга»</option>
+  <option data-tag="ГАЗ" value="2308 «Атаман»">2308 «Атаман»</option>
+  <option data-tag="ГАЗ" value="2330 «Тигр»">2330 «Тигр»</option>
+  <option data-tag="ГАЗ" value="24 «Волга»">24 «Волга»</option>
+  <option data-tag="ГАЗ" value="25">25</option>
+  <option data-tag="ГАЗ" value="3102 «Волга»">3102 «Волга»</option>
+  <option data-tag="ГАЗ" value="31022 «Волга»">31022 «Волга»</option>
+  <option data-tag="ГАЗ" value="310221 «Волга»">310221 «Волга»</option>
+  <option data-tag="ГАЗ" value="31029 «Волга»">31029 «Волга»</option>
+  <option data-tag="ГАЗ" value="3103 «Волга»">3103 «Волга»</option>
+  <option data-tag="ГАЗ" value="3105 «Волга»">3105 «Волга»</option>
+  <option data-tag="ГАЗ" value="3110 «Волга»">3110 «Волга»</option>
+  <option data-tag="ГАЗ" value="31105 «Волга»">31105 «Волга»</option>
+  <option data-tag="ГАЗ" value="3111 «Волга»">3111 «Волга»</option>
+  <option data-tag="ГАЗ" value="46">46</option>
+  <option data-tag="ГАЗ" value="61">61</option>
+  <option data-tag="ГАЗ" value="64">64</option>
+  <option data-tag="ГАЗ" value="69">69</option>
+  <option data-tag="ГАЗ" value="Volga Siber">Volga Siber</option>
+  <option data-tag="ГАЗ" value="А">А</option>
+  <option data-tag="ГАЗ" value="ГАЗ 67">ГАЗ 67</option>
+  <option data-tag="ГАЗ" value="М-20 «Победа»">М-20 «Победа»</option>
+  <option data-tag="ГАЗ" value="М-72">М-72</option>
+  <option data-tag="ГАЗ" value="М1">М1</option>
+  <option data-tag="Genesis" value="G70">G70</option>
+  <option data-tag="Genesis" value="G80">G80</option>
+  <option data-tag="Genesis" value="G90">G90</option>
+  <option data-tag="Genesis" value="GV60">GV60</option>
+  <option data-tag="Genesis" value="GV70">GV70</option>
+  <option data-tag="Genesis" value="GV80">GV80</option>
+  <option data-tag="GMC" value="100">100</option>
+  <option data-tag="GMC" value="Acadia">Acadia</option>
+  <option data-tag="GMC" value="Canyon">Canyon</option>
+  <option data-tag="GMC" value="Envoy">Envoy</option>
+  <option data-tag="GMC" value="Hummer EV">Hummer EV</option>
+  <option data-tag="GMC" value="Jimmy">Jimmy</option>
+  <option data-tag="GMC" value="Safari">Safari</option>
+  <option data-tag="GMC" value="Savana">Savana</option>
+  <option data-tag="GMC" value="Sierra">Sierra</option>
+  <option data-tag="GMC" value="Sonoma">Sonoma</option>
+  <option data-tag="GMC" value="Suburban">Suburban</option>
+  <option data-tag="GMC" value="Syclone">Syclone</option>
+  <option data-tag="GMC" value="Terrain">Terrain</option>
+  <option data-tag="GMC" value="Typhoon">Typhoon</option>
+  <option data-tag="GMC" value="Vandura">Vandura</option>
+  <option data-tag="GMC" value="Yukon">Yukon</option>
+  <option data-tag="Great Wall" value="Coolbear">Coolbear</option>
+  <option data-tag="Great Wall" value="Cowry (V80)">Cowry (V80)</option>
+  <option data-tag="Great Wall" value="Deer">Deer</option>
+  <option data-tag="Great Wall" value="Florid">Florid</option>
+  <option data-tag="Great Wall" value="Hover">Hover</option>
+  <option data-tag="Great Wall" value="Hover H3">Hover H3</option>
+  <option data-tag="Great Wall" value="Hover H5">Hover H5</option>
+  <option data-tag="Great Wall" value="Hover H6">Hover H6</option>
+  <option data-tag="Great Wall" value="Hover M1 (Peri 4x4)">Hover M1 (Peri 4x4)</option>
+  <option data-tag="Great Wall" value="Hover M2">Hover M2</option>
+  <option data-tag="Great Wall" value="Hover M4">Hover M4</option>
+  <option data-tag="Great Wall" value="Hover Pi">Hover Pi</option>
+  <option data-tag="Great Wall" value="Pegasus">Pegasus</option>
+  <option data-tag="Great Wall" value="Peri">Peri</option>
+  <option data-tag="Great Wall" value="Poer">Poer</option>
+  <option data-tag="Great Wall" value="Safe">Safe</option>
+  <option data-tag="Great Wall" value="Sailor">Sailor</option>
+  <option data-tag="Great Wall" value="Sing RUV">Sing RUV</option>
+  <option data-tag="Great Wall" value="Socool">Socool</option>
+  <option data-tag="Great Wall" value="Voleex C10 (Phenom)">Voleex C10 (Phenom)</option>
+  <option data-tag="Great Wall" value="Voleex C30">Voleex C30</option>
+  <option data-tag="Great Wall" value="Wingle">Wingle</option>
+  <option data-tag="Great Wall" value="Wingle 7">Wingle 7</option>
+  <option data-tag="Haval" value="Chitu">Chitu</option>
+  <option data-tag="Haval" value="Dargo">Dargo</option>
+  <option data-tag="Haval" value="F7">F7</option>
+  <option data-tag="Haval" value="F7x">F7x</option>
+  <option data-tag="Haval" value="H2">H2</option>
+  <option data-tag="Haval" value="H5">H5</option>
+  <option data-tag="Haval" value="H6">H6</option>
+  <option data-tag="Haval" value="H6 Coupe">H6 Coupe</option>
+  <option data-tag="Haval" value="H6S">H6S</option>
+  <option data-tag="Haval" value="H8">H8</option>
+  <option data-tag="Haval" value="H9">H9</option>
+  <option data-tag="Haval" value="Jolion">Jolion</option>
+  <option data-tag="Haval" value="KuGou">KuGou</option>
+  <option data-tag="Honda" value="145">145</option>
+  <option data-tag="Honda" value="Accord">Accord</option>
+  <option data-tag="Honda" value="Acty">Acty</option>
+  <option data-tag="Honda" value="Airwave">Airwave</option>
+  <option data-tag="Honda" value="Ascot">Ascot</option>
+  <option data-tag="Honda" value="Ascot Innova">Ascot Innova</option>
+  <option data-tag="Honda" value="Avancier">Avancier</option>
+  <option data-tag="Honda" value="Ballade">Ballade</option>
+  <option data-tag="Honda" value="Beat">Beat</option>
+  <option data-tag="Honda" value="Breeze">Breeze</option>
+  <option data-tag="Honda" value="Brio">Brio</option>
+  <option data-tag="Honda" value="Capa">Capa</option>
+  <option data-tag="Honda" value="City">City</option>
+  <option data-tag="Honda" value="Civic">Civic</option>
+  <option data-tag="Honda" value="Civic Ferio">Civic Ferio</option>
+  <option data-tag="Honda" value="Civic Type R">Civic Type R</option>
+  <option data-tag="Honda" value="Clarity">Clarity</option>
+  <option data-tag="Honda" value="Concerto">Concerto</option>
+  <option data-tag="Honda" value="CR-V">CR-V</option>
+  <option data-tag="Honda" value="CR-X">CR-X</option>
+  <option data-tag="Honda" value="CR-Z">CR-Z</option>
+  <option data-tag="Honda" value="Crider">Crider</option>
+  <option data-tag="Honda" value="Crossroad">Crossroad</option>
+  <option data-tag="Honda" value="Crosstour">Crosstour</option>
+  <option data-tag="Honda" value="Domani">Domani</option>
+  <option data-tag="Honda" value="e">e</option>
+  <option data-tag="Honda" value="e:NP1">e:NP1</option>
+  <option data-tag="Honda" value="e:NS1">e:NS1</option>
+  <option data-tag="Honda" value="Edix">Edix</option>
+  <option data-tag="Honda" value="Element">Element</option>
+  <option data-tag="Honda" value="Elysion">Elysion</option>
+  <option data-tag="Honda" value="Envix">Envix</option>
+  <option data-tag="Honda" value="Fit">Fit</option>
+  <option data-tag="Honda" value="Fit Aria">Fit Aria</option>
+  <option data-tag="Honda" value="Fit Shuttle">Fit Shuttle</option>
+  <option data-tag="Honda" value="FR-V">FR-V</option>
+  <option data-tag="Honda" value="Freed">Freed</option>
+  <option data-tag="Honda" value="Grace">Grace</option>
+  <option data-tag="Honda" value="Horizon">Horizon</option>
+  <option data-tag="Honda" value="HR-V">HR-V</option>
+  <option data-tag="Honda" value="Insight">Insight</option>
+  <option data-tag="Honda" value="Inspire">Inspire</option>
+  <option data-tag="Honda" value="Integra">Integra</option>
+  <option data-tag="Honda" value="Integra SJ">Integra SJ</option>
+  <option data-tag="Honda" value="Jade">Jade</option>
+  <option data-tag="Honda" value="Jazz">Jazz</option>
+  <option data-tag="Honda" value="Lagreat">Lagreat</option>
+  <option data-tag="Honda" value="Legend">Legend</option>
+  <option data-tag="Honda" value="Life">Life</option>
+  <option data-tag="Honda" value="Logo">Logo</option>
+  <option data-tag="Honda" value="MDX">MDX</option>
+  <option data-tag="Honda" value="Mobilio">Mobilio</option>
+  <option data-tag="Honda" value="Mobilio Spike">Mobilio Spike</option>
+  <option data-tag="Honda" value="N-BOX">N-BOX</option>
+  <option data-tag="Honda" value="N-BOX Slash">N-BOX Slash</option>
+  <option data-tag="Honda" value="N-One">N-One</option>
+  <option data-tag="Honda" value="N-VAN">N-VAN</option>
+  <option data-tag="Honda" value="N-WGN">N-WGN</option>
+  <option data-tag="Honda" value="N360">N360</option>
+  <option data-tag="Honda" value="NSX">NSX</option>
+  <option data-tag="Honda" value="Odyssey">Odyssey</option>
+  <option data-tag="Honda" value="Odyssey (North America)">Odyssey (North America)</option>
+  <option data-tag="Honda" value="Orthia">Orthia</option>
+  <option data-tag="Honda" value="Partner">Partner</option>
+  <option data-tag="Honda" value="Passport">Passport</option>
+  <option data-tag="Honda" value="Pilot">Pilot</option>
+  <option data-tag="Honda" value="Prelude">Prelude</option>
+  <option data-tag="Honda" value="Quint">Quint</option>
+  <option data-tag="Honda" value="Rafaga">Rafaga</option>
+  <option data-tag="Honda" value="Ridgeline">Ridgeline</option>
+  <option data-tag="Honda" value="S-MX">S-MX</option>
+  <option data-tag="Honda" value="S2000">S2000</option>
+  <option data-tag="Honda" value="S500">S500</option>
+  <option data-tag="Honda" value="S600">S600</option>
+  <option data-tag="Honda" value="S660">S660</option>
+  <option data-tag="Honda" value="Saber">Saber</option>
+  <option data-tag="Honda" value="Shuttle">Shuttle</option>
+  <option data-tag="Honda" value="Stepwgn">Stepwgn</option>
+  <option data-tag="Honda" value="Stream">Stream</option>
+  <option data-tag="Honda" value="Street">Street</option>
+  <option data-tag="Honda" value="That'S">That'S</option>
+  <option data-tag="Honda" value="Today">Today</option>
+  <option data-tag="Honda" value="Torneo">Torneo</option>
+  <option data-tag="Honda" value="UR-V">UR-V</option>
+  <option data-tag="Honda" value="Vamos">Vamos</option>
+  <option data-tag="Honda" value="Vezel">Vezel</option>
+  <option data-tag="Honda" value="Vigor">Vigor</option>
+  <option data-tag="Honda" value="XR-V">XR-V</option>
+  <option data-tag="Honda" value="Z">Z</option>
+  <option data-tag="Honda" value="Zest">Zest</option>
+  <option data-tag="Honda" value="ZR-V">ZR-V</option>
+  <option data-tag="Hummer" value="H1">H1</option>
+  <option data-tag="Hummer" value="H2">H2</option>
+  <option data-tag="Hummer" value="H3">H3</option>
+  <option data-tag="Hyundai" value="Accent">Accent</option>
+  <option data-tag="Hyundai" value="Aslan">Aslan</option>
+  <option data-tag="Hyundai" value="Atos">Atos</option>
+  <option data-tag="Hyundai" value="Avante">Avante</option>
+  <option data-tag="Hyundai" value="Avante N">Avante N</option>
+  <option data-tag="Hyundai" value="Azera">Azera</option>
+  <option data-tag="Hyundai" value="Bayon">Bayon</option>
+  <option data-tag="Hyundai" value="Casper">Casper</option>
+  <option data-tag="Hyundai" value="Celesta">Celesta</option>
+  <option data-tag="Hyundai" value="Centennial">Centennial</option>
+  <option data-tag="Hyundai" value="Click">Click</option>
+  <option data-tag="Hyundai" value="Coupe">Coupe</option>
+  <option data-tag="Hyundai" value="Creta">Creta</option>
+  <option data-tag="Hyundai" value="Custo">Custo</option>
+  <option data-tag="Hyundai" value="Dynasty">Dynasty</option>
+  <option data-tag="Hyundai" value="Elantra">Elantra</option>
+  <option data-tag="Hyundai" value="Elantra N">Elantra N</option>
+  <option data-tag="Hyundai" value="Encino">Encino</option>
+  <option data-tag="Hyundai" value="Entourage">Entourage</option>
+  <option data-tag="Hyundai" value="EON">EON</option>
+  <option data-tag="Hyundai" value="Equus">Equus</option>
+  <option data-tag="Hyundai" value="Excel">Excel</option>
+  <option data-tag="Hyundai" value="Galloper">Galloper</option>
+  <option data-tag="Hyundai" value="Genesis">Genesis</option>
+  <option data-tag="Hyundai" value="Genesis Coupe">Genesis Coupe</option>
+  <option data-tag="Hyundai" value="Getz">Getz</option>
+  <option data-tag="Hyundai" value="Grace">Grace</option>
+  <option data-tag="Hyundai" value="Grand Starex">Grand Starex</option>
+  <option data-tag="Hyundai" value="Grandeur">Grandeur</option>
+  <option data-tag="Hyundai" value="H-1">H-1</option>
+  <option data-tag="Hyundai" value="H200">H200</option>
+  <option data-tag="Hyundai" value="HB20">HB20</option>
+  <option data-tag="Hyundai" value="i10">i10</option>
+  <option data-tag="Hyundai" value="i20">i20</option>
+  <option data-tag="Hyundai" value="i20 N">i20 N</option>
+  <option data-tag="Hyundai" value="i30">i30</option>
+  <option data-tag="Hyundai" value="i30 N">i30 N</option>
+  <option data-tag="Hyundai" value="i40">i40</option>
+  <option data-tag="Hyundai" value="IONIQ">IONIQ</option>
+  <option data-tag="Hyundai" value="IONIQ 5">IONIQ 5</option>
+  <option data-tag="Hyundai" value="IONIQ 6">IONIQ 6</option>
+  <option data-tag="Hyundai" value="ix20">ix20</option>
+  <option data-tag="Hyundai" value="ix35">ix35</option>
+  <option data-tag="Hyundai" value="ix55">ix55</option>
+  <option data-tag="Hyundai" value="Kona">Kona</option>
+  <option data-tag="Hyundai" value="Kona N">Kona N</option>
+  <option data-tag="Hyundai" value="Lantra">Lantra</option>
+  <option data-tag="Hyundai" value="Lavita">Lavita</option>
+  <option data-tag="Hyundai" value="Marcia">Marcia</option>
+  <option data-tag="Hyundai" value="Matrix">Matrix</option>
+  <option data-tag="Hyundai" value="Maxcruz">Maxcruz</option>
+  <option data-tag="Hyundai" value="Mistra">Mistra</option>
+  <option data-tag="Hyundai" value="Palisade">Palisade</option>
+  <option data-tag="Hyundai" value="Pony">Pony</option>
+  <option data-tag="Hyundai" value="Santa Cruz">Santa Cruz</option>
+  <option data-tag="Hyundai" value="Santa Fe">Santa Fe</option>
+  <option data-tag="Hyundai" value="Santamo">Santamo</option>
+  <option data-tag="Hyundai" value="Scoupe">Scoupe</option>
+  <option data-tag="Hyundai" value="Solaris">Solaris</option>
+  <option data-tag="Hyundai" value="Sonata">Sonata</option>
+  <option data-tag="Hyundai" value="Starex">Starex</option>
+  <option data-tag="Hyundai" value="Staria">Staria</option>
+  <option data-tag="Hyundai" value="Stellar">Stellar</option>
+  <option data-tag="Hyundai" value="Terracan">Terracan</option>
+  <option data-tag="Hyundai" value="Tiburon">Tiburon</option>
+  <option data-tag="Hyundai" value="Trajet">Trajet</option>
+  <option data-tag="Hyundai" value="Tucson">Tucson</option>
+  <option data-tag="Hyundai" value="Tuscani">Tuscani</option>
+  <option data-tag="Hyundai" value="Veloster">Veloster</option>
+  <option data-tag="Hyundai" value="Venue">Venue</option>
+  <option data-tag="Hyundai" value="Veracruz">Veracruz</option>
+  <option data-tag="Hyundai" value="Verna">Verna</option>
+  <option data-tag="Hyundai" value="XG">XG</option>
+  <option data-tag="Infiniti" value="EX">EX</option>
+  <option data-tag="Infiniti" value="FX">FX</option>
+  <option data-tag="Infiniti" value="G">G</option>
+  <option data-tag="Infiniti" value="I">I</option>
+  <option data-tag="Infiniti" value="J">J</option>
+  <option data-tag="Infiniti" value="JX">JX</option>
+  <option data-tag="Infiniti" value="M">M</option>
+  <option data-tag="Infiniti" value="Q">Q</option>
+  <option data-tag="Infiniti" value="Q30">Q30</option>
+  <option data-tag="Infiniti" value="Q40">Q40</option>
+  <option data-tag="Infiniti" value="Q50">Q50</option>
+  <option data-tag="Infiniti" value="Q60">Q60</option>
+  <option data-tag="Infiniti" value="Q70">Q70</option>
+  <option data-tag="Infiniti" value="QX30">QX30</option>
+  <option data-tag="Infiniti" value="QX4">QX4</option>
+  <option data-tag="Infiniti" value="QX50">QX50</option>
+  <option data-tag="Infiniti" value="QX55">QX55</option>
+  <option data-tag="Infiniti" value="QX56">QX56</option>
+  <option data-tag="Infiniti" value="QX60">QX60</option>
+  <option data-tag="Infiniti" value="QX70">QX70</option>
+  <option data-tag="Infiniti" value="QX80">QX80</option>
+  <option data-tag="Isuzu" value="117">117</option>
+  <option data-tag="Isuzu" value="Amigo">Amigo</option>
+  <option data-tag="Isuzu" value="Ascender">Ascender</option>
+  <option data-tag="Isuzu" value="Aska">Aska</option>
+  <option data-tag="Isuzu" value="Axiom">Axiom</option>
+  <option data-tag="Isuzu" value="Bellett">Bellett</option>
+  <option data-tag="Isuzu" value="Bighorn">Bighorn</option>
+  <option data-tag="Isuzu" value="D-Max">D-Max</option>
+  <option data-tag="Isuzu" value="Fargo">Fargo</option>
+  <option data-tag="Isuzu" value="Fargo Filly">Fargo Filly</option>
+  <option data-tag="Isuzu" value="Florian">Florian</option>
+  <option data-tag="Isuzu" value="Gemini">Gemini</option>
+  <option data-tag="Isuzu" value="Hombre">Hombre</option>
+  <option data-tag="Isuzu" value="Impulse">Impulse</option>
+  <option data-tag="Isuzu" value="KB">KB</option>
+  <option data-tag="Isuzu" value="Midi">Midi</option>
+  <option data-tag="Isuzu" value="MU">MU</option>
+  <option data-tag="Isuzu" value="MU-7">MU-7</option>
+  <option data-tag="Isuzu" value="MU-X">MU-X</option>
+  <option data-tag="Isuzu" value="Oasis">Oasis</option>
+  <option data-tag="Isuzu" value="Piazza">Piazza</option>
+  <option data-tag="Isuzu" value="Rodeo">Rodeo</option>
+  <option data-tag="Isuzu" value="Stylus">Stylus</option>
+  <option data-tag="Isuzu" value="TF (Pickup)">TF (Pickup)</option>
+  <option data-tag="Isuzu" value="Trooper">Trooper</option>
+  <option data-tag="Isuzu" value="VehiCross">VehiCross</option>
+  <option data-tag="Isuzu" value="Wizard">Wizard</option>
+  <option data-tag="IVECO" value="Massif">Massif</option>
+  <option data-tag="JAC" value="iEV7L">iEV7L</option>
+  <option data-tag="JAC" value="iEV7S">iEV7S</option>
+  <option data-tag="JAC" value="iEVA50">iEVA50</option>
+  <option data-tag="JAC" value="iEVS4">iEVS4</option>
+  <option data-tag="JAC" value="J2 (Yueyue)">J2 (Yueyue)</option>
+  <option data-tag="JAC" value="J3 (Tongyue,Tojoy)">J3 (Tongyue,Tojoy)</option>
+  <option data-tag="JAC" value="J4 (Heyue A30)">J4 (Heyue A30)</option>
+  <option data-tag="JAC" value="J5 (Heyue)">J5 (Heyue)</option>
+  <option data-tag="JAC" value="J6 (Heyue RS)">J6 (Heyue RS)</option>
+  <option data-tag="JAC" value="J7">J7</option>
+  <option data-tag="JAC" value="J7 (Binyue)">J7 (Binyue)</option>
+  <option data-tag="JAC" value="JS4">JS4</option>
+  <option data-tag="JAC" value="JS6">JS6</option>
+  <option data-tag="JAC" value="M1 (Refine)">M1 (Refine)</option>
+  <option data-tag="JAC" value="M5">M5</option>
+  <option data-tag="JAC" value="S1 (Rein)">S1 (Rein)</option>
+  <option data-tag="JAC" value="S3">S3</option>
+  <option data-tag="JAC" value="S5 (Eagle)">S5 (Eagle)</option>
+  <option data-tag="JAC" value="S7">S7</option>
+  <option data-tag="JAC" value="Sehol A5 Plus">Sehol A5 Plus</option>
+  <option data-tag="JAC" value="Sehol Aipao">Sehol Aipao</option>
+  <option data-tag="JAC" value="Sehol E20X">Sehol E20X</option>
+  <option data-tag="JAC" value="Sehol X8">Sehol X8</option>
+  <option data-tag="JAC" value="Sehol X8 Plus">Sehol X8 Plus</option>
+  <option data-tag="JAC" value="T6">T6</option>
+  <option data-tag="JAC" value="T8 Pro">T8 Pro</option>
+  <option data-tag="Jaguar" value="E-Pace">E-Pace</option>
+  <option data-tag="Jaguar" value="E-type">E-type</option>
+  <option data-tag="Jaguar" value="F-Pace">F-Pace</option>
+  <option data-tag="Jaguar" value="F-Type">F-Type</option>
+  <option data-tag="Jaguar" value="I-Pace">I-Pace</option>
+  <option data-tag="Jaguar" value="Mark 2">Mark 2</option>
+  <option data-tag="Jaguar" value="Mark IX">Mark IX</option>
+  <option data-tag="Jaguar" value="S-Type">S-Type</option>
+  <option data-tag="Jaguar" value="X-Type">X-Type</option>
+  <option data-tag="Jaguar" value="XE">XE</option>
+  <option data-tag="Jaguar" value="XF">XF</option>
+  <option data-tag="Jaguar" value="XFR">XFR</option>
+  <option data-tag="Jaguar" value="XJ">XJ</option>
+  <option data-tag="Jaguar" value="XJ220">XJ220</option>
+  <option data-tag="Jaguar" value="XJR">XJR</option>
+  <option data-tag="Jaguar" value="XJS">XJS</option>
+  <option data-tag="Jaguar" value="XK">XK</option>
+  <option data-tag="Jaguar" value="XKR">XKR</option>
+  <option data-tag="Jeep" value="Cherokee">Cherokee</option>
+  <option data-tag="Jeep" value="CJ">CJ</option>
+  <option data-tag="Jeep" value="Comanche">Comanche</option>
+  <option data-tag="Jeep" value="Commander">Commander</option>
+  <option data-tag="Jeep" value="Compass">Compass</option>
+  <option data-tag="Jeep" value="Gladiator">Gladiator</option>
+  <option data-tag="Jeep" value="Grand Cherokee">Grand Cherokee</option>
+  <option data-tag="Jeep" value="Liberty (North America)">Liberty (North America)</option>
+  <option data-tag="Jeep" value="Liberty (Patriot)">Liberty (Patriot)</option>
+  <option data-tag="Jeep" value="Renegade">Renegade</option>
+  <option data-tag="Jeep" value="Wagoneer">Wagoneer</option>
+  <option data-tag="Jeep" value="Wrangler">Wrangler</option>
+  <option data-tag="Kia" value="Avella">Avella</option>
+  <option data-tag="Kia" value="Borrego">Borrego</option>
+  <option data-tag="Kia" value="Cadenza">Cadenza</option>
+  <option data-tag="Kia" value="Capital">Capital</option>
+  <option data-tag="Kia" value="Carens">Carens</option>
+  <option data-tag="Kia" value="Carnival">Carnival</option>
+  <option data-tag="Kia" value="Carstar">Carstar</option>
+  <option data-tag="Kia" value="Ceed">Ceed</option>
+  <option data-tag="Kia" value="Ceed GT">Ceed GT</option>
+  <option data-tag="Kia" value="Cerato">Cerato</option>
+  <option data-tag="Kia" value="Clarus">Clarus</option>
+  <option data-tag="Kia" value="Concord">Concord</option>
+  <option data-tag="Kia" value="Elan">Elan</option>
+  <option data-tag="Kia" value="Enterprise">Enterprise</option>
+  <option data-tag="Kia" value="EV6">EV6</option>
+  <option data-tag="Kia" value="Forte">Forte</option>
+  <option data-tag="Kia" value="Joice">Joice</option>
+  <option data-tag="Kia" value="K3">K3</option>
+  <option data-tag="Kia" value="K5">K5</option>
+  <option data-tag="Kia" value="K7">K7</option>
+  <option data-tag="Kia" value="K8">K8</option>
+  <option data-tag="Kia" value="K9">K9</option>
+  <option data-tag="Kia" value="K900">K900</option>
+  <option data-tag="Kia" value="KX3">KX3</option>
+  <option data-tag="Kia" value="Lotze">Lotze</option>
+  <option data-tag="Kia" value="Magentis">Magentis</option>
+  <option data-tag="Kia" value="Mentor">Mentor</option>
+  <option data-tag="Kia" value="Mohave">Mohave</option>
+  <option data-tag="Kia" value="Morning">Morning</option>
+  <option data-tag="Kia" value="Niro">Niro</option>
+  <option data-tag="Kia" value="Opirus">Opirus</option>
+  <option data-tag="Kia" value="Optima">Optima</option>
+  <option data-tag="Kia" value="Picanto">Picanto</option>
+  <option data-tag="Kia" value="Potentia">Potentia</option>
+  <option data-tag="Kia" value="Pregio">Pregio</option>
+  <option data-tag="Kia" value="Pride">Pride</option>
+  <option data-tag="Kia" value="Proceed">Proceed</option>
+  <option data-tag="Kia" value="Quanlima">Quanlima</option>
+  <option data-tag="Kia" value="Quoris">Quoris</option>
+  <option data-tag="Kia" value="Ray">Ray</option>
+  <option data-tag="Kia" value="Retona">Retona</option>
+  <option data-tag="Kia" value="Rio">Rio</option>
+  <option data-tag="Kia" value="Sedona">Sedona</option>
+  <option data-tag="Kia" value="Seltos">Seltos</option>
+  <option data-tag="Kia" value="Sephia">Sephia</option>
+  <option data-tag="Kia" value="Shuma">Shuma</option>
+  <option data-tag="Kia" value="Sorento">Sorento</option>
+  <option data-tag="Kia" value="Soul">Soul</option>
+  <option data-tag="Kia" value="Soul EV">Soul EV</option>
+  <option data-tag="Kia" value="Spectra">Spectra</option>
+  <option data-tag="Kia" value="Sportage">Sportage</option>
+  <option data-tag="Kia" value="Sportage (China)">Sportage (China)</option>
+  <option data-tag="Kia" value="Stinger">Stinger</option>
+  <option data-tag="Kia" value="Stonic">Stonic</option>
+  <option data-tag="Kia" value="Telluride">Telluride</option>
+  <option data-tag="Kia" value="Towner">Towner</option>
+  <option data-tag="Kia" value="Venga">Venga</option>
+  <option data-tag="Kia" value="Visto">Visto</option>
+  <option data-tag="Kia" value="X-Trek">X-Trek</option>
+  <option data-tag="Kia" value="XCeed">XCeed</option>
+  <option data-tag="Lancia" value="A 112">A 112</option>
+  <option data-tag="Lancia" value="Appia">Appia</option>
+  <option data-tag="Lancia" value="Aurelia">Aurelia</option>
+  <option data-tag="Lancia" value="Beta">Beta</option>
+  <option data-tag="Lancia" value="Dedra">Dedra</option>
+  <option data-tag="Lancia" value="Delta">Delta</option>
+  <option data-tag="Lancia" value="Flaminia">Flaminia</option>
+  <option data-tag="Lancia" value="Flavia">Flavia</option>
+  <option data-tag="Lancia" value="Fulvia">Fulvia</option>
+  <option data-tag="Lancia" value="Gamma">Gamma</option>
+  <option data-tag="Lancia" value="Hyena">Hyena</option>
+  <option data-tag="Lancia" value="Kappa">Kappa</option>
+  <option data-tag="Lancia" value="Lambda">Lambda</option>
+  <option data-tag="Lancia" value="Lybra">Lybra</option>
+  <option data-tag="Lancia" value="Monte Carlo">Monte Carlo</option>
+  <option data-tag="Lancia" value="Musa">Musa</option>
+  <option data-tag="Lancia" value="Phedra">Phedra</option>
+  <option data-tag="Lancia" value="Prisma">Prisma</option>
+  <option data-tag="Lancia" value="Rally 037">Rally 037</option>
+  <option data-tag="Lancia" value="Stratos">Stratos</option>
+  <option data-tag="Lancia" value="Thema">Thema</option>
+  <option data-tag="Lancia" value="Thesis">Thesis</option>
+  <option data-tag="Lancia" value="Trevi">Trevi</option>
+  <option data-tag="Lancia" value="Voyager">Voyager</option>
+  <option data-tag="Lancia" value="Y10">Y10</option>
+  <option data-tag="Lancia" value="Ypsilon">Ypsilon</option>
+  <option data-tag="Lancia" value="Zeta">Zeta</option>
+  <option data-tag="Land Rover" value="Defender">Defender</option>
+  <option data-tag="Land Rover" value="Discovery">Discovery</option>
+  <option data-tag="Land Rover" value="Discovery Sport">Discovery Sport</option>
+  <option data-tag="Land Rover" value="Freelander">Freelander</option>
+  <option data-tag="Land Rover" value="Range Rover">Range Rover</option>
+  <option data-tag="Land Rover" value="Range Rover Evoque">Range Rover Evoque</option>
+  <option data-tag="Land Rover" value="Range Rover Sport">Range Rover Sport</option>
+  <option data-tag="Land Rover" value="Range Rover Velar">Range Rover Velar</option>
+  <option data-tag="Land Rover" value="Series I">Series I</option>
+  <option data-tag="Land Rover" value="Series II">Series II</option>
+  <option data-tag="Land Rover" value="Series III">Series III</option>
+  <option data-tag="Lexus" value="CT">CT</option>
+  <option data-tag="Lexus" value="ES">ES</option>
+  <option data-tag="Lexus" value="GS">GS</option>
+  <option data-tag="Lexus" value="GS F">GS F</option>
+  <option data-tag="Lexus" value="GX">GX</option>
+  <option data-tag="Lexus" value="HS">HS</option>
+  <option data-tag="Lexus" value="IS">IS</option>
+  <option data-tag="Lexus" value="IS F">IS F</option>
+  <option data-tag="Lexus" value="LC">LC</option>
+  <option data-tag="Lexus" value="LFA">LFA</option>
+  <option data-tag="Lexus" value="LM">LM</option>
+  <option data-tag="Lexus" value="LS">LS</option>
+  <option data-tag="Lexus" value="LX">LX</option>
+  <option data-tag="Lexus" value="NX">NX</option>
+  <option data-tag="Lexus" value="RC">RC</option>
+  <option data-tag="Lexus" value="RC F">RC F</option>
+  <option data-tag="Lexus" value="RX">RX</option>
+  <option data-tag="Lexus" value="RZ">RZ</option>
+  <option data-tag="Lexus" value="SC">SC</option>
+  <option data-tag="Lexus" value="UX">UX</option>
+  <option data-tag="Lifan" value="650 EV">650 EV</option>
+  <option data-tag="Lifan" value="Breez (520)">Breez (520)</option>
+  <option data-tag="Lifan" value="Cebrium (720)">Cebrium (720)</option>
+  <option data-tag="Lifan" value="Celliya (530)">Celliya (530)</option>
+  <option data-tag="Lifan" value="Murman (820)">Murman (820)</option>
+  <option data-tag="Lifan" value="Myway">Myway</option>
+  <option data-tag="Lifan" value="Smily">Smily</option>
+  <option data-tag="Lifan" value="Solano">Solano</option>
+  <option data-tag="Lifan" value="X50">X50</option>
+  <option data-tag="Lifan" value="X60">X60</option>
+  <option data-tag="Lifan" value="X70">X70</option>
+  <option data-tag="Mazda" value="1000">1000</option>
+  <option data-tag="Mazda" value="121">121</option>
+  <option data-tag="Mazda" value="1300">1300</option>
+  <option data-tag="Mazda" value="2">2</option>
+  <option data-tag="Mazda" value="3">3</option>
+  <option data-tag="Mazda" value="3 MPS">3 MPS</option>
+  <option data-tag="Mazda" value="323">323</option>
+  <option data-tag="Mazda" value="5">5</option>
+  <option data-tag="Mazda" value="6">6</option>
+  <option data-tag="Mazda" value="6 MPS">6 MPS</option>
+  <option data-tag="Mazda" value="616">616</option>
+  <option data-tag="Mazda" value="626">626</option>
+  <option data-tag="Mazda" value="818">818</option>
+  <option data-tag="Mazda" value="929">929</option>
+  <option data-tag="Mazda" value="Atenza">Atenza</option>
+  <option data-tag="Mazda" value="Autozam AZ-3">Autozam AZ-3</option>
+  <option data-tag="Mazda" value="Autozam Clef">Autozam Clef</option>
+  <option data-tag="Mazda" value="Axela">Axela</option>
+  <option data-tag="Mazda" value="AZ-1">AZ-1</option>
+  <option data-tag="Mazda" value="AZ-Offroad">AZ-Offroad</option>
+  <option data-tag="Mazda" value="AZ-Wagon">AZ-Wagon</option>
+  <option data-tag="Mazda" value="B-series">B-series</option>
+  <option data-tag="Mazda" value="Biante">Biante</option>
+  <option data-tag="Mazda" value="Bongo">Bongo</option>
+  <option data-tag="Mazda" value="Bongo Friendee">Bongo Friendee</option>
+  <option data-tag="Mazda" value="BT-50">BT-50</option>
+  <option data-tag="Mazda" value="Capella">Capella</option>
+  <option data-tag="Mazda" value="Carol">Carol</option>
+  <option data-tag="Mazda" value="Chantez">Chantez</option>
+  <option data-tag="Mazda" value="Cosmo">Cosmo</option>
+  <option data-tag="Mazda" value="Cronos">Cronos</option>
+  <option data-tag="Mazda" value="CX-3">CX-3</option>
+  <option data-tag="Mazda" value="CX-30">CX-30</option>
+  <option data-tag="Mazda" value="CX-4">CX-4</option>
+  <option data-tag="Mazda" value="CX-5">CX-5</option>
+  <option data-tag="Mazda" value="CX-60">CX-60</option>
+  <option data-tag="Mazda" value="CX-7">CX-7</option>
+  <option data-tag="Mazda" value="CX-8">CX-8</option>
+  <option data-tag="Mazda" value="CX-9">CX-9</option>
+  <option data-tag="Mazda" value="Demio">Demio</option>
+  <option data-tag="Mazda" value="Efini MS-6">Efini MS-6</option>
+  <option data-tag="Mazda" value="Efini MS-8">Efini MS-8</option>
+  <option data-tag="Mazda" value="Efini MS-9">Efini MS-9</option>
+  <option data-tag="Mazda" value="Etude">Etude</option>
+  <option data-tag="Mazda" value="Eunos 100">Eunos 100</option>
+  <option data-tag="Mazda" value="Eunos 300">Eunos 300</option>
+  <option data-tag="Mazda" value="Eunos 500">Eunos 500</option>
+  <option data-tag="Mazda" value="Eunos 800">Eunos 800</option>
+  <option data-tag="Mazda" value="Eunos Cosmo">Eunos Cosmo</option>
+  <option data-tag="Mazda" value="Eunos Presso">Eunos Presso</option>
+  <option data-tag="Mazda" value="Familia">Familia</option>
+  <option data-tag="Mazda" value="Flair">Flair</option>
+  <option data-tag="Mazda" value="Flair Crossover">Flair Crossover</option>
+  <option data-tag="Mazda" value="Flair Wagon">Flair Wagon</option>
+  <option data-tag="Mazda" value="Lantis">Lantis</option>
+  <option data-tag="Mazda" value="Laputa">Laputa</option>
+  <option data-tag="Mazda" value="Luce">Luce</option>
+  <option data-tag="Mazda" value="Millenia">Millenia</option>
+  <option data-tag="Mazda" value="MPV">MPV</option>
+  <option data-tag="Mazda" value="MX-3">MX-3</option>
+  <option data-tag="Mazda" value="MX-30">MX-30</option>
+  <option data-tag="Mazda" value="MX-5">MX-5</option>
+  <option data-tag="Mazda" value="MX-6">MX-6</option>
+  <option data-tag="Mazda" value="Navajo">Navajo</option>
+  <option data-tag="Mazda" value="Persona">Persona</option>
+  <option data-tag="Mazda" value="Premacy">Premacy</option>
+  <option data-tag="Mazda" value="Proceed">Proceed</option>
+  <option data-tag="Mazda" value="Proceed Levante">Proceed Levante</option>
+  <option data-tag="Mazda" value="Proceed Marvie">Proceed Marvie</option>
+  <option data-tag="Mazda" value="Protege">Protege</option>
+  <option data-tag="Mazda" value="R360">R360</option>
+  <option data-tag="Mazda" value="Revue">Revue</option>
+  <option data-tag="Mazda" value="Roadster">Roadster</option>
+  <option data-tag="Mazda" value="RX-7">RX-7</option>
+  <option data-tag="Mazda" value="RX-8">RX-8</option>
+  <option data-tag="Mazda" value="Scrum">Scrum</option>
+  <option data-tag="Mazda" value="Sentia">Sentia</option>
+  <option data-tag="Mazda" value="Spiano">Spiano</option>
+  <option data-tag="Mazda" value="Tribute">Tribute</option>
+  <option data-tag="Mazda" value="Verisa">Verisa</option>
+  <option data-tag="Mazda" value="Xedos 6">Xedos 6</option>
+  <option data-tag="Mazda" value="Xedos 9">Xedos 9</option>
+  <option data-tag="Mercedes-Benz" value="190 (W201)">190 (W201)</option>
+  <option data-tag="Mercedes-Benz" value="190 SL">190 SL</option>
+  <option data-tag="Mercedes-Benz" value="220 (W187)">220 (W187)</option>
+  <option data-tag="Mercedes-Benz" value="A-Класс">A-Класс</option>
+  <option data-tag="Mercedes-Benz" value="A-Класс AMG">A-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="AMG GT">AMG GT</option>
+  <option data-tag="Mercedes-Benz" value="AMG ONE">AMG ONE</option>
+  <option data-tag="Mercedes-Benz" value="B-Класс">B-Класс</option>
+  <option data-tag="Mercedes-Benz" value="C-Класс">C-Класс</option>
+  <option data-tag="Mercedes-Benz" value="C-Класс AMG">C-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="Citan">Citan</option>
+  <option data-tag="Mercedes-Benz" value="CL-Класс">CL-Класс</option>
+  <option data-tag="Mercedes-Benz" value="CL-Класс AMG">CL-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="CLA">CLA</option>
+  <option data-tag="Mercedes-Benz" value="CLA AMG">CLA AMG</option>
+  <option data-tag="Mercedes-Benz" value="CLC-Класс">CLC-Класс</option>
+  <option data-tag="Mercedes-Benz" value="CLK AMG GTR">CLK AMG GTR</option>
+  <option data-tag="Mercedes-Benz" value="CLK-Класс">CLK-Класс</option>
+  <option data-tag="Mercedes-Benz" value="CLK-Класс AMG">CLK-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="CLS">CLS</option>
+  <option data-tag="Mercedes-Benz" value="CLS AMG">CLS AMG</option>
+  <option data-tag="Mercedes-Benz" value="E-Класс">E-Класс</option>
+  <option data-tag="Mercedes-Benz" value="E-Класс AMG">E-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="EQA">EQA</option>
+  <option data-tag="Mercedes-Benz" value="EQB">EQB</option>
+  <option data-tag="Mercedes-Benz" value="EQC">EQC</option>
+  <option data-tag="Mercedes-Benz" value="EQE">EQE</option>
+  <option data-tag="Mercedes-Benz" value="EQE AMG">EQE AMG</option>
+  <option data-tag="Mercedes-Benz" value="EQE SUV">EQE SUV</option>
+  <option data-tag="Mercedes-Benz" value="EQE SUV AMG">EQE SUV AMG</option>
+  <option data-tag="Mercedes-Benz" value="EQS">EQS</option>
+  <option data-tag="Mercedes-Benz" value="EQS AMG">EQS AMG</option>
+  <option data-tag="Mercedes-Benz" value="EQS SUV">EQS SUV</option>
+  <option data-tag="Mercedes-Benz" value="EQV">EQV</option>
+  <option data-tag="Mercedes-Benz" value="G-Класс">G-Класс</option>
+  <option data-tag="Mercedes-Benz" value="G-Класс AMG">G-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="G-Класс AMG 6x6">G-Класс AMG 6x6</option>
+  <option data-tag="Mercedes-Benz" value="GL-Класс">GL-Класс</option>
+  <option data-tag="Mercedes-Benz" value="GL-Класс AMG">GL-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="GLA">GLA</option>
+  <option data-tag="Mercedes-Benz" value="GLA AMG">GLA AMG</option>
+  <option data-tag="Mercedes-Benz" value="GLB">GLB</option>
+  <option data-tag="Mercedes-Benz" value="GLB AMG">GLB AMG</option>
+  <option data-tag="Mercedes-Benz" value="GLC">GLC</option>
+  <option data-tag="Mercedes-Benz" value="GLC AMG">GLC AMG</option>
+  <option data-tag="Mercedes-Benz" value="GLC Coupe">GLC Coupe</option>
+  <option data-tag="Mercedes-Benz" value="GLC Coupe AMG">GLC Coupe AMG</option>
+  <option data-tag="Mercedes-Benz" value="GLE">GLE</option>
+  <option data-tag="Mercedes-Benz" value="GLE AMG">GLE AMG</option>
+  <option data-tag="Mercedes-Benz" value="GLE Coupe">GLE Coupe</option>
+  <option data-tag="Mercedes-Benz" value="GLE Coupe AMG">GLE Coupe AMG</option>
+  <option data-tag="Mercedes-Benz" value="GLK-Класс">GLK-Класс</option>
+  <option data-tag="Mercedes-Benz" value="GLS">GLS</option>
+  <option data-tag="Mercedes-Benz" value="GLS AMG">GLS AMG</option>
+  <option data-tag="Mercedes-Benz" value="M-Класс">M-Класс</option>
+  <option data-tag="Mercedes-Benz" value="M-Класс AMG">M-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="Marco Polo">Marco Polo</option>
+  <option data-tag="Mercedes-Benz" value="Maybach G 650 Landaulet">Maybach G 650 Landaulet</option>
+  <option data-tag="Mercedes-Benz" value="Maybach GLS">Maybach GLS</option>
+  <option data-tag="Mercedes-Benz" value="Maybach S-Класс">Maybach S-Класс</option>
+  <option data-tag="Mercedes-Benz" value="Metris">Metris</option>
+  <option data-tag="Mercedes-Benz" value="R-Класс">R-Класс</option>
+  <option data-tag="Mercedes-Benz" value="R-Класс AMG">R-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="S-Класс">S-Класс</option>
+  <option data-tag="Mercedes-Benz" value="S-Класс AMG">S-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="Simplex">Simplex</option>
+  <option data-tag="Mercedes-Benz" value="SL-Класс">SL-Класс</option>
+  <option data-tag="Mercedes-Benz" value="SL-Класс AMG">SL-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="SLC">SLC</option>
+  <option data-tag="Mercedes-Benz" value="SLC AMG">SLC AMG</option>
+  <option data-tag="Mercedes-Benz" value="SLK-Класс">SLK-Класс</option>
+  <option data-tag="Mercedes-Benz" value="SLK-Класс AMG">SLK-Класс AMG</option>
+  <option data-tag="Mercedes-Benz" value="SLR McLaren">SLR McLaren</option>
+  <option data-tag="Mercedes-Benz" value="SLS AMG">SLS AMG</option>
+  <option data-tag="Mercedes-Benz" value="T-Класс">T-Класс</option>
+  <option data-tag="Mercedes-Benz" value="V-Класс">V-Класс</option>
+  <option data-tag="Mercedes-Benz" value="Vaneo">Vaneo</option>
+  <option data-tag="Mercedes-Benz" value="Viano">Viano</option>
+  <option data-tag="Mercedes-Benz" value="Vito">Vito</option>
+  <option data-tag="Mercedes-Benz" value="W100">W100</option>
+  <option data-tag="Mercedes-Benz" value="W105">W105</option>
+  <option data-tag="Mercedes-Benz" value="W108">W108</option>
+  <option data-tag="Mercedes-Benz" value="W110">W110</option>
+  <option data-tag="Mercedes-Benz" value="W111">W111</option>
+  <option data-tag="Mercedes-Benz" value="W114">W114</option>
+  <option data-tag="Mercedes-Benz" value="W115">W115</option>
+  <option data-tag="Mercedes-Benz" value="W120">W120</option>
+  <option data-tag="Mercedes-Benz" value="W121">W121</option>
+  <option data-tag="Mercedes-Benz" value="W123">W123</option>
+  <option data-tag="Mercedes-Benz" value="W124">W124</option>
+  <option data-tag="Mercedes-Benz" value="W128">W128</option>
+  <option data-tag="Mercedes-Benz" value="W136">W136</option>
+  <option data-tag="Mercedes-Benz" value="W138">W138</option>
+  <option data-tag="Mercedes-Benz" value="W142">W142</option>
+  <option data-tag="Mercedes-Benz" value="W180">W180</option>
+  <option data-tag="Mercedes-Benz" value="W186">W186</option>
+  <option data-tag="Mercedes-Benz" value="W188">W188</option>
+  <option data-tag="Mercedes-Benz" value="W189">W189</option>
+  <option data-tag="Mercedes-Benz" value="W191">W191</option>
+  <option data-tag="Mercedes-Benz" value="W21">W21</option>
+  <option data-tag="Mercedes-Benz" value="W29">W29</option>
+  <option data-tag="Mercedes-Benz" value="X-Класс">X-Класс</option>
+  <option data-tag="MINI" value="Cabrio">Cabrio</option>
+  <option data-tag="MINI" value="Clubman">Clubman</option>
+  <option data-tag="MINI" value="Countryman">Countryman</option>
+  <option data-tag="MINI" value="Coupe">Coupe</option>
+  <option data-tag="MINI" value="Hatch">Hatch</option>
+  <option data-tag="MINI" value="Paceman">Paceman</option>
+  <option data-tag="MINI" value="Roadster">Roadster</option>
+  <option data-tag="Mitsubishi" value="3000 GT">3000 GT</option>
+  <option data-tag="Mitsubishi" value="500">500</option>
+  <option data-tag="Mitsubishi" value="Airtrek">Airtrek</option>
+  <option data-tag="Mitsubishi" value="Aspire">Aspire</option>
+  <option data-tag="Mitsubishi" value="ASX">ASX</option>
+  <option data-tag="Mitsubishi" value="Attrage">Attrage</option>
+  <option data-tag="Mitsubishi" value="Bravo">Bravo</option>
+  <option data-tag="Mitsubishi" value="Carisma">Carisma</option>
+  <option data-tag="Mitsubishi" value="Celeste">Celeste</option>
+  <option data-tag="Mitsubishi" value="Challenger">Challenger</option>
+  <option data-tag="Mitsubishi" value="Chariot">Chariot</option>
+  <option data-tag="Mitsubishi" value="Colt">Colt</option>
+  <option data-tag="Mitsubishi" value="Cordia">Cordia</option>
+  <option data-tag="Mitsubishi" value="Debonair">Debonair</option>
+  <option data-tag="Mitsubishi" value="Delica">Delica</option>
+  <option data-tag="Mitsubishi" value="Delica D:2">Delica D:2</option>
+  <option data-tag="Mitsubishi" value="Delica D:3">Delica D:3</option>
+  <option data-tag="Mitsubishi" value="Delica D:5">Delica D:5</option>
+  <option data-tag="Mitsubishi" value="Diamante">Diamante</option>
+  <option data-tag="Mitsubishi" value="Dignity">Dignity</option>
+  <option data-tag="Mitsubishi" value="Dingo">Dingo</option>
+  <option data-tag="Mitsubishi" value="Dion">Dion</option>
+  <option data-tag="Mitsubishi" value="Eclipse">Eclipse</option>
+  <option data-tag="Mitsubishi" value="Eclipse Cross">Eclipse Cross</option>
+  <option data-tag="Mitsubishi" value="eK Active">eK Active</option>
+  <option data-tag="Mitsubishi" value="eK Classic">eK Classic</option>
+  <option data-tag="Mitsubishi" value="eK Custom">eK Custom</option>
+  <option data-tag="Mitsubishi" value="eK Space">eK Space</option>
+  <option data-tag="Mitsubishi" value="eK Sport">eK Sport</option>
+  <option data-tag="Mitsubishi" value="eK Wagon">eK Wagon</option>
+  <option data-tag="Mitsubishi" value="Emeraude">Emeraude</option>
+  <option data-tag="Mitsubishi" value="Endeavor">Endeavor</option>
+  <option data-tag="Mitsubishi" value="Eterna">Eterna</option>
+  <option data-tag="Mitsubishi" value="Freeca">Freeca</option>
+  <option data-tag="Mitsubishi" value="FTO">FTO</option>
+  <option data-tag="Mitsubishi" value="Galant">Galant</option>
+  <option data-tag="Mitsubishi" value="Galant Fortis">Galant Fortis</option>
+  <option data-tag="Mitsubishi" value="Grandis">Grandis</option>
+  <option data-tag="Mitsubishi" value="GTO">GTO</option>
+  <option data-tag="Mitsubishi" value="i">i</option>
+  <option data-tag="Mitsubishi" value="i-MiEV">i-MiEV</option>
+  <option data-tag="Mitsubishi" value="Jeep J">Jeep J</option>
+  <option data-tag="Mitsubishi" value="L200">L200</option>
+  <option data-tag="Mitsubishi" value="L300">L300</option>
+  <option data-tag="Mitsubishi" value="L400">L400</option>
+  <option data-tag="Mitsubishi" value="Lancer">Lancer</option>
+  <option data-tag="Mitsubishi" value="Lancer Cargo">Lancer Cargo</option>
+  <option data-tag="Mitsubishi" value="Lancer Evolution">Lancer Evolution</option>
+  <option data-tag="Mitsubishi" value="Lancer Ralliart">Lancer Ralliart</option>
+  <option data-tag="Mitsubishi" value="Legnum">Legnum</option>
+  <option data-tag="Mitsubishi" value="Libero">Libero</option>
+  <option data-tag="Mitsubishi" value="Minica">Minica</option>
+  <option data-tag="Mitsubishi" value="Minicab">Minicab</option>
+  <option data-tag="Mitsubishi" value="Mirage">Mirage</option>
+  <option data-tag="Mitsubishi" value="Montero">Montero</option>
+  <option data-tag="Mitsubishi" value="Montero Sport">Montero Sport</option>
+  <option data-tag="Mitsubishi" value="Outlander">Outlander</option>
+  <option data-tag="Mitsubishi" value="Outlander Sport">Outlander Sport</option>
+  <option data-tag="Mitsubishi" value="Pajero">Pajero</option>
+  <option data-tag="Mitsubishi" value="Pajero iO">Pajero iO</option>
+  <option data-tag="Mitsubishi" value="Pajero Junior">Pajero Junior</option>
+  <option data-tag="Mitsubishi" value="Pajero Mini">Pajero Mini</option>
+  <option data-tag="Mitsubishi" value="Pajero Pinin">Pajero Pinin</option>
+  <option data-tag="Mitsubishi" value="Pajero Sport">Pajero Sport</option>
+  <option data-tag="Mitsubishi" value="Pistachio">Pistachio</option>
+  <option data-tag="Mitsubishi" value="Proudia">Proudia</option>
+  <option data-tag="Mitsubishi" value="Raider">Raider</option>
+  <option data-tag="Mitsubishi" value="RVR">RVR</option>
+  <option data-tag="Mitsubishi" value="Sapporo">Sapporo</option>
+  <option data-tag="Mitsubishi" value="Savrin">Savrin</option>
+  <option data-tag="Mitsubishi" value="Sigma">Sigma</option>
+  <option data-tag="Mitsubishi" value="Space Gear">Space Gear</option>
+  <option data-tag="Mitsubishi" value="Space Runner">Space Runner</option>
+  <option data-tag="Mitsubishi" value="Space Star">Space Star</option>
+  <option data-tag="Mitsubishi" value="Space Wagon">Space Wagon</option>
+  <option data-tag="Mitsubishi" value="Starion">Starion</option>
+  <option data-tag="Mitsubishi" value="Strada">Strada</option>
+  <option data-tag="Mitsubishi" value="Toppo">Toppo</option>
+  <option data-tag="Mitsubishi" value="Town Box">Town Box</option>
+  <option data-tag="Mitsubishi" value="Tredia">Tredia</option>
+  <option data-tag="Mitsubishi" value="Triton">Triton</option>
+  <option data-tag="Mitsubishi" value="Xpander">Xpander</option>
+  <option data-tag="Москвич" value="2136">2136</option>
+  <option data-tag="Москвич" value="2137">2137</option>
+  <option data-tag="Москвич" value="2138">2138</option>
+  <option data-tag="Москвич" value="2140">2140</option>
+  <option data-tag="Москвич" value="2141">2141</option>
+  <option data-tag="Москвич" value="2142">2142</option>
+  <option data-tag="Москвич" value="3">3</option>
+  <option data-tag="Москвич" value="3е">3е</option>
+  <option data-tag="Москвич" value="400">400</option>
+  <option data-tag="Москвич" value="401">401</option>
+  <option data-tag="Москвич" value="402">402</option>
+  <option data-tag="Москвич" value="403">403</option>
+  <option data-tag="Москвич" value="407">407</option>
+  <option data-tag="Москвич" value="408">408</option>
+  <option data-tag="Москвич" value="410">410</option>
+  <option data-tag="Москвич" value="411">411</option>
+  <option data-tag="Москвич" value="412">412</option>
+  <option data-tag="Москвич" value="423">423</option>
+  <option data-tag="Москвич" value="424">424</option>
+  <option data-tag="Москвич" value="426">426</option>
+  <option data-tag="Москвич" value="427">427</option>
+  <option data-tag="Москвич" value="430">430</option>
+  <option data-tag="Москвич" value="434П">434П</option>
+  <option data-tag="Москвич" value="Дуэт">Дуэт</option>
+  <option data-tag="Москвич" value="Иван Калита">Иван Калита</option>
+  <option data-tag="Москвич" value="Князь Владимир">Князь Владимир</option>
+  <option data-tag="Москвич" value="Святогор">Святогор</option>
+  <option data-tag="Москвич" value="Юрий Долгорукий">Юрий Долгорукий</option>
+  <option data-tag="Nissan" value="100NX">100NX</option>
+  <option data-tag="Nissan" value="180SX">180SX</option>
+  <option data-tag="Nissan" value="200SX">200SX</option>
+  <option data-tag="Nissan" value="240SX">240SX</option>
+  <option data-tag="Nissan" value="280ZX">280ZX</option>
+  <option data-tag="Nissan" value="300ZX">300ZX</option>
+  <option data-tag="Nissan" value="350Z">350Z</option>
+  <option data-tag="Nissan" value="370Z">370Z</option>
+  <option data-tag="Nissan" value="AD">AD</option>
+  <option data-tag="Nissan" value="Almera">Almera</option>
+  <option data-tag="Nissan" value="Almera Classic">Almera Classic</option>
+  <option data-tag="Nissan" value="Almera Tino">Almera Tino</option>
+  <option data-tag="Nissan" value="Altima">Altima</option>
+  <option data-tag="Nissan" value="Ariya">Ariya</option>
+  <option data-tag="Nissan" value="Armada">Armada</option>
+  <option data-tag="Nissan" value="Auster">Auster</option>
+  <option data-tag="Nissan" value="Avenir">Avenir</option>
+  <option data-tag="Nissan" value="Bassara">Bassara</option>
+  <option data-tag="Nissan" value="BE-1">BE-1</option>
+  <option data-tag="Nissan" value="Bluebird">Bluebird</option>
+  <option data-tag="Nissan" value="Bluebird Maxima">Bluebird Maxima</option>
+  <option data-tag="Nissan" value="Bluebird Sylphy">Bluebird Sylphy</option>
+  <option data-tag="Nissan" value="Caravan">Caravan</option>
+  <option data-tag="Nissan" value="Cedric">Cedric</option>
+  <option data-tag="Nissan" value="Cefiro">Cefiro</option>
+  <option data-tag="Nissan" value="Cherry">Cherry</option>
+  <option data-tag="Nissan" value="Cima">Cima</option>
+  <option data-tag="Nissan" value="Clipper Rio">Clipper Rio</option>
+  <option data-tag="Nissan" value="Crew">Crew</option>
+  <option data-tag="Nissan" value="Cube">Cube</option>
+  <option data-tag="Nissan" value="Datsun">Datsun</option>
+  <option data-tag="Nissan" value="Dayz">Dayz</option>
+  <option data-tag="Nissan" value="Dayz Roox">Dayz Roox</option>
+  <option data-tag="Nissan" value="Dualis">Dualis</option>
+  <option data-tag="Nissan" value="Elgrand">Elgrand</option>
+  <option data-tag="Nissan" value="Exa">Exa</option>
+  <option data-tag="Nissan" value="Expert">Expert</option>
+  <option data-tag="Nissan" value="Fairlady Z">Fairlady Z</option>
+  <option data-tag="Nissan" value="Figaro">Figaro</option>
+  <option data-tag="Nissan" value="Frontier">Frontier</option>
+  <option data-tag="Nissan" value="Fuga">Fuga</option>
+  <option data-tag="Nissan" value="Gloria">Gloria</option>
+  <option data-tag="Nissan" value="GT-R">GT-R</option>
+  <option data-tag="Nissan" value="Homy">Homy</option>
+  <option data-tag="Nissan" value="Hypermini">Hypermini</option>
+  <option data-tag="Nissan" value="Juke">Juke</option>
+  <option data-tag="Nissan" value="Juke Nismo">Juke Nismo</option>
+  <option data-tag="Nissan" value="Kicks">Kicks</option>
+  <option data-tag="Nissan" value="Kix">Kix</option>
+  <option data-tag="Nissan" value="Lafesta">Lafesta</option>
+  <option data-tag="Nissan" value="Langley">Langley</option>
+  <option data-tag="Nissan" value="Largo">Largo</option>
+  <option data-tag="Nissan" value="Latio">Latio</option>
+  <option data-tag="Nissan" value="Laurel">Laurel</option>
+  <option data-tag="Nissan" value="Leaf">Leaf</option>
+  <option data-tag="Nissan" value="Leopard">Leopard</option>
+  <option data-tag="Nissan" value="Liberta Villa">Liberta Villa</option>
+  <option data-tag="Nissan" value="Liberty">Liberty</option>
+  <option data-tag="Nissan" value="Livina">Livina</option>
+  <option data-tag="Nissan" value="Lucino">Lucino</option>
+  <option data-tag="Nissan" value="March">March</option>
+  <option data-tag="Nissan" value="Maxima">Maxima</option>
+  <option data-tag="Nissan" value="Micra">Micra</option>
+  <option data-tag="Nissan" value="Mistral">Mistral</option>
+  <option data-tag="Nissan" value="Moco">Moco</option>
+  <option data-tag="Nissan" value="Murano">Murano</option>
+  <option data-tag="Nissan" value="Navara (Frontier)">Navara (Frontier)</option>
+  <option data-tag="Nissan" value="Note">Note</option>
+  <option data-tag="Nissan" value="NP300">NP300</option>
+  <option data-tag="Nissan" value="NV100 Clipper">NV100 Clipper</option>
+  <option data-tag="Nissan" value="NV200">NV200</option>
+  <option data-tag="Nissan" value="NV300">NV300</option>
+  <option data-tag="Nissan" value="NV350 Caravan">NV350 Caravan</option>
+  <option data-tag="Nissan" value="NX Coupe">NX Coupe</option>
+  <option data-tag="Nissan" value="Otti">Otti</option>
+  <option data-tag="Nissan" value="Pao">Pao</option>
+  <option data-tag="Nissan" value="Pathfinder">Pathfinder</option>
+  <option data-tag="Nissan" value="Patrol">Patrol</option>
+  <option data-tag="Nissan" value="Pino">Pino</option>
+  <option data-tag="Nissan" value="Pixo">Pixo</option>
+  <option data-tag="Nissan" value="Prairie">Prairie</option>
+  <option data-tag="Nissan" value="Presage">Presage</option>
+  <option data-tag="Nissan" value="Presea">Presea</option>
+  <option data-tag="Nissan" value="President">President</option>
+  <option data-tag="Nissan" value="Primastar">Primastar</option>
+  <option data-tag="Nissan" value="Primera">Primera</option>
+  <option data-tag="Nissan" value="Pulsar">Pulsar</option>
+  <option data-tag="Nissan" value="Qashqai">Qashqai</option>
+  <option data-tag="Nissan" value="Qashqai+2">Qashqai+2</option>
+  <option data-tag="Nissan" value="Quest">Quest</option>
+  <option data-tag="Nissan" value="R'nessa">R'nessa</option>
+  <option data-tag="Nissan" value="Rasheen">Rasheen</option>
+  <option data-tag="Nissan" value="Rogue">Rogue</option>
+  <option data-tag="Nissan" value="Rogue Sport">Rogue Sport</option>
+  <option data-tag="Nissan" value="Roox">Roox</option>
+  <option data-tag="Nissan" value="Safari">Safari</option>
+  <option data-tag="Nissan" value="Sentra">Sentra</option>
+  <option data-tag="Nissan" value="Serena">Serena</option>
+  <option data-tag="Nissan" value="Silvia">Silvia</option>
+  <option data-tag="Nissan" value="Skyline">Skyline</option>
+  <option data-tag="Nissan" value="Skyline Crossover">Skyline Crossover</option>
+  <option data-tag="Nissan" value="Stagea">Stagea</option>
+  <option data-tag="Nissan" value="Stanza">Stanza</option>
+  <option data-tag="Nissan" value="Sunny">Sunny</option>
+  <option data-tag="Nissan" value="Sylphy Zero Emission">Sylphy Zero Emission</option>
+  <option data-tag="Nissan" value="Teana">Teana</option>
+  <option data-tag="Nissan" value="Terra">Terra</option>
+  <option data-tag="Nissan" value="Terrano">Terrano</option>
+  <option data-tag="Nissan" value="Terrano Regulus">Terrano Regulus</option>
+  <option data-tag="Nissan" value="Tiida">Tiida</option>
+  <option data-tag="Nissan" value="Tino">Tino</option>
+  <option data-tag="Nissan" value="Titan">Titan</option>
+  <option data-tag="Nissan" value="Urvan">Urvan</option>
+  <option data-tag="Nissan" value="Vanette">Vanette</option>
+  <option data-tag="Nissan" value="Versa">Versa</option>
+  <option data-tag="Nissan" value="Wingroad">Wingroad</option>
+  <option data-tag="Nissan" value="X-Terra">X-Terra</option>
+  <option data-tag="Nissan" value="X-Trail">X-Trail</option>
+  <option data-tag="Nissan" value="Xterra">Xterra</option>
+  <option data-tag="Nissan" value="Z">Z</option>
+  <option data-tag="Opel" value="Adam">Adam</option>
+  <option data-tag="Opel" value="Admiral">Admiral</option>
+  <option data-tag="Opel" value="Agila">Agila</option>
+  <option data-tag="Opel" value="Ampera">Ampera</option>
+  <option data-tag="Opel" value="Antara">Antara</option>
+  <option data-tag="Opel" value="Ascona">Ascona</option>
+  <option data-tag="Opel" value="Astra">Astra</option>
+  <option data-tag="Opel" value="Astra OPC">Astra OPC</option>
+  <option data-tag="Opel" value="Calibra">Calibra</option>
+  <option data-tag="Opel" value="Campo">Campo</option>
+  <option data-tag="Opel" value="Cascada">Cascada</option>
+  <option data-tag="Opel" value="Combo">Combo</option>
+  <option data-tag="Opel" value="Commodore">Commodore</option>
+  <option data-tag="Opel" value="Corsa">Corsa</option>
+  <option data-tag="Opel" value="Corsa OPC">Corsa OPC</option>
+  <option data-tag="Opel" value="Crossland X">Crossland X</option>
+  <option data-tag="Opel" value="Diplomat">Diplomat</option>
+  <option data-tag="Opel" value="Frontera">Frontera</option>
+  <option data-tag="Opel" value="Grandland X">Grandland X</option>
+  <option data-tag="Opel" value="GT">GT</option>
+  <option data-tag="Opel" value="Insignia">Insignia</option>
+  <option data-tag="Opel" value="Insignia OPC">Insignia OPC</option>
+  <option data-tag="Opel" value="Kadett">Kadett</option>
+  <option data-tag="Opel" value="Kapitan">Kapitan</option>
+  <option data-tag="Opel" value="Karl">Karl</option>
+  <option data-tag="Opel" value="Manta">Manta</option>
+  <option data-tag="Opel" value="Meriva">Meriva</option>
+  <option data-tag="Opel" value="Meriva OPC">Meriva OPC</option>
+  <option data-tag="Opel" value="Mokka">Mokka</option>
+  <option data-tag="Opel" value="Monterey">Monterey</option>
+  <option data-tag="Opel" value="Monza">Monza</option>
+  <option data-tag="Opel" value="Olympia">Olympia</option>
+  <option data-tag="Opel" value="Omega">Omega</option>
+  <option data-tag="Opel" value="P4">P4</option>
+  <option data-tag="Opel" value="Rekord">Rekord</option>
+  <option data-tag="Opel" value="Senator">Senator</option>
+  <option data-tag="Opel" value="Signum">Signum</option>
+  <option data-tag="Opel" value="Sintra">Sintra</option>
+  <option data-tag="Opel" value="Speedster">Speedster</option>
+  <option data-tag="Opel" value="Super Six">Super Six</option>
+  <option data-tag="Opel" value="Tigra">Tigra</option>
+  <option data-tag="Opel" value="Vectra">Vectra</option>
+  <option data-tag="Opel" value="Vectra OPC">Vectra OPC</option>
+  <option data-tag="Opel" value="Vita">Vita</option>
+  <option data-tag="Opel" value="Vivaro">Vivaro</option>
+  <option data-tag="Opel" value="Zafira">Zafira</option>
+  <option data-tag="Opel" value="Zafira Life">Zafira Life</option>
+  <option data-tag="Opel" value="Zafira OPC">Zafira OPC</option>
+  <option data-tag="Peugeot" value="1007">1007</option>
+  <option data-tag="Peugeot" value="104">104</option>
+  <option data-tag="Peugeot" value="106">106</option>
+  <option data-tag="Peugeot" value="107">107</option>
+  <option data-tag="Peugeot" value="108">108</option>
+  <option data-tag="Peugeot" value="2008">2008</option>
+  <option data-tag="Peugeot" value="201">201</option>
+  <option data-tag="Peugeot" value="202">202</option>
+  <option data-tag="Peugeot" value="203">203</option>
+  <option data-tag="Peugeot" value="204">204</option>
+  <option data-tag="Peugeot" value="205">205</option>
+  <option data-tag="Peugeot" value="205 GTi">205 GTi</option>
+  <option data-tag="Peugeot" value="206">206</option>
+  <option data-tag="Peugeot" value="207">207</option>
+  <option data-tag="Peugeot" value="208">208</option>
+  <option data-tag="Peugeot" value="208 GTi">208 GTi</option>
+  <option data-tag="Peugeot" value="3008">3008</option>
+  <option data-tag="Peugeot" value="301">301</option>
+  <option data-tag="Peugeot" value="304">304</option>
+  <option data-tag="Peugeot" value="305">305</option>
+  <option data-tag="Peugeot" value="306">306</option>
+  <option data-tag="Peugeot" value="307">307</option>
+  <option data-tag="Peugeot" value="308">308</option>
+  <option data-tag="Peugeot" value="308 GTi">308 GTi</option>
+  <option data-tag="Peugeot" value="309">309</option>
+  <option data-tag="Peugeot" value="4007">4007</option>
+  <option data-tag="Peugeot" value="4008">4008</option>
+  <option data-tag="Peugeot" value="402">402</option>
+  <option data-tag="Peugeot" value="403">403</option>
+  <option data-tag="Peugeot" value="404">404</option>
+  <option data-tag="Peugeot" value="405">405</option>
+  <option data-tag="Peugeot" value="406">406</option>
+  <option data-tag="Peugeot" value="407">407</option>
+  <option data-tag="Peugeot" value="408">408</option>
+  <option data-tag="Peugeot" value="5008">5008</option>
+  <option data-tag="Peugeot" value="504">504</option>
+  <option data-tag="Peugeot" value="505">505</option>
+  <option data-tag="Peugeot" value="508">508</option>
+  <option data-tag="Peugeot" value="604">604</option>
+  <option data-tag="Peugeot" value="605">605</option>
+  <option data-tag="Peugeot" value="607">607</option>
+  <option data-tag="Peugeot" value="806">806</option>
+  <option data-tag="Peugeot" value="807">807</option>
+  <option data-tag="Peugeot" value="Bipper">Bipper</option>
+  <option data-tag="Peugeot" value="Expert">Expert</option>
+  <option data-tag="Peugeot" value="iOn">iOn</option>
+  <option data-tag="Peugeot" value="Partner">Partner</option>
+  <option data-tag="Peugeot" value="RCZ">RCZ</option>
+  <option data-tag="Peugeot" value="Rifter">Rifter</option>
+  <option data-tag="Peugeot" value="Traveller">Traveller</option>
+  <option data-tag="Porsche" value="356">356</option>
+  <option data-tag="Porsche" value="718 Spyder">718 Spyder</option>
+  <option data-tag="Porsche" value="911">911</option>
+  <option data-tag="Porsche" value="911 GT2">911 GT2</option>
+  <option data-tag="Porsche" value="911 GT3">911 GT3</option>
+  <option data-tag="Porsche" value="911 R">911 R</option>
+  <option data-tag="Porsche" value="912">912</option>
+  <option data-tag="Porsche" value="914">914</option>
+  <option data-tag="Porsche" value="918 Spyder">918 Spyder</option>
+  <option data-tag="Porsche" value="924">924</option>
+  <option data-tag="Porsche" value="928">928</option>
+  <option data-tag="Porsche" value="944">944</option>
+  <option data-tag="Porsche" value="959">959</option>
+  <option data-tag="Porsche" value="968">968</option>
+  <option data-tag="Porsche" value="Boxster">Boxster</option>
+  <option data-tag="Porsche" value="Carrera GT">Carrera GT</option>
+  <option data-tag="Porsche" value="Cayenne">Cayenne</option>
+  <option data-tag="Porsche" value="Cayman">Cayman</option>
+  <option data-tag="Porsche" value="Cayman GT4">Cayman GT4</option>
+  <option data-tag="Porsche" value="Macan">Macan</option>
+  <option data-tag="Porsche" value="Panamera">Panamera</option>
+  <option data-tag="Porsche" value="Taycan">Taycan</option>
+  <option data-tag="Renault" value="10">10</option>
+  <option data-tag="Renault" value="11">11</option>
+  <option data-tag="Renault" value="12">12</option>
+  <option data-tag="Renault" value="14">14</option>
+  <option data-tag="Renault" value="15">15</option>
+  <option data-tag="Renault" value="16">16</option>
+  <option data-tag="Renault" value="17">17</option>
+  <option data-tag="Renault" value="18">18</option>
+  <option data-tag="Renault" value="19">19</option>
+  <option data-tag="Renault" value="20">20</option>
+  <option data-tag="Renault" value="21">21</option>
+  <option data-tag="Renault" value="25">25</option>
+  <option data-tag="Renault" value="30">30</option>
+  <option data-tag="Renault" value="4">4</option>
+  <option data-tag="Renault" value="4CV">4CV</option>
+  <option data-tag="Renault" value="5">5</option>
+  <option data-tag="Renault" value="6">6</option>
+  <option data-tag="Renault" value="8">8</option>
+  <option data-tag="Renault" value="9">9</option>
+  <option data-tag="Renault" value="Alaskan">Alaskan</option>
+  <option data-tag="Renault" value="Arkana">Arkana</option>
+  <option data-tag="Renault" value="Austral">Austral</option>
+  <option data-tag="Renault" value="Avantime">Avantime</option>
+  <option data-tag="Renault" value="Captur">Captur</option>
+  <option data-tag="Renault" value="Caravelle">Caravelle</option>
+  <option data-tag="Renault" value="City K-ZE">City K-ZE</option>
+  <option data-tag="Renault" value="Clio">Clio</option>
+  <option data-tag="Renault" value="Clio RS">Clio RS</option>
+  <option data-tag="Renault" value="Clio V6">Clio V6</option>
+  <option data-tag="Renault" value="Dauphine">Dauphine</option>
+  <option data-tag="Renault" value="Dokker">Dokker</option>
+  <option data-tag="Renault" value="Duster">Duster</option>
+  <option data-tag="Renault" value="Espace">Espace</option>
+  <option data-tag="Renault" value="Floride">Floride</option>
+  <option data-tag="Renault" value="Fluence">Fluence</option>
+  <option data-tag="Renault" value="Fregate">Fregate</option>
+  <option data-tag="Renault" value="Fuego">Fuego</option>
+  <option data-tag="Renault" value="Kadjar">Kadjar</option>
+  <option data-tag="Renault" value="Kangoo">Kangoo</option>
+  <option data-tag="Renault" value="Kaptur">Kaptur</option>
+  <option data-tag="Renault" value="Koleos">Koleos</option>
+  <option data-tag="Renault" value="KWID">KWID</option>
+  <option data-tag="Renault" value="Laguna">Laguna</option>
+  <option data-tag="Renault" value="Latitude">Latitude</option>
+  <option data-tag="Renault" value="Lodgy">Lodgy</option>
+  <option data-tag="Renault" value="Logan">Logan</option>
+  <option data-tag="Renault" value="Megane">Megane</option>
+  <option data-tag="Renault" value="Megane E-Tech">Megane E-Tech</option>
+  <option data-tag="Renault" value="Megane RS">Megane RS</option>
+  <option data-tag="Renault" value="Modus">Modus</option>
+  <option data-tag="Renault" value="Rodeo">Rodeo</option>
+  <option data-tag="Renault" value="Safrane">Safrane</option>
+  <option data-tag="Renault" value="Sandero">Sandero</option>
+  <option data-tag="Renault" value="Sandero RS">Sandero RS</option>
+  <option data-tag="Renault" value="Scenic">Scenic</option>
+  <option data-tag="Renault" value="Sport Spider">Sport Spider</option>
+  <option data-tag="Renault" value="Symbol">Symbol</option>
+  <option data-tag="Renault" value="Talisman">Talisman</option>
+  <option data-tag="Renault" value="Trafic">Trafic</option>
+  <option data-tag="Renault" value="Twingo">Twingo</option>
+  <option data-tag="Renault" value="Twizy">Twizy</option>
+  <option data-tag="Renault" value="Vel Satis">Vel Satis</option>
+  <option data-tag="Renault" value="Vivastella">Vivastella</option>
+  <option data-tag="Renault" value="Wind">Wind</option>
+  <option data-tag="Renault" value="ZOE">ZOE</option>
+  <option data-tag="Saab" value="600">600</option>
+  <option data-tag="Saab" value="9-2X">9-2X</option>
+  <option data-tag="Saab" value="9-3">9-3</option>
+  <option data-tag="Saab" value="9-4X">9-4X</option>
+  <option data-tag="Saab" value="9-5">9-5</option>
+  <option data-tag="Saab" value="9-7X">9-7X</option>
+  <option data-tag="Saab" value="90">90</option>
+  <option data-tag="Saab" value="900">900</option>
+  <option data-tag="Saab" value="9000">9000</option>
+  <option data-tag="Saab" value="93">93</option>
+  <option data-tag="Saab" value="95">95</option>
+  <option data-tag="Saab" value="96">96</option>
+  <option data-tag="Saab" value="99">99</option>
+  <option data-tag="Saab" value="Sonett">Sonett</option>
+  <option data-tag="SEAT" value="133">133</option>
+  <option data-tag="SEAT" value="Alhambra">Alhambra</option>
+  <option data-tag="SEAT" value="Altea">Altea</option>
+  <option data-tag="SEAT" value="Arona">Arona</option>
+  <option data-tag="SEAT" value="Arosa">Arosa</option>
+  <option data-tag="SEAT" value="Ateca">Ateca</option>
+  <option data-tag="SEAT" value="Cordoba">Cordoba</option>
+  <option data-tag="SEAT" value="Exeo">Exeo</option>
+  <option data-tag="SEAT" value="Fura">Fura</option>
+  <option data-tag="SEAT" value="Ibiza">Ibiza</option>
+  <option data-tag="SEAT" value="Ibiza Cupra">Ibiza Cupra</option>
+  <option data-tag="SEAT" value="Inca">Inca</option>
+  <option data-tag="SEAT" value="Leon">Leon</option>
+  <option data-tag="SEAT" value="Leon Cupra">Leon Cupra</option>
+  <option data-tag="SEAT" value="Malaga">Malaga</option>
+  <option data-tag="SEAT" value="Marbella">Marbella</option>
+  <option data-tag="SEAT" value="Mii">Mii</option>
+  <option data-tag="SEAT" value="Ronda">Ronda</option>
+  <option data-tag="SEAT" value="Tarraco">Tarraco</option>
+  <option data-tag="SEAT" value="Toledo">Toledo</option>
+  <option data-tag="Skoda" value="100 Series">100 Series</option>
+  <option data-tag="Skoda" value="105, 120">105, 120</option>
+  <option data-tag="Skoda" value="1200">1200</option>
+  <option data-tag="Skoda" value="Citigo">Citigo</option>
+  <option data-tag="Skoda" value="Enyaq">Enyaq</option>
+  <option data-tag="Skoda" value="Enyaq Coupe">Enyaq Coupe</option>
+  <option data-tag="Skoda" value="Enyaq Coupe RS">Enyaq Coupe RS</option>
+  <option data-tag="Skoda" value="Enyaq RS">Enyaq RS</option>
+  <option data-tag="Skoda" value="Fabia">Fabia</option>
+  <option data-tag="Skoda" value="Fabia RS">Fabia RS</option>
+  <option data-tag="Skoda" value="Favorit">Favorit</option>
+  <option data-tag="Skoda" value="Felicia">Felicia</option>
+  <option data-tag="Skoda" value="Forman">Forman</option>
+  <option data-tag="Skoda" value="Kamiq">Kamiq</option>
+  <option data-tag="Skoda" value="Karoq">Karoq</option>
+  <option data-tag="Skoda" value="Kodiaq">Kodiaq</option>
+  <option data-tag="Skoda" value="Kodiaq RS">Kodiaq RS</option>
+  <option data-tag="Skoda" value="Octavia">Octavia</option>
+  <option data-tag="Skoda" value="Octavia RS">Octavia RS</option>
+  <option data-tag="Skoda" value="Popular">Popular</option>
+  <option data-tag="Skoda" value="Rapid">Rapid</option>
+  <option data-tag="Skoda" value="Roomster">Roomster</option>
+  <option data-tag="Skoda" value="Scala">Scala</option>
+  <option data-tag="Skoda" value="Superb">Superb</option>
+  <option data-tag="Skoda" value="Yeti">Yeti</option>
+  <option data-tag="Subaru" value="1000">1000</option>
+  <option data-tag="Subaru" value="360">360</option>
+  <option data-tag="Subaru" value="Alcyone">Alcyone</option>
+  <option data-tag="Subaru" value="Ascent">Ascent</option>
+  <option data-tag="Subaru" value="Baja">Baja</option>
+  <option data-tag="Subaru" value="Bighorn">Bighorn</option>
+  <option data-tag="Subaru" value="Bistro">Bistro</option>
+  <option data-tag="Subaru" value="Brat">Brat</option>
+  <option data-tag="Subaru" value="BRZ">BRZ</option>
+  <option data-tag="Subaru" value="Crosstrek">Crosstrek</option>
+  <option data-tag="Subaru" value="Dex">Dex</option>
+  <option data-tag="Subaru" value="Dias Wagon">Dias Wagon</option>
+  <option data-tag="Subaru" value="Domingo">Domingo</option>
+  <option data-tag="Subaru" value="Exiga">Exiga</option>
+  <option data-tag="Subaru" value="Forester">Forester</option>
+  <option data-tag="Subaru" value="Impreza">Impreza</option>
+  <option data-tag="Subaru" value="Impreza WRX">Impreza WRX</option>
+  <option data-tag="Subaru" value="Impreza WRX STi">Impreza WRX STi</option>
+  <option data-tag="Subaru" value="Justy">Justy</option>
+  <option data-tag="Subaru" value="Legacy">Legacy</option>
+  <option data-tag="Subaru" value="Legacy Lancaster">Legacy Lancaster</option>
+  <option data-tag="Subaru" value="Leone">Leone</option>
+  <option data-tag="Subaru" value="Levorg">Levorg</option>
+  <option data-tag="Subaru" value="Libero">Libero</option>
+  <option data-tag="Subaru" value="Lucra">Lucra</option>
+  <option data-tag="Subaru" value="Outback">Outback</option>
+  <option data-tag="Subaru" value="Pleo">Pleo</option>
+  <option data-tag="Subaru" value="Pleo Plus">Pleo Plus</option>
+  <option data-tag="Subaru" value="R1">R1</option>
+  <option data-tag="Subaru" value="R2">R2</option>
+  <option data-tag="Subaru" value="Rex">Rex</option>
+  <option data-tag="Subaru" value="Sambar">Sambar</option>
+  <option data-tag="Subaru" value="Solterra">Solterra</option>
+  <option data-tag="Subaru" value="Stella">Stella</option>
+  <option data-tag="Subaru" value="SVX">SVX</option>
+  <option data-tag="Subaru" value="Traviq">Traviq</option>
+  <option data-tag="Subaru" value="Trezia">Trezia</option>
+  <option data-tag="Subaru" value="Tribeca">Tribeca</option>
+  <option data-tag="Subaru" value="Vivio">Vivio</option>
+  <option data-tag="Subaru" value="WRX">WRX</option>
+  <option data-tag="Subaru" value="WRX STi">WRX STi</option>
+  <option data-tag="Subaru" value="XT">XT</option>
+  <option data-tag="Subaru" value="XV">XV</option>
+  <option data-tag="Suzuki" value="Across">Across</option>
+  <option data-tag="Suzuki" value="Aerio">Aerio</option>
+  <option data-tag="Suzuki" value="Alto">Alto</option>
+  <option data-tag="Suzuki" value="Alto Lapin">Alto Lapin</option>
+  <option data-tag="Suzuki" value="APV">APV</option>
+  <option data-tag="Suzuki" value="Baleno">Baleno</option>
+  <option data-tag="Suzuki" value="Cappuccino">Cappuccino</option>
+  <option data-tag="Suzuki" value="Cara">Cara</option>
+  <option data-tag="Suzuki" value="Carry">Carry</option>
+  <option data-tag="Suzuki" value="Celerio">Celerio</option>
+  <option data-tag="Suzuki" value="Cervo">Cervo</option>
+  <option data-tag="Suzuki" value="Ciaz">Ciaz</option>
+  <option data-tag="Suzuki" value="Cultus">Cultus</option>
+  <option data-tag="Suzuki" value="DZire">DZire</option>
+  <option data-tag="Suzuki" value="Equator">Equator</option>
+  <option data-tag="Suzuki" value="Ertiga">Ertiga</option>
+  <option data-tag="Suzuki" value="Escudo">Escudo</option>
+  <option data-tag="Suzuki" value="Esteem">Esteem</option>
+  <option data-tag="Suzuki" value="Every">Every</option>
+  <option data-tag="Suzuki" value="Forenza">Forenza</option>
+  <option data-tag="Suzuki" value="Fronte">Fronte</option>
+  <option data-tag="Suzuki" value="Grand Vitara">Grand Vitara</option>
+  <option data-tag="Suzuki" value="Hustler">Hustler</option>
+  <option data-tag="Suzuki" value="Ignis">Ignis</option>
+  <option data-tag="Suzuki" value="Jimny">Jimny</option>
+  <option data-tag="Suzuki" value="Kei">Kei</option>
+  <option data-tag="Suzuki" value="Kizashi">Kizashi</option>
+  <option data-tag="Suzuki" value="Landy">Landy</option>
+  <option data-tag="Suzuki" value="Liana">Liana</option>
+  <option data-tag="Suzuki" value="MR Wagon">MR Wagon</option>
+  <option data-tag="Suzuki" value="Palette">Palette</option>
+  <option data-tag="Suzuki" value="Reno">Reno</option>
+  <option data-tag="Suzuki" value="S-Presso">S-Presso</option>
+  <option data-tag="Suzuki" value="Samurai">Samurai</option>
+  <option data-tag="Suzuki" value="Sidekick">Sidekick</option>
+  <option data-tag="Suzuki" value="Solio">Solio</option>
+  <option data-tag="Suzuki" value="Spacia">Spacia</option>
+  <option data-tag="Suzuki" value="Splash">Splash</option>
+  <option data-tag="Suzuki" value="Swace">Swace</option>
+  <option data-tag="Suzuki" value="Swift">Swift</option>
+  <option data-tag="Suzuki" value="SX4">SX4</option>
+  <option data-tag="Suzuki" value="Twin">Twin</option>
+  <option data-tag="Suzuki" value="Verona">Verona</option>
+  <option data-tag="Suzuki" value="Vitara">Vitara</option>
+  <option data-tag="Suzuki" value="Wagon R">Wagon R</option>
+  <option data-tag="Suzuki" value="Wagon R+">Wagon R+</option>
+  <option data-tag="Suzuki" value="X-90">X-90</option>
+  <option data-tag="Suzuki" value="Xbee">Xbee</option>
+  <option data-tag="Suzuki" value="XL7">XL7</option>
+  <option data-tag="Tesla" value="Cybertruck">Cybertruck</option>
+  <option data-tag="Tesla" value="Model 3">Model 3</option>
+  <option data-tag="Tesla" value="Model S">Model S</option>
+  <option data-tag="Tesla" value="Model X">Model X</option>
+  <option data-tag="Tesla" value="Model Y">Model Y</option>
+  <option data-tag="Tesla" value="Roadster">Roadster</option>
+  <option data-tag="Toyota" value="2000GT">2000GT</option>
+  <option data-tag="Toyota" value="4Runner">4Runner</option>
+  <option data-tag="Toyota" value="Allex">Allex</option>
+  <option data-tag="Toyota" value="Allion">Allion</option>
+  <option data-tag="Toyota" value="Alphard">Alphard</option>
+  <option data-tag="Toyota" value="Altezza">Altezza</option>
+  <option data-tag="Toyota" value="Aqua">Aqua</option>
+  <option data-tag="Toyota" value="Aristo">Aristo</option>
+  <option data-tag="Toyota" value="Aurion">Aurion</option>
+  <option data-tag="Toyota" value="Auris">Auris</option>
+  <option data-tag="Toyota" value="Avalon">Avalon</option>
+  <option data-tag="Toyota" value="Avanza">Avanza</option>
+  <option data-tag="Toyota" value="Avensis">Avensis</option>
+  <option data-tag="Toyota" value="Avensis Verso">Avensis Verso</option>
+  <option data-tag="Toyota" value="Aygo">Aygo</option>
+  <option data-tag="Toyota" value="Aygo X">Aygo X</option>
+  <option data-tag="Toyota" value="bB">bB</option>
+  <option data-tag="Toyota" value="Belta">Belta</option>
+  <option data-tag="Toyota" value="Blade">Blade</option>
+  <option data-tag="Toyota" value="Blizzard">Blizzard</option>
+  <option data-tag="Toyota" value="Brevis">Brevis</option>
+  <option data-tag="Toyota" value="bZ4X">bZ4X</option>
+  <option data-tag="Toyota" value="C-HR">C-HR</option>
+  <option data-tag="Toyota" value="Caldina">Caldina</option>
+  <option data-tag="Toyota" value="Cami">Cami</option>
+  <option data-tag="Toyota" value="Camry">Camry</option>
+  <option data-tag="Toyota" value="Camry Solara">Camry Solara</option>
+  <option data-tag="Toyota" value="Carina">Carina</option>
+  <option data-tag="Toyota" value="Carina E">Carina E</option>
+  <option data-tag="Toyota" value="Carina ED">Carina ED</option>
+  <option data-tag="Toyota" value="Cavalier">Cavalier</option>
+  <option data-tag="Toyota" value="Celica">Celica</option>
+  <option data-tag="Toyota" value="Celsior">Celsior</option>
+  <option data-tag="Toyota" value="Century">Century</option>
+  <option data-tag="Toyota" value="Chaser">Chaser</option>
+  <option data-tag="Toyota" value="Classic">Classic</option>
+  <option data-tag="Toyota" value="Comfort">Comfort</option>
+  <option data-tag="Toyota" value="COMS">COMS</option>
+  <option data-tag="Toyota" value="Corolla">Corolla</option>
+  <option data-tag="Toyota" value="Corolla Cross">Corolla Cross</option>
+  <option data-tag="Toyota" value="Corolla II">Corolla II</option>
+  <option data-tag="Toyota" value="Corolla Levin">Corolla Levin</option>
+  <option data-tag="Toyota" value="Corolla Rumion">Corolla Rumion</option>
+  <option data-tag="Toyota" value="Corolla Spacio">Corolla Spacio</option>
+  <option data-tag="Toyota" value="Corolla Verso">Corolla Verso</option>
+  <option data-tag="Toyota" value="Corona">Corona</option>
+  <option data-tag="Toyota" value="Corona EXiV">Corona EXiV</option>
+  <option data-tag="Toyota" value="Corsa">Corsa</option>
+  <option data-tag="Toyota" value="Cressida">Cressida</option>
+  <option data-tag="Toyota" value="Cresta">Cresta</option>
+  <option data-tag="Toyota" value="Crown">Crown</option>
+  <option data-tag="Toyota" value="Crown Kluger">Crown Kluger</option>
+  <option data-tag="Toyota" value="Crown Majesta">Crown Majesta</option>
+  <option data-tag="Toyota" value="Curren">Curren</option>
+  <option data-tag="Toyota" value="Cynos">Cynos</option>
+  <option data-tag="Toyota" value="Duet">Duet</option>
+  <option data-tag="Toyota" value="Echo">Echo</option>
+  <option data-tag="Toyota" value="Esquire">Esquire</option>
+  <option data-tag="Toyota" value="Estima">Estima</option>
+  <option data-tag="Toyota" value="Etios">Etios</option>
+  <option data-tag="Toyota" value="FJ Cruiser">FJ Cruiser</option>
+  <option data-tag="Toyota" value="Fortuner">Fortuner</option>
+  <option data-tag="Toyota" value="Frontlander">Frontlander</option>
+  <option data-tag="Toyota" value="FunCargo">FunCargo</option>
+  <option data-tag="Toyota" value="Gaia">Gaia</option>
+  <option data-tag="Toyota" value="GR86">GR86</option>
+  <option data-tag="Toyota" value="Grand HiAce">Grand HiAce</option>
+  <option data-tag="Toyota" value="Granvia">Granvia</option>
+  <option data-tag="Toyota" value="GT86">GT86</option>
+  <option data-tag="Toyota" value="Harrier">Harrier</option>
+  <option data-tag="Toyota" value="HiAce">HiAce</option>
+  <option data-tag="Toyota" value="Highlander">Highlander</option>
+  <option data-tag="Toyota" value="Hilux">Hilux</option>
+  <option data-tag="Toyota" value="Hilux Surf">Hilux Surf</option>
+  <option data-tag="Toyota" value="Innova">Innova</option>
+  <option data-tag="Toyota" value="Ipsum">Ipsum</option>
+  <option data-tag="Toyota" value="iQ">iQ</option>
+  <option data-tag="Toyota" value="ISis">ISis</option>
+  <option data-tag="Toyota" value="Ist">Ist</option>
+  <option data-tag="Toyota" value="Izoa">Izoa</option>
+  <option data-tag="Toyota" value="Kluger">Kluger</option>
+  <option data-tag="Toyota" value="Land Cruiser">Land Cruiser</option>
+  <option data-tag="Toyota" value="Land Cruiser Prado">Land Cruiser Prado</option>
+  <option data-tag="Toyota" value="Levin">Levin</option>
+  <option data-tag="Toyota" value="Lite Ace">Lite Ace</option>
+  <option data-tag="Toyota" value="Mark II">Mark II</option>
+  <option data-tag="Toyota" value="Mark X">Mark X</option>
+  <option data-tag="Toyota" value="Mark X ZiO">Mark X ZiO</option>
+  <option data-tag="Toyota" value="MasterAce Surf">MasterAce Surf</option>
+  <option data-tag="Toyota" value="Matrix">Matrix</option>
+  <option data-tag="Toyota" value="Mega Cruiser">Mega Cruiser</option>
+  <option data-tag="Toyota" value="Mirai">Mirai</option>
+  <option data-tag="Toyota" value="Model F">Model F</option>
+  <option data-tag="Toyota" value="MR-S">MR-S</option>
+  <option data-tag="Toyota" value="MR2">MR2</option>
+  <option data-tag="Toyota" value="Nadia">Nadia</option>
+  <option data-tag="Toyota" value="Noah">Noah</option>
+  <option data-tag="Toyota" value="Opa">Opa</option>
+  <option data-tag="Toyota" value="Origin">Origin</option>
+  <option data-tag="Toyota" value="Paseo">Paseo</option>
+  <option data-tag="Toyota" value="Passo">Passo</option>
+  <option data-tag="Toyota" value="Passo Sette">Passo Sette</option>
+  <option data-tag="Toyota" value="Picnic">Picnic</option>
+  <option data-tag="Toyota" value="Pixis Epoch">Pixis Epoch</option>
+  <option data-tag="Toyota" value="Pixis Joy">Pixis Joy</option>
+  <option data-tag="Toyota" value="Pixis Mega">Pixis Mega</option>
+  <option data-tag="Toyota" value="Pixis Space">Pixis Space</option>
+  <option data-tag="Toyota" value="Pixis Van">Pixis Van</option>
+  <option data-tag="Toyota" value="Platz">Platz</option>
+  <option data-tag="Toyota" value="Porte">Porte</option>
+  <option data-tag="Toyota" value="Premio">Premio</option>
+  <option data-tag="Toyota" value="Previa">Previa</option>
+  <option data-tag="Toyota" value="Prius">Prius</option>
+  <option data-tag="Toyota" value="Prius Alpha">Prius Alpha</option>
+  <option data-tag="Toyota" value="Prius c">Prius c</option>
+  <option data-tag="Toyota" value="Prius v (+)">Prius v (+)</option>
+  <option data-tag="Toyota" value="ProAce">ProAce</option>
+  <option data-tag="Toyota" value="ProAce City">ProAce City</option>
+  <option data-tag="Toyota" value="Probox">Probox</option>
+  <option data-tag="Toyota" value="Progres">Progres</option>
+  <option data-tag="Toyota" value="Pronard">Pronard</option>
+  <option data-tag="Toyota" value="Publica">Publica</option>
+  <option data-tag="Toyota" value="Ractis">Ractis</option>
+  <option data-tag="Toyota" value="Raize">Raize</option>
+  <option data-tag="Toyota" value="Raum">Raum</option>
+  <option data-tag="Toyota" value="RAV4">RAV4</option>
+  <option data-tag="Toyota" value="Regius">Regius</option>
+  <option data-tag="Toyota" value="RegiusAce">RegiusAce</option>
+  <option data-tag="Toyota" value="Roomy">Roomy</option>
+  <option data-tag="Toyota" value="Rush">Rush</option>
+  <option data-tag="Toyota" value="Sai">Sai</option>
+  <option data-tag="Toyota" value="Scepter">Scepter</option>
+  <option data-tag="Toyota" value="Sequoia">Sequoia</option>
+  <option data-tag="Toyota" value="Sera">Sera</option>
+  <option data-tag="Toyota" value="Sienna">Sienna</option>
+  <option data-tag="Toyota" value="Sienta">Sienta</option>
+  <option data-tag="Toyota" value="Soarer">Soarer</option>
+  <option data-tag="Toyota" value="Soluna">Soluna</option>
+  <option data-tag="Toyota" value="Spade">Spade</option>
+  <option data-tag="Toyota" value="Sparky">Sparky</option>
+  <option data-tag="Toyota" value="Sports 800">Sports 800</option>
+  <option data-tag="Toyota" value="Sprinter">Sprinter</option>
+  <option data-tag="Toyota" value="Sprinter Carib">Sprinter Carib</option>
+  <option data-tag="Toyota" value="Sprinter Marino">Sprinter Marino</option>
+  <option data-tag="Toyota" value="Sprinter Trueno">Sprinter Trueno</option>
+  <option data-tag="Toyota" value="Starlet">Starlet</option>
+  <option data-tag="Toyota" value="Succeed">Succeed</option>
+  <option data-tag="Toyota" value="Supra">Supra</option>
+  <option data-tag="Toyota" value="Tacoma">Tacoma</option>
+  <option data-tag="Toyota" value="Tank">Tank</option>
+  <option data-tag="Toyota" value="Tercel">Tercel</option>
+  <option data-tag="Toyota" value="Touring HiAce">Touring HiAce</option>
+  <option data-tag="Toyota" value="Town Ace">Town Ace</option>
+  <option data-tag="Toyota" value="Tundra">Tundra</option>
+  <option data-tag="Toyota" value="Urban Cruiser">Urban Cruiser</option>
+  <option data-tag="Toyota" value="Vanguard">Vanguard</option>
+  <option data-tag="Toyota" value="Vellfire">Vellfire</option>
+  <option data-tag="Toyota" value="Venza">Venza</option>
+  <option data-tag="Toyota" value="Verossa">Verossa</option>
+  <option data-tag="Toyota" value="Verso">Verso</option>
+  <option data-tag="Toyota" value="Verso-S">Verso-S</option>
+  <option data-tag="Toyota" value="Vios">Vios</option>
+  <option data-tag="Toyota" value="Vista">Vista</option>
+  <option data-tag="Toyota" value="Vitz">Vitz</option>
+  <option data-tag="Toyota" value="Voltz">Voltz</option>
+  <option data-tag="Toyota" value="Voxy">Voxy</option>
+  <option data-tag="Toyota" value="Wigo">Wigo</option>
+  <option data-tag="Toyota" value="Wildlander">Wildlander</option>
+  <option data-tag="Toyota" value="WiLL">WiLL</option>
+  <option data-tag="Toyota" value="WiLL Cypha">WiLL Cypha</option>
+  <option data-tag="Toyota" value="Windom">Windom</option>
+  <option data-tag="Toyota" value="Wish">Wish</option>
+  <option data-tag="Toyota" value="Yaris">Yaris</option>
+  <option data-tag="Toyota" value="Yaris Cross">Yaris Cross</option>
+  <option data-tag="Toyota" value="Yaris Verso">Yaris Verso</option>
+  <option data-tag="Toyota" value="Zelas">Zelas</option>
+  <option data-tag="УАЗ" value="3151">3151</option>
+  <option data-tag="УАЗ" value="3153">3153</option>
+  <option data-tag="УАЗ" value="3159">3159</option>
+  <option data-tag="УАЗ" value="3160">3160</option>
+  <option data-tag="УАЗ" value="3162 Simbir">3162 Simbir</option>
+  <option data-tag="УАЗ" value="469">469</option>
+  <option data-tag="УАЗ" value="Hunter">Hunter</option>
+  <option data-tag="УАЗ" value="Patriot">Patriot</option>
+  <option data-tag="УАЗ" value="Pickup">Pickup</option>
+  <option data-tag="УАЗ" value="Астеро">Астеро</option>
+  <option data-tag="LADA (ВАЗ)" value="1111 Ока">1111 Ока</option>
+  <option data-tag="LADA (ВАЗ)" value="2101">2101</option>
+  <option data-tag="LADA (ВАЗ)" value="2102">2102</option>
+  <option data-tag="LADA (ВАЗ)" value="2103">2103</option>
+  <option data-tag="LADA (ВАЗ)" value="2104">2104</option>
+  <option data-tag="LADA (ВАЗ)" value="2105">2105</option>
+  <option data-tag="LADA (ВАЗ)" value="2106">2106</option>
+  <option data-tag="LADA (ВАЗ)" value="2107">2107</option>
+  <option data-tag="LADA (ВАЗ)" value="2108">2108</option>
+  <option data-tag="LADA (ВАЗ)" value="2109">2109</option>
+  <option data-tag="LADA (ВАЗ)" value="21099">21099</option>
+  <option data-tag="LADA (ВАЗ)" value="2110">2110</option>
+  <option data-tag="LADA (ВАЗ)" value="2111">2111</option>
+  <option data-tag="LADA (ВАЗ)" value="2112">2112</option>
+  <option data-tag="LADA (ВАЗ)" value="2113">2113</option>
+  <option data-tag="LADA (ВАЗ)" value="2114">2114</option>
+  <option data-tag="LADA (ВАЗ)" value="2115">2115</option>
+  <option data-tag="LADA (ВАЗ)" value="2120 Надежда">2120 Надежда</option>
+  <option data-tag="LADA (ВАЗ)" value="2121 (4x4)">2121 (4x4)</option>
+  <option data-tag="LADA (ВАЗ)" value="2123">2123</option>
+  <option data-tag="LADA (ВАЗ)" value="2129">2129</option>
+  <option data-tag="LADA (ВАЗ)" value="2131 (4x4)">2131 (4x4)</option>
+  <option data-tag="LADA (ВАЗ)" value="2328">2328</option>
+  <option data-tag="LADA (ВАЗ)" value="2329">2329</option>
+  <option data-tag="LADA (ВАЗ)" value="EL Lada">EL Lada</option>
+  <option data-tag="LADA (ВАЗ)" value="Granta">Granta</option>
+  <option data-tag="LADA (ВАЗ)" value="Kalina">Kalina</option>
+  <option data-tag="LADA (ВАЗ)" value="Largus">Largus</option>
+  <option data-tag="LADA (ВАЗ)" value="Niva">Niva</option>
+  <option data-tag="LADA (ВАЗ)" value="Niva Legend">Niva Legend</option>
+  <option data-tag="LADA (ВАЗ)" value="Priora">Priora</option>
+  <option data-tag="LADA (ВАЗ)" value="Revolution">Revolution</option>
+  <option data-tag="LADA (ВАЗ)" value="Vesta">Vesta</option>
+  <option data-tag="LADA (ВАЗ)" value="XRAY">XRAY</option>
+  <option data-tag="Volkswagen" value="181">181</option>
+  <option data-tag="Volkswagen" value="Amarok">Amarok</option>
+  <option data-tag="Volkswagen" value="Arteon">Arteon</option>
+  <option data-tag="Volkswagen" value="Arteon R">Arteon R</option>
+  <option data-tag="Volkswagen" value="Atlas">Atlas</option>
+  <option data-tag="Volkswagen" value="Atlas Cross Sport">Atlas Cross Sport</option>
+  <option data-tag="Volkswagen" value="Beetle">Beetle</option>
+  <option data-tag="Volkswagen" value="Bora">Bora</option>
+  <option data-tag="Volkswagen" value="Caddy">Caddy</option>
+  <option data-tag="Volkswagen" value="California">California</option>
+  <option data-tag="Volkswagen" value="Caravelle">Caravelle</option>
+  <option data-tag="Volkswagen" value="Corrado">Corrado</option>
+  <option data-tag="Volkswagen" value="Derby">Derby</option>
+  <option data-tag="Volkswagen" value="Eos">Eos</option>
+  <option data-tag="Volkswagen" value="EuroVan">EuroVan</option>
+  <option data-tag="Volkswagen" value="Fox">Fox</option>
+  <option data-tag="Volkswagen" value="Gol">Gol</option>
+  <option data-tag="Volkswagen" value="Golf">Golf</option>
+  <option data-tag="Volkswagen" value="Golf Country">Golf Country</option>
+  <option data-tag="Volkswagen" value="Golf GTI">Golf GTI</option>
+  <option data-tag="Volkswagen" value="Golf Plus">Golf Plus</option>
+  <option data-tag="Volkswagen" value="Golf R">Golf R</option>
+  <option data-tag="Volkswagen" value="Golf R32">Golf R32</option>
+  <option data-tag="Volkswagen" value="Golf Sportsvan">Golf Sportsvan</option>
+  <option data-tag="Volkswagen" value="ID.3">ID.3</option>
+  <option data-tag="Volkswagen" value="ID.4">ID.4</option>
+  <option data-tag="Volkswagen" value="ID.5">ID.5</option>
+  <option data-tag="Volkswagen" value="ID.6">ID.6</option>
+  <option data-tag="Volkswagen" value="ID.Buzz">ID.Buzz</option>
+  <option data-tag="Volkswagen" value="Iltis">Iltis</option>
+  <option data-tag="Volkswagen" value="Jetta">Jetta</option>
+  <option data-tag="Volkswagen" value="K70">K70</option>
+  <option data-tag="Volkswagen" value="Karmann-Ghia">Karmann-Ghia</option>
+  <option data-tag="Volkswagen" value="Lamando">Lamando</option>
+  <option data-tag="Volkswagen" value="Lavida">Lavida</option>
+  <option data-tag="Volkswagen" value="Lupo">Lupo</option>
+  <option data-tag="Volkswagen" value="Lupo GTI">Lupo GTI</option>
+  <option data-tag="Volkswagen" value="Magotan">Magotan</option>
+  <option data-tag="Volkswagen" value="Multivan">Multivan</option>
+  <option data-tag="Volkswagen" value="Parati">Parati</option>
+  <option data-tag="Volkswagen" value="Passat">Passat</option>
+  <option data-tag="Volkswagen" value="Passat (North America and China)">Passat (North America and China)</option>
+  <option data-tag="Volkswagen" value="Passat CC">Passat CC</option>
+  <option data-tag="Volkswagen" value="Phaeton">Phaeton</option>
+  <option data-tag="Volkswagen" value="Phideon">Phideon</option>
+  <option data-tag="Volkswagen" value="Pointer">Pointer</option>
+  <option data-tag="Volkswagen" value="Polo">Polo</option>
+  <option data-tag="Volkswagen" value="Polo GTI">Polo GTI</option>
+  <option data-tag="Volkswagen" value="Polo R WRC">Polo R WRC</option>
+  <option data-tag="Volkswagen" value="Quantum">Quantum</option>
+  <option data-tag="Volkswagen" value="Routan">Routan</option>
+  <option data-tag="Volkswagen" value="Sagitar">Sagitar</option>
+  <option data-tag="Volkswagen" value="Santana">Santana</option>
+  <option data-tag="Volkswagen" value="Scirocco">Scirocco</option>
+  <option data-tag="Volkswagen" value="Scirocco R">Scirocco R</option>
+  <option data-tag="Volkswagen" value="Sharan">Sharan</option>
+  <option data-tag="Volkswagen" value="SpaceFox">SpaceFox</option>
+  <option data-tag="Volkswagen" value="T-Cross">T-Cross</option>
+  <option data-tag="Volkswagen" value="T-Roc">T-Roc</option>
+  <option data-tag="Volkswagen" value="T-Roc R">T-Roc R</option>
+  <option data-tag="Volkswagen" value="Tacqua">Tacqua</option>
+  <option data-tag="Volkswagen" value="Taigo">Taigo</option>
+  <option data-tag="Volkswagen" value="Talagon">Talagon</option>
+  <option data-tag="Volkswagen" value="Taos">Taos</option>
+  <option data-tag="Volkswagen" value="Taro">Taro</option>
+  <option data-tag="Volkswagen" value="Tavendor">Tavendor</option>
+  <option data-tag="Volkswagen" value="Tayron">Tayron</option>
+  <option data-tag="Volkswagen" value="Teramont">Teramont</option>
+  <option data-tag="Volkswagen" value="Tharu">Tharu</option>
+  <option data-tag="Volkswagen" value="Tiguan">Tiguan</option>
+  <option data-tag="Volkswagen" value="Tiguan R">Tiguan R</option>
+  <option data-tag="Volkswagen" value="Touareg">Touareg</option>
+  <option data-tag="Volkswagen" value="Touran">Touran</option>
+  <option data-tag="Volkswagen" value="Transporter">Transporter</option>
+  <option data-tag="Volkswagen" value="Type 1">Type 1</option>
+  <option data-tag="Volkswagen" value="Type 166">Type 166</option>
+  <option data-tag="Volkswagen" value="Type 2">Type 2</option>
+  <option data-tag="Volkswagen" value="Type 3">Type 3</option>
+  <option data-tag="Volkswagen" value="Type 4">Type 4</option>
+  <option data-tag="Volkswagen" value="Type 82">Type 82</option>
+  <option data-tag="Volkswagen" value="up!">up!</option>
+  <option data-tag="Volkswagen" value="Vento">Vento</option>
+  <option data-tag="Volkswagen" value="Viloran">Viloran</option>
+  <option data-tag="Volkswagen" value="XL1">XL1</option>
+  <option data-tag="Volvo" value="120 Series">120 Series</option>
+  <option data-tag="Volvo" value="140 Series">140 Series</option>
+  <option data-tag="Volvo" value="164">164</option>
+  <option data-tag="Volvo" value="240 Series">240 Series</option>
+  <option data-tag="Volvo" value="260 Series">260 Series</option>
+  <option data-tag="Volvo" value="300 Series">300 Series</option>
+  <option data-tag="Volvo" value="440">440</option>
+  <option data-tag="Volvo" value="460">460</option>
+  <option data-tag="Volvo" value="480">480</option>
+  <option data-tag="Volvo" value="66">66</option>
+  <option data-tag="Volvo" value="740">740</option>
+  <option data-tag="Volvo" value="760">760</option>
+  <option data-tag="Volvo" value="780">780</option>
+  <option data-tag="Volvo" value="850">850</option>
+  <option data-tag="Volvo" value="940">940</option>
+  <option data-tag="Volvo" value="960">960</option>
+  <option data-tag="Volvo" value="C30">C30</option>
+  <option data-tag="Volvo" value="C40">C40</option>
+  <option data-tag="Volvo" value="C70">C70</option>
+  <option data-tag="Volvo" value="EX90">EX90</option>
+  <option data-tag="Volvo" value="Laplander">Laplander</option>
+  <option data-tag="Volvo" value="P1800">P1800</option>
+  <option data-tag="Volvo" value="P1900">P1900</option>
+  <option data-tag="Volvo" value="PV444">PV444</option>
+  <option data-tag="Volvo" value="PV544">PV544</option>
+  <option data-tag="Volvo" value="S40">S40</option>
+  <option data-tag="Volvo" value="S60">S60</option>
+  <option data-tag="Volvo" value="S60 Cross Country">S60 Cross Country</option>
+  <option data-tag="Volvo" value="S70">S70</option>
+  <option data-tag="Volvo" value="S80">S80</option>
+  <option data-tag="Volvo" value="S90">S90</option>
+  <option data-tag="Volvo" value="V40">V40</option>
+  <option data-tag="Volvo" value="V40 Cross Country">V40 Cross Country</option>
+  <option data-tag="Volvo" value="V50">V50</option>
+  <option data-tag="Volvo" value="V60">V60</option>
+  <option data-tag="Volvo" value="V60 Cross Country">V60 Cross Country</option>
+  <option data-tag="Volvo" value="V70">V70</option>
+  <option data-tag="Volvo" value="V90">V90</option>
+  <option data-tag="Volvo" value="V90 Cross Country">V90 Cross Country</option>
+  <option data-tag="Volvo" value="XC40">XC40</option>
+  <option data-tag="Volvo" value="XC60">XC60</option>
+  <option data-tag="Volvo" value="XC70">XC70</option>
+  <option data-tag="Volvo" value="XC90">XC90</option>
+  <option data-tag="ЗИЛ" value="111">111</option>
+  <option data-tag="ЗИЛ" value="114">114</option>
+  <option data-tag="ЗИЛ" value="117">117</option>
+  <option data-tag="ЗИЛ" value="4104">4104</option>
+                    </select>
+                </div>
+                <div class="field mb-4">
+                    <p class="mb-2">
+                        Пробег
+                    </p>
+                    <input type="text" class="form-control py-2 border-0" id="mileage" name="mileage" value="{{ data.mileage }} " />
+                </div>
+                <div class="field mb-4 pt-sm-0 pt-4">
+                    <p class="mb-2">Ваше имя</p>
+                    <input name="first_name" value="{{ data.first_name }}" type="text" class="form-control {{ data['first_name.classname'] }}" id="calc-input-5" type="text" placeholder="Иван" />
+                </div>
+                <div class="field mb-4 pt-sm-0 pt-4">
+                    <p class="mb-2">Ваш телефон</p>
+                    </label>
+                    <input value="{{ data.mobile_tel }}" name="mobile_tel" class="form-control py-2 border-1 phone-imask phone-mask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
+                </div>
+                <div class="text-center pt-3 col">
+                    <button type="submit" class="btn btn-danger">Оставить заявку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

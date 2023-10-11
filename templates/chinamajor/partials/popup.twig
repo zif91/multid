@@ -1,0 +1,56 @@
+<div class="modal fade" id="oneclick" tabindex="-1" role="dialog" aria-labelledby="oneclick" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background: #b71f25;">
+      <!--div class="modal-header">
+        <h5 class="modal-title" id="oneclick">Форма обратной связи</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div-->
+      <!--div class="modal-body">
+        Оставьте заявку - и наш менеджер свяжется с Вами в ближайшее время      </div-->{#{ runSnippet('Form', {
+      formid: 'FormCallback',
+      path: '/templates/autodm/partials/forms/feedback_modal/',
+      extension: 'twig'
+      }) | raw }#}
+      <!--div class="modal-footer">
+        <button type="button" class="btn btn-primary">Отправить</button>
+      </div-->
+    </div>
+  </div>
+</div>
+{{ runSnippet('Form', {
+formid: 'FormCallback',
+path: '/templates/rofl/partials/forms/feedback_modal/',
+extension: 'twig'
+}) | raw }}
+{{ runSnippet('Form', {
+formid: 'FormCallback',
+path: '/templates/rofl/partials/forms/feedback_modal_bron/',
+extension: 'twig'
+}) | raw }}
+<div class="modal fade" id="tradein" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Закажите оценку Вашего автомобиля в TradeIn:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              {{ runSnippet('Form', {
+              formid: 'FormTradeIn',
+              path: '/templates/rofl/partials/forms/tradeIn/',
+              extension: 'twig'
+              }) | raw }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

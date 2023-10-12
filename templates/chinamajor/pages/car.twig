@@ -118,8 +118,8 @@
                 </div>
                 {{dump(baseSettings.credit_rate)}}
                 <div class="vin mb-3 flex">
-                    <div><img src="/templates/major/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>
-                    <div><img src="/templates/major/img/vin2.svg"> Проверенный <span>VIN-номер</span></div>
+                    <div><img src="/templates/chinamajor/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>
+                    <div><img src="/templates/chinamajor/img/vin2.svg"> Проверенный <span>VIN-номер</span></div>
                 </div>
                 <div class="buttons row mb-2">
                     <div class="col-12">
@@ -140,7 +140,7 @@
     <div class="container">
         {{ runSnippet('Form', {
         formid: 'FormCallback',
-        path: '/templates/major/partials/forms/feedback/',
+        path: '/templates/chinamajor/partials/forms/feedback/',
         extension: 'twig'
         }) | raw }}
     </div>
@@ -323,7 +323,7 @@
     <div class="row">
         {{ runSnippet('Form', {
         formid: 'FormCredit',
-        path: '/templates/major/partials/forms/credit/',
+        path: '/templates/chinamajor/partials/forms/credit/',
         extension: 'twig'
         }) | raw }}
     </div>

@@ -19,18 +19,159 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 }) |raw}} #}
 
 {% block MAIN %}
-<main class="item-page">
+<div class="container p-4 py-3">
+  <h4 class="fw-bold cred_title mb-2 pl-3">Автокредит</h4>
+  <div class="row col-xl-12 col-lg-12 col-md-12 m-0">
+  
+  <div class="container col-xl-7 col-lg-8 col-md-8 ml-0 pl-0 mb-2">
+  <img src="/templates/chinaautosalon/img/credit/imgkredit.jpg" alt="" />
+      <p class="cred_text col-lg-12 col-md-12 mt-3 mb-0 pl-0">
+        Мы возьмем на себя подбор оптимальной кредитной программы и оформление
+        сопутствующих документов. Вам остается лишь выбрать подходящий автомобиль и заполнить кредитную заявку для предварительного одобрения.
+      </p>
+
+      <div class="container mt-4 mb-4 p-0">
+        <h4 class="mb-4 mt-4" style="font-weight: 700;font-size: 20px;line-height: 24px;color: #182232;">Преимущества Автокредита</h4>
+        <div class="row advant_row m-1 p-0">
+          <div class="row d-flex col-lg-4 col-md-4 col-sm-4 col-4 w-auto sale-item">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 d-flex align-items-center justify-content-center pt-1">
+              <img src="/templates/chinaautosalon/img/credit/cash.png" alt="" />
+            </div>
+            <div class="p-0 col-lg-8 col-md-12 col-sm-12 col-xs-12 col-12 pt-1">
+              <p class="advantage text-left">Первый взнос<br> от 0руб.</p>
+            </div>
+          </div>
+          <div class=" row d-flex col-lg-4 col-md-4 col-sm-4 col-4 w-auto sale-item">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 col-12 d-flex align-items-center justify-content-center pt-1">
+              <img src="/templates/chinaautosalon/img/credit/doc.png" alt="" />
+            </div>
+            <div class="p-0 col-lg-8 col-md-12 col-sm-12 col-xs-12 col-12 pt-1">
+              <p class="advantage text-left">По двум <br>документам</p>
+            </div>
+          </div>
+          <div class=" row d-flex col-lg-4 col-md-4 col-sm-4 col-4 w-auto sale-item">
+            <div class=" col-lg-4 col-md-12 col-sm-12 col-12 d-flex align-items-center justify-content-center pt-1">
+              <img src="/templates/chinaautosalon/img/credit/garant.png" alt="" />
+            </div>
+            <div class="p-0 col-lg-8 col-md-12 col-sm-12 col-xs-6 col-12 pt-1">
+              <p class="advantage text-left">Гарантия<br> на авто 1 год</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contaimer mt-4">
+        <p class="cred_text col-lg-12 col-md-12 mb-4 pl-0">
+          После звонка кредитного эксперта приезжайте в автосалон и оформляйте автокредит прямо в салоне без необходимости обращения в отделение банка-партнера.
+          Годовая ставка автокредита <strong>от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</strong> и зависит от конкретного банка, суммы займа и кредитной программы. Минимальный срок погашения от 61 дня, максимальный — 84 месяца.<strong> При этом любые дополнительные комиссии автосалоном не взимаются.</strong>
+        </p>
+      </div>
+    </div> 
+    <div class="row d-flex col-xl-5 col-lg-4 ml-0 pr-0 pl-0">
+      {{ runSnippet('Form', {
+      formid: 'FormCredit',
+      path: '/templates/chinaautosalon/partials/forms/credit3/',
+      extension: 'twig'
+      }) | raw }}
+    </div>
+  
+    {{ runSnippet('Form', {
+    formid: 'FormCredit',
+    path: '/templates/chinaautosalon/partials/forms/credit6/',
+    extension: 'twig'
+    }) | raw }}
+
+    {{ runSnippet('Form', {
+    formid: 'FormCredit',
+    path: '/templates/chinaautosalon/partials/forms/credit4/',
+    extension: 'twig'
+    }) | raw }}
+
+  <div class="container pl-0 pt-5 pb-5">
+    <h4 class="title_cred mb-4">Выгодные автокредиты</h4>
+    <div class="application row  ml-1 ">
+      <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-12 mb-4 pr-3 pl-2">
+        <div class="line_cred"></div>
+        <p class="text_present ">Максимально высокий <br><strong>процент одобряемости</strong> </p>     
+      </div>
+      <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-12 mb-4 pr-3 pl-2">
+        <div class="line_cred"></div>
+        <p class="text_presentbtext pt-sm-0 text-left"><strong>2 документа для одобрения</strong><br> кредита на покупку авто</p>
+      </div>
+      <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-12 mb-4 pr-3 pl-2">
+        <div class="line_cred"></div>
+        <p class="text_present pt-sm-0 text-left">Кредит без обязательного<br> страхования <strong> КАСКО</strong></p> 
+      </div>
+      <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-4 pr-3 pl-2">
+        <div class="line_cred"></div>
+         <p class="text_present pt-sm-0 text-left">Процентная ставка<br> по кредиту <strong>от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</strong> </p>
+      </div>
+      <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-4 pr-3 pl-2">
+        <div class="line_cred"></div>
+         <p class="text_present pt-sm-0 text-left">Срок кредита<br><strong> от 6 месяцев до 8 лет</strong></p>
+      </div>
+      <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-12 mb-4 pr-3 pl-2">
+        <div class="line_cred"></div>
+         <p class="text_presentbank pt-sm-0 text-left"><strong> 15 банков - партнеров</strong></p>
+      </div>
+      <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-12 mb-4 pr-3 pl-2">
+        <div class="line_cred"></div>
+        <p class="text_presentbtext pt-sm-0 text-left">Вы из регионов? -<strong> оплатим<br> дорогу!</strong> <span style="color:#98AEC3;">(в случае покупки авто)</span></p>
+      </div>
+      <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-12 mb-4 pr-3 pl-2">
+        <div class="line_cred"></div>
+        <p class="text_present pt-sm-0 text-left">Первоначальный взнос<br> по кредиту <strong> от 0%</strong></p>
+      </div>
+      <div class="col_cred col-xl-4 col-lg-4 col-md-12 col-12 mb-4 pr-3 pl-2">
+        <div class="line_cred"></div>
+        <p class="text_present pt-sm-0 text-left">Досрочное погашение <br> <strong>кредита без штрафов</strong></p>
+      </div>
+    </div>
+  </div>
+  
+  {% include 'partials/banks.twig' %}
+
+  <div class="row d-flex align-items-center justify-content-center"> 
+    {{ runSnippet('Form', {
+    formid: 'FormCredit',
+    path: '/templates/rofl/partials/forms/credit4/',
+    extension: 'twig'
+    }) | raw }}
+  <div>
+  <div class="row d-flex align-items-center justify-content-center"> 
+    {{ runSnippet('Form', {
+    formid: 'FormCredit',
+    path: '/templates/rofl/partials/forms/credit5/',
+    extension: 'twig'
+    }) | raw }}
+  <div>
+</div>
+
+
+
+
+
+
+
+{# <main class="item-page">
 	<div class="price d-none">10000000</div>
 	<div class="p-5 row">
-		<div class="col-md-1"></div>
+		<div class="col-md-1"></div> #}
 		{#<h1>Рассчитайте кредит на покупку автомобиля!</h1>#}
-	</div>
+	{# </div>
 	<div class="row p-sm-0 px-5">
 		<div class="col-md-1"></div>
 		<div class="calc col-md-6 pb-5">
-			<h2>Выгода при покупке в кредит!</h2>
+			<h2>Выгода при покупке в кредит!</h2> #}
 			{# <p class="pb-2">Ставка от 1.6% годовых!</p> #}
-			<p class="pb-2">Ставка от {% if baseSettings.credit_rate is empty %}
+			{# <p class="pb-2">Ставка от {% if baseSettings.credit_rate is empty %}
                                         1.6
                                     {% else %}
                                         {{ baseSettings.credit_rate }}
@@ -87,9 +228,9 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 						<span id="payment2">30 050 ₽/мес.</span>
 					</div>
 				</div>
-			</div>
+			</div> #}
 			{#<button type="button" data-toggle="modal" data-target="#oneclick">Рассчитать кредит</button>#}
-			{{ runSnippet('Form', {
+			{# {{ runSnippet('Form', {
 			formid: 'FormCredit',
 			path: '/templates/autodm/partials/forms/credit3/',
 			extension: 'twig'
@@ -183,7 +324,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 	{% include('partials/banks.twig') %}
 	<div class="container">
 		{% include "/partials/advantages.twig" %}
-	</div>
+	</div> #}
 	{# <script>
 	// Ожидаем загрузки всего DOM
 	document.addEventListener('DOMContentLoaded', function() {
@@ -225,131 +366,130 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 	});
 
 	</script>#}
-	<div class="container">
+	{# <div class="container">
 		{{ runSnippet('Form', {
 		formid: 'FormCallback',
 		path: '/templates/autosalon/partials/forms/feedback/',
 		extension: 'twig'
 		}) | raw }}
-	</div>
-	{% include "/partials/contacts.twig" %}
+	</div> #}
+	{# {% include "/partials/contacts.twig" %} #}
 	{% endblock %}
 	{% block SCRIPTS %}
 	<script src="static/js/choices.min.js"></script>
 	<script src="static/js/select2.js"></script>
 	<script type="text/javascript">
-$(function() {
-  const select = $('.-select');
-  const programName = $('#program-name');
-  programName.text("Не выбрана программа кредитования"); // устанавливаем значение по умолчанию
-  const amountInput = $('#amounter');
-  const firstPayInput = $('#first-pay');
-  const termInput = $('#amounter2');
-  const paymentSpan = $('#payment2');
-  const stavka = $('#percent');
-  const price = parseFloat($('.price').text().replace(/\s+/g, '').replace(/₽/, ''));
+// $(function() {
+//   const select = $('.-select');
+//   const programName = $('#program-name');
+//   programName.text("Не выбрана программа кредитования"); // устанавливаем значение по умолчанию
+//   const amountInput = $('#amounter');
+//   const firstPayInput = $('#first-pay');
+//   const termInput = $('#amounter2');
+//   const paymentSpan = $('#payment2');
+//   const stavka = $('#percent');
+//   const price = parseFloat($('.price').text().replace(/\s+/g, '').replace(/₽/, ''));
 
-  $('#slider-range-max').slider({
-    range: 'max',
-    min: price / 40,
-    max: price,
-    value: 500000,
-    slide: function(event, ui) {
-      amountInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
-      updatePayment();
-      updateFirstPaySlider(ui.value);
-    }
-  });
+//   $('#slider-range-max').slider({
+//     range: 'max',
+//     min: price / 40,
+//     max: price,
+//     value: 500000,
+//     slide: function(event, ui) {
+//       amountInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
+//       updatePayment();
+//       updateFirstPaySlider(ui.value);
+//     }
+//   });
 
-  amountInput.val($('#slider-range-max').slider('value').toLocaleString('ru-RU') + ' ₽');
+//   amountInput.val($('#slider-range-max').slider('value').toLocaleString('ru-RU') + ' ₽');
 
-  $('#slider-range-max3').slider({
-    range: 'max',
-    min: 0,
-    max: 400000,
-    value: 300000,
-    slide: function(event, ui) {
-      firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
-      updatePayment();
-    }
-  });
+//   $('#slider-range-max3').slider({
+//     range: 'max',
+//     min: 0,
+//     max: 400000,
+//     value: 300000,
+//     slide: function(event, ui) {
+//       firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
+//       updatePayment();
+//     }
+//   });
 
-  firstPayInput.val($('#slider-range-max3').slider('value').toLocaleString('ru-RU') + ' ₽');
+//   firstPayInput.val($('#slider-range-max3').slider('value').toLocaleString('ru-RU') + ' ₽');
 
-  $('#slider-range-max2').slider({
-    range: 'max',
-    min: 12,
-    max: 96,
-    value: 96,
-    slide: function(event, ui) {
-      termInput.val(ui.value + ' месяцев');
-      updatePayment();
-    }
-  });
+//   $('#slider-range-max2').slider({
+//     range: 'max',
+//     min: 12,
+//     max: 96,
+//     value: 96,
+//     slide: function(event, ui) {
+//       termInput.val(ui.value + ' месяцев');
+//       updatePayment();
+//     }
+//   });
 
-  termInput.val($('#slider-range-max2').slider('value') + ' месяцев');
+//   termInput.val($('#slider-range-max2').slider('value') + ' месяцев');
 
-  function updateFirstPaySlider(maxValue) {
-    const firstPaySlider = $('#slider-range-max3');
-    const firstPayValue = parseFloat(firstPaySlider.slider('value'));
-    const newMaxValue = Math.min(maxValue, price);
-    if (firstPayValue > newMaxValue) {
-      firstPaySlider.slider('value', newMaxValue);
-      firstPayInput.val(newMaxValue.toLocaleString('ru-RU') + ' ₽');
-    }
-    firstPaySlider.slider('option', 'max', newMaxValue);
-  }
+//   function updateFirstPaySlider(maxValue) {
+//     const firstPaySlider = $('#slider-range-max3');
+//     const firstPayValue = parseFloat(firstPaySlider.slider('value'));
+//     const newMaxValue = Math.min(maxValue, price);
+//     if (firstPayValue > newMaxValue) {
+//       firstPaySlider.slider('value', newMaxValue);
+//       firstPayInput.val(newMaxValue.toLocaleString('ru-RU') + ' ₽');
+//     }
+//     firstPaySlider.slider('option', 'max', newMaxValue);
+//   }
 
-  function updatePayment() {
-	var creditRateString = '{{ baseSettings.credit_rate }}';
-	var creditRateNumber = parseFloat(creditRateString);
-    const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
-    const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
-    const term = parseFloat(termInput.val()) || 0;
-    const programValue = select.val();
-    let coefficient = 1.24;
-    switch (programValue) {
-      case "1,6":
-        coefficient = 1 + (16 / 100);
-        break;
-      case "9,9":
-        // coefficient = 1.24;
-        coefficient = 1 + (99 / 100);
-        break;
-		case "{{ baseSettings.credit_rate }}":
-        coefficient = 1 + ( creditRateNumber * 10 / 100);
-        break;
-      // Добавить обработку для остальных программ
-    }
+//   function updatePayment() {
+// 	var creditRateString = '{{ baseSettings.credit_rate }}';
+// 	var creditRateNumber = parseFloat(creditRateString);
+//     const amount = parseFloat(amountInput.val().replace(/\D/g, '')) || 0;
+//     const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+//     const term = parseFloat(termInput.val()) || 0;
+//     const programValue = select.val();
+//     let coefficient = 1.24;
+//     switch (programValue) {
+//       case "1,6":
+//         coefficient = 1 + (16 / 100);
+//         break;
+//       case "9,9":
+//         // coefficient = 1.24;
+//         coefficient = 1 + (99 / 100);
+//         break;
+// 		case "{{ baseSettings.credit_rate }}":
+//         coefficient = 1 + ( creditRateNumber * 10 / 100);
+//         break;
+//       // Добавить обработку для остальных программ
+//     }
 
-    const payment = (amount - firstPay) / term * coefficient;
-    paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' ₽/мес.');
-    $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' ₽');
-    $('#percent').text(programValue + ' %');
-    $('#summ').text(amount.toLocaleString('ru-RU') + ' ₽');
-    $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
-    $('#paymentSpan2').text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' ₽/мес.');
+//     const payment = (amount - firstPay) / term * coefficient;
+//     paymentSpan.text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' ₽/мес.');
+//     $('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' ₽');
+//     $('#percent').text(programValue + ' %');
+//     $('#summ').text(amount.toLocaleString('ru-RU') + ' ₽');
+//     $('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
+//     $('#paymentSpan2').text(payment.toLocaleString('ru-RU', { maximumFractionDigits: 0 }) + ' ₽/мес.');
 
-    const selectedOption = select.find('option:selected');
-    const programNameText = selectedOption.text().split('(')[0].trim();
-    if (programNameText === 'Выберите кредитную программу') {
-      programName.text('');
-    } else {
-      programName.text(programNameText);
-    }
-    console.log(programNameText);
-  }
+//     const selectedOption = select.find('option:selected');
+//     const programNameText = selectedOption.text().split('(')[0].trim();
+//     if (programNameText === 'Выберите кредитную программу') {
+//       programName.text('');
+//     } else {
+//       programName.text(programNameText);
+//     }
+  // }
 
-  updatePayment();
+//   updatePayment();
 
-  amountInput.on('input', updatePayment);
-  firstPayInput.on('input', updatePayment);
-  termInput.on('change', updatePayment);
-  select.on('change', updatePayment);
-});
+//   amountInput.on('input', updatePayment);
+//   firstPayInput.on('input', updatePayment);
+//   termInput.on('change', updatePayment);
+//   select.on('change', updatePayment);
+// });
 </script>
 <style>
-.credit-amounts {
+/* .credit-amounts {
   font-size: 26px;
     color: #9F5007;
     margin-bottom: 20px;
@@ -377,8 +517,8 @@ $(function() {
     font-size: 16px;
     background: #D12D1E url(/templates/autosalon/img/select.svg) no-repeat right 20px top 50%;
     border-radius: 10px;
-}
-@media (max-width: 476px) {
+} */
+/* @media (max-width: 476px) {
   .credit-amounts {
   font-size: 16px;
     color: #9F5007;
@@ -408,8 +548,8 @@ $(function() {
     background: #D12D1E url(/templates/autosalon/img/select.svg) no-repeat right 20px top 50%;
     border-radius: 10px;
 }
-  }
+  } */
 </style>
-        <link rel="stylesheet" href="/templates/autosalon/css/credit.css">
+        {# <link rel="stylesheet" href="/templates/autosalon/css/credit.css"> #}
 
 	{% endblock %}

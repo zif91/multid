@@ -5,3 +5,7 @@ assets/cache/
 __MACOSX/
 **/.DS_Store
 manager/includes/
+.idea
+/docker-compose.yml
+_docker/
+/tmp/

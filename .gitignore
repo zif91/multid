@@ -5,3 +5,6 @@ assets/cache/
 __MACOSX/
 **/.DS_Store
 manager/includes/
+.DS_Store
+assets/.DS_Store
+templates/.DS_Store

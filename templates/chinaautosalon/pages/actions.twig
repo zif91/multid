@@ -3,15 +3,34 @@
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 4,
-parents: 27,
+parents: catalog_number,
 depth: 2,
-tvList:'car-price,run,engine_power,gear,year,image,body_type,car_color,engine_volume,fuel,drive',
+tvList:'car-price,car_photos,run,engine_power,gear,year,image,body_type,car_color,engine_volume,fuel,drive',
 ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard',
+tpl:'@T_FILE:partials/catalogcard_mod',
 })
 %}
+{% set catalog_number = baseSettings['id'] %}
+{% set gifts = runSnippet('DocLister', {
+    display: 6,
+    parents: resource.id,
+    depth: 2,
+    addWhereList: 'c.template = (13)',
+    tvList:'image,color',
+    tpl:'@T_FILE:partials/actions_actions'
+})
+%}
+<div class="container">
+<div class="row mt-3 mr-aulo ml-auto">
+    {% if gifts is empty %}
 
-		{% include 'partials/actions.twig' %}
+    {% else %}
+        {{gifts | raw}}
+    {% endif %}
+</div>
+</div>
+
+		{# {% include 'partials/actions.twig' %} #}
 	
 <div class="catalog-page pb-1">
 	<div class="container">

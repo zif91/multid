@@ -1,0 +1,31 @@
+<div class="bg-main-trade-in">
+            <div class="container py-5 pt-3 pt-lg-5">
+                <h4 class="fw-bold fs-1 mb-3 text-uppercase px-4 pb-4">Trade-in</h4>
+                <p class="fw-bold px-4 mb-5 text-uppercase d-none d-lg-block">
+                    обменяйте<br />
+                    ваш автомобиль<br />
+                    на новый!
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-main-two p-3 p-xl-5 mx-4 mx-xl-0">
+                <h4 class="text-white fw-bold mb-3 mb-xl-5">Сдать автомобиль в Trade-in</h4>
+                        {#    {{ runSnippet('FormLister', {
+                            controller: 'Form',
+                            disableSubmit: 1,
+                            formid: 'FormTradeIn',
+                            config: 'FormTradeIn:templates/atlant/partials/forms',
+                            templatePath: 'templates/atlant/partials/forms/',
+                            templateExtension: 'twig',
+                            debug: '1',
+                            formControls: 'brand, models'
+                        })  | raw }} #}
+                        
+                        {{ runSnippet('Form', {
+                            formid: 'FormTradeIn',
+                            path: '/templates/atlant/partials/forms/tradeIn/',
+                            extension: 'twig'
+                        })  | raw }} 
+                </div>
+        </div>

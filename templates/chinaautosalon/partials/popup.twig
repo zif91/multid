@@ -85,7 +85,7 @@ extension: 'twig'
     </div>
   </div>
 </div>
-<div class="sticky">
+{# <div class="sticky">
   <div class="sticky__close"></div>
   <a href="#trade-in-popup" data-fancybox="" class="sticky__plate sticky__plate_tradin">
     <img src="/templates/autosalon//images/sticky-car.png" alt="">
@@ -100,7 +100,8 @@ extension: 'twig'
                     {% endif %}</span></div>
     </div>
   </a>
-</div>
+</div> #}
+ 
 <div id="credit-popup-plate" class="popup-fb fancybox-content" style="display: none;">
   <div class="popup__header">
     <div>
@@ -156,6 +157,46 @@ extension: 'twig'
             <a class="close"></a>
         </div>
 </div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+<div class="float-button" id="float-button">
+  <a href="#" data-toggle="modal" data-target="#callphone"><i class="bi bi-telephone"></i></a><div class="waves-container">
+    <div class="waves"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+window.addEventListener('load', function() {
+// Проверяем, было ли уже показано окно в этой сессии
+if (!localStorage.getItem('isPopupShown')) {
+  // Запускаем таймер на 60 секунд
+  setTimeout(function() {
+    // Получаем элемент модального окна
+    var modalElement = document.getElementById('callphone');
+    // Открываем модальное окно
+    $(modalElement).modal('show');
+    // Сохраняем информацию о том, что окно уже было показано
+    localStorage.setItem('isPopupShown', true);
+  }, 60000);
+}
+});
+
+let domElement = document.getElementById("float-button");
+
+setInterval(function() {
+  domElement.heartBeat(1500);
+}, 5000);
+
+</script>
+
+
+{{ runSnippet('Form', {
+                            formid: 'FormCallback',
+                            path: '/templates/autodm/partials/forms/feedback_modal_call/',
+                            extension: 'twig'
+                        })  | raw }}
+
 <style type="text/css">
 .bottom-page-line {
   position: fixed;

@@ -1,0 +1,265 @@
+<form class="form-calculate2 mt-4 px-4" action="">
+  <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+  <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+  {{ data['form.messages'] | raw }}
+  <div class="name text-center mb-3 mt-1 pt-3">
+     Выгоднее - в кредит! Скидка до 100 000 руб!
+  </div>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-xl-6 col-md-12">
+        <div class="d-flex-column ">
+          <div class = "title text-left mt-1"> Первоначальный взнос </div>
+          <div class="item">
+            <input type="text" id="first-pay" readonly>
+            <div class = "svg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg>
+            </div>
+            <div id="slider-range-max3">
+              <div class="marker d-flex md-row ">
+                <div class="marker-0"></div>
+                <div class="marker-25"></div>
+                <div class="marker-50"></div>
+                <div class="marker-100"></div>
+              </div>
+            </div>                       
+          </div>
+
+          <div class="sum d-flex md-row justify-content-between">
+            <div class="number-0 mt-2">0 ₽</div>
+            <div class="number-25 mt-2">250 000 ₽</div>
+            <div class="number-50 mt-2">500 000 ₽</div>
+            <div class="number-100 mt-2">1 000 000 ₽></div>
+          </div>
+
+          <div class = "title text-left mt-5"> Срок кредита </div>
+          <div class="item">
+            <input type="text" id="amounter2" readonly>
+            <div class = "svg2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg>
+            </div>    
+            <div id="slider-range-max2">
+              <div class="month d-flex md-row">
+                <div class="marker-1"></div>
+                <div class="marker-6"></div>
+                <div class="marker-12"></div>
+                <div class="marker-18"></div>
+                <div class="marker-24"></div>
+                <div class="marker-30"></div>
+                <div class="marker-36"></div>
+                <div class="marker-42"></div>
+                <div class="marker-48"></div>
+                <div class="marker-54"></div>
+                <div class="marker-60"></div>
+              </div>
+            </div>
+          </div>
+          <div class="month d-flex md-row-10 justify-content-between">
+            <div class="month-6 mt-2">мес.</div>
+            <div class="month-12 mt-2">1 год</div>
+            <div class="month-18 mt-2"></div>
+            <div class="month-24 mt-2">2 года</div>
+            <div class="month-30 mt-2"></div>
+            <div class="month-36 mt-2">3 года</div>
+            <div class="month-42 mt-2"></div>
+            <div class="month-48 mt-2">4 года</div>
+            <div class="month-54 mt-2"></div>
+            <div class="month-60 mt-2">5лет</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-md-12">
+        <div class="field">
+          <div class="d-flex justify-content-between pt-1">
+            <span class="credit-text text-start pt-4">Сумма кредита:</span>
+            <span class="credit-amountsnew text-end pt-4"  id="summ">123 ₽</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span class="credit-text text-start pt-4">Первоначальный взнос:</span>
+            <span class="credit-amountsnew text-end pt-4"  id="first-pay2">123 ₽</span>
+          </div>        
+          <div class="d-flex justify-content-between">
+            <span class="credit-text text-start pt-4">Срок кредита:</span>
+            <span class="credit-amountsnew pt-4 pb-3"   id="mes">123 месяцев</span>
+          </div>
+          <div class ="hr" style="width: 100%; height: 1px; background-color: #002334;"> <hr/> </div>
+        </div>
+        <div class="field mb-1">
+          <div class="d-flex justify-content-between pt-4">
+            <span class="credit-text text-start pt-3">Ежемесячный платеж:</span>
+            <span class="credit-monthly text-end pt-3" id="paymentSpan2">0 ₽/мес</span>
+          </div>
+          <div class="d-flex justify-content-between ">
+            <span class="credit-text text-start pt-4 ">Ваша выгода:</span>
+            <span class="discount text-end pt-4 text-danger" id="cashback" >Скидка -100 000 ₽!</span>
+          </div>
+        </div> 
+      </div>
+
+      
+      <div class="col-xl-6 col-md-12 mt-5">
+        <div class="field">
+          <div class="d-flex justify-content-between pt-5">
+            <span class="credit-title text-left pt-3">Оформить заявку</span>
+          </div>
+          <div class="d-flex justify-content-between pt-2">
+            <span class="credit-cont text-left w-4">Оставьте заявку чтобы зафиксировать </span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span class="credit-cont text-left w-4">Вашу скидку!</span>
+          </div>
+        </div>
+        </div>
+
+      <div class="application row mt-4 ml-1">
+        <div class="col-xl-4 col-md-6">
+          <div class="field mb-4 pt-sm-0 pt-4 text-left">
+            <label class="lab mb-2">Ваше имя</label>
+            <input name="first_name" value="{{ data.first_name }}" type="text" class="form-control {{ data['first_name.classname'] }}" id="calc-input-5" type="text" placeholder="Иван" />
+          </div>
+        </div> 
+        <div class="col-xl-4 col-md-6">
+          <div class="field mb-4 pt-sm-0 pt-4 text-left">
+            <label class="lab mb-2">Ваш телефон</label>
+            <input value="{{ data.mobile_tel }}" name="mobile_tel"  class="form-control py-2 border-1 phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
+          </div>
+        </div>
+        <div class="text-center pt-3 pb-3 col-xl-4 col-md-6">
+          <button type="submit" class="formbut btn btn-danger w-100 mt-2">Оставить заявку</button>
+        </div>
+        
+        <div class="col-xl-4 col-md-6 ml-auto">
+          <div class="form-check pl-0 mb-2 mt-0 col-md-11 col-sm-6">
+            <input class="form-check-input mt-1" type="checkbox"  id="check_nationality" value="1" name="check_nationality" style="margin: 0;">
+            <label class="form-check-label small mt-1 text-left" for="check_nationality"style="font-size: 15px;">
+              Являюсь гражданином РФ
+            </label>
+          </div>
+          <div class="pl-0 mb-2 mt-0 pr-0 col-md-12 col-sm-6 d-flex align-items-start justify-content-start">
+            <p class="personal-text mb-1 pr-0 text-left">
+              Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="#" class=" personal-link text-danger"> персональных данных</a>
+            </p>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% block css %}
+<style>
+  .name{
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      color: #FFFFFF;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+  }
+  .svg{
+    position: absolute;
+    z-index: 0;
+    top: 17px;
+    left: 118px;
+  }
+  .svg2{
+    position: absolute;
+    z-index: 0;
+    top: 186px;
+    left: 128px;
+  }
+  .lab{
+    width: 100%;
+    color: #FFFFFF;
+  }
+  .application{
+    position: relative;
+    width: 100%;
+  }
+  .form-control {
+      width: 100%;
+      height: 52px;
+      left: 203px;
+      top: 1672px;
+      background: #FFFFFF;
+      border: 1px solid #E6E6E6;
+      border-radius: 6px;
+  }
+  .form-calculate2 .item .ui-widget-content {
+    background: #b71f25;
+  }
+  .form-calculate2 .item .ui-state-default,
+  .form-calculate2 .item .ui-widget-content .ui-state-default,
+  .form-calculate2 .item .ui-widget-header .ui-state-default,
+  .form-calculate2 .item .ui-button,
+  .form-calculate2 .item html .ui-button.ui-state-disabled:hover,
+  .form-calculate2 .item html .ui-button.ui-state-disabled:active {
+    border: 3px solid #b71f25;
+  }
+  .form-calculate2 .text-field-error{
+    color: #FFF;
+  }
+</style>
+{% endblock %}
+
+{% block SCRIPTS %}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="static/js/choices.min.js"></script>
+<script src="static/js/select2.js"></script>
+<script type="text/javascript">
+$(function() {
+	var slider = $('#slider-range-max3');
+	const firstPayInput = $('#first-pay');
+	const termInput = $('#amounter2');
+	var summ = 1000000;
+	
+	$('#slider-range-max3').slider({
+		range: 'max',
+		min: 0,
+		max: 1000000,
+    step: 1000,
+		value: 0,
+		slide: function(event, ui) {
+		  firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
+		  updatePayment();
+		}
+	});
+	firstPayInput.val($('#slider-range-max3').slider('value').toLocaleString('ru-RU') + ' ₽');
+	$('#slider-range-max2').slider({
+		range: 'max',
+		min: 1,
+		max: 60,
+		value: 48,
+		slide: function(event, ui) {
+		  termInput.val(ui.value + ' месяцев');
+		  updatePayment();
+		}
+	});
+	termInput.val($('#slider-range-max2').slider('value') + ' месяцев');
+	function updatePayment() {
+		const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+		const term = parseFloat(termInput.val()) || 0;
+		let coefficient = 1.24;
+		const payment2 = (summ - firstPay) / term * coefficient;
+		const payment = Math.ceil(payment2);
+		$('#first-pay2').text(firstPay.toLocaleString('ru-RU') + ' ₽');
+		$('#mes').text(term.toLocaleString('ru-RU') + ' месяцев');
+		$('#summ').text(summ.toLocaleString('ru-RU') + ' ₽');
+		$('#paymentSpan2').text(payment.toLocaleString('ru-RU') + ' ₽');	
+	}
+	
+	updatePayment();
+	
+	firstPayInput.on('input', updatePayment);
+	termInput.on('change', updatePayment);
+});
+</script>
+{% endblock %}

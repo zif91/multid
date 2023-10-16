@@ -5,11 +5,16 @@ maxDepth: 1,
 rowTpl: '@CODE:
 
 <li class="d-md-inline-block"><a href="[+url+]">[+pagetitle+]</a></li>',
-outerTpl: '@CODE:<ul>
+outerTpl: '@CODE:<ul id="headerMenu" class="collapse navbar-collapse">
     [+wrap+]</ul>'}) %}
 <header class="header">
 	<div class="container">
 		<div class="flex">
+			<div class="navbar_but navbar-expand-md navbar-light">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu" aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
 			<div class="logo">
 				<a href="/">
                     {% if baseSettings["logo"] %}
@@ -38,6 +43,7 @@ outerTpl: '@CODE:<ul>
 
 				</div>
 			</div>
+			
 			<div class="contacts">
 				<a class="menu-button"></a>
 				{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4"}) | raw}}
@@ -49,8 +55,22 @@ outerTpl: '@CODE:<ul>
 				</div>
 			</div>
 		</div>
-		<nav>
+		<nav class="navbar navbar-expand-md navbar-light">
+		{# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu" aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button> #}
+
 			{{headermenu|raw}}
 		</nav>
 	</div>
 </header>
+<style>
+.navbar_but.navbar-expand-md.navbar-light{
+	display:none;
+}
+@media (max-width: 767px) {
+  .navbar_but.navbar-expand-md.navbar-light{
+	display:block;
+	}
+}
+</style>

@@ -1,0 +1,94 @@
+<footer class="footer py-4 text-light">
+    <div class="container">
+        <div class="flex">
+            <div class="logo mb-4">
+                {% if baseSettings["logo"] %}
+                    <a style="background: url({{ baseSettings["logo"] }}) no-repeat;
+                            background-size: cover; background-position: center;
+                            " href="/" class="d-inline-block"></a>
+                {% else %}
+                    <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                    </div>
+                {% endif %}
+            </div>
+            <ul class="pt-4 mt-1 mb-4">
+                <li class="d-inline-block"><a href="#" class="text-light">Автомобили в продаже</a></li>
+                {#<li class="d-inline-block"><a href="#" class="text-light">Услуги</a></li>
+                <li class="d-inline-block"><a href="#" class="text-light">О компании</a></li>
+                <li class="d-inline-block"><a href="#" class="text-light">Контакты</a></li>#}
+            </ul>
+        </div>
+        <div class="line mb-3"></div>
+        <div class="flex">
+            <div class="copy">
+                Для повышения удобства работы с сайтом компания использует файлы cookie. <br />
+                В cookie содержатся данные о прошлых посещениях сайта.
+            </div>
+            {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone mt-3 pt-2"}) | raw}}
+        </div>
+    </div>
+</footer>
+{#
+<footer class="footer position-relative py-4">
+    <a href="#top" class="totop position-absolute"></a>
+    <div class="container d-flex">
+        <div class="logo">
+            <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"> <span class="align-middle pl-2 ml-2 text-light">{{city}}</span></a>
+        </div>
+        <ul class="pt-2">
+            <li class="d-inline-block"><a href="/avtomobili-s-probegom" class="text-light">Каталог</a></li>
+            <li class="d-inline-block"><a href="/akcii2" class="text-light">Акции</a></li>
+            <li class="d-inline-block"><a href="/kontakty" class="text-light">Контакты</a></li>
+        </ul>
+        <a href="#" class="phone pt-2 text-light">{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class: 'phone'}) | raw}} </a>
+    </div>
+</footer>
+<div class="copyright-block text-center py-2">
+    <div class="container">
+        © {{baseSettings["pagetitle"]}}, 2023. Все права защищены
+    </div>
+</div>#}
+<div class="popup" id="popupcred" style="display: none; width: 100%; max-width: 965px;">
+    {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/chinamajor/partials/forms/feedback_modal/',
+        extension: 'twig'
+        }) | raw }}
+
+</div>
+
+<div class="popup" id="popup" style="display: none; width: 100%; max-width: 965px;">
+    {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/chinamajor/partials/forms/feedback/',
+        extension: 'twig'
+        }) | raw }}
+
+</div>
+<script type="text/javascript">
+$(document).on('change', '.calc-input', function() {
+  var loanAmount = parseFloat($('#loan-amount').val());
+  var initialPaymentPercent = parseFloat($('#initial-payment-percent').val());
+  var loanTerm = parseFloat($('#loan-term').val());
+  var initialPayment = loanAmount * initialPaymentPercent / 100;
+  var monthlyPayment = (loanAmount - initialPayment) / loanTerm;
+  console.log('loanAmount: ', loanAmount);
+  console.log('initialPaymentPercent: ', initialPaymentPercent);
+  console.log('loanTerm: ', loanTerm);
+  console.log('initialPayment: ', initialPayment);
+  console.log('monthlyPayment: ', monthlyPayment);
+  $('#initial-payment-amount').val(initialPayment.toFixed(2));
+  $('#monthly-payment-amount').text(monthlyPayment.toFixed(2));
+});
+
+</script>

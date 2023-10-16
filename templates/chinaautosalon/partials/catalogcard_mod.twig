@@ -5,11 +5,17 @@ tpl: '@CODE:[+image.thumb+]',
 total: 1,
 display: 1
 }) %#}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 {% set car_photos = data['tv.car_photos'] | json %}
+{% set last_photo = car_photos.fieldValue[car_photos.fieldValue|length - 1].image %}
+{% if data['tv.car-price'] is empty %}
+			
+{% else %}
 {#% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %#}
 <a href="{{ data['url'] }}" ><div class="col-lg-4 col-md-6">
 	<div class="item mb-3">
-		<img src="{{ car_photos.fieldValue[0].image }}">
+		{# <img src="{{ car_photos.fieldValue[0].image }}"> #}
+		<img src="{{ last_photo }}">
 		<div class="p-4">
 			<div class="name mb-3">
 				{{ data['pagetitle'] }} {{data[tv.body_type]}}
@@ -30,11 +36,18 @@ display: 1
 			</div>
 			<div class="price mb-3">
 				<span class="new mr-2"> {{ data['tv.car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽ </span>
+				{% if data['tv.old-car-price'] !="" %}
 				<span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
+				{% endif %}
 			</div>
 			<div class="credit mb-3 position-relative">
 				{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}} рублей в месяц
-				<span class="text-right">Ставка <br />от 1.6%</span>
+				{# <span class="text-right">Ставка <br />от 1.6%</span> #}
+				<span class="text-right">Ставка <br />от {% if baseSettings.credit_rate is empty %}
+    1.6
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</span>
 			</div>
 			<div class="buttons row">
 				{#<div class="col-6">
@@ -57,3 +70,4 @@ display: 1
 	</div>
 </div>
 </a>
+{% endif %}

@@ -1,0 +1,88 @@
+{% extends 'app.twig' %}
+
+{% block MAIN %}
+	    <main class="main container">
+        <div class="navi py-4">
+            {% include('partials/crumbs.twig') %}
+        </div>
+        <div class="action-page pb-5">
+            {#<div class="back-link text-center py-3">
+                <a href="#" onclick="window.history.back();">Назад к <span>акциям</span></a>
+            </div>#}
+            <div class="image mb-5 position-relative" style="background: url({{resource.image}}) center/cover;">
+                <div class="text position-absolute">
+                    <div class="name mb-sm-2">
+                        {{resource.pagetitle}}
+                    </div>
+                    
+                    <p>{{resource.description}}</p>
+                </div>
+            </div>
+            <h1 class="h1 mb-3">{{resource.pagetitle}}</h1>
+            <div class="txt mb-3">
+                {{resource.content | raw}}
+            </div>
+        </div>
+        <style type="text/css">
+        .action-page .back-link {
+  display: none;
+}
+.action-page .back-link a {
+  background: url('../img/back.svg') no-repeat left;
+}
+.action-page .back-link a span {
+  color: red;
+}
+.action-page .image {
+  height: 454px;
+}
+.action-page .image .text {
+  color: #fff;
+  left: 10%;
+  bottom: 25px;
+  width: 701px;
+}
+.action-page .image .text .name {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 53px;
+}
+.action-page .image .text .name button {
+  color: #fff;
+  font-weight: 700;
+  width: 159px;
+  height: 40px;
+  background: red;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 20px;
+  line-height: 40px;
+  vertical-align: middle;
+}
+.action-page .image .text .name2 {
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 46px;
+}
+.action-page .image .text p {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+}
+.action-page .image .text p span {
+  color: red;
+}
+.action-page .h1 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+}
+.action-page .txt {
+  font-size: 20px;
+  line-height: 24px;
+}</style>
+    </main>
+
+{% endblock %}
+

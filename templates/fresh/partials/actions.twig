@@ -1,9 +1,21 @@
-{% set gifts = runSnippet('DocLister', {
+{# {% set gifts = runSnippet('DocLister', {
 display: 4,
 parents: 24,
 depth: 0,
 tvList:'image,color',
 tpl:'@T_FILE:partials/actions_actions'
+})
+%} #}
+{# Правка шаблона для размещения акций для китая изначально стр1-8 #}
+{% set site_start = modx.config['site_start'] %}
+
+{% set gifts = runSnippet('DocLister', {
+    display: 3,
+    parents: site_start,
+    depth: 3,
+    addWhereList: 'c.template = (13)',
+    tvList:'image,color',
+    tpl:'@T_FILE:partials/actions_actions'
 })
 %}
 

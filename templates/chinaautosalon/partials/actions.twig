@@ -1,11 +1,26 @@
-{% set gifts = runSnippet('DocLister', {
+{# {% set gifts = runSnippet('DocLister', {
 display: 4,
 parents: 24,
 depth: 0,
 tvList:'image,color',
 tpl:'@T_FILE:partials/actions_actions'
 })
+%} #}
+
+{% set site_start = modx.config['site_start'] %}
+
+{% set gifts = runSnippet('DocLister', {
+    display: 3,
+    parents: site_start,
+    depth: 3,
+    addWhereList: 'c.template = (13)',
+    tvList:'image,color',
+    tpl:'@T_FILE:partials/actions_actions'
+})
 %}
+
+{# {{dump(site_start)}} #}
+
 <div class="page-name py-4">
     <div class="container">
         <h1 class="h1 m-0">Акции</h1>

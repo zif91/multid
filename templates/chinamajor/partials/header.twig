@@ -1,0 +1,99 @@
+{% set headermenu = runSnippet('DLMenu', {
+parents: baseSettings["id"],
+tvList: 'image',
+rowTpl: '@CODE:<li><a href="[+url+]">[+pagetitle+]</a></li>',
+outerTpl: '@CODE:<ul>
+    [+wrap+]</ul>'}) %}
+
+{#
+<div class="menubg"></div>
+<header class="header py-3">
+    <div class="container flex">
+        <div class="logo">
+            {% if baseSettings["logo"] %}
+                <a style="background: url({{baseSettings["logo"]}}) no-repeat;
+                        background-size: cover; background-position: center;
+                        " href="/" class="d-inline-block"></a>
+            {% else %}
+                <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                </div>
+            {% endif %}
+        </div>
+        <a class="menu-button"></a>
+        <ul class="pt-4 mt-1">
+            <li class="d-inline-block"><a href="/katalog-novyh-avtomobilej/">Автомобили в продаже</a></li>
+                                        <li class="d-inline-block"><button class="btn btn-danger w-100">Заказать звонок</button></li>
+
+            <li class="d-inline-block"><a href="#">Услуги</a></li>
+            <li class="d-inline-block"><a href="#">О компании</a></li>
+            <li class="d-inline-block"><a href="#">Контакты</a></li>
+        </ul>
+        <div class="phone">
+        {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone mt-3 pt-2"}) | raw}}
+                <a href="{{baseSettings["salon-phone"]}}">заказать экспресс-звонок</a>
+        </div>
+        
+    </div>
+</header>
+#}
+
+<div class="menubg"></div>
+    <header class="header">
+        <div class="container flex" style="min-height: 90px">
+            <div class="logo">
+                {% if baseSettings["logo"] %}
+                <a style="background: url({{baseSettings["logo"]}}) no-repeat;
+                        background-size: contain; background-position: center;
+                        " href="/" class="d-inline-block"></a>
+            {% else %}
+                <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+                </div>
+            {% endif %}
+            </div><a class="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+            {{headermenu|raw}}
+            <div class="phone pb-1">
+                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}
+                <a href="#" data-src="#popup" data-fancybox="">заказать экспресс-звонок</a>
+            </div>
+            {#<div class="location">
+            <span>Адрес: {{baseSettings.salon_location}}</span>
+            </div>#}
+            
+        </div>
+    </header>
+                    
+    <div class="index-top-line py-3">
+        <div class="container flex">
+            <p>В кредит под {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}% или в рассрочку под 0% <span class="d-inline-block mx-3">|</span> <button  data-src="#popup" data-fancybox="">Новые поступления</button></p>
+            <img src="/templates/chinamajor/img/car.png">
+            <a href="#" data-src="#popup" data-fancybox="" class="link d-block"></a>
+        </div>
+    </div>

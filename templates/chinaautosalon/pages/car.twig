@@ -1,6 +1,7 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
 {# {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%} #}
+{% set complectations = runSnippet('Complectations') %}
 {% set car_photos = resource.car_photos | json %}
 {% set car_photos = car_photos.fieldValue %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -27,9 +28,50 @@
                             <div class="item"><img style="margin-right:auto; margin-left:auto; height:5em;" src="{{image.image}}"></div>
                         {% endfor %}
                         {% endif %}
-                    </div>   
+                    </div>
                 </div>
             </div>
+
+            {% if complectations is not empty %}
+                <div class="configurations mb-5">
+                    <h2 class="mb-4">Доступные комплектации</h2>
+                    {% for complectation in complectations %}
+                        <div class="mb-3">
+                            <h5 class="font-weight-bold mb-2">{{ complectation['title_group'] }}</h5>
+                            {% for item in complectation['items'] %}
+                                <div class="card mb-2">
+                                    <div class="card-header">{{ item['title'] }}</div>
+                                    <div class="card-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <th>Наименование</th>
+                                            <th>Цена</th>
+                                            <th>Старая цена</th>
+                                            <th>Привод</th>
+                                            <th>Коробка передач</th>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>{{ item['title'] }}</td>
+                                                <td>{{ item['price'] }}</td>
+                                                <td>{{ item['price_old'] }}</td>
+                                                <td>{{ item['drive'] }}</td>
+                                                <td>{{ item['transmission'] }}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                        {% if item['description'] is not empty %}
+                                            <div class="font-weight-bold">Описание</div>
+                                            <div>{{ item['description'] }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             {# <div class="col-xl-7 col-lg-6"> #}
                 {# <div class="photos mb-5">

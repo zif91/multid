@@ -103,7 +103,38 @@
                     </div>
 
                 </div>
-
+            </div>
+            <div class="col-lg-5">
+                <h1 class="mb-3">{{resource.pagetitle}}</h1>
+                <div class="price mb-3">
+                    <span class="new mr-2">{{resource["car-price"]}}₽</span>
+                    <span class="old">{{resource["old-car-price"]}}₽</span>
+                </div>
+                <div class="credit mb-4">
+                    В кредит от {{ (resource["car-price"] / 72)|round }} ₽/мес <span class="d-inline-block py-2 px-3 ml-sm-3">Ставка от {% if baseSettings.credit_rate is empty %}
+    4.9
+{% else %}
+    {{ baseSettings.credit_rate }}
+{% endif %}%</span>
+                </div>
+                {{dump(baseSettings.credit_rate)}}
+                <div class="vin mb-3 flex">
+                    <div><img src="/templates/major/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>
+                    <div><img src="/templates/major/img/vin2.svg"> Проверенный <span>VIN-номер</span></div>
+                </div>
+                <div class="buttons row mb-2">
+                    <div class="col-12">
+                        <button class="w-100 mb-3 color1" data-fancybox="" data-src="#popup">Забронировать</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="w-100 color2 scroll-btn">Рассчитать кредит</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="w-100 color3" data-fancybox="" data-src="#popup">Предложить обмен</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
                 {% if complectations is not empty %}
                     <div class="configurations mb-5">
                         <h2 class="mb-4">Доступные комплектации</h2>
@@ -144,36 +175,6 @@
                         {% endfor %}
                     </div>
                 {% endif %}
-            </div>
-            <div class="col-lg-5">
-                <h1 class="mb-3">{{resource.pagetitle}}</h1>
-                <div class="price mb-3">
-                    <span class="new mr-2">{{resource["car-price"]}}₽</span>
-                    <span class="old">{{resource["old-car-price"]}}₽</span>
-                </div>
-                <div class="credit mb-4">
-                    В кредит от {{ (resource["car-price"] / 72)|round }} ₽/мес <span class="d-inline-block py-2 px-3 ml-sm-3">Ставка от {% if baseSettings.credit_rate is empty %}
-    4.9
-{% else %}
-    {{ baseSettings.credit_rate }}
-{% endif %}%</span>
-                </div>
-                {{dump(baseSettings.credit_rate)}}
-                <div class="vin mb-3 flex">
-                    <div><img src="/templates/major/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>
-                    <div><img src="/templates/major/img/vin2.svg"> Проверенный <span>VIN-номер</span></div>
-                </div>
-                <div class="buttons row mb-2">
-                    <div class="col-12">
-                        <button class="w-100 mb-3 color1" data-fancybox="" data-src="#popup">Забронировать</button>
-                    </div>
-                    <div class="col-6">
-                        <button class="w-100 color2 scroll-btn">Рассчитать кредит</button>
-                    </div>
-                    <div class="col-6">
-                        <button class="w-100 color3" data-fancybox="" data-src="#popup">Предложить обмен</button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

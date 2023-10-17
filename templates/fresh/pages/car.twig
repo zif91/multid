@@ -1,95 +1,141 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-	{% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%}
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-	{% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %}
-	<div class="item-page pt-3 pb-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-7">
-					<div class="photos mb-sm-5 mb-4">
-						<div class="slider-for">
-							<div class="item"><img src="{{car_photos}}"></div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-5">
-					<div class="info pl-xl-4 pl-0">
-						<h1 class="h1 mb-3">{{resource.pagetitle}}</h1>
-						<div class="price mb-4">
-							{{resource["car-price"]}}
-							₽
-						</div>
-						<div class="buttons flex pb-sm-5 pb-4">
-							<button class="mb-sm-3"  data-fancybox="" data-src="#popup" >Задать вопрос</button>
-							<button class="mb-sm-3"  data-fancybox="" data-src="#popup">Заказать в 1 клик</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<h2 class="h2 mb-4">Комплектации и цены</h2>
-			{% for item in modification %}
-				{% if item["group-name"] and item["offers-price-from"] is not empty %}
-					<div class="complect mb-3 p-3">
+    {% set complectations = runSnippet('Complectations') %}
+    {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg" %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    {% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %}
+    <div class="item-page pt-3 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="photos mb-sm-5 mb-4">
+                        <div class="slider-for">
+                            <div class="item"><img src="{{ car_photos }}"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="info pl-xl-4 pl-0">
+                        <h1 class="h1 mb-3">{{ resource.pagetitle }}</h1>
+                        <div class="price mb-4">
+                            {{ resource["car-price"] }}
+                            ₽
+                        </div>
+                        <div class="buttons flex pb-sm-5 pb-4">
+                            <button class="mb-sm-3" data-fancybox="" data-src="#popup">Задать вопрос</button>
+                            <button class="mb-sm-3" data-fancybox="" data-src="#popup">Заказать в 1 клик</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-						<p class="mb-3">{{item["group-name"]}}</p>
-						<div class="flex mb-3">
-							<span>Объем двигателя</span>
-							<span>{{item["Объем двигателя"]}}см³</span>
-						</div>
-						<div class="flex mb-3">
-							<span>Привод</span>
-							<span>{{item["Привод"]}}</span>
-						</div>
-						<div class="flex mb-3">
-							<span>КПП</span>
-							<span>{{item["Трансмиссия"]}}</span>
-						</div>
-						<div class="flex mb-3">
-							<span>Топливо</span>
-							<span>{{item["Тип двигателя"]}}</span>
-						</div>
-						<div class="flex mb-3">
-							<span>Цена</span>
-							<span>{{item["offers-price-from"]}}₽</span>
-						</div>
-						<button class="w-100"  data-fancybox="" data-src="#popup" >Зарезервировать</button>
-					</div>
-				{% endif %}
-			{% endfor %}
-            <table class="w-100 mb-5">
-				<thead>
-					<tr>
-						<td></td>
-						<td>Мощность</td>
-						<td>КПП</td>
-						<td>Топливо</td>
-                        {#<td>Привод</td>#}
-						<td>Цена</td>
-						<td></td>
-					</tr>
-				</thead>
-				<tbody>
-                {% for item in modification %}
-				{% if item["group-name"] and item["offers-price-from"] is not empty %}
-					<tr>
-						<td>{{item["group-name"]}}</td>
-						<td>{{item["Объем двигателя"]}}см³</td>
-						<td>{{item["Трансмиссия"]}}</td>
-						<td>{{item["Тип двигателя"]}}</td>
-                        {#<td>{{item["Привод"]}}</td>#}
-						<td>{{item["offers-price-from"]}}₽</td>
-						<td><button  data-fancybox="" data-src="#popup">Зарезервировать</button></td>
-					</tr>
-                    {% endif %}
-			{% endfor %}
-				</tbody>
-			</table>
-</div></div>
-			<script>
-				function scrollToCreditForm() {
-const creditForm = document.getElementById("creditform");
-creditForm.scrollIntoView({behavior: "smooth"});
-}
-			</script>
-		{% endblock %}
+            {% if complectations is not empty %}
+                <div class="configurations mb-5">
+                    <h2 class="mb-4">Доступные комплектации</h2>
+                    {% for complectation in complectations %}
+                        <div class="mb-3">
+                            <h5 class="font-weight-bold mb-2">{{ complectation['title_group'] }}</h5>
+                            {% for item in complectation['items'] %}
+                                <div class="card mb-2">
+                                    <div class="card-header">{{ item['title'] }}</div>
+                                    <div class="card-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <th>Наименование</th>
+                                            <th>Цена</th>
+                                            <th>Старая цена</th>
+                                            <th>Привод</th>
+                                            <th>Коробка передач</th>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>{{ item['title'] }}</td>
+                                                <td>{{ item['price'] }}</td>
+                                                <td>{{ item['price_old'] }}</td>
+                                                <td>{{ item['drive'] }}</td>
+                                                <td>{{ item['transmission'] }}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                        {% if item['description'] is not empty %}
+                                            <div class="font-weight-bold">Описание</div>
+                                            <div>{{ item['description'] }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+{#            <h2 class="h2 mb-4">Комплектации и цены</h2>#}
+{#            {% for item in modification %}#}
+{#                {% if item["group-name"] and item["offers-price-from"] is not empty %}#}
+{#                    <div class="complect mb-3 p-3">#}
+
+{#                        <p class="mb-3">{{ item["group-name"] }}</p>#}
+{#                        <div class="flex mb-3">#}
+{#                            <span>Объем двигателя</span>#}
+{#                            <span>{{ item["Объем двигателя"] }}см³</span>#}
+{#                        </div>#}
+{#                        <div class="flex mb-3">#}
+{#                            <span>Привод</span>#}
+{#                            <span>{{ item["Привод"] }}</span>#}
+{#                        </div>#}
+{#                        <div class="flex mb-3">#}
+{#                            <span>КПП</span>#}
+{#                            <span>{{ item["Трансмиссия"] }}</span>#}
+{#                        </div>#}
+{#                        <div class="flex mb-3">#}
+{#                            <span>Топливо</span>#}
+{#                            <span>{{ item["Тип двигателя"] }}</span>#}
+{#                        </div>#}
+{#                        <div class="flex mb-3">#}
+{#                            <span>Цена</span>#}
+{#                            <span>{{ item["offers-price-from"] }}₽</span>#}
+{#                        </div>#}
+{#                        <button class="w-100" data-fancybox="" data-src="#popup">Зарезервировать</button>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#            <table class="w-100 mb-5">#}
+{#                <thead>#}
+{#                <tr>#}
+{#                    <td></td>#}
+{#                    <td>Мощность</td>#}
+{#                    <td>КПП</td>#}
+{#                    <td>Топливо</td>#}
+{#                    #}{# <td>Привод</td> #}
+{#                    <td>Цена</td>#}
+{#                    <td></td>#}
+{#                </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                {% for item in modification %}#}
+{#                    {% if item["group-name"] and item["offers-price-from"] is not empty %}#}
+{#                        <tr>#}
+{#                            <td>{{ item["group-name"] }}</td>#}
+{#                            <td>{{ item["Объем двигателя"] }}см³</td>#}
+{#                            <td>{{ item["Трансмиссия"] }}</td>#}
+{#                            <td>{{ item["Тип двигателя"] }}</td>#}
+{#                            #}{# <td>{{item["Привод"]}}</td> #}
+{#                            <td>{{ item["offers-price-from"] }}₽</td>#}
+{#                            <td>#}
+{#                                <button data-fancybox="" data-src="#popup">Зарезервировать</button>#}
+{#                            </td>#}
+{#                        </tr>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#                </tbody>#}
+{#            </table>#}
+        </div>
+    </div>
+    <script>
+      function scrollToCreditForm () {
+        const creditForm = document.getElementById('creditform')
+        creditForm.scrollIntoView({ behavior: 'smooth' })
+      }
+    </script>
+{% endblock %}

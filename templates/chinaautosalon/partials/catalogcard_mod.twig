@@ -40,10 +40,10 @@ display: 1
 				<span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
 				{% endif %}
 			</div>
-			<div class="credit mb-3 position-relative">
-				{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}} рублей в месяц
+			<div class="credit mb-3 position-relative">В кредит от
+				{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}} ₽/мес
 				{# <span class="text-right">Ставка <br />от 1.6%</span> #}
-				<span class="text-right">Ставка <br />от {% if baseSettings.credit_rate is empty %}
+				<span class="text-right"> от {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}
@@ -53,7 +53,7 @@ display: 1
 				{#<div class="col-6">
 					<button  id="myButton" class="color1 w-100">Купить в кредит</button>
 				</div>#}
-				<div class="col-6"> 
+				<div class="col-6 pr-1"> 
 					<a href="#" onclick="showCreditPopup(
                         {{ data['id'] }},
                         '',
@@ -62,7 +62,7 @@ display: 1
                       class="car-plate__button button button_red">В кредит</a>
 
                 </div>
-				<div class="col-6">
+				<div class="col-6 pl-1">
 					<button class="color2 w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button>
 				</div>
 			</div>

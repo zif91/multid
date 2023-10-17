@@ -907,13 +907,19 @@ main {
   text-decoration-line: line-through;
   color: #656A97;
 }
-.catalog-page .item .credit {
+/* .catalog-page .item .credit {
   background: #F2F3F7;
   border-radius: 8px;
   padding: 15px 70px 15px 18px;
   font-weight: 700;
+} */
+.catalog-page .item .credit {
+  background: #F2F3F7;
+  border-radius: 8px;
+  padding: 15px 70px 15px 10px;
+  font-weight: 700;
 }
-.catalog-page .item .credit span {
+/* .catalog-page .item .credit span {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -922,6 +928,20 @@ main {
   font-size: 12px;
   line-height: 105.4%;
   color: #D02E25;
+} */
+
+.catalog-page .item .credit span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 17px;
+  font-size: 15px;
+  line-height: 200.4%;
+  color: #fff;
+  height: 28px;
+  background-color: #D02E25;
+  border-radius: 15px;
+  padding: 0px 15px 0 15px;
 }
 .catalog-page .item .buttons button {
   color: #fff;
@@ -1848,35 +1868,6 @@ main {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .float-button {
   position: fixed;
   bottom: 20px;
@@ -2014,6 +2005,25 @@ main {
   .form-calculate3 {
     display: none;
   }
+  .catalog-page .item .credit span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 3px;
+    font-size: 15px;
+    line-height: 200.4%;
+    color: #fff;
+    height: 28px;
+    background-color: #D02E25;
+    border-radius: 15px;
+    padding: 0px 12px 0 12px;
+  }
+  .catalog-page .item .credit {
+    padding: 15px 70px 15px 14px;
+  }
+  .car-plate__button{
+    padding: 18px 22px;
+  }
 }
 @media (max-width: 991px) {
   .header .adress {
@@ -2065,6 +2075,10 @@ main {
 
   .cred_formin {
     display: block;
+  }
+
+  .car-plate__button{
+    padding: 18px 25px;
   }
 }
 @media (max-width: 767px) {
@@ -2170,6 +2184,14 @@ main {
     font-size: 12px;
     position: relative;
     top: 1px;
+  }
+  .catalog-page .item .credit {
+    padding: 15px 70px 15px 18px;
+  }
+  .catalog-page .item .credit span {
+    right: 17px;
+    border-radius: 15px;
+    padding: 0px 17px 0 17px;
   }
   
 }
@@ -2375,16 +2397,17 @@ main {
     appearance: none;
     background: #ffffff  no-repeat right 15px top 50%;
   }
-.car-plate__button{
-font-size: 14px;
+  .car-plate__button{
+    font-size: 14px;
     border: 0;
     font-family: 'Montserrat', sans-serif;
-      background: #D12D1E;
-      color: #fff;
+    background: #D12D1E;
+    color: #fff;
     font-weight: 600;
     height: 52px;
-    border-radius: 8px
-}
+    border-radius: 8px;
+    width: 100%;
+  }
 
 .choices__inner {
     height: 52px;
@@ -3075,6 +3098,10 @@ font-size: 14px;
   .cred_newform {
     max-width: 300px;
     height: 671px;
+  }
+
+  .catalog-page .item .credit {
+    padding: 15px 120px 15px 10px;
   }
 }
 

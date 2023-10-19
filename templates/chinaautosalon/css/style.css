@@ -468,14 +468,27 @@ main {
   line-height: 15px;
   color: #50516B;
 }
-.header .adress div {
+.header .contacts .adress div {
   display: table-cell;
   vertical-align: middle;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 15px;
   line-height: 15px;
 }
-.header .adress div span {
+.header .contacts .adress div span {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+.header .adress2 div {
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 0px 0px 11px 0px;
+}
+.header .adress2 div span {
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
@@ -495,6 +508,13 @@ main {
   line-height: 18px;
   background: url('/templates/autosalon/img/phone.svg') no-repeat 0 0;
 }
+
+.header .offcanvas .offcanvas-body .contacts2 .phone2 {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  background: url('/templates/autosalon/img/phone.svg') no-repeat 0 0;
+}
 .header .contacts button {
   color: #fff;
   margin: 0 20px;
@@ -504,19 +524,52 @@ main {
   border-radius: 6px;
   font-weight: 600;
 }
+
+.header .offcanvas .offcanvas-body div button {
+  color: #fff;
+  margin: 0 20px;
+  width: 100%;
+  height: 44px;
+  background: #D12D1E;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: 10%;
+}
 .header .contacts .hours {
   display: inline-block;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 15px;
   line-height: 15px;
+  background: url(/templates/chinaautosalon/img/clock-fill.svg) no-repeat 0 0;
+  margin-right: 13px;
+  padding-bottom: 1px;
 }
+.header .offcanvas .hours2 {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 15px;
+  background: url(/templates/chinaautosalon/img/clock-fill.svg) no-repeat 0 0;
+  margin: 20px 4px 10px 0;
+  padding-bottom: 1px;
+}
+
 .header nav {
   margin: 20px 0 0 166px;
   border-top: 1px solid #BDBECC;
   padding: 26px 0;
+  width: 90%;
 }
+
+.header nav ul {
+  text-align: start;
+  height: auto;
+  /* overflow: hidden; */
+}
+
 .header nav ul li:not(:last-child) {
-  margin-right: 80px;
+  /* margin-right: 80px; */
+  margin-right: 40px;
 }
 .header nav ul li a {
   display: block;
@@ -524,6 +577,97 @@ main {
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
+}
+.offcanvas.show:not(.hiding), .offcanvas.showing {
+  transform: none;
+  width: 100%;
+}
+
+.offcanvas.offcanvas-start {
+  top: 0;
+  left: 0;
+  width: 400px;
+  border-right: 1px solid var(rgba(0, 0, 0, 0.175));
+  transform: translateX(-100%);
+}
+.offcanvas.hiding, .offcanvas.show, .offcanvas.showing {
+  visibility: visible;
+}
+.offcanvas {
+  position: fixed;
+  bottom: 0;
+  z-index: 1045;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  color: #212529;
+  visibility: hidden;
+  background-color: #fff;
+  background-clip: padding-box;
+  outline: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.offcanvas, .offcanvas-lg, .offcanvas-md, .offcanvas-sm, .offcanvas-xl, .offcanvas-xxl {
+  --bs-offcanvas-zindex: 1045;
+  --bs-offcanvas-width: 400px;
+  --bs-offcanvas-height: 30vh;
+  --bs-offcanvas-padding-x: 1rem;
+  --bs-offcanvas-padding-y: 1rem;
+  --bs-offcanvas-color: #212529;
+  --bs-offcanvas-bg: #fff;
+  --bs-offcanvas-border-width: 1px;
+  --bs-offcanvas-border-color: rgba(0, 0, 0, 0.175);
+  --bs-offcanvas-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --bs-offcanvas-transition: transform 0.3s ease-in-out;
+  --bs-offcanvas-title-line-height: 1.5;
+}
+
+.offcanvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+}
+
+.offcanvas-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+.offcanvas-header .btn-close {
+  padding: calc(1rem * .5) calc(1rem * .5);
+  margin-top: calc(-.5 * 1rem);
+  margin-right: calc(-.5 * 1rem);
+  margin-bottom: calc(-.5 * 1rem);
+}
+.btn-close:hover {
+  color: #000;
+  text-decoration: none;
+  opacity: 0.75;
+}
+.offcanvas-body {
+  flex-grow: 1;
+  padding: 1rem 1rem;
+  overflow-y: auto;
+}
+.btn-close {
+  --bs-btn-close-color: #000;
+  --bs-btn-close-bg: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e);
+  --bs-btn-close-opacity: 0.5;
+  --bs-btn-close-hover-opacity: 0.75;
+  --bs-btn-close-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  --bs-btn-close-focus-opacity: 1;
+  --bs-btn-close-disabled-opacity: 0.25;
+  --bs-btn-close-white-filter: invert(1) grayscale(100%) brightness(200%);
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  padding: 0.25em 0.25em;
+  color: #000;
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+  border: 0;
+  border-radius: 0.375rem;
+  opacity: 0.5;
 }
 .index-first-block {
   background: #35374e url('/templates/autosalon/img/first-block.png') no-repeat top 0 right 80px;
@@ -1868,6 +2012,12 @@ main {
   }
 }
 
+.navi {
+  padding: 50px 0;
+  font-size: 14px;
+  line-height: 17px;
+}
+
 .float-button {
   position: fixed;
   bottom: 20px;
@@ -1975,6 +2125,7 @@ main {
   }
   .header nav {
     margin: 20px 0 0 146px;
+    width: 100%;
   }
   .index-first-block .text {
     max-width: 100%;
@@ -2197,7 +2348,13 @@ main {
 }
 @media (max-width: 575px) {
   .header .adress {
+    display: none;
+  }
+  .header .offcanvas .offcanvas-body ul{
     display: block;
+  }
+  .header nav ul{ 
+    display: none;
   }
   .header .flex {
     justify-content: space-around;
@@ -2212,11 +2369,18 @@ main {
   .header .contacts .phone {
     padding: 0 !important;
     background: none;
+    display: none;
   }
   .header nav ul {
     text-align: center;
     height: auto;
     /* overflow: hidden; */
+  }
+
+  .header .offcanvas .offcanvas-body ul {
+    text-align: start;
+    height: auto;
+    padding: 0px 0 17px 7px;
   }
   /* .header nav ul:hover {
     height: auto;
@@ -3194,5 +3358,12 @@ main {
     font-size: 16px;
     margin-top: 20px;
     margin-left: 5px;
+  }
+}
+
+@media(min-width: 320px) and (max-width: 400px) {
+  .header .logo{
+ max-width: 50%;
+ height: 44px;
   }
 }

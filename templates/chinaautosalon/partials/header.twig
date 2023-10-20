@@ -156,16 +156,16 @@ $(document).ready(function() {
     $('#offcanvasExample').removeClass('show');
   });
 
-  $('#dropdownButton').click(function() {
-    $('#dropdownMenu').toggleClass('show');
-  });
+//   $('#dropdownButton').click(function() {
+//     $('#dropdownMenu').toggleClass('show');
+//   });
 
   // Закрыть выпадающее меню при клике за его пределами
-  $(document).click(function(event) {
-    if (!$(event.target).closest('#dropdownButton').length) {
-      $('#dropdownMenu').removeClass('show');
-    }
-  });
+//   $(document).click(function(event) {
+//     if (!$(event.target).closest('#dropdownButton').length) {
+//       $('#dropdownMenu').removeClass('show');
+//     }
+//   });
 });
  </script>
  {% endblock %}

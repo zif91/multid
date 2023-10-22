@@ -1092,7 +1092,7 @@ main {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 17px;
+  right: 6px;
   font-size: 15px;
   line-height: 200.4%;
   color: #fff;
@@ -2187,7 +2187,7 @@ main {
     padding: 15px 70px 15px 14px;
   }
   .car-plate__button{
-    padding: 18px 22px;
+    padding: 18px 19px;
   }
 }
 @media (max-width: 991px) {
@@ -3375,9 +3375,19 @@ main {
   }
 }
 
-@media(min-width: 320px) and (max-width: 400px) {
+@media(min-width: 320px) and (max-width: 430px) {
   .header .logo{
  max-width: 50%;
  height: 44px;
   }
+  .car-plate__button {
+    padding: 18px 20px;
+  }
+  .catalog-page .item .credit span{
+    right: 11px;
+  }
+
+  .catalog-page .item .credit {
+    padding: 15px 98px 15px 18px;
+}
 }

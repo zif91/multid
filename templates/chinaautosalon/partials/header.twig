@@ -39,8 +39,11 @@ outerTpl: '@CODE:<ul>
 				</div>
 			</div>  #}
 		{# <button class="btn btn-primary mobburger" type="button" id="openOffcanvas"></button> #}
-		
 		<div class="contacts">
+				<div class="hours pl-4">
+					Без выходных
+					с 09:00 до 21:00
+			</div>
 		<div class="adress mr-3">
 				<div><img src="/templates/chinaautosalon/img/geo-alt-fill.svg" class="mr-1"></div>
 				<div>
@@ -48,10 +51,6 @@ outerTpl: '@CODE:<ul>
 
 				</div>
 			</div> 
-		<div class="hours pl-4">
-					Без выходных
-					с 09:00 до 21:00
-			</div>
 			{# <div class="contacts"> #}
 				{# <a class="menu-button"></a> #}
 				<a class="menu-button mobburger" id="openOffcanvas"></a>
@@ -155,17 +154,6 @@ $(document).ready(function() {
   $('#closeOffcanvas').click(function() {
     $('#offcanvasExample').removeClass('show');
   });
-
-//   $('#dropdownButton').click(function() {
-//     $('#dropdownMenu').toggleClass('show');
-//   });
-
-  // Закрыть выпадающее меню при клике за его пределами
-//   $(document).click(function(event) {
-//     if (!$(event.target).closest('#dropdownButton').length) {
-//       $('#dropdownMenu').removeClass('show');
-//     }
-//   });
 });
  </script>
  {% endblock %}

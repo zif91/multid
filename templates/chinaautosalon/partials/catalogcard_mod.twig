@@ -66,9 +66,31 @@ display: 1
 					{# <button class="color2 w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button> #}
 					<button  data-fancybox="" data-src="#popup" class="w-100 color2">Бронь</button>
 				</div>
+
+		<div class="circular-icons">
+            <img class="add-to-cart-icon" src="/templates/chinaautosalon/img/Gift.png" alt="Add to Cart">
+            <img class="add-to-favorites-icon" src="/templates/chinaautosalon/img/New.png" alt="Add to Favorites">
+        </div>
 			</div>
 		</div>
 	</div>
 </div>
 </a>
 {% endif %}
+<style>
+    .circular-icons {
+        position: absolute;
+        top: 10px; 
+        left: 10px; 
+    }
+    
+    .catalog-page .item .add-to-cart-icon,
+    .catalog-page .item .add-to-favorites-icon {
+        display: inline-block;
+        width: 34px; 
+        height: 34px; 
+        font-size: 20px; 
+		margin-left: 11px;
+    }
+
+</style>

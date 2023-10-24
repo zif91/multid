@@ -472,7 +472,7 @@ main {
   display: table-cell;
   vertical-align: middle;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 15px;
 }
 .header .contacts .adress div span {
@@ -484,9 +484,9 @@ main {
   display: table-cell;
   vertical-align: middle;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 15px;
-  padding: 0px 0px 11px 0px;
+  padding: 0px 0px 20px 0px;
 }
 .header .adress2 div span {
   font-weight: 600;
@@ -504,14 +504,18 @@ main {
 
 .header .contacts .phone {
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 18px;
   background: url('/templates/autosalon/img/phone.svg') no-repeat 0 0;
+}
+.header .logo {
+  width: 176px;
+  height: 46px;
 }
 
 .header .offcanvas .offcanvas-body .contacts2 .phone2 {
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 18px;
   background: url('/templates/autosalon/img/phone.svg') no-repeat 0 0;
 }
@@ -543,22 +547,25 @@ main {
 .header .offcanvas .offcanvas-body {
   display: none;
 }
+.header .offcanvas.show .offcanvas-body nav {
+  display: block;
+  width: 100%;
+}
 .header .contacts .hours {
   display: inline-block;
   font-weight: 600;
-  font-size: 15px;
-  line-height: 15px;
+  font-size: 14px;
+  line-height: 16px;
   background: url(/templates/chinaautosalon/img/clock-fill.svg) no-repeat 0 0;
-  margin-right: 13px;
-  padding-bottom: 1px;
+  margin-right: 23px;
 }
 .header .offcanvas .hours2 {
   display: inline-block;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 15px;
   background: url(/templates/chinaautosalon/img/clock-fill.svg) no-repeat 0 0;
-  margin: 20px 4px 10px 0;
+  margin: 20px 4px 20px 0;
   padding-bottom: 1px;
 }
 
@@ -566,7 +573,7 @@ main {
   margin: 20px 0 0 166px;
   border-top: 1px solid #BDBECC;
   padding: 26px 0;
-  width: 90%;
+  width: 83%;
 }
 
 .header nav ul {
@@ -635,7 +642,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 1rem 1rem 0rem 1rem;
 }
 
 .offcanvas-title {
@@ -655,13 +662,17 @@ main {
 }
 .offcanvas.show .offcanvas-header .logo{
   display: block;
+  margin: 10px 0 0 10px;
+}
+.offcanvas.show .offcanvas-header .logo a img{
+  vertical-align: middle;
 }
 .offcanvas .offcanvas-header .logo{
   display: none;
 }
 .offcanvas-body {
   flex-grow: 1;
-  padding: 1rem 1rem;
+  padding: 0rem 1rem 1rem 1rem;
   overflow-y: auto;
 }
 .offcanvas.show .btn-close {
@@ -703,6 +714,19 @@ main {
   background: #D12D1E;
   border-radius: 6px;
   font-weight: 600;
+}
+
+.mobburger{
+	display:none;
+	width: 40px;
+    height: 40px;
+    background: #d12d1e url(/templates/chinaautosalon/img/menu-new.png) no-repeat center;
+    font-size: 0;
+	margin: 0 0 0 20px;
+	border-radius: 6px;
+    font-weight: 600;
+	color: #fff;
+	margin-bottom: 10px;
 }
 @media (max-width: 1330px) {
   .index-first-block {
@@ -2138,8 +2162,10 @@ main {
     display: none !important;
   }
   .header nav {
-    margin: 20px 0 0 146px;
-    width: 100%;
+    /* margin: 20px 0 0 146px; */
+    margin: 20px 25px 0px 0px;
+    width: 96%;
+    display: block;
   }
   .index-first-block .text {
     max-width: 100%;
@@ -2149,7 +2175,7 @@ main {
     background: #f2f3f7;
   }
   .header .flex {
-    justify-content: space-evenly;
+    justify-content: space-between;
     gap: 10px 0;
   }
   .text_present {
@@ -2196,6 +2222,7 @@ main {
   }
   .header nav {
     margin: 20px 0 0 0;
+    width: 88%;
   }
   .footer ul {
     width: 100%;
@@ -2244,6 +2271,9 @@ main {
 
   .car-plate__button{
     padding: 18px 25px;
+  }
+  .catalog-page .item .credit {
+    padding: 15px 80px 15px 10px;
   }
 }
 @media (max-width: 767px) {
@@ -2358,7 +2388,18 @@ main {
     border-radius: 15px;
     padding: 0px 17px 0 17px;
   }
-  
+
+  .header .logo {
+    width: 160px;
+    height: 46px;
+  }
+  .header nav {
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+.header .contacts {
+  padding-left: 13px;
+}
 }
 @media (max-width: 575px) {
   .header .adress {
@@ -2374,11 +2415,12 @@ main {
     justify-content: space-around;
     gap: 10px 0;
   }
-    .header .contacts button {
-    width: 44px;
-    height: 44px;
-    background: #d12d1e url('/templates/autosalon/img/phone2.svg') no-repeat center;
+  .header .contacts button {
+    width: 40px;
+    height: 40px;
+    background: #f5f3f3 url('/templates/chinaautosalon/img/phone-new.png') no-repeat center;
     font-size: 0;
+    margin-bottom: 10px;
   }
   .header .contacts .phone {
     padding: 0 !important;
@@ -2390,12 +2432,27 @@ main {
     height: auto;
     /* overflow: hidden; */
   }
+  .header nav{
+    display: none;
+  }
 
   .header .offcanvas .offcanvas-body ul {
     text-align: start;
     height: auto;
     padding: 0px 0 17px 7px;
   }
+
+  .header .offcanvas .offcanvas-body ul li:not(:last-child) {
+    margin: 0 0 25px 0;
+  }
+
+  .header .offcanvas .offcanvas-body ul li a {
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 17px;
+}
   /* .header nav ul:hover {
     height: auto;
   } */
@@ -2487,7 +2544,14 @@ main {
     transform: translateX(-50%);
     bottom: 40px;
     width: 90%; 
-  } 
+  }
+  .mobburger{
+    display:block;	
+  }
+  .header .logo {
+    width: 176px;
+    height: 46px;
+  }
 }
 .popup {
   padding: 0!important;
@@ -3057,6 +3121,9 @@ main {
     .modifications-block .item .item-name .credit{
         display: none;
     }
+    .header .logo {
+      margin-bottom: 0;
+    }
 }
 @media (max-width: 991px) {
     .modifications-block .item .item-name .buttons {
@@ -3248,6 +3315,12 @@ main {
   .action-page p {
     font-size: 18px;
   }
+  .header .logo {
+    margin-bottom: 10px;
+  }
+  .header .contacts{
+    margin-bottom: 10px;
+  }
 }
 .modifications-block .item .item-name .credit span.new-price{
     display: none;
@@ -3280,6 +3353,9 @@ main {
 
   .catalog-page .item .credit {
     padding: 15px 120px 15px 10px;
+  }
+  .catalog-page .item .credit {
+    padding: 15px 108px 15px 18px;
   }
 }
 
@@ -3375,19 +3451,26 @@ main {
   }
 }
 
-@media(min-width: 320px) and (max-width: 430px) {
-  .header .logo{
- max-width: 50%;
- height: 44px;
-  }
+@media(min-width: 320px) and (max-width: 385px) {
+  .header .flex {
+    justify-content: space-between;
+    gap: 10px 0;
+}
+.header .logo {
+  width: 56%;
+}
+.header .contacts button {
+  margin: 0 0 10px 8px;
+}
+
   .car-plate__button {
-    padding: 18px 20px;
+    padding: 18px 14px;
   }
   .catalog-page .item .credit span{
     right: 11px;
   }
 
   .catalog-page .item .credit {
-    padding: 15px 98px 15px 18px;
+    padding: 15px 108px 15px 18px;
 }
 }

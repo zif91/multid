@@ -31,14 +31,6 @@ outerTpl: '@CODE:<ul>
 					
 				</a>
 			</div>
-			{# <div class="adress">
-				<div><img src="/templates/autosalon/img/map.png" class="mr-3"></div>
-				<div>
-					<span class="d-block"></span>{{baseSettings.salon_location}}
-
-				</div>
-			</div>  #}
-		{# <button class="btn btn-primary mobburger" type="button" id="openOffcanvas"></button> #}
 		<div class="contacts">
 				<div class="hours pl-4">
 					Без выходных
@@ -51,21 +43,14 @@ outerTpl: '@CODE:<ul>
 
 				</div>
 			</div> 
-			{# <div class="contacts"> #}
-				{# <a class="menu-button"></a> #}
-				<a class="menu-button mobburger" id="openOffcanvas"></a>
+				
 				{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4"}) | raw}}
 				<button data-fancybox="" data-src="#popup">Заказать звонок</button>
-				{# <div class="hours">
-					Работаем ежедневно
-					<br/>
-					с 09:00 до 21:00
-				</div> #}
+				<a class="menu-button mobburger" id="openOffcanvas"></a>
 			</div>
-		
-		<nav>
-			{{headermenu|raw}}
-		</nav>
+			<nav>
+				{{headermenu|raw}}
+			</nav>
 
 		<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample">
   			<div class="offcanvas-header">
@@ -125,23 +110,6 @@ outerTpl: '@CODE:<ul>
 	
 </div>
 </header>
-<style>
-.mobburger{
-	display:none;
-	width: 26px;
-    height: 17px;
-    background: url(/templates/chinaautosalon/img/menu-button.svg) no-repeat;
-    margin-top: 15px;
-	margin-left: 50px;
-}
-
-@media (max-width: 575px) {
-	.mobburger{
-	display:block;	
-	}
-}
-</style>
-
 
 {% block SCRIPTS %}
  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>

@@ -1,454 +1,259 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-{% set car_photos_one = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-{% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %}
-{% set car_photos = resource.car_photos | json %}
-{% set car_photos = car_photos.fieldValue %}
+    {% set ComplectationsController = runSnippet('Complectations', {toObject: 1}) %}
+    {% set complectations = ComplectationsController.toArray() %}
+    {% set price_min = ComplectationsController.price() %}
+    {% set price_old_min = ComplectationsController.priceOld() %}
+    {% set car_photos_one = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg" %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    {% set car_photos = runSnippet('DocInfo', {field: "car_photos", docid: resource.id}) | json %}
+    {% set car_photos = car_photos.fieldValue %}
 
-{% include('partials/crumbs.twig') %}
+    {% include('partials/crumbs.twig') %}
 
-{# <div class="item-page2 pb-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="photos mb-5">
-                    <div class="slider-for">
-                        {% if car_photos != NULL %}
-                        {% for image in car_photos %}
-                        <div class="item"><img src="{{image.image}}"></div>
-                        {% endfor %}
-                        {% else %}
-                        <div class="item"><img src="{{car_photos_one}}"></div>
-                        {% endif %}
-                        <div class="item"><img src="{{car_photos}}"></div>
-                    </div>
-                    <div class="slider-nav">
-                {% if car_photos and count(car_photos)>0 %}
-                {% for image in car_photos  %}
-                <div class="item"><img src="{{image.image}}"></div>
-                {% endfor %}
-                {% else %}
-                <div class="item"><img src="{{car_photos_one}}"></div>
-                {% endif %}
-                <div class="item"><img src="{{car_photos_one}}"></div>
+    <div class="item-page pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="photo mb-sm-5 mb-4">
+                        <div class="slider-for">
+                            {% if car_photos is empty %}
+                                <img src="{{ car_photos_one }}">
+                            {% else %}
+                                {% for image in car_photos %}
+                                    <div class="item"><img src="{{ image.image }}"></div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="slider-nav">
+                            {% if car_photos is empty %}
+                                <img src="{{ car_photos_one }}">
+                            {% else %}
+                                {% for image in car_photos %}
+                                    <div class="item"><img src="{{ image.image }}"></div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="info p-4 mb-5">
-                    <div class="name mb-2">
-                        {{resource.pagetitle}}
-                    </div>
-                    <div class="top-text mb-4">
-                        <span class="d-inline-block py-1 px-2"><i></i> В наличии</span>
-                    </div>
-                    <div class="price mb-4">
-                        {{resource["car-price"]}}₽
-                    </div>
-                    <input type="checkbox" class="checkbox" id="option1">
-                    <label for="option1" class="mb-3">
-                        <div><img src="../templates/major/img/option3.svg"></div>
-                        <div>
-                            Trade-in
-                            <a data-fancybox="" data-src="#popup" href="javascript:;" class="d-block mt-2">Оценить автомобиль</a>
+                <div class="col-lg-5">
+                    <h1 class="mb-3">{{ resource.pagetitle }}</h1>
+                    {% if price_min > 0 %}
+                        <div class="price mb-3">
+                            <span class="new mr-2">{{ price_min }}₽</span>
+                            {% if price_old_min > 0 %}
+                                <span class="old">{{ price_old_min }}₽</span>
+                            {% endif %}
                         </div>
-                        <div class="discount position-absolute">-60 000₽</div>
-                    </label>
-                    <input type="checkbox" class="checkbox" id="option2">
-                    <label for="option2" class="mb-3">
-                        <div><img src="../templates/major/img/option4.svg"></div>
-                        <div>
-                            Кредит
-                            <a data-fancybox="popup2" data-src="#popupcred" href="javascript:;" class="d-block mt-2">Рассчитать кредит</a>
-                        </div>
-                        <div class="discount position-absolute">-60 000₽</div>
-                    </label>
-                    <div class="row">
-                        <div class="col-6">
-                            <button class="btn btn-danger w-100" data-fancybox="" data-src="#popup">Заказать звонок</button>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-danger w-100" data-fancybox="" data-src="#popupcred">Калькулятор кредита</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> #}
-<div class="item-page pb-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="photo mb-sm-5 mb-4">
-                    <div class="slider-for">
-                        {% if resource.car_photos is empty %}
-                        <img src="{{car_photos_one}}">
-                        {% else %}
-                        {% for image in car_photos %}
-                            <div class="item"><img src="{{image.image}}"></div>
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="slider-nav">
-                        {% if resource.car_photos is empty %}
-                        <img src="{{car_photos_one}}">
-                        {% else %}
-                        {% for image in car_photos %}
-                            <div class="item"><img src="{{image.image}}"></div>
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <h1 class="mb-3">{{resource.pagetitle}}</h1>
-                <div class="price mb-3">
-                    <span class="new mr-2">{{resource["car-price"]}}₽</span>
-                    <span class="old">{{resource["old-car-price"]}}₽</span>
-                </div>
-                <div class="credit mb-4">
-                    В кредит от {{ (resource["car-price"] / 72)|round }} ₽/мес <span class="d-inline-block py-2 px-3 ml-sm-3">Ставка от {% if baseSettings.credit_rate is empty %}
+                    {% endif %}
+                    <div class="credit mb-4">
+                        В кредит от {{ (price_min / 72)|round }} ₽/мес <span
+                                class="d-inline-block py-2 px-3 ml-sm-3">Ставка от {% if baseSettings.credit_rate is empty %}
     4.9
 {% else %}
     {{ baseSettings.credit_rate }}
-{% endif %}%</span>
-                </div>
-                {{dump(baseSettings.credit_rate)}}
-                <div class="vin mb-3 flex">
-                    <div><img src="/templates/chinamajor/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>
-                    <div><img src="/templates/chinamajor/img/vin2.svg"> Проверенный <span>VIN-номер</span></div>
-                </div>
-                <div class="buttons row mb-2">
-                    <div class="col-12">
-                        <button class="w-100 mb-3 color1" data-fancybox="" data-src="#popup">Забронировать</button>
+                            {% endif %}%</span>
                     </div>
-                    <div class="col-6">
-                        <button class="w-100 color2 scroll-btn">Рассчитать кредит</button>
+{#                    {{ dump(baseSettings.credit_rate) }}#}
+                    <div class="vin mb-3 flex">
+                        <div><img src="/templates/chinamajor/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>
+                        <div><img src="/templates/chinamajor/img/vin2.svg"> Проверенный <span>VIN-номер</span></div>
                     </div>
-                    <div class="col-6">
-                        <button class="w-100 color3" data-fancybox="" data-src="#popup">Предложить обмен</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="page-form-block mb-5">
-    <div class="container">
-        {{ runSnippet('Form', {
-        formid: 'FormCallback',
-        path: '/templates/chinamajor/partials/forms/feedback/',
-        extension: 'twig'
-        }) | raw }}
-    </div>
-</div>
-<div class="item-page pb-5">
-    <div class="container">
-        <div class="modifications-block pb-2">
-            {% for item in modification %}
-            {% if item["group-name"] is not empty %}
-            <h3 class="mb-3">{{item["group-name"]}} {{item["Объем двигателя"]}}см³, {{item["Тип двигателя"]}}, КП {{item["Трансмиссия"]}}, {{item["Привод"]}} привод</h3>
-            <div class="item mb-2">
-                <div class="item-name flex">
-                    <div class="name" type="button" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}" style="word-break: break-word;     max-width: 170px;
-">
-                        {{item["group-name"]}}
-                    </div>
-                    <div class="price">
-                        <span class="old">
-                            {{item['offers-price-to']|number_format(0, '.', ' ')}} ₽
-                        </span>
-                        <span class="new">
-                            {{item['offers-price-from']|number_format(0, '.', ' ')}} ₽
-                        </span>
-                    </div>
-                    <div class="buttons">
-                        <button class="scroll-btn">В кредит за {{ (item['offers-price-from'] / 82) | round | number_format(0, '.', ' ') }} ₽/мес.</button>
-                        <button data-fancybox="" data-src="#popup">Trade-in</button>
-                        <button data-fancybox="" data-src="#popup">Забронировать</button>
+                    <div class="buttons row mb-2">
+                        <div class="col-12">
+                            <button class="w-100 mb-3 color1" data-fancybox="" data-src="#popup">Забронировать</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="w-100 color2 scroll-btn">Рассчитать кредит</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="w-100 color3" data-fancybox="" data-src="#popup">Предложить обмен</button>
+                        </div>
                     </div>
                 </div>
-                <div class="item-content collapse" id="id_{{item['complectation-id']}}">
-                    <select class="select" id="select">
-                        <option value="val-1">Характеристики</option>
-                        <option value="val-2">Комплектация</option>
-                    </select>
-                    <div class="tabs">
-                        <ul class="tabNavigation" data-sel='[".select"]'>
-    <li><a href="#t1_{{item["complectation-id"]}}" class="js-val-1-btn active" data-val='["val-1"]'>Характеристики</a></li>
-    <li><a href="#t2_{{item["complectation-id"]}}" class="js-val-2-btn" data-val='["val-2"]'>Комплектация</a></li>
-</ul>
-<div id="t1_{{item['complectation-id']}}" class="tab-content active">
-                            {% set displayItems = {} %}
-                            {% for key, value in item %}
-                            {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
-                            {% set displayItems = displayItems|merge({(key): value}) %}
-                            {% endif %}
+                <div class="col-12">
+                    {% if complectations is not empty %}
+                        <div class="configurations mb-5">
+                            <h2 class="mb-4">Доступные комплектации</h2>
+                            {% for complectation in complectations %}
+                                <div class="mb-3">
+                                    <h5 class="font-weight-bold mb-2">{{ complectation['title_group'] }}</h5>
+                                    {% for item in complectation['items'] %}
+                                        <div class="card mb-2">
+                                            <div class="card-header">{{ item['title'] }}</div>
+                                            <div class="card-body">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                    <th>Наименование</th>
+                                                    <th>Цена</th>
+                                                    <th>Старая цена</th>
+                                                    <th>Привод</th>
+                                                    <th>Коробка передач</th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>{{ item['title'] }}</td>
+                                                        <td>{{ item['price'] }}</td>
+                                                        <td>{{ item['price_old'] }}</td>
+                                                        <td>{{ item['drive'] }}</td>
+                                                        <td>{{ item['transmission'] }}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                {% if item['description'] is not empty %}
+                                                    <div class="font-weight-bold">Описание</div>
+                                                    <div>{{ item['description'] }}</div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             {% endfor %}
-                            {% set halfway = (displayItems|length / 2)|round %}
-                            {% set firstHalf = displayItems|slice(0, halfway) %}
-                            {% set secondHalf = displayItems|slice(halfway) %}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <table>
-                                        {% for key, value in firstHalf %}
-                                        <tr>
-                                            <td>{{ key }}</td>
-                                            <td>{{ value }}</td>
-                                        </tr>
-                                        {% endfor %}
-                                    </table>
-                                </div>
-                                <div class="col-md-6">
-                                    <table>
-                                        {% for key, value in secondHalf %}
-                                        <tr>
-                                            <td>{{ key }}</td>
-                                            <td>{{ value }}</td>
-                                        </tr>
-                                        {% endfor %}
-                                    </table>
-                                </div>
-                            </div>
                         </div>
-                        {% set displayItems = [] %} <!-- Очищаем displayItems здесь -->
-
-{% set options = runSnippet ('takeoptions', { complectation_id: item["complectation-id"], }) %}
-{% for item in options %}
-    {% for key, value in item %}
-        {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
-            {% set row = {'key': key, 'value': value} %}
-            {% set displayItems = displayItems|merge([row]) %}
-        {% endif %}
-    {% endfor %}
-{% endfor %}
-{% set halfway = (displayItems|length / 2)|round %}
-{% set firstHalf = displayItems|slice(0, halfway) %}
-{% set secondHalf = displayItems|slice(halfway) %}
-<div id="t2_{{item['complectation-id']}}" class="tab-content">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <table>
-                                        {% for row in firstHalf %}
-                                        <tr>
-                                            <td>{{ row.key }}</td>
-                                            {% if row.value == 1 %}
-                                            <td>Есть</td>
-                                            {% elseif row.value > 1 %}
-                                            <td>{{ row.value }} руб.</td>
-                                            {% else %}
-                                            <td>{{ row.value }}</td>
-                                            {% endif %}
-                                        </tr>
-                                        {% endfor %}
-                                    </table>
-                                </div>
-                                <div class="col-md-6">
-                                    <table>
-                                        {% for row in secondHalf %}
-                                        <tr>
-                                            <td>{{ row.key }}</td>
-                                            {% if row.value == 1 %}
-                                            <td>Есть</td>
-                                            {% elseif row.value > 1 %}
-                                            <td>{{ row.value }} руб.</td>
-                                            {% else %}
-                                            <td>{{ row.value }}</td>
-                                            {% endif %}
-                                        </tr>
-                                        {% endfor %}
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endif %}
                 </div>
             </div>
-            {% endif %}
-            {% endfor %}
         </div>
-        {#<div class="main-info pb-3">
-            <div class="block-name mb-4">
-                Основная информация
-            </div>
-            <div class="item py-3 px-4">
-                <div><img src="../templates/major/img/item-icon7.svg"></div>
-                <div>
-                    <span class="d-block">Цвет</span>
-                    Черный сапфир металлик
-                </div>
-            </div>
-            <div class="item py-3 px-4">
-                <div><img src="../templates/major/img/item-icon8.svg"></div>
-                <div>
-                    <span class="d-block">Привод</span>
-                    Полный
-                </div>
-            </div>
-            <div class="item py-3 px-4">
-                <div><img src="../templates/major/img/item-icon9.svg"></div>
-                <div>
-                    <span class="d-block">Кузов</span>
-                    Седан
-                </div>
-            </div>
-            <div class="item py-3 px-4">
-                <div><img src="../templates/major/img/item-icon10.svg"></div>
-                <div>
-                    <span class="d-block">Салон</span>
-                    Центральная часть сидений черная с синими и серыми элементами, боковины сидений черные, черная панель приборов, черное ковровое покрытие, серый потолок
-                </div>
-            </div>
-            <div class="item py-3 px-4">
-                <div><img src="../templates/major/img/item-icon11.svg"></div>
-                <div>
-                    <span class="d-block">Двигатель</span>
-                    Бензин
-                </div>
-            </div>
-            <div class="item py-3 px-4">
-                <div><img src="../templates/major/img/item-icon12.svg"></div>
-                <div>
-                    <span class="d-block">Коробка</span>
-                    АКПП
-                </div>
-            </div>
-        </div>#}
     </div>
-</div>
-<div class="container py-5" id="creditblock">
-    <div class="row">
-        {{ runSnippet('Form', {
-        formid: 'FormCredit',
-        path: '/templates/chinamajor/partials/forms/credit/',
-        extension: 'twig'
-        }) | raw }}
+    <div class="page-form-block mb-5">
+        <div class="container">
+            {{ runSnippet('Form', {
+                formid: 'FormCallback',
+                path: '/templates/chinamajor/partials/forms/feedback/',
+                extension: 'twig'
+            }) | raw }}
+        </div>
     </div>
-</div>
-<script>
-function scrollToCreditForm() {
-    const creditForm = document.getElementById("creditform");
-    creditForm.scrollIntoView({ behavior: "smooth" });
-}
+    <div class="container py-5" id="creditblock">
+        <div class="row">
+            {{ runSnippet('Form', {
+                formid: 'FormCredit',
+                path: '/templates/chinamajor/partials/forms/credit/',
+                extension: 'twig'
+            }) | raw }}
+        </div>
+    </div>
+    <script>
+      function scrollToCreditForm () {
+        const creditForm = document.getElementById('creditform')
+        creditForm.scrollIntoView({ behavior: 'smooth' })
+      }
 
-</script>
+    </script>
 {% endblock %}
 {% block SCRIPTS %}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    let tabs = document.querySelectorAll('.tabNavigation li a');
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        let tabs = document.querySelectorAll('.tabNavigation li a')
 
-    tabs.forEach(function(tab) {
-        tab.addEventListener('click', function(e) {
-            e.preventDefault();
+        tabs.forEach(function (tab) {
+          tab.addEventListener('click', function (e) {
+            e.preventDefault()
 
             // Убираем активный класс со всех табов
-            tabs.forEach(function(innerTab) {
-                innerTab.classList.remove('active');
-            });
+            tabs.forEach(function (innerTab) {
+              innerTab.classList.remove('active')
+            })
 
             // Добавляем активный класс к кликнутому табу
-            tab.classList.add('active');
+            tab.classList.add('active')
 
-            let target = tab.getAttribute('href');
-            let tabContents = document.querySelectorAll('.tab-content');
+            let target = tab.getAttribute('href')
+            let tabContents = document.querySelectorAll('.tab-content')
 
             // Скрываем все содержимое табов
-            tabContents.forEach(function(tabContent) {
-                tabContent.style.display = 'none';
-            });
+            tabContents.forEach(function (tabContent) {
+              tabContent.style.display = 'none'
+            })
 
             // Показываем содержимое активного таба
-            document.querySelector(target).style.display = 'block';
-        });
-    });
-});
+            document.querySelector(target).style.display = 'block'
+          })
+        })
+      })
 
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-    function updateResults() {
-        const creditAmount = $("#slider-range-max3").slider("value");
-        const downPayment = $("#slider-range-max").slider("value");
-        const term = $("#slider-range-max2").slider("value");
-        const creditRate = 0.1;
-        const monthlyPayment = (creditAmount - downPayment) * (creditRate / 12) / (1 - Math.pow(1 + creditRate / 12, -term));
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        function updateResults () {
+          const creditAmount = $('#slider-range-max3').slider('value')
+          const downPayment = $('#slider-range-max').slider('value')
+          const term = $('#slider-range-max2').slider('value')
+          const creditRate = 0.1
+          const monthlyPayment = (creditAmount - downPayment) * (creditRate / 12) / (1 - Math.pow(1 + creditRate / 12, -term))
 
-        $(".tbl1 tr:nth-child(1) td:nth-child(2)").text(creditAmount.toLocaleString() + " ₽");
-        $(".tbl1 tr:nth-child(2) td:nth-child(2)").text(downPayment.toLocaleString() + " ₽");
-        $(".tbl1 tr:nth-child(3) td:nth-child(2)").text(term + " месяцев");
-        $(".tbl2 tr:nth-child(1) td:nth-child(2)").text(Math.round(monthlyPayment).toLocaleString() + " ₽/мес.");
-    }
-
-    function updateDownPaymentSlider(creditAmount) {
-        const minDownPayment = 0.1 * creditAmount;
-        const maxDownPayment = 0.9 * creditAmount;
-        let currentDownPayment = $("#slider-range-max").slider("value");
-
-        if (currentDownPayment < minDownPayment) {
-            currentDownPayment = minDownPayment;
-        } else if (currentDownPayment > maxDownPayment) {
-            currentDownPayment = maxDownPayment;
+          $('.tbl1 tr:nth-child(1) td:nth-child(2)').text(creditAmount.toLocaleString() + ' ₽')
+          $('.tbl1 tr:nth-child(2) td:nth-child(2)').text(downPayment.toLocaleString() + ' ₽')
+          $('.tbl1 tr:nth-child(3) td:nth-child(2)').text(term + ' месяцев')
+          $('.tbl2 tr:nth-child(1) td:nth-child(2)').text(Math.round(monthlyPayment).toLocaleString() + ' ₽/мес.')
         }
 
-        $("#slider-range-max").slider("option", "min", minDownPayment);
-        $("#slider-range-max").slider("option", "max", maxDownPayment);
-        $("#slider-range-max").slider("value", currentDownPayment);
+        function updateDownPaymentSlider (creditAmount) {
+          const minDownPayment = 0.1 * creditAmount
+          const maxDownPayment = 0.9 * creditAmount
+          let currentDownPayment = $('#slider-range-max').slider('value')
 
-        $("#amount").val(currentDownPayment.toLocaleString() + " ₽");
-    }
+          if (currentDownPayment < minDownPayment) {
+            currentDownPayment = minDownPayment
+          } else if (currentDownPayment > maxDownPayment) {
+            currentDownPayment = maxDownPayment
+          }
 
+          $('#slider-range-max').slider('option', 'min', minDownPayment)
+          $('#slider-range-max').slider('option', 'max', maxDownPayment)
+          $('#slider-range-max').slider('value', currentDownPayment)
 
-    $("#slider-range-max3").slider({
-        range: "max",
-        min: 100000,
-        max: 1000000,
-        value: 500000,
-        slide: function(event, ui) {
-            $("#amount3").val(ui.value.toLocaleString() + " ₽");
-            updateDownPaymentSlider(ui.value);
-            updateResults();
+          $('#amount').val(currentDownPayment.toLocaleString() + ' ₽')
         }
-    });
 
+        $('#slider-range-max3').slider({
+          range: 'max',
+          min: 100000,
+          max: 1000000,
+          value: 500000,
+          slide: function (event, ui) {
+            $('#amount3').val(ui.value.toLocaleString() + ' ₽')
+            updateDownPaymentSlider(ui.value)
+            updateResults()
+          }
+        })
 
-    $("#slider-range-max").slider({
-        range: "max",
-        min: 10000,
-        max: 900000,
-        value: 250000,
-        slide: function(event, ui) {
-            $("#amount").val(ui.value + " ₽");
-            updateResults();
-        }
-    });
+        $('#slider-range-max').slider({
+          range: 'max',
+          min: 10000,
+          max: 900000,
+          value: 250000,
+          slide: function (event, ui) {
+            $('#amount').val(ui.value + ' ₽')
+            updateResults()
+          }
+        })
 
-    $("#slider-range-max2").slider({
-        range: "max",
-        min: 12,
-        max: 60,
-        value: 12,
-        slide: function(event, ui) {
-            $("#amount2").val(ui.value + (ui.value > 12 && ui.value < 60 ? " месяца" : " месяцев"));
-            updateResults();
-        }
-    });
+        $('#slider-range-max2').slider({
+          range: 'max',
+          min: 12,
+          max: 60,
+          value: 12,
+          slide: function (event, ui) {
+            $('#amount2').val(ui.value + (ui.value > 12 && ui.value < 60 ? ' месяца' : ' месяцев'))
+            updateResults()
+          }
+        })
 
-    updateResults();
-});
+        updateResults()
+      })
 
-</script>
-<script>
-const buttons = document.querySelectorAll('.scroll-btn');
+    </script>
+    <script>
+      const buttons = document.querySelectorAll('.scroll-btn')
 
-buttons.forEach(button => {
-    button.addEventListener('click', function() {
-        const creditBlock = document.getElementById('creditblock');
-        creditBlock.scrollIntoView({ behavior: 'smooth' });
-    });
-});
-</script>
+      buttons.forEach(button => {
+        button.addEventListener('click', function () {
+          const creditBlock = document.getElementById('creditblock')
+          creditBlock.scrollIntoView({ behavior: 'smooth' })
+        })
+      })
+    </script>
 {% endblock %}

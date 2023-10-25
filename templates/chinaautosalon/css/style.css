@@ -2160,12 +2160,12 @@ main {
   border-radius: 50%;
   animation: animate 1.5s linear infinite;
 }
-.float-button {
+/* .float-button {
   position: fixed;
   bottom: 30px;
   right: 30px;
   z-index: 9999;
-}
+} */
 
 @keyframes animate {
   0% {
@@ -2408,6 +2408,12 @@ main {
 }
 .header .contacts {
   padding-left: 13px;
+}
+.float-button {
+  position: fixed;
+  bottom: 130px;
+  right: 20px;
+  z-index: 9999;
 }
 }
 @media (max-width: 575px) {
@@ -2884,6 +2890,9 @@ main {
     .filter-buttons-wrapper .button_clear {
         padding: 7px 0 0;
     }
+    .float-button {
+      bottom: 143px;
+    }
 
 }
 
@@ -2896,6 +2905,9 @@ main {
     height: 164px;
     object-fit: cover;
     object-position: center;
+  }
+  .float-button {
+    bottom: 175px;
   }
 }
 

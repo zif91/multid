@@ -25,10 +25,12 @@ class Controller
 
     /**
      * @param  \DocumentParser  $modx
+     * @param  array  $config
      */
-    public function __construct(\DocumentParser $modx)
+    public function __construct(\DocumentParser $modx, array $config = [])
     {
         $this->evo = $modx;
+        $this->config = $config;
         $this->service = new Service($this->evo);
     }
 
@@ -47,6 +49,31 @@ class Controller
      */
     public function toArray(): array
     {
+        return $this->service->toArray($this->configurations);
+    }
+
+    /**
+     * @return float
+     */
+    public function price(): float
+    {
+        return $this->service->getMinimalPrice();
+    }
+
+    /**
+     * @return float
+     */
+    public function priceOld(): float
+    {
+        return $this->service->getMinimalOldPrice();
+    }
+
+    public function all()
+    {
+        if (!empty($this->config['toObject']) && (int) $this->config['toObject'] === 1) {
+            return $this;
+        }
+
         return $this->service->toArray($this->configurations);
     }
 }

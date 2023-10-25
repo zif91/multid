@@ -7,14 +7,16 @@
 {% if not model %}
 {% set model = '' %}
 {% endif %}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
+{% set catalog_number = baseSettings['catalog_number'] %}
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
 filters: 'AND(tv:mark_id:=:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
 _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
 display: 20,
-parents: 593,
-depth: 2,
+parents: catalog_number,
+depth: 5,
 addWhereList: 'c.template=28',
 orderBy: 'car-price',
 order: 'RAND()',
@@ -52,37 +54,12 @@ noneTPL:'@CODE: <div class="container">
 </div>',
 })
 %}
-{#% set DLCatalog = runSnippet('DocLister', {
-id: 'catalog',
-display: 20,
-parents: 593,
-filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
-depth: 1,
-tvList:'car-price,mark_id,model_id',
-ownerTPL: '@T_FILE:partials/wrap',
-noneTPL:'@CODE: <div class="container">
-	<div class="row">
-		<div class="col text-center">
-			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-		</div>
-	</div>
-</div>',
-tpl:'@T_FILE:partials/catalogcard',
-paginate:'pages',
-TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
-TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
-TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
-TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
-TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
-tvSortType: 'UNSIGNED',
-addWhereList: 'isfolder=1 AND c.template=20'
-})
-%#}
+
 {% set models = runSnippet('DocLister', {
 id: 'catalog',
 filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' ,
 _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
-parents: 593,
+parents: catalog_number,
 depth: 1,
 addWhereList: 'isfolder=1 AND c.template=20',
 orderBy: 'car-price',
@@ -134,14 +111,18 @@ noneTPL:'@CODE: <div class="container">
 			{% include '/partials/brands.twig' %}</div>
 	</div>
 </div>
-<div class="index-catalog-block2 pb-5">
-	<div class="container">
-		<h2 class="h2 mb-5">Предложение дня</h2>
-		<div class="list row" id="catalog">
-			{{DLCatalog |raw}}
-		</div>
-	</div>
-</div>
+
+{% if DLCatalog is not empty %}
+    <div class="index-catalog-block2 pb-5">
+        <div class="container">
+            <h2 class="h2 mb-5">Предложение дня</h2>
+            <div class="list row" id="catalog">
+                {{DLCatalog |raw}}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
 {#{runSnippet ('bdebug', {})}#}
 {#% include 'partials/actions.twig' %#}
 <div class="page-form-block mb-5">

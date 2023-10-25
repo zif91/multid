@@ -4,18 +4,20 @@
 {% set brand = _GET.brand %}
 {% if not brand %}
 {% set brand = 'hyundai' %}
-{% endif %} 
+{% endif %}
 {% set model = _GET.model %}
 {% if not model %}
 {% set model = '' %}
 {% endif %}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
+{% set catalog_number = baseSettings['catalog_number'] %}
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 controller: 'catalog_filters',
 filters: 'AND(tv:mark_id:=:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
 _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
 display: 4,
-parents: 593,
+parents: catalog_number,
 depth: 2,
 addWhereList: 'c.template=28',
 orderBy: 'car-price',
@@ -58,7 +60,7 @@ noneTPL:'@CODE: <div class="container">
 id: 'catalog',
 filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' ,
 _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
-parents: 593,
+parents: catalog_number,
 depth: 1,
 addWhereList: 'isfolder=1 AND c.template=20',
 orderBy: 'car-price',
@@ -330,7 +332,7 @@ extension: 'twig'
 			</div>
 		</div>
 					{% include '/partials/contacts.twig' %}
-	
+
 </main>
 {#<script type="text/javascript">
 const marksSelect = document.querySelector('#marks');

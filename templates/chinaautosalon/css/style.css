@@ -493,6 +493,12 @@ main {
   font-size: 14px;
   line-height: 17px;
 }
+
+.header .container .flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 .header .contacts * {
   vertical-align: middle;
 }
@@ -1098,8 +1104,13 @@ main {
 .catalog-page .item .credit {
   background: #F2F3F7;
   border-radius: 8px;
-  padding: 15px 70px 15px 10px;
-  font-weight: 700;
+  padding: 10px 10px 10px 10px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000000;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
 }
 /* .catalog-page .item .credit span {
   position: absolute;
@@ -1112,18 +1123,33 @@ main {
   color: #D02E25;
 } */
 
-.catalog-page .item .credit span {
+/* .catalog-page .item .credit span { */
+  /* position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 6px;
+  font-size: 18px;
+  line-height: 14px;
+  color: #fff;
+  height: 30px;
+  background-color: #D12D1E;
+  border-radius: 20px; */
+  /* padding: 0px 15px 0 15px; */
+  /* padding: 8px 12px 8px 12px; */
+/* } */
+.catalog-page .item .credit .spanrate {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 6px;
-  font-size: 15px;
-  line-height: 200.4%;
+  font-size: 18px;
+  line-height: 13px;
   color: #fff;
-  height: 28px;
-  background-color: #D02E25;
-  border-radius: 15px;
-  padding: 0px 15px 0 15px;
+  height: 30px;
+  background-color: #D12D1E;
+  border-radius: 20px;
+  /* padding: 0px 15px 0 15px; */
+  padding: 8px 12px 8px 12px;
 }
 .catalog-page .item .buttons button {
   color: #fff;
@@ -1135,7 +1161,7 @@ main {
   background: #D12D1E;
 }
 .catalog-page .item .buttons button.color2 {
-  background: #35374E;
+  background: #485478;
 }
 .item-page .photos .slider-for img {
   width: 100%;
@@ -2161,6 +2187,9 @@ main {
   .header .logo a span {
     display: none !important;
   }
+  .header .container .flex {
+    justify-content: space-between;
+  }
   .header nav {
     /* margin: 20px 0 0 146px; */
     margin: 20px 25px 0px 0px;
@@ -2196,21 +2225,9 @@ main {
   .form-calculate3 {
     display: none;
   }
-  .catalog-page .item .credit span {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 3px;
-    font-size: 15px;
-    line-height: 200.4%;
-    color: #fff;
-    height: 28px;
-    background-color: #D02E25;
-    border-radius: 15px;
-    padding: 0px 12px 0 12px;
-  }
+
   .catalog-page .item .credit {
-    padding: 15px 70px 15px 14px;
+    padding: 15px 123px 10px 10px;
   }
   .car-plate__button{
     padding: 18px 19px;
@@ -2271,9 +2288,6 @@ main {
 
   .car-plate__button{
     padding: 18px 25px;
-  }
-  .catalog-page .item .credit {
-    padding: 15px 80px 15px 10px;
   }
 }
 @media (max-width: 767px) {
@@ -2381,12 +2395,7 @@ main {
     top: 1px;
   }
   .catalog-page .item .credit {
-    padding: 15px 70px 15px 18px;
-  }
-  .catalog-page .item .credit span {
-    right: 17px;
-    border-radius: 15px;
-    padding: 0px 17px 0 17px;
+    padding: 15px 10px 10px 10px;
   }
 
   .header .logo {
@@ -2887,9 +2896,7 @@ main {
     height: 164px;
     object-fit: cover;
     object-position: center;
-    
   }
-
 }
 
 .modifications-block h2 {
@@ -3350,13 +3357,6 @@ main {
     max-width: 300px;
     height: 671px;
   }
-
-  .catalog-page .item .credit {
-    padding: 15px 120px 15px 10px;
-  }
-  .catalog-page .item .credit {
-    padding: 15px 108px 15px 18px;
-  }
 }
 
 @media(min-width: 321px) and (max-width: 568px) {
@@ -3465,9 +3465,6 @@ main {
 
   .car-plate__button {
     padding: 18px 14px;
-  }
-  .catalog-page .item .credit span{
-    right: 11px;
   }
 
   .catalog-page .item .credit {

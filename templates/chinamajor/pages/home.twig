@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		const brand = marksSelect.value;
 		const model = modelsSelect.value;
 
-		let url = '/katalog-novyh-avtomobilej/?';
+		let url = "{{ modx.makeUrl(catalog_number) }}" + "/?";
 		if (brand && brand !== 'Выбрать...') {
 			url += `brand=${brand}&`;
 		}
@@ -423,7 +423,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		const brand = marksSelect.value;
 
 		if (brand && brand !== 'Выбрать...') {
-			const url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
+			//const url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
+			const url = "{{ modx.makeUrl(catalog_number) }}" + `/?brand=${brand}`;
 			$.ajax({
 					url: url,
 					method: 'GET',

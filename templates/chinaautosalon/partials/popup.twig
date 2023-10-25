@@ -154,7 +154,7 @@ extension: 'twig'
             <div class="image">
                 <img src="/templates/rofl/img/image.png">
             </div>
-            <a class="close"></a>
+            <a class="close" id="closeModal"></a>
         </div>
 </div>
 
@@ -249,5 +249,10 @@ setInterval(function() {
     });
   });
 
+$(document).ready(function() {
+        $("#closeModal").click(function() {
+            $(".float-button").css("bottom", "20px");
+        });
+    });
   </script>
   

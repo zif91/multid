@@ -3,7 +3,7 @@
     {% set DLCatalog = runSnippet('DocLister', {
         id: 'catalog',
         display: 21,
-        parents: 593,
+        parents: baseSettings['catalog_number'],
         depth: 5,
         tvList:'car-price,old-car-price,configuration_id',
         ownerTPL: '@T_FILE:partials/wrap',

@@ -3,7 +3,7 @@
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 3,
-parents: 593,
+parents: baseSettings['catalog_number'],
 addWhereList: 'c.template=28',
 depth: 3,
 tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',

@@ -18,7 +18,7 @@
 
     {% set marks = runSnippet('DocLister', {
 _filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
-parents: 593,
+parents: baseSettings['catalog_number'],
 depth: 0,
 addWhereList: 'isfolder=1 AND c.template=17',
 tpl:'@T_FILE:partials/catalogcard',
@@ -44,7 +44,7 @@ debug: 0,
     <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
     <link rel="mask-icon" href="static/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#5bbad5">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
             <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -68,7 +68,7 @@ debug: 0,
     {{baseSettings.scripts_body | raw}}
 
 {% if baseSettings.site_id is not empty %}
-  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    
+  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">
 
 {% endif %}
 <div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>

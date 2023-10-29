@@ -33,9 +33,9 @@ action:'caroldprice'}) %#}
             <button class="btn" type="button" data-toggle="modal" data-target="#oneclick">Купить в 1 клик</button>
         </div>
     </div>
-</div>#} 
+</div>#}
 {% set brands2 = runSnippet('DocLister', {
-parents: 593,
+parents: baseSettings['catalog_number'],
 depth: 0,
 orderBy: 'menuindex',
 order: 'ASC',
@@ -87,7 +87,7 @@ id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.config
                     <div class="p-3">
                         <a href="{{data.url}}" class="name d-block mb-2">{{runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title']  }} </a>
                         <div class="row data text-center">
-                            
+
                         </div>
                         <div class="price mb-3">
                             <span class="old d-inline-block mb-1">{#{ DLdata|first['tv_old-car-price'] }#}{{data["tv.old-car-price"]}} ₽</span>

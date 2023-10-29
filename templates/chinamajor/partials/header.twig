@@ -3,7 +3,9 @@ parents: baseSettings["id"],
 tvList: 'image',
 rowTpl: '@CODE:<li><a href="[+url+]">[+pagetitle+]</a></li>',
 outerTpl: '@CODE:<ul>
-    [+wrap+]</ul>'}) %}
+    [+wrap+]</ul>',
+maxDepth: 1,
+}) %}
 
 {#
 <div class="menubg"></div>
@@ -42,7 +44,7 @@ outerTpl: '@CODE:<ul>
         {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone mt-3 pt-2"}) | raw}}
                 <a href="{{baseSettings["salon-phone"]}}">заказать экспресс-звонок</a>
         </div>
-        
+
     </div>
 </header>
 #}
@@ -82,10 +84,10 @@ outerTpl: '@CODE:<ul>
             {#<div class="location">
             <span>Адрес: {{baseSettings.salon_location}}</span>
             </div>#}
-            
+
         </div>
     </header>
-                    
+
     <div class="index-top-line py-3">
         <div class="container flex">
             <p>В кредит под {% if baseSettings.credit_rate is empty %}

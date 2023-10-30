@@ -44,7 +44,8 @@ TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-
 TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
 TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
 tvSortType: 'UNSIGNED',
-addWhereList: 'c.template=28'
+addWhereList: 'c.template=28',
+prepare: "DocLister CarPhotos",
 })
 %}
 {% set models = runSnippet('DocLister', {

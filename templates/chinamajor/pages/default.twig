@@ -10,18 +10,18 @@
         tpl:'@T_FILE:partials/catalogcard_404',
         TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
         noneTPL:'@CODE: <div class="container">
-  <div class="row">
-    <div class="col text-center">
-      <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-    </div>
-  </div>
-</div>',
-    })
-    %}
-    {#% cache 'main' ~ resource.id %#}
+          <div class="row">
+            <div class="col text-center">
+              <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+            </div>
+          </div>
+        </div>',
+        prepare: "DocLister CarPhotos",
+    }) %}
+    {# % cache 'main' ~ resource.id % #}
 
     <div class="container">
-        {{resource.content |raw}}</div>
+        {{ resource.content |raw }}</div>
 
     <div class="catalog-block">
         <div class="container-fluid catalog-products" id="catalog">
@@ -29,7 +29,7 @@
             <div class="catalog-page">
                 <div class="container">
                     <div class="row">
-                        {{DLCatalog |raw}}
+                        {{ DLCatalog |raw }}
                     </div>
                 </div>
             </div>
@@ -41,6 +41,6 @@
         </div>
     </div>
     {% include('partials/contacts.twig') %}
-    {#% include '/partials/tradein.twig' %#}
-    {#% endcache %#}
+    {# % include '/partials/tradein.twig' % #}
+    {# % endcache % #}
 {% endblock %}

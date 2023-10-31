@@ -76,11 +76,14 @@ tpl:'@CODE:[+tv.configuration_id+]'}) %}
 {% set configuration_id = runSnippet('DocLister', {
     id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.configuration_id+]'} ) %}
 {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ configuration_id ~ ".jpg" %}
+
+{% set photo = runSnippet("CarPhotos", {fromJson: data.car_photos, firstPhoto: 1}) %}
+
 {# { data | dump } #}
 <div class="item position-relative col-3 pb-3 pt-3 mt-3"><a href="{{ data['url'] }}">
         <span class="hit position-absolute py-1 px-3">HIT</span>
         <div class="image">
-            <img src="{{ data["photo"] }}">
+            <img src="{{ photo }}">
         </div>
         <div class="p-3">
             <a href="{{ data.url }}"

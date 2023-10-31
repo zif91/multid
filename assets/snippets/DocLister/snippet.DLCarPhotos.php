@@ -1,12 +1,5 @@
 <?php
-$data['car_photos'] = json_decode($data['tv.car_photos'], true);
-
-if (!empty($data['car_photos']) && !empty($data['car_photos']['fieldValue'])) {
-    $data['photos'] = [];
-    foreach ($data['car_photos']['fieldValue'] as $photo) {
-        $data['photos'][] = $photo['image'];
-    }
-    $data['photo'] = $data['photos'][0];
-}
+$data['photos'] = $modx->runSnippet("CarPhotos", ['fromJson' => $data['tv.car_photos']]);
+$data['photo'] = $modx->runSnippet("CarPhotos", ['fromJson' => $data['tv.car_photos'], 'firstPhoto' => 1]);
 
 return $data;

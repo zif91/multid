@@ -63,13 +63,15 @@ display: 1
 {% set priceAsNumber = [data['tv.car-price']]|join|default(0) %}
 {% set priceOnMonth = priceAsNumber / 96 %}
 
+{% set photo = runSnippet("CarPhotos", {fromJson: data.car_photos, firstPhoto: 1}) %}
+
 {% if priceAsNumber > 0 and data['title'] %}
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="index-catalog-block">
             <div class="item mb-3 p-3">
                 <div class="image text-center mb-2">
                     <a href="{{ data['url'] }}">
-                        <img src="{{ data['photo'] }}">
+                        <img src="{{ photo }}">
                     </a>
                 </div>
                 <a href="{{ data['url'] }}" class="name mb-3 d-block">{{ data['title'] }}

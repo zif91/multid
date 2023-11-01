@@ -30,7 +30,7 @@
 				</div>
 			</div>
 			<div class="pre-form mb-3">
-				Оставьте заявку на кредит и получите ответ от наших банков партнёров 
+				Оставьте заявку на кредит и получите ответ от наших банков партнёров
 			</div>
 			<div class="row">
 				<div class="col-lg-3 col-md-4 col-sm-6">
@@ -68,7 +68,7 @@
     const monthlyRate = creditRate / 12;
     const totalPayments = loanTermMonths;
     const monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -totalPayments));
-    return monthlyPayment.toFixed(2);
+    return numberWithSpaces(monthlyPayment.toFixed());
   }
 
   function updateMonthlyPayment() {
@@ -77,6 +77,10 @@
     const monthlyPayment = calculateMonthlyPayment(loanAmount, loanTermMonths);
     $(".payments div:nth-child(2)").text(monthlyPayment + " ₽/мес.");
   }
+
+    function numberWithSpaces(number) {
+      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); // добавляет разряды к числу
+    }
 
   rangeSliders.forEach(slider => {
     $(slider.id).slider({

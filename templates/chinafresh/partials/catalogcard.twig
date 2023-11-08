@@ -1,0 +1,62 @@
+{% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
+action:'caroldprice'}) %} 
+{% set brands2 = runSnippet('DocLister', {
+parents: 593,
+depth: 0,
+orderBy: 'menuindex',
+order: 'ASC',
+tvList:'',
+ownerTPL: '@CODE:     [+dl.wrap+]',
+tpl:'@CODE: <a href="[+url+]" class="col-6 col-sm-4 col-md-3 col-lg-2">[+pagetitle+]</a>',
+api: 0,
+noneTPL:'@CODE: <div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+        </div>
+    </div>
+</div>',
+})
+%}
+{% set photo = runSnippet ('DocLister', {parents: data.id,
+depth: 0,
+orderBy: 'menuindex',
+api: 1,
+order: 'ASC',
+tvList:'configuration_id, car-price, old-car-price',
+ownerTPL: '@CODE:[+dl.wrap+]',
+tpl:'@CODE:[+tv.configuration_id+]'}) %}
+{% set DLdata = photo | json %}
+{% set photo = "https://s3.multiauto.site/new_cars/" ~ DLdata|first['tv_configuration_id'] ~ ".jpg" %}
+
+<div class="col-lg-4 col-md-6">
+	<div class="item">
+		<div class="image text-center px-2">
+			<a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="d-inline-block"></a>
+		</div>
+		<div class="p-3">
+			<div class="name mb-3">
+				{{ data['title'] }}
+			</div>
+			<ul class="flex mb-3 text-center">
+				<li>3.0 л.</li>
+				<li>{{data['tv.gear'] }}</li>
+				<li>Полный</li>
+			</ul>
+			<div class="price mb-2">
+				<span class="old">{{ data['tv.old-car-price'] }} ₽</span>
+				<div class="new">
+					{{ ( data['tv.car-price'] )|number_format(0, '.', ' ') }} ₽
+				</div>
+			</div>
+			<div class="payment mb-2 text-center">
+				Ежемесячный платеж {{(data['tv.car-price'] / 64) | number_format(0, ' ', ' ')}} ₽
+			</div>
+			<div class="buttons">
+				<button class="w-100 mb-2" data-fancybox data-src="#popup" type="button">В кредит от 4,9%</button>
+				<button class="w-100 mb-2" data-fancybox data-src="#popup" type="button">Забронировать</button>
+				<button class="w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button>
+			</div>
+		</div>
+	</div>
+</div>

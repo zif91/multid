@@ -1,0 +1,67 @@
+{#% set thumb = runSnippet('morephoto', {
+images: data['tv.car_photos'],
+phpthumb: 'w=250,h=168,zc=C',
+tpl: '@CODE:[+image.thumb+]',
+total: 1,
+display: 1
+}) %#}
+{% set car_photos = "https://s3.multiauto.site/new_cars/" ~ data['tv.configuration_id'] ~ ".jpg"%}
+{% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %}
+				{# <div class="col-lg-3 col-md-4 col-6 pb-3">
+
+    <div class="item">
+	<img src="{{car_photos| raw}}">
+	<div class="text p-sm-3 p-2">
+		<div class="name mb-2">
+			{{ data['pagetitle'] }}
+			{{data[tv.body_type]}}
+		</div>
+		<div class="info mb-sm-4 mb-2">
+			Комплектаций: {{ modification|length }}
+
+		</div>
+		<div class="price mb-2">
+			от
+			{{ data['tv.car-price'] }}
+			₽
+		</div>
+		<button onclick="location.href='{{ data['url'] }}';">Подробнее</button>
+	</div>
+</div></div> #}
+
+<div class="col-lg-3 col-md-4 col-sm-6">
+	<div class="item mb-4 position-relative">
+		<span class="hit position-absolute">HIT</span>
+		<div class="image text-center px-1">
+			<a href="#"><img src="{{car_photos| raw}}" class="d-inline-block"></a>
+		</div>
+		<div class="p-3">
+			<div class="name mb-3">
+				{{ data['pagetitle'] }}
+			</div>
+							<ul class="flex mb-3 text-center">
+								<li>3.0 л.</li>
+								<li>Автомат</li>
+								<li>Полный</li>
+							</ul>
+			<div class="price mb-2">
+				<span class="old">3 555 550₽</span>
+					<div class="new">
+						{{ data['tv.car-price'] }}₽
+					</div>
+			</div>
+			<div class="payment mb-2 text-center">
+				Ежемесячный платеж {{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}}₽
+			</div>
+							<div class="buttons">
+								<button data-fancybox="#popup2" data-src="#popup2" class="w-100 mb-2">В кредит от 4,9%</button>
+								<button data-fancybox="#popup2" data-src="#popup2" class="w-100 mb-2">Забронировать</button>
+								<button class="w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button>
+							</div>
+		</div>
+	</div>
+</div>
+
+
+
+		

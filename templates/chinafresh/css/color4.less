@@ -1,0 +1,377 @@
+﻿@color: #34B5A5;
+
+.header {
+	ul {
+		li {
+			a {
+				&:hover {
+					color: @color;
+				}
+			}
+		}
+	}
+	.contacts {
+		button {
+			background: @color;
+		}
+	}
+}
+
+.index-form-block {
+	.fields {
+		border: 1px solid @color;
+		select {
+			border-right: 1px solid @color;
+		}
+		input[type='text'] {
+			border-right: 1px solid @color;
+		}
+	}
+	button {
+		background: @color;
+	}
+}
+
+@media (max-width: 575px) {
+	.index-form-block form .fields select {border-bottom: 1px solid @color;}
+}
+
+.index-services-block {
+	.item {
+		border: 1px solid @color;
+		.icon {
+			border-bottom: 1px solid @color;
+			svg {
+				path {
+					fill: @color;
+				}
+			}
+		}
+	}
+	.bottom-link {
+		color: @color;
+		background: url('img/arrow7.svg') no-repeat right;
+	}
+}
+
+.index-catalog-block {
+	.list {
+		.item {
+			border: 1px solid @color;
+			.text {
+				button {
+					background: @color;
+				}
+			}
+		}
+		.slick-next {
+			border: 1px solid @color;
+		}
+	}
+	.list2 {
+		.item {
+			border: 1px solid @color;
+			.text {
+				button {
+					background: @color;
+				}
+			}
+		}
+	}
+}
+
+.advantages-block {
+	.item {
+		border: 1px solid @color;
+		.check {
+			border-bottom: 1px solid @color;
+			span {
+				background: @color url('img/check.svg') no-repeat center;
+			}
+			.icon {
+				background: @color;
+			}
+		}
+	}
+	.list {
+		.item {
+			.check {
+				span {
+					background: @color url('img/check2.svg') no-repeat center;
+				}
+			}
+		}
+	}
+}
+
+.footer {
+	input[type='text'] {
+		border: 1px solid @color;
+	}
+	select {
+		border: 1px solid @color;
+	}
+	.agree {
+		a {
+			color: @color;
+		}
+	}
+	button {
+		background: @color;
+	}
+}
+
+.index-brands-block {
+	.bottom-link {
+		color: @color;
+		background: url('img/arrow8.svg') no-repeat right;
+	}
+}
+
+.popup {
+	.image {
+		background: url('img/popup4.svg') center/cover;
+	}
+	form {
+		button {
+			background: @color;
+		}
+		.bottom-text {
+			a {
+				color: @color;
+			}
+		}
+	}
+}
+
+.catalog-page {
+	.filter {
+		border: 1px solid @color;
+		border-right: 0;
+		border-bottom: 0;
+		select {
+			border-right: 1px solid @color;
+			border-bottom: 1px solid @color;
+		}
+	}
+	.item {
+		border: 1px solid @color;
+		.text {
+			button {
+				background: @color;
+			}
+		}
+	}
+	.pages {
+		border: 1px solid @color;
+		li {
+			&:not(:last-child) {
+				border-right: 1px solid @color;
+			}
+			a {
+				&:hover {
+					background: @color;
+				}
+			}
+		}
+	}
+	.bottom-link {
+		color: @color;
+		background: url('img/arrow7.svg') no-repeat right;
+	}
+}
+
+.actions-page {
+	.item {
+		border: 1px solid @color;
+		.img {
+			border-bottom: 1px solid @color;
+			svg {
+				path {
+					fill: @color;
+				}
+			}
+		}
+		.text {
+			button {
+				background: @color;
+			}
+		}
+	}
+}
+
+.advantages-page {
+	.item {
+		div {
+			span {
+				background: @color;
+			}
+		}
+	}
+	.bottom-text {
+		button {
+			background: @color;
+		}
+	}
+}
+
+.item-page {
+	.info {
+		.buttons {
+			button {
+				color: @color;
+				border: 1px solid @color;
+				&:hover {
+					background: @color;
+				}
+			}
+		}
+	}
+	table {
+		thead {
+			tr {
+				td {
+					color: @color;
+				}
+			}
+		}
+		tbody {
+			tr {
+				td {
+					button {
+						background: @color;
+					}
+				}
+			}
+		}
+	}
+	.order {
+		.text {
+			border: 1px solid @color;
+			color: @color;
+		}
+		button {
+			background: @color;
+		}
+	}
+	.complect {
+		border: 1px solid @color;
+		div {
+			span {
+				&:first-child {
+					color: @color;
+				}
+			}
+		}
+		button {
+			background: @color;
+		}
+	}
+	.calc {
+		.calc-item {
+			.ui-widget-content {
+				background: @color;
+			}
+			.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+				border: 7px solid @color;
+			}
+		}
+	}
+	.banks {
+		.bottom-link {
+			a {
+				color: @color;
+				background: url('img/arrow7.svg') no-repeat right;
+			}
+		}
+	}
+}
+
+@media (max-width: 575px) {
+	.item-page .calc {
+		border: 1px solid @color;
+	}
+}
+
+.calc-page {
+	.block1 {
+		.selects {
+			select {
+				border: 1px solid @color;
+				background: url('img/select4.svg') no-repeat right 10px top 50%;
+			}
+		}
+		.price {
+			background: @color;
+		}
+	}
+	.block2 {
+		select {
+			border: 1px solid @color;
+			background: url('img/select4.svg') no-repeat right 10px top 50%;
+		}
+		.field {
+			input[type='text'] {
+				border: 1px solid @color;
+			}
+			div {
+				color: @color;
+				border-left: 1px solid @color;
+			}
+		}
+		.calc-item {
+			.ui-widget-content {
+				background: @color;
+			}
+			.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+				border: 7px solid @color;
+			}
+		}
+	}
+	.block3 {
+		table {
+			tr {
+				td {
+					&:last-child {
+						color: @color;
+					}
+				}
+			}
+		}
+	}
+}
+
+.about-block {
+	.item {
+		border: 1px solid @color;
+		.icon {
+			svg {
+				path {
+					fill: @color;
+				}
+				rect {
+					fill: @color;
+				}
+			}
+		}
+		.name {
+			background: @color;
+		}
+	}
+}
+
+@media (max-width: 575px) {
+	.calc-page {
+		.block2 {
+			border: 1px solid @color;
+		}
+	}
+}
+
+.contacts-page {
+	.buttons {
+		button {
+			background: @color;
+		}
+	}
+}

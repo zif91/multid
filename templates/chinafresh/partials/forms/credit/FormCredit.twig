@@ -1,0 +1,217 @@
+{# <form> 
+
+    <div class="credit-block px-4 py-5 mb-5 text-light" id="creditform">
+    <div class="name text-center mb-5">
+        Выгоднее - в кредит! Скидка до 100 000 руб!
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="field mb-4">
+                <p class="mb-2">Первый взнос</p>
+                <input id="firstpayment" type="text" class="form-control" placeholder="{{ (resource['car-price'])/8|number_format(0, '.', ' ') }} ₽">
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="field mb-4">
+                <p class="mb-2">Срок кредита</p>
+                <input value="{{ data.credit_term }}" id="monthes" type="text" class="form-control" placeholder="24 месяца">
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="field mb-4">
+                <p class="mb-2">Ежемесячный платеж</p>
+                <input id="monthly" value="{{ data.month_pay }}" type="text" class="form-control other" placeholder="{{ (resource['car-price'])/20|number_format(0, '.', ' ') }} ₽">
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="field mb-4 pt-sm-0 pt-4">
+                <p class="mb-2">Ваша выгода</p>
+                <div class="discount text-center text-light">
+                    Скидка - 100 000 руб!
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+           <div class="field mb-4 pt-sm-0 pt-4">
+                <p class="mb-2">Ваше имя</p>
+                <input name="first_name" value="{{ data.first_name }}" type="text" class="form-control {{ data['first_name.classname'] }}" id="calc-input-5" type="text" placeholder="Иван" />
+            </div>
+        </div> 
+        <div class="col-xl-3 col-md-6">
+           <div class="field mb-4 pt-sm-0 pt-4">
+            <p class="mb-2">Ваш телефон</p>
+            </label>
+            <input value="{{ data.mobile_tel }}" name="mobile_tel"  class="form-control py-2 border-1 phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" type="text" placeholder="+7 (000) 000-00-00" />
+        </div>
+    </div>
+    <div class="text-center pt-3 col">
+        <button type="submit" class="btn btn-danger">Оставить заявку</button>
+    </div>
+</div>
+</form> #}
+
+
+<form>
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+    <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+    {{ data['form.messages'] | raw }}
+    <div class="block1">
+		<h2 class="h2 mb-4 text-center">Выгоднее - в кредит! Скидка до 100 000 руб!</h2>
+		<input placeholder="Желаемый автомобиль" class="credit-inp form-control w-100 mb-4 px-4">
+		    {# <select class="w-100 mb-4 px-4">
+				<option>Желаемый автомобиль</option>
+				<option>Желаемый автомобиль</option>
+				<option>Желаемый автомобиль</option>
+			</select> #}
+			<div class="row">
+				<div class="col-md-6">
+					<div class="item mb-3">
+						<div class="name mb-2">
+							Первоначальный взнос
+						</div>
+						<input type="text" id="amount"> <a class="edit d-inline-block"></a>
+						<div id="slider-range-max" class="mt-4 mb-3"></div>
+						<div class="values flex">
+							<div>0 ₽</div>
+							<div>250 000 ₽</div>
+							<div>500 000 ₽</div>
+							<div>1 000 000 ₽></div>
+						</div>
+					</div>
+					<div class="item mb-3">
+						<div class="name mb-2">
+							Срок кредита
+						</div>
+						<input type="text" id="amount2"> <a class="edit d-inline-block"></a>
+						<div id="slider-range-max2" class="mt-4 mb-3"></div>
+						<div class="values flex">
+							<div>1</div>
+							<div>2</div>
+							<div>3</div>
+							<div>4</div>
+							<div>5</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<table class="w-100 mb-4">
+						<tr>
+							<td>Сумма кредита:</td>
+							<td id="summa">1  140 360 ₽</td>
+						</tr>
+						<tr>
+							<td>Первоначальный взнос:</td>
+							<td id="first-pay">250 000 ₽</td>
+						</tr>
+						<tr>
+							<td>Срок кредита:</td>
+							<td id="mounts">12 месяцев</td>
+						</tr>
+					</table>
+					<div class="result flex pt-4 mb-3">
+						<div>Ежемесячный платеж:</div>
+						<div id="paymentSpan">80 000 ₽/мес.</div>
+					</div>
+					<div class="result2 flex mb-3">
+						<div>Ваша выгода:</div>
+						<div>Скидка - 100 000 ₽!</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block2">
+			<h2 class="mb-2">Оформить заявку</h2>
+			<p class="mb-4">Оставьте заявку чтобы зафиксировать Вашу скидку!</p>
+			<div class="row">
+				<div class="col-md-4 col-sm-6">
+					<input type="text"name="first_name" value="{{ data.first_name }}" class="w-100 mb-3 px-3 form-control {{ data['first_name.classname'] }}" id="calc-input-5" placeholder="Например Иван">
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<input type="text" value="{{ data.mobile_tel }}" name="mobile_tel" class="w-100 mb-3 px-3 form-control phone-imask {{ data['mobile_tel.classname'] }}" id="calc-input-6" placeholder="+7(___) ___-____">
+				</div>
+				<div class="col-md-4">
+					<button class="w-100 mb-3" type="submit">Отправить заявку</button>
+					<div class="bottom-text">
+						Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="/policy">персональных данных</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<style>
+.block1 .item input[type='text'] {
+    width: 106px;
+    background: none;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+.block1 .item .ui-widget.ui-widget-content {
+    border: 0;
+}
+
+.block1 .item .ui-slider-horizontal {
+    height: 4px;
+}
+.block1 .item .ui-widget-content {
+    background: var(--Green-accent, #50ca81);
+}
+</style>
+
+<script type="text/javascript">
+$(function() {
+	var slider = $('#slider-range-max');
+	const firstPayInput = $('#amount');
+	const termInput = $('#amount2');
+	var summ = 1140000;
+	
+	$('#slider-range-max').slider({
+		 range: "max",
+	      min: 0,
+	      max: 1000000,
+	      value: 250000,
+	      step: 1000,
+		slide: function(event, ui) {
+		  firstPayInput.val(ui.value.toLocaleString('ru-RU') + ' ₽');
+		  updatePayment();
+		}
+	});
+	firstPayInput.val($('#slider-range-max').slider('value').toLocaleString('ru-RU') + ' ₽');
+
+
+	$('#slider-range-max2').slider({
+		range: "max",
+    	min: 1,
+	    max: 5,
+	    value: 2,
+		slide: function(event, ui) {
+		  termInput.val(ui.value + " год(a)/лет");
+		  updatePayment();
+		}
+	});
+	termInput.val($('#slider-range-max2').slider('value') + " год(a)/лет");
+	function updatePayment() {
+		const firstPay = parseFloat(firstPayInput.val().replace(/\D/g, '')) || 0;
+		const term = parseFloat(termInput.val()) *12 || 0;
+		let coefficient = 1.24;
+		const payment2 = (summ - firstPay) / term * coefficient;
+		const payment = Math.ceil(payment2);
+		$('#first-pay').text(firstPay.toLocaleString('ru-RU') + ' ₽');
+		$('#mounts').text(term.toLocaleString('ru-RU') + ' месяцев');
+		// $('#amount').text(summ.toLocaleString('ru-RU') + ' ₽');
+		$('#paymentSpan').text(payment.toLocaleString('ru-RU') + ' ₽');	
+	}
+	
+	updatePayment();
+	
+	firstPayInput.on('input', updatePayment);
+	termInput.on('change', updatePayment);
+});
+</script>
+
+
+
+
+
+ 

@@ -1,0 +1,29 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+<div class="action-page mb-5">
+	<div class="container">
+		<div class="navi mb-4">
+			<a href="/">Главная</a> <span>|</span> <a href="/akcii">Акции</a> <span>|</span>{{resource.pagetitle | raw}}	
+		</div>
+		<div class="top-block mb-4" style="background: url({{resource.image|raw}}) center/cover;">
+			<div class="name mb-2">
+				{{resource.pagetitle | raw}}
+			</div>
+			{{resource.description | raw}}
+		</div>
+        {{resource.content | raw}}
+		<button data-fancybox data-src="#popup" type="button">Получить</button>
+	</div>
+</div>
+
+<div class="actions-block pb-4">
+	<div class="container">
+		<h2 class="h2 mb-4">Посмотреть другие акции</h2>
+		{% include('partials/actions.twig') %}
+	</div>
+</div>
+
+{% endblock %}
+
+
+

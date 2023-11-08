@@ -1,0 +1,22 @@
+{% extends 'app.twig' %}
+{% set brand = runSnippet('DocLister',{
+parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle+]">[+pagetitle+]</option>'
+}) %}
+{% block MAIN %}
+	<div class="calc-block mb-5">
+		<div class="container">
+			<h1 class="h1 mb-sm-4 mb-3">Авто в кредит</h1>
+			<div class="top-text mb-4">
+				Выберите автомобиль и рассчитайте кредит онлайн прямо на сайте. Далее свяжитесь с нами любым удобным способом и мы поможем вам выбрать лучшие условия
+			</div>
+		    {{ runSnippet('Form', {
+    		formid: 'FormCredit',
+    		path: '/templates/chinafresh/partials/forms/credit/',
+    		extension: 'twig'
+    		}) | raw }}
+		</div>
+	</div>
+
+	{% include "/partials/services.twig" %}
+
+{% endblock %}

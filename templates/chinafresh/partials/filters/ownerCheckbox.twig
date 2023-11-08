@@ -1,0 +1,12 @@
+
+{# <div data-name="{{ data['name'] }}"> #}
+    {#<label for="formModel{{ data['id'] }}" class="form-label small">{{ data['caption'] }}{% if data['unit'] %}, {{ data['unit'] }}{% endif %}</label>#}
+    {% if data['id'] == 43 %}
+        {{ runSnippet('helpers', {'action':'getModelsByMark'}) | raw }}
+    {% else %}
+        <select class="form-select choicesCar" id="formModel{{ data['id'] }}" name="f[{{ data['id'] }}]" data-id="{{ data['id'] }}">   
+            <option value="" selected disabled>{{ data['caption'] }}</option>
+            {{ data['wrap'] | raw }}    
+        </select>
+    {% endif %}
+{# </div> #}

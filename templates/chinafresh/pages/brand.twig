@@ -1,0 +1,32 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+
+{% set catalog = runSnippet('DocLister', {
+    display: 20,
+    parents: resource.id,
+    depth: 1,
+    tvList: "car-price,old-car-price,car_photos,configuration_id",
+    ownerTPL: '@T_FILE:partials/wrap',
+    tpl: "@T_FILE:partials/catalogcard_first",
+    debug: 0,
+    __addWhereList: 'isfolder=1',
+})  %}
+
+
+   <div class="catalog-page py-5"> <div class="container">
+			<h1 class="h1 mb-4">{{resource.pagetitle}}</h1>
+			<div class="row">
+				{{catalog |raw}}
+			</div>
+
+			{{ plh['catalog.pages'] | raw }}
+
+			<a href="#" class="bottom-link pr-4">Показать больше</a>
+		</div>
+		{{runSnippet ('bdebug', {})}}
+<div class="container">
+{% include "/partials/advantages.twig" %}</div>
+{% include "/partials/contacts.twig" %}</div>
+
+
+{% endblock %}

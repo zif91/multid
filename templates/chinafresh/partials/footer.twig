@@ -1,0 +1,56 @@
+<div class="popup" id="popup" style="display: none;">
+				<div class="flex">
+					<div class="image"></div>
+					
+ {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/chinafresh/partials/forms/feedback_modal/',
+        extension: 'twig'
+        }) | raw }}
+
+
+		</div>
+</div>
+
+<footer class="footer">
+	<div class="container">
+		<div class="flex">
+			<div class="logo">
+			<a href="/">
+			{% if baseSettings["logo"] %}
+                <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
+            {% else %}
+            <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+            </div>
+            {% endif %}
+			</a>
+		</div>
+			<div class="phone">
+				{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7(xxx)xxx-xx-xx', link: '1'}) | raw}}
+				<a href="#" class="d-block" data-fancybox data-src="#popup" type="button">Заказать звонок</a>
+			</div>
+			<ul>
+				<li><a href="#">Купить</a></li>
+				<li><a href="#">Продать</a></li>
+				<li><a href="/kredit">Кредит</a></li>
+				<li><a href="/akcii">Акции</a></li>
+				<li><a href="/kontakty">Контакты</a></li>
+			</ul>
+		</div>
+		<div class="text mt-3 pt-3">
+			{{baseSettings.footer |raw}}
+		</div>
+	</div>
+</footer>
+
+				

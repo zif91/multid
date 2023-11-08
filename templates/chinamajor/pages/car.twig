@@ -18,10 +18,10 @@
                     <div class="photo mb-sm-5 mb-4">
                         <div class="slider-for">
                             {% if car_photos is empty %}
-                                <img src="{{ car_photos_one }}">
+                                <img class="rounded border border-dark" src="{{ car_photos[0].image }}">
                             {% else %}
-                                {% for image in car_photos %}
-                                    <div class="item"><img src="{{ image.image }}"></div>
+                                {% for image in car_photos | reverse %}
+                                    <div class="item"><img src="{{image.image}}"></div>
                                 {% endfor %}
                             {% endif %}
                         </div>
@@ -29,7 +29,7 @@
                             {% if car_photos is empty %}
                                 <img src="{{ car_photos_one }}">
                             {% else %}
-                                {% for image in car_photos %}
+                                {% for image in car_photos | reverse %}
                                     <div class="item"><img src="{{ image.image }}"></div>
                                 {% endfor %}
                             {% endif %}

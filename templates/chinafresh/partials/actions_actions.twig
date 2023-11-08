@@ -1,0 +1,12 @@
+			<div class="item big mb-4 position-relative" style="background: linear-gradient( rgba(0,0,0,0.3), rgba(0,0,0,.5) ),  url(
+                    {{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=300,zc=1'}) }}) center/cover;">
+				<div class="content2 position-absolute w-100">
+					<div class="name mb-2">
+						{{ data.title }}
+					</div>
+					<p class="mb-4">{{ data.description }}</p>
+					<a href="{{data.url}}" class="d-inline-block">Подробнее</a>
+				</div>
+			</div>
+    
+

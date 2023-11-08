@@ -1,0 +1,269 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 4,
+parents: catalog_number,
+depth: 2,
+_filters: 'AND(tv:car-price:against:~car-price~)',
+filters: 'AND(tv:model:=:' ~ resource.model ~ ')',
+tvList:'car-price,run,engine_power,gear,car_photos,year,image,body_type,model,car_color,engine_volume,fuel,drive',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+})
+%}
+{% set complectations = runSnippet('Complectations') %}
+{% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+{% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %}
+
+<div class="item-page pb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-7 col-lg-6">
+				<div class="top-image slider-for mb-4">
+                    <div class="item"><img src="{{ car_photos }}"></div>
+				</div>
+			</div>
+			<div class="col-xl-5 col-lg-6">
+				<div class="top-info mb-5">
+					<h1 class="h1 mb-2">{{ resource.pagetitle }}</h1>
+					<div class="price mb-3">
+						<span class="new mr-3">{{ resource["old-car-price"] }} ₽</span>
+						<span class="old">{{ resource["car-price"] }} ₽</span>
+					</div>
+					<div class="credit mb-4">
+						В кредит от {{(resource["car-price"] / 96) | number_format(0, ' ', ' ')}} ₽/мес &nbsp; <span class="d-inline-block">
+						Ставка от {% if baseSettings.credit_rate is empty %} 5
+                        {% else %}
+                        {{ baseSettings.credit_rate }}
+                        {% endif %}%</span>
+					</div>
+					<div class="row">
+						<div class="col-6">
+							<div class="info-block mb-3 position-relative">
+								<img src="templates/chinafresh/img/info-icon1.svg">
+								<p class="mb-1">Привод:</p>
+								Полный	
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="info-block mb-3 position-relative">
+								<img src="templates/chinafresh/img/info-icon2.svg">
+								<p class="mb-1">Мощность:</p>
+								150 л.с./145 Нм
+							</div>
+						</div>
+							<div class="col-6">
+								<div class="info-block mb-3 position-relative">
+									<img src="templates/chinafresh/img/info-icon3.svg">
+									<p class="mb-1">КПП:</p>
+									Автомат
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="info-block mb-3 position-relative">
+									<img src="templates/chinafresh/img/info-icon4.svg">
+									<p class="mb-1">Расход:</p>
+									5,6 л. на 100 км.
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="info-block mb-3 position-relative">
+									<img src="templates/chinafresh/img/info-icon5.svg">
+									<p class="mb-1">Цвет:</p>
+									Серебристый
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="info-block mb-3 position-relative">
+									<img src="templates/chinafresh/img/info-icon6.svg">
+									<p class="mb-1">Разгон:</p>
+									5,6 л. на 100 км.
+								</div>
+							</div>
+						</div>
+						<div class="buttons flex pb-2">
+							<button class="mb-2" data-fancybox="" data-src="#popup">Рассчитать кредит</button>
+							<button class="mb-2" data-fancybox="" data-src="#popup">Рассчитать обмен</button>
+						</div>
+						<div class="phone text-center">
+							<a href="#" class="d-inline-block">{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7(xxx)xxx-xx-xx', link: '1'}) | raw}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+            
+
+
+
+	<h2 class="h2 mb-3">Комплектация</h2>
+        {% for item in modification %}
+        {% if item["group-name"] is not empty %}
+			<h3 class="h3 mb-3" id="itemAccordion">{{item["Объем двигателя"]}}см³ | {{item["Тип двигателя"]}} | КП {{item["Трансмиссия"]}} | {{item["Привод"]}}</h3>
+			<div class="complect mb-2">
+				<div class="complect-name flex" id="itemHeader">
+					<div class=" d-flex align-items-center justify-content-between mob-wrap">
+                    	<div class="name btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}">
+                        	<div class="name"><span></span>
+                            {{item["group-name"]}}
+                        	</div>
+                    	</div>
+                    	<div class="price">
+                        	<span class="old">
+                            	{{item["offers-price-to"]|number_format(0, '.', '&nbsp;')|raw }} ₽
+                        	</span>
+                        	<span class="new">
+                            	{{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }} ₽
+                        	</span>
+                    	</div>
+                	</div>
+					<div class="buttons">
+						<button data-fancybox="" data-src="#popup">В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} &#8381; ₽/мес.</button>
+						<button data-fancybox="" data-src="#popup">Обмен</button>
+						<button data-fancybox="" data-src="#popup">Забронировать</button>
+					</div>
+				</div>
+				<div id="id_{{item['complectation-id']}}" class="collapse" aria-labelledby="itemHeader" data-parent="#itemAccordion">
+                <div class="item-content">                  
+                    <div class="tabs">
+                        <ul class="nav mb-4" id="myTab_{{item['complectation-id']}}" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="exterior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#exteriorid_{{item['complectation-id']}}" role="tab" aria-controls="exterior" aria-selected="true">Характеристики</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="interior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#interiorid_{{item['complectation-id']}}" role="tab" aria-controls="interior" aria-selected="false">Комплектация</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent_{{item['complectation-id']}}">
+                            <div class="tab-pane fade show active" id="exteriorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="exterior-tab">
+                                {% set filteredItems = {} %}
+                                {% set keys = [] %}
+                                {% set values = [] %}
+                                {% for key, value in item %}
+                                {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
+                                {% set filteredItems = filteredItems|merge({key: value}) %}
+                                {% set keys = keys|merge([key]) %}
+                                {% set values = values|merge([value]) %}
+                                {% endif %}
+                                {% endfor %}
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <table>
+                                            <tbody>
+                                                {% for i in range(0, keys|length // 2) %}
+                                                <tr>
+                                                    <td>{{ keys[i] }}</td>
+                                                    <td>{{ values[i] }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <table>
+                                            <tbody>
+                                                {% for i in range(keys|length // 2, keys|length) %}
+                                                <tr>
+                                                    <td>{{ keys[i] }}</td>
+                                                    <td>{{ values[i] }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="interiorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="interior-tab">
+                                {% set options = runSnippet('takeoptions', { complectation_id: item['complectation-id'] }) %}
+                                {% set column1 = [] %}
+                                {% set column2 = [] %}
+                                {% set index = 0 %}
+                                {% for item in options %}
+                                {% for key, value in item %}
+                                {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
+                                {% if index % 2 == 0 %}
+                                {% set column1 = column1|merge([{ 'key': key, 'value': value }]) %}
+                                {% else %}
+                                {% set column2 = column2|merge([{ 'key': key, 'value': value }]) %}
+                                {% endif %}
+                                {% set index = index + 1 %}
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table>
+                                            <tbody>
+                                                {% for item in column1 %}
+                                                <tr>
+                                                    <td>{{ item['key'] }}</td>
+                                                    {% if item['value'] == 1 %}
+                                                    <td>Есть</td>
+                                                    {% elseif item['value'] > 1 %}
+                                                    <td>{{ item['value'] }} руб.</td>
+                                                    {% else %}
+                                                    <td>{{ item['value'] }}</td>
+                                                    {% endif %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table>
+                                            <tbody>
+                                                {% for item in column2 %}
+                                                <tr>
+                                                    <td>{{ item['key'] }}</td>
+                                                    {% if item['value'] == 1 %}
+                                                    <td>Есть</td>
+                                                    {% elseif item['value'] > 1 %}
+                                                    <td>{{ item['value'] }} руб.</td>
+                                                    {% else %}
+                                                    <td>{{ item['value'] }}</td>
+                                                    {% endif %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            	</div>
+				
+			</div>
+		{% endif %}
+        {% endfor %}
+			</div>
+		</div>
+	</div>
+
+<div class="index-catalog-block mb-5">
+		<div class="container">
+			<h2 class="h2 mb-4">Рекомендуемые модели</h2>
+			<div class="list">
+				{{DLCatalog|raw}}
+				<div class="bottom-link text-center pt-5">	
+			</div>
+		</div>
+		<div class="bottom-link text-center pt-5">
+			<a href="#" class="d-block">Показать все модели <i class="fa fa-angle-down"></i></a>
+		</div>
+		</div>
+	</div>
+    
+
+{% include "/partials/services.twig" %}
+
+<div class="actions-block pb-5">
+	<div class="container">
+	    <h2 class="h2 mb-4">Акции</h2>
+		{% include "/partials/actions.twig" %}
+	</div>
+</div>
+
+{% endblock %}

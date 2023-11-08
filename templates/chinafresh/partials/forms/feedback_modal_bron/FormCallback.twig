@@ -1,0 +1,47 @@
+{# <script src="https://unpkg.com/imask"></script>
+<script type="text/javascript">
+var phoneMask = IMask(
+  document.getElementById('formPhone'), {
+    mask: '+{7}(000)000-00-00'
+  });
+</script> #}
+<div class="modal fade" id="bron" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Забронируйте автомобиль по телефону:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <form class="form">
+                <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+                <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+                {{ data['form.messages'] | raw }}
+                <div class="form-group">
+                  <label for="mobile_tel">Ваш телефон:</label>
+                  <input type="tel" class="form-control phone-imask {{ data['mobile_tel.classname'] }} " type="tel" name="mobile_tel" id="formPhone" placeholder="+7 (___) ___-__-__" value="{{ data.mobile_tel }}">
+                </div>
+                <div class="form-group">
+                  <label for="first_name">Ваше имя</label>
+                  <input type="text" class="form-control {{ data['first_name.classname'] }}" id="formName" name="first_name" value="{{ data.first_name }}">
+                </div>
+                <div class="modal-footer">
+        <button type="submit" class="btn btn-light btn btn-primary w-100 m-3">Заказать звонок</button>
+      </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script type="text/javascript">                        $('.phone-mask, input[type="tel"], input[name="phone"]').mask('+7 (999) 999-9999');
+
+</script>

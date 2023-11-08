@@ -1,0 +1,33 @@
+{% extends 'app.twig' %}
+
+<div class="sell-page pb-4">
+		<div class="container">
+			<h1 class="h1 mb-4">Выберите вариант продажи</h1>
+			<div class="item mb-3 position-relative">
+				<div class="image">
+					<img src="img/sell1.svg">
+				</div>
+				<div class="name mb-2">
+					Оценка и выкуп
+				</div>
+				<p class="mb-4">Бесплатно оцените и выгодно продайте свой автомобиль через аукцион</p>
+				<a href="#" class="d-inline-block">Подробнее</a>
+			</div>
+			<div class="item mb-3 position-relative">
+				<div class="image">
+					<img src="img/sell2.svg">
+				</div>
+				<div class="name mb-2">
+					Обмен / Trade-in
+				</div>
+				<p class="mb-4">Обменяйте свой автомобиль на наш с максимальной выгодой</p>
+				<a href="#" class="d-inline-block">Подробнее</a>
+			</div>
+		</div>
+	</div>
+	<div class="actions-block pb-4">
+		<div class="container">
+			<h2 class="h2 mb-4">Акции</h2>
+			{% include('partials/actions.twig') %}
+		</div>
+	</div>

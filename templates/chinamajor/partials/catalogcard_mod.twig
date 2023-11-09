@@ -77,7 +77,7 @@ tpl:'@CODE:[+tv.configuration_id+]'}) %}
     id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.configuration_id+]'} ) %}
 {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ configuration_id ~ ".jpg" %}
 
-{% set photo = runSnippet("CarPhotos", {fromJson: data['tv.car_photos'], firstPhoto: 1}) %}
+{% set photo = runSnippet("CarPhotos", {fromJson: data['tv.car_photos'], reverse: 1, firstPhoto: 1}) %}
 
 {# { data | dump } #}
 <div class="item col-12 col-sm-3 position-relative mb-3 "><a href="{{ data['url'] }}">

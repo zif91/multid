@@ -1212,6 +1212,11 @@ main {
   font-size: 16px;
   line-height: 20px;
 }
+.item-page .info .price {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 20px;
+}
 .item-page .info table tr td {
   width: 50%;
   line-height: 160.9%;
@@ -1220,7 +1225,7 @@ main {
   padding-left: 10px;
 }
 .item-page .info .data {
-  background: #F2F3F7;
+  background: #FFFFFF;
   border-radius: 8px;
 }
 .item-page .info .data .data-item div {
@@ -1236,7 +1241,7 @@ main {
   font-weight: 600;
 }
 .item-page .info .credit {
-  background: #F2F3F7;
+  background: #FFFFFF;
   border-radius: 8px;
 }
 .item-page .info .credit p {
@@ -1250,7 +1255,7 @@ main {
   line-height: 105.4%;
   padding: 9px;
   background: #D02E25;
-  border-radius: 8px;
+  border-radius: 24px;
 }
 .item-page .info .buttons button {
   color: #fff;
@@ -1269,6 +1274,13 @@ main {
 }
 .item-page .bottom-info ul li {
   font-weight: 500;
+}
+.color5{
+  background-color: #4A5475;
+  color: #fff;
+  font-size: 14px;
+  height: 40px;
+  border-radius: 8px;
 }
 .text-block h2 {
   font-weight: 700;
@@ -3069,7 +3081,7 @@ main {
     background-color: grey; /* Цвет линии */
 }
 .wrap-credit-left p.credit-left-title{
-    font-size: 16px;
+    font-size: 23px;
     font-weight: 700;
     color: black;
 }
@@ -3085,10 +3097,10 @@ main {
 .wrap-credit-left .credit-left-rate span{
     color: #fff;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 16px;
     padding: 9px;
     background: #D02E25;
-    border-radius: 8px;
+    border-radius: 24px;
     margin-top: 5px;
 }
 .wrap-credit-left .credit-left-action{

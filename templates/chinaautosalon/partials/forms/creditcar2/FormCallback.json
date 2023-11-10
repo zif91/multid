@@ -12,5 +12,4 @@
   "prepareAfterProcess": "CatchFormResult",
   "formControls": "agree",
     "prepareProcess": "saveFormData"
-
 }

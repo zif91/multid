@@ -17,13 +17,16 @@
                     <h1 class="mb-4 mt-2">
                         {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
                     </h1>
-                    <div class="top-text mb-2">
-                        Цена:
+                    <div class="top-text mb-5">
+                        Цена: <span class="price ml-2">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
                     </div>
-                    <div class="price mb-4">
+                    {# <div class="price mb-4">
                         <div> {{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</div>
-                    </div>
+                    </div> #}
 
+                    <div class="top-text mb-2">
+                        Подарок:
+                    </div>
                     <div class=" data pt-3 pb-3 pr-3 pl-3 mb-3 owl-carousel">
                         <div class="slide">
                             <div class="card d-flex align-items-center justify-content-center">
@@ -49,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="slide">
+                        {# <div class="slide">
                             <div class="card d-flex align-items-center justify-content-center">
                                 <div class="row w-100">
                                     <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
@@ -60,7 +63,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> #}
                     </div>
                     <div class="credit mb-4 p-3 flex align-items-center">
                         <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
@@ -75,17 +78,20 @@
                         <div class="col-6">
                             <button class="color1 w-100" data-fancybox="" data-src="#popup">Забронировать</button>
                         </div>
-                        <div class="col-6">
+                        {# <div class="col-6">
                             <a href="#" onclick="showCreditPopup(
                             {{ resource['id'] }},
                             '',
                             '{{(resource['car-price'] / 96) | number_format(0, ' ', ' ')}}');
                             return false;" class="car-plate__button button button_grey w-100 color2">В кредит</a>
+                        </div> #}
+                        <div class="col-6">
+                            <button class="car-plate__button button button_grey w-100 color2" data-fancybox="" data-src="#popup">В кредит</button>  
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 col-sm-11 col-9 p-0">
+            <div class="col-lg-6 col-sm-8 col-8 p-0">
                 <div class="photo">
                     <div class="slider-for">
                         {% if resource.car_photos is empty %}
@@ -98,44 +104,44 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-1 col-3 p-1 pb-5 d-flex flex-column justify-content-between"> 
-                <div class="row flex ml-2 justify-content-start">
+            <div class=" col-lg-2 col-4 col-sm-4  p-1 pb-5 d-flex flex-column justify-content-between"> 
+                <div class="row ml-2 w-auto">
                     <div class="d-flex align-items-center justify-content-center pt-1">
-                        <img src="/templates/chinaautosalon/img/flash.png" alt="" />
+                        <img src="/templates/chinaautosalon/img/flash.png" alt="" class="conf-img-top"/>
                     </div>
-                    <div class="p-0 col-lg-9 pl-1 pt-1">
+                    <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Мощность</p>
-                        <p class="text-left body-conf">{{ firstConfs['title_group'] }}</p>
+                        <p class="text-left body-conf"> л.с</p>
                     </div>
                 </div>
-                <div class="row flex ml-2 justify-content-start">
+                <div class="row ml-2 w-auto">
                     <div class="d-flex align-items-center justify-content-center pt-1">
-                        <img src="/templates/chinaautosalon/img/gas-station.png" alt="" />
+                        <img src="/templates/chinaautosalon/img/gas-station.png" alt="" class="conf-img-top" />
                     </div>
-                    <div class="p-0 col-lg-9 pl-1 pt-1">
+                    <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Расход</p>
                         <p class="text-left body-conf"></p>
                     </div>
                 </div>
-                <div class="row flex ml-2 justify-content-start">
+                <div class="row ml-2 w-auto">
                     <div class="d-flex align-items-center justify-content-center pt-1">
-                        <img src="/templates/chinaautosalon/img/engine.png" alt="" />
+                        <img src="/templates/chinaautosalon/img/engine.png" alt="" class="conf-img-top" />
                     </div>
-                    <div class="p-0 col-lg-9 pl-1 pt-1">
+                    <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Двигатель</p>
-                        <p class="text-left body-conf"></p>
+                        <p class="text-left body-conf"> л.</p>
                     </div>
                 </div>
-                <div class="row flex ml-2 justify-content-start">
+                <div class="row ml-2 w-auto">
                     <div class="d-flex align-items-center justify-content-center pt-1">
-                        <img src="/templates/chinaautosalon/img/car-shift-pattern.png" alt="" />
+                        <img src="/templates/chinaautosalon/img/car-shift-pattern.png" alt="" class="conf-img-top" />
                     </div>
-                    <div class="p-0 col-lg-9 pl-1 pt-1">
+                    <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Коробка</p>
                         <p class="text-left body-conf">{{ firstConfs2['transmission'] }}</p>
                     </div>  
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
 </div>
@@ -180,8 +186,8 @@
                                         <div class="row" style="color:#656A97; font-weight: 600;">
                                                 {{ item['title'] }}
                                         </div>
-                                        <div class="row" style="color:#000000; font-weight: 600;">
-                                            {{ item['price'] }} ₽
+                                        <div class="row" style="color:#D12D1E; font-weight: 600; font-size:20px;">
+                                            {{ item['price']|number_format(0, '.', '&nbsp;')|raw }} ₽
                                         </div>
                                         <div class="row price-old">
                                              {{ item['price_old'] }} ₽
@@ -209,8 +215,6 @@
                                             <button class="color5 w-100" data-fancybox="" data-src="#popup">В кредит</button>
                                         </div>
                                     </div>
-
-
                                     <div class="card-body">
                                         {# <table class="table table-striped">
                                             <thead>
@@ -232,8 +236,8 @@
                                         </table> #}
 
                                         {% if item['description'] is not empty %}
-                                            <div class="font-weight-bold">Описание</div>
-                                            <div>{{ item['description'] }}</div>
+                                            {# <div>{{ item['description'] }}</div> #}
+                                            <div>{{ item['description'] | raw}}</div>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -667,16 +671,47 @@ button.slick-prev.slick-arrow{
     text-decoration-line: line-through;
     color: #656A97;
 }
+.conf-img-top{
+    max-width:100%;
+}
+.card-body h4{
+    font-weight: 600;
+    font-size:16px;
+}
+.card-body ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+.card-body ul li{
+    position: relative;
+    padding-left: 20px;
+    font-size:12px;
+    padding-top:3px;
+}
+
+.card-body li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+  }
+
 
 @media only screen and (max-width: 767px) {
     .card-header {
         flex-direction: column;
         align-items: flex-start;
     }
-
     .card-header .row {
         width: 100%;
         margin-bottom: 10px; 
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .conf-img-top {
+    max-width: 80%;
     }
 }
 </style>
@@ -691,7 +726,6 @@ function changeTab(complectationId) {
         document.getElementById("interior-tabid_" + complectationId).click();
     }
 }
-
 </script>
 <script>
 function scrollToCreditForm() {
@@ -747,27 +781,26 @@ $('.slider-nav').slick({
   nextArrow: '<button type="button" class="slick-next">Next</button>'
 });
 
-$(document).ready(function () {
-    $(".owl-carousel").owlCarousel({
-        items: 2,
-        margin: 10,
-        nav: true,
-        loop: true,
-        responsive:{
-            0:{
-                items:2
-            },
-            900:{
-                items:3
-            },
-            1000:{
-                items:2
-            }
-        }
-    });
-     $(".owl-next").text('');
-});
-
-
+// $(document).ready(function () {
+//     $(".owl-carousel").owlCarousel({
+//         items: 2,
+//         margin: 10,
+//         nav: true,
+//         loop: true,
+//         responsive:{
+//             0:{
+//                 items:2
+//             },
+//             900:{
+//                 items:3
+//             },
+//             1000:{
+//                 items:2
+//             }
+//         }
+//     });
+//      $(".owl-next").text('');
+// });
 </script>
+
 {% endblock %}

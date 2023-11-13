@@ -1,6 +1,8 @@
-{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
+
+{# <form> #}
+{# {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %} #}
 <div class="form-block2 mb-5 d-flex align-items-center justify-content-center">
-    <form>
+    
         <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
         <div class="row">
             {{ data['form.messages'] | raw }}
@@ -9,7 +11,8 @@
                     <p class="credit-left-title text-center">В кредит от 
                             {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} ₽/мес</p>
                     <div class="credit-left-rate mt-2 align-items-center justify-content-center mb-3">
-                        <span>
+                        <span data-fancybox="" data-src="#popup" tupe="button">
+                        
                             Ставка {% if baseSettings.credit_rate is empty %}
                              1.6
                             {% else %}
@@ -42,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-lg-6">
+            <form class="col-xs-12 col-lg-6">
                 <div class="wrap-credit-right mt-3">
                     <p class="credit-right-title text-center">Оставьте заявку на кредит -</p>
                     <p class="credit-right-p text-center">и наши менеджеры свяжуться с вами!</p>
@@ -68,13 +71,14 @@
                             <div class="col-sm-12 col-xs-12 my-3">
                                 <div class="agree position-relative">
                                     <input type="checkbox" id="agree" class="position-absolute">
-                                    <label for="agree" class="d-block pl-4">Я даю согласие на обработку персональных данных</label>
+                                    <label for="agree" class="d-block pl-4"type="checkbox" value="1" {{ data['c.agree.1'] }} name="agree">Я даю согласие на обработку персональных данных</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+           </form>
         </div>
-    </form>
+    
 </div>
+{# </form> #}

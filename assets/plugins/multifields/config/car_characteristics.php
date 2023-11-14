@@ -44,12 +44,13 @@ return [
                 'expense' => [
                     'type' => 'text',
                     'title' => 'Расход',
-                    'class' => 'col-5 float-right'
+                    'class' => 'col-6 float-right'
                 ],
                 'engine_type' => [
-                    'type' => 'text',
-                    'title' => 'Расход',
-                    'class' => 'col-5 float-right'
+                    'type' => 'dropdown',
+                    'title' => 'Тип двигателя',
+                    'class' => 'col-6 float-right',
+                    'elements' => "Бензин||Дизель||Гибрид||Электрический"
                 ],
                 'description' => [
                     'type' => 'richtext',

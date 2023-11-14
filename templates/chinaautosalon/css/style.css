@@ -3137,15 +3137,18 @@ main {
     font-weight: 700;
     color: grey;
 }
-.card-body-conf .item-description h4{
+
+.card-body-conf .columns-2 h5,
+.card-body-conf .columns-2 h2,
+.card-body-conf .columns-2 h3,
+.card-body-conf .columns-2 h4{
   font-weight: 600;
-  font-size:16px;
-  padding: 19px 0 1px 4px;
+  font-size: 16px; 
 }
 
 .card-body-conf ul{
   list-style: none;
-  padding: 0px 10px 0px 3px;
+  padding: 3px 10px 14px 3px;
 }
 
 .card-body-conf ul li{

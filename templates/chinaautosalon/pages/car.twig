@@ -20,14 +20,10 @@
                     <div class="top-text mb-5">
                         Цена: <span class="price ml-2">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
                     </div>
-                    {# <div class="price mb-4">
-                        <div> {{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</div>
-                    </div> #}
-
                     <div class="top-text mb-2">
                         Подарок:
                     </div>
-                    <div class=" data pt-3 pb-3 pr-3 pl-3 mb-3 owl-carousel">
+                    <div class="data pt-3 pb-3 pr-3 pl-3 mb-3 owl-carousel d-flex align-items-center justify-content-around col-lg-12 col-md-6">
                         <div class="slide">
                             <div class="card d-flex align-items-center justify-content-center">
                                 <div class="row w-100">
@@ -40,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="slide">
+                        <div class="slide ml-1">
                             <div class="card d-flex align-items-center justify-content-center">
                                 <div class="row w-100">
                                     <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
@@ -67,7 +63,7 @@
                     </div>
                     <div class="credit mb-4 p-3 flex align-items-center">
                         <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
-                        <span>Ставка от {% if baseSettings.credit_rate is empty %}
+                        <span data-fancybox="" data-src="#popup" tupe="button">Ставка от {% if baseSettings.credit_rate is empty %}
                             1.6
                             {% else %}
                                 {{ baseSettings.credit_rate }}
@@ -78,13 +74,6 @@
                         <div class="col-6">
                             <button class="color1 w-100" data-fancybox="" data-src="#popup">Забронировать</button>
                         </div>
-                        {# <div class="col-6">
-                            <a href="#" onclick="showCreditPopup(
-                            {{ resource['id'] }},
-                            '',
-                            '{{(resource['car-price'] / 96) | number_format(0, ' ', ' ')}}');
-                            return false;" class="car-plate__button button button_grey w-100 color2">В кредит</a>
-                        </div> #}
                         <div class="col-6">
                             <button class="car-plate__button button button_grey w-100 color2" data-fancybox="" data-src="#popup">В кредит</button>  
                         </div>
@@ -111,7 +100,7 @@
                     </div>
                     <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Мощность</p>
-                        <p class="text-left body-conf"> л.с</p>
+                        <p class="text-left body-conf"> </p>
                     </div>
                 </div>
                 <div class="row ml-2 w-auto">
@@ -129,7 +118,7 @@
                     </div>
                     <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Двигатель</p>
-                        <p class="text-left body-conf"> л.</p>
+                        <p class="text-left body-conf"> </p>
                     </div>
                 </div>
                 <div class="row ml-2 w-auto">
@@ -180,17 +169,15 @@
                             <h5 class="font-weight-bold mb-2" style="color:#4A5475">{{ complectation['title_group'] }}</h5>
                             {% for item in complectation['items'] %}
                                 <div class="card mb-2">
-                                    {# <div class="card-header">{{ item['title'] }}
-                                    </div> #}
                                     <div class="card-header d-flex align-items-center justify-content-between mob-wrap">
                                         <div class="row" style="color:#656A97; font-weight: 600;">
                                                 {{ item['title'] }}
                                         </div>
                                         <div class="row" style="color:#D12D1E; font-weight: 600; font-size:20px;">
-                                            {{ item['price']|number_format(0, '.', '&nbsp;')|raw }} ₽
+                                            {{ item['price']|number_format(0, '.', '&nbsp;')|raw }}₽
                                         </div>
                                         <div class="row price-old">
-                                             {{ item['price_old'] }} ₽
+                                             {{ item['price_old']|number_format(0, '.', '&nbsp;')|raw }}₽
                                         </div>
                                         <div class="row">
                                             <div class="d-flex align-items-center justify-content-center pt-1">
@@ -215,30 +202,31 @@
                                             <button class="color5 w-100" data-fancybox="" data-src="#popup">В кредит</button>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        {# <table class="table table-striped">
-                                            <thead>
-                                            <th>Наименование</th>
-                                            <th>Цена</th>
-                                            <th>Старая цена</th>
-                                            <th>Привод</th>
-                                            <th>Коробка передач</th>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>{{ item['title'] }}</td>
-                                                <td>{{ item['price'] }}</td>
-                                                <td>{{ item['price_old'] }}</td>
-                                                <td>{{ item['drive'] }}</td>
-                                                <td>{{ item['transmission'] }}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table> #}
+                                    <div class="card-body-conf">
+                                        <article class="columns-2 p-2">
+                                            {# <table class="table table-striped">
+                                                <thead>
+                                                <th>Наименование</th>
+                                                <th>Цена</th>
+                                                <th>Старая цена</th>
+                                                <th>Привод</th>
+                                                <th>Коробка передач</th>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>{{ item['title'] }}</td>
+                                                    <td>{{ item['price'] }}</td>
+                                                    <td>{{ item['price_old'] }}</td>
+                                                    <td>{{ item['drive'] }}</td>
+                                                    <td>{{ item['transmission'] }}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table> #}
 
-                                        {% if item['description'] is not empty %}
-                                            {# <div>{{ item['description'] }}</div> #}
-                                            <div>{{ item['description'] | raw}}</div>
-                                        {% endif %}
+                                            {% if item['description'] is not empty %}
+                                                {{ item['description'] | raw}}
+                                            {% endif %}
+                                        </article>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -670,32 +658,15 @@ button.slick-prev.slick-arrow{
     font-weight: 500;
     text-decoration-line: line-through;
     color: #656A97;
+    padding-left: 15px;
 }
 .conf-img-top{
     max-width:100%;
 }
-.card-body h4{
-    font-weight: 600;
-    font-size:16px;
-}
-.card-body ul{
-    list-style: none;
-    padding-left: 0;
-}
 
-.card-body ul li{
-    position: relative;
-    padding-left: 20px;
-    font-size:12px;
-    padding-top:3px;
+.columns-2 {
+  column-count: 2;
 }
-
-.card-body li::before {
-    content: '\2022';
-    position: absolute;
-    left: 0;
-  }
-
 
 @media only screen and (max-width: 767px) {
     .card-header {
@@ -706,12 +677,20 @@ button.slick-prev.slick-arrow{
         width: 100%;
         margin-bottom: 10px; 
     }
-
+    .price-old{
+        padding-left: 0;
+    }
 }
 
 @media only screen and (max-width: 500px) {
     .conf-img-top {
     max-width: 80%;
+    }
+}
+
+@media (max-width: 767px) {
+        .columns-2 {
+        column-count: 1;
     }
 }
 </style>

@@ -1,7 +1,10 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
 {# {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%} #}
-{% set complectations = runSnippet('Complectations') %}
+{% set ComplectationsController = runSnippet('Complectations', {toObject: 1}) %}
+{% set complectations = ComplectationsController.toArray() %}
+{% set engine = ComplectationsController.engine() %}
+{% set expense = ComplectationsController.expense() %}
 {% set firstConfs = complectations|first %}
 {% set firstConfs2 = firstConfs['items']|first %}
 {% set car_photos = resource.car_photos | json %}
@@ -75,7 +78,7 @@
                             <button class="color1 w-100" data-fancybox="" data-src="#popup">Забронировать</button>
                         </div>
                         <div class="col-6">
-                            <button class="car-plate__button button button_grey w-100 color2" data-fancybox="" data-src="#popup">В кредит</button>  
+                            <button class="car-plate__button button button_grey w-100 color2" data-fancybox="" data-src="#popup">В кредит</button>
                         </div>
                     </div>
                 </div>
@@ -93,7 +96,7 @@
                     </div>
                 </div>
             </div>
-            <div class=" col-lg-2 col-4 col-sm-4  p-1 pb-5 d-flex flex-column justify-content-between"> 
+            <div class=" col-lg-2 col-4 col-sm-4  p-1 pb-5 d-flex flex-column justify-content-between">
                 <div class="row ml-2 w-auto">
                     <div class="d-flex align-items-center justify-content-center pt-1">
                         <img src="/templates/chinaautosalon/img/flash.png" alt="" class="conf-img-top"/>
@@ -103,24 +106,28 @@
                         <p class="text-left body-conf"> </p>
                     </div>
                 </div>
-                <div class="row ml-2 w-auto">
-                    <div class="d-flex align-items-center justify-content-center pt-1">
-                        <img src="/templates/chinaautosalon/img/gas-station.png" alt="" class="conf-img-top" />
+                {% if expense is not empty %}
+                    <div class="row ml-2 w-auto">
+                        <div class="d-flex align-items-center justify-content-center pt-1">
+                            <img src="/templates/chinaautosalon/img/gas-station.png" alt="" class="conf-img-top" />
+                        </div>
+                        <div class="p-0 pl-1 pt-1">
+                            <p class="text-left title-conf">Расход</p>
+                            <p class="text-left body-conf">{{ expense }}</p>
+                        </div>
                     </div>
-                    <div class="p-0 pl-1 pt-1">
-                        <p class="text-left title-conf">Расход</p>
-                        <p class="text-left body-conf"></p>
+                {% endif %}
+                {% if engine is not empty %}
+                    <div class="row ml-2 w-auto">
+                        <div class="d-flex align-items-center justify-content-center pt-1">
+                            <img src="/templates/chinaautosalon/img/engine.png" alt="" class="conf-img-top" />
+                        </div>
+                        <div class="p-0 pl-1 pt-1">
+                            <p class="text-left title-conf">Двигатель</p>
+                            <p class="text-left body-conf">{{ engine }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="row ml-2 w-auto">
-                    <div class="d-flex align-items-center justify-content-center pt-1">
-                        <img src="/templates/chinaautosalon/img/engine.png" alt="" class="conf-img-top" />
-                    </div>
-                    <div class="p-0 pl-1 pt-1">
-                        <p class="text-left title-conf">Двигатель</p>
-                        <p class="text-left body-conf"> </p>
-                    </div>
-                </div>
+                {% endif %}
                 <div class="row ml-2 w-auto">
                     <div class="d-flex align-items-center justify-content-center pt-1">
                         <img src="/templates/chinaautosalon/img/car-shift-pattern.png" alt="" class="conf-img-top" />
@@ -128,7 +135,7 @@
                     <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Коробка</p>
                         <p class="text-left body-conf">{{ firstConfs2['transmission'] }}</p>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -156,11 +163,11 @@
                             formid: 'FormCallback',
                             path: '/templates/chinaautosalon/partials/forms/creditcar2/',
                             extension: 'twig'
-                            }) | raw }} 
+                            }) | raw }}
                         </div>
                     </div>
                 </div>
-        
+
             {% if complectations is not empty %}
                 <div class="configurations mb-5">
                     <h2 class="mb-4">Доступные комплектации</h2>
@@ -186,7 +193,7 @@
                                             <div class="p-0  pl-1 pt-1">
                                                 <p class="text-left title-conf">Привод</p>
                                                 <p class="text-left body-conf">{{ item['drive'] }}</p>
-                                            </div>  
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="d-flex align-items-center justify-content-center pt-1">
@@ -195,9 +202,9 @@
                                             <div class="p-0 pl-1 pt-1">
                                                 <p class="text-left title-conf">Коробка</p>
                                                 <p class="text-left body-conf">{{ item['transmission'] }}</p>
-                                            </div>  
+                                            </div>
                                         </div>
-                                        
+
                                         <div class="buttons col-md-2 col-6">
                                             <button class="color5 w-100" data-fancybox="" data-src="#popup">В кредит</button>
                                         </div>
@@ -652,7 +659,7 @@ button.slick-prev.slick-arrow{
 }
 .card-header .row {
     width: 100%;
-    font-size:16px;   
+    font-size:16px;
 }
 .price-old{
     font-weight: 500;
@@ -675,7 +682,7 @@ button.slick-prev.slick-arrow{
     }
     .card-header .row {
         width: 100%;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
     .price-old{
         padding-left: 0;

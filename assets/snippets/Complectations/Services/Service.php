@@ -20,6 +20,16 @@ class Service
     private float $price_old_min = 0;
 
     /**
+     * @var string
+     */
+    private string $engine = "";
+
+    /**
+     * @var string
+     */
+    private string $expense = "";
+
+    /**
      * @param  \DocumentParser  $modx
      */
     public function __construct(\DocumentParser $modx)
@@ -77,6 +87,22 @@ class Service
     }
 
     /**
+     * @return string
+     */
+    public function getFirstEngine(): string
+    {
+        return $this->engine;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstExpense(): string
+    {
+        return $this->expense;
+    }
+
+    /**
      * @param  array  $configuration
      * @return array
      */
@@ -87,6 +113,14 @@ class Service
             foreach ($configuration['items'] as $item_key => $item) {
                 if (!empty($item['items'])) {
                     foreach ($item['items'] as $item_item_key => $item_item) {
+                        if ($item_item_key === "engine_type" && !empty($item_item['value']) && empty($this->engine)) {
+                            $this->engine = $item_item['value'];
+                        }
+
+                        if ($item_item_key === "expense" && !empty($item_item['value']) && empty($this->engine)) {
+                            $this->engine = $item_item['value'];
+                        }
+
                         if ($item_item_key === "price" && (empty($this->price_min) || (!empty($item_item['value']) && $this->formatPrice($item_item['value']) < $this->price_min))) {
                             $this->price_min = $this->formatPrice($item_item['value']);
                             if (!empty($item['items']['price_old']['value'])) {

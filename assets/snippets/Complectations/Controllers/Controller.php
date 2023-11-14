@@ -68,6 +68,22 @@ class Controller
         return $this->service->getMinimalOldPrice();
     }
 
+    /**
+     * @return string
+     */
+    public function engine(): string
+    {
+        return $this->service->getFirstEngine();
+    }
+
+    /**
+     * @return string
+     */
+    public function expense(): string
+    {
+        return $this->service->getFirstExpense();
+    }
+
     public function all()
     {
         if (!empty($this->config['toObject']) && (int) $this->config['toObject'] === 1) {

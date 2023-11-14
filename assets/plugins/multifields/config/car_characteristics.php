@@ -41,6 +41,16 @@ return [
                     'title' => 'Привод',
                     'class' => 'col-5 float-right'
                 ],
+                'expense' => [
+                    'type' => 'text',
+                    'title' => 'Расход',
+                    'class' => 'col-5 float-right'
+                ],
+                'engine_type' => [
+                    'type' => 'text',
+                    'title' => 'Расход',
+                    'class' => 'col-5 float-right'
+                ],
                 'description' => [
                     'type' => 'richtext',
                     'title' => 'Описание',

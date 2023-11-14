@@ -117,8 +117,8 @@ class Service
                             $this->engine = $item_item['value'];
                         }
 
-                        if ($item_item_key === "expense" && !empty($item_item['value']) && empty($this->engine)) {
-                            $this->engine = $item_item['value'];
+                        if ($item_item_key === "expense" && !empty($item_item['value']) && empty($this->expense)) {
+                            $this->expense = $item_item['value'];
                         }
 
                         if ($item_item_key === "price" && (empty($this->price_min) || (!empty($item_item['value']) && $this->formatPrice($item_item['value']) < $this->price_min))) {

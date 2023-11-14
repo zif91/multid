@@ -50,7 +50,7 @@ return [
                     'type' => 'dropdown',
                     'title' => 'Тип двигателя',
                     'class' => 'col-6 float-right',
-                    'elements' => "Бензин||Дизель||Гибрид||Электрический"
+                    'elements' => "||Бензин||Дизель||Гибрид||Электрический"
                 ],
                 'description' => [
                     'type' => 'richtext',

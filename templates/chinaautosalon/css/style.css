@@ -1328,18 +1328,22 @@ main {
 .actions-top-block {
   padding: 180px 0 240px;
   color: #fff;
+  max-height: 600px;
 }
 .actions-top-block .text {
   max-width: 440px;
 }
 .actions-top-block .text h1 {
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 700;
+  color: #585050;
+  margin-bottom: 40px;
 }
 .actions-top-block .text p {
-  font-size: 30px;
+  font-size: 25px;
   line-height: 140%;
   font-weight: 500;
+  color: #585050;
 }
 .action-page h2 {
   font-size: 28px;
@@ -3133,6 +3137,33 @@ main {
     font-weight: 700;
     color: grey;
 }
+
+.card-body-conf .columns-2 h5,
+.card-body-conf .columns-2 h2,
+.card-body-conf .columns-2 h3,
+.card-body-conf .columns-2 h4{
+  font-weight: 600;
+  font-size: 16px; 
+}
+
+.card-body-conf ul{
+  list-style: none;
+  padding: 3px 10px 14px 3px;
+}
+
+.card-body-conf ul li{
+  position: relative;
+  padding-left: 15px;
+  font-size: 13px;
+  padding-top:4px;
+}
+.card-body-conf li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+}
+
 .wrap-cred
 @media (max-width: 1199px) {
     .modifications-block .item .item-name {
@@ -3338,9 +3369,11 @@ main {
     }
     .actions-top-block {
     padding: 50px 0;
+    max-height: none;
   }
   .actions-top-block .text h1 {
     font-size: 30px;
+    margin-bottom: 30px;
   }
   .actions-top-block .text p {
     font-size: 20px;

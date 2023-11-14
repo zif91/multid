@@ -1,6 +1,6 @@
 
 {# <form> #}
-{# {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %} #}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 <div class="form-block2 mb-5 d-flex align-items-center justify-content-center">
     
         <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">

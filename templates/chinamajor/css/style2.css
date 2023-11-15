@@ -696,7 +696,10 @@ main {
   border: 1px solid #DCDCDC;
   border-radius: 8px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
+
 .index-catalog-block2 .list .item .hit {
   color: #fff;
   top: 10px;
@@ -709,6 +712,16 @@ main {
 }
 .index-catalog-block2 .list .item .image {
   text-align: center;
+  height: 165px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.index-catalog-block2 .list .item .card-car-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1; height: 100%;
+  align-items: stretch; 
 }
 .index-catalog-block2 .list .item .image img {
   display: inline-block;
@@ -722,7 +735,10 @@ main {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  flex-grow: 1;
+  height: 55px;
 }
+
 .index-catalog-block2 .list .item .data img {
   display: inline-block;
 }
@@ -2006,6 +2022,9 @@ main {
   }
   .credit-form form {
     padding: 20px;
+  }
+  .index-catalog-block2 .list .item .name {
+    height: auto;
   }
 }
 .tab-content {

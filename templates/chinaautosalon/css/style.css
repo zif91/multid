@@ -1215,7 +1215,7 @@ main {
 .item-page .info .price {
   font-weight: 700;
   font-size: 28px;
-  line-height: 20px;
+  line-height: 36px;
 }
 .item-page .info table tr td {
   width: 50%;
@@ -3387,6 +3387,12 @@ main {
   .header .contacts{
     margin-bottom: 10px;
   }
+
+  .wrap-credit-left p.credit-left-title{
+    font-size: 20px;
+    line-height: 115%;
+    padding: 0;
+  }
 }
 .modifications-block .item .item-name .credit span.new-price{
     display: none;
@@ -3415,6 +3421,16 @@ main {
   .cred_newform {
     max-width: 300px;
     height: 671px;
+  }
+}
+@media(max-width: 420px){
+  .wrap-credit-left p.credit-left-title{
+    font-size: 17px;
+  }
+}
+@media(max-width: 379px){
+  .wrap-credit-left p.credit-left-title{
+    font-size: 16px;
   }
 }
 

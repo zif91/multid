@@ -10,14 +10,14 @@
                     <p class="credit-left-title text-center">В кредит от 
                             {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} ₽/мес</p>
                     <div class="credit-left-rate mt-2 align-items-center justify-content-center mb-3">
-                        {# <span data-fancybox="" data-src="#popup" tupe="button">
+                        <span data-fancybox="" data-src="#popup" tupe="button">
                         
                             Ставка {% if baseSettings.credit_rate is empty %}
                              1.6
                             {% else %}
                                 {{ baseSettings.credit_rate }}
                             {% endif %}% 
-                        </span> #}
+                        </span>
                     </div>
                     <div class="credit-left-action mt-5 text-center mb-3"><span>До окончания акции осталось</span>
                         <span id="dateend"></span>

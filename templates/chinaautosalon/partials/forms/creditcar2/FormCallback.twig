@@ -1,5 +1,5 @@
-
-{# {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %} #}
+{% if resource['car-price'] %}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 
 <div class="form-block2 mb-5 d-flex align-items-center justify-content-center">
     {# <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}"> #}
@@ -81,4 +81,5 @@
            </form>
         </div> 
 </div>
+{% endif %}
 

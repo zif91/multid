@@ -20,8 +20,12 @@
                     <h1 class="mb-4 mt-2">
                         {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
                     </h1>
-                    <div class="top-text mb-5">
-                        Цена: <span class="price">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
+                    <div class="top-text mb-4">
+                        Цена:
+                        {% if resource['old-car-price'] !="" %}
+                         <span class="price-old">{{resource['old-car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
+                        {% endif %}
+                        <span class="price">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
                     </div>
                     <div class="top-text mb-2">
                         Подарок:
@@ -90,28 +94,24 @@
                         <p class="text-left body-conf"> </p>
                     </div>
                 </div>
-                {% if expense is not empty %}
-                    <div class="row ml-2 w-auto">
-                        <div class="d-flex align-items-center justify-content-center pt-1">
-                            <img src="/templates/chinaautosalon/img/gas-station.png" alt="" class="conf-img-top" />
-                        </div>
-                        <div class="p-0 pl-1 pt-1">
-                            <p class="text-left title-conf">Расход</p>
-                            <p class="text-left body-conf">{{ expense }}</p>
-                        </div>
+                <div class="row ml-2 w-auto">
+                    <div class="d-flex align-items-center justify-content-center pt-1">
+                        <img src="/templates/chinaautosalon/img/gas-station.png" alt="" class="conf-img-top" />
                     </div>
-                {% endif %}
-                {% if engine is not empty %}
-                    <div class="row ml-2 w-auto">
-                        <div class="d-flex align-items-center justify-content-center pt-1">
-                            <img src="/templates/chinaautosalon/img/engine.png" alt="" class="conf-img-top" />
-                        </div>
-                        <div class="p-0 pl-1 pt-1">
-                            <p class="text-left title-conf">Двигатель</p>
-                            <p class="text-left body-conf">{{ engine }}</p>
-                        </div>
+                    <div class="p-0 pl-1 pt-1">
+                        <p class="text-left title-conf">Расход</p>
+                        <p class="text-left body-conf"> </p>
                     </div>
-                {% endif %}
+                </div>
+                <div class="row ml-2 w-auto">
+                    <div class="d-flex align-items-center justify-content-center pt-1">
+                        <img src="/templates/chinaautosalon/img/engine.png" alt="" class="conf-img-top" />
+                    </div>
+                    <div class="p-0 pl-1 pt-1">
+                        <p class="text-left title-conf">Двигатель</p>
+                        <p class="text-left body-conf"> </p>
+                    </div>
+                </div>
                 <div class="row ml-2 w-auto">
                     <div class="d-flex align-items-center justify-content-center pt-1">
                         <img src="/templates/chinaautosalon/img/car-shift-pattern.png" alt="" class="conf-img-top" />
@@ -599,7 +599,8 @@ button.slick-prev.slick-arrow{
   column-count: 2;
 }
 .price{
-     padding-left: 36px;
+     
+     line-height: 34px;
 }
 
 .arrow {
@@ -620,6 +621,7 @@ button.slick-prev.slick-arrow{
     }
     .price-old{
         padding-left: 0;
+        
     }
     .columns-2 {
         column-count: 1;

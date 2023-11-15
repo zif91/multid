@@ -18,48 +18,32 @@
                         {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
                     </h1>
                     <div class="top-text mb-5">
-                        Цена: <span class="price ml-2">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
+                        Цена: <span class="price">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
                     </div>
                     <div class="top-text mb-2">
                         Подарок:
                     </div>
-                    <div class="data pt-3 pb-3 pr-3 pl-3 mb-3 owl-carousel d-flex align-items-center justify-content-around col-lg-12 col-md-6">
-                        <div class="slide">
-                            <div class="card d-flex align-items-center justify-content-center">
-                                <div class="row w-100">
-                                    <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
-                                        <img src="/templates/chinaautosalon/img/GiftIcon.png" alt="" class="card-img-top" />
-                                    </div>
-                                    <div class="card-body col-10">
-                                        <p>Зимняя резина</p>
-                                    </div>
+                    <div class="data pt-2 pb-2 pr-3 pl-3 mb-3 owl-carousel d-flex align-items-center justify-content-around col-lg-12 col-md-6">
+                        <div class="card-gift d-flex align-items-center justify-content-center">
+                            <div class="row w-100">
+                                <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
+                                    <img src="/templates/chinaautosalon/img/GiftIcon.png" alt="" class="card-img-top-gift" />
+                                </div>
+                                <div class="card-body-gift col-10">
+                                    <p>Зимняя резина</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="slide ml-1">
-                            <div class="card d-flex align-items-center justify-content-center">
-                                <div class="row w-100">
-                                    <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
-                                        <img src="/templates/chinaautosalon/img/GiftIcon.png" alt="" class="card-img-top" />
-                                    </div>
-                                    <div class="card-body col-10">
-                                        <p>Полис КАСКО</p>
-                                    </div>
+                        <div class="card-gift d-flex align-items-center justify-content-center ml-2">
+                            <div class="row w-100 p-1">
+                                <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
+                                    <img src="/templates/chinaautosalon/img/GiftIcon.png" alt="" class="card-img-top--gift" />
+                                </div>
+                                <div class="card-body-gift col-10">
+                                    <p>Полис КАСКО</p>
                                 </div>
                             </div>
                         </div>
-                        {# <div class="slide">
-                            <div class="card d-flex align-items-center justify-content-center">
-                                <div class="row w-100">
-                                    <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
-                                        <img src="/templates/chinaautosalon/img/GiftIcon.png" alt="" class="card-img-top" />
-                                    </div>
-                                    <div class="card-body col-10">
-                                        <p>Регистрация</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> #}
                     </div>
                     <div class="credit mb-4 p-3 flex align-items-center">
                         <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
@@ -162,7 +146,7 @@
                 </div>
         
             {% if complectations is not empty %}
-                <div class="configurations mb-5">
+                <div class="configurations mb-5 col-12">
                     <h2 class="mb-4">Доступные комплектации</h2>
                     {% for complectation in complectations %}
                         <div class="mb-3">
@@ -199,30 +183,12 @@
                                         </div>
                                         
                                         <div class="buttons col-md-2 col-6">
-                                            <button class="color5 w-100" data-fancybox="" data-src="#popup">В кредит</button>
+                                            <button class="color5 w-100" id="creditButton" data-fancybox="" data-src="#popup">В кредит</button>
                                         </div>
+                                        <span class="arrow">&#9660;</span> 
                                     </div>
                                     <div class="card-body-conf">
                                         <article class="columns-2 p-2">
-                                            {# <table class="table table-striped">
-                                                <thead>
-                                                <th>Наименование</th>
-                                                <th>Цена</th>
-                                                <th>Старая цена</th>
-                                                <th>Привод</th>
-                                                <th>Коробка передач</th>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>{{ item['title'] }}</td>
-                                                    <td>{{ item['price'] }}</td>
-                                                    <td>{{ item['price_old'] }}</td>
-                                                    <td>{{ item['drive'] }}</td>
-                                                    <td>{{ item['transmission'] }}</td>
-                                                </tr>
-                                                </tbody>
-                                            </table> #}
-
                                             {% if item['description'] is not empty %}
                                                 {{ item['description'] | raw}}
                                             {% endif %}
@@ -342,7 +308,7 @@
             </div> #}
         </div>
     </div>
-    {#<div class="modifications-block pb-5">
+    {# <div class="modifications-block pb-5">
         <h2 class="mb-4">Доступные модификации</h2>
         {% for item in modification %}
         {% if item["group-name"] is not empty %}
@@ -491,7 +457,7 @@
         </div>
         {% endif %}
         {% endfor %}
-    </div>#}
+    </div> #}
     {% include('partials/banks.twig') %}
     <div class="container">{% include "/partials/advantages.twig" %}</div>
     <div class="container">{% include "/partials/actions2.twig" %}</div>
@@ -580,60 +546,18 @@ button.slick-prev.slick-arrow{
   left: 76px;
   background: url('templates/chinaautosalon/img/prev.svg');
 }
-.slide{
+.card-gift {
     width: 171px;
     border-radius: 8px;
     border: 1px solid #485478;
-    height: 32px;
+    height: 37px;
 }
-.owl-carousel {
-    display: flex;
-    align-items: stretch;
-}
-.owl-item {
-    display: flex;
-    align-items: stretch;
-}
-.owl-carousel .owl-stage {
-    display: flex;
-    flex: 1;
-    align-items: stretch;
-}
-.owl-carousel .owl-stage-outer {
-    overflow: hidden;
-}
-.owl-next {
-    background: url('/templates/chinaautosalon/img/next2.png') no-repeat center center;
-    background-size: contain;
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-.owl-prev{
-    display:none;
-}
-.owl-prev {
-    left: 0;
-}
-.owl-next {
-    right: 0;
-}
-.card {
-    width: 100%;
-    height: 100%;
-    border: 1px solid #ddd;
-}
-.card-img-top {
+
+.card-img-top-gift {
     width: 100%;
     height: auto;
 }
-.card-body {
+.card-body-gift {
     padding: 0.5rem;
     font-size: 13px;
     font-weight: 500;
@@ -667,6 +591,16 @@ button.slick-prev.slick-arrow{
 .columns-2 {
   column-count: 2;
 }
+.price{
+     padding-left: 36px;
+}
+
+.arrow {
+  float: right;
+}
+.card-body-conf{
+    display: none;
+}
 
 @media only screen and (max-width: 767px) {
     .card-header {
@@ -680,17 +614,30 @@ button.slick-prev.slick-arrow{
     .price-old{
         padding-left: 0;
     }
-}
-
-@media only screen and (max-width: 500px) {
-    .conf-img-top {
-    max-width: 80%;
+    .columns-2 {
+        column-count: 1;
+    }
+    .arrow {
+        position: relative;
+        bottom: 211px;
+        left: 42%;
+        font-size: 20px;
     }
 }
 
-@media (max-width: 767px) {
-        .columns-2 {
-        column-count: 1;
+@media only screen and (max-width: 575px) {
+    .conf-img-top {
+    max-width: 80%;
+    }
+    .price{
+     padding-left: 0px;
+     padding-top: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .card-body-gift {
+        font-size: 12px; 
     }
 }
 </style>
@@ -760,26 +707,21 @@ $('.slider-nav').slick({
   nextArrow: '<button type="button" class="slick-next">Next</button>'
 });
 
-// $(document).ready(function () {
-//     $(".owl-carousel").owlCarousel({
-//         items: 2,
-//         margin: 10,
-//         nav: true,
-//         loop: true,
-//         responsive:{
-//             0:{
-//                 items:2
-//             },
-//             900:{
-//                 items:3
-//             },
-//             1000:{
-//                 items:2
-//             }
-//         }
-//     });
-//      $(".owl-next").text('');
-// });
+$(document).ready(function() {
+  $('.card-header').click(function() {
+    $(this).next('.card-body-conf').slideToggle();
+    $(this).find('.arrow').text(function(_, oldText) {
+      return oldText === '▼' ? '▲' : '▼'; 
+    });
+  });
+  $('#creditButton').click(function(event) {
+        event.stopPropagation();
+        $.fancybox.open({
+            src: '#popup',
+            type: 'inline'
+        });
+    });
+});
 </script>
 
 {% endblock %}

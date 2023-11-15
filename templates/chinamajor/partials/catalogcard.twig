@@ -81,13 +81,14 @@ tpl:'@CODE:[+tv.configuration_id+]'}) %}
 {% set photo = runSnippet("CarPhotos", {fromJson: data['tv.car_photos'], reverse: 1, firstPhoto: 1}) %}
 
 {# { data | dump } #}
-<div class="item position-relative"><a href="{{ data['url'] }}">
+<div class="item position-relative">
+<a href="{{ data['url'] }}">
         <span class="hit position-absolute py-1 px-3">HIT</span>
         <div class="image">
             <img src="{{ photo }}">
         </div>
-        <div class="p-3">
-            <a href="{{ data.url }}"
+        <div class="card-car-body p-3">
+            <a href="{{ data.url }}" 
                class="name d-block mb-2">{{ runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title'] }} </a>
             <div class="row data text-center">
 

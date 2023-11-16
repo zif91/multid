@@ -100,7 +100,7 @@
                     </div>
                     <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Расход</p>
-                        <p class="text-left body-conf"> </p>
+                        <p class="text-left body-conf">{{ expense }}</p>
                     </div>
                 </div>
                 <div class="row ml-2 w-auto">
@@ -109,7 +109,7 @@
                     </div>
                     <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Двигатель</p>
-                        <p class="text-left body-conf"> </p>
+                        <p class="text-left body-conf">{{ engine }}</p>
                     </div>
                 </div>
                 <div class="row ml-2 w-auto">
@@ -181,6 +181,24 @@
                                         </div>
                                         <div class="row">
                                             <div class="d-flex align-items-center justify-content-center pt-1">
+                                                <img src="/templates/chinaautosalon/img/gas-station.png" alt="" />
+                                            </div>
+                                            <div class="p-0 pl-1 pt-1">
+                                                <p class="text-left title-conf">Расход</p>
+                                                <p class="text-left body-conf">{{ expense }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="d-flex align-items-center justify-content-center pt-1">
+                                                <img src="/templates/chinaautosalon/img/engine.png" alt="" />
+                                            </div>
+                                            <div class="p-0 pl-1 pt-1">
+                                                <p class="text-left title-conf">Двигатель</p>
+                                                <p class="text-left body-conf">{{ engine }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="d-flex align-items-center justify-content-center pt-1">
                                                 <img src="/templates/chinaautosalon/img/car-shift-pattern.png" alt="" />
                                             </div>
                                             <div class="p-0 pl-1 pt-1">
@@ -192,7 +210,7 @@
                                         <div class="buttons col-md-2 col-6">
                                             <button class="color5 w-100" id="creditButton" data-fancybox="" data-src="#popup">В кредит</button>
                                         </div>
-                                        <span class="arrow">&#9660;</span> 
+                                        <span class="arrow">&#9660;</span>
                                     </div>
                                     <div class="card-body-conf">
                                         <article class="columns-2 p-2">
@@ -599,7 +617,7 @@ button.slick-prev.slick-arrow{
   column-count: 2;
 }
 .price{
-     
+
      line-height: 34px;
 }
 
@@ -621,7 +639,7 @@ button.slick-prev.slick-arrow{
     }
     .price-old{
         padding-left: 0;
-        
+
     }
     .columns-2 {
         column-count: 1;
@@ -646,7 +664,7 @@ button.slick-prev.slick-arrow{
 
 @media (max-width: 400px) {
     .card-body-gift {
-        font-size: 12px; 
+        font-size: 12px;
     }
 }
 </style>
@@ -720,7 +738,7 @@ $(document).ready(function() {
   $('.card-header').click(function() {
     $(this).next('.card-body-conf').slideToggle();
     $(this).find('.arrow').text(function(_, oldText) {
-      return oldText === '▼' ? '▲' : '▼'; 
+      return oldText === '▼' ? '▲' : '▼';
     });
   });
   $('#creditButton').click(function(event) {

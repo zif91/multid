@@ -84,6 +84,14 @@ class Controller
         return $this->service->getFirstExpense();
     }
 
+    /**
+     * @return string
+     */
+    public function power(): string
+    {
+        return $this->service->getFirstPower();
+    }
+
     public function all()
     {
         if (!empty($this->config['toObject']) && (int) $this->config['toObject'] === 1) {

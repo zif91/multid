@@ -5,6 +5,7 @@
 {% set complectations = ComplectationsController.toArray() %}
 {% set engine = ComplectationsController.engine() %}
 {% set expense = ComplectationsController.expense() %}
+{% set power = ComplectationsController.power() %}
 {% set firstConfs = complectations|first %}
 {% set firstConfs2 = firstConfs['items']|first %}
 {% set car_photos = resource.car_photos | json %}
@@ -91,7 +92,7 @@
                     </div>
                     <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Мощность</p>
-                        <p class="text-left body-conf"> </p>
+                        <p class="text-left body-conf">{{ power }}</p>
                     </div>
                 </div>
                 <div class="row ml-2 w-auto">
@@ -169,6 +170,15 @@
                                         </div>
                                         <div class="row price-old">
                                              {{ item['price_old']|number_format(0, '.', '&nbsp;')|raw }}₽
+                                        </div>
+                                        <div class="row">
+                                            <div class="d-flex align-items-center justify-content-center pt-1">
+                                                <img src="/templates/chinaautosalon/img/drive.png" alt="" />
+                                            </div>
+                                            <div class="p-0  pl-1 pt-1">
+                                                <p class="text-left title-conf">Мощность</p>
+                                                <p class="text-left body-conf">{{ power }}</p>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="d-flex align-items-center justify-content-center pt-1">

@@ -30,6 +30,11 @@ class Service
     private string $expense = "";
 
     /**
+     * @var string
+     */
+    private string $power = "";
+
+    /**
      * @param  \DocumentParser  $modx
      */
     public function __construct(\DocumentParser $modx)
@@ -103,6 +108,14 @@ class Service
     }
 
     /**
+     * @return string
+     */
+    public function getFirstPower(): string
+    {
+        return $this->power;
+    }
+
+    /**
      * @param  array  $configuration
      * @return array
      */
@@ -119,6 +132,10 @@ class Service
 
                         if ($item_item_key === "expense" && !empty($item_item['value']) && empty($this->expense)) {
                             $this->expense = $item_item['value'];
+                        }
+
+                        if ($item_item_key === "power" && !empty($item_item['value']) && empty($this->power)) {
+                            $this->power = $item_item['value'];
                         }
 
                         if ($item_item_key === "price" && (empty($this->price_min) || (!empty($item_item['value']) && $this->formatPrice($item_item['value']) < $this->price_min))) {

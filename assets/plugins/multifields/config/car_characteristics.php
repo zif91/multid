@@ -52,6 +52,11 @@ return [
                     'class' => 'col-6 float-right',
                     'elements' => "||Бензин||Дизель||Гибрид||Электрический"
                 ],
+                'power' => [
+                    'type' => 'text',
+                    'title' => 'Мощность',
+                    'class' => 'col-12 float-right'
+                ],
                 'description' => [
                     'type' => 'richtext',
                     'title' => 'Описание',

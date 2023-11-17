@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-sm-6">
                             Выгода:</br>
-                            {# <span class="price mb-2">{{(resource['old-car-price'] - resource['car-price'])|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span> #}
+                            {# <span class="price mb-2">{{(resource['old-car-price']|number_format) - (resource['car-price'])|number_format| }}&nbsp;₽</span> #}
                         </div>
                         {% if resource['old-car-price'] !="" %}
                             <span class="price-old pl-3">{{resource['old-car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
@@ -85,7 +85,7 @@
                             <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
                         {% else %}
                         {% for image in car_photos | reverse %}
-                            <img  src="{{image.image}}">
+                            <img class="first-foto" src="{{image.image}}">
                         {% endfor %}
                         {% endif %}
                     </div>

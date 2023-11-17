@@ -15,20 +15,26 @@
 
 <div class="item-page py-4" style="background: #F2F3F7;">
     <div class="container">
-        <div class="d-flex align-items-stretch row">
+        <div class="row">
             <div class="col-lg-4 col-md-12">
-                <div class="info mb-5">
+                <div class="info pb-4">
                     <h1 class="mb-4 mt-2">
                         {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
                     </h1>
-                    <div class="top-text mb-4">
-                        Цена:
+                    <div class="row">
+                        <div class="col-sm-6 mb-2">
+                            Цена:</br>
+                            <span class="price">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
+                        </div>
+                        <div class="col-sm-6">
+                            Выгода:</br>
+                            <span class="price mb-2">{{(resource['old-car-price'] - resource['car-price'])|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
+                        </div>
                         {% if resource['old-car-price'] !="" %}
-                         <span class="price-old">{{resource['old-car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
-                        {% endif %}
-                        <span class="price">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
+                            <span class="price-old pl-3">{{resource['old-car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
+                        {% endif %}   
                     </div>
-                    <div class="top-text mb-2">
+                    <div class="top-text mb-2 mt-2">
                         Подарок:
                     </div>
                     <div class="data pt-2 pb-2 pr-3 pl-3 mb-3 owl-carousel d-flex align-items-center justify-content-around col-lg-12 col-md-6">
@@ -74,19 +80,19 @@
             </div>
             <div class="col-lg-6 col-sm-8 col-8 p-0">
                 <div class="photo">
-                    <div class="slider-for">
+                    <div class="slider-for"style="max-height: 380px;">
                         {% if resource.car_photos is empty %}
                             <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
                         {% else %}
                         {% for image in car_photos | reverse %}
-                            <img src="{{image.image}}">
+                            <img class="first-foto" src="{{image.image}}">
                         {% endfor %}
                         {% endif %}
                     </div>
                 </div>
             </div>
-            <div class=" col-lg-2 col-4 col-sm-4  p-1 pb-5 d-flex flex-column justify-content-between">
-                <div class="row ml-2 w-auto">
+            <div class=" col-lg-2 col-4 col-sm-4 p-1 pb-3 d-flex flex-column">
+                <div class="row ml-2 w-auto mb-5">
                     <div class="d-flex align-items-center justify-content-center pt-1">
                         <img src="/templates/chinaautosalon/img/flash.png" alt="" class="conf-img-top"/>
                     </div>
@@ -95,7 +101,7 @@
                         <p class="text-left body-conf">{{ power }}</p>
                     </div>
                 </div>
-                <div class="row ml-2 w-auto">
+                <div class="row ml-2 w-auto mb-5">
                     <div class="d-flex align-items-center justify-content-center pt-1">
                         <img src="/templates/chinaautosalon/img/gas-station.png" alt="" class="conf-img-top" />
                     </div>
@@ -104,7 +110,7 @@
                         <p class="text-left body-conf">{{ expense }}</p>
                     </div>
                 </div>
-                <div class="row ml-2 w-auto">
+                <div class="row ml-2 w-auto mb-5">
                     <div class="d-flex align-items-center justify-content-center pt-1">
                         <img src="/templates/chinaautosalon/img/engine.png" alt="" class="conf-img-top" />
                     </div>
@@ -113,7 +119,7 @@
                         <p class="text-left body-conf">{{ engine }}</p>
                     </div>
                 </div>
-                <div class="row ml-2 w-auto">
+                <div class="row ml-2 w-auto mb-5">
                     <div class="d-flex align-items-center justify-content-center pt-1">
                         <img src="/templates/chinaautosalon/img/car-shift-pattern.png" alt="" class="conf-img-top" />
                     </div>
@@ -125,6 +131,89 @@
             </div>
         </div>
     </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="bonus-card h-100 d-flex flex-column">
+                    <div class="bonus-card-header p-2">
+                        <h5>Cкидка по программе трейд-ин или утилизации</h5>
+                    </div>
+                    <div class="bonus-card-body pl-2 pr-2 pb-2">
+                        <p>Выгода за обмен старого Авто, в том числе как первоначальный взнос за Автокредит</p>
+                    </div>
+                    <div class="bonus-card-footer p-2 d-flex justify-content-between align-items-center mt-auto">
+                        <div>
+                            <div class="bonus-pricetitle">Скидка включена</div>
+                            <div class="bonus-price">
+                                300 000 ₽
+                                <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка" class="img-fluid ml-2" style="height: 20px;">
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="bonus-card h-100 d-flex flex-column">
+                    <div class="bonus-card-header p-2">
+                        <h5>Cкидка на авто по распродаже 2022 модельного ряда</h5>
+                    </div>
+                    <div class="bonus-card-body pl-2 pr-2 pb-2">
+                        <p>Выгода достигается при покупке Автомобиля Chery начала 2022 года выпуска</p>
+                    </div>
+                    <div class="bonus-card-footer p-2 d-flex justify-content-between align-items-center mt-auto">
+                        <div>
+                            <div class="bonus-pricetitle">Скидка включена</div>
+                            <div class="bonus-price">
+                            225 000 ₽
+                            <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка" class="img-fluid ml-2" style="height: 20px;">
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="bonus-card h-100 d-flex flex-column">
+                <div class="bonus-card-header p-2">
+                    <h5>Cкидка по программе Chery Finance</h5>
+                </div>
+                <div class="bonus-card-body pl-2 pr-2 pb-2">
+                    <p>Выгода за обмен старого Авто, в том числе как первоначальный взнос за Автокредит</p>
+                </div>
+                <div class="bonus-card-footer p-2 d-flex justify-content-between align-items-center mt-auto">
+                    <div>
+                        <div class="bonus-pricetitle">Скидка включена</div>
+                        <div class="bonus-price">
+                            450 000 ₽ 
+                            <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка" class="img-fluid ml-2" style="height: 20px;">
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="bonus-card h-100 d-flex flex-column">
+                <div class="bonus-card-header p-2">
+                    <h5>Скидка от дилерского центра Урал CHINA Моторс</h5>
+                </div>
+            <div class="bonus-card-body pl-2 pr-2 pb-2">
+                <p>Совместная акция производителя и ведущих банков.</p>
+            </div>
+            <div class="bonus-card-footer p-2 d-flex justify-content-between align-items-center mt-auto">
+                <div>
+                    <div class="bonus-pricetitle">Скидка включена</div>
+                    <div class="bonus-price">
+                    300 000 ₽ 
+                    <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка" class="img-fluid ml-2" style="height: 20px;">
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <div class="item-page py-5">
@@ -138,7 +227,7 @@
                                 <img src="{{ car_photos.fieldValue[0].image }}">
                             {% else %}
                             {% for image in car_photos | reverse %}
-                                <div class="item pl-3 pr-2"><img style="margin-right:auto; margin-left:auto; border-radius:8px;" src="{{image.image}}"></div>
+                                <div class="item pl-3 pr-2 h-100"><img class="more-foto" src="{{image.image}}"></div>
                             {% endfor %}
                             {% endif %}
                         </div>
@@ -161,17 +250,17 @@
                             <h5 class="font-weight-bold mb-2" style="color:#4A5475">{{ complectation['title_group'] }}</h5>
                             {% for item in complectation['items'] %}
                                 <div class="card mb-2">
-                                    <div class="card-header d-flex align-items-center justify-content-between mob-wrap">
+                                    <div class="card-header  pr-1 d-flex align-items-center justify-content-between mob-wrap">
                                         <div class="row" style="color:#656A97; font-weight: 600;">
                                                 {{ item['title'] }}
                                         </div>
-                                        <div class="row" style="color:#D12D1E; font-weight: 600; font-size:20px;">
+                                        <div class="row ml-1" style="color:#D12D1E; font-weight: 600; font-size:18px;">
                                             {{ item['price']|number_format(0, '.', '&nbsp;')|raw }}₽
                                         </div>
-                                        <div class="row price-old">
+                                        <div class="row price-old ml-1">
                                              {{ item['price_old']|number_format(0, '.', '&nbsp;')|raw }}₽
                                         </div>
-                                        <div class="row">
+                                        <div class="row ml-1">
                                             <div class="d-flex align-items-center justify-content-center pt-1">
                                                 <img src="/templates/chinaautosalon/img/drive.png" alt="" />
                                             </div>
@@ -180,7 +269,7 @@
                                                 <p class="text-left body-conf">{{ item['power'] }}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row ml-1">
                                             <div class="d-flex align-items-center justify-content-center pt-1">
                                                 <img src="/templates/chinaautosalon/img/drive.png" alt="" />
                                             </div>
@@ -189,7 +278,7 @@
                                                 <p class="text-left body-conf">{{ item['drive'] }}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row ml-1">
                                             <div class="d-flex align-items-center justify-content-center pt-1">
                                                 <img src="/templates/chinaautosalon/img/gas-station.png" alt="" />
                                             </div>
@@ -198,7 +287,7 @@
                                                 <p class="text-left body-conf">{{ item['expense'] }}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row ml-1">
                                             <div class="d-flex align-items-center justify-content-center pt-1">
                                                 <img src="/templates/chinaautosalon/img/engine.png" alt="" />
                                             </div>
@@ -207,7 +296,7 @@
                                                 <p class="text-left body-conf">{{ item['engine_type'] }}</p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="transmiss row">
                                             <div class="d-flex align-items-center justify-content-center pt-1">
                                                 <img src="/templates/chinaautosalon/img/car-shift-pattern.png" alt="" />
                                             </div>
@@ -340,6 +429,10 @@
                     path: '/templates/chinaautosalon/partials/forms/creditcar/',
                     extension: 'twig'
                     }) | raw }} </div>
+                    class="object-fit-contain max-height: 400px;"
+                    style="width: 100%; 
+  max-height: 400px; 
+  overflow: hidden;">
             </div> #}
         </div>
     </div>
@@ -637,8 +730,41 @@ button.slick-prev.slick-arrow{
 .card-body-conf{
     display: none;
 }
+.first-foto{
+    margin-right:auto; 
+    margin-left:auto; 
+    height: 23rem; 
+    object-fit: contain;
+}
+.slider-nav{
+    max-height: 150px;
+}
+.more-foto{
+    margin-right:auto; 
+    margin-left:auto; 
+    border-radius:8px; 
+    height: 10rem; 
+    object-fit: cover;
+}
+.transmiss{
+    margin-left:10px;
+}
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1191px){
+.card-header .row {
+    font-size:15px;
+}
+}
+
+@media only screen and (max-width: 991px){
+.more-foto{
+    margin-right:auto; 
+    margin-left:auto; 
+    border-radius:8px; 
+    height: 9rem; 
+    object-fit: cover;
+    }
+
     .card-header {
         flex-direction: column;
         align-items: flex-start;
@@ -649,17 +775,43 @@ button.slick-prev.slick-arrow{
     }
     .price-old{
         padding-left: 0;
-
     }
+    .card-header .row {
+    font-size:16px;
+    }
+    .transmiss{
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.arrow {
+     position: relative;
+    bottom: 217px;
+    left: 42%;
+     font-size: 20px;
+    }  
+}
+
+@media only screen and (max-width: 767px) {
+    
     .columns-2 {
         column-count: 1;
     }
-    .arrow {
-        position: relative;
-        bottom: 217px;
-        left: 42%;
-        font-size: 20px;
+
+    .first-foto{ 
+        height: 19rem; 
+        object-fit: fill;
     }
+    .more-foto{
+    margin-right:auto; 
+    margin-left:auto; 
+    border-radius:8px; 
+    height: 6rem; 
+    object-fit: fill;
+    }
+    .slider-nav{
+    height: 130px;
+}
 }
 
 @media only screen and (max-width: 575px) {
@@ -668,13 +820,36 @@ button.slick-prev.slick-arrow{
     }
     .price{
      padding-left: 0px;
-     padding-top: 16px;
     }
+    .first-foto{ 
+        height: 14rem; 
+        object-fit: contain;
+    }
+    .more-foto{
+    margin-right:auto; 
+    margin-left:auto; 
+    border-radius:8px; 
+    height: 4rem; 
+    object-fit: cover;
+    }
+    .slider-nav{
+    height: 90px;
+}
 }
 
 @media (max-width: 400px) {
     .card-body-gift {
         font-size: 12px;
+    }
+    button.slick-next.slick-arrow{
+    right: 31px;
+    }
+
+    button.slick-prev.slick-arrow{
+    left: 31px;
+    }
+    .first-foto{  
+        object-fit: contain;
     }
 }
 </style>

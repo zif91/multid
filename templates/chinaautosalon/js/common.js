@@ -72,7 +72,7 @@ $(function() {
     const marks = document.querySelector('#marks');
     if (marks) decoreSelect(marks);
 	*/
-});
+// });
 // Функция для обновления отображения времени// Функция для обновления отображения времени
 function updateCountdown(days, hours, minutes, seconds) {
     var ids = ['day', 'hour', 'min', 'sec'];

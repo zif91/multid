@@ -6,6 +6,8 @@
 {% set engine = ComplectationsController.engine() %}
 {% set expense = ComplectationsController.expense() %}
 {% set power = ComplectationsController.power() %}
+{% set price = ComplectationsController.price() %}
+{% set priceOld = ComplectationsController.price_old() %}
 {% set firstConfs = complectations|first %}
 {% set firstConfs2 = firstConfs['items']|first %}
 {% set car_photos = resource.car_photos | json %}
@@ -25,8 +27,8 @@
                     <div class="row">
                         <div class="col-sm-6 mb-2">
                             Цена:</br>
-                            <span class="price">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
-                            <div id="carPrice" style="display: none;">{{ resource['car-price'] }}</div>
+                            <span class="price">{{price|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
+                            <div id="carPrice" style="display: none;">{{ price }}</div>
                         </div>
                         <div class="col-sm-6">
                         <div id="resultBlock" style="display: none;">
@@ -34,10 +36,9 @@
                             <span class="price mb-2" id="price-profit">&nbsp;</span>   
                         </div>
                         </div>
-                        {% if resource['old-car-price'] !="" %}
-                            <div id="oldCarPrice"style="display: none;">{{resource['old-car-price']}}</div>
-                            <span class="price-old pl-3">{{resource['old-car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
-                        {% endif %}   
+                       
+                            <div id="oldCarPrice"style="display: none;">{{firstConfs2['price_old']}}</div>
+                            <span class="price-old pl-3">{{firstConfs2['price_old']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>   
                     </div>
                     <div class="top-text mb-2 mt-2">
                         Подарок:

@@ -53,6 +53,9 @@ foreach ($_ as $k => $v) {
             'options' => $phpthumb
         ));
     }
+    if (empty($v['image.thumb'])) {
+        $v['image.thumb'] = $v['image'];
+    }
     $out .= $modx->parseText($tpl, $v);
     if ($splitter && $splitterCount && ((($k + 1) % $splitterCount) == 0)) {
         $out .= $splitter;

@@ -10,6 +10,7 @@
 {% set firstConfs2 = firstConfs['items']|first %}
 {% set car_photos = resource.car_photos | json %}
 {% set car_photos = car_photos.fieldValue %}
+{# {% set old_car_price_number = resource['car-price']|float(0, '.', '&nbsp;') %} #}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 {#% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %#}
 
@@ -25,12 +26,16 @@
                         <div class="col-sm-6 mb-2">
                             Цена:</br>
                             <span class="price">{{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
+                            <div id="carPrice" style="display: none;">{{ resource['car-price'] }}</div>
                         </div>
                         <div class="col-sm-6">
+                        <div id="resultBlock" style="display: none;">
                             Выгода:</br>
-                            {# <span class="price mb-2">{{(resource['old-car-price']|number_format) - (resource['car-price'])|number_format| }}&nbsp;₽</span> #}
+                            <span class="price mb-2" id="price-profit">&nbsp;</span>   
+                        </div>
                         </div>
                         {% if resource['old-car-price'] !="" %}
+                            <div id="oldCarPrice"style="display: none;">{{resource['old-car-price']}}</div>
                             <span class="price-old pl-3">{{resource['old-car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
                         {% endif %}   
                     </div>
@@ -80,15 +85,19 @@
             </div>
             <div class="col-lg-6 col-sm-8 col-8 p-0">
                 <div class="photo">
-                    <div class="slider-for"style="max-height: 380px;">
+                    {# <div class="slider-for"style="max-height: 380px"> #}
                         {% if resource.car_photos is empty %}
+                        <div class="slider-for">
                             <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
+                        </div>
                         {% else %}
+                        <div class="slider-for"style="max-height: 380px" style="display: none;">
                         {% for image in car_photos | reverse %}
-                            <img class="first-foto" src="{{image.image}}">
+                            <img class="first-foto" src="{{image.image}}" style="display: none;">
                         {% endfor %}
-                        {% endif %}
-                    </div>
+                        </div>
+                        {% endif %}   
+                    {# </div> #}
                 </div>
             </div>
             <div class=" col-lg-2 col-4 col-sm-4 p-1 pb-3 d-flex flex-column">
@@ -116,7 +125,7 @@
                     </div>
                     <div class="p-0 pl-1 pt-1">
                         <p class="text-left title-conf">Двигатель</p>
-                        <p class="text-left body-conf">{{ engine }}&nbsp;л.</p>
+                        <p class="text-left body-conf">{{ engine }}</p>
                     </div>
                 </div>
                 <div class="row ml-2 w-auto mb-5">
@@ -222,15 +231,19 @@
             <div class="col-xl-12 col-lg-12">
                 <h2 class="mb-4"style="font-size: 24px;font-weight: 700;">Галерея</h2>
                     <div class="photo mb-sm-5 mb-4">
-                        <div class="slider-nav">
+                        {# <div class="slider-nav" style="display: none;"> #}
                             {% if resource.car_photos is empty %}
+                            <div class="slider-nav">
                                 <img src="{{ car_photos.fieldValue[0].image }}">
+                            </div>
                             {% else %}
+                            <div class="slider-nav" style="display: none;">
                             {% for image in car_photos | reverse %}
                                 <div class="item pl-3 pr-2 h-100"><img class="more-foto" src="{{image.image}}"></div>
                             {% endfor %}
+                            </div>
                             {% endif %}
-                        </div>
+                        {# </div> #}
                     </div>
                     <div class="col-xl-12 col-lg-12">
                         <div class="pt-3">{{ runSnippet('Form', {
@@ -897,27 +910,55 @@ window.onload = updateEndDate;
 {% block SCRIPTS %}
 <script>
 
-$('.slider-for').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  asNavFor: '.slider-nav',
-  responsive: [{
-    breakpoint: 576,
-    settings: {
-      arrows: true,
-      dots: false
-    }
-  }]
-});
-$('.slider-nav').slick({
-  slidesToShow: 5,
-  slidesToScroll: 3,
-  asNavFor: '.slider-for',
-  arrows: true,
-  focusOnSelect: true,
-  prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-  nextArrow: '<button type="button" class="slick-next">Next</button>'
-});
+// $('.slider-for').slick({
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+//   asNavFor: '.slider-nav',
+//   responsive: [{
+//     breakpoint: 576,
+//     settings: {
+//       arrows: true,
+//       dots: false
+//     }
+//   }]
+// });
+// $('.slider-nav').slick({
+//   slidesToShow: 5,
+//   slidesToScroll: 3,
+//   asNavFor: '.slider-for',
+//   arrows: true,
+//   focusOnSelect: true,
+//   prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+//   nextArrow: '<button type="button" class="slick-next">Next</button>'
+// });
+
+document.addEventListener("DOMContentLoaded", function() {
+        $('.slider-for .first-foto, more-foto').css('display', 'block');
+
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            asNavFor: '.slider-nav',
+            responsive: [{
+                breakpoint: 576,
+                settings: {
+                    arrows: true,
+                    dots: false
+                }
+            }]
+        });
+
+        $('.slider-nav').slick({
+            slidesToShow: 5,
+            slidesToScroll: 3,
+            asNavFor: '.slider-for',
+            arrows: true,
+            focusOnSelect: true,
+            prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+            nextArrow: '<button type="button" class="slick-next">Next</button>'
+        });
+        $('.slider-nav').css('display', 'block');
+    });
 
 $(document).ready(function() {
   $('.card-header').click(function() {
@@ -934,6 +975,22 @@ $(document).ready(function() {
         });
     });
 });
+
+$(document).ready(function() {
+    var oldCarPriceText = $('#oldCarPrice').text();
+    var carPriceText = $('#carPrice').text();
+
+    var oldCarPrice = parseFloat(oldCarPriceText.replace('$', '').replace(',', ''));
+    var carPrice = parseFloat(carPriceText.replace('$', '').replace(',', ''));
+
+    if (oldCarPrice !== 0 && oldCarPrice > carPrice && !isNaN(oldCarPrice) ) {
+        var priceDifference = oldCarPrice - carPrice;
+
+        $('#resultBlock').css('display', 'block');
+        $('#price-profit').text(priceDifference.toLocaleString('ru-RU') + '₽');
+    }
+});
+
 </script>
 
 {% endblock %}

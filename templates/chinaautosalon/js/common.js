@@ -3,32 +3,27 @@ $(function() {
 		$(this).parent().hide();
 		$('.index-brands-block .row .col-3').show();
 	});
-    const link = document.getElementById("float-button");
 
-        // добавляем слушатель события 'click'
-        link.addEventListener('click', (event) => {
-        // предотвращаем переход по ссылке по умолчанию
-        event.preventDefault();
-        // вызываем функцию, которая показывает модальное окно
-        $('#callphone').modal('show');
-        });
+
+
 	$('.slider-for').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: false,
 		asNavFor: '.slider-nav'
 	});
-	$(".bottom-page-line .close").click(function(event) {
-    event.stopPropagation(); // Остановить распространение события
-    $(".bottom-page-line").hide();
+	// $(".bottom-page-line .close").click(function(event) {
+    // event.stopPropagation(); // Остановить распространение события
+    // $(".bottom-page-line").hide();
+    // $(".float-button").css("bottom", "20px");
 });
 
-$(".bottom-page-line").click(function() {
-    $.fancybox.open({
-        src: '#trade-in-popup',
-        type: 'inline'
-    });
-});
+// $(".bottom-page-line").click(function() {
+//     $.fancybox.open({
+//         src: '#trade-in-popup',
+//         type: 'inline'
+//     });
+// });
 
 
 	window.showCreditPopup = function(e, t, i) {

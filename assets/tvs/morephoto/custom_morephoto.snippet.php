@@ -42,10 +42,10 @@ foreach ($_ as $k => $v) {
     }
     $v['class'] = $rowClass;
     if ($k === 0) {
-        $v['class'] .= ' ' . $firstClass;
+        $v['class'] .= ' '.$firstClass;
     }
     $v['class'] = trim($v['class']);
-    $v['classes'] = $v['class'] ? ' class="' . $v['class'] . '"' : '';
+    $v['classes'] = $v['class'] ? ' class="'.$v['class'].'"' : '';
 
     if ($phpthumb) {
         $v['image.thumb'] = $modx->runSnippet('phpthumb', array(

@@ -250,10 +250,40 @@ setInterval(function() {
     });
   });
 
+    const link = document.getElementById("float-button");
+
+        // добавляем слушатель события 'click'
+        link.addEventListener('click', (event) => {
+        // предотвращаем переход по ссылке по умолчанию
+        event.preventDefault();
+        // вызываем функцию, которая показывает модальное окно
+        $('#callphone').modal('show');
+        });
+
+        $(".bottom-page-line").click(function() {
+    $.fancybox.open({
+        src: '#trade-in-popup',
+        type: 'inline'
+    });
+});
+ 
 $(document).ready(function() {
         $("#closeModal").click(function() {
+          event.stopPropagation();
+          $(".bottom-page-line").hide();
             $(".float-button").css("bottom", "20px");
         });
     });
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     var closeBtn2 = document.querySelector(".closeModal");
+//     closeBtn2.addEventListener("click", function() {
+//       var sticky2 = document.querySelector(".bottom-page-line");
+//       sticky2.style.display = "none";
+//       $(".float-button").css("bottom", "20px");
+//     });
+//   });
+
   </script>
   

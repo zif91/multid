@@ -2264,7 +2264,8 @@ main {
     display: block;
   }
   .index-first-block .text {
-    max-width: 100%;
+    /* max-width: 100%; */
+    max-width: 450px;
     margin-top: 79px;
   }
   .form-block {
@@ -2356,11 +2357,6 @@ main {
 
   .car-plate__button{
     padding: 18px 25px;
-  }
-  .index-first-block .text p{
-    font-size: 17px;
-    line-height: 21px;
-    
   }
 }
 @media (max-width: 767px) {
@@ -2488,13 +2484,7 @@ main {
   right: 20px;
   z-index: 9999;
 }
-.index-first-block {
-  padding: 52px 0 220px;
-  background: #35374e url('/templates/autosalon/img/first-block2.png') no-repeat top 0 right 0;
-  /* background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/major/img/slider.png')!important; */
-  /* background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/chinaautosalon/img/banner-1.png')!important; */
-  background-image: url('/templates/chinaautosalon/img/Banner 360.png') center/contain!important;
-}
+
 }
 @media (max-width: 575px) {
   .header .adress {
@@ -2567,10 +2557,10 @@ main {
   } */
   .index-first-block {
     padding: 52px 0 220px;
-    background: #35374e url('/templates/autosalon/img/first-block2.png') no-repeat top 0 right 0;
+    /* background: #35374e url('/templates/autosalon/img/first-block2.png') no-repeat top 0 right 0; */
     /* background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/major/img/slider.png')!important; */
     /* background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/chinaautosalon/img/banner-1.png')!important; */
-    background-image: url('/templates/chinaautosalon/img/Banner 360.png')!important;
+    /* background-image: url('/templates/chinaautosalon/img/Banner 360.png')!important; */
   }
   .index-first-block .text p {
     padding-bottom: 217px;
@@ -3614,6 +3604,7 @@ main {
 .index-first-block .text .name {
   font-size: 21px;
   line-height: 25px;
+  padding-left: 0px;
 }
 .index-first-block .text p{
   font-size: 17px;

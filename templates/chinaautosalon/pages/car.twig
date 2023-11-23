@@ -226,11 +226,11 @@
 </div>
 </div>
 
-<div class="item-page py-5">
+<div class="item-page py-3">
     <div class="container">
         <div class="row">
             <div class="col-xl-12 col-lg-12">
-                <h2 class="mb-4"style="font-size: 24px;font-weight: 700;">Галерея</h2>
+                <h2 class="mb-3"style="font-size: 24px;font-weight: 700;">Галерея</h2>
                     <div class="photo mb-sm-5 mb-4">
                         {# <div class="slider-nav" style="display: none;"> #}
                             {% if resource.car_photos is empty %}
@@ -948,7 +948,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }]
         });
-
+$('.slider-nav').css('display', 'block');
         $('.slider-nav').slick({
             slidesToShow: 5,
             slidesToScroll: 3,
@@ -958,7 +958,7 @@ document.addEventListener("DOMContentLoaded", function() {
             prevArrow: '<button type="button" class="slick-prev">Previous</button>',
             nextArrow: '<button type="button" class="slick-next">Next</button>'
         });
-        $('.slider-nav').css('display', 'block');
+        
     });
 
 $(document).ready(function() {

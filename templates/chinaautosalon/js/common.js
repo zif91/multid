@@ -16,6 +16,7 @@ $(function() {
             asNavFor: '.slider-nav'
         });
 
+        
         $('.slider-nav').slick({
             slidesToShow: 6,
             slidesToScroll: 1,

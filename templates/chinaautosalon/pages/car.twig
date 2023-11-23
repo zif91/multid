@@ -86,19 +86,15 @@
             </div>
             <div class="col-lg-6 col-sm-8 col-8 p-0">
                 <div class="photo">
-                    {# <div class="slider-for"style="max-height: 380px"> #}
+                    <div class="slider-for" style="max-height: 380px; display: none;">
                         {% if resource.car_photos is empty %}
-                        <div class="slider-for">
                             <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
-                        </div>
                         {% else %}
-                        <div class="slider-for"style="max-height: 380px" style="display: none;">
                         {% for image in car_photos | reverse %}
-                            <img class="first-foto" src="{{image.image}}" style="display: none;">
+                            <img class="first-foto" src="{{image.image}}" >
                         {% endfor %}
-                        </div>
                         {% endif %}   
-                    {# </div> #}
+                    </div>
                 </div>
             </div>
             <div class=" col-lg-2 col-4 col-sm-4 p-1 pb-3 d-flex flex-column">
@@ -232,19 +228,15 @@
             <div class="col-xl-12 col-lg-12">
                 <h2 class="mb-3"style="font-size: 24px;font-weight: 700;">Галерея</h2>
                     <div class="photo mb-sm-5 mb-4">
-                        {# <div class="slider-nav" style="display: none;"> #}
+                        <div class="slider-nav" style="display: none;">
                             {% if resource.car_photos is empty %}
-                            <div class="slider-nav">
                                 <img src="{{ car_photos.fieldValue[0].image }}">
-                            </div>
                             {% else %}
-                            <div class="slider-nav" style="display: none;">
                             {% for image in car_photos | reverse %}
                                 <div class="item pl-3 pr-2 h-100"><img class="more-foto" src="{{image.image}}"></div>
                             {% endfor %}
-                            </div>
                             {% endif %}
-                        {# </div> #}
+                        </div>
                     </div>
                     <div class="col-xl-12 col-lg-12">
                         <div class="pt-3">{{ runSnippet('Form', {
@@ -665,7 +657,7 @@
     </div>
 </div>#}
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
+{# <script src="js/owl.carousel.min.js"></script> #}
 <style>
 button.slick-next.slick-arrow,
 button.slick-prev.slick-arrow {
@@ -734,8 +726,7 @@ button.slick-prev.slick-arrow{
   column-count: 2;
 }
 .price{
-
-     line-height: 34px;
+    line-height: 34px;
 }
 
 .arrow {
@@ -750,9 +741,7 @@ button.slick-prev.slick-arrow{
     height: 23rem; 
     object-fit: contain;
 }
-.slider-nav{
-    max-height: 150px;
-}
+
 .more-foto{
     margin-right:auto; 
     margin-left:auto; 
@@ -799,15 +788,14 @@ button.slick-prev.slick-arrow{
 }
 
 .arrow {
-     position: relative;
+    position: relative;
     bottom: 217px;
     left: 42%;
-     font-size: 20px;
+    font-size: 20px;
     }  
 }
 
 @media only screen and (max-width: 767px) {
-    
     .columns-2 {
         column-count: 1;
     }
@@ -817,15 +805,12 @@ button.slick-prev.slick-arrow{
         object-fit: fill;
     }
     .more-foto{
-    margin-right:auto; 
-    margin-left:auto; 
-    border-radius:8px; 
-    height: 6rem; 
-    object-fit: fill;
+        margin-right:auto; 
+        margin-left:auto; 
+        border-radius:8px; 
+        height: 6rem; 
+        object-fit: fill;
     }
-    .slider-nav{
-    height: 130px;
-}
 }
 
 @media only screen and (max-width: 575px) {
@@ -846,9 +831,6 @@ button.slick-prev.slick-arrow{
     height: 4rem; 
     object-fit: cover;
     }
-    .slider-nav{
-    height: 90px;
-}
 }
 
 @media (max-width: 400px) {
@@ -856,11 +838,11 @@ button.slick-prev.slick-arrow{
         font-size: 12px;
     }
     button.slick-next.slick-arrow{
-    right: 31px;
+        right: 31px;
     }
 
     button.slick-prev.slick-arrow{
-    left: 31px;
+        left: 31px;
     }
     .first-foto{  
         object-fit: contain;
@@ -933,33 +915,6 @@ window.onload = updateEndDate;
 //   nextArrow: '<button type="button" class="slick-next">Next</button>'
 // });
 
-document.addEventListener("DOMContentLoaded", function() {
-        $('.slider-for .first-foto, more-foto').css('display', 'block');
-
-        $('.slider-for').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            asNavFor: '.slider-nav',
-            responsive: [{
-                breakpoint: 576,
-                settings: {
-                    arrows: true,
-                    dots: false
-                }
-            }]
-        });
-$('.slider-nav').css('display', 'block');
-        $('.slider-nav').slick({
-            slidesToShow: 5,
-            slidesToScroll: 3,
-            asNavFor: '.slider-for',
-            arrows: true,
-            focusOnSelect: true,
-            prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-            nextArrow: '<button type="button" class="slick-next">Next</button>'
-        });
-        
-    });
 
 $(document).ready(function() {
   $('.card-header').click(function() {

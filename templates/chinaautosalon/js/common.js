@@ -4,14 +4,41 @@ $(function() {
 		$('.index-brands-block .row .col-3').show();
 	});
 
+ 
+    $(function() {
+        $('.slider-for').css('display', 'block');
+        $('.slider-nav').css('display', 'block');
 
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            asNavFor: '.slider-nav'
+        });
 
-	$('.slider-for').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		arrows: false,
-		asNavFor: '.slider-nav'
-	});
+        $('.slider-nav').slick({
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            arrows: true,
+            focusOnSelect: true,
+            responsive: [{
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 5
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }
+            ]
+        });
+
+    });
+
 	// $(".bottom-page-line .close").click(function(event) {
     // event.stopPropagation(); // Остановить распространение события
     // $(".bottom-page-line").hide();
@@ -40,26 +67,26 @@ $(function() {
 				}
 			})
 	};
-	$('.slider-nav').slick({
-		slidesToShow: 6,
-		slidesToScroll: 1,
-		asNavFor: '.slider-for',
-		arrows: false,
-		focusOnSelect: true,
-		responsive: [{
-				breakpoint: 1200,
-				settings: {
-					slidesToShow: 5
-				}
-			},
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 4
-				}
-			}
-		]
-	});
+	// $('.slider-nav').slick({
+	// 	slidesToShow: 6,
+	// 	slidesToScroll: 1,
+	// 	asNavFor: '.slider-for',
+	// 	arrows: false,
+	// 	focusOnSelect: true,
+	// 	responsive: [{
+	// 			breakpoint: 1200,
+	// 			settings: {
+	// 				slidesToShow: 5
+	// 			}
+	// 		},
+	// 		{
+	// 			breakpoint: 768,
+	// 			settings: {
+	// 				slidesToShow: 4
+	// 			}
+	// 		}
+	// 	]
+	// });
 
 	// Подключение плагина Choices для декорирования <select>
     // Аргументом передается селектор (класс/id) тега <select>

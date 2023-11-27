@@ -1278,6 +1278,7 @@ main {
 }
 .item-page .info .buttons button.color1 {
   background: #D12D1E;
+  font-size: 13px;
 }
 .item-page .info .buttons button.color2 {
   background: #35374E;
@@ -3492,7 +3493,7 @@ main {
     font-size: 16px;
   }
   .item-page .info .price {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 32px;
   }
 }

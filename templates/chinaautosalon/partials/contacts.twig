@@ -7,6 +7,7 @@
 				<div class="logo mb-5">
 					<a href="/"><img src="{{baseSettings["logo"]}}"></a>
 				</div>
+				{{content | raw}}
 				<p class="mb-5"> </p>
                 {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', class: "phone pl-4 mb-4 d-block", link: '1'}) | raw}} </span>
             

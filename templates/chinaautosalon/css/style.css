@@ -3296,7 +3296,11 @@ main {
         width: 100%;
         display: flex;
         align-items: center!important;
-
+    }
+    .item-page .info .price {
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 36px;
     }
     .modifications-block .item .item-name .name:before {
         position: absolute;
@@ -3486,6 +3490,10 @@ main {
 @media(max-width: 379px){
   .wrap-credit-left p.credit-left-title{
     font-size: 16px;
+  }
+  .item-page .info .price {
+    font-size: 16px;
+    line-height: 32px;
   }
 }
 

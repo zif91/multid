@@ -1,7 +1,9 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
     {# {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%} #}
+    {% set brand_id = runSnippet ('UltimateParent', {top: catalog_number, topLevel:1}) |raw %}
     {% set model_title = runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw %}
+    {% set brand_title = runSnippet ('DocInfo', {docid: brand_id, field:pagetitle}) |raw %}
     {% set ComplectationsController = runSnippet('Complectations', {toObject: 1}) %}
     {% set complectations = ComplectationsController.toArray() %}
     {% set engine = ComplectationsController.engine() %}
@@ -375,7 +377,7 @@
                             <h5>Cкидка на авто по распродаже 2022 модельного ряда</h5>
                         </div>
                         <div class="bonus-card-body pl-2 pr-2 pb-2">
-                            <p>Выгода достигается при покупке Автомобиля {{ model_title }} начала 2022 года выпуска</p>
+                            <p>Выгода достигается при покупке Автомобиля {{ brand_title }} начала 2022 года выпуска</p>
                         </div>
                         <div class="bonus-card-footer p-2 d-flex justify-content-between align-items-center mt-auto">
                             <div>
@@ -393,7 +395,7 @@
                 <div class="col-md-6 col-lg-3 mb-4">
                     <div class="bonus-card h-100 d-flex flex-column">
                         <div class="bonus-card-header p-2">
-                            <h5>Cкидка по программе {{ model_title }} Finance</h5>
+                            <h5>Cкидка по программе {{ brand_title }} Finance</h5>
                         </div>
                         <div class="bonus-card-body pl-2 pr-2 pb-2">
                             <p>Выгода за обмен старого Авто, в том числе как первоначальный взнос за Автокредит</p>

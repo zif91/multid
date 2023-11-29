@@ -361,7 +361,7 @@
                             <div>
                                 <div class="bonus-pricetitle">Скидка включена</div>
                                 <div class="bonus-price">
-                                    300 000 ₽
+                                    <span class="price mb-2" id="priceSaleTradeIn">&nbsp;</span>
                                     <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка"
                                          class="img-fluid ml-2" style="height: 20px;">
                                 </div>
@@ -381,7 +381,7 @@
                             <div>
                                 <div class="bonus-pricetitle">Скидка включена</div>
                                 <div class="bonus-price">
-                                    225 000 ₽
+                                    <span class="price mb-2" id="priceSaleModel">&nbsp;</span>
                                     <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка"
                                          class="img-fluid ml-2" style="height: 20px;">
                                 </div>
@@ -402,7 +402,7 @@
                             <div>
                                 <div class="bonus-pricetitle">Скидка включена</div>
                                 <div class="bonus-price">
-                                    450 000 ₽
+                                    <span class="price mb-2" id="priceSaleFinance">&nbsp;</span>
                                     <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка"
                                          class="img-fluid ml-2" style="height: 20px;">
                                 </div>
@@ -423,7 +423,7 @@
                             <div>
                                 <div class="bonus-pricetitle">Скидка включена</div>
                                 <div class="bonus-price">
-                                    300 000 ₽
+                                    <span class="price mb-2" id="priceSaleDealer">&nbsp;</span>
                                     <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка"
                                          class="img-fluid ml-2" style="height: 20px;">
                                 </div>
@@ -1256,10 +1256,25 @@
         var carPrice = parseFloat(carPriceText.replace('$', '').replace(',', ''))
 
         if (oldCarPrice !== 0 && oldCarPrice > carPrice && !isNaN(oldCarPrice)) {
-          var priceDifference = oldCarPrice - carPrice
+          var priceDifference = oldCarPrice - carPrice;
+
+          const saleTradeIn = 15; // процент скидки по trade-in или утилизации
+          const saleModel = 18; // процент скидки по модельному ряду
+          const saleFinance = 45; // процент скидки по программе finance
+          const saleDealer = 22; // процент скидки по программе от дил центра
+
+          const priceSaleTradeIn = (priceDifference * saleTradeIn) / 100;
+          const priceSaleModel = (priceDifference * saleModel) / 100;
+          const priceSaleFinance = (priceDifference * saleFinance) / 100;
+          const priceSaleDealer = (priceDifference * saleDealer) / 100;
 
           $('#resultBlock').css('display', 'block')
           $('#price-profit').text(priceDifference.toLocaleString('ru-RU') + '₽')
+
+          $('#priceSaleTradeIn').text(priceSaleTradeIn.toLocaleString('ru-RU') + '₽')
+          $('#priceSaleModel').text(priceSaleModel.toLocaleString('ru-RU') + '₽')
+          $('#priceSaleFinance').text(priceSaleFinance.toLocaleString('ru-RU') + '₽')
+          $('#priceSaleDealer').text(priceSaleDealer.toLocaleString('ru-RU') + '₽')
         }
       })
       $(document).ready(function () {

@@ -1263,10 +1263,10 @@
           const saleFinance = 45; // процент скидки по программе finance
           const saleDealer = 22; // процент скидки по программе от дил центра
 
-          const priceSaleTradeIn = (priceDifference * saleTradeIn) / 100;
-          const priceSaleModel = (priceDifference * saleModel) / 100;
-          const priceSaleFinance = (priceDifference * saleFinance) / 100;
-          const priceSaleDealer = (priceDifference * saleDealer) / 100;
+          const priceSaleTradeIn = Math.round((priceDifference * saleTradeIn) / 100);
+          const priceSaleModel = Math.round((priceDifference * saleModel) / 100);
+          const priceSaleFinance = Math.round((priceDifference * saleFinance) / 100);
+          const priceSaleDealer = Math.round((priceDifference * saleDealer) / 100);
 
           $('#resultBlock').css('display', 'block')
           $('#price-profit').text(priceDifference.toLocaleString('ru-RU') + '₽')

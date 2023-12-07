@@ -515,7 +515,8 @@ main {
   background: url('/templates/autosalon/img/phone.svg') no-repeat 0 0;
 }
 .header .logo {
-  width: 176px;
+  /* width: 176px; */
+  width: 132px;
   height: 46px;
 }
 
@@ -2915,6 +2916,10 @@ main {
   }
   .index-filter-block .filter-buttons-wrapper {
     justify-content: space-evenly;
+  }
+  .header .logo {
+    width: 176px;
+    height: 46px;
   }
 }
 

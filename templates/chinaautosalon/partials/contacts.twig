@@ -11,7 +11,7 @@
 				<p class="mb-5"> </p>
                 {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', class: "phone pl-4 mb-4 d-block", link: '1'}) | raw}} </span>
             
-				<button  data-fancybox="" data-src="#popup">Заказать звонок</button>
+				<button  data-toggle="modal" data-target="#callphone">Заказать звонок</button>
 			</div>
 		</div>
 		<div class="map position-absolute w-100 h-100">

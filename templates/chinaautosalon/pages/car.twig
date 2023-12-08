@@ -168,7 +168,7 @@
 
                                     <div class="buttons row">
                                         <div class="col-6">
-                                            <button class="color1 w-100" data-fancybox="" data-src="#popup">
+                                            <button class="color1 w-100" data-toggle="modal" data-target="#bron">
                                                 Забронировать
                                             </button>
                                         </div>
@@ -562,7 +562,6 @@
                                                                     <ul>
                                                                     {% set inSection = true %}
                                                                     {% set found = true %}
-
                                                                 {% endif %}
                                                             {% endfor %}
                                                             {% if not found %}
@@ -858,7 +857,7 @@
         <div class="container">
             {{ runSnippet('Form', {
                 formid: 'FormCallback',
-                path: '/templates/autosalon/partials/forms/feedback/',
+                path: '/templates/chinaautosalon/partials/forms/feedback/',
                 extension: 'twig'
             }) | raw }}
         </div>
@@ -1244,7 +1243,7 @@
         $('#creditButton').click(function (event) {
           event.stopPropagation()
           $.fancybox.open({
-            src: '#popup',
+            src: '#credit-popup-plate',
             type: 'inline'
           })
         })

@@ -46,7 +46,8 @@ outerTpl: '@CODE:<ul>
 			</div> 
 				
 				{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4"}) | raw}}
-				<button data-fancybox="" data-src="#popup">Заказать звонок</button>
+				{# <button data-fancybox="" data-src="#popup">Заказать звонок</button> #}
+				<button data-toggle="modal" data-target="#callphone">Заказать звонок</button>
 				<a class="menu-button mobburger" id="openOffcanvas"></a>
 			</div>
 			<nav>
@@ -102,7 +103,7 @@ outerTpl: '@CODE:<ul>
 				
 			</div>
 			<div class="mt-3 d-flex justify-content-center">
-			<button data-fancybox="" data-src="#popup">Заказать звонок</button>
+			<button data-toggle="modal" data-target="#callphone">Заказать звонок</button>
 			</div>
 		</div>
 				

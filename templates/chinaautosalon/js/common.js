@@ -3,32 +3,55 @@ $(function() {
 		$(this).parent().hide();
 		$('.index-brands-block .row .col-3').show();
 	});
-    const link = document.getElementById("float-button");
 
-        // добавляем слушатель события 'click'
-        link.addEventListener('click', (event) => {
-        // предотвращаем переход по ссылке по умолчанию
-        event.preventDefault();
-        // вызываем функцию, которая показывает модальное окно
-        $('#callphone').modal('show');
+ 
+    $(function() {
+        $('.slider-for').css('display', 'block');
+        $('.slider-nav').css('display', 'block');
+
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            asNavFor: '.slider-nav'
         });
-	$('.slider-for').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		arrows: false,
-		asNavFor: '.slider-nav'
-	});
-	$(".bottom-page-line .close").click(function(event) {
-    event.stopPropagation(); // Остановить распространение события
-    $(".bottom-page-line").hide();
+
+        
+        $('.slider-nav').slick({
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            arrows: true,
+            focusOnSelect: true,
+            responsive: [{
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 5
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }
+            ]
+        });
+
+    });
+
+	// $(".bottom-page-line .close").click(function(event) {
+    // event.stopPropagation(); // Остановить распространение события
+    // $(".bottom-page-line").hide();
+    // $(".float-button").css("bottom", "20px");
 });
 
-$(".bottom-page-line").click(function() {
-    $.fancybox.open({
-        src: '#trade-in-popup',
-        type: 'inline'
-    });
-});
+// $(".bottom-page-line").click(function() {
+//     $.fancybox.open({
+//         src: '#trade-in-popup',
+//         type: 'inline'
+//     });
+// });
 
 
 	window.showCreditPopup = function(e, t, i) {
@@ -45,26 +68,26 @@ $(".bottom-page-line").click(function() {
 				}
 			})
 	};
-	$('.slider-nav').slick({
-		slidesToShow: 6,
-		slidesToScroll: 1,
-		asNavFor: '.slider-for',
-		arrows: false,
-		focusOnSelect: true,
-		responsive: [{
-				breakpoint: 1200,
-				settings: {
-					slidesToShow: 5
-				}
-			},
-			{
-				breakpoint: 768,
-				settings: {
-					slidesToShow: 4
-				}
-			}
-		]
-	});
+	// $('.slider-nav').slick({
+	// 	slidesToShow: 6,
+	// 	slidesToScroll: 1,
+	// 	asNavFor: '.slider-for',
+	// 	arrows: false,
+	// 	focusOnSelect: true,
+	// 	responsive: [{
+	// 			breakpoint: 1200,
+	// 			settings: {
+	// 				slidesToShow: 5
+	// 			}
+	// 		},
+	// 		{
+	// 			breakpoint: 768,
+	// 			settings: {
+	// 				slidesToShow: 4
+	// 			}
+	// 		}
+	// 	]
+	// });
 
 	// Подключение плагина Choices для декорирования <select>
     // Аргументом передается селектор (класс/id) тега <select>
@@ -77,7 +100,7 @@ $(".bottom-page-line").click(function() {
     const marks = document.querySelector('#marks');
     if (marks) decoreSelect(marks);
 	*/
-});
+// });
 // Функция для обновления отображения времени// Функция для обновления отображения времени
 function updateCountdown(days, hours, minutes, seconds) {
     var ids = ['day', 'hour', 'min', 'sec'];

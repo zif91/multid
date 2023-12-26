@@ -24,7 +24,7 @@
 {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 20,
-parents: 593,
+parents: baseSettings['catalog_number'],
 filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' ,
 depth: 2,
 tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
@@ -44,14 +44,14 @@ TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-
 TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
 TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
 tvSortType: 'UNSIGNED',
-addWhereList: 'c.template=28'
+addWhereList: 'c.template=28',
 })
 %}
 {% set models = runSnippet('DocLister', {
 id: 'catalog',
 filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' ,
 _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
-parents: 593,
+parents: baseSettings['catalog_number'],
 depth: 1,
 addWhereList: 'isfolder=1 AND c.template=20',
 orderBy: 'car-price',

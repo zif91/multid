@@ -1,97 +1,120 @@
 {% extends './app.twig' %}
 {% set brand = _GET.brand %}
 {% if not brand %}
-{% set brand = 'hyundai' %}
+    {% set brand = '' %}
 {% endif %}
 {% set model = _GET.model %}
 {% if not model %}
-{% set model = '' %}
+    {% set model = '' %}
 {% endif %}
-{% set DLCatalog = runSnippet('DocLister', {
-id: 'catalog',
-controller: 'catalog_filters',
-filters: 'AND(tv:mark_id:=:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
-_filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
-display: 20,
-parents: 593,
-depth: 2,
-addWhereList: 'c.template=28',
-orderBy: 'car-price',
-order: 'RAND()',
-tvSortType: 'SIGNED',
-tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
-ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard_first',
-paginate:'pages',
-TplNextP:'',
-TplPrevP:'',
-TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
-TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
-TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
-filter: 'filters',
-filterRangeSeparator: ':',
-filterValuesSeparator: '|',
-filterDelimiter: '||',
-__filterPriceId: 14,
-filterList: '42,43,19',
-_filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
-filterTpl: '@T_FILE:partials/filters/tpl',
-filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
-filterTplRange: '@T_FILE:partials/filters/tplRange',
-filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
-filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
-tvSortType: 'UNSIGNED',
-api: 0,
-debug:0,
-noneTPL:'@CODE: <div class="container">
-	<div class="row">
-		<div class="col text-center">
-			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-		</div>
-	</div>
-</div>',
-})
-%}
-{#% set DLCatalog = runSnippet('DocLister', {
-id: 'catalog',
-display: 20,
-parents: 593,
-filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
-depth: 1,
-tvList:'car-price,mark_id,model_id',
-ownerTPL: '@T_FILE:partials/wrap',
-noneTPL:'@CODE: <div class="container">
-	<div class="row">
-		<div class="col text-center">
-			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-		</div>
-	</div>
-</div>',
-tpl:'@T_FILE:partials/catalogcard',
-paginate:'pages',
-TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
-TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
-TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
-TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
-TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
-tvSortType: 'UNSIGNED',
-addWhereList: 'isfolder=1 AND c.template=20'
-})
-%#}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
+{% set catalog_number = baseSettings['catalog_number'] %}
+{% if brand is empty %}
+    {% set DLCatalog = runSnippet('DocLister', {
+        id: 'catalog',
+        controller: 'catalog_filters',
+        _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
+        display: 20,
+        parents: catalog_number,
+        depth: 5,
+        addWhereList: 'c.template=28',
+        orderBy: 'RAND()',
+        order: 'RAND()',
+        tvSortType: 'SIGNED',
+        tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
+        ownerTPL: '@T_FILE:partials/wrap',
+        tpl:'@T_FILE:partials/catalogcard_first',
+        paginate:'pages',
+        TplNextP:'',
+        TplPrevP:'',
+        TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+        TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+        TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+        filter: 'filters',
+        filterRangeSeparator: ':',
+        filterValuesSeparator: '|',
+        filterDelimiter: '||',
+        __filterPriceId: 14,
+        filterList: '42,43,19',
+        _filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
+        filterTpl: '@T_FILE:partials/filters/tpl',
+        filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+        filterTplRange: '@T_FILE:partials/filters/tplRange',
+        filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+        filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+        tvSortType: 'UNSIGNED',
+        api: 0,
+        debug:0,
+        noneTPL:'@CODE: <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+                </div>
+            </div>
+        </div>',
+    }) %}
+{% endif %}
+{% if brand is not empty %}
+    {% set DLCatalog = runSnippet('DocLister', {
+        id: 'catalog',
+        controller: 'catalog_filters',
+        filters: 'AND(tv:mark_id:=:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
+        _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
+        display: 20,
+        parents: catalog_number,
+        depth: 5,
+        addWhereList: 'c.template=28',
+        orderBy: 'RAND()',
+        order: 'RAND()',
+        tvSortType: 'SIGNED',
+        tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
+        ownerTPL: '@T_FILE:partials/wrap',
+        tpl:'@T_FILE:partials/catalogcard_first',
+        paginate:'pages',
+        TplNextP:'',
+        TplPrevP:'',
+        TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+        TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+        TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+        filter: 'filters',
+        filterRangeSeparator: ':',
+        filterValuesSeparator: '|',
+        filterDelimiter: '||',
+        __filterPriceId: 14,
+        filterList: '42,43,19',
+        _filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
+        filterTpl: '@T_FILE:partials/filters/tpl',
+        filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+        filterTplRange: '@T_FILE:partials/filters/tplRange',
+        filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+        filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+        tvSortType: 'UNSIGNED',
+        api: 0,
+        debug:0,
+        noneTPL:'@CODE: <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+                </div>
+            </div>
+        </div>',
+    }) %}
+{% endif %}
+
 {% set models = runSnippet('DocLister', {
-id: 'catalog',
-filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' ,
-_filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
-parents: 593,
-depth: 1,
-addWhereList: 'isfolder=1 AND c.template=20',
-orderBy: 'car-price',
-order: 'RAND()',
-tvSortType: 'SIGNED',
-tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image,mark_id,model_id',
-api: 1,
-debug:0,
-noneTPL:'@CODE: <div class="container">
+    id: 'catalog',
+    filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' ,
+    _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
+    parents: catalog_number,
+    depth: 1,
+    addWhereList: 'isfolder=1 AND c.template=20',
+    orderBy: 'car-price',
+    order: 'RAND()',
+    tvSortType: 'SIGNED',
+    tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image,mark_id,model_id',
+    api: 1,
+    debug:0,
+    noneTPL:'@CODE: <div class="container">
 	<div class="row">
 		<div class="col text-center">
 			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
@@ -99,118 +122,122 @@ noneTPL:'@CODE: <div class="container">
 	</div>
 </div>',
 })
-| json %}
+    | json %}
 {% block MAIN %}
-{% include('partials/crumbs.twig') %}
-<div class="index-top-form pb-4 inner">
-	<div class="container flex">
-		<div class="fields mb-3">
-			<div class="row">
-				<div class="col-6">
-					<p class="mb-2">Марка</p>
-					<select class="w-100 px-3 select-box" id="marks">
-						<option>Выбрать...</option>
-						{% for item in marks %}
-						<option>{{ item.pagetitle }}</option>
-						{% endfor %}
-					</select>
-				</div>
-				<div class="col-6">
-					<p class="mb-2">Модель</p>
-					<select class="w-100 px-3 select-box" id="models">
-						<option>Выбрать...</option>
-						{% for item in models %}
-						<option>{{ item.pagetitle }}</option>
-						{% endfor %}
-					</select>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="dealers-block pb-5">
-	<div class="container">
-		<div class="row">
-			{% include '/partials/brands.twig' %}</div>
-	</div>
-</div>
-<div class="index-catalog-block2 pb-5">
-	<div class="container">
-		<h2 class="h2 mb-5">Предложение дня</h2>
-		<div class="list row" id="catalog">
-			{{DLCatalog |raw}}
-		</div>
-	</div>
-</div>
-{#{runSnippet ('bdebug', {})}#}
-{#% include 'partials/actions.twig' %#}
-<div class="page-form-block mb-5">
-	<div class="container">
-		{{ runSnippet('Form', {
-		formid: 'FormCallback',
-		path: '/templates/chinamajor/partials/forms/feedback/',
-		extension: 'twig'
-		}) | raw }}
-	</div>
-</div>
-<script type="text/javascript">
-const marksSelect = document.querySelector('#marks');
-const modelsSelect = document.querySelector('#models');
+    {% include('partials/crumbs.twig') %}
+    <div class="index-top-form pb-4 inner">
+        <div class="container flex">
+            <div class="fields mb-3">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="mb-2">Марка</p>
+                        <select class="w-100 px-3 select-box" id="marks">
+                            <option>Выбрать...</option>
+                            {% for item in marks %}
+                                <option>{{ item.pagetitle }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <p class="mb-2">Модель</p>
+                        <select class="w-100 px-3 select-box" id="models">
+                            <option>Выбрать...</option>
+                            {% for item in models %}
+                                <option>{{ item.pagetitle }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dealers-block pb-5">
+        <div class="container">
+            <div class="row">
+                {% include '/partials/brands.twig' %}</div>
+        </div>
+    </div>
 
-marksSelect.addEventListener('change', function() {
-	const selectedOption = marksSelect.options[marksSelect.selectedIndex].value;
-	const url = new URL(window.location.href);
-	url.searchParams.set('brand', selectedOption);
+    {% if DLCatalog is not empty %}
+        <div class="index-catalog-block2 pb-5">
+            <div class="container">
+                <h2 class="h2 mb-5">Предложение дня</h2>
+                <div class="list row" id="catalog">
+                    {{ DLCatalog |raw }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
 
-	if (modelsSelect.value !== '') {
-		url.searchParams.set('models', modelsSelect.value);
-	}
+    {# {runSnippet ('bdebug', {})} #}
+    {# % include 'partials/actions.twig' % #}
+    <div class="page-form-block mb-5">
+        <div class="container">
+            {{ runSnippet('Form', {
+                formid: 'FormCallback',
+                path: '/templates/chinamajor/partials/forms/feedback/',
+                extension: 'twig'
+            }) | raw }}
+        </div>
+    </div>
+    <script type="text/javascript">
+      const marksSelect = document.querySelector('#marks')
+      const modelsSelect = document.querySelector('#models')
 
-	$.ajax({
-			url: url.toString(),
-			method: 'GET',
-			dataType: 'html'
-		})
-		.done(function(data) {
-			const catalogHtml = $('<div>').html(data).find('#catalog').html();
-			const modelsHtml = $('<div>').html(data).find('#models').html();
-			$('#catalog').html(catalogHtml);
-			$('#models').html(modelsHtml);
-		})
-		.fail(function(jqXHR, textStatus, errorThrown) {
-			console.error(errorThrown);
-		});
-});
+      marksSelect.addEventListener('change', function () {
+        const selectedOption = marksSelect.options[marksSelect.selectedIndex].value
+        const url = new URL(window.location.href)
+        url.searchParams.set('brand', selectedOption)
 
-modelsSelect.addEventListener('change', function() {
-	const selectedOption = marksSelect.options[marksSelect.selectedIndex].value;
-	const url = new URL(window.location.href);
+        if (modelsSelect.value !== '') {
+          url.searchParams.set('models', modelsSelect.value)
+        }
 
-	if (selectedOption !== '') {
-		url.searchParams.set('brand', selectedOption);
-	}
+        $.ajax({
+          url: url.toString(),
+          method: 'GET',
+          dataType: 'html'
+        })
+          .done(function (data) {
+            const catalogHtml = $('<div>').html(data).find('#catalog').html()
+            const modelsHtml = $('<div>').html(data).find('#models').html()
+            $('#catalog').html(catalogHtml)
+            $('#models').html(modelsHtml)
+          })
+          .fail(function (jqXHR, textStatus, errorThrown) {
+            console.error(errorThrown)
+          })
+      })
 
-	if (modelsSelect.value !== '') {
-		url.searchParams.set('model', modelsSelect.value);
-	} else {
-		url.searchParams.delete('model');
-	}
+      modelsSelect.addEventListener('change', function () {
+        const selectedOption = marksSelect.options[marksSelect.selectedIndex].value
+        const url = new URL(window.location.href)
 
-	$.ajax({
-			url: url.toString(),
-			method: 'GET',
-			dataType: 'html'
-		})
-		.done(function(data) {
-			const catalogHtml = $('<div>').html(data).find('#catalog').html();
-			const modelsHtml = $('<div>').html(data).find('#models').html();
-			$('#catalog').html(catalogHtml);
-			$('#models').html(modelsHtml);
-		})
-		.fail(function(jqXHR, textStatus, errorThrown) {
-			console.error(errorThrown);
-		});
-});
+        if (selectedOption !== '') {
+          url.searchParams.set('brand', selectedOption)
+        }
 
-</script>
+        if (modelsSelect.value !== '') {
+          url.searchParams.set('model', modelsSelect.value)
+        } else {
+          url.searchParams.delete('model')
+        }
+
+        $.ajax({
+          url: url.toString(),
+          method: 'GET',
+          dataType: 'html'
+        })
+          .done(function (data) {
+            const catalogHtml = $('<div>').html(data).find('#catalog').html()
+            const modelsHtml = $('<div>').html(data).find('#models').html()
+            $('#catalog').html(catalogHtml)
+            $('#models').html(modelsHtml)
+          })
+          .fail(function (jqXHR, textStatus, errorThrown) {
+            console.error(errorThrown)
+          })
+      })
+
+    </script>
 {% endblock %}

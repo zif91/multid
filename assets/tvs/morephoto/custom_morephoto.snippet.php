@@ -42,16 +42,19 @@ foreach ($_ as $k => $v) {
     }
     $v['class'] = $rowClass;
     if ($k === 0) {
-        $v['class'] .= ' ' . $firstClass;
+        $v['class'] .= ' '.$firstClass;
     }
     $v['class'] = trim($v['class']);
-    $v['classes'] = $v['class'] ? ' class="' . $v['class'] . '"' : '';
+    $v['classes'] = $v['class'] ? ' class="'.$v['class'].'"' : '';
 
     if ($phpthumb) {
         $v['image.thumb'] = $modx->runSnippet('phpthumb', array(
             'input' => $v['image'],
             'options' => $phpthumb
         ));
+    }
+    if (empty($v['image.thumb'])) {
+        $v['image.thumb'] = $v['image'];
     }
     $out .= $modx->parseText($tpl, $v);
     if ($splitter && $splitterCount && ((($k + 1) % $splitterCount) == 0)) {

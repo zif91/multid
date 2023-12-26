@@ -1,13 +1,13 @@
-{#% set thumb = runSnippet('morephoto', {
+{# % set thumb = runSnippet('morephoto', {
 images: data['tv.car_photos'],
 phpthumb: 'w=250,h=168,zc=C',
 tpl: '@CODE:[+image.thumb+]',
 total: 1,
 display: 1
-}) %#}
-{#{ data['tv.car_photos'] }#}
+}) % #}
+{# { data['tv.car_photos'] } #}
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'], action:'caroldprice'}) %}
-{#<div class="col-xl-3 col-lg-4 col-md-6 h-auto">
+{# <div class="col-xl-3 col-lg-4 col-md-6 h-auto">
     <div class="item">
         <a href="{{ data['url'] }}"><img src="{{ data['tv.image'] }}" class="image"></a>
         <div class="flex">
@@ -32,9 +32,9 @@ display: 1
             <button class="btn" type="button" data-toggle="modal" data-target="#oneclick">Купить в 1 клик</button>
         </div>
     </div>
-</div>#}
+</div> #}
 {% set brands2 = runSnippet('DocLister', {
-    parents: 593,
+    parents: baseSettings['catalog_number'],
     depth: 0,
     orderBy: 'menuindex',
     order: 'ASC',
@@ -49,8 +49,7 @@ display: 1
         </div>
     </div>
 </div>',
-})
-%}
+}) %}
 {% set photo = runSnippet ('DocLister', {parents: data.id,
     depth: 0,
     orderBy: 'menuindex',
@@ -64,14 +63,18 @@ display: 1
 {% set priceAsNumber = [data['tv.car-price']]|join|default(0) %}
 {% set priceOnMonth = priceAsNumber / 96 %}
 
+{% set photo = runSnippet("CarPhotos", {fromJson: data['tv.car_photos'], reverse: 1, firstPhoto: 1}) %}
+
 {% if priceAsNumber > 0 and data['title'] %}
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="index-catalog-block">
             <div class="item mb-3 p-3">
                 <div class="image text-center mb-2">
-                    <a href="{{ data['url'] }}"><img src="{{photo | raw}}"></a>
+                    <a href="{{ data['url'] }}">
+                        <img src="{{ photo }}">
+                    </a>
                 </div>
-                <a href="{{ data['url'] }}" class="name mb-3 d-block">{{ data['title']  }}
+                <a href="{{ data['url'] }}" class="name mb-3 d-block">{{ data['title'] }}
                 </a>
                 <div class="price mb-3">
                     <span class="old">
@@ -82,7 +85,7 @@ display: 1
                     </div>
                 </div>
                 <div class="items bg-dark text-light text-center p-2 mb-2">
-                    {{random(1, 17)}} автомобилей в наличии
+                    {{ random(1, 17) }} автомобилей в наличии
                 </div>
                 <button class="w-100 btn btn-danger" data-fancybox="" data-src="#popup">Купить в один клик</button>
             </div>

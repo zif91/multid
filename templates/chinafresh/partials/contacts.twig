@@ -1,0 +1,23 @@
+{% set map = runSnippet('map', {zoom:'15',grey:'1', coords:baseSettings.salon_coordinates, width:'80', title:baseSettings.pagetitle
+}) %}
+<div class="map-block mb-5">
+	<div class="container">
+		<div class="map position-relative">
+		{{ map | raw }}
+			<div class="contacts text-center">
+				<div class="logo mb-3">
+					<img src="templates/chinafresh/img/logo.svg">
+				</div>
+				<div class="adress mb-3">
+					{{baseSettings.salon_location}}
+				</div>
+				<div class="hours mb-3">
+					<p class="mb-2">График работы:</p>
+					ПН-ВТ - 10:00 до 20:00 <br/>
+					СБ-ВС - 11:00 до 19:00
+				</div>
+				<a href="#" class="phone d-inline-block">{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '<span>+7 (xxx)</span> xxx-xx-xx'}) | raw}}</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+	<h2 class="mb-2">Остались вопросы по подбору автомобиля?</h2>
+	<div class="top-text mb-4">
+		Оставьте заявку и мы свяжемся с Вами!
+	</div>
+	<form>
+		<input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+        {{ data['form.messages'] | raw }}
+		<div class="flex">
+			<div class="col-lg-3 col-sm-6">
+				<input type="text" class="w-100 mb-3 px-3" placeholder="Марка">
+				{# <select class="w-100 mb-3 px-3" >
+					<option>Марка</option>
+					<option>Марка</option>
+					<option>Марка</option>
+				</select> #}
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<input type="text" class="w-100 mb-3 px-3" placeholder="Модель">
+				{# <select class="w-100 mb-3 px-3">
+					<option>Модель</option>
+					<option>Модель</option>
+					<option>Модель</option>
+				</select> #}
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<input type="text" class="w-100 mb-3 px-3" placeholder="Год">
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<input type="text" name="mobile_tel" class="w-100 mb-3 px-3 {{ data['mobile_tel.classname'] }} phone-imask" id="mobile_tel" value="{{ data.mobile_tel }}" placeholder="Номер телефона">
+			</div>
+		</div>
+		<button class="mt-1" type="submit">Задать вопрос</button>
+		<div class="bottom-text mt-3">
+			Нажимая кнопку, вы принимаете условия <a href="/policy" class="d-block">Политики конфиденциальности</a>
+		</div>
+	</form>
+</div>
+
+
+

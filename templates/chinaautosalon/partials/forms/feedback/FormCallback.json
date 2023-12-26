@@ -3,6 +3,9 @@
     "mobile_tel": {
       "required": "Обязательно к заполнению"
     },
+    "first_name": {
+      "required": "Обязательно к заполнению"
+    },
     "check_nationality": {
       "required": "Обязательно к заполнению"
     }

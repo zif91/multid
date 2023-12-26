@@ -1,5 +1,6 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
+{% set complectations = runSnippet('Complectations') %}
 {% set car_photos_one = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 {% set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) %}
@@ -100,7 +101,7 @@
                         {% endfor %}
                         {% endif %}
                     </div>
-                    
+
                 </div>
             </div>
             <div class="col-lg-5">
@@ -132,6 +133,48 @@
                         <button class="w-100 color3" data-fancybox="" data-src="#popup">Предложить обмен</button>
                     </div>
                 </div>
+            </div>
+            <div class="col-12">
+                {% if complectations is not empty %}
+                    <div class="configurations mb-5">
+                        <h2 class="mb-4">Доступные комплектации</h2>
+                        {% for complectation in complectations %}
+                            <div class="mb-3">
+                                <h5 class="font-weight-bold mb-2">{{ complectation['title_group'] }}</h5>
+                                {% for item in complectation['items'] %}
+                                    <div class="card mb-2">
+                                        <div class="card-header">{{ item['title'] }}</div>
+                                        <div class="card-body">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <th>Наименование</th>
+                                                <th>Цена</th>
+                                                <th>Старая цена</th>
+                                                <th>Привод</th>
+                                                <th>Коробка передач</th>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>{{ item['title'] }}</td>
+                                                    <td>{{ item['price'] }}</td>
+                                                    <td>{{ item['price_old'] }}</td>
+                                                    <td>{{ item['drive'] }}</td>
+                                                    <td>{{ item['transmission'] }}</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                            {% if item['description'] is not empty %}
+                                                <div class="font-weight-bold">Описание</div>
+                                                <div>{{ item['description'] }}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -1,0 +1,212 @@
+{% extends './app.twig' %}
+{% set brand = runSnippet('_get', {key: 'brand'}) %}
+{% if not brand %}
+    {% set brand = '' %}
+{% endif %}
+{% set model = runSnippet('_get', {key: 'model'}) %}
+{% if not model %}
+    {% set model = '' %}
+{% endif %}
+
+{% set body = runSnippet('_get', {key: 'body'}) %}
+{% if not body %}
+    {% set body = '' %}
+{% endif %}
+{% set price_start = runSnippet('_get', {key: 'pricestart'}) %}
+{% if not price_start %}
+    {% set price_start = 0 %}
+{% endif %}
+{% set price_end = runSnippet('_get', {key: 'priceend'}) %}
+{% if not price_end %}
+    {% set price_end = 99999999 %}
+{% endif %}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+display: 20,
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' ,
+
+parents: 593,
+depth: 2,
+tvList:'car-price,old-car-price,body_type,configuration_id',
+ownerTPL: '@T_FILE:partials/wrap',
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+tpl:'@T_FILE:partials/catalogcard_first',
+paginate:'pages',
+TplNextP:'@CODE:<li class="d-inline-block">
+					<a href="[+link+]">&gt;</a></li>',
+TplPrevP:'@CODE:<li class="d-inline-block">
+					<a href="[+link+]">&lt;</a></li>',
+TplPage:'@CODE:				<li class="d-inline-block">
+<a  href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE:				<li class="d-inline-block active">
+<a  href="[+link+]">[+num+]</a></li>',
+TplWrapPaginate:'@CODE:<ul class="pages d-inline-block">[+wrap+]</ul>',
+tvSortType: 'UNSIGNED',
+addWhereList: 'c.template=28',
+})
+%}
+{% set models = runSnippet('DocLister', {
+id: 'catalog',
+filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' ,
+_filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
+parents: 593,
+depth: 1,
+addWhereList: 'isfolder=1 AND c.template=20',
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,mark_id,model_id',
+api: 1,
+debug:0,
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+})
+| json %}
+{% block MAIN %}
+	{#% include('partials/crumbs.twig') %#}
+
+	{#<div class="index-calc-block inner position-relative pt-5 pb-5 text-center">
+			<div class="container position-relative">
+				<div class="row">
+					{{ plh['catalog.filters'] | raw }}
+				</div>
+				<!--a class="bottom-link mb-2 d-inline-block">Показать еще фильтры</a-->
+			</div>
+		</div>#}
+  
+
+
+	<div class="catalog-page py-5 pb-4"> <div class="container">
+    <div class="container">
+    	<div class="top-banner mb-5" style="background: url('templates/chinafresh/img/banner.png') center/cover;">
+				<p class="mb-2">НОВЫЕ Mercedes в Санкт-Петербурге</p>
+				Новые модели Mercedes и все комплектации в наличии по выгодным ценам. Быстрое одобрение кредита, скидки и подарки покупателям.
+			</div>
+			<h1 class="h1 mb-4">Автомобили в наличии</h1>
+			{# <div class="filter mb-5 flex">
+				<select class="px-3" id="marks">
+											<option>Выбрать...</option>
+
+					{% for item in marks %}
+						<option>{{ item.pagetitle }}</option>
+						{% endfor %}
+				</select>
+				<select class="px-3" id="models">
+											<option>Выбрать...</option>
+
+					{% for item in models %}
+						<option>{{ item.pagetitle }}</option>
+						{% endfor %}
+				</select>
+				<input class="px-3" type="text" placeholder="Цена от" id="price_start">
+				<input class="px-3" type="text"  placeholder="Цена до" id="price_end">
+			</div>
+			<h2 class="h2 mb-4">Автомобили в наличии</h2> #}
+			<div class="row" id="catalog">
+				{{DLCatalog |raw}}
+			</div>
+
+			{{ plh['catalog.pages'] | raw }}
+
+			{# <a href="#" class="bottom-link pr-4">Показать больше</a> #}
+		</div>
+    </div>
+		{# {{runSnippet ('bdebug', {})}} #}
+		
+<script type="text/javascript">
+window.onload = function() {
+  const marksSelect = $('#marks');
+  const modelsSelect = $('#models');
+  const priceStartInput = $('#price_start');
+  const priceEndInput = $('#price_end');
+
+  const updateCatalog = () => {
+  const brand = marksSelect.val();
+  const model = modelsSelect.val();
+  const priceStart = priceStartInput.val();
+  const priceEnd = priceEndInput.val();
+
+  const url = new URL(window.location.href);
+  url.searchParams.set('brand', brand);
+
+  if (model && model !== 'Выбрать...') { // Добавляем проверку на значение "Выбрать..."
+    url.searchParams.set('model', model);
+  } else {
+    url.searchParams.delete('model');
+  }
+
+  if (priceStart) {
+    url.searchParams.set('pricestart', priceStart);
+  } else {
+    url.searchParams.delete('pricestart');
+  }
+
+  if (priceEnd) {
+    url.searchParams.set('priceend', priceEnd);
+  } else {
+    url.searchParams.delete('priceend');
+  }
+
+  $.ajax({
+    url: url.toString(),
+    method: 'GET',
+    dataType: 'html'
+  })
+    .done(function(data) {
+      const catalogHtml = $('<div>').html(data).find('#catalog').html();
+      const modelsHtml = $('<div>').html(data).find('#models').html();
+      $('#catalog').html(catalogHtml);
+      $('#models').html(modelsHtml);
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      console.error(errorThrown);
+    });
+};
+
+  marksSelect.on('change', updateCatalog);
+  modelsSelect.on('change', updateCatalog);
+  priceStartInput.on('change', updateCatalog);
+  priceEndInput.on('change', updateCatalog);
+};
+
+</script>
+
+<div class="calc-block mb-5">
+	<div class="container">
+	{{ runSnippet('Form', {
+    formid: 'FormCredit',
+    path: '/templates/chinafresh/partials/forms/credit/',
+    extension: 'twig'
+    }) | raw }}
+	</div>
+</div>
+
+<div class="actions-block pb-4">
+		<div class="container">
+			<h2 class="h2 mb-4">Акции</h2>
+			{% include "/partials/actions.twig" %}
+		</div>
+	</div>
+</div>
+
+<div class="page-form text-center py-5 mb-5">
+  {{ runSnippet('Form', {
+  formid: 'FormCallback',
+  path: '/templates/chinafresh/partials/forms/feedback/',
+  extension: 'twig'
+  }) | raw }}
+</div>
+	{% include "/partials/contacts.twig" %}
+{% endblock %}
+

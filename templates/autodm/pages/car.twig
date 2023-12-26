@@ -1,25 +1,25 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-{% set cardphoto = runSnippet('morephoto', {
-images: resource["car_photos"],
-image: resource.car-photos,
-phpthumb: 'w=570,h=0',
-ownerTPL: '[+wrap+]',
-display: 1
-})
-%}
-{#{{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
-{% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
-action:'caroldprice'}) %}
-{% set month = runSnippet('helpers', {carmonth: resource['car-price'],
-action:'carmonth'}) %}
-{% set vigoda = oldprice - resource['car-price'] %}
-{% set gifts = runSnippet('DocLister', {
-display: 3,
-parents: 24,
-depth: 0,
-tvList:'image,color',
-tpl:'@T_CODE: <div class="gift__item">
+    {% set complectations = runSnippet('Complectations') %}
+    {% set cardphoto = runSnippet('morephoto', {
+        images: resource["car_photos"],
+        image: resource.car-photos,
+        phpthumb: 'w=570,h=0',
+        ownerTPL: '[+wrap+]',
+        display: 1
+    }) %}
+    {# {{ runSnippet('carday', {carprice: resource["car-price"] }) | raw}} #}
+    {% set oldprice = runSnippet('helpers', {caroldprice: resource['car-price'],
+        action:'caroldprice'}) %}
+    {% set month = runSnippet('helpers', {carmonth: resource['car-price'],
+        action:'carmonth'}) %}
+    {% set vigoda = oldprice - resource['car-price'] %}
+    {% set gifts = runSnippet('DocLister', {
+        display: 3,
+        parents: 24,
+        depth: 0,
+        tvList:'image,color',
+        tpl:'@T_CODE: <div class="gift__item">
     <div style="background: linear-gradient(to bottom, {{ data[\'tv.color\'] }} 0px, {{ data[\'tv.color\'] }} 123px, #ffffff 123px, #ffffff 100%)" class="gift-item gift-item--transit">
         <div class="gift-item__text-wrap">
             <div class="gift-item__text">{{ data.title }}</div>
@@ -29,271 +29,306 @@ tpl:'@T_CODE: <div class="gift__item">
         </div>
     </div>
 </div>'
-})%}
-{% include('partials/crumbs.twig') %}
-{% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
-{% set car_photos = resource.car_photos | json %}
-{% set car_photos = car_photos.fieldValue %}
+    }) %}
+    {% include('partials/crumbs.twig') %}
+    {% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
+    {% set car_photos = resource.car_photos | json %}
+    {% set car_photos = car_photos.fieldValue %}
 
-<main class="item-page">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-9">
-                <h1>{{resource.pagetitle}}</h1>
-            </div>
-        </div><p class="car_photos" ></p>
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="photos">
-                    <div class="slider-for">
-                        {% if car_photos and count(car_photos)>0 %}
-                        {% for image in car_photos %}
-                        <div class="item"><img src="{{image.image}}"></div>
-                        {% endfor %}
-                        {% else %}
-                        <div class="item"><img src="{{image.image}}"></div>
-                        {% endif %}
-                    </div>
-                    <div class="slider-nav">
-                        {% if car_photos and count(car_photos)>0 %}
-                {% for image in car_photos  %}
-                <div class="item"><img src="{{image.image}}"></div>
-                {% endfor %}
-                {% else %}
-                <div class="item"><img src="{{image.image}}"></div>
-                {% endif %}
-                    </div>
+    <main class="item-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1>{{ resource.pagetitle }}</h1>
                 </div>
-                <div class="data">
-                                        <h2>Характеристики</h2>
-
-                    <table>
-                        <tr>
-                            <td>Год выпуска</td>
-                            <td>{{resource.year}}</td>
-                        </tr>
-                        <tr>
-                            <td>Пробег</td>
-                            <td>{{resource.run
-                }} км</td>
-                        </tr>
-                        <tr>
-                            <td>ПТС</td>
-                            <td>{{resource.pts}}</td>
-                        </tr>
-                        <tr>
-                            <td>Кол-во владельцев по ПТС</td>
-                            <td>{% if resource.owners %}
-                            {{resource.owners}}
+            </div>
+            <p class="car_photos"></p>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="photos">
+                        <div class="slider-for">
+                            {% if car_photos and count(car_photos)>0 %}
+                                {% for image in car_photos %}
+                                    <div class="item"><img src="{{ image.image }}"></div>
+                                {% endfor %}
                             {% else %}
-                            Один
-                            {% endif %}</td>
-                        </tr>
-                        <tr>
-                            <td>Поколение</td>
-                            <td>{{resource.modification}}</td>
-                        </tr>
-                        <tr>
-                            <td>Тип кузова</td>
-                            <td>
-                            {{resource.body_type}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Модификация</td>
-                            <td>{{resource.engine_volume
-                }} {{resource.gear
-                }} ({{resource.engine_power
-                }} л.с.)</td>
-                        </tr>
-                        {# <tr>
+                                <div class="item"><img src="{{ image.image }}"></div>
+                            {% endif %}
+                        </div>
+                        <div class="slider-nav">
+                            {% if car_photos and count(car_photos)>0 %}
+                                {% for image in car_photos %}
+                                    <div class="item"><img src="{{ image.image }}"></div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="item"><img src="{{ image.image }}"></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="data mb-5">
+                        <h2>Характеристики</h2>
+
+                        <table>
+                            <tr>
+                                <td>Год выпуска</td>
+                                <td>{{ resource.year }}</td>
+                            </tr>
+                            <tr>
+                                <td>Пробег</td>
+                                <td>{{ resource.run }} км</td>
+                            </tr>
+                            <tr>
+                                <td>ПТС</td>
+                                <td>{{ resource.pts }}</td>
+                            </tr>
+                            <tr>
+                                <td>Кол-во владельцев по ПТС</td>
+                                <td>{% if resource.owners %}
+                                        {{ resource.owners }}
+                                    {% else %}
+                                        Один
+                                    {% endif %}</td>
+                            </tr>
+                            <tr>
+                                <td>Поколение</td>
+                                <td>{{ resource.modification }}</td>
+                            </tr>
+                            <tr>
+                                <td>Тип кузова</td>
+                                <td>
+                                    {{ resource.body_type }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Модификация</td>
+                                <td>{{ resource.engine_volume }} {{ resource.gear }} ({{ resource.engine_power }}
+                                    л.с.)
+                                </td>
+                            </tr>
+                            {# <tr>
                             <td>Цвет</td>
                             <td>{{resource.car_color}}</td>
                         </tr> #}
 
-                    </table>
+                        </table>
+
+                    </div>
+
+                    {% if complectations is not empty %}
+                        <div class="configurations mb-5">
+                            <h2 class="mb-4">Доступные комплектации</h2>
+                            {% for complectation in complectations %}
+                                <div class="mb-3">
+                                    <h5 class="font-weight-bold mb-2">{{ complectation['title_group'] }}</h5>
+                                    {% for item in complectation['items'] %}
+                                        <div class="card mb-2">
+                                            <div class="card-header">{{ item['title'] }}</div>
+                                            <div class="card-body">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <th>Наименование</th>
+                                                        <th>Цена</th>
+                                                        <th>Старая цена</th>
+                                                        <th>Привод</th>
+                                                        <th>Коробка передач</th>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>{{ item['title'] }}</td>
+                                                            <td>{{ item['price'] }}</td>
+                                                            <td>{{ item['price_old'] }}</td>
+                                                            <td>{{ item['drive'] }}</td>
+                                                            <td>{{ item['transmission'] }}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                                {% if item['description'] is not empty %}
+                                                    <div class="font-weight-bold">Описание</div>
+                                                    <div>{{ item['description'] }}</div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
 
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="calc">
-                    <h2>Выгода при покупке в кредит!</h2>
-                    <p class="pb-2">Ставка от {% if baseSettings.credit_rate is empty %}
-    4.9
-{% else %}
-    {{ baseSettings.credit_rate }}
-{% endif %}% годовых!</p>
-                    <div class="item">
-                        Сумма кредита
-                        <input type="text" id="amount" readonly>
-                        <div id="slider-range-max"></div>
-                    </div>
-                    <div class="item">
-                        Срок кредита
-                        <input type="text" id="amount2" readonly>
-                        <div id="slider-range-max2"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="item">
-                               <span> Платеж от</span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="item">
-
-                                <span id="payment">30 050 р/мес.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button"data-toggle="modal" data-target="#oneclick">Рассчитать кредит</button>
-                </div>
-                <div class="price-block">
-                    <div class="price">
-                        {{ (resource['car-price'])|number_format(0, '.', '  ') }} ₽
-                    </div>
-                    <div class="oldprice">
-                        {{ (oldprice)|number_format(0, '.', '  ') }} ₽
-                    </div>
-                </div>
-                <div class="flex">
-                    <div class="nal">
-                        <span></span> В наличии
-                    </div>
-                    <div class="special">
-                        Специальное предложение
-                    </div>
-                </div>
-
-                <div class="buttons">
-                    <button type="button"data-toggle="modal" data-target="#oneclick">Забронировать</button>
-                    <button type="button"data-toggle="modal" data-target="#oneclick">Получить предложение</button>
-                </div>
-                <div class="icons-block">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="item">
-                                <img src="/templates/autodm/img/item-icon1.png">
-                                {{resource.fuel
-                }}
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="item">
-                                <img src="/templates/autodm/img/item-icon2.png">
-                                {{resource.drive
-                }}
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="item">
-                                <img src="/templates/autodm/img/item-icon3.png">
-                                {{resource.gear
-                }}
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="item">
-                                <img src="/templates/autodm/img/item-icon4.png">
-                                {{resource.engine_power
-                }} л.с.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mob-data">
-                    <table>
-                        <tr>
-                            <td>Год выпуска</td>
-                            <td>{{resource.year}}</td>
-                        </tr>
-                        <tr>
-                            <td>Пробег</td>
-                            <td>{{resource.run
-                }} км</td>
-                        </tr>
-                        <tr>
-                            <td>ПТС</td>
-                            <td>{{resource.pts
-                }}</td>
-                        </tr>
-                        <tr>
-                            <td>Кол-во владельцев по ПТС</td>
-                            <td>{% if resource.owners %}
-                            {{resource.owners}}
+                <div class="col-lg-4">
+                    <div class="calc">
+                        <h2>Выгода при покупке в кредит!</h2>
+                        <p class="pb-2">Ставка от {% if baseSettings.credit_rate is empty %}
+                            4.9
                             {% else %}
-                            Один
-                            {% endif %}</td>
-                        </tr>
-                        <tr>
-                            <td>Поколение</td>
-                            <td>{{resource.modification}}</td>
-                        </tr>
-                        <tr>
-                            <td>Тип кузова</td>
-                            <td>{{resource.body_type}}</td>
-                        </tr>
-                        <tr>
-                            <td>Модификация</td>
-                            <td>{{resource.engine_volume
-                }} {{resource.gear
-                }} ({{resource.engine_power
-                }} л.с.)</td>
-                        </tr>
-                        {# <tr>
+                                {{ baseSettings.credit_rate }}
+                            {% endif %}% годовых!</p>
+                        <div class="item">
+                            Сумма кредита
+                            <input type="text" id="amount" readonly>
+                            <div id="slider-range-max"></div>
+                        </div>
+                        <div class="item">
+                            Срок кредита
+                            <input type="text" id="amount2" readonly>
+                            <div id="slider-range-max2"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="item">
+                                    <span> Платеж от</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item">
+
+                                    <span id="payment">30 050 р/мес.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" data-toggle="modal" data-target="#oneclick">Рассчитать кредит</button>
+                    </div>
+                    <div class="price-block">
+                        <div class="price">
+                            {{ (resource['car-price'])|number_format(0, '.', '  ') }} ₽
+                        </div>
+                        <div class="oldprice">
+                            {{ (oldprice)|number_format(0, '.', '  ') }} ₽
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="nal">
+                            <span></span> В наличии
+                        </div>
+                        <div class="special">
+                            Специальное предложение
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" data-toggle="modal" data-target="#oneclick">Забронировать</button>
+                        <button type="button" data-toggle="modal" data-target="#oneclick">Получить предложение</button>
+                    </div>
+                    <div class="icons-block">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="item">
+                                    <img src="/templates/autodm/img/item-icon1.png">
+                                    {{ resource.fuel }}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item">
+                                    <img src="/templates/autodm/img/item-icon2.png">
+                                    {{ resource.drive }}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item">
+                                    <img src="/templates/autodm/img/item-icon3.png">
+                                    {{ resource.gear }}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item">
+                                    <img src="/templates/autodm/img/item-icon4.png">
+                                    {{ resource.engine_power }} л.с.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mob-data">
+                        <table>
+                            <tr>
+                                <td>Год выпуска</td>
+                                <td>{{ resource.year }}</td>
+                            </tr>
+                            <tr>
+                                <td>Пробег</td>
+                                <td>{{ resource.run }} км</td>
+                            </tr>
+                            <tr>
+                                <td>ПТС</td>
+                                <td>{{ resource.pts }}</td>
+                            </tr>
+                            <tr>
+                                <td>Кол-во владельцев по ПТС</td>
+                                <td>{% if resource.owners %}
+                                        {{ resource.owners }}
+                                    {% else %}
+                                        Один
+                                    {% endif %}</td>
+                            </tr>
+                            <tr>
+                                <td>Поколение</td>
+                                <td>{{ resource.modification }}</td>
+                            </tr>
+                            <tr>
+                                <td>Тип кузова</td>
+                                <td>{{ resource.body_type }}</td>
+                            </tr>
+                            <tr>
+                                <td>Модификация</td>
+                                <td>{{ resource.engine_volume }} {{ resource.gear }} ({{ resource.engine_power }}
+                                    л.с.)
+                                </td>
+                            </tr>
+                            {# <tr>
                             <td>Цвет</td>
                             <td>{{resource.car_color}}</td>
                         </tr> #}
 
-                    </table>
+                        </table>
 
 
-                    </table>
-                </div>
+                        </table>
+                    </div>
 
 
-                <div class="icons-block">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="item">
-                                <img src="/templates/autodm/img/001-accept.png">
-ДТП не найдены                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="item">
-                                <img src="/templates/autodm/img/002-good-review.png">
-                                Банк одобряет данный а\м
+                    <div class="icons-block">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="item">
+                                    <img src="/templates/autodm/img/001-accept.png">
+                                    ДТП не найдены
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="item">
-                                <img src="/templates/autodm/img/003-good.png">
-                                Записей об аресте не найдено
+                            <div class="col-6">
+                                <div class="item">
+                                    <img src="/templates/autodm/img/002-good-review.png">
+                                    Банк одобряет данный а\м
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="item">
-                                <img src="/templates/autodm/img/004-chat.png">
-                                Машина не находится в залоге
+                            <div class="col-6">
+                                <div class="item">
+                                    <img src="/templates/autodm/img/003-good.png">
+                                    Записей об аресте не найдено
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="item">
+                                    <img src="/templates/autodm/img/004-chat.png">
+                                    Машина не находится в залоге
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                {#<div class="buttons">
+                    {# <div class="buttons">
                     <button type="button"data-toggle="modal" data-target="#oneclick">Забронировать</button>
                     <button type="button"data-toggle="modal" data-target="#oneclick">Получить предложение</button>
-                </div>#}
+                </div> #}
+                </div>
             </div>
         </div>
-    </div>
-    {% include('partials/banks.twig') %}
-<p style="color:white">{{resource.id}}</p>
-<p style="color:white">{{resource.parent}}</p>
-</main>
+        {% include('partials/banks.twig') %}
+        <p style="color:white">{{ resource.id }}</p>
+        <p style="color:white">{{ resource.parent }}</p>
+    </main>
 
-{% set logoid = runSnippet('logo', {brand: resource["longtitle"] } )  %}
-{{ runSnippet (DocInfo, {docid: logoid, field: image } ) }}
- {#<script type="text/javascript">
+    {% set logoid = runSnippet('logo', {brand: resource["longtitle"] } ) %}
+    {{ runSnippet (DocInfo, {docid: logoid, field: image } ) }}
+    {# <script type="text/javascript">
  var waitForJQuery = setInterval(function () {
     if (typeof $ != 'undefined') {
 
@@ -312,7 +347,7 @@ $( function() {
         clearInterval(waitForJQuery);
     }
 }, 10);
-    </script>#}
+    </script> #}
 
 
 {% endblock %}

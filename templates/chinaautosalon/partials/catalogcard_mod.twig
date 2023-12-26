@@ -17,14 +17,14 @@ display: 1
 		{# <img src="{{ car_photos.fieldValue[0].image }}"> #}
 		<img src="{{ last_photo }}">
 		<div class="p-4">
-			<div class="name mb-3">
+			<div class="name mb-4">
 				{{ data['pagetitle'] }} {{data[tv.body_type]}}
 			</div>
-			<div class="data pb-2">
-				<div class="data-item d-inline-block mr-4 mb-2">
+			{# <div class="data pb-2"> #}
+				{# <div class="data-item d-inline-block mr-4 mb-2"> #}
 					{#Комплектаций
 					<span class="d-inline-block mt-2">{{ modification|length }}</span>#}
-				</div>
+				{# </div> #}
 				{#<div class="data-item d-inline-block mr-4 mb-2">
 					Пробег
 					<span class="d-block mt-2">83 890 км</span>
@@ -33,17 +33,18 @@ display: 1
 					Год
 					<span class="d-block mt-2">2010</span>
 				</div>#}
-			</div>
-			<div class="price mb-3">
+			{# </div> #}
+			<div class="price mb-2">
 				<span class="new mr-2"> {{ data['tv.car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽ </span>
 				{% if data['tv.old-car-price'] !="" %}
 				<span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
 				{% endif %}
 			</div>
 			<div class="credit mb-3 position-relative">
-				{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}} рублей в месяц
+			<span class="text-left">В кредит от
+				{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}} ₽/мес</span>
 				{# <span class="text-right">Ставка <br />от 1.6%</span> #}
-				<span class="text-right">Ставка <br />от {% if baseSettings.credit_rate is empty %}
+				<span class="text-right spanrate"> от {% if baseSettings.credit_rate is empty %}
     1.6
 {% else %}
     {{ baseSettings.credit_rate }}
@@ -53,7 +54,7 @@ display: 1
 				{#<div class="col-6">
 					<button  id="myButton" class="color1 w-100">Купить в кредит</button>
 				</div>#}
-				<div class="col-6"> 
+				<div class="col-6 pr-1"> 
 					<a href="#" onclick="showCreditPopup(
                         {{ data['id'] }},
                         '',
@@ -62,12 +63,35 @@ display: 1
                       class="car-plate__button button button_red">В кредит</a>
 
                 </div>
-				<div class="col-6">
-					<button class="color2 w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button>
+				<div class="col-6 pl-1">
+					{# <button class="color2 w-100" onclick="location.href='{{ data['url'] }}';">Подробнее</button> #}
+					<button  data-fancybox="" data-src="#popup" class="w-100 color2">Бронь</button>
 				</div>
+
+		<div class="circular-icons">
+            <img class="add-to-cart-icon" src="/templates/chinaautosalon/img/Gift.png" alt="Add to Cart">
+            <img class="add-to-favorites-icon" src="/templates/chinaautosalon/img/New.png" alt="Add to Favorites">
+        </div>
 			</div>
 		</div>
 	</div>
 </div>
 </a>
 {% endif %}
+<style>
+    .circular-icons {
+        position: absolute;
+        top: 10px; 
+        left: 10px; 
+    }
+    
+    .catalog-page .item .add-to-cart-icon,
+    .catalog-page .item .add-to-favorites-icon {
+        display: inline-block;
+        width: 34px; 
+        height: 34px; 
+        font-size: 20px; 
+		margin-left: 11px;
+    }
+
+</style>

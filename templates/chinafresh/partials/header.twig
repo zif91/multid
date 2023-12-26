@@ -1,0 +1,53 @@
+
+{% set headermenu = runSnippet('DLMenu', {
+parents: baseSettings["id"],
+tvList: 'image',
+maxDepth: 1,
+rowTpl: '@CODE:
+<li><a href="[+url+]">[+pagetitle+]</a></li>',
+outerTpl: '@CODE:<ul>
+    [+wrap+]</ul>'}) %}
+
+<div class="menubg"></div>
+<header class="header inner mb-5">
+	<div class="container flex">
+		<div class="logo">
+		<a href="/">
+            {% if baseSettings["logo"] %}
+                <img src="{{baseSettings["logo"]}}">
+            {% else %}
+            <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings.pagetitle }}
+            </div>
+            {% endif %}
+        </a>
+		</div>
+		{{headermenu|raw}}
+		{# <ul>
+			<li><a href="/katalog-avtomobilej">Купить</a></li>
+			<li><a href="/prodat">Продать</a></li>
+			<li><a href="/kredit">Кредит</a></li>
+			<li><a href="/akcii">Акции</a></li>
+			<li><a href="/kontakty">Контакты</a></li>
+		</ul> #}
+		<div class="contacts">
+			<button data-fancybox data-src="#popup" type="button">Заказать звонок</button>
+			{{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7(xxx)xxx-xx-xx', link: '1'}) | raw}}
+		</div>
+		<a class="menu-button">
+			<span></span>
+			<span></span>
+			<span></span>
+		</a>
+	</div>
+</header>
+

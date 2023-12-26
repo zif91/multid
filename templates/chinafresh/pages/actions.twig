@@ -1,0 +1,28 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+
+{% set catalog_number = baseSettings['id'] %}
+{% set gifts = runSnippet('DocLister', {
+    display: 6,
+    parents: catalog_number,
+    depth: 2,
+    addWhereList: 'c.template = (13)',
+    tvList:'image,color',
+    tpl:'@T_FILE:partials/actions_actions'
+})
+%}
+
+<div class="actions-block pb-4">
+	<div class="container">
+		<h1 class="h1 mb-4">Акции</h1>
+		{% if gifts is empty %}
+
+    	{% else %}
+        	{{gifts | raw}}
+    	{% endif %}
+	</div>
+</div>
+<div class="container py-5 mb-5 d-none d-sm-block">
+	{{resource.content |raw }}
+</div>
+{% endblock %}

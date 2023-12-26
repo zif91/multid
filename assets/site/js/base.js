@@ -374,7 +374,8 @@ function mainFunc() {
 
                         if ($('#metrik-id').length > 0) {
                             var metrikId = $('#metrik-id').text();
-                            ym(metrikId, 'reachGoal', 'goals');
+                            // ym(metrikId, 'reachGoal', 'goals');
+                            ym(metrikId, 'reachGoal', 'send_forms');
                         }
 
                     }

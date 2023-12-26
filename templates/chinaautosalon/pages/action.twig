@@ -1,10 +1,10 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
 	{#{resource | dump}#}
-<div class="actions-top-block mb-5" style="background: url({{resource.image|raw}}) left center/cover;">
-	<div class="container">
+<div class="actions-top-block mb-5 d-flex " style="background: url({{resource.image|raw}}) left center/cover; align-items: center;">
+	<div class="container mt-3">
 		<div class="text">
-			<h1 class="mb-3">{{resource.pagetitle | raw}}</h1>
+			<h1>{{resource.pagetitle | raw}}</h1>
 			<p>{{resource.description | raw}}</p>
 		</div>
 	</div>

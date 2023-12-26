@@ -1,0 +1,253 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+	{#% cache 'main' ~ resource.id %#}
+	{# {% set brand = _GET.brand %}
+{% if not brand %}
+{% set brand = 'hyundai' %}
+{% endif %}
+{% set model = _GET.model %}
+{% if not model %}
+{% set model = '' %}
+{% endif %}
+	{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+filters: 'AND(tv:mark_id:=:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
+_filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
+display: 4,
+parents: 593,
+depth: 2,
+addWhereList: 'c.template=28',
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price, old-car-price,year, image, mark_id, configuration_id',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard_mod',
+paginate:'pages',
+TplNextP:'',
+TplPrevP:'',
+TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+
+__filterPriceId: 14,
+_filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
+tvSortType: 'UNSIGNED',
+api: 0,
+debug:0,
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+})
+%}
+{% set models = runSnippet('DocLister', {
+id: 'catalog',
+filters: 'AND(tv:mark_id:=:' ~ brand ~ ')' ,
+_filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
+parents: 593,
+depth: 1,
+addWhereList: 'isfolder=1 AND c.template=20',
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,old-car-price,car_photos,run,engine_power,gear,year, image,mark_id,model_id',
+api: 1,
+debug:0,
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+})
+| json %} #}
+
+{% set catalog_number = baseSettings['catalog_number'] %}
+{% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: catalog_number,
+depth: 5,
+orderBy: 'car-price',
+order: 'RAND()',
+tvSortType: 'SIGNED',
+tvList:'car-price,credit_rate,old-car-price,car_photos,run,engine_power,gear,year, image',
+ownerTPL: '@T_FILE:partials/wrap',
+tpl:'@T_FILE:partials/catalogcard',
+paginate:'pages',
+TplNextP:'',
+TplPrevP:'',
+TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+filter: 'filters',
+filterRangeSeparator: ':',
+filterValuesSeparator: '|',
+filterDelimiter: '||',
+__filterPriceId: 14,
+filterList: '42,43,19',
+_filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
+filterTpl: '@T_FILE:partials/filters/tpl',
+filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+filterTplRange: '@T_FILE:partials/filters/tplRange',
+filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+tvSortType: 'UNSIGNED',
+api: 0,
+noneTPL:'@CODE: <div class="container">
+  <div class="flex">
+    <div class="col text-center">
+      <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+    </div>
+  </div>
+</div>',
+})
+%}
+{# {% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
+rowTpl:'@CODE:
+<div class="index-first-block text-center mb-5" style="background: url([+image+]) center/cover;">
+	<div class="container">
+		<p class="mb-4">[+title+]</p>
+		<form>
+				<div class="flex">
+					<select class="px-3" id="marks">
+						{% for item in marks %}
+							<option>{{ item.pagetitle }}</option>
+						{% endfor %}
+					</select>
+					<select class="px-3"  id="models">
+						<option>Выбрать...</option>
+						{% for item in models %}
+							<option>{{ item.pagetitle }}</option>
+						{% endfor %}
+					</select>
+					<input type="text" placeholder="Цена от">
+					<input type="text" placeholder="Цена до">
+				</div>
+				<button class="mt-3">Подобрать авто</button>
+			</form>
+	</div>
+</div>'}) %} #}
+
+{% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
+rowTpl:'@CODE: 
+<div class="index-first-block text-center mb-5" style="background: url([+image+]) center/cover;">
+	<div class="container">
+		
+			<p class="mb-4">[+title+]</p>
+			
+				[+catalog.filters+]
+			
+		
+	</div>
+</div>'}) %}
+
+  {{banner |raw}}
+	
+	{% include('partials/brands.twig') %}
+	{% include "/partials/services.twig" %}	
+
+
+	<div class="index-catalog-block mb-5" id="creditform">
+		<div class="container">
+			<h2 class="h2 mb-4">Рекомендуемые модели</h2>
+			<div class="list">
+				{{DLCatalog|raw}}
+				<div class="bottom-link text-center pt-5">	
+			</div>
+		</div>
+		<div class="bottom-link text-center pt-5">
+			<a href="#" class="d-block">Показать все модели <i class="fa fa-angle-down"></i></a>
+		</div>
+		</div>
+	</div>
+
+
+{% include "/partials/advantages.twig" %}
+<div class="actions-block pb-4">
+		<div class="container">
+		<h2 class="h2 mb-4">Акции</h2>
+		{% include "/partials/actions.twig" %}
+	</div>
+</div>
+<div class="page-form text-center py-5 mb-5">
+    {{ runSnippet('Form', {
+    formid: 'FormCallback',
+    path: '/templates/chinafresh/partials/forms/feedback/',
+    extension: 'twig'
+    }) | raw }}
+</div>
+{% include "/partials/contacts.twig" %}
+
+
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const marksSelect = document.querySelector('#marks');
+    const modelsSelect = document.querySelector('#models');
+    const filterButton = document.querySelector('#filterbutton');
+
+    const updateFilterUrl = () => {
+      const brand = marksSelect.value;
+      const model = modelsSelect.value;
+
+      let url = '/katalog-novyh-avtomobilej/?';
+      if (brand && brand !== 'Выбрать...') {
+        url += `brand=${brand}&`;
+      }
+
+      if (model && model !== 'Выбрать...') {
+        url += `model=${model}&`;
+      }
+
+      filterButton.disabled = false;
+	filterButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    window.location.href = url.slice(0, -1);
+});
+    };
+
+    const updateModels = () => {
+      const brand = marksSelect.value;
+
+      if (brand && brand !== 'Выбрать...') {
+        const url = `/katalog-novyh-avtomobilej/?brand=${brand}`;
+        $.ajax({
+          url: url,
+          method: 'GET',
+          dataType: 'html'
+        })
+        .done(function(data) {
+          const modelsHtml = $(data).find('#models').html();
+          $('#models').html(modelsHtml);
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+          console.error(errorThrown);
+        });
+      }
+    };
+
+    marksSelect.addEventListener('change', function() {
+      updateModels();
+      updateFilterUrl();
+    });
+    modelsSelect.addEventListener('change', updateFilterUrl);
+
+    filterButton.disabled = true;
+  });
+ </script>
+//  <script>
+// function scrollToCreditForm() {
+//     const creditForm = document.getElementById("creditform");
+//     creditForm.scrollIntoView({ behavior: "smooth" });
+// }
+
+// </script>
+ 
+ {% endblock %}
+

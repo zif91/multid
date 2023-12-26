@@ -74,12 +74,31 @@ noneTPL:'@CODE: <div class="container">
 {% set banner = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
 rowTpl:'@CODE:
 <div class="index-first-block" style="background: #35374e url([+image+]) no-repeat top center/cover;">
-	<div class="container">
+	<div class="container d-flex justify-content-center">
 		<div class="text">
-			<div class="name mb-3">
+			<div class="name text-center mb-3">
 				[+title+]
 			</div>
-			<p class="mb-4"> </button>
+			<p class="text-center mb-4">[+text+] </p>
+			<div class="d-flex justify-content-center">
+				<button mt-4 data-fancybox="" data-src="#popup" type="button">Оставить заявку</button>
+			</div>
+		</div>
+	</div>
+</div>'}) %}
+
+{% set bannerMob = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
+rowTpl:'@CODE:
+
+	<div class="container d-flex justify-content-center">
+		<div class="text">
+			<div class="name text-center mb-3">
+				[+title+]
+			</div>
+			<p class="text-center mb-4">[+text+] </p>
+			<div class="d-flex justify-content-center">
+				<button mt-4 data-fancybox="" data-src="#popup" type="button">Оставить заявку</button>
+			</div>
 		</div>
 	</div>
 </div>'}) %}
@@ -89,7 +108,16 @@ formid: 'FormCredit',
 path: '/templates/rofl/partials/forms/credit_home/',
 extension: 'twig'
 }) | raw }#}
-{{banner |raw}}
+<div class="banner">
+	{{banner |raw}}
+</div>
+<div class="banner-mob">
+<div class="index-first-block" style="background: #35374e url('{{baseSettings['mob_banner']}}') no-repeat top center/cover;">
+	{{bannerMob |raw}}
+</div>
+</div>
+{# {{dump(baseSettings['mob_banner'])}} #}
+
 <div class="container">
 	<div class="index-filter-block py-sm-4 py-5 px-4">
 		<div class="name mb-4">
@@ -227,14 +255,16 @@ extension: 'twig'
 		</div>
 	</div>
 </div>
-	{% include ('/partials/actions.twig') %}
+<div class="container">
+	{% include ('/partials/actions2.twig') %}
+</div>
     {% include('partials/banks.twig') %}
 
 <div class="container">
 	{% include "/partials/advantages.twig" %}
 	{{ runSnippet('Form', {
 	formid: 'FormCallback',
-	path: '/templates/autosalon/partials/forms/feedback/',
+	path: '/templates/chinaautosalon/partials/forms/feedback/',
 	extension: 'twig'
 	}) | raw }}
 </div>
@@ -417,5 +447,22 @@ document.addEventListener('DOMContentLoaded', function() {
 	filterButton.disabled = true;
 });
 </script>
+<style>
+
+.banner{
+	display:block;
+}
+.banner-mob{
+	display:none;
+}
+@media (max-width: 767px){
+	.banner{
+	display:none;
+}
+	.banner-mob{
+	display:block;
+}
+}
+</style>
 
 {% endblock %}

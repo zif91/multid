@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  * name - morephoto
  * author - Baydin Artem
  * version 1.0
@@ -24,7 +24,9 @@ if ($num === false) {
     if (is_array($srcArr['fieldValue'])) {
         $i = 0;
         foreach ($srcArr['fieldValue'] as $val) {
-            if($i > $display) break;
+            if ($i > $display) {
+                break;
+            }
             $output .= str_replace("[+src+]", $val['image'], $tpl);
             $i++;
         }
@@ -33,7 +35,7 @@ if ($num === false) {
     }
 } else {
     $output = json_decode($src);
-    $output = $output[(int)$num - 1];
+    $output = $output[(int) $num - 1];
 }
 
 return $output;

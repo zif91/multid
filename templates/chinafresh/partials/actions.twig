@@ -1,0 +1,32 @@
+{% set site_start = modx.config['site_start'] %}
+{% set gifts = runSnippet('DocLister', {
+    display: 3,
+    parents: site_start,
+    depth: 3,
+    addWhereList: 'c.template = (13)',
+    tvList:'image,color',
+    tpl:'@T_CODE:
+<div class="col-lg-3 col-sm-6" id="gift">
+    <div class="item mb-4 position-relative" style="background: url({{ runSnippet(\'phpthumb\', {input: data[\'tv.image\']}) }}) 70% center/cover;">
+        <div class="content position-absolute w-100">
+			<p class="mb-2">{{ data.title }}</p>
+			<a href="{{data.url}}">Подробнее <i class="fa fa-angle-right"></i></a>
+		</div>
+    </div>
+</div>'
+})
+%}
+
+<div class="row">
+    {{gifts | raw}}	
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    var firstGift = $("#gift:first");
+    firstGift.removeClass("col-lg-3 col-sm-6").addClass("col-lg-6");
+});
+</script> 
+

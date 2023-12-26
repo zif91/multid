@@ -52,7 +52,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         path: '/templates/chinamajor/partials/forms/credit3/',
         extension: 'twig'
         }) | raw }}
-                
+
             </div>
         </div>
         <div class="text">
@@ -167,6 +167,14 @@ $(document).ready(function() {
         $("#amount").val(currentDownPayment.toLocaleString() + " ₽");
     }
 
+    function updateCreditPaymentSlider(creditAmount) {
+        let creditValue = $("#slider-range-max3").slider("value");
+        if (creditValue < creditAmount) {
+          $("#slider-range-max3").slider("value", creditAmount);
+        }
+        $("#amount").val(creditAmount.toLocaleString() + " ₽");
+    }
+
 
     $("#slider-range-max3").slider({
         range: "max",
@@ -188,6 +196,7 @@ $(document).ready(function() {
         value: 250000,
         slide: function(event, ui) {
             $("#amount").val(ui.value + " ₽");
+            updateCreditPaymentSlider(ui.value);
             updateResults();
         }
     });

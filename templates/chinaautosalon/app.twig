@@ -73,7 +73,10 @@ api: 1,
     {% if baseSettings.site_id is not empty %}
   <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">
           <div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
-
+<input type="hidden">{{dump(baseSettings)}}
+{% endif %}
+{% if baseSettings.metrik_id is not empty %}
+  <input type="hidden" id="metrik-id" value="{{baseSettings.metrik_id}}">
 {% endif %}
     {% cache 'header' ~ cacheKey %}
         {% include('partials/header.twig') %}

@@ -6,6 +6,9 @@ total: 1,
 display: 1
 }) %#}
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
+{% set complectations = ComplectationsController.toArray() %}
+{% set price = ComplectationsController.price() %}
+{% set priceOld = ComplectationsController.price_old() %}
 {% set car_photos = data['tv.car_photos'] | json %}
 {% set last_photo = car_photos.fieldValue[car_photos.fieldValue|length - 1].image %}
 {% if data['tv.car-price'] is empty %}
@@ -35,9 +38,11 @@ display: 1
 				</div>#}
 			{# </div> #}
 			<div class="price mb-2">
-				<span class="new mr-2"> {{ data['tv.car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽ </span>
+				{# <span class="new mr-2"> {{ data['tv.car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽ </span> #}
+				<span class="new mr-2"> {{ price|number_format(0, '.', '&nbsp;')|raw }}₽ </span>
 				{% if data['tv.old-car-price'] !="" %}
-				<span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
+				{# <span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span> #}
+				<span class="old">{{ priceOld|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
 				{% endif %}
 			</div>
 			<div class="credit mb-3 position-relative">

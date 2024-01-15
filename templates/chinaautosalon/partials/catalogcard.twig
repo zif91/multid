@@ -64,6 +64,7 @@ display: 1
 {% set priceAsNumber = [data['tv.car-price']]|join|default(0) %}
 {% set priceOnMonth = priceAsNumber / 96 %}
 
+{% set ComplectationsController = runSnippet('Complectations', {toObject: 1}) %}
 {% set data['tv.car-price'] = ComplectationsController.price() %}
 {% set data['tv.old-car-price'] = ComplectationsController.price_old() %}
 

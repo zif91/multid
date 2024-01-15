@@ -47,6 +47,63 @@ rowTpl:'@CODE: <div class="index-first-block" style="background: url([+image+]) 
 	</div>
 </div>'}) %}
 {{banner |raw}}
+
+<!-- Скрипт для изменения даты +3 дня в автоматическом режиме -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Код для работы с баннером и изменения даты -->
+<script>
+    $(document).ready(function() {
+    var bannerHtml = $(".index-first-block").html();
+    var titleMatches = bannerHtml.match(/<h1>(.*?)<\/h1>/);
+
+    if (titleMatches) {
+        var titleValue = titleMatches[1];
+
+        var dateRegex = /До (\d+)\s+([а-яА-Я]+)/;
+        var dateMatch = titleValue.match(dateRegex);
+
+        if (dateMatch) {
+            var day = parseInt(dateMatch[1], 10);
+            var monthName = dateMatch[2];
+
+            var monthIndex = monthNames.indexOf(monthName.toLowerCase());
+
+            if (monthIndex !== -1) {
+				
+                var currentDate = new Date();
+				var day = currentDate.getDate();
+        		var month = currentDate.getMonth();
+        		var year = currentDate.getFullYear();
+                
+                var bannerDateObj = new Date(year, month, day);
+
+                bannerDateObj.setDate(bannerDateObj.getDate() + 3);
+
+                var newDate = bannerDateObj.getDate() + ' ' + monthNames[bannerDateObj.getMonth()];
+                var newTitleValue = titleValue.replace(dateRegex, 'до ' + newDate);
+
+                bannerHtml = bannerHtml.replace(titleMatches[0], '<h1>' + newTitleValue + '</h1>');
+				
+                console.log(bannerHtml);
+				
+            } else {
+                console.log(titleValue);
+            }
+        } else {
+            console.log(titleValue);
+        }
+    }
+        $(".index-first-block").html(bannerHtml);
+});
+
+    var monthNames = [
+        "января", "февраля", "марта",
+        "апреля", "мая", "июня", "июля",
+        "августа", "сентября", "октября",
+        "ноября", "декабря"
+    ];
+</script>
 {% include '/partials/brands.twig' %}
 <div class="catalog-block">
 	<div class="container-fluid catalog-products" id="catalog">

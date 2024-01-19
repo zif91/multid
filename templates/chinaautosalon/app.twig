@@ -18,6 +18,24 @@
     {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
 
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
+
+{# Изменение title  #}
+{% if city|slice(-1) == 'ь' %}
+    {% set genitiveCase = city|slice(0, -1) ~ 'и' %}
+{% elseif city|slice(-1) == 'а' %}
+    {% set genitiveCase = city|slice(0, -1) ~ 'е' %}
+{% else %}
+    {% set genitiveCase = city ~ 'е' %}
+{% endif %}
+
+    {% if resource.pagetitle == "Каталог автомобилей" or resource.template == "9" %}
+    {% set pageTitle = "Купить новые автомобили с пробегом недорого в " ~ genitiveCase %}
+    {% set descriptionContent = "Продажа авто в " ~ genitiveCase ~ ". Возможен Trade-in и покупка в кредит." %}
+{% else %}
+    {% set pageTitle = metaTitle %}
+    {% set descriptionContent = metaDescription %}
+{% endif %}
+
     {% set marks = runSnippet('DocLister', {
 _filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
 parents: catalog_number,
@@ -43,9 +61,12 @@ api: 1,
     <base href="{{ config.site_url }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>{{ metaTitle }}</title>
-    <meta name="description" content="{{ metaDescription }}">
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="{{ descriptionContent }}">
     <meta name="keywords" content="{{ metaKeywords }}">
+    {# <title>{{ metaTitle }}</title>
+    <meta name="description" content="{{ metaDescription }}">
+    <meta name="keywords" content="{{ metaKeywords }}"> #}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{favicon}}" type="image/png">
     <meta name="color-theme" content="">

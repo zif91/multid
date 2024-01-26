@@ -362,19 +362,39 @@ function mainFunc() {
                         }
 
                     } else {
+                        // if (data.redirect) {
+                        //     window.location.href = data.redirect;
+                        // }
+                        // $(formContainer).html(data.output);
+
+                        // var vkIdElement = document.getElementById("vk-id");
+                        // if (vkIdElement && vkIdElement.innerText) {
+                        //     _tmr.push({ type: 'reachGoal', id: vkIdElement.innerText, goal: 'Send_Form' });
+                        // }
+
+                        // if ($('#metrik-id').length > 0) {
+                        //     var metrikId = $('#metrik-id').text();
+                        //     // ym(metrikId, 'reachGoal', 'goals');
+                        //     ym(metrikId, 'reachGoal', 'send_forms');
+                        // }
+
                         if (data.redirect) {
                             window.location.href = data.redirect;
                         }
                         $(formContainer).html(data.output);
-
+                        
                         var vkIdElement = document.getElementById("vk-id");
-                        if (vkIdElement && vkIdElement.innerText) {
-                            _tmr.push({ type: 'reachGoal', id: vkIdElement.innerText, goal: 'Send_Form' });
+                        if (vkIdElement) {
+                            var vkId = vkIdElement.value || vkIdElement.innerText; // Get value if it's an input, otherwise get text.
+                            if (vkId) {
+                                _tmr.push({ type: 'reachGoal', id: vkId, goal: 'Send_Form' });
+                            }
                         }
-
-                        if ($('#metrik-id').length > 0) {
-                            var metrikId = $('#metrik-id').text();
-                            // ym(metrikId, 'reachGoal', 'goals');
+                        
+                        var metrikElement = $('#metrik-id');
+                        if (metrikElement.length > 0) {
+                            // If it's an input element, use val(), otherwise use text().
+                            var metrikId = metrikElement.is('input') ? metrikElement.val() : metrikElement.text();
                             ym(metrikId, 'reachGoal', 'send_forms');
                         }
 

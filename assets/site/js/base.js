@@ -397,7 +397,6 @@ function mainFunc() {
                             var metrikId = metrikElement.is('input') ? metrikElement.val() : metrikElement.text();
                             ym(metrikId, 'reachGoal', 'send_forms');
                         }
-
                     }
 
                     $(form).fadeTo('fast', 1);

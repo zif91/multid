@@ -717,12 +717,14 @@ main {
   /* правка21,11,23 */
   /* color: #000000; */
   padding-left: 36px;
+  text-align: center;
 }
 
 .index-first-block .text p{
   color: #000000;
   font-size: 20px;
   line-height: 24px;
+  text-align: center;
 }
 
 .index-first-block .text button {

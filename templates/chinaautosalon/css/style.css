@@ -531,7 +531,7 @@ main {
   margin: 0 20px;
   width: 166px;
   height: 44px;
-  background: #D12D1E;
+  /* background: #D12D1E; */
   border-radius: 6px;
   font-weight: 600;
 }
@@ -715,7 +715,7 @@ main {
   font-size: 28px;
   line-height: 44px;
   /* правка21,11,23 */
-  color: #000000;
+  /* color: #000000; */
   padding-left: 36px;
 }
 
@@ -738,7 +738,7 @@ main {
 	display:none;
 	width: 40px;
     height: 40px;
-    background: #d12d1e url(/templates/chinaautosalon/img/menu-new.png) no-repeat center;
+    /* background: #d12d1e url(/templates/chinaautosalon/img/menu-new.png) no-repeat center; */
     font-size: 0;
 	margin: 0 0 0 20px;
 	border-radius: 6px;
@@ -815,7 +815,7 @@ main {
   font-weight: 600;
   width: 128px;
   height: 52px;
-  background: #D12D1E;
+  /* background: #D12D1E; */
   border-radius: 8px;
 }
 .index-brands-block.inner .row .col-3 {
@@ -918,7 +918,7 @@ main {
   font-weight: 800;
   font-size: 16px;
   line-height: 20px;
-  color: #D12D1E;
+  /* color: #D12D1E; */
 }
 .steps-block .item .text .name {
   font-weight: 600;
@@ -2107,6 +2107,35 @@ main {
     text-align: center;
     color: #838383;
   }
+}
+
+.form-calculate2 .item .ui-widget-content {
+  background: #b71f25;
+}
+.form-calculate2 .item .ui-state-default,
+.form-calculate2 .item .ui-widget-content .ui-state-default,
+.form-calculate2 .item .ui-widget-header .ui-state-default,
+.form-calculate2 .item .ui-button,
+.form-calculate2 .item html .ui-button.ui-state-disabled:hover,
+.form-calculate2 .item html .ui-button.ui-state-disabled:active {
+  border: 3px solid #b71f25;
+}
+
+.form-calculate3 .item .ui-widget-content {
+  background: #b71f25;
+}
+
+.form-calculate3 .item .ui-state-default,
+.form-calculate3 .item .ui-widget-content .ui-state-default,
+.form-calculate3 .item .ui-widget-header .ui-state-default,
+.form-calculate3 .item .ui-button,
+.form-calculate3 .item html .ui-button.ui-state-disabled:hover,
+.form-calculate3 .item html .ui-button.ui-state-disabled:active {
+  border: 3px solid #b71f25;
+}
+
+.banner .index-first-block .container.d-flex {
+  justify-content: center;
 }
 
 .item-page .bonus-card{

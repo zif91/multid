@@ -1,0 +1,62 @@
+.btn.btn-light {
+  border: 1px solid #ffa500;
+  color: #ffa500;
+}
+.btn.btn-light:hover {
+  background: #ffa500;
+}
+.header .logo a {
+  background: url('img/logo4.svg');
+}
+.header ul li a:hover {
+  color: #ffa500;
+}
+.header .phone {
+  background: url('img/phone5.svg') no-repeat 0 5px;
+}
+.footer ul li a:hover {
+  color: #ffa500;
+}
+.actions-page .item a:hover {
+  background: #ffa500;
+  border: 1px solid #ffa500;
+}
+.text-danger {
+  color: #ffa500 !important;
+}
+.btn-danger {
+  background-color: #ffa500 !important;
+  border-color: #ffa500 !important;
+}
+.bg-danger {
+  background-color: #ffa500 !important;
+}
+.index-catalog-block .tabs-nav li a.active {
+  border: 1px solid #ffa500;
+  color: #ffa500;
+}
+@media (max-width: 767px) {
+  .header .phone {
+    background: url('img/phone6.svg');
+  }
+}
+.index-contacts-block .logo .logotype {
+  background: url('img/logo4.svg') center / cover;
+}
+.catalog-page .pages .pagination .page-item .page-link.active {
+  background: #ffa500;
+}
+.contacts-page .contacts .info .logo .logotype {
+  background: url('img/logo4.svg') center / cover;
+}
+.item-page .price-block .price span {
+  color: #ffa500;
+}
+.item-page .bottom-block .btn-light:hover {
+  border: 1px solid #ffa500;
+}
+
+
+.btn.btn-red {
+  background: #ffa500;
+}

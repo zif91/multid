@@ -1,0 +1,200 @@
+.btn.btn-light {
+  border: 1px solid #5890da;
+  color: #5890da;
+}
+.btn.btn-light:hover {
+  background: #5890da;
+}
+.header .logo a {
+  background: url('img/logo6.svg');
+}
+.header ul li a:hover {
+  color: #5890da;
+}
+.header .phone {
+  background: url('img/phone9.svg') no-repeat 0 5px;
+}
+.footer ul li a:hover {
+  color: #5890da;
+}
+.actions-page .item a:hover {
+  background: #5890da;
+  border: 1px solid #5890da;
+}
+.text-danger {
+  color: #2391F2 !important;
+}
+.btn-danger {
+  background-color: #0583F2 !important;
+  border-color: #0583F2 !important;
+}
+.bg-danger {
+  background-color: #5890da !important;
+}
+.index-catalog-block .tabs-nav li a.active {
+  border: 1px solid #5890da;
+  color: #5890da;
+}
+
+.header .contacts button {
+  background: #0583F2;
+}
+
+.mobburger{
+  background: #0FA8E0 url(/templates/chinaautosalon/img/for-color/menu.png) no-repeat center;
+  color: #f5f3f3;
+}
+
+.banner .index-first-block .container.d-flex {
+  justify-content: start;
+}
+
+.index-first-block .text button {
+  background: #0583F2;
+}
+
+.index-first-block .text .name {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 47px;
+  color: #FFFFFF;
+  padding-left: 0px;
+}
+
+.index-first-block .text p {
+  color: #FFFFFF;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.index-filter-block .button button {
+  background: #0583F2;
+}
+.filter-buttons-wrapper .button_clear button {
+  background: #111;
+}
+
+.steps-block {
+  background: url('/templates/chinaautosalon/img/for-color/work5.png') no-repeat right 100px top 0 / contain, linear-gradient(138.4deg, #C8E2F1 14.47%, #C8E2F1 73.53%);
+}
+
+.steps-block .item .text .number {
+  color: #0583F2;
+}
+
+.form-block {
+  
+  background: #C8E2F1 url('/templates/chinaautosalon/img/for-color/img-form5.png') no-repeat right top / contain;
+  border-radius: 20px;
+  padding: 40px 400px 24px 34px;
+}
+
+.map-block .contacts button {
+  background: #0583F2;
+}
+
+.form-calculate2 .item .ui-widget-content {
+  background: #0583F2;
+}
+.form-calculate2 .item .ui-state-default,
+.form-calculate2 .item .ui-widget-content .ui-state-default,
+.form-calculate2 .item .ui-widget-header .ui-state-default,
+.form-calculate2 .item .ui-button,
+.form-calculate2 .item html .ui-button.ui-state-disabled:hover,
+.form-calculate2 .item html .ui-button.ui-state-disabled:active {
+  border: 3px solid #0583F2;
+}
+
+.form-calculate3 .item .ui-widget-content {
+  background: #0583F2;
+}
+
+.form-calculate3 .item .ui-state-default,
+.form-calculate3 .item .ui-widget-content .ui-state-default,
+.form-calculate3 .item .ui-widget-header .ui-state-default,
+.form-calculate3 .item .ui-button,
+.form-calculate3 .item html .ui-button.ui-state-disabled:hover,
+.form-calculate3 .item html .ui-button.ui-state-disabled:active {
+  border: 3px solid #0583F2;
+}
+
+.line_cred::after {
+  background: #0583F2;
+}
+
+.catalog-page .item .credit .spanrate {
+  background-color: #0583F2;
+}
+
+.car-plate__button {
+  background: #0583F2;
+  color: #fff;
+}
+
+.item-page .info .credit span {
+  background: #0583F2;
+}
+
+.item-page .info .buttons button.color1 {
+  background: #0583F2;
+}
+
+.wrap-credit-left .credit-left-rate span {
+  background: #0583F2;
+}
+
+.form-block2 button {
+  background: #0583F2;
+}
+
+.color5 {
+  background-color: #0583F2;
+}
+
+@media (max-width: 1199px) {
+  .form-block {
+    padding: 30px;
+    background: #f2f3f7;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .header .phone {
+    background: url('img/phone10.svg');
+  }
+}
+
+@media (max-width: 575px) {
+  .header .contacts button {
+    background: #0FA8E0 url('/templates/chinaautosalon/img/for-color/call2.png') no-repeat center;
+  }
+
+  .index-first-block .text button {
+    background: #0FA8E0;
+  }
+
+  .steps-block {
+    background: url('/templates/chinaautosalon/img/for-color/work5(2).png') no-repeat top, linear-gradient(138.4deg, #C8E2F1 14.47%, #C8E2F1 73.53%);
+  }
+}
+
+.index-contacts-block .logo .logotype {
+  background: url('img/logo6.svg') center / cover;
+}
+.catalog-page .pages .pagination .page-item .page-link.active {
+  background: #5890da;
+}
+.contacts-page .contacts .info .logo .logotype {
+  background: url('img/logo6.svg') center / cover;
+}
+.item-page .price-block .price span {
+  color: #5890da;
+}
+.item-page .bottom-block .btn-light:hover {
+  border: 1px solid #5890da;
+}
+
+.btn.btn-red {
+  background: #5890da;
+}

@@ -727,6 +727,10 @@ main {
   text-align: center;
 }
 
+.index-first-block .text .but {
+  justify-content: center;
+}
+
 .index-first-block .text button {
   color: #fff;
   width: 235px;
@@ -747,6 +751,9 @@ main {
     font-weight: 600;
 	color: #fff;
 	margin-bottom: 10px;
+}
+.config-price{
+  color:#D12D1E;
 }
 @media (max-width: 1330px) {
   .index-first-block {

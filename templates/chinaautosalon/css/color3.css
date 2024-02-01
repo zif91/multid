@@ -22,11 +22,11 @@
   border: 1px solid #ffa500;
 }
 .text-danger {
-  color: #ffa500 !important;
+  color: #F3BA13 !important;
 }
 .btn-danger {
-  background-color: #ffa500 !important;
-  border-color: #ffa500 !important;
+  background-color: #F3BA13 !important;
+  border-color: #F3BA13 !important;
 }
 .bg-danger {
   background-color: #ffa500 !important;
@@ -34,11 +34,6 @@
 .index-catalog-block .tabs-nav li a.active {
   border: 1px solid #ffa500;
   color: #ffa500;
-}
-@media (max-width: 767px) {
-  .header .phone {
-    background: url('img/phone6.svg');
-  }
 }
 .index-contacts-block .logo .logotype {
   background: url('img/logo4.svg') center / cover;
@@ -55,8 +50,265 @@
 .item-page .bottom-block .btn-light:hover {
   border: 1px solid #ffa500;
 }
-
-
 .btn.btn-red {
   background: #ffa500;
+}
+/*  */
+.header .contacts button {
+  background: #F3BA13;
+  color: #FFFFFF;
+}
+.mobburger{
+  background: #F3BA13 url(/templates/chinaautosalon/img/for-color/menu.png) no-repeat center;
+  color: #f5f3f3;
+}
+.header .offcanvas.show .offcanvas-body div button {
+  color: #FFFFFF;
+  background: #F3BA13;
+}
+.banner .index-first-block .container.d-flex {
+  justify-content: start;
+}
+.index-first-block .text .name {
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 61px;
+  color: #FFFFFF;
+  padding-left: 0px;
+  text-align: start;
+}
+.index-first-block .text p {
+  color: #FFFFFF;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: start;
+}
+.index-first-block .text button {
+  background: #F3BA13;
+  color: #FFFFFF;
+}
+.index-first-block .text .but {
+  justify-content: start;
+}
+
+.index-filter-block .button button {
+  background: #F3BA13;
+  color: #FFFFFF;
+}
+.filter-buttons-wrapper .button_clear button {
+  background: #111;
+  color: #FFFFFF;
+}
+.steps-block {
+  background: url('/templates/chinaautosalon/img/for-color/3333.png') no-repeat right 100px top 0 / contain, linear-gradient(138.4deg, #ada6ae 14.47%, #87808a 73.53%);
+}
+.steps-block .item .text .number {
+  color: #4E3249;
+}
+.steps-block .item {
+  background: #FFFFFF;
+}
+.form-block {
+  position: relative;
+  overflow: hidden;
+  background: url('/templates/chinaautosalon/img/for-color/form3-3.png') no-repeat right top / contain;
+  border-radius: 20px;
+  padding: 40px 400px 24px 34px;
+}
+.form-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 10%;
+  background-color: #fff;
+  border-radius: 20px 20px 0 0;
+}
+.form-block::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #4E3249;
+  border-radius: 20px 20px 20px 20px;
+}
+.form-block::before,
+.form-block::after {
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: contain;
+  content: '';
+  z-index: -1;
+}
+.form-block .block-name {
+  color: #FFFFFF;
+}
+.form-block .top-text {
+  color: #FFFFFF;
+}
+.form-block .row p {
+  color: #98AEC3;
+}
+.form-block .form-check label{
+  color: #FFFFFF;
+}
+.form-block button {
+  height: 52px;
+  font-weight: 600;
+  color: #fff;
+  background: #F3BA13;
+  border-radius: 8px;
+  margin-top: 25px;
+}
+.map-block .contacts button{
+  background: #F3BA13;
+}
+
+
+
+
+
+
+.form-calculate2 .item .ui-widget-content {
+  background: #F3BA13;
+}
+.form-calculate2 .item .ui-state-default,
+.form-calculate2 .item .ui-widget-content .ui-state-default,
+.form-calculate2 .item .ui-widget-header .ui-state-default,
+.form-calculate2 .item .ui-button,
+.form-calculate2 .item html .ui-button.ui-state-disabled:hover,
+.form-calculate2 .item html .ui-button.ui-state-disabled:active {
+  border: 3px solid #F3BA13;
+}
+
+.form-calculate3 .item .ui-widget-content {
+  background: #F3BA13;
+}
+
+.form-calculate3 .item .ui-state-default,
+.form-calculate3 .item .ui-widget-content .ui-state-default,
+.form-calculate3 .item .ui-widget-header .ui-state-default,
+.form-calculate3 .item .ui-button,
+.form-calculate3 .item html .ui-button.ui-state-disabled:hover,
+.form-calculate3 .item html .ui-button.ui-state-disabled:active {
+  border: 3px solid #F3BA13;
+}
+.line_cred::after {
+  background: #F3BA13;
+}
+.catalog-page .item .credit .spanrate {
+  background-color: #F3BA13;
+}
+.car-plate__button {
+  background: #F3BA13;
+  color: #fff;
+}
+.item-page .info .credit span {
+  background: #F3BA13;
+}
+.item-page .info .buttons button.color1 {
+  background: #F3BA13;
+}
+.wrap-credit-left .credit-left-rate span {
+  background: #F3BA13;
+}
+.color5 {
+  background-color: #F3BA13;
+}
+.config-price{
+  color:#4E3249;
+}
+.form-block2 button{
+  background: #F3BA13;
+}
+
+.card-title{
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #F3BA13;
+}
+.card-text{
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.details_promo{
+  font-weight: 600;
+  font-size:20px;
+  width: 90%;
+  height: 80px;
+  background: #ffffff;
+  color: #F3BA13;
+  border-radius: 8px;
+  border: 1px solid #F3BA13;
+}
+
+@media (max-width: 1199px) {
+  .form-block {
+    padding: 30px;
+    background: #C8E2F1;
+    background: url('/templates/chinaautosalon/img/for-color/form3-3.png') no-repeat right top / contain;
+  }
+}
+
+@media (max-width: 991px) {
+  .form-block {
+    padding: 30px 30px 0px 30px;
+    background: #4E3249;
+  }
+  .form-block .image-cont{
+    background: url('/templates/chinaautosalon/img/for-color/form3.png') no-repeat center top / contain;
+    height: 300px;
+  }
+  .steps-block {
+    background: url('/templates/chinaautosalon/img/for-color/3333.png') no-repeat right 100px top 74px/ contain, linear-gradient(138.4deg, #ada6ae 14.47%, #87808a 73.53%);
+  }
+}
+
+@media (max-width: 767px) {
+  .header .phone {
+    background: url('img/phone4.svg');
+  }
+  .index-first-block .text .name {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 61px;
+    color: #FFFFFF;
+    padding-left: 0px;
+    text-align: start;
+  }
+}
+
+@media (max-width: 575px) {
+  .header .contacts button {
+    background: #F3BA13 url('/templates/chinaautosalon/img/for-color/call2.png') no-repeat center;
+  }
+  .index-first-block .text button {
+    color: #000000;
+    background: #DFF249;
+  }
+  .steps-block {
+    background: url('/templates/chinaautosalon/img/for-color/3333-2.png') no-repeat right 0px top, linear-gradient(138.4deg, #ada6ae 14.47%, #87808a 73.53%);
+  }
+}
+
+@media (max-width: 410px) {
+  .form-block .image-cont{
+    height: 207px;
+  }
+}
+@media (max-width: 767px) {
+  .header .phone {
+    background: url('img/phone6.svg');
+  }
 }

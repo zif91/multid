@@ -209,8 +209,40 @@
   margin-top: 25px;
 }
 
+.form-block2 button{
+  background: #F3BA13;
+}
+
 .config-price{
   color:#0583F2;
+}
+
+.card-title{
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+}
+
+.card-text{
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.details_promo{
+  font-weight: 600;
+  font-size:20px;
+  width: 90%;
+  height: 80px;
+  background: #0583F2;
+  color: #ffffff;
+  border-radius: 8px;
 }
 
 @media (max-width: 1199px) {

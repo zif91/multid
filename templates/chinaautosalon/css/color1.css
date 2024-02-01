@@ -85,6 +85,34 @@
   line-height: 20px;
   color: #D12D1E;
 }
+
+.card-title{
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+}
+
+.card-text{
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.details_promo{
+  font-weight: 600;
+  font-size:20px;
+  width: 90%;
+  height: 80px;
+  background: #D12D1E;
+  color: #ffffff;
+  border-radius: 8px;
+} 
 @media (max-width: 767px) {
   .header .phone {
     background: url('../img/phone2.svg');

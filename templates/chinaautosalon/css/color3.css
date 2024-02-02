@@ -247,10 +247,31 @@
   font-size:20px;
   width: 90%;
   height: 80px;
-  background: #ffffff;
+  background: #F2F3F7;
   color: #F3BA13;
   border-radius: 8px;
   border: 1px solid #F3BA13;
+}
+
+.filter-buttons-wrapper .button_clear button {
+  background: url('/templates/autosalon/img/clear.svg') no-repeat 35px;
+  /* background: #111; */
+  /* background: #F2F3F7; */
+  color: #5764DE;
+  text-decoration: underline;
+}
+.filter-buttons-wrapper .button_find button:hover {
+  background: #87808a;
+}
+
+.filter-buttons-wrapper .button_clear button:hover {
+  background: #F2F3F7;
+  color: #3e3e40;
+}
+
+.car-plate__button:hover{
+  background: #87808a;
+  color: #FFFFFF;
 }
 
 @media (max-width: 1199px) {

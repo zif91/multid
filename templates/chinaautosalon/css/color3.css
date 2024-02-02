@@ -327,6 +327,9 @@
   .form-block .image-cont{
     height: 207px;
   }
+  .index-first-block .text .name {
+    font-size: 40px;
+}
 }
 @media (max-width: 767px) {
   .header .phone {

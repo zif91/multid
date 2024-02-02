@@ -82,7 +82,23 @@
   background: #0583F2;
 }
 .filter-buttons-wrapper .button_clear button {
-  background: #111;
+  background: url('/templates/autosalon/img/clear.svg') no-repeat 35px;
+  /* background: #111; */
+  /* background: #F2F3F7; */
+  color: #5764DE;
+  text-decoration: underline;
+}
+.filter-buttons-wrapper .button_find button:hover {
+  background: #0FA8E0;
+}
+
+.filter-buttons-wrapper .button_clear button:hover {
+  background: #F2F3F7;
+  color: #3e3e40;
+}
+
+.car-plate__button:hover{
+  background: #0FA8E0;
 }
 
 .steps-block {

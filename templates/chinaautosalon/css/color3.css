@@ -167,11 +167,6 @@
   background: #F3BA13;
 }
 
-
-
-
-
-
 .form-calculate2 .item .ui-widget-content {
   background: #F3BA13;
 }
@@ -260,8 +255,17 @@
   color: #5764DE;
   text-decoration: underline;
 }
+
+.form-block button:hover,
+.mobburger:hover,
+.header .offcanvas.show .offcanvas-body div button:hover,
+.header .contacts button:hover,
 .filter-buttons-wrapper .button_find button:hover {
   background: #87808a;
+}
+.index-first-block .text button:hover {
+  background: #87808a;
+  color: #FFFFFF;
 }
 
 .filter-buttons-wrapper .button_clear button:hover {
@@ -274,6 +278,16 @@
   color: #FFFFFF;
 }
 
+.fancybox-slide--html .fancybox-close-small {
+  width: 30px;
+  height: 30px;
+  right: 10px;
+  top: 37px;
+  padding: 5px;
+  color: #fff;
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+}
 @media (max-width: 1199px) {
   .form-block {
     padding: 30px;
@@ -294,6 +308,16 @@
   .steps-block {
     background: url('/templates/chinaautosalon/img/for-color/3333.png') no-repeat right 100px top 74px/ contain, linear-gradient(138.4deg, #ada6ae 14.47%, #87808a 73.53%);
   }
+  .fancybox-slide--html .fancybox-close-small {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    top: 10px;
+    padding: 5px;
+    color: #fff;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
+}
 }
 
 @media (max-width: 767px) {
@@ -327,9 +351,6 @@
   .form-block .image-cont{
     height: 207px;
   }
-  .index-first-block .text .name {
-    font-size: 40px;
-}
 }
 @media (max-width: 767px) {
   .header .phone {

@@ -13,13 +13,14 @@ tpl:'@T_FILE:partials/catalogcard_mod',
 {% set catalog_number = baseSettings['id'] %}
 {% set gifts = runSnippet('DocLister', {
     display: 6,
-    parents: resource.id,
+    parents: catalog_number,
     depth: 2,
     addWhereList: 'c.template = (13)',
     tvList:'image,color',
     tpl:'@T_FILE:partials/actions_actions'
 })
 %}
+{# {{dump(catalog_number)}} #}
 <div class="container">
 <div class="row mt-3 mr-aulo ml-auto">
     {% if gifts is empty %}

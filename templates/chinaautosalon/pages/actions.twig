@@ -13,7 +13,7 @@ tpl:'@T_FILE:partials/catalogcard_mod',
 {% set catalog_number = baseSettings['id'] %}
 {% set gifts = runSnippet('DocLister', {
     display: 6,
-    parents: catalog_number,
+    parents: resource.id,
     depth: 2,
     addWhereList: 'c.template = (13)',
     tvList:'image,color',

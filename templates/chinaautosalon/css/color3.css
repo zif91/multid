@@ -257,7 +257,6 @@
 }
 
 .form-block button:hover,
-.mobburger:hover,
 .header .offcanvas.show .offcanvas-body div button:hover,
 .header .contacts button:hover,
 .filter-buttons-wrapper .button_find button:hover {
@@ -337,6 +336,13 @@
 @media (max-width: 575px) {
   .header .contacts button {
     background: #F3BA13 url('/templates/chinaautosalon/img/for-color/call2.png') no-repeat center;
+  }
+  .header .contacts button:hover {
+    background: #87808a url('/templates/chinaautosalon/img/for-color/call2.png') no-repeat center;
+  }
+  .mobburger:hover{
+    background: #87808a url(/templates/chinaautosalon/img/for-color/menu.png) no-repeat center;
+    color: #f5f3f3;
   }
   .index-first-block .text button {
     color: #000000;

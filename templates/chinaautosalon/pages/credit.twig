@@ -21,10 +21,16 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 {% block MAIN %}
 <div class="container p-4 py-3">
   <h4 class="fw-bold cred_title mb-2 pl-3">Автокредит</h4>
+  {{dump(baseSettings["color_css"])}}
   <div class="row col-xl-12 col-lg-12 col-md-12 m-0">
   
   <div class="container col-xl-7 col-lg-8 col-md-8 ml-0 pl-0 mb-2">
-  <img src="/templates/chinaautosalon/img/credit/imgkredit.jpg" alt="" />
+  {% if baseSettings["color_css"] != "color2.css" %}
+        <img src="/templates/chinaautosalon/img/credit/imgkredit.jpg" alt="" />
+	{% else %}
+		<img src="/templates/chinaautosalon/img/credit/chinabox-krd.rukredit.jpg" alt="" / style="border-radius: 8px 8px 0px 0px;">      
+    {% endif %}
+  {# <img src="/templates/chinaautosalon/img/credit/imgkredit.jpg" alt="" /> #}
       <p class="cred_text col-lg-12 col-md-12 mt-3 mb-0 pl-0">
         Мы возьмем на себя подбор оптимальной кредитной программы и оформление
         сопутствующих документов. Вам остается лишь выбрать подходящий автомобиль и заполнить кредитную заявку для предварительного одобрения.

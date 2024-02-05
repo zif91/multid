@@ -312,6 +312,25 @@
   color: #000000;
   background: #DFF249;
 }
+.form-block button:hover,
+.header .offcanvas.show .offcanvas-body div button:hover,
+.header .contacts button:hover{
+  background: #87808a;
+}
+.index-first-block .text button:hover {
+  color: #FFFFFF;
+}
+
+.fancybox-slide--html .fancybox-close-small {
+  width: 30px;
+  height: 30px;
+  right: 10px;
+  top: 37px;
+  padding: 5px;
+  color: #fff;
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+}
 
 /* 30/01/24 */
 @media (max-width: 1199px) {
@@ -335,6 +354,17 @@
   .steps-block {
     background: url('/templates/chinaautosalon/img/for-color/work2-2.png') no-repeat right 100px top 74px/ contain, linear-gradient(138.4deg, #042340 14.47%, #042340 73.53%);
   }
+
+  .fancybox-slide--html .fancybox-close-small {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    top: 10px;
+    padding: 5px;
+    color: #fff;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
+}
 }
 
 @media (max-width: 767px) {
@@ -376,8 +406,14 @@
   .steps-block {
     background: url('/templates/chinaautosalon/img/for-color/work2(2).png') no-repeat top, linear-gradient(138.4deg, #042340 14.47%, #042340 73.53%);
   }
+  .mobburger:hover{
+    background: #87808a url(/templates/chinaautosalon/img/for-color/menu.png) no-repeat center;
+    color: #FFFFFF;
+  }
+  .header .contacts button:hover {
+    background: #87808a url('/templates/chinaautosalon/img/for-color/call2.png') no-repeat center;
+  }
 }
-
 @media (max-width: 410px) {
   .form-block .image-cont{
     height: 207px;

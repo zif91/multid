@@ -1,3 +1,14 @@
+{% set menu = runSnippet('DLMenu', {
+parents: baseSettings["id"],
+tvList: 'image',
+maxDepth: 1,
+rowTpl: '@CODE:
+<li class="d-inline-block"><a href="[+url+]">[+pagetitle+]</a></li>',
+outerTpl: '@CODE:<ul>
+    [+wrap+]</ul>'
+}) %}
+{% set thirdMenuItem = menu|split('</li>')|slice(2, 1)|join('</li>') %}
+
 <footer class="footer">
 	<div class="container flex">
 		<ul>
@@ -7,9 +18,10 @@
 		<li class="d-inline-block">
 			<a href="/katalog-avtomobilej/">Каталог автомобилей</a>
 		</li>
-		<li class="d-inline-block">
+		{# <li class="d-inline-block">
 			<a href="/akcii22/">Акции</a>
-		</li>
+		</li> #}
+		{{thirdMenuItem|raw}}
 			<li class="d-inline-block">
 				<a href="kredit">Кредит</a>
 			</li>

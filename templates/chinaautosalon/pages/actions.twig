@@ -1,6 +1,6 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-{% set DLCatalog = runSnippet('DocLister', {
+{# {% set DLCatalog = runSnippet('DocLister', {
 id: 'catalog',
 display: 4,
 parents: catalog_number,
@@ -9,8 +9,20 @@ tvList:'car-price,car_photos,run,engine_power,gear,year,image,body_type,car_colo
 ownerTPL: '@T_FILE:partials/wrap',
 tpl:'@T_FILE:partials/catalogcard_mod',
 })
-%}
-{% set catalog_number = baseSettings['id'] %}
+%} #}
+{# {% set catalog_number = baseSettings['id'] %} #}
+
+{% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
+{% set DLCatalog = runSnippet('DocLister', {
+        id: 'catalog',
+        display: 6,
+        parents: catalog_number,
+        depth: 2,
+        tvList:'car-price,old-car-price,car_photos,configuration_id',
+        ownerTPL: '@T_FILE:partials/wrap',
+        tpl:'@T_FILE:partials/catalogcard_mod',
+    })
+    %}
 {% set gifts = runSnippet('DocLister', {
     display: 6,
     parents: resource.id,
@@ -20,7 +32,7 @@ tpl:'@T_FILE:partials/catalogcard_mod',
     tpl:'@T_FILE:partials/actions_actions'
 })
 %}
-{# {{dump(catalog_number)}} #}
+{# {{dump(resource.id)}} #}
 <div class="container">
 <div class="row mt-3 mr-aulo ml-auto">
     {% if gifts is empty %}

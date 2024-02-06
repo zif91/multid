@@ -292,6 +292,11 @@
     background: url('/templates/chinaautosalon/img/for-color/form6.png') no-repeat center top / contain;
     height: 300px;
   }
+
+  .advantages-block .item {
+    background: #FFFFFF;
+    border-radius: 20px;
+  }
 }
 
 

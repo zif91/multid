@@ -364,7 +364,12 @@
     color: #fff;
     border-radius: 50%;
     border: 1px solid #FFFFFF;
-}
+  }
+
+  .advantages-block .item {
+    background: #FFFFFF;
+    border-radius: 20px;
+  }
 }
 
 @media (max-width: 767px) {

@@ -273,6 +273,17 @@
   background: #0583F2;
 }
 
+.fancybox-slide--html .fancybox-close-small {
+  width: 30px;
+  height: 30px;
+  right: 10px;
+  top: 37px;
+  padding: 5px;
+  color: #fff;
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+}
+
 @media (max-width: 1199px) {
   .form-block {
     padding: 30px;
@@ -296,6 +307,17 @@
   .advantages-block .item {
     background: #FFFFFF;
     border-radius: 20px;
+  }
+
+  .fancybox-slide--html .fancybox-close-small {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    top: 10px;
+    padding: 5px;
+    color: #fff;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
   }
 }
 

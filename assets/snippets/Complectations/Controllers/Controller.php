@@ -92,12 +92,22 @@ class Controller
         return $this->service->getFirstPower();
     }
 
+    /**
+     * @return string
+     */
+    public function getConfigurations(): string
+    {
+        return $this->configurations;
+    }
+
     public function all()
     {
+        $configurations = $this->service->toArray($this->configurations);
+
         if (!empty($this->config['toObject']) && (int) $this->config['toObject'] === 1) {
             return $this;
         }
 
-        return $this->service->toArray($this->configurations);
+        return $configurations;
     }
 }

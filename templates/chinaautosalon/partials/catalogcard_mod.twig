@@ -6,15 +6,20 @@ total: 1,
 display: 1
 }) %#}
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
-{# {% set complectations = ComplectationsController.toArray() %}
-{% set price = ComplectationsController.price() %}
-{% set priceOld = ComplectationsController.price_old() %} #}
 {% set car_photos = data['tv.car_photos'] | json %}
 {% set last_photo = car_photos.fieldValue[car_photos.fieldValue|length - 1].image %}
 
 {% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}
 {% set car_price = ComplectationsController.price() %}
 {% set car_price_old = ComplectationsController.priceOld() %}
+
+{% if car_price is empty %}
+    {% set car_price = data['tv.car-price'] %}
+{% endif %}
+
+{% if car_price_old is empty %}
+    {% set car_price_old = data['tv.old-car-price'] %}
+{% endif %}
 
 {% if car_price is empty %}
 

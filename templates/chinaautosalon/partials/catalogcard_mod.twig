@@ -14,7 +14,7 @@ display: 1
 
 {% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}
 {% set car_price = ComplectationsController.price() %}
-{% set car_price_old = ComplectationsController.price_old() %}
+{% set car_price_old = ComplectationsController.priceOld() %}
 
 {% if car_price is empty %}
 

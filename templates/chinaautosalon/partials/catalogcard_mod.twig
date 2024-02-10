@@ -12,9 +12,9 @@ display: 1
 {% set car_photos = data['tv.car_photos'] | json %}
 {% set last_photo = car_photos.fieldValue[car_photos.fieldValue|length - 1].image %}
 
-{% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}
-{% set data['tv.car-price'] = ComplectationsController.price() %}
-{% set data['tv.old-car-price'] = ComplectationsController.price_old() %}
+{#{% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}#}
+{#{% set data['tv.car-price'] = ComplectationsController.price() %}#}
+{#{% set data['tv.old-car-price'] = ComplectationsController.price_old() %}#}
 
 {% if data['tv.car-price'] is empty %}
 

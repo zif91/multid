@@ -11,8 +11,13 @@ display: 1
 {% set priceOld = ComplectationsController.price_old() %} #}
 {% set car_photos = data['tv.car_photos'] | json %}
 {% set last_photo = car_photos.fieldValue[car_photos.fieldValue|length - 1].image %}
+
+{% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}
+{% set data['tv.car-price'] = ComplectationsController.price() %}
+{% set data['tv.old-car-price'] = ComplectationsController.price_old() %}
+
 {% if data['tv.car-price'] is empty %}
-			
+
 {% else %}
 {#% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %#}
 <a href="{{ data['url'] }}" ><div class="col-lg-4 col-md-6">
@@ -59,7 +64,7 @@ display: 1
 				{#<div class="col-6">
 					<button  id="myButton" class="color1 w-100">Купить в кредит</button>
 				</div>#}
-				<div class="col-6 pr-1"> 
+				<div class="col-6 pr-1">
 					<a href="#" onclick="showCreditPopup(
                         {{ data['id'] }},
                         '',
@@ -86,16 +91,16 @@ display: 1
 <style>
     .circular-icons {
         position: absolute;
-        top: 10px; 
-        left: 10px; 
+        top: 10px;
+        left: 10px;
     }
-    
+
     .catalog-page .item .add-to-cart-icon,
     .catalog-page .item .add-to-favorites-icon {
         display: inline-block;
-        width: 34px; 
-        height: 34px; 
-        font-size: 20px; 
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
 		margin-left: 11px;
     }
 

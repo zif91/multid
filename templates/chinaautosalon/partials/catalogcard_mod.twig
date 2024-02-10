@@ -12,11 +12,11 @@ display: 1
 {% set car_photos = data['tv.car_photos'] | json %}
 {% set last_photo = car_photos.fieldValue[car_photos.fieldValue|length - 1].image %}
 
-{#{% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}#}
-{#{% set data['tv.car-price'] = ComplectationsController.price() %}#}
-{#{% set data['tv.old-car-price'] = ComplectationsController.price_old() %}#}
+{% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}
+{% set car_price = ComplectationsController.price() %}
+{% set car_price_old = ComplectationsController.price_old() %}
 
-{% if data['tv.car-price'] is empty %}
+{% if car_price is empty %}
 
 {% else %}
 {#% set modification = runSnippet('takemodels', {configuration_id: data["tv.configuration_id"] }) %#}
@@ -43,16 +43,16 @@ display: 1
 				</div>#}
 			{# </div> #}
 			<div class="price mb-2">
-				<span class="new mr-2"> {{ data['tv.car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽ </span>
+				<span class="new mr-2"> {{ car_price|number_format(0, '.', '&nbsp;')|raw }} ₽ </span>
 				{# <span class="new mr-2"> {{ price|number_format(0, '.', '&nbsp;')|raw }}₽ </span> #}
-				{% if data['tv.old-car-price'] !="" %}
-				<span class="old">{{ data['tv.old-car-price']|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
+				{% if car_price_old !="" %}
+				<span class="old">{{ car_price_old|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
 				{# <span class="old">{{ priceOld|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span> #}
 				{% endif %}
 			</div>
 			<div class="credit mb-3 position-relative">
 			<span class="text-left">В кредит от
-				{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}} ₽/мес</span>
+				{{(car_price / 96) | number_format(0, ' ', ' ')}} ₽/мес</span>
 				{# <span class="text-right">Ставка <br />от 1.6%</span> #}
 				<span class="text-right spanrate"> от {% if baseSettings.credit_rate is empty %}
     1.6
@@ -68,7 +68,7 @@ display: 1
 					<a href="#" onclick="showCreditPopup(
                         {{ data['id'] }},
                         '',
-                        '{{(data['tv.car-price'] / 96) | number_format(0, ' ', ' ')}}');
+                        '{{(car_price / 96) | number_format(0, ' ', ' ')}}');
                         return false;"
                       class="car-plate__button button button_red">В кредит</a>
 

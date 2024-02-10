@@ -39,6 +39,7 @@ class Service
      */
     public function __construct(\DocumentParser $modx)
     {
+        $this->modx = $modx;
         $this->model = new \modResource($modx);
     }
 
@@ -48,9 +49,18 @@ class Service
      */
     public function getByCarId(int $id): string
     {
-        $this->model->edit($id);
-        $value = $this->model->get("car_characteristics");
-        $this->model->close();
+        if (empty($id)) {
+            return "";
+        }
+
+        $table = $this->modx->getFullTableName("site_tmplvar_contentvalues");
+        $value = $this->modx->db->getValue(
+            $this->modx->db->query("SELECT `value` FROM {$table} WHERE `tmplvarid` = 74 and contentid = {$id}")
+        );
+
+        if (empty($value)) {
+            return "";
+        }
 
         return (string) $value;
     }

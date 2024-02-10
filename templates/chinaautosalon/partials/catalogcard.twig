@@ -6,6 +6,11 @@ total: 1,
 display: 1
 }) %#}
 {#{ data['tv.car_photos'] }#}
+
+{% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}
+{% set data['tv.car-price'] = ComplectationsController.price() %}
+{% set data['tv.old-car-price'] = ComplectationsController.price_old() %}
+
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'], action:'caroldprice'}) %}
 {#<div class="col-xl-3 col-lg-4 col-md-6 h-auto">
     <div class="item">
@@ -63,10 +68,6 @@ display: 1
 {% set photo = "https://s3.multiauto.site/new_cars/" ~ data['tv.configuration_id'] ~ ".jpg" %}
 {% set priceAsNumber = [data['tv.car-price']]|join|default(0) %}
 {% set priceOnMonth = priceAsNumber / 96 %}
-
-{#{% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}#}
-{#{% set data['tv.car-price'] = ComplectationsController.price() %}#}
-{#{% set data['tv.old-car-price'] = ComplectationsController.price_old() %}#}
 
 {% if priceAsNumber > 0 and data['title'] %}
     <div class="col-lg-4 col-md-6">

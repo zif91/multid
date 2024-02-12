@@ -856,16 +856,8 @@
         {% endfor %}
     </div> #}
         {% include('partials/banks.twig') %}
-        <div class="container">{% include "/partials/advantages.twig" %}</div>
-        <div class="container">{% include "/partials/actions2.twig" %}</div>
-    </div>
-    <div class="page-form-block mb-5">
         <div class="container">
-            {# {{ runSnippet('Form', {
-                formid: 'FormCallback',
-                path: '/templates/chinaautosalon/partials/forms/feedback/',
-                extension: 'twig'
-            }) | raw }} #}
+        {# {% include "/partials/advantages.twig" %} #}
             {% if baseSettings["color_css"] == "color2.css" %}
 	            {% include "/partials/advantages2.twig" %}
             {% elseif baseSettings["color_css"] == "color3.css" %}
@@ -875,6 +867,16 @@
             {% else %}
                 {% include "/partials/advantages.twig" %}
             {% endif %}
+            </div>
+        <div class="container">{% include "/partials/actions2.twig" %}</div>
+    </div>
+    <div class="page-form-block mb-5">
+        <div class="container">
+            {{ runSnippet('Form', {
+                formid: 'FormCallback',
+                path: '/templates/chinaautosalon/partials/forms/feedback/',
+                extension: 'twig'
+            }) | raw }}
         </div>
     </div>
     {# <div class="item-page2 pb-5">

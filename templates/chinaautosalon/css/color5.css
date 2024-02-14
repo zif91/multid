@@ -97,6 +97,10 @@
   color: #3e3e40;
 }
 
+.index-brands-block .item {
+  background-color: #EDF8FF;
+}
+
 .car-plate__button:hover{
   background: #0FA8E0;
 }

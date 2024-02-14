@@ -877,19 +877,22 @@ main {
 .index-brands-block .item {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
+  border-radius: 20px;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
   -ms-transition: all 200ms ease;
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
+  background-color: #F2F3F7;
 }
 .index-brands-block .item:hover {
   background: #F2F3F7;
 }
 .index-brands-block .item a {
   font-weight: 500;
-  font-size: 12px;
+  /* font-size: 12px; */
+  font-size: 14px;
   line-height: 15px;
 }
 .index-brands-block .bottom-link {

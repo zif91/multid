@@ -94,6 +94,10 @@
   color: #FFFFFF;
 }
 
+.index-brands-block .item {
+  background-color: #F2F2F2;
+}
+
 .steps-block {
   background: url('/templates/chinaautosalon/img/for-color/work2-2.png') no-repeat right 100px top 0 / contain, linear-gradient(138.4deg, #042340 14.47%, #042340 73.53%);
 }

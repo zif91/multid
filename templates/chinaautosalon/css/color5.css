@@ -262,7 +262,7 @@
   border-radius: 8px;
 }
 
-.form-block .form-control:hover,
+.form-block button:hover,
 .index-first-block .text button:hover,
 .header .contacts button:hover {
   background: #0FA8E0;

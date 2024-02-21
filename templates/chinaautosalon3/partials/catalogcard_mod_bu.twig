@@ -24,10 +24,10 @@
 	<div class="col-xl-3 col-lg-4 col-md-6 p-1"><div class="item-bu">
 		<img src="{{ last_photo }}" style="border-radius:20px;"class="p-2">
 		<div class="p-2 justify-content-center">
-			<div class="name mb-2 text-center">
+			<div class="name mb-2 text-center" id="name-car-card">
 				{{ data['pagetitle'] }} {{data[tv.body_type]}}
 			</div>
-			<div class="row mb-2">
+			<div class="trafar row mb-2" id="another-id">
 				<div class="row col-12 pr-0">
 					<div class="col-5 pr-0 characteristics-title text-left">Год выпуска</div>
 					<div class="col-7 pr-0 characteristics-value text-left">2023</div>
@@ -83,22 +83,8 @@
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-//     $(document).ready(function() {
-//     $(".item-bu").each(function() {
-//         var cardTitles = $(this).find(".name");
-
-//         var maxHeight = 0;
-//         cardTitles.each(function() {
-//             var currentHeight = $(this).height();
-//             maxHeight = Math.max(maxHeight, currentHeight);
-//         });
-//         cardTitles.height(maxHeight);
-//     });
-// });
-
 $(document).ready(function() {
-    $(".item-bu").each(function() {
-        var cardTitles = $(this).find(".name");
+        var cardTitles = $(".name");
 
         var maxHeight = 0;
         cardTitles.each(function() {
@@ -107,7 +93,21 @@ $(document).ready(function() {
         });
         cardTitles.height(maxHeight);
     });
-});
+
+
+$(document).ready(function() {
+        var cardTitles = $(".trafar");
+
+        var maxHeight = 0;
+        cardTitles.each(function() {
+            var currentHeight = $(this).height();
+            maxHeight = Math.max(maxHeight, currentHeight);
+        });
+        cardTitles.height(maxHeight);
+    });
+	
+
+	
 </script>
 
 

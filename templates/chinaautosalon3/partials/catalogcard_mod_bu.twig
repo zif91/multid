@@ -83,16 +83,30 @@
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    $(document).ready(function() {
-        var cardTitles = $(".name");
+//     $(document).ready(function() {
+//     $(".item-bu").each(function() {
+//         var cardTitles = $(this).find(".name");
 
-        var maxHeight = 0;
-        cardTitles.each(function() {
-            var currentHeight = $(this).height();
-            maxHeight = Math.max(maxHeight, currentHeight);
-        });
-        cardTitles.height(maxHeight);
+//         var maxHeight = 0;
+//         cardTitles.each(function() {
+//             var currentHeight = $(this).height();
+//             maxHeight = Math.max(maxHeight, currentHeight);
+//         });
+//         cardTitles.height(maxHeight);
+//     });
+// });
+
+$(document).ready(function() {
+    $(".item-bu").each(function() {
+        var itemBuHeight = $(this).height();
+        var buttonsContainer = $(this).find('.buttons');
+        var nameContainer = $(this).find('.name');
+        var nameHeight = itemBuHeight - buttonsContainer.outerHeight();
+        
+        nameContainer.height(nameHeight);
+        buttonsContainer.css('margin-top', nameHeight + 'px');
     });
+});
 </script>
 
 

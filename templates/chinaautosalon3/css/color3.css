@@ -516,6 +516,12 @@ div#popup-trade_innew,
   .form-block-trade {
     background: #4E3249;
   }
+  .catalog-page .item-bu img {
+    width: 100%;
+    height: 278px;
+    object-fit: cover;
+    object-position: center;
+}
 }
 
 @media (max-width: 575px) {
@@ -552,9 +558,6 @@ div#popup-trade_innew,
     top: 8%;
   }
   
-
-
-  
 }
 @media (max-width: 430px) {
   
@@ -569,6 +572,12 @@ div#popup-trade_innew,
     height: auto;
     padding: 257px 20px 24px 20px
   }
+  .catalog-page .item-bu img {
+    width: 100%;
+    height: 187px;
+    object-fit: cover;
+    object-position: center;
+}
 }
 
 @media (max-width: 410px) {

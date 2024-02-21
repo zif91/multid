@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+{% set bank_logos = runSnippet('DocInfo', {field: 'images', docid: 41118}) | json%}
+{% set headingbank = runSnippet('DocInfo', {field: 'longtitle', docid: 41118}) | raw %}
+
+{#{dump(bank_logos)}#}
+{#<div class="brands">
+    <div class="container">
+        <h2 class='pb-1'> {{headingbank}}</h2>
+        <div class="row">
+            <div class="col">
+                <div class="brands_slider_container">
+                    <div class="owl-carousel owl-theme brands_slider">
+                        {% for item in bank_logos["fieldValue"] %}
+    <div class="owl-item">
+        <div class="brands_item d-flex flex-column justify-content-center">
+            <img src="{{item.image}}">
+        </div>
+    </div>
+{% endfor %}
+
+                    </div> <!-- Brands Slider Navigation -->
+                    <div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
+                    <div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> #}
+<div class="container">
+<div class="partners-block mb-5">
+    <h2 class="mb-4">Банки-партнёры</h2>
+    <div class="list">
+        {% for item in bank_logos["fieldValue"] %}
+            <div class="item"><img src="{{item.image}}"></div>
+{% endfor %}
+    </div>
+</div>
+</div>
+<style type="text/css">
+.partners-block h2 {
+    font-weight: 700;
+    font-size: 24px;
+}
+.partners-block .list {
+    margin: 0 -15px;
+}
+.partners-block .list .item {
+    margin: 0 15px;
+    text-align: center;
+    height: 98px;
+    line-height: 98px;
+    border-radius: 8px;
+    border: 1px solid #F2F3F7;
+}
+.partners-block .list .item:hover img {
+    filter: none;
+}
+.partners-block .list .item img {
+    display: inline-block;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    vertical-align: middle;
+    filter: grayscale(100%);
+}
+.partners-block .list .slick-prev,
+.partners-block .list .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    font-size: 0;
+    z-index: 2;
+    width: 16px;
+    height: 26px;
+}
+.partners-block .list .slick-prev {
+    left: 5px;
+    background: url('/templates/autostar2/img/prev.svg');
+}
+.partners-block .list .slick-next {
+    right: 5px;
+    background: url('/templates/autostar2/img/next.svg');
+}
+</style>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  $('.partners-block .list').slick({
+    speed: 300,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
+  });
+});
+
+
+</script>

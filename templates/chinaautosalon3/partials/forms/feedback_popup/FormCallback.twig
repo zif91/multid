@@ -1,0 +1,32 @@
+{# <script src="https://unpkg.com/imask"></script>
+<script type="text/javascript">
+var phoneMask = IMask(
+  document.getElementById('formPhone'), {
+    mask: '+{7}(000)000-00-00'
+  });
+</script> #}
+<form data-id="tradein" id="car-tradein-modification-line" class="wpcf7-form">
+  <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+                <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+                {{ data['form.messages'] | raw }}
+                    <span class="wpcf7-form-row">
+                        <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33">
+                            <span class="wpcf7-form-control-wrap-label">Как вас зовут?</span>
+                            <input  type="text" class="form-control {{ data['first_name.classname'] }}" id="formName" name="first_name" value="{{ data.first_name }}" placeholder="введите Имя">
+                        </span>
+                        <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33">
+                            <span class="wpcf7-form-control-wrap-label">Телефон</span>
+                            <input type="tel" class="form-control phone-imask {{ data['mobile_tel.classname'] }} " type="tel" name="mobile_tel" id="formPhone" placeholder="+7 (___) ___-__-__" value="{{ data.mobile_tel }}">
+                        </span>
+                        <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap-33 wpcf7-form-control-wrap-button">
+                            <button type="submit" class="button button_red ">Отправить заявку</button>
+                        </span>
+                    </span>
+                    <span class="wpcf7-form-control-wrap wpcf7-form-control-wrap_checkbox" style="margin-top: 10px">
+                    <label class="checkbox changed">
+                        <input type="checkbox" id="" name="agreement" checked value="">
+                        <span class="checkbox__field">Даю согласие на обработку персональных данных</span>
+                    </label>
+                </span>
+                </form>
+      

@@ -1,0 +1,213 @@
+.actions-screen {
+	 overflow: hidden;
+}
+ .adv-items {
+	 display: flex;
+	 flex-wrap: wrap;
+	 margin: -7px;
+}
+ .adv-items__col {
+	 width: 33.3333%;
+	 box-sizing: border-box;
+	 padding: 7px;
+}
+ .adv-items__col .adv-item {
+	 height: 100%;
+}
+ .adv-item {
+	 display: flex;
+	 flex-wrap: nowrap;
+	 align-items: center;
+	 box-sizing: border-box;
+	 background: ;
+	 border-radius: 24px;
+	 padding: 40px;
+	 font: 400 14px "Montserrat";
+}
+ .adv-item__icon {
+	 flex-shrink: 0;
+	 width: 44px;
+	 height: 44px;
+	 margin-right: 20px;
+}
+ .adv-item__icon_credit {
+	 background: url(/images/icons/card.svg) no-repeat center;
+	 background-size: contain;
+}
+ .adv-item__icon_recovery {
+	 background: url(/images/icons/recovery.svg) no-repeat center;
+	 background-size: contain;
+}
+ .adv-item__icon_trade-in {
+	 background: url(/images/icons/trade-in.svg) no-repeat center;
+	 background-size: contain;
+}
+ .adv-item__caption {
+	 font-size: 16px;
+	 margin-bottom: 4px;
+}
+ .adv-item__caption span {
+	 font-weight: 700;
+}
+ .presents-banner {
+	 box-sizing: border-box;
+	 background: ;
+	 border-radius: 24px;
+	 padding: 40px 50px;
+	 margin-top: 15px;
+}
+ .presents-banner__caption {
+	 font: 700 24px "Montserrat";
+	 margin-bottom: 45px;
+}
+ .presents-banner__items {
+	 display: flex;
+	 flex-wrap: nowrap;
+}
+ .presents-banner__item {
+	 flex: 1;
+	 display: flex;
+	 flex-wrap: nowrap;
+	 align-items: center;
+	 box-sizing: border-box;
+	 padding-right: 10px;
+}
+ .presents-banner__icon {
+	 flex-shrink: 0;
+	 display: flex;
+	 align-items: center;
+	 height: 75px;
+	 width: 75px;
+	 background: rgba(31,45,118,0.18);
+	 background: linear-gradient(215.8deg,rgba(31,45,118,0.18) 7.84%,rgba(0,0,0,0) 118.14%);
+	 border-radius: 24px;
+	 margin-right: 15px;
+}
+ .presents-banner__icon img {
+	 display: block;
+	 max-width: 85%;
+	 max-height: 85%;
+	 margin: auto;
+}
+ .presents-banner__text {
+	 font: 400 14px "Montserrat";
+}
+ .popups-row {
+	 display: flex;
+	 margin: -7px;
+}
+ .popups-row__item-wr {
+	 box-sizing: border-box;
+	 width: 25%;
+	 padding: 7px;
+}
+ .popups-row__item {
+	 height: 100%;
+	 box-sizing: border-box;
+	 background: ;
+	 border-radius: 24px;
+	 padding: 35px 140px 30px 35px;
+	 font: 400 14px "Montserrat";
+	 color: #000000;
+}
+ .popups-row__item_percent {
+	 background: #f2f3f7 url('../images/percent-full.png') no-repeat center right 30px ;
+}
+ .popups-row__item_family {
+	 background: #f2f3f7 url(../images/flag.png) no-repeat center right 30px ;
+}
+ .popups-row__item_guarantee {
+	 background: #f2f3f7 url(../images/guarantee.png) no-repeat center right 30px ;
+}
+ .popups-row__item_tradein {
+	 background: #f2f3f7 url(../images/money-full.png) no-repeat center right 10px ;
+}
+ @media screen and (max-width: 1279px) {
+	 .adv-item {
+		 padding: 25px 10px 25px 15px;
+	}
+	 .adv-item__icon {
+		 width: 30px;
+		 height: 30px;
+		 margin-right: 10px;
+	}
+	 .presents-banner {
+		 padding: 40px;
+	}
+	 .popups-row__item {
+		 padding: 20px 100px 20px 15px;
+		 font-size: 14px;
+	}
+}
+ @media screen and (max-width: 1023px) {
+	 .presents-banner {
+		 padding: 25px 25px 30px;
+	}
+	 .presents-banner__caption {
+		 margin-bottom: 15px;
+	}
+	 .popups-row {
+		 flex-wrap: wrap;
+	}
+	 .popups-row__item-wr {
+		 width: 50%;
+	}
+	 .popups-row__item {
+		 padding: 25px 130px 25px 25px;
+	}
+	 .popups-row__item span {
+		 max-width: 200px;
+	}
+}
+ @media screen and (max-width: 767px) {
+	 .actions-screen {
+		 padding: 40px 0 45px;
+	}
+	 .adv-items__col {
+		 width: 50%;
+	}
+	 .presents-banner {
+		 padding: 20px 15px;
+	}
+	 .presents-banner__icon {
+		 height: 60px;
+		 width: 60px;
+		 margin-right: 10px;
+	}
+	 .presents-banner__icon img {
+		 width: 80%;
+	}
+}
+ @media screen and (max-width: 639px) {
+	 .adv-items__col {
+		 width: 100%;
+	}
+	 .presents-banner {
+		 padding: 25px 10px 30px;
+	}
+	 .presents-banner__caption {
+		 font-size: 22px;
+	}
+	 .presents-banner__items {
+		 flex-wrap: wrap;
+		 margin: -10px;
+	}
+	 .presents-banner__item {
+		 width: 50%;
+		 padding: 10px;
+	}
+	 .popups-row__item-wr {
+		 width: 100%;
+	}
+}
+ @media screen and (max-width: 374px) {
+	 .presents-banner__icon {
+		 height: 50px;
+		 width: 50px;
+		 margin-right: 7px;
+	}
+	 .presents-banner__text {
+		 font-size: 12px;
+	}
+}
+ 

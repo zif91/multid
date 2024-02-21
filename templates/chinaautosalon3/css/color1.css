@@ -1,0 +1,135 @@
+.btn.btn-light {
+  border: 1px solid #d93e3a;
+  color: #d93e3a;
+}
+.btn.btn-light:hover {
+  background: #d93e3a;
+}
+.header .logo a {
+}
+.header ul li a:hover {
+  color: #d93e3a;
+}
+.header .phone {
+  background: url('../img/phone.svg') no-repeat 0 5px;
+}
+.footer ul li a:hover {
+  color: #d93e3a;
+}
+.actions-page .item a:hover {
+  background: #d93e3a;
+  border: 1px solid #d93e3a;
+}
+.text-danger {
+  color: #d93e3a !important;
+}
+.btn-danger {
+  background-color: #d93e3a !important;
+  border-color: #d93e3a !important;
+}
+.bg-danger {
+  background-color: #d93e3a !important;
+}
+.index-catalog-block .tabs-nav li a.active {
+  border: 1px solid #d93e3a;
+  color: #d93e3a;
+}
+
+.item-page .credit-block .item .ui-widget-content {
+  background: #b71f25;
+}
+.item-page .credit-block .item .ui-state-default,
+.item-page .credit-block .item .ui-widget-content .ui-state-default,
+.item-page .credit-blockc .item .ui-widget-header .ui-state-default,
+.item-page .credit-block .item .ui-button,
+.item-page .credit-block .item html .ui-button.ui-state-disabled:hover,
+.item-page .credit-block .item html .ui-button.ui-state-disabled:active {
+  border: 3px solid #b71f25;
+}
+/*  */
+.item-page .credit-block button {
+  background: #b71f25;
+}
+
+.mobburger{
+  background: #d12d1e url(/templates/chinaautosalon/img/menu-new.png) no-repeat center;
+}
+.header .contacts button {
+  background: #D12D1E;
+}
+
+.index-first-block .text button {
+  background: #D12D1E;
+}
+
+.index-first-block .text .name {
+  font-size: 28px;
+  color: #000000;
+}
+
+.index-filter-block .button button {
+  background: #D12D1E;
+}
+.filter-buttons-wrapper .button_clear button {
+  background: #111;
+}
+/* .steps-block { */
+  /* background: url('/templates/autosalon/img/steps-block.png') no-repeat right 100px top 0 / contain, linear-gradient(138.4deg, #35374e 14.47%, #4e506c 73.53%); */
+  /* background: url('/templates/chinaautosalon/img/img334.png') no-repeat right 100px top 0 / contain, linear-gradient(138.4deg, #35374e 14.47%, #4e506c 73.53%);
+} */
+.steps-block .item .text .number {
+  top: 0;
+  left: 0;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 20px;
+  color: #D12D1E;
+}
+
+.card-title{
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+}
+
+.card-text{
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.details_promo{
+  font-weight: 600;
+  font-size:20px;
+  width: 90%;
+  height: 80px;
+  background: #D12D1E;
+  color: #ffffff;
+  border-radius: 8px;
+} 
+@media (max-width: 767px) {
+  .header .phone {
+    background: url('../img/phone2.svg');
+  }
+}
+.index-contacts-block .logo .logotype {
+  background: url('../img/logo.svg') center / cover;
+}
+.catalog-page .pages .pagination .page-item .page-link.active {
+  background: #d93e3a;
+}
+.contacts-page .contacts .info .logo .logotype {
+  background: url('../img/logo.svg') center / cover;
+}
+.item-page .price-block .price span {
+  color: #d93e3a;
+}
+.item-page .bottom-block .btn-light:hover {
+  border: 1px solid #d93e3a;
+}

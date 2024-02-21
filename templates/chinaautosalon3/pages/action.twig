@@ -1,0 +1,32 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+	{#{resource | dump}#}
+<div class="actions-top-block mb-5 d-flex " style="background: url({{resource.image|raw}}) left center/cover; align-items: center;">
+	<div class="container mt-3">
+		<div class="text">
+			<h1>{{resource.pagetitle | raw}}</h1>
+			<p>{{resource.description | raw}}</p>
+		</div>
+	</div>
+</div>
+<div class="action-page pb-4">
+	<div class="container">
+{{resource.content | raw}}
+	</div>
+</div>
+<div class="container">
+{% if baseSettings["color_css"] == "color2.css" %}
+	{% include "/partials/advantages2.twig" %}
+{% elseif baseSettings["color_css"] == "color3.css" %}
+    {% include "/partials/advantages3.twig" %}
+{% elseif baseSettings["color_css"] == "color5.css" %} 
+	{% include "/partials/advantages5.twig" %}
+{% else %}
+    {% include "/partials/advantages.twig" %}
+{% endif %}
+	{# {% include "/partials/advantages.twig" %} #}
+</div>
+<div class="container">
+	{% include "/partials/contacts.twig" %}
+</div>
+{% endblock %}

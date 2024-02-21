@@ -1,0 +1,20 @@
+{# {{ runSnippet('map', {zoom:'15',grey:'1', coords:baseSettings.salon_coordinates, title:baseSettings.pagetitle,color:'#dc143c'
+}) | raw}} #}
+{% set map = runSnippet('map', {zoom:'15',grey:'1', class:'123', coords:baseSettings.salon_coordinates, width:'80', title:baseSettings.pagetitle,color:'#dc143c'
+}) %}<div class="map-block py-5 position-relative" id="map">
+		<div class="container">
+			<div class="contacts d-inline-block p-5 position-relative">
+				<div class="logo mb-5">
+					<a href="/"><img src="{{baseSettings["logo"]}}"></a>
+				</div>
+				{{baseSettings.salon_location}}
+				<p class="mb-5"> </p>
+                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', class: "phone pl-4 mb-4 d-block", link: '1'}) | raw}} </span>
+            
+				<button  data-toggle="modal" data-target="#callphone">Заказать звонок</button>
+			</div>
+		</div>
+		<div class="map position-absolute w-100 h-100">
+        {{ map | raw }}
+		</div>
+	</div>

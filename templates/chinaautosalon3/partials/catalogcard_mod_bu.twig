@@ -1,0 +1,99 @@
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
+{% set car_photos = data['tv.car_photos'] | json %}
+{% set last_photo = car_photos.fieldValue[car_photos.fieldValue|length - 1].image %}
+
+{% set ComplectationsController = runSnippet('Complectations', {toObject: 1, car_id: data['id']}) %}
+{% set car_price = ComplectationsController.price() %}
+{% set car_price_old = ComplectationsController.priceOld() %}
+{% set engine = ComplectationsController.engine() %}  {# Двигатель #}
+{% set expense = ComplectationsController.expense() %}  {# expense//Расход #}
+{% set power = ComplectationsController.power() %}  {# Мощность #}
+
+{% if car_price is empty %}
+    {% set car_price = data['tv.car-price'] %}
+{% endif %}
+
+{% if car_price_old is empty %}
+    {% set car_price_old = data['tv.old-car-price'] %}
+{% endif %}
+
+{% if car_price is empty %}
+
+{% else %}
+<a href="{{ data['url'] }}" >
+	<div class="col-xl-3 col-lg-4 col-md-6 p-1"><div class="item-bu">
+		<img src="{{ last_photo }}" style="border-radius:20px;"class="p-2">
+		<div class="p-2 justify-content-center">
+			<div class="name mb-2 text-center">
+				{{ data['pagetitle'] }} {{data[tv.body_type]}}
+			</div>
+			<div class="row mb-2">
+				<div class="row col-12 pr-0">
+					<div class="col-5 pr-0 characteristics-title text-left">Год выпуска</div>
+					<div class="col-7 pr-0 characteristics-value text-left">2023</div>
+				</div>
+				<div class="row col-12 pr-0">
+					<div class="col-5 pr-0 characteristics-title text-left">Пробег</div>
+					<div class="col-7 pr-0 characteristics-value text-left">10км</div>
+				</div>
+				<div class="row col-12 pr-0">
+					<div class="col-5 pr-0 characteristics-title text-left">Двигатель</div>
+					<div class="col-7 pr-0 characteristics-value text-left">{{ (expense ~ 'л/' ~ power ~ 'л.с/' ~ engine)|default('') ? (expense ~ 'л/' ~ power ~ 'л.с/' ~ engine)|raw }}</div>
+				</div>
+				<div class="row col-12 pr-0">
+					<div class="col-5 pr-0 characteristics-title text-left">Коробка</div>
+					<div class="col-7 pr-0 characteristics-value text-left">.</div>
+				</div>
+				<div class="row col-12 pr-0">
+					<div class="col-5 pr-0 characteristics-title text-left">Привод</div>
+					<div class="col-7 pr-0 characteristics-value text-left">Полный</div>
+				</div>
+				<div class="row col-12 pr-0">
+					<div class="col-5 pr-0 characteristics-title text-left">Цвет</div>
+					<div class="col-7 pr-0 characteristics-value text-left">Серый</div>
+				</div>
+			</div>
+			<div class="price text-center">
+				<span class="new mr-2"> {{ car_price|number_format(0, '.', '&nbsp;')|raw }} ₽ </span>
+			</div>
+			<div class="text-center mb-3 position-relative">
+				<span class="credit-new">В кредит от
+					{{(car_price / 96) | number_format(0, ' ', ' ')}} ₽/мес
+				</span>
+			</div>
+			<div class="buttons">
+				<div class="col-6 d-none">
+					<a href="#" onclick="showCreditPopup(
+                        {{ data['id'] }},
+                        '',
+                        '{{(car_price / 96) | number_format(0, ' ', ' ')}}');
+                        return false;"
+                      class="car-plate__button button button_red">В кредит</a>
+                </div>
+				<div class="col-12">
+					<button  data-fancybox="" data-src="#popup" class="w-100 color2">Купить автомобиль</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</a>
+{% endif %}
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var cardTitles = $(".name");
+
+        var maxHeight = 0;
+        cardTitles.each(function() {
+            var currentHeight = $(this).height();
+            maxHeight = Math.max(maxHeight, currentHeight);
+        });
+        cardTitles.height(maxHeight);
+    });
+</script>
+
+
+

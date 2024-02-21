@@ -39,6 +39,7 @@
     })
     %}
 
+{# так как нет бу машин для вёрстки взяла resource.is_restyle отображ карточки для бу #}
 
     <div class="item-page py-4" style="background: #F2F3F7;">
 {% if resource.is_restyle == "" %}
@@ -463,6 +464,7 @@
             </div>
         </div>
     </div>
+    {# блок для бу #}
 {% else %}
 
 <div class="container">
@@ -553,7 +555,7 @@
 
         
     </div>
-
+{# конец бу #}
 {% endif %}
     <div class="item-page py-3">
         <div class="container">
@@ -573,7 +575,7 @@
                         </div>
                     </div>
 
-
+{# характеристики бу #}
         {% if resource.is_restyle == "" %}
         {% else %}
         <div class="configurations mb-5 col-12">
@@ -645,6 +647,7 @@
             </div>
         </div>
         {% endif %}
+        {# конец блока бу хар-ки #}
 
                     <div class="col-xl-12 col-lg-12">
                         <div class="pt-3">{{ runSnippet('Form', {
@@ -674,7 +677,7 @@
     </div>
 </div>
 
-
+{# скрытие характеристик для бу комплектации для новых #}
             {% if resource.is_restyle == "" %}
                 {% if complectations is not empty %}
                     <div class="configurations mb-5 col-12">
@@ -802,6 +805,7 @@
 
     {% else %}
     {% endif %}
+    {# конец блока #}
 
                 {# <div class="col-xl-7 col-lg-6"> #}
                 {# <div class="photos mb-5">

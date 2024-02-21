@@ -1,0 +1,34 @@
+<div class="carousel-item active pb-4 pb-lg-0 d-sm-block me-sm-0 pt-3">
+	<div class="card shadow border-0">
+		<img src="[[morephoto?
+						&images=`[+tv.car_photos+]`
+						&phpthumb=`w=370,h=200,zc=C`
+						&ownerTPL=`[+image.thumb+]`
+						&total=`1`
+						&display=`1`
+						]]" class="card-img-top" alt="Car"/>
+		<div class="card-body">
+			<h5 class="card-title">[+pagetitle+]</h5>
+			<div class="row card-text">
+				<div class="col pe-0 text-decoration-line-through text-secondary small">[[helpers? &caroldprice=`[+tv.car-price+]`
+					                    &action=`caroldprice`]]
+					                     ₽
+				</div>
+				<div class="col ps-0 fw-bold text-end text-danger">
+					[+tv.car-price+]    ₽
+				</div>
+			</div>
+			<hr class="my-2"/>
+			<div class="row small mb-2">
+				<div class="col-4 small text-secondary">Пробег</div>
+				<div class="col-4 small text-secondary">Двигатель</div>
+				<div class="col-4 small text-secondary">КПП</div>
+				<div class="col-4 fw-bold py-2">[+tv.run+] км.</div>
+				<div class="col-4 fw-bold py-2">[+tv.engine_power+] л.с.</div>
+				<div class="col-4 fw-bold py-2">[+tv.gear+]</div>
+			</div>
+			<a href="[+url+]" class="btn btn-sm px-4 py-2 btn-primary text-white fw-bold w-100">Подробнее</a>
+		</div>
+	</div>
+</div>
+

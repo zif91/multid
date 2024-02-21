@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% set site_start = modx.config['site_start'] %}
+{% set cacheKey = md5(site_start ~ json_encode(_GET)) %}
+{% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}
+{% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
+{% set title = resource.longtitle | default(resource.pagetitle) | parser %}
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
+{# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}
+{% set faviconSizes = [16, 32, 64, 128] %}
+
+{% for size in faviconSizes %}
+  {% set favicon = runSnippet('phpthumb', {input: baseSettings['favicon'], options:'w=' ~ size ~ ',h=' ~ size ~ ',f=png,far=C, zc=L'}) %}
+  <link rel="icon" type="image/png" sizes="{{ size }}x{{ size }}" href="{{ favicon }}" />
+{% endfor %}
+
+{% set city = runSnippet('UltimateParent', {}) %}
+{% set catalog_number = baseSettings['catalog_number'] %}
+    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
+
+{% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
+
+{# Изменение title  #}
+{% if city|slice(-1) == 'ь' %}
+    {% set genitiveCase = city|slice(0, -1) ~ 'и' %}
+{% elseif city|slice(-1) == 'а' %}
+    {% set genitiveCase = city|slice(0, -1) ~ 'е' %}
+{% else %}
+    {% set genitiveCase = city ~ 'е' %}
+{% endif %}
+
+    {% if resource.pagetitle == "Каталог автомобилей" or resource.template == "9" %}
+    {% set pageTitle = "Купить новые автомобили с пробегом недорого в " ~ genitiveCase %}
+    {% set descriptionContent = "Продажа авто в " ~ genitiveCase ~ ". Возможен Trade-in и покупка в кредит." %}
+{% else %}
+    {% set pageTitle = metaTitle %}
+    {% set descriptionContent = metaDescription %}
+{% endif %}
+
+    {% set marks = runSnippet('DocLister', {
+_filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
+parents: catalog_number,
+depth: 0,
+addWhereList: 'isfolder=1 AND c.template=17',
+tpl:'@T_FILE:partials/catalogcard',
+api: 1,
+debug: 0,
+})
+%}
+
+    {% set marks = marks|json %}
+        {% set models = runSnippet('DocLister', { id: 'catalog' , filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
+parents: catalog_number,
+depth: 1,
+addWhereList: 'isfolder=1 AND c.template=20',
+api: 1,
+    })
+    | json %}
+<html lang="ru" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <base href="{{ config.site_url }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="{{ descriptionContent }}">
+    <meta name="keywords" content="{{ metaKeywords }}">
+    {# <title>{{ metaTitle }}</title>
+    <meta name="description" content="{{ metaDescription }}">
+    <meta name="keywords" content="{{ metaKeywords }}"> #}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="{{favicon}}" type="image/png">
+    <meta name="color-theme" content="">
+    <link rel="apple-touch-icon" sizes="60x60" href="static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="static/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#5bbad5">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/templates/chinaautosalon3/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/templates/chinaautosalon3/css/popup.css">
+    <link rel="stylesheet" href="/templates/chinaautosalon3/css/choices.min.css">
+
+    {# <link rel="stylesheet" href="/templates/chinaautosalon/css/style.css"> #}
+    <link rel="stylesheet" href="/templates/chinaautosalon3/css/style.css?12222123123">
+    <link rel="stylesheet" href="/templates/chinaautosalon3/css/color1.css?32111">
+    <link rel="stylesheet" href="/templates/chinaautosalon3/css/{{baseSettings.color_css}}"> 
+
+    <link rel="stylesheet" href="/templates/chinaautosalon3/css/slick.css">
+   <link rel="stylesheet" href="/templates/chinaautosalon3/css/plates.css">
+    {{baseSettings.scripts_head | raw}}
+    {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
+    {% block HEAD %}{% endblock %}
+</head>
+  
+
+<body>
+    {% if baseSettings.site_id is not empty %}
+  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">
+          <div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
+{% endif %}
+
+{% if baseSettings.metrik_id is not empty %}
+  <input type="hidden" id="metrik-id" value="{{baseSettings.metrik_id}}">
+{% endif %}
+    {% cache 'header' ~ cacheKey %}
+        {% include('partials/header.twig') %}
+    {% endcache %}
+    {{baseSettings.scripts_body | raw}}
+    <main class="main">
+        {% block MAIN %}{% endblock %}
+        {% include('partials/scripts.twig') %}
+    </main>
+    {% cache 'footer' ~ cacheKey %}
+        {% include('partials/footer.twig') %}
+        {% include('partials/popup.twig') %}
+    {% endcache %}
+    {% block SCRIPTS %}{% endblock %}
+    <div name="213" id="loader"></div>
+</body>
+{% set stats = runSnippet('helpers', {action:'stats'}) | json %}
+<!-- Memory: {{ stats.phpMemory }}, MySQL: {{ stats.queryTime }}, {{ stats.queries }} request(s), PHP: {{ stats.phpTime }}, total: {{ stats.totalTime }}, document retrieved from {{ stats.source }}, ID: {{ resource.id }} -->
+
+</html>

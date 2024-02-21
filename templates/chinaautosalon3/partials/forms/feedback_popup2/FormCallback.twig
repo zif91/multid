@@ -1,0 +1,88 @@
+{# <div class="form-block mb-5">
+<form>
+    <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+	{{ data['form.messages'] | raw }}
+			<div class="block-name mb-4">
+				Остались вопросы или нужна помощь? Да это я!
+			</div>
+
+			<div class="top-text mb-4 pb-2">
+				Оставьте заявку на консультацию - и наши менеджеры придут вам на помощь
+			</div>
+			<div class="row">
+                   
+				<div class="col-md-4 col-sm-6">
+					<p class="mb-2">Ваш телефон</p>
+					<input type="text" placeholder="+7 (___) ___-__-__" name="mobile_tel" class="w-100 mb-3 px-3 {{ data['mobile_tel.classname'] }}" id="mobile_tel" value="{{ data.mobile_tel }}">
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<p class="mb-2">Ваше имя</p>
+					<input type="text" placeholder="Например: Андрей" name="first_name" class="w-100 mb-3 px-3 {{ data['first_name.classname'] }}" id="first_name" value="{{ data.first_name }}">
+				</div>
+				<div class="col-md-4">
+					<button class="w-100 mb-3">Перезвоните мне</button>
+				</div>
+			</div>
+			<div class="agree position-relative">
+				<input type="checkbox" id="agree" class="position-absolute" required>
+				<label for="agree" class="d-block pl-4">Я даю согласие на обработку персональных данных</label>
+			</div>
+            <div class="agree position-relative">
+                <input type="checkbox" id="check_nationality" class="position-absolute" required>
+                <label for="check_nationality" class="d-block pl-4">Являюсь гражданином РФ</label>
+            </div>
+            </form>
+
+		</div> #}
+
+<div class="form-block23 mb-5">
+	<form>
+		<input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+		{{ data['form.messages'] | raw }}
+
+		<div class="block-name mb-3">
+			Оставьте заявку!
+		</div>
+		<div class="top-text mb-3 pb-2">
+			Заполните форму и отправьте — специалисты свяжутся с Вами в самое ближайшее время
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<input type="text" placeholder="Ваше имя" name="first_name" class="w-100 mb-3 px-3 {{ data['first_name.classname'] }}" id="first_name" value="{{ data.first_name }}">
+			</div>   
+			<div class="col-12">
+				<input type="text" placeholder="Ваш телефон" name="mobile_tel" class="w-100 mb-3 px-3 {{ data['mobile_tel.classname'] }}" id="mobile_tel" value="{{ data.mobile_tel }}">
+			</div>
+			<div class="col-md-12">
+				<button class="w-100 mb-3 btn-danger" style="height: 52px; font-weight: 600; color: #fff;border-radius: 8px;">Перезвоните мне</button>
+			</div>
+			<div class= "col-12">
+			<div class="agree position-relative col-12">
+				<input type="checkbox" id="agree" class="position-absolute" required>
+				<label for="agree" class="d-block pl-4">Вы даёте согласие на обработку &nbsp; <a href="/policy" class="personal-link text-danger"> персональных данных</a></label>
+			</div>
+			<div class="agree position-relative col-12">
+				<input type="checkbox" id="check_nationality" class="position-absolute" required>
+				<label for="check_nationality" class="d-block pl-4">Являюсь гражданином РФ</label>
+			</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<style>
+    .agree input[type="checkbox"] {
+        display: block;
+        appearance: auto;
+		background-color: #4E3249;
+    }
+	.form-block input{
+		background-color: #FFFFFF;
+	}
+	/* label.d-block.pl-4 {
+    color: white;
+    font-size: 12px;
+	} */
+</style>
+
+

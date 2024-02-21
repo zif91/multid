@@ -1,0 +1,1629 @@
+{% extends 'app.twig' %}
+{% block MAIN %}
+    {# {% set car_photos = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg"%} #}
+    {% set brand_id = runSnippet ('UltimateParent', {top: catalog_number, topLevel:1}) |raw %}
+    {% set model_title = runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw %}
+    {% set brand_title = runSnippet ('DocInfo', {docid: brand_id, field:pagetitle}) |raw %}
+    {% set ComplectationsController = runSnippet('Complectations', {toObject: 1}) %}
+    {% set complectations = ComplectationsController.toArray() %}
+    {% set engine = ComplectationsController.engine() %}
+    {% set expense = ComplectationsController.expense() %}
+    {% set power = ComplectationsController.power() %}
+    {% set price = ComplectationsController.price() %}
+    {% set priceOld = ComplectationsController.price_old() %}
+    {% set firstConfs = complectations|first %}
+    {% set firstConfs2 = firstConfs['items']|first %}
+    {% set car_photos = resource.car_photos | json %}
+    {% set car_photos = car_photos.fieldValue %}
+    {% set descriptionsList = item['description']|split('\n') %}
+    {# {% set old_car_price_number = resource['car-price']|float(0, '.', '&nbsp;') %} #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    {# % set modification = runSnippet('takemodels', {configuration_id: resource["configuration_id"] }) % #}
+
+        {% set DLCatalog = runSnippet('DocLister', {
+        id: 'catalog',
+        controller: 'catalog_filters',
+        filters: 'AND(tv:mark_id:=:' ~ mark ~ ';tv:model:=:' ~ resource.model ~ ')' ,
+        filter: 'filters',
+        display: 8,
+        parents: catalog_number,
+        depth: 5,
+        tvList:'car-price,old-car-price,car_photos,configuration_id',
+        ownerTPL: '@T_FILE:partials/wrap',
+        tpl:'@T_FILE:partials/catalogcard_mod_bu',
+        TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
+        noneTPL:'@T_FILE:partials/noitems',
+                
+    })
+    %}
+
+    <div class="item-page py-4" style="background: #F2F3F7;">
+{% if resource.is_restyle == "" %}
+        <div class="container">
+            <div class="row">
+                {# цена #}
+                {# <div class="col-lg-4 col-4">
+                <div class="info pb-4">
+                    <h1 class="mb-4 mt-2">
+                        {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
+                    </h1>
+                    <div class="row">
+                        <div class="col-sm-6 mb-2">
+                            Цена:</br>
+                            <span class="price">{{price|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span>
+                            <div id="carPrice" style="display: none;">{{ price }}</div>
+                        </div>
+                        <div class="col-sm-6">
+                        <div id="resultBlock" style="display: none;">
+                            Выгода:</br>
+                            <span class="price mb-2" id="price-profit">&nbsp;</span>
+                        </div>
+                        </div>
+
+                            <div id="oldCarPrice"style="display: none;">{{firstConfs2['price_old']}}</div>
+                            <span class="price-old pl-3">{{firstConfs2['price_old']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
+                    </div>
+                    <div class="top-text mb-2 mt-2">
+                        Подарок:
+                    </div>
+                    <div class="data pt-2 pb-2 pr-3 pl-3 mb-3 owl-carousel d-flex align-items-center justify-content-around col-lg-12">
+                        <div class="card-gift d-flex align-items-center justify-content-center">
+                            <div class="row w-100">
+                                <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
+                                    <img src="/templates/chinaautosalon/img/GiftIcon.png" alt="" class="card-img-top-gift" />
+                                </div>
+                                <div class="card-body-gift col-10">
+                                    <p>Зимняя резина</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-gift d-flex align-items-center justify-content-center ml-2">
+                            <div class="row w-100 p-1">
+                                <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
+                                    <img src="/templates/chinaautosalon/img/GiftIcon.png" alt="" class="card-img-top-gift" />
+                                </div>
+                                <div class="card-body-gift col-10">
+                                    <p>Полис КАСКО</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="credit mb-4 p-3 flex align-items-center">
+                        <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p>
+                        <span data-fancybox="" data-src="#popup" tupe="button">Ставка от {% if baseSettings.credit_rate is empty %}
+                            1.6
+                            {% else %}
+                                {{ baseSettings.credit_rate }}
+                            {% endif %}%
+                        </span>
+                    </div>
+                    <div class="buttons row" >
+                        <div class="col-6">
+                            <button class="color1 w-100" data-fancybox="" data-src="#popup">Забронировать</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="car-plate__button button button_grey w-100 color2" data-fancybox="" data-src="#popup">В кредит</button>
+                        </div>
+                    </div>
+                   </div>
+                </div>
+            </div> #}
+                <div class="info col-12 p-2 pl-4 d-block d-md-none">
+                    {# <h1 class="mb-1 mt-2 text-left">
+                        {{ model_title }} {{ resource.pagetitle }}
+                    </h1> #}
+                    <h1 class="mb-1 mt-2 text-left">
+                        {{ resource.pagetitle }}
+                    </h1>
+                </div>
+
+                <div class="col-lg-4 col-4">
+                    <div class="info h-100 d-flex flex-column">
+                        <div class=" p-2">
+                            {# <h1 class="mb-2 mt-2 d-none d-md-block">
+                                {{ model_title }} {{ resource.pagetitle }}
+                            </h1> #}
+                            <h1 class="mb-2 mt-2 d-none d-md-block">
+                             {{ resource.pagetitle }}
+                            </h1>
+                        </div>
+                        <div class=" pl-2 pr-2 pb-2 pt-2">
+                            <div class="row">
+                                <div class="col-lg-6 mb-2">
+                                    Цена:</br>
+                                    <span class="price">{{ price|number_format(0, '.', '&nbsp;')|raw }}₽</span>
+                                    <div id="carPrice" style="display: none;">{{ price }}</div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div id="resultBlock" style="display: none;">
+                                        Выгода:</br>
+                                        <span class="price mb-2" id="price-profit">&nbsp;</span>
+                                    </div>
+                                </div>
+                                <div id="oldCarPrice" style="display: none;">{{ firstConfs2['price_old'] }}</div>
+                                <span class="price-old pl-3">{{ firstConfs2['price_old']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
+                            </div>
+                        </div>
+
+                        <div class=" p-2 mt-auto">
+                            <div>
+                                <div class="top-text mb-2 mt-2 d-none d-sm-block">
+                                    Подарок:
+                                </div>
+                                <div class="d-none d-lg-block">
+                                    <div class="data pt-2 pb-2 mb-3 w-100 d-flex col-12">
+                                        <div class="card-gift d-flex align-items-center justify-content-center">
+                                            <div class="row w-100">
+                                                <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
+                                                    <img src="/templates/chinaautosalon/img/GiftIcon.png" alt=""
+                                                         class="card-img-top-gift"/>
+                                                </div>
+                                                <div class="card-body-gift col-10">
+                                                    <p>Зимняя резина</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-gift d-flex align-items-center justify-content-center ml-2">
+                                            <div class="row w-100 p-1">
+                                                <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
+                                                    <img src="/templates/chinaautosalon/img/GiftIcon.png" alt=""
+                                                         class="card-img-top-gift"/>
+                                                </div>
+                                                <div class="card-body-gift col-10">
+                                                    <p>Полис КАСКО</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="credit  mb-4 p-2 pb-3 pt-3 flex align-items-center">
+                                        <p>В кредит
+                                            от {{ (resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }}
+                                            руб/мес</p>
+                                        <span data-fancybox="" data-src="#popup"
+                                              tupe="button">Ставка от {% if baseSettings.credit_rate is empty %}
+                                    1.6
+                                {% else %}
+                                    {{ baseSettings.credit_rate }}
+                                            {% endif %}%
+                                </span>
+                                    </div>
+
+                                    <div class="buttons row">
+                                        <div class="col-6">
+                                            <button class="color1 w-100" data-toggle="modal" data-target="#bron">
+                                                Забронировать
+                                            </button>
+                                        </div>
+                                        <div class="col-6">
+                                            <button class="car-plate__button button button_grey w-100 color2"
+                                                    data-fancybox="" data-src="#popup">В кредит
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                {# фото #}
+                <div class="row col-lg-8 col-8 p-0">
+                    <div class="photo col-lg-9 col-12">
+                        <div class="slider-for" style="display: none;">
+                            {% if resource.car_photos is empty %}
+                                <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
+                            {% else %}
+                                {% for image in car_photos | reverse %}
+                                    <img class="first-foto" src="{{ image.image }}">
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row col-lg-3 col-12 p-2" id="blockToMove">
+                        <div class="col-lg-12 col-sm-3 col-3 p-1">
+                            <div class="row ml-2 w-auto ">
+                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                    <img src="/templates/chinaautosalon/img/flash.png" alt="" class="conf-img-top"/>
+                                </div>
+                                <div class="p-0 pl-1 pt-1">
+                                    <p class="text-left title-conf">Мощность</p>
+                                    <p class="text-left body-conf">{{ power }}&nbsp;л.с</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-lg-12 col-sm-3 col-3  p-1">
+                            <div class="row ml-2 w-auto ">
+                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                    <img src="/templates/chinaautosalon/img/gas-station.png" alt=""
+                                         class="conf-img-top"/>
+                                </div>
+                                <div class="p-0 pl-1 pt-1">
+                                    <p class="text-left title-conf">Расход</p>
+                                    <p class="text-left body-conf">{{ expense }}&nbsp;л.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-3 col-3 p-1">
+                            <div class="row ml-2 w-auto ">
+                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                    <img src="/templates/chinaautosalon/img/engine.png" alt="" class="conf-img-top"/>
+                                </div>
+                                <div class="p-0 pl-1 pt-1">
+                                    <p class="text-left title-conf">Двигатель</p>
+                                    <p class="text-left body-conf">{{ engine }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-3 col-3 p-1">
+                            <div class="row ml-2 w-auto ">
+                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                    <img src="/templates/chinaautosalon/img/car-shift-pattern.png" alt=""
+                                         class="conf-img-top"/>
+                                </div>
+                                <div class="p-0 pl-1 pt-1">
+                                    <p class="text-left title-conf">Коробка</p>
+                                    <p class="text-left body-conf">{{ firstConfs2['transmission'] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-12" id="destinationBlock">
+
+                </div>
+
+
+                {# характ-ки #}
+
+                {# <div class=" col-lg-2 col-4 col-sm-4 p-1 pb-3 d-flex flex-column">
+                <div class="row ml-2 w-auto mb-5">
+                    <div class="d-flex align-items-center justify-content-center pt-1">
+                        <img src="/templates/chinaautosalon/img/flash.png" alt="" class="conf-img-top"/>
+                    </div>
+                    <div class="p-0 pl-1 pt-1">
+                        <p class="text-left title-conf">Мощность</p>
+                        <p class="text-left body-conf">{{ power }}&nbsp;л.с</p>
+                    </div>
+                </div>
+                <div class="row ml-2 w-auto mb-5">
+                    <div class="d-flex align-items-center justify-content-center pt-1">
+                        <img src="/templates/chinaautosalon/img/gas-station.png" alt="" class="conf-img-top" />
+                    </div>
+                    <div class="p-0 pl-1 pt-1">
+                        <p class="text-left title-conf">Расход</p>
+                        <p class="text-left body-conf">{{ expense }}&nbsp;л.</p>
+                    </div>
+                </div>
+                <div class="row ml-2 w-auto mb-5">
+                    <div class="d-flex align-items-center justify-content-center pt-1">
+                        <img src="/templates/chinaautosalon/img/engine.png" alt="" class="conf-img-top" />
+                    </div>
+                    <div class="p-0 pl-1 pt-1">
+                        <p class="text-left title-conf">Двигатель</p>
+                        <p class="text-left body-conf">{{ engine }}</p>
+                    </div>
+                </div>
+                <div class="row ml-2 w-auto mb-5">
+                    <div class="d-flex align-items-center justify-content-center pt-1">
+                        <img src="/templates/chinaautosalon/img/car-shift-pattern.png" alt="" class="conf-img-top" />
+                    </div>
+                    <div class="p-0 pl-1 pt-1">
+                        <p class="text-left title-conf">Коробка</p>
+                        <p class="text-left body-conf">{{ firstConfs2['transmission'] }}</p>
+                    </div>
+                </div>
+            </div> #}
+
+                {# доп блок          #}
+
+                <div class="info col-12 d-block d-lg-none">
+                    <div class="top-text mb-2 mt-2 d-sm-none">
+                        Подарок:
+                    </div>
+                    <div class="data pt-2 pb-2 pr-3 pl-3 mb-3 owl-carousel d-flex align-items-center justify-content-around col-lg-12 col-md-6">
+                        <div class="card-gift d-flex align-items-center justify-content-center">
+                            <div class="row w-100">
+                                <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
+                                    <img src="/templates/chinaautosalon/img/GiftIcon.png" alt=""
+                                         class="card-img-top-gift"/>
+                                </div>
+                                <div class="card-body-gift col-10">
+                                    <p>Зимняя резина</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-gift d-flex align-items-center justify-content-center ml-2">
+                            <div class="row w-100 p-1">
+                                <div class="col-2 d-flex align-items-center justify-content-center pt-1 pl-1 pr-1">
+                                    <img src="/templates/chinaautosalon/img/GiftIcon.png" alt=""
+                                         class="card-img-top-gift"/>
+                                </div>
+                                <div class="card-body-gift col-10">
+                                    <p>Полис КАСКО</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="credit mb-4 p-3 flex align-items-center">
+                        <p>В кредит от {{ (resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }}
+                            руб/мес</p>
+                        <span data-fancybox="" data-src="#popup"
+                              tupe="button">Ставка от {% if baseSettings.credit_rate is empty %}
+                            1.6
+                            {% else %}
+                                {{ baseSettings.credit_rate }}
+                            {% endif %}%
+                        </span>
+                    </div>
+                    <div class="buttons row mb-2">
+                        <div class="col-6">
+                            <button class="color1 w-100" data-fancybox="" data-src="#popup">Забронировать</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="car-plate__button button button_grey w-100 color2" data-fancybox=""
+                                    data-src="#popup">В кредит
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="bonus-card h-100 d-flex flex-column">
+                        <div class="bonus-card-header p-2">
+                            <h5>Cкидка по программе трейд-ин или утилизации</h5>
+                        </div>
+                        <div class="bonus-card-body pl-2 pr-2 pb-2">
+                            <p>Выгода за обмен старого Авто, в том числе как первоначальный взнос за Автокредит</p>
+                        </div>
+                        <div class="bonus-card-footer p-2 d-flex justify-content-between align-items-center mt-auto">
+                            <div>
+                                <div class="bonus-pricetitle">Скидка включена</div>
+                                <div class="bonus-price">
+                                    <span class="price mb-2" id="priceSaleTradeIn">&nbsp;</span>
+                                    <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка"
+                                         class="img-fluid ml-2" style="height: 20px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="bonus-card h-100 d-flex flex-column">
+                        <div class="bonus-card-header p-2">
+                            <h5>Cкидка на авто по распродаже 2022 модельного ряда</h5>
+                        </div>
+                        <div class="bonus-card-body pl-2 pr-2 pb-2">
+                            <p>Выгода достигается при покупке Автомобиля {{ brand_title }} начала 2022 года выпуска</p>
+                        </div>
+                        <div class="bonus-card-footer p-2 d-flex justify-content-between align-items-center mt-auto">
+                            <div>
+                                <div class="bonus-pricetitle">Скидка включена</div>
+                                <div class="bonus-price">
+                                    <span class="price mb-2" id="priceSaleModel">&nbsp;</span>
+                                    <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка"
+                                         class="img-fluid ml-2" style="height: 20px;">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="bonus-card h-100 d-flex flex-column">
+                        <div class="bonus-card-header p-2">
+                            <h5>Cкидка по программе {{ brand_title }} Finance</h5>
+                        </div>
+                        <div class="bonus-card-body pl-2 pr-2 pb-2">
+                            <p>Выгода за обмен старого Авто, в том числе как первоначальный взнос за Автокредит</p>
+                        </div>
+                        <div class="bonus-card-footer p-2 d-flex justify-content-between align-items-center mt-auto">
+                            <div>
+                                <div class="bonus-pricetitle">Скидка включена</div>
+                                <div class="bonus-price">
+                                    <span class="price mb-2" id="priceSaleFinance">&nbsp;</span>
+                                    <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка"
+                                         class="img-fluid ml-2" style="height: 20px;">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="bonus-card h-100 d-flex flex-column">
+                        <div class="bonus-card-header p-2">
+                            <h5>Скидка от дилерского центра Урал CHINA Моторс</h5>
+                        </div>
+                        <div class="bonus-card-body pl-2 pr-2 pb-2">
+                            <p>Совместная акция производителя и ведущих банков.</p>
+                        </div>
+                        <div class="bonus-card-footer p-2 d-flex justify-content-between align-items-center mt-auto">
+                            <div>
+                                <div class="bonus-pricetitle">Скидка включена</div>
+                                <div class="bonus-price">
+                                    <span class="price mb-2" id="priceSaleDealer">&nbsp;</span>
+                                    <img src="templates/chinaautosalon/img/Checkmark.png" alt="Галочка"
+                                         class="img-fluid ml-2" style="height: 20px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-12 pl-3 pr-3">
+            <div class="photo">
+                <div class="slider-for" style="display: none;">
+                    {% if resource.car_photos is empty %}
+                        <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
+                    {% else %}
+                        {% for image in car_photos | reverse %}
+                            <img class="first-foto-new" src="{{ image.image }}">
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-12">
+            <div class="pr-2 pl-2 pb-2 row d-flex">
+                <div class="col-8">
+                    <h1 class="h1-car text-left mb-1" style="font-size: 27px; font-weight: 600;">
+                        {{ resource.pagetitle }}
+                    </h1>
+                </div>
+                <div class="col-md-4 col-8 custom-image-order">
+                    <div class="mb-1">
+                        <img src="/templates/chinaautosalon3/img/for-color/nalich.png" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="info-conf pl-2">
+                {{ firstConfs2['title'] }}
+            </div>
+            <div class="info pl-2 pr-2 pb-2 pt-2">
+                <div class="row">
+                    <div class="col-lg-12 mb-2">
+                        <span class="price-bu">{{ price|number_format(0, '.', '&nbsp;')|raw }}₽</span>
+                        <div id="carPrice" style="display: none;">{{ price }}</div>
+                        <div id="oldCarPrice" style="display: none;">{{ firstConfs2['price_old'] }}</div>
+                        <span class="price-old-bu pl-3">{{ firstConfs2['price_old']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
+                    </div>
+                                
+                    <div class="price-profit-block col-xl-4 col-lg-5 col-md-5 col-sm-6 col-12 mb-2 ml-2">
+                        <div id="resultBlock" style="display: none;" class="text-center">
+                            Выгода до <span class="price-profit mb-2" id="price-profit">&nbsp;₽</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 mb-2 mt-2 text-left" style="font-weight: 600;">Характеристики</div>
+                    <div class="row mb-2 col-12">
+                        <div class="col-6 pr-0 characteristics-title">
+                            <div class="text-left">Год выпуска</div>
+                            <div class="text-left">Пробег</div>
+                            <div class="text-left">Двигатель</div>
+                            <div class="text-left">Коробка</div>
+                            <div class="text-left">Привод</div>
+                            <div class="text-left">Цвет</div>
+                        </div>
+                        <div class="lg-block col-6 pl-0 characteristics-value">
+                            <div class="text-left">2023</div>
+                            <div class="text-left">10км</div>
+                            {{ (expense ~ 'л/' ~ power ~ 'л.с/' ~ engine)|default('') ? (expense ~ 'л/' ~ power ~ 'л.с/' ~ engine)|raw }}
+                            <div class="text-left">.</div>
+                            <div class="text-left">Полный</div>
+                            <div class="text-left">Серый</div>
+                        </div>
+                    </div>
+                    <div class="buttons lg-blocknone row col-12">
+                        <div class="col-6">
+                            <button class="w-100 color1"
+                                data-fancybox="" data-src="#popup">Купить автомобиль
+                            </button>
+                    </div>
+                    <div class="col-6">
+                        <button class="color8 w-100" onclick="openPopupForm()">
+                            Купить в трейд-ин
+                        </button>
+                    </div>   
+                </div>                  
+            </div>
+        </div>  
+    </div>
+                <div class="row col-12" id="destinationBlock">
+                </div>
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+{% endif %}
+    <div class="item-page py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <h2 class="mb-3" style="font-size: 24px;font-weight: 700;">Галерея</h2>
+                    <div class="photo mb-sm-5 mb-4">
+                        <div class="slider-nav" style="display: none;">
+                            {% if resource.car_photos is empty %}
+                                <img src="{{ car_photos.fieldValue[0].image }}">
+                            {% else %}
+                                {% for image in car_photos | reverse %}
+                                    <div class="item pl-3 pr-2 h-100"><img class="more-foto" src="{{ image.image }}">
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+
+        {% if resource.is_restyle == "" %}
+        {% else %}
+        <div class="configurations mb-5 col-12">
+            <div class="mb-3">
+                <div class="card mb-2">
+                    <div class="card-header  pr-1 d-flex align-items-center justify-content-between mob-wrap">
+                        <div class="row" style="color:#656A97; font-weight: 600;">
+                            Характеристики
+                        </div>
+                        <span class="arrow2">&#9660;</span>
+                    </div>
+                    <div class="card-body-conf">
+                        <article class="columns-2 p-2">
+                           <div class="row">
+                                <div class="conf-new-title col-6"></div>
+                                <div class="conf-new-val col-6"></div>
+                           </div> 
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Задние тормоза</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">дисковые</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Питание двигателя</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">непосредственный впрыск</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">мощность</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">150КВт</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Обороты мощности</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">5000;6000</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Тип двигателя</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">бензин</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Трансмиссия</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">робот</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Привод</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">полный</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Объем двигателя</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">1395</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Время разгона</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">9.7</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Порядок работы</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">рядное</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Максимальная скорость</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">194</div>
+                           </div>
+                           <div class="row">
+                                <div class="conf-new-title col-6 pl-2 pr-1">Степень сжатия</div>
+                                <div class="conf-new-val col-6 pl-2 pr-1">110</div>
+                           </div>                   
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="pt-3">{{ runSnippet('Form', {
+                                formid: 'FormCallback',
+                                path: '/templates/chinaautosalon/partials/forms/creditcar2/',
+                                extension: 'twig'
+                            }) | raw }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="catalog-block container">
+            <div class="container-fluid catalog-products" id="catalog">
+                <h3 style="text-align:start;margin-bottom:16px; font-size:28px;font-weight: 700;">Горячее предложение</h3>
+                <div class="catalog-page">
+                    <div class="container">
+                        <div class="row">
+                            {{DLCatalog |raw}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            {% if resource.is_restyle == "" %}
+                {% if complectations is not empty %}
+                    <div class="configurations mb-5 col-12">
+                        <h2 class="mb-4">Доступные комплектации</h2>
+                        {% for complectation in complectations %}
+                            <div class="mb-3">
+                                <h5 class="font-weight-bold mb-2"
+                                    style="color:#4A5475">{{ complectation['title_group'] }}</h5>
+                                {% for item in complectation['items'] %}
+                                    <div class="card mb-2">
+                                        <div class="card-header  pr-1 d-flex align-items-center justify-content-between mob-wrap">
+                                            <div class="row" style="color:#656A97; font-weight: 600;">
+                                                {{ item['title'] }}
+                                            </div>
+                                            <div class="row ml-1 config-price"
+                                                 style="font-weight: 600; font-size:18px;">
+                                                {{ item['price']|number_format(0, '.', '&nbsp;')|raw }}₽
+                                            </div>
+                                            <div class="row price-old ml-1">
+                                                {{ item['price_old']|number_format(0, '.', '&nbsp;')|raw }}₽
+                                            </div>
+                                            <div class="row ml-1">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/drive.png" alt=""/>
+                                                </div>
+                                                <div class="p-0  pl-1 pt-1">
+                                                    <p class="text-left title-conf">Мощность</p>
+                                                    <p class="text-left body-conf">{{ item['power'] }}л.с</p>
+                                                </div>
+                                            </div>
+                                            <div class="row ml-1">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/drive.png" alt=""/>
+                                                </div>
+                                                <div class="p-0  pl-1 pt-1">
+                                                    <p class="text-left title-conf">Привод</p>
+                                                    <p class="text-left body-conf">{{ item['drive'] }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row ml-1">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/gas-station.png" alt=""/>
+                                                </div>
+                                                <div class="p-0 pl-1 pt-1">
+                                                    <p class="text-left title-conf">Расход</p>
+                                                    <p class="text-left body-conf">{{ item['expense'] }}л</p>
+                                                </div>
+                                            </div>
+                                            <div class="row ml-1">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/engine.png" alt=""/>
+                                                </div>
+                                                <div class="p-0 pl-1 pt-1">
+                                                    <p class="text-left title-conf">Двигатель</p>
+                                                    <p class="text-left body-conf">{{ item['engine_type'] }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="transmiss row">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/car-shift-pattern.png"
+                                                         alt=""/>
+                                                </div>
+                                                <div class="p-0 pl-1 pt-1">
+                                                    <p class="text-left title-conf">Коробка</p>
+                                                    <p class="text-left body-conf">{{ item['transmission'] }}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="buttons col-md-2 col-6">
+                                                <button class="color5 w-100" id="creditButton" data-fancybox=""
+                                                        data-src="#popup">В кредит
+                                                </button>
+                                            </div>
+                                            <span class="arrow">&#9660;</span>
+                                        </div>
+                                        <div class="card-body-conf">
+                                            <article class="columns-2 p-2">
+                                                {% if item['description'] is not empty %}
+                                                    {% if '<ul>' in item['description'] or '<li>' in item['description'] or '<h4>' in item['description'] %}
+                                                        {{ item['description'] | raw }}
+                                                    {% else %}
+                                                        {% set sections = ['Интерьер', 'Комфорт', 'Экстерьер', 'Безопасность', 'Техника', 'Опции'] %}
+                                                        {% set descriptionLines = item['description']|split('\n') %}
+
+                                                        {% set currentSection = '' %}
+                                                        {% set inSection = false %}
+
+
+                                                        {% for line in descriptionLines %}
+                                                            {% set found = false %}
+                                                            {% for section in sections %}
+                                                                {% if section in line %}
+                                                                    {% if inSection %}
+                                                                        </ul>
+                                                                    {% endif %}
+                                                                    <h4>{{ line }}</h4>
+                                                                    <ul>
+                                                                    {% set inSection = true %}
+                                                                    {% set found = true %}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            {% if not found %}
+                                                                {% if inSection %}
+                                                                    <li>{{ line }}</li>
+                                                                {% else %}
+                                                                    {{ line }}
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endfor %}
+
+                                                        {% if inSection %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    {# {{ item['description'] | raw}} #}
+                                                {% endif %}
+                                            </article>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+    {% else %}
+    {% endif %}
+
+                {# <div class="col-xl-7 col-lg-6"> #}
+                {# <div class="photos mb-5">
+                    <div class="slider-for mb-3">
+                        <div> #}
+                {# % for car in car_photos.fieldValue %}
+                            <div class="item">
+                                <img class="rounded border border-dark" src="{{ car.image }}">
+                            </div>
+                            {% endfor % #}
+                {# <div class="item">
+                                <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
+                            </div> #}
+                {# If you want to use slider-nav later, uncomment and populate it similarly #}
+                {#
+                <div class="slider-nav">
+                    <div class="item">
+                        <img src="{{ car_photos.fieldValue[0].image }}">
+                    </div>
+                </div>
+                #}
+                {# </div>
+                    </div>
+                </div> #}
+                {# </div> #}
+                {# <div class="col-xl-5 col-lg-6">
+                <div class="info mb-5">
+                    <h1 class="mb-4">
+                        {{runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{resource.pagetitle}}
+                    </h1>
+                    <div class="top-text mb-2">
+                        Стоимость
+                    </div> #}
+                {# <table class="w-100 mb-3">
+                        <tr>
+                            <td>Год выпуска</td>
+                            <td>2021</td>
+                        </tr>
+                        <tr>
+                            <td>Двигатель</td>
+                            <td>2.7 л / 163 л.с / Бензин</td>
+                        </tr>
+                        <tr>
+                            <td>Коробка</td>
+                            <td>Автомат</td>
+                        </tr>
+                        <tr>
+                            <td>Привод</td>
+                            <td>Полный</td>
+                        </tr>
+                        <tr>
+                            <td>Цвет</td>
+                            <td>Белый</td>
+                        </tr>
+                    </table> #}
+                {# <div class="data pt-3 pr-3 pl-3 mb-3">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="data-item mb-3 pt-1">
+                                    <div></div>
+                                    <div><span>Цена от:</span> {{resource['car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="data-item mb-3 pt-1">
+                                    <div></div>
+                                    {% if resource['old-car-price'] !="" %}
+                                    <div><span>Цена до:</span> {{resource['old-car-price']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</div>
+                                    {% else %}
+                                    <div> </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div> #}
+                {# <div class="credit mb-4 p-3 flex align-items-center">
+                        <p>В кредит от {{(resource['car-price'] / 96)|number_format(0, '.', '&nbsp;')|raw }} руб/мес</p> #}
+                {# <span>Ставка от 1.6%</span> #}
+                {# <span>Ставка от {% if baseSettings.credit_rate is empty %}
+                                        1.6
+                                    {% else %}
+                                        {{ baseSettings.credit_rate }}
+                                    {% endif %}%</span>
+                    </div>
+                    <div class="buttons row">
+                        <div class="col-6">
+                            <button class="color1 w-100" data-fancybox="" data-src="#popup">Забронировать</button>
+                        </div>
+                        <div class="col-6"> #}
+                {# <button class="color2 w-100" id="myButton">Купить в кредит</button> #}
+                {# <a href="#" onclick="showCreditPopup(
+                        {{ resource['id'] }},
+                        '',
+                        '{{(resource['car-price'] / 96) | number_format(0, ' ', ' ')}}');
+                        return false;" class="car-plate__button button button_grey w-100 color2">В кредит</a>
+                        </div>
+                    </div>
+                </div> #}
+                {# </div> #}
+                {# <div class="col-xl-12 col-lg-12">
+                <div class="pt-3">{{ runSnippet('Form', {
+                    formid: 'FormCallback',
+                    path: '/templates/chinaautosalon/partials/forms/creditcar/',
+                    extension: 'twig'
+                    }) | raw }} </div>
+                    class="object-fit-contain max-height: 400px;"
+                    style="width: 100%;
+  max-height: 400px;
+  overflow: hidden;">
+            </div> #}
+            </div>
+        </div>
+        {# <div class="modifications-block pb-5">
+        <h2 class="mb-4">Доступные модификации</h2>
+        {% for item in modification %}
+        {% if item["group-name"] is not empty %}
+        <h3 class="mb-3" id="itemAccordion">{{item["Объем двигателя"]}}см³ | {{item["Тип двигателя"]}} | КП {{item["Трансмиссия"]}} | {{item["Привод"]}}</h3>
+        <div class="item mb-2">
+            <div class="item-name flex " id="itemHeader">
+                <div class=" d-flex align-items-center justify-content-between mob-wrap">
+                    <div class="name btn btn-link collapsed text-dark" data-toggle="collapse" data-target="#id_{{item["complectation-id"]}}" aria-expanded="false" aria-controls="id_{{item["complectation-id"]}}">
+                        <div class="name-wrap">
+                            {{item["group-name"]}}
+                        </div>
+                    </div>
+                    <div class="price d-flex">
+                        <span class="old d-flex align-items-center">
+                            {{item["offers-price-to"]|number_format(0, '.', '&nbsp;')|raw }} ₽
+                        </span>
+                        <span class="new d-flex align-items-center">
+                            {{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }} ₽
+                        </span>
+                    </div>
+                    <div class="credit">
+                        <span>В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} &#8381;/месяц </span>
+                        <span class="new-price">{{item["offers-price-from"]|number_format(0, '.', '&nbsp;')|raw }} ₽</span>
+                    </div>
+                </div>
+                <div class=" buttons d-flex align-items-center">
+                    <button onclick="showCreditPopup({{ resource['id'] }},'','{{(item["offers-price-from"] / 96) | number_format(0, ' ', ' ')}}');return false;">В кредит за {{(item["offers-price-from"] / 96)|number_format(0, '.', '&nbsp;')|raw }} ₽ в месяц</button>
+                    <button>Trade-in</button>
+                    <button data-fancybox="" data-src="#popup">Забронировать</button>
+                </div>
+            </div>
+            <div id="id_{{item['complectation-id']}}" class="collapse" aria-labelledby="itemHeader" data-parent="#itemAccordion">
+                <div class="item-content">
+                    <select class="select" id="select_{{item['complectation-id']}}" onchange="changeTab('{{item['complectation-id']}}')">
+                        <option value="exterior">Характеристики</option>
+                        <option value="interior">Комплектация</option>
+                    </select>
+                    <div class="tabs">
+                        <ul class="nav mb-4" id="myTab_{{item['complectation-id']}}" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="exterior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#exteriorid_{{item['complectation-id']}}" role="tab" aria-controls="exterior" aria-selected="true">Характеристики</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="interior-tabid_{{item['complectation-id']}}" data-toggle="tab" href="#interiorid_{{item['complectation-id']}}" role="tab" aria-controls="interior" aria-selected="false">Комплектация</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent_{{item['complectation-id']}}">
+                            <div class="tab-pane fade show active" id="exteriorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="exterior-tab">
+                                {% set filteredItems = {} %}
+                                {% set keys = [] %}
+                                {% set values = [] %}
+                                {% for key, value in item %}
+                                {% if key not in ['complectation-id', 'offers-price-from', 'offers-price-to', 'group-name', 'configuration_id', 'ID комплектации'] and value|length > 0 %}
+                                {% set filteredItems = filteredItems|merge({key: value}) %}
+                                {% set keys = keys|merge([key]) %}
+                                {% set values = values|merge([value]) %}
+                                {% endif %}
+                                {% endfor %}
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <table>
+                                            <tbody>
+                                                {% for i in range(0, keys|length // 2) %}
+                                                <tr>
+                                                    <td>{{ keys[i] }}</td>
+                                                    <td>{{ values[i] }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <table>
+                                            <tbody>
+                                                {% for i in range(keys|length // 2, keys|length) %}
+                                                <tr>
+                                                    <td>{{ keys[i] }}</td>
+                                                    <td>{{ values[i] }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="interiorid_{{item['complectation-id']}}" role="tabpanel" aria-labelledby="interior-tab">
+                                {% set options = runSnippet('takeoptions', { complectation_id: item['complectation-id'] }) %}
+                                {% set column1 = [] %}
+                                {% set column2 = [] %}
+                                {% set index = 0 %}
+                                {% for item in options %}
+                                {% for key, value in item %}
+                                {% if key not in ['complectation_id (идентификатор комплектации)'] and value|length > 0 %}
+                                {% if index % 2 == 0 %}
+                                {% set column1 = column1|merge([{ 'key': key, 'value': value }]) %}
+                                {% else %}
+                                {% set column2 = column2|merge([{ 'key': key, 'value': value }]) %}
+                                {% endif %}
+                                {% set index = index + 1 %}
+                                {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table>
+                                            <tbody>
+                                                {% for item in column1 %}
+                                                <tr>
+                                                    <td>{{ item['key'] }}</td>
+                                                    {% if item['value'] == 1 %}
+                                                    <td>Есть</td>
+                                                    {% elseif item['value'] > 1 %}
+                                                    <td>{{ item['value'] }} руб.</td>
+                                                    {% else %}
+                                                    <td>{{ item['value'] }}</td>
+                                                    {% endif %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table>
+                                            <tbody>
+                                                {% for item in column2 %}
+                                                <tr>
+                                                    <td>{{ item['key'] }}</td>
+                                                    {% if item['value'] == 1 %}
+                                                    <td>Есть</td>
+                                                    {% elseif item['value'] > 1 %}
+                                                    <td>{{ item['value'] }} руб.</td>
+                                                    {% else %}
+                                                    <td>{{ item['value'] }}</td>
+                                                    {% endif %}
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div> #}
+        {% include('partials/banks.twig') %}
+        <div class="container">
+        {# {% include "/partials/advantages.twig" %} #}
+            {% if baseSettings["color_css"] == "color2.css" %}
+	            {% include "/partials/advantages2.twig" %}
+            {% elseif baseSettings["color_css"] == "color3.css" %}
+                {% include "/partials/advantages3.twig" %}
+            {% elseif baseSettings["color_css"] == "color5.css" %} 
+	            {% include "/partials/advantages5.twig" %}
+            {% else %}
+                {% include "/partials/advantages.twig" %}
+            {% endif %}
+            </div>
+        <div class="container">{% include "/partials/actions2.twig" %}</div>
+    </div>
+    <div class="page-form-block mb-5">
+        <div class="container">
+            {{ runSnippet('Form', {
+                formid: 'FormCallback',
+                path: '/templates/chinaautosalon/partials/forms/feedback/',
+                extension: 'twig'
+            }) | raw }}
+        </div>
+    </div>
+    {# <div class="item-page2 pb-5">
+    <div class="container">
+        <div class="main-info pb-3">
+            <div class="block-name mb-4">
+                Основная информация
+            </div>
+            <div class="item py-3 px-4">
+                <div><img src="../templates/major/img/item-icon7.svg"></div>
+                <div>
+                    <span class="d-block">Цвет</span>
+                    Черный сапфир металлик
+                </div>
+            </div>
+            <div class="item py-3 px-4">
+                <div><img src="../templates/major/img/item-icon8.svg"></div>
+                <div>
+                    <span class="d-block">Привод</span>
+                    Полный
+                </div>
+            </div>
+            <div class="item py-3 px-4">
+                <div><img src="../templates/major/img/item-icon9.svg"></div>
+                <div>
+                    <span class="d-block">Кузов</span>
+                    Седан
+                </div>
+            </div>
+            <div class="item py-3 px-4">
+                <div><img src="../templates/major/img/item-icon10.svg"></div>
+                <div>
+                    <span class="d-block">Салон</span>
+                    Центральная часть сидений черная с синими и серыми элементами, боковины сидений черные, черная панель приборов, черное ковровое покрытие, серый потолок
+                </div>
+            </div>
+            <div class="item py-3 px-4">
+                <div><img src="../templates/major/img/item-icon11.svg"></div>
+                <div>
+                    <span class="d-block">Двигатель</span>
+                    Бензин
+                </div>
+            </div>
+            <div class="item py-3 px-4">
+                <div><img src="../templates/major/img/item-icon12.svg"></div>
+                <div>
+                    <span class="d-block">Коробка</span>
+                    АКПП
+                </div>
+            </div>
+        </div>
+    </div>
+</div> #}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    {# <script src="js/owl.carousel.min.js"></script> #}
+    <style>
+        button.slick-next.slick-arrow,
+        button.slick-prev.slick-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0;
+            font-size: 0;
+            z-index: 2;
+            width: 22px;
+            height: 37px;
+        }
+
+        button.slick-next.slick-arrow {
+            right: 76px;
+            background: url('templates/chinaautosalon/img/next.svg');
+        }
+
+        button.slick-prev.slick-arrow {
+            left: 76px;
+            background: url('templates/chinaautosalon/img/prev.svg');
+        }
+
+        .card-gift {
+            width: 160px;
+            border-radius: 8px;
+            border: 1px solid #485478;
+            height: 37px;
+        }
+
+        .card-img-top-gift {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-body-gift {
+            padding: 0.5rem;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .title-conf {
+            font-size: 12px;
+            color: #485478;
+        }
+
+        .body-conf {
+            font-size: 12px;
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .card-header .row {
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .price-old {
+            font-weight: 500;
+            text-decoration-line: line-through;
+            color: #656A97;
+            padding-left: 15px;
+        }
+
+        .conf-img-top {
+            max-width: 100%;
+        }
+
+        .columns-2 {
+            column-count: 2;
+        }
+
+        .price {
+            line-height: 34px;
+        }
+
+        .arrow {
+            float: right;
+        }
+
+        .arrow2 {
+            float: right;
+        }
+
+        .card-body-conf {
+            display: none;
+        }
+
+        .first-foto {
+            margin-right: auto;
+            margin-left: auto;
+            height: 23rem;
+            object-fit: contain;
+        }
+
+        .first-foto-new {
+            margin-right: auto;
+            margin-left: auto;
+            height: 24rem;
+            object-fit: cover;
+            border-radius:20px;
+        }
+
+        .more-foto {
+            margin-right: auto;
+            margin-left: auto;
+            border-radius: 8px;
+            height: 10rem;
+            object-fit: cover;
+        }
+
+        .transmiss {
+            margin-left: 10px;
+        }
+
+        .info-conf {
+            font-size: 18px;
+            color: #A45E52;
+            font-weight: 500;
+        }
+
+        .price-old-bu {
+            font-weight: 500;
+            text-decoration-line: line-through;
+            color: #656A97;
+            padding-left: 15px;
+        }
+
+          .item-page .info .price-bu {
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 36px;
+            color: #F3BA13;
+        }
+
+        .item-page .info .price-profit-block {
+            font-size: 12px;
+            border-radius: 8px;
+            line-height: 36px;
+            color: #FFFFFF;
+            background-color: #000000;
+        }
+
+        .characteristics-value {
+            font-size: 14px;
+            color: #A45E52;
+            line-height: 16px;
+        }
+
+        .item-page .info .buttons button.color8 {
+            background: #FFFFFF;
+            border: #4E3249 1px solid;
+            color: #4E3249;
+        }
+
+        .conf-new-title{
+            font-size: 14px;
+            color: #000000;
+            
+        }
+
+        .conf-new-val{
+            font-size: 14px;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        @media only screen and (max-width: 1191px) {
+            .card-header .row {
+                font-size: 15px;
+            }
+        }
+
+        @media only screen and (max-width: 991px) {
+            .more-foto {
+                margin-right: auto;
+                margin-left: auto;
+                border-radius: 8px;
+                height: 9rem;
+                object-fit: cover;
+            }
+
+            .first-foto {
+                margin-right: auto;
+                margin-left: auto;
+                height: 19rem;
+                object-fit: contain;
+            }
+
+            .first-foto-new {
+                margin-right: auto;
+                margin-left: auto;
+                height: 19rem;
+                object-fit: cover;
+                border-radius:20px;
+            }
+
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .card-header .row {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .price-old {
+                padding-left: 0;
+            }
+
+            .card-header .row {
+                font-size: 16px;
+            }
+
+            .transmiss {
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            .arrow {
+                position: relative;
+                bottom: 217px;
+                left: 42%;
+                font-size: 20px;
+            }
+
+            .arrow2 {
+                position: relative;
+                bottom: 20px;
+                left: 42%;
+                font-size: 20px;
+            }
+
+            .pr-2.pl-2.pb-2.row.d-flex {
+                margin-top: 16px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .columns-2 {
+                column-count: 1;
+            }
+
+            .first-foto {
+                height: 15rem;
+            }
+
+            .more-foto {
+                margin-right: auto;
+                margin-left: auto;
+                border-radius: 8px;
+                height: 6rem;
+                object-fit: fill;
+            }
+
+            .conf-img-top {
+                max-width: 80%;
+            }
+
+            .title-conf {
+                font-size: 10px;
+                color: #485478;
+            }
+
+            .body-conf {
+                font-size: 10px;
+                color: #000000;
+                font-weight: 600;
+            }
+        }
+
+        @media only screen and (max-width: 575px) {
+            .conf-img-top {
+                max-width: 80%;
+            }
+
+            .price {
+                padding-left: 0px;
+            }
+
+            .first-foto {
+                height: 14rem;
+                object-fit: contain;
+            }
+
+            .more-foto {
+                margin-right: auto;
+                margin-left: auto;
+                border-radius: 8px;
+                height: 4rem;
+                object-fit: cover;
+            }
+        }
+
+        @media (max-width: 552px) {
+            .custom-image-order {
+                order: -1;
+                margin-bottom: 16px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .card-body-gift {
+                font-size: 12px;
+            }
+
+            button.slick-next.slick-arrow {
+                right: 31px;
+            }
+
+            button.slick-prev.slick-arrow {
+                left: 31px;
+            }
+
+            .first-foto {
+                object-fit: contain;
+            }
+
+            .first-foto-new {
+                margin-right: auto;
+                margin-left: auto;
+                height: 14rem;
+                object-fit: cover;
+                border-radius:20px;
+            }
+            .conf-new-title {
+                font-size: 12px;
+                color: #000000;
+            }
+
+            .conf-new-val {
+                font-size: 12px;
+                color: #000000;
+                font-weight: 500;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .card-body-gift {
+                font-size: 12px;
+            }
+
+            .conf-img-top {
+                max-width: 60%;
+            }
+
+            .title-conf {
+                font-size: 7px;
+            }
+
+            .body-conf {
+                font-size: 7px;
+            }
+        }
+    </style>
+    <script>
+      function changeTab (complectationId) {
+        var selectElement = document.getElementById('select_' + complectationId)
+        var selectedValue = selectElement.value
+
+        if (selectedValue === 'exterior') {
+          document.getElementById('exterior-tabid_' + complectationId).click()
+        } else if (selectedValue === 'interior') {
+          document.getElementById('interior-tabid_' + complectationId).click()
+        }
+      }
+    </script>
+    <script>
+      function scrollToCreditForm () {
+        const creditForm = document.getElementById('creditform')
+        creditForm.scrollIntoView({ behavior: 'smooth' })
+      }
+
+    </script>
+    <script>
+      // Функция для обновления отображения даты
+      function updateEndDate () {
+        var currentDate = new Date()
+        var endDate = new Date(currentDate.getTime() + 8 * 24 * 60 * 60 * 1000)
+
+        var day = endDate.getDate()
+        var month = endDate.getMonth() + 1 // Месяцы в JavaScript нумеруются с 0, поэтому добавляем 1
+        var year = endDate.getFullYear()
+
+        // Форматируем день и месяц, чтобы добавить ведущий ноль при необходимости
+        day = day < 10 ? '0' + day : day
+        month = month < 10 ? '0' + month : month
+
+        document.getElementById('dateend').textContent = day + '.' + month + '.' + year
+      }
+
+      // Обновление даты при загрузке страницы
+      window.onload = updateEndDate
+
+    </script>
+{% endblock %}
+{% block SCRIPTS %}
+    <script>
+
+      // $('.slider-for').slick({
+      //   slidesToShow: 1,
+      //   slidesToScroll: 1,
+      //   asNavFor: '.slider-nav',
+      //   responsive: [{
+      //     breakpoint: 576,
+      //     settings: {
+      //       arrows: true,
+      //       dots: false
+      //     }
+      //   }]
+      // });
+      // $('.slider-nav').slick({
+      //   slidesToShow: 5,
+      //   slidesToScroll: 3,
+      //   asNavFor: '.slider-for',
+      //   arrows: true,
+      //   focusOnSelect: true,
+      //   prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+      //   nextArrow: '<button type="button" class="slick-next">Next</button>'
+      // });
+
+      $(document).ready(function () {
+        $('.card-header').click(function () {
+          $(this).next('.card-body-conf').slideToggle()
+          $(this).find('.arrow').text(function (_, oldText) {
+            return oldText === '▼' ? '▲' : '▼'
+          })
+        })
+
+        $('#creditButton').click(function (event) {
+          event.stopPropagation()
+          $.fancybox.open({
+            src: '#credit-popup-plate',
+            type: 'inline'
+          })
+        })
+      })
+
+      $(document).ready(function () {
+        var oldCarPriceText = $('#oldCarPrice').text()
+        var carPriceText = $('#carPrice').text()
+
+        var oldCarPrice = parseFloat(oldCarPriceText.replace('$', '').replace(',', ''))
+        var carPrice = parseFloat(carPriceText.replace('$', '').replace(',', ''))
+
+        if (oldCarPrice !== 0 && oldCarPrice > carPrice && !isNaN(oldCarPrice)) {
+          var priceDifference = oldCarPrice - carPrice;
+
+          const saleTradeIn = 15; // процент скидки по trade-in или утилизации
+          const saleModel = 18; // процент скидки по модельному ряду
+          const saleFinance = 45; // процент скидки по программе finance
+          const saleDealer = 22; // процент скидки по программе от дил центра
+
+          const priceSaleTradeIn = Math.round((priceDifference * saleTradeIn) / 100);
+          const priceSaleModel = Math.round((priceDifference * saleModel) / 100);
+          const priceSaleFinance = Math.round((priceDifference * saleFinance) / 100);
+          const priceSaleDealer = Math.round((priceDifference * saleDealer) / 100);
+
+          $('#resultBlock').css('display', 'block')
+          $('#price-profit').text(priceDifference.toLocaleString('ru-RU') + '₽')
+
+          $('#priceSaleTradeIn').text(priceSaleTradeIn.toLocaleString('ru-RU') + '₽')
+          $('#priceSaleModel').text(priceSaleModel.toLocaleString('ru-RU') + '₽')
+          $('#priceSaleFinance').text(priceSaleFinance.toLocaleString('ru-RU') + '₽')
+          $('#priceSaleDealer').text(priceSaleDealer.toLocaleString('ru-RU') + '₽')
+        }
+      })
+      $(document).ready(function () {
+        function moveContent () {
+          var windowWidth = $(window).width()
+          if (windowWidth < 541) {
+            $('#blockToMove').children().appendTo('#destinationBlock')
+            $('#destinationBlock').show() // Показать блок при ширине < 541px
+          } else {
+            $('#destinationBlock').hide() // Скрыть блок при ширине >= 541px
+            $('#destinationBlock').empty() // Очистить блок при ширине >= 541px
+          }
+        }
+
+        moveContent()
+
+        $(window).resize(function () {
+          moveContent()
+        })
+      })
+
+    </script>
+
+{% endblock %}

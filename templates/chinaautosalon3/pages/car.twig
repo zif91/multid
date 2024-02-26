@@ -698,23 +698,23 @@
     
     {% if complectations is not empty %}
                     <div class="configurations mb-5 col-12">
-                        <h2 class="mb-4">Доступные комплектации</h2>
-                        {% for complectation in complectations %}
+                        <h2 class="mb-4">Характеристики</h2>
+                        
                             <div class="mb-3">
                                 <h5 class="font-weight-bold mb-2"
-                                    style="color:#4A5475">{{ complectation['title_group'] }}</h5>
-                                {% for item in complectation['items'] %}
+                                    style="color:#4A5475">{{ firstConfs['title_group'] }}</h5>
+                                
                                     <div class="card mb-2">
                                         <div class="card-header  pr-1 d-flex align-items-center justify-content-between mob-wrap">
                                             <div class="row" style="color:#656A97; font-weight: 600;">
-                                                {{ item['title'] }}
+                                                {{ firstConfs2['title'] }}
                                             </div>
                                             <div class="row ml-1 config-price"
                                                  style="font-weight: 600; font-size:18px;">
-                                                {{ item['price']|number_format(0, '.', '&nbsp;')|raw }}₽
+                                                {{ firstConfs2['price']|number_format(0, '.', '&nbsp;')|raw }}₽
                                             </div>
                                             <div class="row price-old ml-1">
-                                                {{ item['price_old']|number_format(0, '.', '&nbsp;')|raw }}₽
+                                                {{ firstConfs2['price_old']|number_format(0, '.', '&nbsp;')|raw }}₽
                                             </div>
                                             <div class="row ml-1">
                                                 <div class="d-flex align-items-center justify-content-center pt-1">
@@ -722,7 +722,7 @@
                                                 </div>
                                                 <div class="p-0  pl-1 pt-1">
                                                     <p class="text-left title-conf">Мощность</p>
-                                                    <p class="text-left body-conf">{{ item['power'] }}л.с</p>
+                                                    <p class="text-left body-conf">{{ firstConfs2['power'] }}л.с</p>
                                                 </div>
                                             </div>
                                             <div class="row ml-1">
@@ -731,7 +731,7 @@
                                                 </div>
                                                 <div class="p-0  pl-1 pt-1">
                                                     <p class="text-left title-conf">Привод</p>
-                                                    <p class="text-left body-conf">{{ item['drive'] }}</p>
+                                                    <p class="text-left body-conf">{{ firstConfs2['drive'] }}</p>
                                                 </div>
                                             </div>
                                             <div class="row ml-1">
@@ -740,7 +740,7 @@
                                                 </div>
                                                 <div class="p-0 pl-1 pt-1">
                                                     <p class="text-left title-conf">Расход</p>
-                                                    <p class="text-left body-conf">{{ item['expense'] }}л</p>
+                                                    <p class="text-left body-conf">{{ firstConfs2['expense'] }}л</p>
                                                 </div>
                                             </div>
                                             <div class="row ml-1">
@@ -749,7 +749,7 @@
                                                 </div>
                                                 <div class="p-0 pl-1 pt-1">
                                                     <p class="text-left title-conf">Двигатель</p>
-                                                    <p class="text-left body-conf">{{ item['engine_type'] }}</p>
+                                                    <p class="text-left body-conf">{{ firstConfs2['engine_type'] }}</p>
                                                 </div>
                                             </div>
                                             <div class="transmiss row">
@@ -759,7 +759,7 @@
                                                 </div>
                                                 <div class="p-0 pl-1 pt-1">
                                                     <p class="text-left title-conf">Коробка</p>
-                                                    <p class="text-left body-conf">{{ item['transmission'] }}</p>
+                                                    <p class="text-left body-conf">{{ firstConfs2['transmission'] }}</p>
                                                 </div>
                                             </div>
 
@@ -772,12 +772,12 @@
                                         </div>
                                         <div class="card-body-conf">
                                             <article class="columns-2 p-2">
-                                                {% if item['description'] is not empty %}
-                                                    {% if '<ul>' in item['description'] or '<li>' in item['description'] or '<h4>' in item['description'] %}
-                                                        {{ item['description'] | raw }}
+                                                {% if firstConfs2['description'] is not empty %}
+                                                    {% if '<ul>' in firstConfs2['description'] or '<li>' in firstConfs2['description'] or '<h4>' in firstConfs2['description'] %}
+                                                        {{ firstConfs2['description'] | raw }}
                                                     {% else %}
                                                         {% set sections = ['Интерьер', 'Комфорт', 'Экстерьер', 'Безопасность', 'Техника', 'Опции'] %}
-                                                        {% set descriptionLines = item['description']|split('\n') %}
+                                                        {% set descriptionLines = firstConfs2['description']|split('\n') %}
 
                                                         {% set currentSection = '' %}
                                                         {% set inSection = false %}
@@ -813,9 +813,9 @@
                                             </article>
                                         </div>
                                     </div>
-                                {% endfor %}
+                                
                             </div>
-                        {% endfor %}
+                        
                     </div>
                 {% endif %}
 

@@ -118,9 +118,18 @@ tpl:'@T_CODE: <div class="gift__item">
                         <p class="d-inline-block pr-3 position-relative">Пробег</p>
                         <div class="float-end pl-3 position-relative"> {{resource.run}} км</div>
                     </div>
-                    <div class="item clearfix mb-4 position-relative">
+                    {# <div class="item clearfix mb-4 position-relative">
                         <p class="d-inline-block pr-3 position-relative">Двигатель</p>
                         <div class="float-end pl-3 position-relative">2.0 л / {{resource.engine_power}} л. с. / {{resource.fuel}}</div>
+                    </div> #}
+                    <div class="item clearfix mb-4 position-relative">
+                        <p class="d-inline-block pr-3 position-relative">Двигатель</p>
+                        <div class="float-end pl-3 position-relative">
+                        {% if resource.engine_volume %}
+                            {{resource.engine_volume}}
+                        {% else %}
+                            2.0   
+                        {% endif %} л  / {{resource.engine_power}} л. с. / {{resource.fuel}}</div>
                     </div>
                     <div class="item clearfix mb-4 position-relative">
                         <p class="d-inline-block pr-3 position-relative">Коробка передач</p>

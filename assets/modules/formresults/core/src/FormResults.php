@@ -153,9 +153,9 @@ class FormResults
                 }
 
                 if ($options['type'] == 'file') {
-                    $value = $result['files'][$field] ?: null;
+                    $value = !empty($result['files'][$field]) ? $result['files'][$field] : null;
                 } else {
-                    $value = $result['fields'][$field] ?: null;
+                    $value = !empty($result['fields'][$field]) ? $result['fields'][$field] : null;
                 }
 
                 if (isset($options['prepare']) && is_callable($options['prepare'])) {

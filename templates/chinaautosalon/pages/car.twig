@@ -92,16 +92,22 @@
                 </div>
             </div> #}
                 <div class="info col-12 p-2 pl-4 d-block d-md-none">
-                    <h1 class="mb-1 mt-2 text-left">
+                    {# <h1 class="mb-1 mt-2 text-left">
                         {{ model_title }} {{ resource.pagetitle }}
+                    </h1> #}
+                    <h1 class="mb-1 mt-2 text-left">
+                        {{ resource.pagetitle }}
                     </h1>
                 </div>
 
                 <div class="col-lg-4 col-4">
                     <div class="info h-100 d-flex flex-column">
                         <div class=" p-2">
-                            <h1 class="mb-2 mt-2 d-none d-md-block">
+                            {# <h1 class="mb-2 mt-2 d-none d-md-block">
                                 {{ model_title }} {{ resource.pagetitle }}
+                            </h1> #}
+                            <h1 class="mb-2 mt-2 d-none d-md-block">
+                             {{ resource.pagetitle }}
                             </h1>
                         </div>
                         <div class=" pl-2 pr-2 pb-2 pt-2">
@@ -850,7 +856,18 @@
         {% endfor %}
     </div> #}
         {% include('partials/banks.twig') %}
-        <div class="container">{% include "/partials/advantages.twig" %}</div>
+        <div class="container">
+        {# {% include "/partials/advantages.twig" %} #}
+            {% if baseSettings["color_css"] == "color2.css" %}
+	            {% include "/partials/advantages2.twig" %}
+            {% elseif baseSettings["color_css"] == "color3.css" %}
+                {% include "/partials/advantages3.twig" %}
+            {% elseif baseSettings["color_css"] == "color5.css" %} 
+	            {% include "/partials/advantages5.twig" %}
+            {% else %}
+                {% include "/partials/advantages.twig" %}
+            {% endif %}
+            </div>
         <div class="container">{% include "/partials/actions2.twig" %}</div>
     </div>
     <div class="page-form-block mb-5">

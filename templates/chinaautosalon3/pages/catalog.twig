@@ -1,0 +1,401 @@
+{% extends './app.twig' %}
+{% set brand = runSnippet('_get', {key: 'brand'}) %}
+{% if not brand %}
+{% set brand = '' %}
+{% endif %}
+{% set model = runSnippet('_get', {key: 'model'}) %}
+{% if not model %}
+{% set model = '' %}
+{% endif %}
+{% set body = runSnippet('_get', {key: 'body'}) %}
+{% if not body %}
+{% set body = '' %}
+{% endif %}
+{% set price_start = runSnippet('_get', {key: 'pricestart'}) %}
+{% if not price_start %}
+{% set price_start = 0 %}
+{% endif %}
+{% set price_end = runSnippet('_get', {key: 'priceend'}) %}
+{% if not price_end %}
+{% set price_end = 10000000 %}
+{% endif %}
+
+{# Шаг диапазона цен #}
+{% set step = 500000 %}
+
+{#% set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: catalog_number,
+depth: 2,
+tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
+ownerTPL: '@T_FILE:partials/wrap',
+noneTPL:'@CODE: <div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска123</h1>
+    </div>
+  </div>
+</div>',
+tpl:'@CODE: [+pagetitle+]',
+paginate:'pages',
+TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
+TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
+TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
+tvSortType: 'UNSIGNED',
+addWhereList: 'c.template=28',
+filters: 'AND(tv:mark_id:like:Chery;tv:car-price:>:0;tv:car-price:<:10000000)'
+})
+%#}
+
+{# % set DLCatalog = runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: catalog_number,
+depth: 2,
+tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type',
+ownerTPL: '@T_FILE:partials/wrap',
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска123</h1>
+		</div>
+	</div>
+</div>',
+debug: -2,
+tpl:'@T_FILE:partials/catalogcard_mod',
+paginate:'pages',
+TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
+TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
+TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
+tvSortType: 'UNSIGNED',
+addWhereList: 'c.template=28',
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model_id:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) %#}
+{% set catalog_number = baseSettings['catalog_number'] %}
+
+	{#% set marks = runSnippet('DocLister', {
+_filters: 'AND(tv:mark_id:=:' ~ brand ~ ')',
+parents: catalog_number,
+depth: 0,
+addWhereList: 'isfolder=1 AND c.template=17',
+tpl:'@T_FILE:partials/catalogcard',
+api: 1,
+debug: 0,
+})
+%#}
+
+	{% block MAIN %}
+	{#% include('partials/crumbs.twig') %#}
+	{#<div class="index-calc-block inner position-relative pt-5 pb-5 text-center">
+		<div class="container position-relative">
+			<div class="row">
+				{{ plh['catalog.filters'] | raw }}
+			</div>
+			<!--a class="bottom-link mb-2 d-inline-block">Показать еще фильтры</a-->
+		</div>
+	</div>#}
+	<div class="container pt-5">
+		{% include '/partials/brands.twig' %}
+
+		<div class="catalog-page pb-4">
+			<div class="container">
+				<div class="index-filter-block inner py-sm-4 py-5 px-4">
+					<div class="name mb-4">
+						Выбрать автомобиль
+
+
+					</div>
+					<div class="row index-filter-block__body">
+						<div class="col-lg-6 col-md-12">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<p class="marks-label mb-2">Выберите марку</p>
+									<select class="w-100 px-3" id="marks">
+										<option>Выбрать...</option>
+										{% for item in marks %}
+										<option>{{ item.pagetitle }}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<p class="models-label mb-2">Выберите модель</p>
+									<select id="models" class="w-100 px-3">
+										<option>Выбрать...</option>
+										{% for item in models %}
+										<option>{{ item.pagetitle }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+						</div>
+
+						{# Диапазоны цен выпадающим списком #}
+						<div class="col-lg-6 col-md-12">
+							<p class="prices-label mb-2">Выберите цену</p>
+	                        <select id="prices">
+	                             <option>Выбрать...</option>
+	                             {% for price in range(step, price_end, step) %}
+	                                 <option value="{{ price - step }}:{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</option>
+	                             {% endfor %}
+	                        </select>
+                        </div>
+
+						<div class="col-lg-12 col-md-12">
+							<p class="mb-2"> </p>
+							<div class="flex filter-buttons-wrapper">
+                                <div class="button button_find text-right">
+                                    <button id="findbutton">Найти</button>
+                                </div>
+								<div class="button button_clear text-right">
+									<button id="filterbutton">Сбросить</button>
+								</div>
+							</div>
+						</div>
+                         {# Диапазоны цен блоком с пунктами #}
+						 {#
+                             <div class="index-prices-block-wrap">
+                                <div class="index-prices-block" id="prices">
+                                    {% for price in arrPrices %}
+                                        <div class="price-item" data-startprice="{{ price - step }}" data-endprice="{{ price }}">от {{ (price-step)|number_format(0,'',' ')}} до {{ price|number_format(0,'',' ') }} ₽</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                         #}
+
+                        {# Диапазоны цен слайдером #}
+						{# <div class="col-lg-4">
+							<p class="mb-2">Цена</p>
+							<div class="flex">
+								<input id="price_start" type="text" id="amount" class="px-2" readonly>
+								<input id="price_end" type="text" id="amount2" class="px-2" readonly>
+							</div>
+							<div id="slider-range" class="mb-4"></div>
+						</div> #}
+
+					</div>
+				</div>
+			</div>
+			<div class="row" id="catalog">
+				{#{DLCatalog |raw}#}
+				{{ runSnippet('DocLister', {
+id: 'catalog',
+controller: 'catalog_filters',
+display: 20,
+parents: catalog_number,
+depth: 2,
+tvList:'car-price,old-car-price,car_photos, image,mark_id,model_id,configuration_id,body_type,model',
+ownerTPL: '@T_FILE:partials/wrap',
+noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+tpl:'@T_FILE:partials/catalogcard_mod',
+paginate:'pages',
+TplNextP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="+link+]"><span class="next"></span></a></li>',
+TplPrevP:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]"><span class="prev"></span></a></li>',
+TplPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+TplCurrentPage:'@CODE:<li class="page-item d-inline-block mx-sm-3 mx-2"><a class="page-link active" href="[+link+]">[+num+]</a></li>',
+TplWrapPaginate:'@CODE:<ul class="pagination d-inline-block">[+wrap+]</ul>',
+tvSortType: 'UNSIGNED',
+addWhereList: 'c.template=28',
+filters: 'AND(tv:mark_id:like:' ~ brand ~ ';tv:model:like:'~ model ~';tv:car-price:>:'~ price_start ~';tv:car-price:<:'~ price_end ~';tv:body_type:like:'~ body ~')' , }) |raw }}
+			</div>
+		</div>
+		    {% include('partials/banks.twig') %}
+
+		{{runSnippet ('bdebug', {})}}
+		{#% include 'partials/actions.twig' %#}
+		{{ runSnippet('Form', {
+		formid: 'FormCallback',
+		path: '/templates/chinaautosalon/partials/forms/feedback/',
+		extension: 'twig'
+		}) | raw }}
+	</div>
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const marksSelect = document.querySelector('#marks');
+  const modelsSelect = document.querySelector('#models');
+
+  /* Для слайдера диапазона цен */
+  //const pricestart = document.querySelector('#price_start');
+  //const priceend = document.querySelector('#price_end');
+
+  //const priceItem = document.querySelectorAll('.price-item');
+
+  const pricesSelect = document.querySelector('#prices');
+
+  const filterButton = document.querySelector('#filterbutton');
+
+  // Для прокрутки по кнопке "Найти"
+  const catalog = document.querySelector('#catalog');
+
+  // Декорируем выпадающий список марок плагином Choices */
+  let choicesMarks = new Choices(document.querySelector('#marks'), {
+      silent: true,
+      searchEnabled: false,
+  });
+
+  /* Декорируем выпадающий список моделей плагином Choices */
+  let choicesModels = new Choices(document.querySelector('#models'), {
+      silent: true,
+      searchEnabled: false,
+      classNames: {
+          containerOuter: 'choices models'
+      },
+  });
+
+  // Декорируем выпадающий список цен плагином Choices */
+  let choicesPrices = new Choices(document.querySelector('#prices'), {
+      silent: true,
+      searchEnabled: false,
+      classNames: {
+          containerOuter: 'choices prices',
+      },
+      shouldSort: false,
+  });
+
+  /* Плавная прокрутка по кнопке "Найти" */
+  const findButton = document.querySelector('#findbutton');
+  findButton.addEventListener('click', () => catalog.scrollIntoView({behavior: "smooth"}))
+
+  const updateFilterUrl = (e, clear = false) => {
+
+    const brand = marksSelect.value;
+    const model = modelsSelect.value;
+
+    let priceStart = false;
+    let priceEnd = false;
+
+    /* Если выбрана цена */
+    if (pricesSelect.value !== 'Выбрать...') {
+    	/* Получаем цены "от" и "до" из атрибута value */
+    	priceStart = pricesSelect.value.split(':')[0];
+    	priceEnd = pricesSelect.value.split(':')[1];
+	}
+
+	/* Если передан флаг сброса фильтра */
+	if (clear) {
+		// Сбрасываем выбранную цену
+		choicesPrices.destroy();
+		choicesPrices.init();
+	}
+
+    /* Для слайдера диапазона цен */
+    //const priceStart = pricestart.value;
+    //const priceEnd = priceend.value;
+
+    let url = '/katalog-avtomobilej156150/?';
+    if (brand && brand !== 'Выбрать...') {
+      url += `brand=${brand}&`;
+    }
+
+    if (model && model !== 'Выбрать...') {
+      url += `model=${model}&`;
+    }
+
+    if (priceStart) {
+      url += `pricestart=${priceStart}&`;
+    }
+
+    if (priceEnd) {
+      url += `priceend=${priceEnd}&`;
+    }
+
+    // Если передан флаг сброса фильтра
+    if (clear) url = '/katalog-avtomobilej156150/';
+
+    $.ajax({
+      url: url,
+      method: 'GET',
+      dataType: 'html'
+    })
+    .done(function(data) {
+      const catalogHtml = $(data).find('#catalog').html();
+      const modelsHtml = $(data).find('#models').html();
+      const marksHtml = $(data).find('#marks').html();
+
+      $('#catalog').html(catalogHtml);
+
+      // Если передан флаг сброса фильтра
+      if(clear) {
+      	// Удаляем декорирование плагином (откат к базовой структуре select-option)
+	  	choicesMarks.destroy();
+	  	// Вставляем полученные марки в базовый список select-option
+	  	$('#marks').html(marksHtml);
+	  	// Снова декорируем заполненный новыми значениями список марок
+      	choicesMarks.init();
+	  }
+
+      // Перед вставкой новых (полученных с сервера) моделей
+      // Удаляем декорирование плагином (откат к базовой структуре select-option)
+      choicesModels.destroy();
+
+      // Вставляем полученные модели в базовый список select-option
+      $('#models').html(modelsHtml);
+
+      // Снова декорируем заполненный новыми значениями список моделей
+      choicesModels = new Choices(document.querySelector('#models'), {
+          silent: true,
+          searchEnabled: false,
+          classNames: {
+              containerOuter: 'choices models'
+          },
+      });
+
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      console.error(errorThrown);
+    });
+  };
+
+  /* Слайдер диапазона цен */
+  /*$("#slider-range").slider({
+    range: true,
+    min: 100000,
+    max: 10000000,
+    values: [100000, 10000000],
+    slide: function(event, ui) {
+      $("#price_start").val(ui.values[0] + " руб.");
+      $("#price_end").val(ui.values[1] + " руб.");
+    },
+    stop: function() {
+      updateFilterUrl();
+    }
+  });
+
+  $("#price_start").val($("#slider-range").slider("values", 0) + " руб.");
+  $("#price_end").val($("#slider-range").slider("values", 1) + " руб."); */
+
+  // В "e" находится инициатор события (тег диапазона цен)
+  //priceItem.forEach(item => {item.onclick = (e) => updateFilterUrl(e)});
+
+  // Обработчик кнопки сброса фильтра
+  // Параметр "true" - признак сброса фильтра (по-умолчанию - false)
+  filterButton.onclick = (e) => updateFilterUrl(e, true);
+
+  // Обработчик выбора цен
+  pricesSelect.onchange = updateFilterUrl;
+
+  // Обработчик выбора марок
+  marksSelect.addEventListener('change', updateFilterUrl);
+
+  // Обработчик выбора моделей
+  modelsSelect.addEventListener('change', updateFilterUrl);
+
+  /* Для слайдера диапазона цен */
+  // pricestart.addEventListener('change', updateFilterUrl);
+  // priceend.addEventListener('change', updateFilterUrl);
+});
+
+</script>
+	{% include "/partials/contacts.twig" %}
+	{% endblock %}

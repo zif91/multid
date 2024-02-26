@@ -1,0 +1,22 @@
+<div class="price-range-group d-flex">
+	<input type="text" class="price-range-input range-min" value="{{ data['min'] }}" />
+	<input type="text" class="price-range-input range-max" value="{{ data['max'] }}" />
+</div>
+<div class="price-range-slider w-100">
+	<input 
+	type="hidden" 
+	class="price-range-slider-js filter-range-slider" 
+	name="f[ {{ data['id'] }} ][]" 
+	id="{{ data['hash'] }}" 
+	data-input-type="range" 
+	data-id="{{ data['id'] }}" 
+	value="" 
+	data-min="{{ data['min'] }}" 
+	data-max="{{ data['max'] }}" 
+	data-from="{{ data['from'] }}" 
+	data-to="{{ data['to'] }}" 
+	data-step="{{ data['step'] }}" 
+	data-type="double" 
+	data-grid="false" 
+	/>
+</div>

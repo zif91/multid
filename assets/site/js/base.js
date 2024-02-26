@@ -593,3 +593,65 @@ $(window).on('load', function() {
     $(".numbers").mask("999?99999");
 
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Документ загружен. Начинаем отслеживание.');
+
+    function waitForYm(ymCounterNum, callback, interval) {
+        console.log('Ожидаем загрузку счетчика Метрики...');
+        if (!callback) return;
+        if (!ymCounterNum) {
+            let metrikaObj = (window.Ya && (window.Ya.Metrika || window.Ya.Metrika2)) || null;
+            ymCounterNum = (metrikaObj && metrikaObj.counters && (metrikaObj.counters() || [0])[0].id) || 0;
+            console.log(`Попытка автоматически обнаружить ID счетчика: ${ymCounterNum}`);
+        }
+        let ymCounterObj = window['yaCounter' + ymCounterNum] || null;
+        if (ymCounterObj) {
+            console.log(`Счетчик Метрики найден: ${ymCounterNum}`);
+            return (callback(ymCounterObj, ymCounterNum), undefined);
+        }
+        console.log('Счетчик Метрики не найден, попытка повторится...');
+        setTimeout(function() { waitForYm(ymCounterNum, callback, interval); }, interval || 250);
+    }
+
+    waitForYm(null, function(counter, counterNum) {
+        console.log(`Счетчик Метрики готов: ${counterNum}. Начинаем отслеживание активности.`);
+        var isActive = false;
+        var activeTime = parseInt(localStorage.getItem('activeTime')) || 0;
+        var eventsSent = JSON.parse(localStorage.getItem('eventsSent')) || { '30s': false, '60s': false };
+
+        function updateActiveTime() {
+            if (isActive) {
+                activeTime += 1;
+                localStorage.setItem('activeTime', activeTime.toString());
+                console.log(`Активное время: ${activeTime} секунд.`);
+
+                if (activeTime === 30 && !eventsSent['30s']) {
+                    counter.reachGoal('active_30s');
+                    eventsSent['30s'] = true;
+                    localStorage.setItem('eventsSent', JSON.stringify(eventsSent));
+                    console.log('Цель достигнута: Активные 30 секунд.');
+                } else if (activeTime === 60 && !eventsSent['60s']) {
+                    counter.reachGoal('active_60s');
+                    eventsSent['60s'] = true;
+                    localStorage.setItem('eventsSent', JSON.stringify(eventsSent));
+                    console.log('Цель достигнута: Активные 60 секунд.');
+                }
+            }
+        }
+
+        function setUserActive() {
+            if (!isActive) {
+                console.log('Пользователь стал активным.');
+            }
+            isActive = true;
+            setTimeout(function() { isActive = false; }, 1000);
+        }
+
+        ['keydown', 'scroll', 'mousemove'].forEach(function(e) {
+            window.addEventListener(e, setUserActive);
+        });
+
+        setInterval(updateActiveTime, 1000);
+    });
+});

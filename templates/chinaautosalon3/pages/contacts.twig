@@ -1,0 +1,33 @@
+{% extends 'app.twig' %}
+
+{% block MAIN %}
+{% set content = runSnippet('DocInfo', {field: "content", docid: site_start}) %} 
+    
+<div class="page-name py-4">
+    <div class="container">
+        <h1 class="h1 m-0">Контакты</h1>
+    </div>
+</div>
+
+<div class="container">
+        {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/chinaautosalon/partials/forms/feedback/',
+        extension: 'twig'
+        }) | raw }}
+</div>
+{# <div class="s-address section-36">
+        <div class="container">
+            {{resource.content | raw}}
+        </div>
+    </div> #}
+
+{% include "/partials/contacts.twig" %}
+
+ <div class="s-address section-36 pb-3 mt-3">
+    <div class="container">
+        {{content | raw}}
+    </div>
+</div>
+
+{% endblock %}

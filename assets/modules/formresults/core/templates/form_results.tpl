@@ -19,7 +19,7 @@
     </h2>
 
     <script type="text/javascript">
-        tpFormResults.addTabPage(document.getElementById('tab_main'));
+      tpFormResults.addTabPage(document.getElementById('tab_main'));
     </script>
 
     <div class="row">
@@ -31,56 +31,91 @@
 </div>
 
 <script>
-    var removeResult = function(e, id) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
+  var removeResult = function(e, id) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
 
-        if (!confirm('<?= $_lang['formresults.confirm_delete'] ?>')) {
-            return;
-        }
+    if (!confirm('<?= $_lang['formresults.confirm_delete'] ?>')) {
+      return;
+    }
 
-        fetch('<?= $moduleUrl ?>&type=<?= $form['alias'] ?>&action=delete', {
-            method: 'POST',
-            body: new URLSearchParams({
-                result_id: id
-            })
-        }).then(function(response) {
-            window.location.reload();
-        });
-    };
+    fetch('<?= $moduleUrl ?>&type=<?= $form['alias'] ?>&action=delete', {
+      method: 'POST',
+      body: new URLSearchParams({
+        result_id: id
+      })
+    }).then(function(response) {
+      window.location.reload();
+    });
+  };
 
-    var removeResults = function(e) {
-        e.preventDefault();
+  var removeResults = function(e) {
+    e.preventDefault();
 
-        if (!confirm('<?= $_lang['formresults.confirm_delete_all'] ?>')) {
-            return;
-        }
+    if (!confirm('<?= $_lang['formresults.confirm_delete_all'] ?>')) {
+      return;
+    }
 
-        fetch('<?= $moduleUrl ?>&type=<?= $form['alias'] ?>&action=deleteall', {
-            method: 'POST'
-        }).then(function(response) {
-            window.location.reload();
-        });
-    };
+    fetch('<?= $moduleUrl ?>&type=<?= $form['alias'] ?>&action=deleteall', {
+      method: 'POST'
+    }).then(function(response) {
+      window.location.reload();
+    });
+  };
 
-    webix.ready(function(){
-        webix.ui({
-            responsive: true,
-            container: "results",
-            view: "datatable",
-            moduleUrl: '<?= $moduleUrl ?>',
-            //url: "<?= $moduleUrl ?>&ajax=results",
-            data: <?= json_encode($results, JSON_UNESCAPED_UNICODE) ?>,
-            columns: <?= json_encode($columns, JSON_UNESCAPED_UNICODE) ?>,
-            autoheight: true,
-            checkboxRefresh: true,
-            fixedRowHeight: false,
-            scrollX: false,
-            rowLineHeight: 15,
-            hover: 'hover',
-            pager: {
-                    //template: "{common.prev()} {common.pages()} {common.next()}",
+  webix.ready(function(){
+    webix.ui({
+      rows:[
+        {
+          container: "results",
+          view:"datatable",
+          moduleUrl: '<?= $moduleUrl ?>',
+          scrollX: false,
+          responsive: true,
+          columns: <?= json_encode($columns, JSON_UNESCAPED_UNICODE) ?>,
+    data: <?= json_encode($results, JSON_UNESCAPED_UNICODE) ?>,
+    on:{
+      onAfterLoad: function() {
+        webix.delay(function() {
+          this.adjustRowHeight();
+        }, this);
+      },
+      onResize: function() {
+        this.adjustRowHeight();
+      },
+      onItemClick: function(id) {
+        window.location = this.config.moduleUrl + '&rid=' + id.row;
+      }
+    },
+    pager: {
+      size: 20,
+        container: "pager",
+        group: 10
+    },
+    hover: 'hover',
+  }
+  ]
+  });
+  });
+
+  /*webix.ready(function(){
+      webix.ui({
+          responsive: true,
+          container: "results",
+          view: "datatable",
+          moduleUrl: '<?= $moduleUrl ?>',
+          //url: "<?= $moduleUrl ?>&ajax=results",
+          data: <?= json_encode($results, JSON_UNESCAPED_UNICODE) ?>,
+          columns: <?= json_encode($columns, JSON_UNESCAPED_UNICODE) ?>,
+          autoheight: false,
+          checkboxRefresh: true,
+          fixedRowHeight: false,
+          scrollX: false,
+          rowLineHeight: 15,
+          hover: 'hover',
+          pager: {
+                  //template: "{common.prev()} {common.pages()} {common.next()}",
                     size: 20,
                     container: "pager",
                     group: 10
@@ -104,5 +139,5 @@
                 }
             }
         });
-    });
+    });*/
 </script>

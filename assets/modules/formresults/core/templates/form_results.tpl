@@ -6,6 +6,8 @@
         border-bottom: 1px solid rgb(235,235,235);
         width: 100%;
         margin: calc(-1.25rem + 1px) 0 0.5rem;
+        height: calc(100vh - 200px);
+        box-sizing: border-box;
     }
 
     .webix_message_area {
@@ -66,36 +68,45 @@
 
   webix.ready(function(){
     webix.ui({
+      container: "results",
       rows:[
         {
-          container: "results",
-          view:"datatable",
           moduleUrl: '<?= $moduleUrl ?>',
-          scrollX: false,
           responsive: true,
+          resizeColumn: true,
+          checkboxRefresh: true,
+          fixedRowHeight: false,
+          scrollX: false,
+          rowLineHeight: 15,
+          editable: false,
+          borderless: true,
+          navigation: true,
+          math: true,
+          hover: 'hover',
+          view:"datatable",
           columns: <?= json_encode($columns, JSON_UNESCAPED_UNICODE) ?>,
     data: <?= json_encode($results, JSON_UNESCAPED_UNICODE) ?>,
+    /*pager: {
+        size: 20,
+        container: "pager",
+        group: 10
+    },*/
     on:{
       onAfterLoad: function() {
         webix.delay(function() {
           this.adjustRowHeight();
         }, this);
+        this.refresh();
       },
       onResize: function() {
-        this.adjustRowHeight();
+        //this.adjustRowHeight();
       },
       onItemClick: function(id) {
         window.location = this.config.moduleUrl + '&rid=' + id.row;
       }
     },
-    pager: {
-      size: 20,
-        container: "pager",
-        group: 10
-    },
-    hover: 'hover',
   }
-  ]
+  ],
   });
   });
 

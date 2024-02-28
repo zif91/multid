@@ -168,7 +168,27 @@ function registerCallTouchRequest(form) {
         }
     });
 }
+ //клик по номеру
+$('a[href^="tel:"]').each(function() {
+        var phoneNumber = $(this).text();
+        // Заменяем последние 4 цифры на "****"
+        var maskedNumber = phoneNumber.slice(0, -4) + '****';
+        $(this).text(maskedNumber);
 
+        // Обработчик клика по номеру телефона
+        $(this).on('click', function(e) {
+            // Предотвращаем стандартное действие браузера
+            e.preventDefault();
+            // Отображаем полный номер телефона
+            $(this).text(phoneNumber);
+            // Отправляем событие в Яндекс.Метрику
+            var metrikElement = $('#metrik-id');
+            if (metrikElement.length > 0) {
+                var metrikId = metrikElement.is('input') ? metrikElement.val() : metrikElement.text();
+                ym(metrikId, 'reachGoal', 'click_phone');
+            }
+        });
+    });
 
 function loadForm(formid, data) {
     $.ajax({

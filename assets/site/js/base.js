@@ -172,7 +172,7 @@ function registerCallTouchRequest(form) {
 $('a[href^="tel:"]').each(function() {
         var phoneNumber = $(this).text();
         // Заменяем последние 4 цифры на "****"
-        var maskedNumber = phoneNumber.slice(0, -4) + '****';
+        var maskedNumber = phoneNumber.slice(0, -5) + 'xx-xx';
         $(this).text(maskedNumber);
 
         // Обработчик клика по номеру телефона

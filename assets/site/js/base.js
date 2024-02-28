@@ -170,15 +170,14 @@ function registerCallTouchRequest(form) {
 }
  //клик по номеру
 $('a[href^="tel:"]').each(function() {
-    var phoneNumber = $(this).text();
+    var $this = $(this);
+    var phoneNumber = $this.text();
+    var originalHref = $this.attr('href'); // Сохраняем оригинальный href
     var maskedNumber = phoneNumber.slice(0, -5) + 'xx-xx';
-    $(this).text(maskedNumber);
+    $this.text(maskedNumber);
 
-    $(this).on('click', function(e) {
+    $this.on('click', function(e) {
         e.preventDefault(); // Предотвращаем стандартное действие браузера
-
-        // Отображаем полный номер телефона
-        $(this).text(phoneNumber);
 
         // Отправляем событие в Яндекс.Метрику
         var metrikElement = $('#metrik-id');
@@ -187,12 +186,14 @@ $('a[href^="tel:"]').each(function() {
             ym(metrikId, 'reachGoal', 'click_phone');
         }
 
-        // Программно инициируем звонок после отправки события
-        setTimeout(function() {
-            window.location.href = e.currentTarget.href;
-        }, 0); // Используем setTimeout с нулевой задержкой, чтобы обеспечить асинхронное выполнение
+        // Восстанавливаем исходный href и текст, затем программно кликаем по ссылке
+        $this.attr('href', originalHref).text(phoneNumber);
+        
+        // Программно инициируем звонок
+        window.location.href = originalHref;
     });
 });
+
 
 
 function loadForm(formid, data) {

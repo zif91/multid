@@ -261,17 +261,8 @@ extension: 'twig'
     {% include('partials/banks.twig') %}
 
 <div class="container">
-{# {{dump(baseSettings["color_css"])}} #}
-{% if baseSettings["color_css"] == "color2.css" %}
-	{% include "/partials/advantages2.twig" %}
-{% elseif baseSettings["color_css"] == "color3.css" %}
-    {% include "/partials/advantages3.twig" %}
-{% elseif baseSettings["color_css"] == "color5.css" %} 
-	{% include "/partials/advantages5.twig" %}
-{% else %}
-    {% include "/partials/advantages.twig" %}
-{% endif %}
-	{# {% include "/partials/advantages.twig" %} #}
+
+	{% include "/partials/advantages.twig" %}
 	{{ runSnippet('Form', {
 	formid: 'FormCallback',
 	path: '/templates/chinaautosalon/partials/forms/feedback/',

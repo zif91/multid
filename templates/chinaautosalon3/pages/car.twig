@@ -984,16 +984,7 @@
 
         {% include('partials/banks.twig') %}
         <div class="container">
-        {# {% include "/partials/advantages.twig" %} #}
-            {% if baseSettings["color_css"] == "color2.css" %}
-	            {% include "/partials/advantages2.twig" %}
-            {% elseif baseSettings["color_css"] == "color3.css" %}
-                {% include "/partials/advantages3.twig" %}
-            {% elseif baseSettings["color_css"] == "color5.css" %} 
-	            {% include "/partials/advantages5.twig" %}
-            {% else %}
-                {% include "/partials/advantages.twig" %}
-            {% endif %}
+        {% include "/partials/advantages.twig" %}
             </div>
         <div class="container">{% include "/partials/actions2.twig" %}</div>
     </div>
@@ -1289,6 +1280,12 @@
                 color: #000000;
                 font-weight: 600;
             }
+
+            .custom-image-order {
+                order: -1;
+                margin-bottom: 16px;
+                margin-top: 16px;
+            }
         }
 
         @media only screen and (max-width: 575px) {
@@ -1314,13 +1311,9 @@
             }
         }
 
-        @media (max-width: 552px) {
-            .custom-image-order {
-                order: -1;
-                margin-bottom: 32px;
-                margin-top: 16px;
-            }
-        }
+        /* @media (max-width: 552px) {
+            
+        } */
         
         @media (max-width: 400px) {
             .card-body-gift {

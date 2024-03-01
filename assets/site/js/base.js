@@ -339,106 +339,87 @@ function mainFunc() {
     });
 
 
-    /* Send form */
-    $(document).on('submit', '.ajax-form form', function(e) {
-        e.preventDefault();
-        var form = this;
-        $(form).fadeTo('fast', 0.5, function() {
-            var formData = new FormData(form);
-            formData.append('url', window.location.href);
-            formData.append('pagetitle', $('title').text());
+$(document).on('submit', '.ajax-form form', function(e) {
+    e.preventDefault();
+    var form = this;
+    $(form).fadeTo('fast', 0.5, function() {
+        var formData = new FormData(form);
+        formData.append('url', window.location.href);
+        formData.append('pagetitle', $('title').text());
 
-            var formContainer = $(form).parent();
+        var formContainer = $(form).parent();
 
-            $.ajax({
-                url: '/forms',
-                type: 'post',
-                data: formData,
-                dataType: 'json',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(data) {
-                    $(formContainer).find('.text-field-error').remove();
+        $.ajax({
+            url: '/forms',
+            type: 'post',
+            data: formData,
+            dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $(formContainer).find('.text-field-error').remove();
 
-                    if ($(data.errors).length > 0) {
-                        var errorClass = data.errorClass;
+                if ($(data.errors).length > 0) {
+                    var errorClass = data.errorClass;
 
-                        $.each(data.errors, function(name, errors) {
-                            $(formContainer).find('[name="' + name + '"]').addClass(errorClass);
-                            $(formContainer).on('keyup change', '[name="' + name + '"]', function() {
-                                $(this).removeClass(errorClass);
-                                $(this).parent().find('.text-field-error').remove();
-                            });
-
-                            $.each(errors, function(key, text) {
-                                $(formContainer).find('[name="' + name + '"]').parent().append('<span class="alert text-field-error"><i class="alert__icon"></i>' + text + '</span>');
-                            })
-
+                    $.each(data.errors, function(name, errors) {
+                        $(formContainer).find('[name="' + name + '"]').addClass(errorClass);
+                        $(formContainer).on('keyup change', '[name="' + name + '"]', function() {
+                            $(this).removeClass(errorClass);
+                            $(this).parent().find('.text-field-error').remove();
                         });
 
-                        if (!$('.with-fancybox').length) {
-                            var firstError = $(formContainer).find('.' + errorClass).first();
-                            if (firstError.length) {
-                                var scrollOffset = firstError.offset().top - 150;
-                                $([document.documentElement, document.body]).animate({
-                                    scrollTop: scrollOffset
-                                }, 500);
-                            }
-                        }
+                        $.each(errors, function(key, text) {
+                            $(formContainer).find('[name="' + name + '"]').parent().append('<span class="alert text-field-error"><i class="alert__icon"></i>' + text + '</span>');
+                        });
+                    });
 
-                    } else {
-                        // if (data.redirect) {
-                        //     window.location.href = data.redirect;
-                        // }
-                        // $(formContainer).html(data.output);
-
-                        // var vkIdElement = document.getElementById("vk-id");
-                        // if (vkIdElement && vkIdElement.innerText) {
-                        //     _tmr.push({ type: 'reachGoal', id: vkIdElement.innerText, goal: 'Send_Form' });
-                        // }
-
-                        // if ($('#metrik-id').length > 0) {
-                        //     var metrikId = $('#metrik-id').text();
-                        //     // ym(metrikId, 'reachGoal', 'goals');
-                        //     ym(metrikId, 'reachGoal', 'send_forms');
-                        // }
-
-                        if (data.redirect) {
-                            window.location.href = data.redirect;
-                        }
-                        $(formContainer).html(data.output);
-                        
-                        var vkIdElement = document.getElementById("vk-id");
-                        if (vkIdElement) {
-                            var vkId = vkIdElement.value || vkIdElement.innerText; // Get value if it's an input, otherwise get text.
-                            if (vkId) {
-                                _tmr.push({ type: 'reachGoal', id: vkId, goal: 'Send_Form' });
-                            }
-                        }
-                        
-                        var metrikElement = $('#metrik-id');
-                        if (metrikElement.length > 0) {
-                            // If it's an input element, use val(), otherwise use text().
-                            var metrikId = metrikElement.is('input') ? metrikElement.val() : metrikElement.text();
-                            ym(metrikId, 'reachGoal', 'send_forms');
-                        }
+                    var firstError = $(formContainer).find('.' + errorClass).first();
+                    if (firstError.length) {
+                        var scrollOffset = firstError.offset().top - 150;
+                        $([document.documentElement, document.body]).animate({
+                            scrollTop: scrollOffset
+                        }, 500);
                     }
 
-                    $(form).fadeTo('fast', 1);
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.responseText);
-                }
-            });
+                } else {
+                    if (data.redirect) {
+                        window.location.href = data.redirect;
+                    }
+                    $(formContainer).html(data.output);
 
-            // Добавляем вызов функции registerCallTouchRequest, если на странице есть элемент <input> с id="ct-site-id" и его значение не пустое
-            var ctSiteIdInput = document.getElementById("ct-site-id");
-            if (ctSiteIdInput && ctSiteIdInput.value) {
-                registerCallTouchRequest(form);
+                    // Автоопределение и отправка в Яндекс.Метрику
+                    autoDetectYandexMetrikaIdAndSendGoal('send_forms');
+                }
+
+                $(form).fadeTo('fast', 1);
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.responseText);
             }
         });
+
+        // Проверяем наличие элемента <input> с id="ct-site-id" и его значение
+        var ctSiteIdInput = document.getElementById("ct-site-id");
+        if (ctSiteIdInput && ctSiteIdInput.value) {
+            registerCallTouchRequest(form);
+        }
     });
+});
+
+function autoDetectYandexMetrikaIdAndSendGoal(goalName) {
+    var metrikaObj = window.Ya && (window.Ya.Metrika || window.Ya.Metrika2) || null;
+    var ymCounterNum = metrikaObj && metrikaObj.counters && metrikaObj.counters()[0].id || 0;
+    
+    if (ymCounterNum) {
+        ym(ymCounterNum, 'reachGoal', goalName);
+        console.log(`Событие ${goalName} отправлено в Метрику: ${ymCounterNum}`);
+    } else {
+        console.log('ID счетчика Метрики не найден.');
+    }
+}
+
 
 
     /* Paginate */

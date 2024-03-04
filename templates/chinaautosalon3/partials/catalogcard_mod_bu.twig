@@ -30,11 +30,11 @@
                     <div class="trafar row mb-2" id="another-id">
                         <div class="row col-12 pr-0">
                             <div class="col-5 pr-0 characteristics-title text-left">Год выпуска</div>
-                            <div class="col-7 pr-0 characteristics-value text-left">2023</div>
+                            <div class="col-7 pr-0 characteristics-value text-left">{{ data['tv.year'] }}</div>
                         </div>
                         <div class="row col-12 pr-0">
                             <div class="col-5 pr-0 characteristics-title text-left">Пробег</div>
-                            <div class="col-7 pr-0 characteristics-value text-left">10км</div>
+                            <div class="col-7 pr-0 characteristics-value text-left">{{ data['tv.run'] }}</div>
                         </div>
                         <div class="row col-12 pr-0">
                             <div class="col-5 pr-0 characteristics-title text-left">Двигатель</div>
@@ -42,15 +42,15 @@
                         </div>
                         <div class="row col-12 pr-0">
                             <div class="col-5 pr-0 characteristics-title text-left">Коробка</div>
-                            <div class="col-7 pr-0 characteristics-value text-left">.</div>
+                            <div class="col-7 pr-0 characteristics-value text-left">{{ data['tv.gear'] }}</div>
                         </div>
                         <div class="row col-12 pr-0">
                             <div class="col-5 pr-0 characteristics-title text-left">Привод</div>
-                            <div class="col-7 pr-0 characteristics-value text-left">Полный</div>
+                            <div class="col-7 pr-0 characteristics-value text-left">{{ data['tv.drive'] }}</div>
                         </div>
                         <div class="row col-12 pr-0">
                             <div class="col-5 pr-0 characteristics-title text-left">Цвет</div>
-                            <div class="col-7 pr-0 characteristics-value text-left">Серый</div>
+                            <div class="col-7 pr-0 characteristics-value text-left">{{ data['tv.car_color'] }}</div>
                         </div>
                     </div>
                     <div class="price text-center">

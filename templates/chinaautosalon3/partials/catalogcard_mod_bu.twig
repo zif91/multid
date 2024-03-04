@@ -20,13 +20,12 @@
 {% if car_price is empty %}
 
 {% else %}
-    <a href="{{ data['url'] }}">
-        <div class="col-xl-3 col-lg-4 col-md-6 p-1">
-            <div class="item-bu">
-                <img src="{{ last_photo }}" style="border-radius:20px;" class="p-2">
+    <a href="{{ data['url'] }}" >
+        <div class="col-xl-3 col-lg-4 col-md-6 p-1"><div class="item-bu">
+                <img src="{{ last_photo }}" style="border-radius:20px;"class="p-2">
                 <div class="p-2 justify-content-center">
                     <div class="name mb-2 text-center" id="name-car-card">
-                        {{ data['pagetitle'] }} {{ data[tv.body_type] }}
+                        {{ data['pagetitle'] }} {{data[tv.body_type]}}
                     </div>
                     <div class="trafar row mb-2" id="another-id">
                         <div class="row col-12 pr-0">
@@ -59,7 +58,7 @@
                     </div>
                     <div class="text-center mb-3 position-relative">
 				<span class="credit-new">В кредит от
-					{{ (car_price / 96) | number_format(0, ' ', ' ') }} ₽/мес
+					{{(car_price / 96) | number_format(0, ' ', ' ')}} ₽/мес
 				</span>
                     </div>
                     <div class="buttons">
@@ -67,12 +66,12 @@
                             <a href="#" onclick="showCreditPopup(
                             {{ data['id'] }},
                                     '',
-                                    '{{ (car_price / 96) | number_format(0, ' ', ' ') }}');
+                                    '{{(car_price / 96) | number_format(0, ' ', ' ')}}');
                                     return false;"
                                class="car-plate__button button button_red">В кредит</a>
                         </div>
                         <div class="col-12">
-                            <button data-fancybox="" data-src="#popup" class="w-100 color2">Купить автомобиль</button>
+                            <button  data-fancybox="" data-src="#popup" class="w-100 color2">Купить автомобиль</button>
                         </div>
                     </div>
                 </div>
@@ -84,30 +83,31 @@
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-  $(document).ready(function () {
-    var cardTitles = $('.name')
+  $(document).ready(function() {
+    var cardTitles = $(".name");
 
-    var maxHeight = 0
-    cardTitles.each(function () {
-      var currentHeight = $(this).height()
-      maxHeight = Math.max(maxHeight, currentHeight)
-    })
-    cardTitles.height(maxHeight)
-  })
+    var maxHeight = 0;
+    cardTitles.each(function() {
+      var currentHeight = $(this).height();
+      maxHeight = Math.max(maxHeight, currentHeight);
+    });
+    cardTitles.height(maxHeight);
+  });
 
-  $(document).ready(function () {
-    var cardTitles = $('.trafar')
 
-    var maxHeight = 0
-    cardTitles.each(function () {
-      var currentHeight = $(this).height()
-      maxHeight = Math.max(maxHeight, currentHeight)
-    })
-    cardTitles.height(maxHeight)
-  })
+  $(document).ready(function() {
+    var cardTitles = $(".trafar");
+
+    var maxHeight = 0;
+    cardTitles.each(function() {
+      var currentHeight = $(this).height();
+      maxHeight = Math.max(maxHeight, currentHeight);
+    });
+    cardTitles.height(maxHeight);
+  });
+
 
 
 </script>
-
 
 

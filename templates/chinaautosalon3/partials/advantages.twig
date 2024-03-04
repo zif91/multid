@@ -5,13 +5,29 @@
 			<div class="row pb-3 d-flex">
 				<div class="col-xl-4 col-lg-4 col-sm-12 h-100  flex-align-stretch" data-fancybox="" data-src="#popup" type="button">
 					<div class="item mt-4 mb-4 overflow-hidden">
-						<img class="rounded" src="/templates/autosalon/images/warr.png">
+					{% if baseSettings["color_css"] == "color2.css" %}
+						<img class="rounded" src="/templates/chinaautosalon/images/adv2.png">
+					{% elseif baseSettings["color_css"] == "color3.css" %}
+    					<img class="rounded" src="/templates/chinaautosalon/images/adv3.png">
+					{% elseif baseSettings["color_css"] == "color5.css" %} 
+						<img class="rounded" src="/templates/chinaautosalon/images/agv5.png">
+					{% else %}
+    					<img class="rounded" src="/templates/autosalon/images/warr.png">
+					{% endif %}	
 					</div>
 				</div>
 		
 				<div class="col-xl-8 col-lg-8 col-sm-12 h-100 d-flex" data-fancybox="" data-src="#popup" type="button">
 					<div class="item mt-4 mb-4 overflow-hidden">
+					{% if baseSettings["color_css"] == "color2.css" %}
+						<img class="rounded" style="" src="/templates/chinaautosalon/images/Group52.png">
+					{% elseif baseSettings["color_css"] == "color3.css" %}
+    					<img class="rounded" style="" src="/templates/chinaautosalon/images/Group53(2).png">
+					{% elseif baseSettings["color_css"] == "color5.css" %} 
+						<img class="rounded" style="" src="/templates/chinaautosalon/images/Group56.png">
+					{% else %}
 						<img class="rounded" style="" src="/templates/autosalon/images/rusnark.png">
+					{% endif %}	
 					</div>
 				</div>
 				<!--<div class="col-xl-3 col-lg-4 col-sm-6 h-100 flex-align-stretch">

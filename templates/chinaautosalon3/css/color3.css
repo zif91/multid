@@ -297,8 +297,8 @@
   width: 30px;
   height: 30px;
   right: 10px;
-  top: 37px;
-  /* top: 64px; */
+  /* top: 37px; */
+  top: 17px;
   padding: 5px;
   color: #fff;
   border-radius: 50%;
@@ -367,9 +367,10 @@
   background-repeat: no-repeat;
   background-position: bottom; 
   border-radius: 20px;
-  height: 56vh; 
+  /* height: 56vh;  */
+  height: 51vh;
   border-radius: 20px;
-  padding: 40px 34px 24px 662px;
+  padding: 40px 34px 24px 951px;
 }
 
 .form-block23 .block-name{
@@ -436,7 +437,7 @@ div#popup-trade_innew,
   color: #FFFFFF;
 }
 
-@media (min-width: 1450px){
+@media (max-width: 1535px){
   .form-block23 {
     background-image: url('/templates/chinaautosalon3/img/for-color/11111.png');
     background-size: cover;
@@ -445,7 +446,22 @@ div#popup-trade_innew,
     border-radius: 20px;
     height: 56vh; 
     border-radius: 20px;
-    padding: 40px 34px 24px 870px;
+    /* padding: 40px 34px 24px 870px; */
+    padding: 40px 34px 24px 745px;
+  }
+}
+
+@media (max-width: 1450px){
+  .form-block23 {
+    background-image: url('/templates/chinaautosalon3/img/for-color/11111.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left; 
+    border-radius: 20px;
+    height: 56vh; 
+    border-radius: 20px;
+    /* padding: 40px 34px 24px 870px; */
+    padding: 40px 34px 24px 677px;
   }
 }
 
@@ -458,9 +474,20 @@ div#popup-trade_innew,
   }
 
   .form-block23 {
+    background-image: url('/templates/chinaautosalon3/img/for-color/11111.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left; 
+    border-radius: 20px;
+    height: 50vh; 
+    border-radius: 20px;
+    padding: 40px 34px 24px 578px;
+  }
+
+  /* .form-block23 {
     padding: 30px;
     background: #4E3249;
-  }
+  } */
 }
 
 @media (max-width: 991px) {
@@ -518,7 +545,7 @@ div#popup-trade_innew,
   }
   .catalog-page .item-bu img {
     width: 100%;
-    height: 278px;
+    height: 234px;
     object-fit: cover;
     object-position: center;
 }
@@ -589,5 +616,17 @@ div#popup-trade_innew,
 @media (max-width: 767px) {
   .header .phone {
     background: url('img/phone6.svg');
+  }
+
+  .catalog-page .item-bu .row .characteristics-title {
+    font-size: 13px;
+    color: #000000;
+    line-height: 16px;
+  }
+  
+  .catalog-page .item-bu .row .characteristics-value {
+    font-size: 13px;
+    color: #A45E52;
+    line-height: 16px;
   }
 }

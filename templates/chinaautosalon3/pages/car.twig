@@ -1,4 +1,3 @@
-{# 1 страница=2 карточки #}
 {% extends 'app.twig' %}
 {% block MAIN %}
     {% set brand_id = runSnippet ('UltimateParent', {top: catalog_number, topLevel:1}) |raw %}
@@ -22,7 +21,7 @@
     {% set mark = resource.mark_id %}
 
 
-    {% set DLCatalog = runSnippet('DocLister', {
+        {% set DLCatalog = runSnippet('DocLister', {
         id: 'catalog',
         controller: 'catalog_filters',
         filters: 'AND(tv:mark_id:=:' ~ mark ~ ';tv:model:=:' ~ resource.model ~ ')' ,
@@ -36,12 +35,13 @@
         TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
         noneTPL:'@T_FILE:partials/noitems',
 
-    }) %}
+    })
+    %}
 
-    {# так как нет бу машин для вёрстки взяла resource.is_restyle отображ карточки для бу #}
+{# так как нет бу машин для вёрстки взяла resource.is_restyle отображ карточки для бу #}
 
     <div class="item-page py-4" style="background: #F2F3F7;">
-        {% if resource.is_restyle == "" %}
+{% if resource.is_restyle == "" %}
         <div class="container">
             <div class="row">
                 {# цена #}
@@ -122,7 +122,7 @@
                     <div class="info h-100 d-flex flex-column">
                         <div class=" p-2">
                             <h1 class="mb-2 mt-2 d-none d-md-block">
-                                {{ resource.pagetitle }}
+                             {{ resource.pagetitle }}
                             </h1>
                         </div>
                         <div class=" pl-2 pr-2 pb-2 pt-2">
@@ -458,88 +458,88 @@
         </div>
     </div>
     {# блок для бу #}
-    {% else %}
+{% else %}
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-12 pl-3 pr-3">
-                    <div class="photo">
-                        <div class="slider-for" style="display: none;">
-                            {% if resource.car_photos is empty %}
-                                <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
-                            {% else %}
-                                {% for image in car_photos | reverse %}
-                                    <img class="first-foto-new" src="{{ image.image }}">
-                                {% endfor %}
-                            {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-12 pl-3 pr-3">
+            <div class="photo">
+                <div class="slider-for" style="display: none;">
+                    {% if resource.car_photos is empty %}
+                        <img class="rounded border border-dark" src="{{ car_photos.fieldValue[0].image }}">
+                    {% else %}
+                        {% for image in car_photos | reverse %}
+                            <img class="first-foto-new" src="{{ image.image }}">
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-12">
+            <div class="pr-2 pl-2 pb-2 row d-flex">
+                <div class="col-8">
+                    <h1 class="h1-car text-left mb-1" style="font-size: 27px; font-weight: 600;">
+                        {{ resource.pagetitle }}
+                    </h1>
+                </div>
+                <div class="col-md-4 col-8 custom-image-order">
+                    {# <div class="mb-1"> #}
+                        <img src="/templates/chinaautosalon3/img/for-color/nalich.png" alt="" />
+                    {# </div> #}
+                </div>
+            </div>
+            <div class="info-conf pl-2">
+                {{ firstConfs2['title'] }}
+            </div>
+            <div class="info pl-2 pr-2 pb-2 pt-2">
+                <div class="row">
+                    <div class="col-lg-12 mb-2">
+                        <span class="price-bu">{{ price|number_format(0, '.', '&nbsp;')|raw }}₽</span>
+                        <div id="carPrice" style="display: none;">{{ price }}</div>
+                        <div id="oldCarPrice" style="display: none;">{{ firstConfs2['price_old'] }}</div>
+                        <span class="price-old-bu pl-3">{{ firstConfs2['price_old']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
+                    </div>
+
+                    <div class="price-profit-block col-xl-4 col-lg-5 col-md-5 col-sm-6 col-6 mb-2 ml-2">
+                        <div id="resultBlock" style="display: none;" class="text-center">
+                            Выгода до <span class="price-profit mb-2" id="price-profit">&nbsp;₽</span>
                         </div>
+                    </div>
+                    <div class="col-lg-12 mb-2 mt-2 text-left" style="font-weight: 600;">Характеристики</div>
+                    <div class="row mb-2  col-md-11 col-12">
+                        <div class="col-6 pr-0 characteristics-title">
+                            <div class="text-left">Год выпуска</div>
+                            <div class="text-left">Пробег</div>
+                            <div class="text-left">Двигатель</div>
+                            <div class="text-left">Коробка</div>
+                            <div class="text-left">Привод</div>
+                            <div class="text-left">Цвет</div>
+                        </div>
+                        <div class="lg-block col-6 pl-0 characteristics-value">
+                            <div class="text-left">2023</div>
+                            <div class="text-left">10км</div>
+                            {{ (expense ~ 'л/' ~ power ~ 'л.с/' ~ engine)|default('') ? (expense ~ 'л/' ~ power ~ 'л.с/' ~ engine)|raw }}
+                            <div class="text-left">{{ firstConfs2['transmission'] }}</div>
+                            <div class="text-left">Полный</div>
+                            <div class="text-left">Серый</div>
+                        </div>
+                    </div>
+                    <div class="buttons lg-blocknone row col-12 mt-2">
+                        <div class="col-6">
+                            <button class="w-100 color1"
+                                data-fancybox="" data-src="#popup">Купить автомобиль
+                            </button>
+                    </div>
+                    <div class="col-6 pl-2">
+                        <button class="color8 w-100" onclick="openPopupForm()">
+                            Купить в трейд-ин
+                        </button>
                     </div>
                 </div>
-
-                <div class="col-lg-6 col-12">
-                    <div class="pr-2 pl-2 pb-2 row d-flex">
-                        <div class="col-8">
-                            <h1 class="h1-car text-left mb-1" style="font-size: 27px; font-weight: 600;">
-                                {{ resource.pagetitle }}
-                            </h1>
-                        </div>
-                        <div class="col-md-4 col-8 custom-image-order">
-                            {# <div class="mb-1"> #}
-                            <img src="/templates/chinaautosalon3/img/for-color/nalich.png" alt=""/>
-                            {# </div> #}
-                        </div>
-                    </div>
-                    <div class="info-conf pl-2">
-                        {{ firstConfs2['title'] }}
-                    </div>
-                    <div class="info pl-2 pr-2 pb-2 pt-2">
-                        <div class="row">
-                            <div class="col-lg-12 mb-2">
-                                <span class="price-bu">{{ price|number_format(0, '.', '&nbsp;')|raw }}₽</span>
-                                <div id="carPrice" style="display: none;">{{ price }}</div>
-                                <div id="oldCarPrice" style="display: none;">{{ firstConfs2['price_old'] }}</div>
-                                <span class="price-old-bu pl-3">{{ firstConfs2['price_old']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
-                            </div>
-
-                            <div class="price-profit-block col-xl-4 col-lg-5 col-md-5 col-sm-6 col-6 mb-2 ml-2">
-                                <div id="resultBlock" style="display: none;" class="text-center">
-                                    Выгода до <span class="price-profit mb-2" id="price-profit">&nbsp;₽</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 mb-2 mt-2 text-left" style="font-weight: 600;">Характеристики</div>
-                            <div class="row mb-2  col-md-11 col-12">
-                                <div class="col-6 pr-0 characteristics-title">
-                                    <div class="text-left">Год выпуска</div>
-                                    <div class="text-left">Пробег</div>
-                                    <div class="text-left">Двигатель</div>
-                                    <div class="text-left">Коробка</div>
-                                    <div class="text-left">Привод</div>
-                                    <div class="text-left">Цвет</div>
-                                </div>
-                                <div class="lg-block col-6 pl-0 characteristics-value">
-                                    <div class="text-left">2023</div>
-                                    <div class="text-left">10км</div>
-                                    {{ (expense ~ 'л/' ~ power ~ 'л.с/' ~ engine)|default('') ? (expense ~ 'л/' ~ power ~ 'л.с/' ~ engine)|raw }}
-                                    <div class="text-left">{{ firstConfs2['transmission'] }}</div>
-                                    <div class="text-left">Полный</div>
-                                    <div class="text-left">Серый</div>
-                                </div>
-                            </div>
-                            <div class="buttons lg-blocknone row col-12 mt-2">
-                                <div class="col-6">
-                                    <button class="w-100 color1"
-                                            data-fancybox="" data-src="#popup">Купить автомобиль
-                                    </button>
-                                </div>
-                                <div class="col-6 pl-2">
-                                    <button class="color8 w-100" onclick="openPopupForm()">
-                                        Купить в трейд-ин
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
                 <div class="row col-12" id="destinationBlock">
                 </div>
 
@@ -547,9 +547,9 @@
         </div>
 
 
-        </div>
-        {# конец бу #}
-    {% endif %}
+    </div>
+{# конец бу #}
+{% endif %}
     <div class="item-page py-3">
         <div class="container">
             <div class="row">
@@ -569,140 +569,140 @@
                     </div>
 
 
-                    {% if resource.is_restyle == "" %}
-                        {% if complectations is not empty %}
-                            <div class="configurations mb-5 col-12">
-                                <h2 class="mb-4">Доступные комплектации</h2>
-                                {% for complectation in complectations %}
-                                    <div class="mb-3">
-                                        <h5 class="font-weight-bold mb-2"
-                                            style="color:#4A5475">{{ complectation['title_group'] }}</h5>
-                                        {% for item in complectation['items'] %}
-                                            <div class="card mb-2">
-                                                <div class="card-header  pr-1 d-flex align-items-center justify-content-between mob-wrap">
-                                                    <div class="row" style="color:#656A97; font-weight: 600;">
-                                                        {{ item['title'] }}
-                                                    </div>
-                                                    <div class="row ml-1 config-price"
-                                                         style="font-weight: 600; font-size:18px;">
-                                                        {{ item['price']|number_format(0, '.', '&nbsp;')|raw }}₽
-                                                    </div>
-                                                    <div class="row price-old ml-1">
-                                                        {{ item['price_old']|number_format(0, '.', '&nbsp;')|raw }}₽
-                                                    </div>
-                                                    <div class="row ml-1">
-                                                        <div class="d-flex align-items-center justify-content-center pt-1">
-                                                            <img src="/templates/chinaautosalon/img/drive.png" alt=""/>
-                                                        </div>
-                                                        <div class="p-0  pl-1 pt-1">
-                                                            <p class="text-left title-conf">Мощность</p>
-                                                            <p class="text-left body-conf">{{ item['power'] }}л.с</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row ml-1">
-                                                        <div class="d-flex align-items-center justify-content-center pt-1">
-                                                            <img src="/templates/chinaautosalon/img/drive.png" alt=""/>
-                                                        </div>
-                                                        <div class="p-0  pl-1 pt-1">
-                                                            <p class="text-left title-conf">Привод</p>
-                                                            <p class="text-left body-conf">{{ item['drive'] }}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row ml-1">
-                                                        <div class="d-flex align-items-center justify-content-center pt-1">
-                                                            <img src="/templates/chinaautosalon/img/gas-station.png"
-                                                                 alt=""/>
-                                                        </div>
-                                                        <div class="p-0 pl-1 pt-1">
-                                                            <p class="text-left title-conf">Расход</p>
-                                                            <p class="text-left body-conf">{{ item['expense'] }}л</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row ml-1">
-                                                        <div class="d-flex align-items-center justify-content-center pt-1">
-                                                            <img src="/templates/chinaautosalon/img/engine.png" alt=""/>
-                                                        </div>
-                                                        <div class="p-0 pl-1 pt-1">
-                                                            <p class="text-left title-conf">Двигатель</p>
-                                                            <p class="text-left body-conf">{{ item['engine_type'] }}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="transmiss row">
-                                                        <div class="d-flex align-items-center justify-content-center pt-1">
-                                                            <img src="/templates/chinaautosalon/img/car-shift-pattern.png"
-                                                                 alt=""/>
-                                                        </div>
-                                                        <div class="p-0 pl-1 pt-1">
-                                                            <p class="text-left title-conf">Коробка</p>
-                                                            <p class="text-left body-conf">{{ item['transmission'] }}</p>
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="buttons col-md-2 col-6">
-                                                        <button class="color5 w-100" id="creditButton" data-fancybox=""
-                                                                data-src="#popup">В кредит
-                                                        </button>
-                                                    </div>
-                                                    <span class="arrow">&#9660;</span>
+        {% if resource.is_restyle == "" %}
+                {% if complectations is not empty %}
+                    <div class="configurations mb-5 col-12">
+                        <h2 class="mb-4">Доступные комплектации</h2>
+                        {% for complectation in complectations %}
+                            <div class="mb-3">
+                                <h5 class="font-weight-bold mb-2"
+                                    style="color:#4A5475">{{ complectation['title_group'] }}</h5>
+                                {% for item in complectation['items'] %}
+                                    <div class="card mb-2">
+                                        <div class="card-header  pr-1 d-flex align-items-center justify-content-between mob-wrap">
+                                            <div class="row" style="color:#656A97; font-weight: 600;">
+                                                {{ item['title'] }}
+                                            </div>
+                                            <div class="row ml-1 config-price"
+                                                 style="font-weight: 600; font-size:18px;">
+                                                {{ item['price']|number_format(0, '.', '&nbsp;')|raw }}₽
+                                            </div>
+                                            <div class="row price-old ml-1">
+                                                {{ item['price_old']|number_format(0, '.', '&nbsp;')|raw }}₽
+                                            </div>
+                                            <div class="row ml-1">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/drive.png" alt=""/>
                                                 </div>
-                                                <div class="card-body-conf">
-                                                    <article class="columns-2 p-2">
-                                                        {% if item['description'] is not empty %}
-                                                            {% if '<ul>' in item['description'] or '<li>' in item['description'] or '<h4>' in item['description'] %}
-                                                                {{ item['description'] | raw }}
-                                                            {% else %}
-                                                                {% set sections = ['Интерьер', 'Комфорт', 'Экстерьер', 'Безопасность', 'Техника', 'Опции'] %}
-                                                                {% set descriptionLines = item['description']|split('\n') %}
-
-                                                                {% set currentSection = '' %}
-                                                                {% set inSection = false %}
-
-
-                                                                {% for line in descriptionLines %}
-                                                                    {% set found = false %}
-                                                                    {% for section in sections %}
-                                                                        {% if section in line %}
-                                                                            {% if inSection %}
-                                                                                </ul>
-                                                                            {% endif %}
-                                                                            <h4>{{ line }}</h4>
-                                                                            <ul>
-                                                                            {% set inSection = true %}
-                                                                            {% set found = true %}
-                                                                        {% endif %}
-                                                                    {% endfor %}
-                                                                    {% if not found %}
-                                                                        {% if inSection %}
-                                                                            <li>{{ line }}</li>
-                                                                        {% else %}
-                                                                            {{ line }}
-                                                                        {% endif %}
-                                                                    {% endif %}
-                                                                {% endfor %}
-
-                                                                {% if inSection %}
-                                                                    </ul>
-                                                                {% endif %}
-                                                            {% endif %}
-                                                            {# {{ item['description'] | raw}} #}
-                                                        {% endif %}
-                                                    </article>
+                                                <div class="p-0  pl-1 pt-1">
+                                                    <p class="text-left title-conf">Мощность</p>
+                                                    <p class="text-left body-conf">{{ item['power'] }}л.с</p>
                                                 </div>
                                             </div>
-                                        {% endfor %}
+                                            <div class="row ml-1">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/drive.png" alt=""/>
+                                                </div>
+                                                <div class="p-0  pl-1 pt-1">
+                                                    <p class="text-left title-conf">Привод</p>
+                                                    <p class="text-left body-conf">{{ item['drive'] }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row ml-1">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/gas-station.png" alt=""/>
+                                                </div>
+                                                <div class="p-0 pl-1 pt-1">
+                                                    <p class="text-left title-conf">Расход</p>
+                                                    <p class="text-left body-conf">{{ item['expense'] }}л</p>
+                                                </div>
+                                            </div>
+                                            <div class="row ml-1">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/engine.png" alt=""/>
+                                                </div>
+                                                <div class="p-0 pl-1 pt-1">
+                                                    <p class="text-left title-conf">Двигатель</p>
+                                                    <p class="text-left body-conf">{{ item['engine_type'] }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="transmiss row">
+                                                <div class="d-flex align-items-center justify-content-center pt-1">
+                                                    <img src="/templates/chinaautosalon/img/car-shift-pattern.png"
+                                                         alt=""/>
+                                                </div>
+                                                <div class="p-0 pl-1 pt-1">
+                                                    <p class="text-left title-conf">Коробка</p>
+                                                    <p class="text-left body-conf">{{ item['transmission'] }}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="buttons col-md-2 col-6">
+                                                <button class="color5 w-100" id="creditButton" data-fancybox=""
+                                                        data-src="#popup">В кредит
+                                                </button>
+                                            </div>
+                                            <span class="arrow">&#9660;</span>
+                                        </div>
+                                        <div class="card-body-conf">
+                                            <article class="columns-2 p-2">
+                                                {% if item['description'] is not empty %}
+                                                    {% if '<ul>' in item['description'] or '<li>' in item['description'] or '<h4>' in item['description'] %}
+                                                        {{ item['description'] | raw }}
+                                                    {% else %}
+                                                        {% set sections = ['Интерьер', 'Комфорт', 'Экстерьер', 'Безопасность', 'Техника', 'Опции'] %}
+                                                        {% set descriptionLines = item['description']|split('\n') %}
+
+                                                        {% set currentSection = '' %}
+                                                        {% set inSection = false %}
+
+
+                                                        {% for line in descriptionLines %}
+                                                            {% set found = false %}
+                                                            {% for section in sections %}
+                                                                {% if section in line %}
+                                                                    {% if inSection %}
+                                                                        </ul>
+                                                                    {% endif %}
+                                                                    <h4>{{ line }}</h4>
+                                                                    <ul>
+                                                                    {% set inSection = true %}
+                                                                    {% set found = true %}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                            {% if not found %}
+                                                                {% if inSection %}
+                                                                    <li>{{ line }}</li>
+                                                                {% else %}
+                                                                    {{ line }}
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endfor %}
+
+                                                        {% if inSection %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    {# {{ item['description'] | raw}} #}
+                                                {% endif %}
+                                            </article>
+                                        </div>
                                     </div>
                                 {% endfor %}
                             </div>
-                        {% endif %}
-                    {% else %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+    {% else %}
 
-                        {% if complectations is not empty %}
-                            <div class="configurations mb-5 col-12">
-                                <h2 class="mb-4">Характеристики</h2>
+    {% if complectations is not empty %}
+                    <div class="configurations mb-5 col-12">
+                        <h2 class="mb-4">Характеристики</h2>
 
-                                <div class="mb-3">
-                                    <h5 class="font-weight-bold mb-2"
-                                        style="color:#4A5475">{{ firstConfs['title_group'] }}</h5>
+                            <div class="mb-3">
+                                <h5 class="font-weight-bold mb-2"
+                                    style="color:#4A5475">{{ firstConfs['title_group'] }}</h5>
 
                                     <div class="card mb-2">
                                         <div class="card-header  pr-1 d-flex align-items-center justify-content-between mob-wrap">
@@ -814,12 +814,12 @@
                                         </div>
                                     </div>
 
-                                </div>
-
                             </div>
-                        {% endif %}
 
-                    {% endif %}
+                    </div>
+                {% endif %}
+
+    {% endif %}
 
                     <div class="col-xl-12 col-lg-12">
                         <div class="pt-3">{{ runSnippet('Form', {
@@ -831,27 +831,26 @@
                     </div>
                 </div>
 
-                <div class="catalog-block">
-                    <div class="container-fluid catalog-products" id="catalog">
-                        <h3 style="text-align:start;margin-bottom:16px; font-size:28px;font-weight: 600;">Горячее
-                            предложение</h3>
-                        <div class="catalog-page">
-                            <div class="container">
-                                <div class="row">
-                                    {{ DLCatalog |raw }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex justify-content-center p-4">
-                        {# <div class="bottom-button">
+    <div class="catalog-block col-12">
+    <div class="container-fluid catalog-products p-1" id="catalog">
+        <h3 style="text-align:start;margin-bottom:16px; font-size:28px;font-weight: 600;">Горячее предложение</h3>
+        <div class="catalog-page">
+            <div class="container">
+                <div class="row">
+                    {{DLCatalog |raw}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-content-center p-4">
+            {# <div class="bottom-button">
                 <button onclick="window.location.href = '{{ makeUrl(593) }}';">Смотреть все <span></span></button>
             </div> #}
-                    </div>
-                </div>
+    </div>
+</div>
 
-                {# скрытие характеристик для бу комплектации для новых #}
-                {# {% if resource.is_restyle == "" %}
+{# скрытие характеристик для бу комплектации для новых #}
+            {# {% if resource.is_restyle == "" %}
                 {% if complectations is not empty %}
                     <div class="configurations mb-5 col-12">
                         <h2 class="mb-4">Доступные комплектации</h2>
@@ -977,7 +976,7 @@
 
     {% else %}
     {% endif %} #}
-                {# конец блока #}
+    {# конец блока #}
 
 
             </div>
@@ -985,17 +984,8 @@
 
         {% include('partials/banks.twig') %}
         <div class="container">
-            {# {% include "/partials/advantages.twig" %} #}
-            {% if baseSettings["color_css"] == "color2.css" %}
-                {% include "/partials/advantages2.twig" %}
-            {% elseif baseSettings["color_css"] == "color3.css" %}
-                {% include "/partials/advantages3.twig" %}
-            {% elseif baseSettings["color_css"] == "color5.css" %}
-                {% include "/partials/advantages5.twig" %}
-            {% else %}
-                {% include "/partials/advantages.twig" %}
-            {% endif %}
-        </div>
+        {% include "/partials/advantages.twig" %}
+            </div>
         <div class="container">{% include "/partials/actions2.twig" %}</div>
     </div>
     <div class="page-form-block mb-5">
@@ -1113,7 +1103,7 @@
             margin-left: auto;
             height: 24rem;
             object-fit: cover;
-            border-radius: 20px;
+            border-radius:20px;
         }
 
         .more-foto {
@@ -1141,7 +1131,7 @@
             padding-left: 15px;
         }
 
-        .item-page .info .price-bu {
+          .item-page .info .price-bu {
             font-weight: 700;
             font-size: 22px;
             line-height: 36px;
@@ -1156,7 +1146,7 @@
             background-color: #000000;
         }
 
-        .characteristics-title {
+        .characteristics-title{
             line-height: 154%;
             color: #000000;
             font-size: 14px;
@@ -1175,13 +1165,13 @@
             color: #4E3249;
         }
 
-        .conf-new-title {
+        .conf-new-title{
             font-size: 14px;
             color: #000000;
 
         }
 
-        .conf-new-val {
+        .conf-new-val{
             font-size: 14px;
             color: #000000;
             font-weight: 500;
@@ -1214,7 +1204,7 @@
                 margin-left: auto;
                 height: 19rem;
                 object-fit: cover;
-                border-radius: 20px;
+                border-radius:20px;
             }
 
             .card-header {
@@ -1290,6 +1280,12 @@
                 color: #000000;
                 font-weight: 600;
             }
+
+            .custom-image-order {
+                order: -1;
+                margin-bottom: 16px;
+                margin-top: 16px;
+            }
         }
 
         @media only screen and (max-width: 575px) {
@@ -1315,13 +1311,9 @@
             }
         }
 
-        @media (max-width: 552px) {
-            .custom-image-order {
-                order: -1;
-                margin-bottom: 32px;
-                margin-top: 16px;
-            }
-        }
+        /* @media (max-width: 552px) {
+
+        } */
 
         @media (max-width: 400px) {
             .card-body-gift {
@@ -1345,9 +1337,8 @@
                 margin-left: auto;
                 height: 14rem;
                 object-fit: cover;
-                border-radius: 20px;
+                border-radius:20px;
             }
-
             .conf-new-title {
                 font-size: 12px;
                 color: #000000;
@@ -1469,17 +1460,17 @@
         var carPrice = parseFloat(carPriceText.replace('$', '').replace(',', ''))
 
         if (oldCarPrice !== 0 && oldCarPrice > carPrice && !isNaN(oldCarPrice)) {
-          var priceDifference = oldCarPrice - carPrice
+          var priceDifference = oldCarPrice - carPrice;
 
-          const saleTradeIn = 15 // процент скидки по trade-in или утилизации
-          const saleModel = 18 // процент скидки по модельному ряду
-          const saleFinance = 45 // процент скидки по программе finance
-          const saleDealer = 22 // процент скидки по программе от дил центра
+          const saleTradeIn = 15; // процент скидки по trade-in или утилизации
+          const saleModel = 18; // процент скидки по модельному ряду
+          const saleFinance = 45; // процент скидки по программе finance
+          const saleDealer = 22; // процент скидки по программе от дил центра
 
-          const priceSaleTradeIn = Math.round((priceDifference * saleTradeIn) / 100)
-          const priceSaleModel = Math.round((priceDifference * saleModel) / 100)
-          const priceSaleFinance = Math.round((priceDifference * saleFinance) / 100)
-          const priceSaleDealer = Math.round((priceDifference * saleDealer) / 100)
+          const priceSaleTradeIn = Math.round((priceDifference * saleTradeIn) / 100);
+          const priceSaleModel = Math.round((priceDifference * saleModel) / 100);
+          const priceSaleFinance = Math.round((priceDifference * saleFinance) / 100);
+          const priceSaleDealer = Math.round((priceDifference * saleDealer) / 100);
 
           $('#resultBlock').css('display', 'block')
           $('#price-profit').text(priceDifference.toLocaleString('ru-RU') + '₽')

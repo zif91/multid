@@ -35,7 +35,8 @@
         TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
         noneTPL:'@T_FILE:partials/noitems',
 
-    }) %}
+    })
+    %}
 
     <div class="item-page py-4" style="background: #F2F3F7;">
 
@@ -63,7 +64,7 @@
                             </h1>
                         </div>
                         <div class="col-md-4 col-8 custom-image-order">
-                            <img src="/templates/chinaautosalon3/img/for-color/nalich.png" alt=""/>
+                            <img src="/templates/chinaautosalon3/img/for-color/nalich.png" alt="" />
                         </div>
                     </div>
                     <div class="info-conf pl-2">
@@ -280,12 +281,11 @@
 
                 <div class="catalog-block">
                     <div class="container-fluid catalog-products" id="catalog">
-                        <h3 style="text-align:start;margin-bottom:16px; font-size:28px;font-weight: 600;">Горячее
-                            предложение</h3>
+                        <h3 style="text-align:start;margin-bottom:16px; font-size:28px;font-weight: 600;">Горячее предложение</h3>
                         <div class="catalog-page">
                             <div class="container">
                                 <div class="row">
-                                    {{ DLCatalog |raw }}
+                                    {{DLCatalog |raw}}
                                 </div>
                             </div>
                         </div>
@@ -296,6 +296,7 @@
             </div> #}
                     </div>
                 </div>
+
 
 
             </div>
@@ -431,7 +432,7 @@
             margin-left: auto;
             height: 24rem;
             object-fit: cover;
-            border-radius: 20px;
+            border-radius:20px;
         }
 
         .more-foto {
@@ -474,7 +475,7 @@
             background-color: #000000;
         }
 
-        .characteristics-title {
+        .characteristics-title{
             line-height: 154%;
             color: #000000;
             font-size: 14px;
@@ -493,13 +494,13 @@
             color: #4E3249;
         }
 
-        .conf-new-title {
+        .conf-new-title{
             font-size: 14px;
             color: #000000;
 
         }
 
-        .conf-new-val {
+        .conf-new-val{
             font-size: 14px;
             color: #000000;
             font-weight: 500;
@@ -532,7 +533,7 @@
                 margin-left: auto;
                 height: 19rem;
                 object-fit: cover;
-                border-radius: 20px;
+                border-radius:20px;
             }
 
             .card-header {
@@ -663,9 +664,8 @@
                 margin-left: auto;
                 height: 14rem;
                 object-fit: cover;
-                border-radius: 20px;
+                border-radius:20px;
             }
-
             .conf-new-title {
                 font-size: 12px;
                 color: #000000;
@@ -787,17 +787,17 @@
         var carPrice = parseFloat(carPriceText.replace('$', '').replace(',', ''))
 
         if (oldCarPrice !== 0 && oldCarPrice > carPrice && !isNaN(oldCarPrice)) {
-          var priceDifference = oldCarPrice - carPrice
+          var priceDifference = oldCarPrice - carPrice;
 
-          const saleTradeIn = 15 // процент скидки по trade-in или утилизации
-          const saleModel = 18 // процент скидки по модельному ряду
-          const saleFinance = 45 // процент скидки по программе finance
-          const saleDealer = 22 // процент скидки по программе от дил центра
+          const saleTradeIn = 15; // процент скидки по trade-in или утилизации
+          const saleModel = 18; // процент скидки по модельному ряду
+          const saleFinance = 45; // процент скидки по программе finance
+          const saleDealer = 22; // процент скидки по программе от дил центра
 
-          const priceSaleTradeIn = Math.round((priceDifference * saleTradeIn) / 100)
-          const priceSaleModel = Math.round((priceDifference * saleModel) / 100)
-          const priceSaleFinance = Math.round((priceDifference * saleFinance) / 100)
-          const priceSaleDealer = Math.round((priceDifference * saleDealer) / 100)
+          const priceSaleTradeIn = Math.round((priceDifference * saleTradeIn) / 100);
+          const priceSaleModel = Math.round((priceDifference * saleModel) / 100);
+          const priceSaleFinance = Math.round((priceDifference * saleFinance) / 100);
+          const priceSaleDealer = Math.round((priceDifference * saleDealer) / 100);
 
           $('#resultBlock').css('display', 'block')
           $('#price-profit').text(priceDifference.toLocaleString('ru-RU') + '₽')

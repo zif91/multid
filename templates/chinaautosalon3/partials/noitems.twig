@@ -1,37 +1,35 @@
 {% set site_start = modx.config['site_start'] %}
 
 {% set DLCatalogno = runSnippet('DocLister', {
-id: 'catalog',
-display: 8,
-parents: site_start,
-addWhereList: 'c.template = (28)',
-depth: 5,
-tvList:'car-price,car_photos,run,engine_power,gear,year,image',
-ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard_mod',
-TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
-noneTPL:'@CODE: <div class="container">
+    id: 'catalog',
+    display: 8,
+    parents: site_start,
+    addWhereList: 'c.template = (28)',
+    depth: 5,
+    tvList:'car-price,car_photos,run,engine_power,gear,year,image',
+    ownerTPL: '@T_FILE:partials/wrap',
+    tpl:'@T_FILE:partials/catalogcard_mod',
+    TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
+    noneTPL:'@CODE: <div class="container">
   <div class="row">
     <div class="col text-center">
       <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
     </div>
   </div>
 </div>',
-})
-%}
+}) %}
 
 
-  <div class="catalog-page">
-                <div class="container">
-                    <div class="row">
-                        {{DLCatalogno |raw}}
-                    </div>
-                </div>
-            </div>
-    
-    
-  {# </div>
+<div class="catalog-page">
+    <div class="container">
+        <div class="row">
+            {{ DLCatalogno |raw }}
+        </div>
+    </div>
+</div>
+
+
+{# </div>
   <div class="bottom-button">
   </div>
 </div> #}
-{{dump(site_start)}}

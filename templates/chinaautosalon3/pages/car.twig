@@ -1,3 +1,4 @@
+{# 1 страница=2 карточки #}
 {% extends 'app.twig' %}
 {% block MAIN %}
     {% set brand_id = runSnippet ('UltimateParent', {top: catalog_number, topLevel:1}) |raw %}
@@ -831,8 +832,8 @@
                     </div>
                 </div>
 
-    <div class="catalog-block col-12">
-    <div class="container-fluid catalog-products p-1" id="catalog">
+    <div class="catalog-block">
+    <div class="container-fluid catalog-products" id="catalog">
         <h3 style="text-align:start;margin-bottom:16px; font-size:28px;font-weight: 600;">Горячее предложение</h3>
         <div class="catalog-page">
             <div class="container">
@@ -984,7 +985,16 @@
 
         {% include('partials/banks.twig') %}
         <div class="container">
-        {% include "/partials/advantages.twig" %}
+        {# {% include "/partials/advantages.twig" %} #}
+            {% if baseSettings["color_css"] == "color2.css" %}
+	            {% include "/partials/advantages2.twig" %}
+            {% elseif baseSettings["color_css"] == "color3.css" %}
+                {% include "/partials/advantages3.twig" %}
+            {% elseif baseSettings["color_css"] == "color5.css" %} 
+	            {% include "/partials/advantages5.twig" %}
+            {% else %}
+                {% include "/partials/advantages.twig" %}
+            {% endif %}
             </div>
         <div class="container">{% include "/partials/actions2.twig" %}</div>
     </div>
@@ -1280,12 +1290,6 @@
                 color: #000000;
                 font-weight: 600;
             }
-
-            .custom-image-order {
-                order: -1;
-                margin-bottom: 16px;
-                margin-top: 16px;
-            }
         }
 
         @media only screen and (max-width: 575px) {
@@ -1311,9 +1315,13 @@
             }
         }
 
-        /* @media (max-width: 552px) {
-            
-        } */
+        @media (max-width: 552px) {
+            .custom-image-order {
+                order: -1;
+                margin-bottom: 32px;
+                margin-top: 16px;
+            }
+        }
         
         @media (max-width: 400px) {
             .card-body-gift {

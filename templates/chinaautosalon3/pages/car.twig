@@ -1,3 +1,4 @@
+{# 1 страница=2 карточки #}
 {% extends 'app.twig' %}
 {% block MAIN %}
     {% set brand_id = runSnippet ('UltimateParent', {top: catalog_number, topLevel:1}) |raw %}
@@ -34,7 +35,7 @@
         tpl:'@T_FILE:partials/catalogcard_mod_bu',
         TplWrapPaginate:'@CODE:<ul class="pages">[+wrap+]</ul>',
         noneTPL:'@T_FILE:partials/noitems',
-
+                
     })
     %}
 
@@ -500,7 +501,7 @@
                         <div id="oldCarPrice" style="display: none;">{{ firstConfs2['price_old'] }}</div>
                         <span class="price-old-bu pl-3">{{ firstConfs2['price_old']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
                     </div>
-
+                                
                     <div class="price-profit-block col-xl-4 col-lg-5 col-md-5 col-sm-6 col-6 mb-2 ml-2">
                         <div id="resultBlock" style="display: none;" class="text-center">
                             Выгода до <span class="price-profit mb-2" id="price-profit">&nbsp;₽</span>
@@ -535,18 +536,18 @@
                         <button class="color8 w-100" onclick="openPopupForm()">
                             Купить в трейд-ин
                         </button>
-                    </div>
-                </div>
+                    </div>   
+                </div>                  
             </div>
-        </div>
+        </div>  
     </div>
                 <div class="row col-12" id="destinationBlock">
                 </div>
-
+                
             </div>
         </div>
 
-
+        
     </div>
 {# конец бу #}
 {% endif %}
@@ -695,15 +696,15 @@
                     </div>
                 {% endif %}
     {% else %}
-
+    
     {% if complectations is not empty %}
                     <div class="configurations mb-5 col-12">
                         <h2 class="mb-4">Характеристики</h2>
-
+                        
                             <div class="mb-3">
                                 <h5 class="font-weight-bold mb-2"
                                     style="color:#4A5475">{{ firstConfs['title_group'] }}</h5>
-
+                                
                                     <div class="card mb-2">
                                         <div class="card-header  pr-1 d-flex align-items-center justify-content-between mob-wrap">
                                             <div class="row" style="color:#656A97; font-weight: 600;">
@@ -813,9 +814,9 @@
                                             </article>
                                         </div>
                                     </div>
-
+                                
                             </div>
-
+                        
                     </div>
                 {% endif %}
 
@@ -831,8 +832,8 @@
                     </div>
                 </div>
 
-    <div class="catalog-block col-12">
-    <div class="container-fluid catalog-products p-1" id="catalog">
+    <div class="catalog-block">
+    <div class="container-fluid catalog-products" id="catalog">
         <h3 style="text-align:start;margin-bottom:16px; font-size:28px;font-weight: 600;">Горячее предложение</h3>
         <div class="catalog-page">
             <div class="container">
@@ -978,13 +979,22 @@
     {% endif %} #}
     {# конец блока #}
 
-
+                
             </div>
         </div>
 
         {% include('partials/banks.twig') %}
         <div class="container">
-        {% include "/partials/advantages.twig" %}
+        {# {% include "/partials/advantages.twig" %} #}
+            {% if baseSettings["color_css"] == "color2.css" %}
+	            {% include "/partials/advantages2.twig" %}
+            {% elseif baseSettings["color_css"] == "color3.css" %}
+                {% include "/partials/advantages3.twig" %}
+            {% elseif baseSettings["color_css"] == "color5.css" %} 
+	            {% include "/partials/advantages5.twig" %}
+            {% else %}
+                {% include "/partials/advantages.twig" %}
+            {% endif %}
             </div>
         <div class="container">{% include "/partials/actions2.twig" %}</div>
     </div>
@@ -1168,7 +1178,7 @@
         .conf-new-title{
             font-size: 14px;
             color: #000000;
-
+            
         }
 
         .conf-new-val{
@@ -1280,12 +1290,6 @@
                 color: #000000;
                 font-weight: 600;
             }
-
-            .custom-image-order {
-                order: -1;
-                margin-bottom: 16px;
-                margin-top: 16px;
-            }
         }
 
         @media only screen and (max-width: 575px) {
@@ -1311,10 +1315,14 @@
             }
         }
 
-        /* @media (max-width: 552px) {
-
-        } */
-
+        @media (max-width: 552px) {
+            .custom-image-order {
+                order: -1;
+                margin-bottom: 32px;
+                margin-top: 16px;
+            }
+        }
+        
         @media (max-width: 400px) {
             .card-body-gift {
                 font-size: 12px;

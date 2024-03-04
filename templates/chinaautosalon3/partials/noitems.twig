@@ -2,9 +2,9 @@
 
 {% set DLCatalogno = runSnippet('DocLister', {
     id: 'catalog',
-    display: 8,
+    display: 9,
     parents: site_start,
-    addWhereList: 'c.template = (28)',
+    addWhereList: 'c.template = 28',
     depth: 5,
     tvList:'car-price,car_photos,run,engine_power,gear,year,image',
     ownerTPL: '@T_FILE:partials/wrap',
@@ -17,14 +17,13 @@
     </div>
   </div>
 </div>',
-})
-%}
+}) %}
 
 
 <div class="catalog-page">
     <div class="container">
         <div class="row">
-            {{DLCatalogno |raw}}
+            {{ DLCatalogno |raw }}
         </div>
     </div>
 </div>

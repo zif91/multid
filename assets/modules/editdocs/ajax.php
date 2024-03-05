@@ -22,7 +22,7 @@ if (IN_MANAGER_MODE != "true" || empty($modx) || !($modx instanceof DocumentPars
 if (!$modx->hasPermission('exec_module')) {
     header("location: " . $modx->getManagerPath() . "?a=106");
 }
-if (!is_array($modx->event->params)) {
+if (!empty($modx->event->params) && !is_array($modx->event->params)) {
     $modx->event->params = array();
 }
 if (!isset($_SESSION['mgrValidated'])) {

@@ -13,9 +13,9 @@ switch($eventName) {
 
         if ((int) $template_id === 28) {
             include_once MODX_BASE_PATH."assets/lib/MODxAPI/modResource.php";
-            $model = new modResource($modx);
+            $doc = new modResource($modx);
 
-            $model->edit($id);
+            $doc->edit($id);
 
             $parents = $modx->getParentIds($id);
             $parent_list = implode(',', $parents);
@@ -30,10 +30,10 @@ switch($eventName) {
             );
             $model = array_shift($models);
 
-            $model->set('mark', (string) $brand['pagetitle']);
-            $model->set('model', (string) $model['pagetitle']);
-            $model->save(false, false);
-            $model->close();
+            $doc->set('mark', (string) $brand['pagetitle']);
+            $doc->set('model', (string) $model['pagetitle']);
+            $doc->save(false, false);
+            $doc->close();
         }
 
         break;

@@ -58,7 +58,7 @@
                         </div>
                         <div class="col-md-4 col-8 custom-image-order">
                             {# <div class="mb-1"> #}
-                            <img src="/templates/chinaautosalon3/img/for-color/nalich.png" alt=""/>
+                            {# <img src="/templates/chinaautosalon3/img/for-color/nalich.png" alt=""/> #}
                             {# </div> #}
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                     <div class="info pl-2 pr-2 pb-2 pt-2">
                         <div class="row">
                             <div class="col-lg-12 mb-2">
-                                <span class="price-bu">{{ price|number_format(0, '.', '&nbsp;')|raw }}₽</span>
+                                <span class="price-bu text-danger">{{ price|number_format(0, '.', '&nbsp;')|raw }}₽</span>
                                 <div id="carPrice" style="display: none;">{{ price }}</div>
                                 <div id="oldCarPrice" style="display: none;">{{ firstConfs2['price_old'] }}</div>
                                 <span class="price-old-bu pl-3">{{ firstConfs2['price_old']|number_format(0, '.', '&nbsp;')|raw }}&nbsp;₽</span></br>
@@ -383,15 +383,7 @@
         {% include('partials/banks.twig') %}
         <div class="container">
             {% include "/partials/advantages.twig" %}
-            {#            {% if baseSettings["color_css"] == "color2.css" %} #}
-            {#                {% include "/partials/advantages2.twig" %} #}
-            {#            {% elseif baseSettings["color_css"] == "color3.css" %} #}
-            {#                {% include "/partials/advantages3.twig" %} #}
-            {#            {% elseif baseSettings["color_css"] == "color5.css" %} #}
-            {#                {% include "/partials/advantages5.twig" %} #}
-            {#            {% else %} #}
-            {#                {% include "/partials/advantages.twig" %} #}
-            {#            {% endif %} #}
+
         </div>
         <div class="container">{% include "/partials/actions2.twig" %}</div>
     </div>

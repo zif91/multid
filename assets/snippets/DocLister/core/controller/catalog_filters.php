@@ -23,6 +23,11 @@ class catalog_filtersDocLister extends site_contentDocLister
         $this->setFilters();
     }
 
+    public function addDocs($docs)
+    {
+        $this->_docs = array_merge_recursive($this->_docs, $docs);
+    }
+
     /**
      * Передаём параметр filters дальше в контроллер
      */
@@ -594,7 +599,7 @@ class catalog_filtersDocLister extends site_contentDocLister
                 ' . implode("\n", $join) . '
                 WHERE
                 `c`.`parent` IN (' . $sanitarInIDs . ')
-                AND `c`.`published`=1 
+                AND `c`.`published`=1
                 AND `c`.`deleted`=0
                 ' . $filterWhere . '
                 AND ((' . implode(' AND ', $whereRequest) . ') AND (' . implode(' OR ', $where) . '))

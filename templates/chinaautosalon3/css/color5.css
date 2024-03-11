@@ -526,7 +526,7 @@
   }
 
   .form-block23 {
-    background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/popup5-2.png') no-repeat center top / contain;
+    background: url('/templates/chinaautosalon3/img/for-color/popup5-2.png') no-repeat center top / contain, linear-gradient(to bottom, #0000 0%, #0000 20%, #FFFFFF 20%, #FFFFFF 100%);
     padding: 436px 20px 24px 20px
   }
 
@@ -546,13 +546,24 @@
     line-height: 144.4%;
     width: 100%;
     color: #000000;
-  } 
+  }
+  .popup.fancybox-content .fancybox-button.fancybox-close-small {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    top: 56px;
+    padding: 5px;
+    color: #000000;
+    border-radius: 50%;
+    border: 1px solid #000000;
+  }
 }
 
 @media (max-width: 499px) {
   .form-block23 {
-    background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/popup5-2.png') no-repeat center top / contain;
-    padding: 382px 20px 24px 20px
+    /* background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/popup5-2.png') no-repeat center top / contain; */
+    background: url('/templates/chinaautosalon3/img/for-color/popup5-2.png') no-repeat center top / contain, linear-gradient(to bottom, #0000 0%, #0000 20%, #FFFFFF 20%, #FFFFFF 100%);
+    padding: 382px 20px 24px 20px;
   }
 
   .form-block-trade {
@@ -567,7 +578,7 @@
   }
 
   .form-block23 {
-    background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/popup5-2.png') no-repeat center top / contain;
+    background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/popup5-2.png') no-repeat center top / contain, linear-gradient(to bottom, #0000 0%, #0000 20%, #FFFFFF 20%, #FFFFFF 100%);
     padding: 314px 20px 24px 20px
   }
 
@@ -580,7 +591,7 @@
 @media (min-width: 320px) and (max-width: 360px) {
 
   .form-block23 {
-    background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/popup5-2.png') no-repeat center top / contain;
+    background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/popup5-2.png') no-repeat center top / contain, linear-gradient(to bottom, #0000 0%, #0000 20%, #FFFFFF 20%, #FFFFFF 100%);
     padding: 314px 20px 24px 20px
   }
 
@@ -602,6 +613,17 @@
     line-height: 144.4%;
     width: 100%;
     color: #000000;
+  }
+
+  .popup.fancybox-content .fancybox-button.fancybox-close-small {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    top: 40px;
+    padding: 5px;
+    color: #000000;
+    border-radius: 50%;
+    border: 1px solid #000000;
   }
 }
 

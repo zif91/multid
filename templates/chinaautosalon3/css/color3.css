@@ -363,6 +363,7 @@
 
 .form-block23 {
   background-image: url('/templates/chinaautosalon3/img/for-color/11111.png');
+  background-color: #0000;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom; 
@@ -446,11 +447,9 @@ div#popup-trade_innew,
   color: #FFFFFF;
 }
 
-.form-block-trade .imgform-new{
-  background-image: url('/templates/chinaautosalon3/img/for-color/popupform.png');
-  background-size: cover;
-  background-position: center;
-  width:300px;
+.form-block-trade{
+  background:#4E3249 url('/templates/chinaautosalon3/img/for-color/popupform.png') no-repeat left top / contain;
+  padding-left: 611px; 
 }
 
 .item-page .container .row .info-conf{
@@ -494,6 +493,13 @@ div#popup-trade_innew,
   color: #4E3249;
 }
 
+@media (max-width: 1146px) {
+  .form-block-trade {
+      background:#4E3249;
+      padding-left: 16px;
+  }
+}
+
 @media (max-width: 1535px){
   .form-block23 {
     background-image: url('/templates/chinaautosalon3/img/for-color/11111.png');
@@ -503,7 +509,6 @@ div#popup-trade_innew,
     border-radius: 20px;
     height: 56vh; 
     border-radius: 20px;
-    /* padding: 40px 34px 24px 870px; */
     padding: 40px 34px 24px 745px;
   }
 }
@@ -518,7 +523,6 @@ div#popup-trade_innew,
     border-radius: 20px;
     height: 56vh; 
     border-radius: 20px;
-    /* padding: 40px 34px 24px 870px; */
     padding: 40px 34px 24px 677px;
   }
 }
@@ -527,7 +531,6 @@ div#popup-trade_innew,
   .form-block {
     padding: 30px;
     background: #C8E2F1;
-    /* background: url('/templates/chinaautosalon/img/for-color/form3-3.png') no-repeat right top / contain; */
     background: url('/templates/chinaautosalon/img/for-color/form3(3).png') no-repeat right -1px top 1px / contain;
   }
 
@@ -541,11 +544,6 @@ div#popup-trade_innew,
     border-radius: 20px;
     padding: 40px 34px 24px 578px;
   }
-
-  /* .form-block23 {
-    padding: 30px;
-    background: #4E3249;
-  } */
 }
 
 @media (max-width: 991px) {
@@ -578,7 +576,6 @@ div#popup-trade_innew,
     padding: 30px;
     background: #4E3249;
   }
-
 }
 
 @media (max-width: 767px) {
@@ -606,7 +603,15 @@ div#popup-trade_innew,
     height: 234px;
     object-fit: cover;
     object-position: center;
-}
+  }
+
+  .form-block23 .block-name{
+    color: #FFFFFF;
+  }
+  
+  .form-block23 .top-text {
+    color: #FFFFFF;
+  }
 }
 
 @media (max-width: 575px) {
@@ -625,7 +630,6 @@ div#popup-trade_innew,
     background: #DFF249;
   }
   .steps-block {
-    /* background: url('/templates/chinaautosalon/img/for-color/Frame 1000001759 (1).png') no-repeat right 0px top, linear-gradient(138.4deg, #ada6ae 14.47%, #87808a 73.53%); */
     background: url('/templates/chinaautosalon/img/for-color/Frame 1000001759.png') no-repeat left 0px top, linear-gradient(138.4deg, #7d7e81 14.47%, #7d7e81 73.53%);
     height: auto;
     background-size: cover;
@@ -634,7 +638,6 @@ div#popup-trade_innew,
 
   .form-block23 {
     background: #4E3249 url('/templates/chinaautosalon3/img/for-color/11112.png') no-repeat center top / contain;
-    /* height: 771px; */
     height: auto;
     padding: 364px 20px 24px 20px
   }
@@ -642,7 +645,23 @@ div#popup-trade_innew,
   .popup {
     top: 8%;
   }
-  
+
+  .form-block-trade {
+    background: #4E3249 url('/templates/chinaautosalon3/img/for-color/popup2.png') no-repeat center top / contain;
+    padding: 397px 20px 16px 20px
+  }
+
+  .form-block-trade .top-text {
+    font-size: 16px;
+    line-height: 144.4%;
+    width: 100%;
+  }  
+}
+
+@media (max-width: 499px) {
+  .form-block-trade {
+    padding: 359px 5px 24px 5px
+  }
 }
 @media (max-width: 430px) {
   
@@ -662,7 +681,11 @@ div#popup-trade_innew,
     height: 187px;
     object-fit: cover;
     object-position: center;
-}
+  }
+
+  .form-block-trade {
+    padding: 320px 5px 24px 5px
+  }
 }
 
 @media (max-width: 410px) {
@@ -686,5 +709,20 @@ div#popup-trade_innew,
     font-size: 13px;
     color: #A45E52;
     line-height: 16px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 360px) {
+
+  .form-block-trade {
+    padding: 238px 20px 24px 20px
+  }
+
+  .form-block-trade .block-name {
+    padding-top: 13px;
+  }
+
+  .form-block-trade .top-text {
+    font-size: 14px;
   }
 }

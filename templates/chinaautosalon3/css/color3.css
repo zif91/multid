@@ -361,6 +361,10 @@
   border-radius: 8px;
 }
 
+.item-page .container .info .price-old-bu {
+  color: #0A4B73;
+}
+
 .form-block23 {
   background-image: url('/templates/chinaautosalon3/img/for-color/11111.png');
   background-color: #0000;
@@ -605,11 +609,14 @@ div#popup-trade_innew,
     object-position: center;
   }
 
-  .form-block23 .block-name{
-    color: #FFFFFF;
+  .popup .form-block23 .block-name {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 34px;
+      color: #FFFFFF;
   }
   
-  .form-block23 .top-text {
+  .popup .form-block23 .top-text {
     color: #FFFFFF;
   }
 }

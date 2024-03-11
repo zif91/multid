@@ -515,7 +515,6 @@ main {
     background: url('/templates/autosalon/img/phone.svg') no-repeat 0 0;
 }
 .header .logo {
-    /* width: 176px; */
     width: 132px;
     height: 46px;
 }
@@ -531,7 +530,6 @@ main {
     margin: 0 20px;
     width: 166px;
     height: 44px;
-    /* background: #D12D1E; */
     border-radius: 6px;
     font-weight: 600;
 }
@@ -590,7 +588,6 @@ main {
 }
 
 .header nav ul li:not(:last-child) {
-    /* margin-right: 80px; */
     margin-right: 40px;
 }
 .header nav ul li a {
@@ -711,11 +708,8 @@ main {
 }
 .index-first-block .text .name {
     font-weight: 700;
-    /* font-size: 36px; */
     font-size: 28px;
     line-height: 44px;
-    /* правка21,11,23 */
-    /* color: #000000; */
     padding-left: 36px;
     text-align: center;
 }
@@ -744,7 +738,6 @@ main {
     display:none;
     width: 40px;
     height: 40px;
-    /* background: #d12d1e url(/templates/chinaautosalon/img/menu-new.png) no-repeat center; */
     font-size: 0;
     margin: 0 0 0 20px;
     border-radius: 6px;
@@ -824,7 +817,6 @@ main {
     font-weight: 600;
     width: 128px;
     height: 52px;
-    /* background: #D12D1E; */
     border-radius: 8px;
 }
 .index-brands-block.inner .row .col-3 {
@@ -877,7 +869,6 @@ main {
 .index-brands-block .item {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
-    /* border-radius: 6px; */
     border-radius: 20px;
     -webkit-transition: all 200ms ease;
     -moz-transition: all 200ms ease;
@@ -891,7 +882,6 @@ main {
 }
 .index-brands-block .item a {
     font-weight: 500;
-    /* font-size: 12px; */
     font-size: 14px;
     line-height: 15px;
 }
@@ -906,7 +896,6 @@ main {
     color: #5764DE;
 }
 .steps-block {
-    /* background: url('/templates/autosalon/img/steps-block.png') no-repeat right 100px top 0 / contain, linear-gradient(138.4deg, #35374e 14.47%, #4e506c 73.53%); */
     background: url('/templates/chinaautosalon/img/img334.png') no-repeat right 100px top 0 / contain, linear-gradient(138.4deg, #35374e 14.47%, #4e506c 73.53%);
 }
 .steps-block .block-name {
@@ -930,7 +919,6 @@ main {
     font-weight: 800;
     font-size: 16px;
     line-height: 20px;
-    /* color: #D12D1E; */
 }
 .steps-block .item .text .name {
     font-weight: 600;
@@ -965,7 +953,6 @@ main {
     color: #5764DE;
 }
 .form-block {
-    /* background: #f2f3f7 url('/templates/autosalon/img/form-block.png') no-repeat right top / contain; */
     background: #f2f3f7 url('/templates/chinaautosalon/img/img.png') no-repeat right top / contain;
     border-radius: 20px;
     padding: 40px 400px 24px 34px;
@@ -1121,12 +1108,6 @@ main {
     text-decoration-line: line-through;
     color: #656A97;
 }
-/* .catalog-page .item .credit {
-  background: #F2F3F7;
-  border-radius: 8px;
-  padding: 15px 70px 15px 18px;
-  font-weight: 700;
-} */
 .catalog-page .item .credit {
     background: #F2F3F7;
     border-radius: 8px;
@@ -1138,31 +1119,6 @@ main {
     display: flex;
     align-items: center;
 }
-/* .catalog-page .item .credit span {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 17px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 105.4%;
-  color: #D02E25;
-} */
-
-/* .catalog-page .item .credit span { */
-/* position: absolute;
-top: 50%;
-transform: translateY(-50%);
-right: 6px;
-font-size: 18px;
-line-height: 14px;
-color: #fff;
-height: 30px;
-background-color: #D12D1E;
-border-radius: 20px; */
-/* padding: 0px 15px 0 15px; */
-/* padding: 8px 12px 8px 12px; */
-/* } */
 .catalog-page .item .credit .spanrate {
     position: absolute;
     top: 50%;
@@ -1174,7 +1130,6 @@ border-radius: 20px; */
     height: 30px;
     background-color: #D12D1E;
     border-radius: 20px;
-    /* padding: 0px 15px 0 15px; */
     padding: 8px 12px 8px 12px;
 }
 .catalog-page .item .buttons button {
@@ -1453,7 +1408,6 @@ border-radius: 20px; */
     font-weight: 400;
     font-size: 19px;
     line-height: 24px;
-    /* align-items: center; */
     color: #182232;
     margin: 5px;
 }
@@ -2278,7 +2232,6 @@ border-radius: 20px; */
   z-index: 9999;
 } */
 
-/* новая вёрстка */
 .catalog-page .item-bu {
     border: 1px solid #D9D9D9;
     border-radius: 20px;
@@ -2290,40 +2243,40 @@ border-radius: 20px; */
     height: 166px;
     object-fit: cover;
     object-position: center;
-  }
+}
   
-  .catalog-page .item-bu .name {
+.catalog-page .item-bu .name {
     font-weight: 700;
     font-size: 18px;
     line-height: 27px;
-  }
+}
   
-  .catalog-page .item-bu .row .characteristics-title {
+.catalog-page .item-bu .row .characteristics-title {
     font-size: 14px;
     color: #000000;
     line-height: 16px;
-  }
+}
   
-  .catalog-page .item-bu .row .characteristics-value {
+.catalog-page .item-bu .row .characteristics-value {
     font-size: 14px;
     color: #656A97;
     line-height: 16px;
-  }
+}
   
-  .catalog-page .item-bu .price .new {
+.catalog-page .item-bu .price .new {
     font-weight: 700;
     font-size: 24px;
     line-height: 27px;
     color: #D12D1E;
-  }
+}
   
-  .catalog-page .item-bu .credit-new {
+.catalog-page .item-bu .credit-new {
     font-weight: 600;
     font-size: 14px;
     color: #0A4B73;
-  }
+}
   
-  .catalog-page .item-bu .buttons button.color2 {
+.catalog-page .item-bu .buttons button.color2 {
     background: #D12D1E;
     color: #FFFFFF;
 }
@@ -2340,28 +2293,28 @@ border-radius: 20px; */
     border-radius: 20px;
     border-radius: 20px;
     padding: 40px 34px 24px 562px;
-  }
+}
   
-  .form-block23 .block-name{
+.form-block23 .block-name{
     font-weight: 700;
     font-size: 28px;
     line-height: 34px;
     color: #000000;
-  }
+}
   
-  .form-block23 .top-text {
+.form-block23 .top-text {
     font-size: 15px;
     line-height: 144.4%;
     width: 80%;
     color: #000000;
-  }
+}
   
-  .popup .form-block23 input[type='text'] {
+.popup .form-block23 input[type='text'] {
     height: 52px;
     border:#808890 1px solid ;
-  }
+}
   
-  .popup .form-block23 input {
+.popup .form-block23 input {
     height: 13px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -2369,111 +2322,107 @@ border-radius: 20px; */
     border: 1px solid #E6E6E6;
     appearance: none;
     background: url(../templates/major/img/select.svg) no-repeat right 12px top 50%;
-  }
+}
   
-  .popup .form-block23 a{
+.popup .form-block23 a{
     display: unset;
-  }
+}
   
-  .popup .form-block23 .personal-but{
+.popup .form-block23 .personal-but{
     background-color: #D12D1E;
     height: 52px; 
     font-weight: 600; 
     color: #fff;
     border-radius: 8px;
-  }
+}
 
-  .popup .form-block23 .personal-link{
+.popup .form-block23 .personal-link{
     text-decoration: underline;
     color: #D12D1E;
-  }
+}
   
-  .popup .form-block-trade .agree,
-  .popup .form-block23 .agree{
+.popup .form-block-trade .agree,
+.popup .form-block23 .agree{
     color: #000000;
-  }
+}
   
   div#popup-trade_innew,
   .form-block-trade {
     background: #FFFFFF;
-  }
+}
   
-  .form-block-trade .block-name {
+.form-block-trade .block-name {
     color: #000000;
     padding-top: 13px;
     font-weight: 700;
     font-size: 28px;
     line-height: 34px;
-  }
+}
   
-  .form-block-trade .top-text {
-    font-size: 15px;
+.form-block-trade .top-text {
+    font-size: 16px;
     line-height: 144.4%;
     width: 80%;
     color: #000000;
-  }
+}
 
-  .form-block-trade .imgform-new{
-    background-image: url('/templates/chinaautosalon3/img/for-color/trade1.png');
-    background-size: cover;
-    background-position: center;
-    width:300px;
-  }
+.form-block-trade{
+    background:#fff url('/templates/chinaautosalon3/img/for-color/trade1.png') no-repeat left top / contain;
+    padding-left: 611px; 
+}
 
-  .form-block-trade .form-control.personal-but{
+.form-block-trade .form-control.personal-but{
     background-color: #D12D1E;
     color: #FFFFFF;
     height: 52px; 
     font-weight: 600; 
     border-radius: 8px;
     border: #D12D1E;
-  }
+ }
 
-  .form-block-trade .personal-link{
+.form-block-trade .personal-link{
     color: #D12D1E;
-  }
+}
 
-  .form-block-trade .form-check input[type='checkbox']{
+.form-block-trade .form-check input[type='checkbox']{
     background-color: #FFFFFF;
-  }
+}
   
-  .form-block-trade .form-check label{
+.form-block-trade .form-check label{
     font-size: 12px; 
     color: #000000;
-  }
+}
 
-
-  .fancybox-slide--html .fancybox-close-small {
+.fancybox-slide--html .fancybox-close-small {
     width: 30px;
     height: 30px;
     right: 10px;
-    /* top: 37px; */
     top: 17px;
     padding: 5px;
     color: #000000;
     border-radius: 50%;
     border: 1px solid #000000;
-  }
+}
 
-  .item-page .container .row .info-conf{
+.item-page .container .row .info-conf{
     font-size: 18px;
     color: #656A97;
     font-weight: 500;
-  }
+}
 
-  .item-page .container .info .price-old-bu {
+.item-page .container .info .price-old-bu {
     font-weight: 500;
     text-decoration-line: line-through;
     color: #656A97;
     padding-left: 15px;
-  }
+}
 
-  .item-page .container .row .characteristics-value{
+.item-page .container .row .characteristics-value{
     font-size: 14px;
     color: #656A97;
     line-height: 154%;
     font-weight: 500;
-  }
+}
 
 .item-page .info .buttons button.color8 {
     background: #FFFFFF;
@@ -2496,6 +2445,13 @@ border-radius: 20px; */
     }
 }
 
+@media (max-width: 1146px) {
+    .form-block-trade {
+        background:#FFFFFF;
+        padding-left: 16px;
+    }
+}
+
 @media (max-width: 1199px) {
     .header .logo a span {
         display: none !important;
@@ -2504,13 +2460,11 @@ border-radius: 20px; */
         justify-content: space-between;
     }
     .header nav {
-        /* margin: 20px 0 0 146px; */
         margin: 20px 25px 0px 0px;
         width: 96%;
         display: block;
     }
     .index-first-block .text {
-        /* max-width: 100%; */
         max-width: 450px;
         margin-top: 79px;
     }
@@ -2776,31 +2730,27 @@ border-radius: 20px; */
         font-size: 13px;
         color: #000000;
         line-height: 16px;
-      }
+    }
       
-      .catalog-page .item-bu .row .characteristics-value {
+    .catalog-page .item-bu .row .characteristics-value {
         font-size: 13px;
         color: #656A97;
         line-height: 16px;
-      }
+    }
 
-      .popup .form-block23 .block-name{
+    .popup .form-block23 .block-name{
         font-weight: 700;
         font-size: 28px;
         line-height: 34px;
         color: #000000;
-      }
+    }
       
-      .popup .form-block23 .top-text {
+    .popup .form-block23 .top-text {
         font-size: 15px;
         line-height: 144.4%;
         width: 80%;
         color: #000000;
-      }
-
-      .form-block-trade .imgform-new{
-        display: none;
-      }
+    }
 }
 @media (max-width: 575px) {
     .header .adress {
@@ -2831,7 +2781,6 @@ border-radius: 20px; */
     .header nav ul {
         text-align: center;
         height: auto;
-        /* overflow: hidden; */
     }
     .header nav{
         display: none;
@@ -2854,9 +2803,7 @@ border-radius: 20px; */
         font-size: 17px;
         line-height: 17px;
     }
-    /* .header nav ul:hover {
-      height: auto;
-    } */
+
     .header nav ul li {
         display: block !important;
     }
@@ -2867,16 +2814,8 @@ border-radius: 20px; */
         display: inline-block;
     }
 
-    /* .header nav ul li:first-child a {
-      padding-right: 30px;
-      background: url('/templates/autosalon/img/caret.svg') no-repeat right;
-    } */
     .index-first-block {
         padding: 52px 0 220px;
-        /* background: #35374e url('/templates/autosalon/img/first-block2.png') no-repeat top 0 right 0; */
-        /* background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/major/img/slider.png')!important; */
-        /* background-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(255,255,255,0.25)),url('/templates/chinaautosalon/img/banner-1.png')!important; */
-        /* background-image: url('/templates/chinaautosalon/img/Banner 360.png')!important; */
     }
     .index-first-block .text p {
         padding-bottom: 217px;
@@ -2960,14 +2899,17 @@ border-radius: 20px; */
         padding: 275px 20px 24px 20px
     }
 
-    .form-block-trade .imgform-new{
-        background-image: url('/templates/chinaautosalon3/img/for-color/trade1-2.png');
-        background-size: cover;
-        background-position: center;
-        width:100%;
-        height: 280px;
-        display: block;
+    .form-block-trade {
+        background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/trade1-2.png') no-repeat center top / contain;
+        padding: 397px 20px 24px 20px
     }
+    
+    .form-block-trade .top-text {
+        font-size: 16px;
+        line-height: 144.4%;
+        width: 100%;
+        color: #000000;
+    } 
 }
 .popup {
     padding: 0!important;
@@ -3288,7 +3230,7 @@ border-radius: 20px; */
 
     .form-block23 {
         background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/popup1-2.png') no-repeat center top / contain;
-        padding: 422px 20px 24px 20px
+        padding: 390px 20px 24px 20px
     }
 
     .popup {
@@ -3318,7 +3260,6 @@ border-radius: 20px; */
     .float-button {
         bottom: 143px;
     }
-
 }
 
 @media (max-width: 400px) {
@@ -3578,7 +3519,6 @@ border-radius: 20px; */
     color: #F3BA13;
 }
 
-.wrap-cred
 @media (max-width: 1199px) {
     .modifications-block .item .item-name {
         padding: 12px 20px;
@@ -3923,8 +3863,6 @@ border-radius: 20px; */
         top: -8px;
     }
 
-
-
     .advantage {
         font-size: 12px;
         font-weight: 500;
@@ -4008,3 +3946,14 @@ border-radius: 20px; */
         padding: 288px 20px 24px 20px
     }
 }
+@media (max-width: 410px) {
+    .form-block23 {
+      background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/popup1-2.png') no-repeat center top / contain;
+      padding: 314px 20px 24px 20px
+    }
+  
+    .form-block-trade {
+      background: #FFFFFF url('/templates/chinaautosalon3/img/for-color/trade1-2.png') no-repeat center top / contain;
+      padding: 300px 20px 24px 20px
+    }
+  }

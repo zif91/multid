@@ -33,7 +33,7 @@
   border: 1px solid #008000;
   color: #008000;
 }
-/* 30/01/24 */
+
 .header .contacts button {
   background: #F25012;
 }
@@ -110,7 +110,6 @@
   background: #DFF249;
 }
 
-/*  */
 .index-contacts-block .logo .logotype {
   background: url('img/logo3.svg') center / cover;
 }
@@ -130,12 +129,9 @@
   background: #008000;
 }
 
-/*  */
-
 .form-block {
   position: relative;
   overflow: hidden;
-  /* background: url('/templates/chinaautosalon/img/for-color/form2(2).png') no-repeat right top / contain; */
   background: url('/templates/chinaautosalon/img/for-color/form2(3).png') no-repeat right top / contain;
   border-radius: 20px;
   padding: 40px 400px 24px 34px;
@@ -155,7 +151,6 @@
 .form-block::after {
   content: '';
   position: absolute;
-  /* top: 10%; */
   top: 17%;
   left: 0;
   right: 0;
@@ -269,8 +264,6 @@
 
 .filter-buttons-wrapper .button_clear button {
   background: url('/templates/autosalon/img/clear.svg') no-repeat 35px;
-  /* background: #111; */
-  /* background: #F2F3F7; */
   color: #5764DE;
   text-decoration: underline;
 }
@@ -339,7 +332,6 @@
   border: 1px solid #FFFFFF;
 }
 
-/* новая вёрстка */
 .catalog-page .item-bu .row .characteristics-value {
   font-size: 14px;
   color: #042340;
@@ -408,7 +400,7 @@
   background-color: #DFF249;
   height: 52px; 
   font-weight: 600; 
-  color: #fff;
+  color: #000000;
   border-radius: 8px;
 }
 
@@ -445,11 +437,9 @@ div#popup-trade_innew,
   color: #FFFFFF;
 }
 
-.form-block-trade .imgform-new{
-  background-image: url('/templates/chinaautosalon3/img/for-color/trade2.png');
-  background-size: cover;
-  background-position: center;
-  width:300px;
+.form-block-trade{
+  background:#042340 url('/templates/chinaautosalon3/img/for-color/trade2.png') no-repeat left top / contain;
+  padding-left: 611px; 
 }
 
 .form-block-trade .form-check input[type='checkbox']{
@@ -487,13 +477,17 @@ div#popup-trade_innew,
   color: #F25012;
 }
 
+@media (max-width: 1146px) {
+  .form-block-trade {
+      background:#042340;
+      padding-left: 16px;
+  }
+}
 
-/* 30/01/24 */
 @media (max-width: 1199px) {
   .form-block {
     padding: 30px;
     background: #C8E2F1;
-    /* background: url('/templates/chinaautosalon/img/for-color/form2(2).png') no-repeat right top / contain; */
     background: url('/templates/chinaautosalon/img/for-color/form2(3).png') no-repeat right top 1px / contain;
   }
 }
@@ -504,7 +498,6 @@ div#popup-trade_innew,
     background: #042340;
   }
   .form-block .image-cont{
-    /* background: url('/templates/chinaautosalon/img/for-color/form2.png') no-repeat center top / contain; */
     background: url('/templates/chinaautosalon/img/for-color/form2(4).png') no-repeat center top / contain;
     height: 300px;
   }
@@ -576,10 +569,6 @@ div#popup-trade_innew,
     width: 80%;
     color: #FFFFFF;
   }
-
-  .form-block-trade .imgform-new{
-    display: none;
-  }
 }
 
 @media (max-width: 575px) {
@@ -607,13 +596,9 @@ div#popup-trade_innew,
     padding: 400px 34px 24px 22px;
   }
 
-  .form-block-trade .imgform-new{
-    background-image: url('/templates/chinaautosalon3/img/for-color/trade2-2.png');
-    background-size: cover;
-    background-position: center;
-    width:100%;
-    height: 280px;
-    display: block;
+  .form-block-trade {
+    background: #042340 url('/templates/chinaautosalon3/img/for-color/trade2-2.png') no-repeat center top / contain;
+    padding: 397px 20px 24px 20px
   }
 
   .form-block-trade .top-text {
@@ -642,6 +627,29 @@ div#popup-trade_innew,
   .form-block .image-cont{
     height: 207px;
   }
+  .form-block-trade {
+    background: #042340 url('/templates/chinaautosalon3/img/for-color/trade2-2.png') no-repeat center top / contain;
+    padding: 280px 20px 24px 20px
+  }
 }
 
-/* конец правок */
+@media (min-width: 320px) and (max-width: 360px) {
+
+  .form-block-trade {
+    background: #042340 url('/templates/chinaautosalon3/img/for-color/trade2-2.png') no-repeat center top / contain;
+    padding: 238px 20px 24px 20px
+  }
+
+  .form-block-trade .block-name {
+    padding-top: 13px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  .form-block-trade .top-text {
+    font-size: 14px;
+    line-height: 144.4%;
+    width: 100%;
+  }
+}

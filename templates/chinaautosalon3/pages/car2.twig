@@ -22,7 +22,7 @@
 
 
     {% set DLCatalog = runSnippet('DocLister', {
-        display: 9,
+        display: 20,
         parents: resource.parent,
         addWhereList: 'c.template = 31 and c.id not in (' ~ resource.id ~ ')',
         tvList:'car-price,old-car-price,car_photos,configuration_id,year,run,engine_power,engine_volume,gear,drive,car_color',
@@ -300,7 +300,7 @@
 
         {% include('partials/banks.twig') %}
         <div class="container">
-            {% include "/partials/advantages.twig" %}            
+            {% include "/partials/advantages.twig" %}
         </div>
         <div class="container">{% include "/partials/actions2.twig" %}</div>
     </div>

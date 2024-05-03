@@ -56,7 +56,9 @@ debug: 0,
     <script type="text/javascript" src="/templates/chinafresh/js/slick.min.js"></script>
     <script src="/templates/chinafresh/js/common.js"></script>
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+        {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" /> #}
+    <link href="/fancybox/jquery.fancybox.min.css" rel="stylesheet" />
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
 
     {{baseSettings.scripts_head | raw}}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}

@@ -16,7 +16,7 @@ display: 1
 action:'caroldprice'}) %}
 
 
-<div class="col-lg-3 col-sm-6">
+<div class="col-lg-3 col-sm-6 cards-container">
     <a href="{{ data['url'] }}">
                     <div class="item mb-3 position-relative">
                         <span class="action position-absolute py-1 px-3">акция</span>
@@ -24,7 +24,7 @@ action:'caroldprice'}) %}
                             <img src="{{ randomPhotoLink }}">
                         </div>
                         <div class="p-3">
-                            <a href="{{ data['url'] }}" class="name mb-2">{{ data['title'] }} {{ data['tv.year'] }} г.в.</a>
+                            <a href="{{ data['url'] }}" class="name mb-2" id="car-name">{{ data['title'] }} {{ data['tv.year'] }} г.в.</a>
                             <div class="way mb-2">
                                 Пробег: {{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км.
                             </div>
@@ -45,3 +45,17 @@ action:'caroldprice'}) %}
                         </div>
                     </div></a>
                 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+ <script>
+
+  $(document).ready(function() {
+    var cardTitles = $(".name", ".cards-container");
+
+    var maxHeight = 0;
+    cardTitles.each(function() {
+      var currentHeight = $(this).height();
+      maxHeight = Math.max(maxHeight, currentHeight);
+    });
+    cardTitles.height(maxHeight);
+  });
+ </script>

@@ -7,8 +7,36 @@
 <div class="col-md-4 col-sm-6">
     <a href="{{data.url}}">
         <div class="item mb-4">
-            <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=105, w=255,zc=1 fltr[]=ric|15|15'}) }}" class="w-100 mb-3">
-            <a href="{{data.url}}" class="d-block pb-5">{{ data.title }}</a>
+            <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=100, w=255,zc=1 fltr[]=ric|15|15'}) }}" class="w-100 mb-3">
+            <a href="{{data.url}}" class="d-block pb-5 name-offer">{{ data.title }}</a>
         </div>
     </a>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function() {
+    var cardTitles = $(".name-offer");
+
+    var maxHeight = 0;
+    cardTitles.each(function() {
+      var currentHeight = $(this).height();
+      maxHeight = Math.max(maxHeight, currentHeight);
+    });
+    cardTitles.height(maxHeight);
+  });
+
+
+  $(document).ready(function() {
+    var cardTitles = $(".trafar");
+
+    var maxHeight = 0;
+    cardTitles.each(function() {
+      var currentHeight = $(this).height();
+      maxHeight = Math.max(maxHeight, currentHeight);
+    });
+    cardTitles.height(maxHeight);
+  });
+
+
+
+</script>

@@ -1254,8 +1254,13 @@ main {
 .auto-sale-form form .bottom-text a {
   text-decoration: underline;
 }
-.credit-form form {
+/* .credit-form form {
   background: url('/templates/autodealer/img/credit-form.png') center / cover;
+  padding: 65px 60px;
+  color: #fff;
+} */
+.credit-form form {
+  background: url('/templates/autodealer/img/credit-form2.png') center / cover;
   padding: 65px 60px;
   color: #fff;
 }
@@ -1638,8 +1643,12 @@ main {
   .auto-sale-form form .name {
     line-height: 32px;
   }
-  .credit-form form {
+  /* .credit-form form {
     padding: 30px;
+  } */
+  .credit-form form {
+    background: url('/templates/autodealer/img/credit-formmob2.png') center / cover;
+    padding: 234px 30px 30px 30px;
   }
   .credit-banner .banner {
     padding: 30px;

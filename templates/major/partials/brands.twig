@@ -1,20 +1,19 @@
 {% set brands2 = runSnippet('DocLister', {
-parents: 593,
-depth: 0,
-orderBy: 'menuindex',
-order: 'ASC',
-tvList:'',
-ownerTPL: '@CODE:     [+dl.wrap+]',
-tpl:'@CODE: <a href="[+url+]" class="col-6 col-sm-4 col-md-3 col-lg-2">[+pagetitle+]</a>',
-api: 0,
-addWhereList: 'isfolder=1',
-noneTPL:'@CODE: <div class="container">
+    parents: baseSettings['catalog_number'],
+    depth: 0,
+    orderBy: 'menuindex',
+    order: 'ASC',
+    tvList:'',
+    ownerTPL: '@CODE:     [+dl.wrap+]',
+    tpl:'@CODE: <a href="[+url+]" class="col-6 col-sm-4 col-md-3 col-lg-2">[+pagetitle+]</a>',
+    api: 0,
+    addWhereList: 'isfolder=1',
+    noneTPL:'@CODE: <div class="container">
 	<div class="row">
 		<div class="col text-center">
 			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
 		</div>
 	</div>
 </div>',
-})
-%}
-				{{brands2 | raw}}
+}) %}
+				{{ brands2 | raw }}

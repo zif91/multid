@@ -3,7 +3,7 @@
     {% set DLCatalog = runSnippet('DocLister', {
         id: 'catalog',
         display: 21,
-        parents: 593,
+        parents: baseSettings['catalog_number'],
         depth: 5,
         tvList:'car-price,old-car-price,configuration_id',
         ownerTPL: '@T_FILE:partials/wrap',
@@ -16,12 +16,11 @@
     </div>
   </div>
 </div>',
-    })
-    %}
-    {#% cache 'main' ~ resource.id %#}
+    }) %}
+    {# % cache 'main' ~ resource.id % #}
 
     <div class="container">
-        {{resource.content |raw}}</div>
+        {{ resource.content |raw }}</div>
 
     <div class="catalog-block">
         <div class="container-fluid catalog-products" id="catalog">
@@ -29,18 +28,19 @@
             <div class="catalog-page">
                 <div class="container">
                     <div class="row">
-                        {{DLCatalog |raw}}
+                        {{ DLCatalog |raw }}
                     </div>
                 </div>
             </div>
         </div>
         <div class="flex justify-content-center p-4">
             <div class="bottom-button">
-                <button onclick="window.location.href = '{{ makeUrl(593) }}';">Смотреть все <span></span></button>
+                <button onclick="window.location.href = '{{ makeUrl(baseSettings["catalog_number"]) }}';">Смотреть все
+                    <span></span></button>
             </div>
         </div>
     </div>
     {% include('partials/contacts.twig') %}
-    {#% include '/partials/tradein.twig' %#}
-    {#% endcache %#}
+    {# % include '/partials/tradein.twig' % #}
+    {# % endcache % #}
 {% endblock %}

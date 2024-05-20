@@ -1,29 +1,29 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
-{% set DLCatalog = runSnippet('DocLister', {
-id: 'catalog',
-display: 3,
-parents: 593,
-addWhereList: 'c.template=28',
-depth: 3,
-tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
-ownerTPL: '@T_FILE:partials/wrap',
-tpl:'@T_FILE:partials/catalogcard_mod',
-})
-%}
-<div class="mt-5 m-sm-5">
-    <div class="container">
-		{% include 'partials/actions.twig' %}
-	</div></div>
-<div class="index-catalog-block2 pb-5">
-    <div class="container">
-        <h2 class="h2 m-5 ">Предложение дня</h2>
-        <div class="list row d-flex justify-content-center" id="catalog">
-			{{DLCatalog |raw}}
+    {% set DLCatalog = runSnippet('DocLister', {
+        id: 'catalog',
+        display: 3,
+        parents: baseSettings['catalog_number'],
+        addWhereList: 'c.template=28',
+        depth: 3,
+        tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
+        ownerTPL: '@T_FILE:partials/wrap',
+        tpl:'@T_FILE:partials/catalogcard_mod',
+    }) %}
+    <div class="mt-5 m-sm-5">
+        <div class="container">
+            {% include 'partials/actions.twig' %}
         </div>
     </div>
-</div>
-<div class="container py-5 mb-5 d-none d-sm-block">
-	{{resource.content |raw }}
-</div>
+    <div class="index-catalog-block2 pb-5">
+        <div class="container">
+            <h2 class="h2 m-5 ">Предложение дня</h2>
+            <div class="list row d-flex justify-content-center" id="catalog">
+                {{ DLCatalog |raw }}
+            </div>
+        </div>
+    </div>
+    <div class="container py-5 mb-5 d-none d-sm-block">
+        {{ resource.content |raw }}
+    </div>
 {% endblock %}

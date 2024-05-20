@@ -63,6 +63,10 @@ display: 1
 {% set priceAsNumber = [data['tv.car-price']]|join|default(0) %}
 {% set priceOnMonth = priceAsNumber / 96 %}
 
+{% set photos = data['tv.car_photos'] | json %}
+{% set photos = photos.fieldValue %}
+{% set photo = photos[0]['image'] %}
+
 {% if priceAsNumber > 0 and data['title'] %}
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="index-catalog-block">

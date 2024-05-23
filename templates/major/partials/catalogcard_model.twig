@@ -1,0 +1,37 @@
+{% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
+{% set configuration_id = runSnippet('DocLister', {
+    id: resource.id, tvList: 'configuration_id', display: 1, tpl: '@CODE:[+tv.configuration_id+]'} ) %}
+
+{% set photo = data['image_format'] %}
+
+<div class="item position-relative"><a href="{{ data['url'] }}">
+        <span class="hit position-absolute py-1 px-3">HIT</span>
+        <div class="image">
+            <img src="{{ photo }}">
+        </div>
+        <div class="p-3">
+            <a href="{{ data.url }}"
+               class="name d-block mb-2">{{ runSnippet ('DocInfo', {docid:data.parent, field:pagetitle}) |raw }} {{ data['title'] }} </a>
+            <div class="row data text-center">
+
+            </div>
+            <div class="price mb-3">
+                <span class="old d-inline-block mb-1">{# { DLdata|first['tv_old-car-price'] } #}{{ data["tv.old-car-price"] }} ₽</span>
+                <div class="new">
+                    {{ data["tv.car-price"] }} ₽
+                </div>
+            </div>
+            <div class="buttons">
+                <button data-fancybox="" data-src="#popup" class="w-100 mb-2">В кредит
+                    от {% if baseSettings.credit_rate is empty %}
+                    4.9
+                    {% else %}
+                        {{ baseSettings.credit_rate }}
+                    {% endif %}%
+                </button>
+                <button data-fancybox="" data-src="#popup" class="w-100 mb-2">Забронировать</button>
+                <button class="w-100" onclick="location.href='{{ data.url }}';">Подробнее</button>
+            </div>
+        </div>
+    </a>
+</div>

@@ -11,7 +11,7 @@
 
     <div class="index-page-slider text-light">
         <div class="item other"
-             style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.25)), url('/{{ photo }}') center/cover;">
+             style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.25)), url('{{ photo }}') center/cover;">
             <div class="container">
                 <div class="top-text mt-3 mb-3">
                 </div>
@@ -24,7 +24,7 @@
     {% include '/partials/crumbs.twig' %}
     <div class="item-page pb-5">
         <div class="container position-relative">
-            <img style="width: 300px; height: auto" src="{{ photo }}" class="logo position-absolute">
+            <img style="width: 300px; height: auto" src="" class="logo position-absolute">
             <h1 class="mb-2"> {{ runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{ resource.pagetitle }}
             </h1>
             <div class="top-text mb-4">

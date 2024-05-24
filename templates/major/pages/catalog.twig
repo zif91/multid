@@ -1,7 +1,7 @@
 {% extends './app.twig' %}
 {% set brand = _GET.brand %}
 {% if not brand %}
-    {% set brand = 'hyundai' %}
+    {% set brand = 'renault' %}
 {% endif %}
 {% set model = _GET.model %}
 {% if not model %}
@@ -59,14 +59,14 @@
     _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
     display: 20,
     parents: baseSettings['catalog_number'],
-    depth: 2,
+    depth: 5,
     addWhereList: 'c.template=20',
     orderBy: 'car-price',
     order: 'RAND()',
     tvSortType: 'SIGNED',
     tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id,colors_list',
     ownerTPL: '@T_FILE:partials/wrap',
-    tpl:'@T_FILE:partials/catalogcard_model',
+    tpl:'@T_FILE:partials/catalogcard_first_model',
     paginate:'pages',
     TplNextP:'',
     TplPrevP:'',

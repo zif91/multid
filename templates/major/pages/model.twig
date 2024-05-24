@@ -11,7 +11,7 @@
 
     <div class="index-page-slider text-light">
         <div class="item other"
-             style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.25)), url({{ photo }}) center/cover;">
+             style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.25)), url('/{{ photo }}') center/cover;">
             <div class="container">
                 <div class="top-text mt-3 mb-3">
                 </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="top-info mb-4 w-100">
                 <div class="image text-center">
-                    <img src="{{ car_photos|raw }}">
+                    <img src="{{ photo | raw }}">
                 </div>
                 <div class="text">
                     <div class="name mb-3">

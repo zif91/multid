@@ -16,10 +16,15 @@
 
             </div>
             <div class="price mb-3">
-                <span class="old d-inline-block mb-1">{# { DLdata|first['tv_old-car-price'] } #}{{ data["tv.old-car-price"] }} ₽</span>
-                <div class="new">
-                    {{ data["tv.car-price"] }} ₽
-                </div>
+                {% if data["tv.old-car-price"] %}
+                    <span class="old d-inline-block mb-1">{{ data["tv.old-car-price"] }} ₽</span>
+                {% endif %}
+
+                {% if data["tv.car-price"] %}
+                    <div class="new">
+                        {{ data["tv.car-price"] }} ₽
+                    </div>
+                {% endif %}
             </div>
             <div class="buttons">
                 <button data-fancybox="" data-src="#popup" class="w-100 mb-2">В кредит

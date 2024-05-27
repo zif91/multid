@@ -78,9 +78,9 @@
                         {% if "ModificationItem" in modificationItemKey %}
                             {% set modificationKey = modificationKey ~ "-" ~ modificationItemKey | replace({'#': "-"}) %}
 
-                            {% set modificationTitle = modificationTitle ~ ": " ~ modificationItem['value'] %}
+                            {% set modificationItemTitle = modificationTitle ~ ": " ~ modificationItem['value'] %}
 
-                            <h3 class="mb-3">{{ modificationTitle }}</h3>
+                            <h3 class="mb-3">{{ modificationItemTitle }}</h3>
                             <div class="item mb-2">
                                 <div class="item-name flex">
                                     <div class="name" type="button" data-toggle="collapse"

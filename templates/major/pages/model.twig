@@ -9,6 +9,8 @@
     {% set photos = resource['colors_list'] | json %}
     {% set photo = photos['Color#1']['items']['image']['value'] %}
 
+    {% set modifications = resource['car_modifications'] | json %}
+
     <div class="index-page-slider text-light">
         <div class="item other"
              style="background-image: url('{{ photo }}');background-position: center;background-repeat: no-repeat;background-size: contain;width: 100%;">
@@ -60,235 +62,67 @@
             }) | raw }}
         </div>
     </div>
-    {#
-    <div class="calc-block pt-5 pb-3 mb-5">
-        <div class="container-fluid">
-            <div class="block-name mb-sm-4 mb-3">
-                При покупке в кредит - <span>Выгода до 100 000 рублей!</span>
+
+    <div class="item-page pb-5">
+        <div class="container">
+            <div class="modifications-block pb-2">
+                {% for modificationKey, modification in modifications %}
+                    {% set modificationKey = modificationKey | replace({'#': "-"}) %}
+
+                    {% set modificationTitle = modification["value"] %}
+                    {% if modificationTitle is empty %}
+                        {% set modificationTitle = "Мод. " ~ loop.index %}
+                    {% endif %}
+
+                    {% for modificationItemKey, modificationItem in modification['items'] %}
+                        {% if "ModificationItem" in modificationItemKey %}
+                            {% set modificationKey = modificationKey ~ "-" ~ modificationItemKey | replace({'#': "-"}) %}
+
+                            {% set modificationTitle = modificationTitle ~ ": " ~ modificationItem['value'] %}
+
+                            <h3 class="mb-3">{{ modificationTitle }}</h3>
+                            <div class="item mb-2">
+                                <div class="item-name flex">
+                                    <div class="name" type="button" data-toggle="collapse"
+                                         data-target="#id_{{ modificationKey }}" aria-expanded="false"
+                                         aria-controls="id_{{ modificationKey }}" style="word-break: break-word;     max-width: 170px;
+">
+                                        {{ modificationItem['value'] }}
+                                    </div>
+                                    <div class="price">
+                                        <span class="old">
+                                            -
+                                        </span>
+                                        <span class="new">
+                                            {{ modificationItem['items']['price']['value'] }}
+                                        </span>
+                                    </div>
+                                    <div class="buttons">
+                                        <button class="scroll-btn">В кредит
+                                            за {{ (modx.runSnippet("toInt", { value: modificationItem['items']['price']['value'] }) / 82) | round | number_format(0, '.', ' ') }}
+                                             ₽/мес.
+                                        </button>
+                                        <button data-fancybox="" data-src="#popup">Trade-in</button>
+                                        <button data-fancybox="" data-src="#popup">Забронировать</button>
+                                    </div>
+                                </div>
+                                <div class="item-content collapse" id="id_{{ modificationKey }}">
+                                    {% for modificationItemOptionKey, modificationItemOption in modificationItem['items'] %}
+                                        {% if "ModificationItemOption" in modificationItemOptionKey %}
+                                            <div class="card-header">{{ modificationItemOption['value'] }}</div>
+                                            <div class="card-body">
+                                                {{ modificationItemOption['items']['content']['value'] | raw }}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
             </div>
-            {{ runSnippet('Form', {
-            formid: 'FormCredit',
-            path: '/templates/mono/partials/forms/credit/',
-            extension: 'twig'
-            }) | raw }}
         </div>
     </div>
-    <div class="item-data-block pb-3">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-4 col-lg-5 col-6">
-                    <div class="item position-relative mb-4">
-                        Цвет <br />
-                        {{resource.car_color}}
-                    </div>
-                    <div class="item position-relative mb-4">
-                        Привод <br />
-                        {{resource.drive}}
-                    </div>
-                    <div class="item position-relative mb-4">
-                        Кузов <br />
-                        {{resource.body_type}}
-                    </div>
-                    <div class="item position-relative mb-4">
-                        Коробка <br />
-                        {{resource.gear}}
-                    </div>
-                </div>
-                <div class="col-xl-8 col-lg-7 col-6">
-                    <div class="item position-relative mb-4">
-                        Салон <br />
-                        Кожа Vernasca с перфорацией особого дизайна "Красный Такора" | "Черный".Интерьер может содержать различные материалы как, например, натуральная кожа, искусственная кожа, ткань и другие.)
-                    </div>
-                    <div class="item position-relative mb-4">
-                        Двигатель <br />
-                        {{resource.engine_volume}} \ {{resource.engine_power}}л.с.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> #}
-    {# % include('partials/contacts.twig') % #}
-    {#
-    <main class="main container">
-        <div class="item-page pb-5">
-            <div class="back-link text-center mb-3">
-                <a href="#" class="d-inline-block pl-4">Назад к каталогу</a>
-            </div>
-            <h1 class="h1">{{resource.pagetitle}}, {{resource.year}} {{resource.modification}} </h1>
-            <div class="top-text mb-3">
-                {{resource.vin}}
-            </div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="photos mb-4">
-                        <div class="slider-for">
-                            {% if car_photos and count(car_photos)>0 %}
-                            {% for image in car_photos %}
-                            <div class="photo"><img src="{{image.image}}"></div>
-                            {% endfor %}
-                            {% else %}
-                            <div class="photo"><img src="{{image.image}}"></div>
-                            {% endif %}
-                        </div>
-                        <div class="slider-nav">
-                            {% if car_photos and count(car_photos)>0 %}
-                            {% for image in car_photos %}
-                            <div class="photo"><img src="{{image.image}}"></div>
-                            {% endfor %}
-                            {% else %}
-                            <div class="photo"><img src="{{image.image}}"></div>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="info mb-4 pt-lg-3">
-                        <div class="price mb-3">
-                            {{ (resource['car-price'])|number_format(0, '.', ' ') }} ₽
-                        </div>
-                        <div class="special mb-1">
-                            Специальное предложение
-                        </div>
-                        <div class="nal mb-4 py-1 px-4 d-inline-block">
-                            В наличии сегодня
-                        </div>
-                        <div class="buttons pb-3">
-                            <button data-fancybox data-src="#popup2" class="w-100 mb-3">Забронировать</button>
-                            <button data-fancybox data-src="#popup3" class="w-100 mb-3">Рассчитать кредит</button>
-                        </div>
-                        <table class="w-100">
-                            <tr>
-                                <td>Двигатель</td>
-                                <td>{{resource.fuel
-                                    }}</td>
-                            </tr>
-                            <tr>
-                                <td>Мощность</td>
-                                <td>{{resource.engine_power
-                                    }} л.с.</td>
-                            </tr>
-                            <tr>
-                                <td>КПП</td>
-                                <td>{{resource.gear
-                                    }}</td>
-                            </tr>
-                            <tr>
-                                <td>Привод</td>
-                                <td>{{resource.drive
-                                    }}</td>
-                            </tr>
-                            <tr>
-                                <td>Пробег</td>
-                                <td>{{resource.run
-                                    }} км</td>
-                            </tr>
-                            <tr>
-                                <td>Цвет</td>
-                                <td>{{resource.car_color}}</td>
-                            </tr>
-                            <tr>
-                                <td>ПТС</td>
-                                <td>{{resource.pts}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="info2">
-                        <div class="name mb-3">
-                            Характеристики
-                        </div>
-                        <table class="w-100 mb-4">
-                            <tr>
-                                <td>Год выпуска</td>
-                                <td>{{resource.year
-                                    }}</td>
-                            </tr>
-                            <tr>
-                                <td>Мощность двигателя</td>
-                                <td>{{resource.engine_power
-                                    }} л.с.</td>
-                            </tr>
-                            <tr>
-                                <td>Коробка передач</td>
-                                <td>{{resource.gear
-                                    }}</td>
-                            </tr>
-                            <tr>
-                                <td>Поколение</td>
-                                <td>{{resource.modification
-                                    }}</td>
-                            </tr>
-                            <tr>
-                                <td>Владельцев</td>
-                                <td>{% if resource.owners %}
-                                    {{resource.owners}}
-                                    {% else %}
-                                    Один
-                                    {% endif %}</td>
-                            </tr>
-                            <tr>
-                                <td>Тип кузова</td>
-                                <td>
-                                    {{resource.body_type}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Модификация</td>
-                                <td>{{resource.engine_volume
-                                    }} {{resource.gear
-                                    }} ({{resource.engine_power
-                                    }} л.с.)</td>
-                            </tr>
-                            <tr>
-                                <td>Цвет</td>
-                                <td>{{resource.car_color}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="info3">
-                        <div class="block mb-4 p-3 position-relative">
-                            <img src="/templates/autostar/img/item-icon1.svg" class="icon position-absolute">
-                            <div class="name mb-3">
-                                Отчет о состоянии автомобиля
-                            </div>
-                            <ul class="pb-3">
-                                <li class="mb-2">Проверен на наличие ДТП</li>
-                                <li class="mb-2">Нет юридических ограничений</li>
-                            </ul>
-                            <button data-fancybox data-src="#popup1" class="w-100">Получить полный отчет</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="info3">
-                        <div class="block mb-4 p-3 position-relative">
-                            <img src="/templates/autostar/img/item-icon2.svg" class="icon position-absolute">
-                            <div class="name mb-3">
-                                Выгода при покупке в кредит
-                            </div>
-                            <div class="discount mb-4">
-                                До 20%
-                            </div>
-                            <button data-fancybox data-src="#popup3" class="w-100">Рассчитать кредит</button>
-                        </div>
-                        <div class="buttons pb-3">
-                            <button data-fancybox data-src="#popup2" class="w-100 mb-3">Забронировать</button>
-                            <button data-fancybox data-src="#popup3" class="w-100 mb-3">Рассчитать кредит</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="index-catalog-block pb-4">
-            <div class="block-name mb-4">
-                Похожие автомобили
-            </div>
-            <div class="row">
-                {{DLCatalog | raw}}
-            </div>
-        </div>
-    </main> #}
     <script>
       function scrollToForm () {
         var form = document.getElementById('FormCallback')

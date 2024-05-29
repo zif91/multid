@@ -232,7 +232,7 @@ setInterval(function() {
                         })  | raw }}
 
 <style type="text/css">
-.bottom-page-line {
+/* .bottom-page-line {
   position: fixed;
     bottom: 0px;
     right: 0%;
@@ -273,7 +273,7 @@ setInterval(function() {
     pointer-events: none;
     z-index: 2;
     max-width: 50%;
-}
+} */
 </style>
   <script>
   // document.addEventListener("DOMContentLoaded", function() {
@@ -294,20 +294,20 @@ setInterval(function() {
         $('#callphone').modal('show');
         });
 
-        $(".bottom-page-line").click(function() {
-    $.fancybox.open({
-        src: '#trade-in-popup',
-        type: 'inline'
-    });
-});
+        //$(".bottom-page-line").click(function() {
+    //$.fancybox.open({
+       // src: '#trade-in-popup',
+        //type: 'inline'
+    //});
+//});
  
-$(document).ready(function() {
-        $("#closeModal").click(function() {
-          event.stopPropagation();
-          $(".bottom-page-line").hide();
-            $(".float-button").css("bottom", "20px");
-        });
-    });
+// $(document).ready(function() {
+//         $("#closeModal").click(function() {
+//           event.stopPropagation();
+//           $(".bottom-page-line").hide();
+//             $(".float-button").css("bottom", "20px");
+//         });
+//     });
 
 
 // document.addEventListener("DOMContentLoaded", function() {

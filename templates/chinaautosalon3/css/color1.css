@@ -62,9 +62,18 @@
   background: #D12D1E;
 }
 
-.index-first-block .text .name {
+/* .index-first-block .text .name {
   font-size: 28px;
   color: #000000;
+} */
+
+.index-first-block .text .name {
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 61px;
+  color: #FFFFFF;
+  padding-left: 0px;
+  text-align: start;
 }
 
 .index-filter-block .button button {
@@ -117,6 +126,25 @@
   .header .phone {
     background: url('../img/phone2.svg');
   }
+  .index-first-block .text .name {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 61px;
+    color: #FFFFFF;
+    padding-left: 0px;
+    text-align: start;
+}
+@media (max-width: 400px) {
+
+  .index-first-block .text .name {
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 45px;
+      color: #FFFFFF;
+      padding-left: 0px;
+      text-align: start;
+  }
+}
 }
 .index-contacts-block .logo .logotype {
   background: url('../img/logo.svg') center / cover;

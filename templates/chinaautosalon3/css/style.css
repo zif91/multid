@@ -706,23 +706,41 @@ main {
 .index-first-block .text {
     max-width: 450px;
 }
-.index-first-block .text .name {
+/* .index-first-block .text .name {
     font-weight: 700;
     font-size: 28px;
     line-height: 44px;
     padding-left: 36px;
     text-align: center;
+} */
+.index-first-block .text .name {
+    font-weight: 700;
+    font-size: 58px;
+    line-height: 61px;
+    color: #FFFFFF;
+    padding-left: 0px;
+    text-align: start;
 }
 
-.index-first-block .text p{
+/* .index-first-block .text p{
     color: #000000;
     font-size: 20px;
     line-height: 24px;
     text-align: center;
+} */
+.index-first-block .text p {
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: start;
 }
 
-.index-first-block .text .but {
+/* .index-first-block .text .but {
     justify-content: center;
+} */
+
+.index-first-block .text .but {
+    justify-content: start;
 }
 
 .index-first-block .text button {
@@ -2100,8 +2118,11 @@ main {
     border: 3px solid #b71f25;
 }
 
-.banner .index-first-block .container.d-flex {
+/* .banner .index-first-block .container.d-flex {
     justify-content: center;
+} */
+.banner .index-first-block .container.d-flex {
+    justify-content: start;
 }
 
 .item-page .bonus-card{
@@ -2686,7 +2707,8 @@ main {
     }
     .float-button {
         position: fixed;
-        bottom: 130px;
+        /* bottom: 130px; */
+        bottom: 30px;
         right: 20px;
         z-index: 9999;
     }
@@ -3209,6 +3231,14 @@ main {
     .index-filter-block .filter-buttons-wrapper {
         justify-content: space-around;
     }
+    .index-first-block .text .name {
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 61px;
+        color: #FFFFFF;
+        padding-left: 0px;
+        text-align: start;
+    }
 }
 
 @media (max-width: 576px) {
@@ -3258,7 +3288,8 @@ main {
         padding: 7px 0 0;
     }
     .float-button {
-        bottom: 143px;
+        /* bottom: 143px; */
+        bottom: 30px;
     }
 }
 
@@ -3272,9 +3303,9 @@ main {
         object-fit: cover;
         object-position: center;
     }
-    .float-button {
+    /* .float-button {
         bottom: 175px;
-    }
+    } */
 }
 
 .modifications-block h2 {

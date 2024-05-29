@@ -11,6 +11,14 @@
 
     {% set modifications = resource['car_modifications'] | json %}
 
+    {% set cars = runSnippet("DocLister", {
+        api: 1,
+        parents: resource.id,
+        addWhereList: "c.template = 28",
+        tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id',
+    }) | json %}
+    {% set prices = cars | column('tv_car-price') %}
+
     <div class="index-page-slider text-light">
         <div class="item other"
              style="background-image: url('{{ photo }}');background-position: center;background-repeat: no-repeat;background-size: contain;width: 100%;">
@@ -40,14 +48,54 @@
                     <div class="name mb-3">
                         {{ runSnippet ('DocInfo', {docid: resource.parent, field:pagetitle}) |raw }} {{ resource.pagetitle }}
                     </div>
-                    <span class="items text-light mb-3 py-2 px-3 d-inline-block bg-dark">4 автомобиля</span> <br/>
-                    <span class="price d-inline-block py-2 px-3">от 3 378 000 ₽</span>
+                    <span class="items text-light mb-3 py-2 px-3 d-inline-block bg-dark">Автомобилей: {{ cars | count }}</span> <br/>
+                    <span class="price d-inline-block py-2 px-3">от {{ min(prices) | number_format(0, '', ' ') }} ₽</span>
                 </div>
             </div>
             <div class="index-catalog-block2 pb-5">
                 <div class="container">
-                    <div class="list" id="catalog">
-                        {{ DLCatalog |raw }}
+                    <div class="list row" id="catalog">
+                        {% if cars %}
+                            {% for car in cars %}
+                                {% set car_photos = car['tv_car_photos'] | json %}
+                                {% set car_photos = car_photos.fieldValue %}
+                                {% set car_photo = car_photos[0]['image'] %}
+
+                                <div class="item col-12 col-sm-3 position-relative mb-3 "><a href="{{ car['url'] }}">
+                                        <span class="hit position-absolute py-1 px-3">HIT</span>
+                                        <div class="image">
+                                            <img src="{{ car_photo }}">
+                                        </div>
+                                        <div class="p-3">
+                                            <a href="{{ car['url'] }}"
+                                               class="name d-block mb-2">{{ runSnippet ('DocInfo', {docid:car.parent, field:pagetitle}) | raw }} {{ car['title'] }} </a>
+                                            <div class="row data text-center">
+
+                                            </div>
+                                            <div class="price mb-3">
+                                                <span class="old d-inline-block mb-1">{{ car["tv_old-car-price"] | number_format(0, '', ' ') }} ₽</span>
+                                                <div class="new">
+                                                    {{ car["tv_car-price"] | number_format(0, '', ' ') }} ₽
+                                                </div>
+                                            </div>
+                                            <div class="buttons">
+                                                <button data-fancybox="" data-src="#popup" class="w-100 mb-2">В кредит от 4,9%</button>
+                                                <button data-fancybox="" data-src="#popup" class="w-100 mb-2">Забронировать</button>
+                                                <button class="w-100" onclick="location.href='{{ car.url }}';">Подробнее</button>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

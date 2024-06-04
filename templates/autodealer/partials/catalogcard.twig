@@ -8,9 +8,12 @@ display: 1
 {#{ data['tv.car_photos'] }#}
 
 {# Получаем случайное изображения (ссылку) из поля "Фотографии" (car_photos) #}
-{% set randomPhotoLink = runSnippet('helpers', {jsonPhotos: data['tv.car_photos'],
-    action:'randomPhoto'})
-%}
+{#{% set randomPhotoLink = runSnippet('helpers', {jsonPhotos: data['tv.car_photos'],#}
+{#    action:'randomPhoto'})#}
+{#%}#}
+
+{% set photos = data['tv.car_photos'] | json %}
+{% set photo = photos['fieldValue'][0]['image'] %}
 
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
 action:'caroldprice'}) %}
@@ -21,7 +24,7 @@ action:'caroldprice'}) %}
                     <div class="item mb-3 position-relative">
                         <span class="action position-absolute py-1 px-3">акция</span>
                         <div class="image pt-2 pl-2 pr-2 text-center">
-                            <img src="{{ randomPhotoLink }}">
+                            <img src="{{ photo }}">
                         </div>
                         <div class="p-3">
                             <a href="{{ data['url'] }}" class="name mb-2" id="car-name">{{ data['title'] }} {{ data['tv.year'] }} г.в.</a>

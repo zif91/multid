@@ -441,6 +441,9 @@ main {
   padding: 11px 44px;
   border-radius: 7px;
 }
+.btn.btn-danger:hover {
+  opacity: 0.6;
+}
 .btn.btn-outline-danger {
   background: none;
 }
@@ -450,6 +453,11 @@ main {
 .top-menu .menu-button {
   font-weight: 500;
 }
+
+.top-menu .menu-button:hover {
+  color: #FFF;
+}
+
 .top-menu .catalog {
   top: 100%;
   left: 0;
@@ -471,6 +479,9 @@ main {
   font-size: 14px;
   line-height: 17px;
   color: #5E6472;
+}
+.top-menu .catalog .item a:hover {
+  color: #bf151b;
 }
 .top-menu .catalog .item a span {
   font-weight: 600;
@@ -603,6 +614,9 @@ main {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+}
+.index-cars-select .cars .item a:hover {
+  color: #bf151b;
 }
 .index-cars-select .cars .item a span.empty {
   background: #DDDDDD;
@@ -1162,6 +1176,9 @@ main {
   font-weight: 500;
   text-decoration: underline;
 }
+.actions-block .top-link:hover {
+  opacity: 0.6;
+}
 .actions-block .item {
   border-radius: 8px;
   border: 1px solid #D9D9D9;
@@ -1219,6 +1236,31 @@ main {
 }
 .actions-block .item .buttons button:nth-child(3) {
   color: #fff;
+}
+.header .contacts .phone:hover{
+  color:#5E6472;
+}
+.index-filter-block .filter .top-link:hover{
+  opacity: 0.6;
+}
+.actions-block .item .buttons button:nth-child(3):hover {
+  opacity: 0.6;
+}
+.actions-block .item .buttons button:nth-child(2):hover{
+  opacity: 0.6;
+}
+.actions-block .item .buttons button:nth-child(1):hover{
+  opacity: 0.6;
+}
+.actions-block .item .name:hover{
+  color:#5E6472;
+}
+.index-filter-block .filter .clear-link:hover{
+  color:#bf151b;
+}
+.btn.middle:hover{
+  color: #FFF;
+  background-color: #bf151b;
 }
 .auto-sale-form form {
   color: #fff;
@@ -1285,6 +1327,9 @@ main {
 }
 .credit-form form .bottom-text a {
   text-decoration: underline;
+}
+.credit-form form .bottom-text a:hover {
+  opacity: 0.6;
 }
 .banks-block .block-name {
   display: inline-block;

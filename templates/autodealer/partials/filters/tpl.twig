@@ -7,12 +7,12 @@
                 </div>
                 <a href="/katalog-avtomobilej/" class="top-link mb-4 mt-2">Перейти в каталог →</a>
             </div>
-            <form class="extrafilter col-12">
+            <form class="extrafilter col-12" method="POST">
                 <div class="row">
                     {{ data['wrap'] | raw }}
                 </div>
                 <div class="button pt-2">
-                    <button class="btn filterbutton btn-outline-danger middle mr-md-4">Показать все автомобили</button>
+                    <button type="button" class="btn btn-outline-danger middle mr-md-4" onclick="submitForm();">Показать все автомобили</button>
                     <button  class="Button--reset clear-link">Сбросить фильтр</button>
                 </div>
             </form>

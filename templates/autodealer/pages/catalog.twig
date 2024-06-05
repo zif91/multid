@@ -1,82 +1,108 @@
 {% extends './app.twig' %}
 {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
-{% set DLCatalog = runSnippet('DocLister', {
-id: 'catalog',
-controller: 'catalog_filters',
-display: 18,
-parents: catalog_number,
-depth: 2,
-tvList:'car-price,car-old-price,old-car-price,run,engine_power,gear,year,image,car_photos,body_type,car_color,engine_volume,fuel,drive',
-ownerTPL: '@T_FILE:partials/wrap',
-noneTPL:'@CODE: <div class="container">
-	<div class="row">
-		<div class="col text-center">
-			<h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
-		</div>
-	</div>
-</div>',
-tpl:'@T_FILE:partials/catalogcard',
-paginate:'pages',
-TplNextP:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]" aria-label="Next"><span aria-hidden="true">»</span></a> </li>',
-TplPrevP:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]" aria-label="Previous"><span aria-hidden="true">«</span></a></li>',
-TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
-TplCurrentPage:'@CODE:<li class="page-item"><a class="page-link page-link-active" href="[+link+]">[+num+]</a></li>',
-TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
-filter: 'filters',
-filterRangeSeparator: ':',
-filterValuesSeparator: '|',
-filterDelimiter: '||',
-__filterPriceId: 14,
-__filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;43:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
-_filterList: '42,43,14',
-filterList: '42,43,19',
-filterTpl: '@T_FILE:partials/filters/tpl',
-filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
-filterTplRange: '@T_FILE:partials/filters/tplRange',
-filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
-filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
-tvSortType: 'UNSIGNED'
-})
-%}
 {% block MAIN %}
-{#% include('partials/crumbs.twig') %#}
-<div class="navi py-4">
-	<div class="container">
-		<a href="/">Главная</a> → <a href="/avtomobili-s-probegom2"><span>Каталог автомобилей с пробегом</span></a>
-	</div>
-</div>
-<div class="h1">
-	<div class="container">
-		<h1 style="margin-bottom:124px">Каталог автомобилей с пробегом</h1>
-	</div>
-</div>
-<div class="index-calc-block inner position-relative pt-5 pb-5 text-center">
-	<div class="container position-relative">
-		<div class="row">
-			{{ plh['catalog.filters'] | raw }}
-		</div>
-		<!--a class="bottom-link mb-2 d-inline-block">Показать еще фильтры</a-->
-	</div>
-</div>
-{#% include '/partials/brands.twig' %#}
+    {% set filter = runSnippet('DocLister', {
+        id: 'catalog',
+        controller: 'catalog_filters',
+        display: 18,
+        parents: catalog_number,
+        depth: 2,
+        tvList:'car-price,car-old-price,old-car-price,run,engine_power,gear,year,image,car_photos,body_type,car_color,engine_volume,fuel,drive',
+        ownerTPL: '@T_FILE:partials/wrap',
+        noneTPL:'@CODE: <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h2 class="catalog-block h4">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+                        </div>
+                    </div>
+                </div>',
+        tpl:'@T_FILE:partials/catalogcard',
+        paginate:'pages',
+        TplNextP:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]" aria-label="Next"><span aria-hidden="true">»</span></a> </li>',
+        TplPrevP:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]" aria-label="Previous"><span aria-hidden="true">«</span></a></li>',
+        TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+        TplCurrentPage:'@CODE:<li class="page-item"><a class="page-link page-link-active" href="[+link+]">[+num+]</a></li>',
+        TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+        filter: 'filters',
+        filterRangeSeparator: ':',
+        filterValuesSeparator: '|',
+        filterDelimiter: '||',
+        __filterPriceId: 14,
+        __filterList: '19:range;20:dropdown;14:dropdown;42:dropdown;43:dropdown;15:range;16:range;9:dropdown;11:dropdown;10:dropdown',
+        _filterList: '42,43,14',
+        filterList: '42,43,19',
+        filterTpl: '@T_FILE:partials/filters/tpl',
+        filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+        filterTplRange: '@T_FILE:partials/filters/tplRange',
+        filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+        filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+        tvSortType: 'UNSIGNED'
+    }) %}
 
-<div class="actions-block pb-3">
-	<div class="container">
-		<div class="flex">
-			<div class="block-name mb-4">
-			</div>
-		</div>
-		<div class="row">
-			{{DLCatalog |raw}}
-		</div>
-	</div>
-</div>
-{% include '/partials/advantages.twig' %}
-{{ runSnippet('Form', {
-formid: 'FormCallback',
-path: '/templates/autodealer/partials/forms/feedback/',
-extension: 'twig'
-}) | raw }}
-{% include('partials/contacts.twig') %}
+    {# % include('partials/crumbs.twig') % #}
+    <div class="navi py-4">
+        <div class="container">
+            <a href="/">Главная</a> → <a href="/avtomobili-s-probegom2"><span>Каталог автомобилей с пробегом</span></a>
+        </div>
+    </div>
+    <div class="h1">
+        <div class="container">
+            <h1 style="margin-bottom:124px">Каталог автомобилей с пробегом</h1>
+        </div>
+    </div>
+    <div class="index-calc-block inner position-relative pt-5 pb-5 text-center">
+        <div class="container position-relative">
+            <div class="row">
+                {{ plh['catalog.filters'] | raw }}
+            </div>
+            <!--a class="bottom-link mb-2 d-inline-block">Показать еще фильтры</a-->
+        </div>
+    </div>
+    {# % include '/partials/brands.twig' % #}
+
+    <div class="actions-block pb-3">
+        <div class="container">
+            <div class="flex">
+                <div class="block-name mb-4">
+                </div>
+            </div>
+            <script>
+              function submitForm () {
+                const url = '/filters/'
+                const formData = $('.extrafilter').serializeArray()
+                let newUrl = ''
+
+                formData.forEach(function (item) {
+                  if (item.value.length > 0) {
+                    item.value = item.value.replace(/ /g, '+')
+
+                    if (item.value.includes(":")) {
+                      item.value = "range-" + item.value.replace(":", "-")
+                    }
+
+                    newUrl = `${newUrl}${encodeURI(item.value)}/`
+                  }
+                })
+
+                if (newUrl.length > 0) {
+                  newUrl = `${url}${newUrl}`
+                  document.querySelector('.extrafilter').setAttribute('action', newUrl)
+                }
+
+                document.querySelector(".extrafilter").submit();
+              }
+            </script>
+            <div class="row">
+                {{ filter | raw }}
+            </div>
+        </div>
+    </div>
+    {% include '/partials/advantages.twig' %}
+    {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/autodealer/partials/forms/feedback/',
+        extension: 'twig'
+    }) | raw }}
+    {% include('partials/contacts.twig') %}
 {% endblock %}

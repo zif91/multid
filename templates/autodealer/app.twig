@@ -16,7 +16,7 @@
 
 {% set city = runSnippet('UltimateParent', {}) %}
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
-    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
+{% set metaTitle = resource.metaTitle | default(resource.pagetitle) | parser %}
 
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
@@ -45,7 +45,7 @@
     <link href="assets/site/fancybox/jquery.fancybox.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/templates/autodealer/css/filter.css?3213">
     <link rel="stylesheet" href="/templates/autodealer/css/color1.css?321">
-    <link rel="stylesheet" href="/templates/autodealer/css/style_new.css"> 
+    <link rel="stylesheet" href="/templates/autodealer/css/style_new.css">
     {{baseSettings.scripts_head | raw}}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
     {% block HEAD %}{% endblock %}

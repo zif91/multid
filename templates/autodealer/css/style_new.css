@@ -452,11 +452,10 @@ main {
 }
 .top-menu .menu-button {
   font-weight: 500;
-  color: #FFF;
 }
 
 .top-menu .menu-button:hover {
-  color: #5E6472;
+  color: #FFF;
 }
 
 .top-menu .catalog {
@@ -1266,9 +1265,6 @@ main {
 .btn.middle:hover{
   color: #FFF;
   background-color: #bf151b;
-}
-.modal-body .form button:hover{
-  opacity: 0.6;
 }
 .auto-sale-form form {
   color: #fff;

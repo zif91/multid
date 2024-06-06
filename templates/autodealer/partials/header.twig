@@ -25,7 +25,7 @@ outerTpl: '@CODE:
         <div class="logo mb-5">
             <a href="/">
                 {% if baseSettings["logo"] %}
-                    <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}" style="filter: brightness(0) invert(1);">
+                    <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
                 {% else %}
                     <div style="width: 200px;
                 height: 48px;

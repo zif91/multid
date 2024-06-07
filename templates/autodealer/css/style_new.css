@@ -452,10 +452,11 @@ main {
 }
 .top-menu .menu-button {
   font-weight: 500;
+  color: #fff;
 }
 
 .top-menu .menu-button:hover {
-  color: #FFF;
+  color: #5E6472;
 }
 
 .top-menu .catalog {

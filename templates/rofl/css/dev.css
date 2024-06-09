@@ -1,0 +1,6 @@
+.cars-in-stock-block .d-flex {
+    flex-wrap: wrap;
+}
+.list {
+    margin-bottom: 12px;
+}

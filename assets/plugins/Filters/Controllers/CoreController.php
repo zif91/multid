@@ -84,8 +84,19 @@ class CoreController
         $item_ids = array_keys($items);
         $item_ids = implode(",", $item_ids);
 
+        if (count((array) $_GET['f']) === count($url_parts)) {
+            $_REQUEST = $_GET;
+            return $this->checkErrorPage($url_parts);
+        }
+
         $item_tvs = evolutionCMS()->db->makeArray(
-            evolutionCMS()->db->query("SELECT tv_value.value, tv.name, tv.id FROM {$table_tv_values} AS tv_value LEFT JOIN {$table_tvs} AS tv ON tv.id = tv_value.tmplvarid WHERE tv_value.contentid in ({$item_ids}) {$whereItems}")
+            evolutionCMS()->db->query("
+                SELECT tv_value.value, tv.id
+                FROM {$table_tv_values} AS tv_value
+                LEFT JOIN {$table_tvs} AS tv
+                ON tv.id = tv_value.tmplvarid
+                WHERE tv_value.contentid in ({$item_ids}) {$whereItems}
+            ")
         );
 
         foreach ($item_tvs as $tv) {

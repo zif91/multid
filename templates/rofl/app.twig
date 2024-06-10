@@ -10,7 +10,8 @@
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
     {% set catalog_number = runSnippet('DocInfo', {docid: modx.config['site_start'] , field: 'catalog_number' }) %}
 
-    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
+{#    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}#}
+    {% set metaTitle = resource.metaTitle | default(resource.pagetitle) | parser %}
 {% set credit_rate = baseSettings.credit_rate %}
 {# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}
 

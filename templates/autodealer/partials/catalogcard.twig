@@ -1,64 +1,58 @@
-{#% set thumb = runSnippet('morephoto', {
-images: data['tv.car_photos'],
-phpthumb: 'w=250,h=168,zc=C',
-tpl: '@CODE:[+image.thumb+]',
-total: 1,
-display: 1
-}) %#}
-{#{ data['tv.car_photos'] }#}
-
-{# Получаем случайное изображения (ссылку) из поля "Фотографии" (car_photos) #}
-{#{% set randomPhotoLink = runSnippet('helpers', {jsonPhotos: data['tv.car_photos'],#}
-{#    action:'randomPhoto'})#}
-{#%}#}
-
 {% set photos = data['tv.car_photos'] | json %}
-{% set photo = photos['fieldValue'][0]['image'] %}
+{% set photo = "" %}
+
+{% if photos['fieldValue'] %}
+    {% set photo = photos['fieldValue'][0]['image'] %}
+{% endif %}
+
+{% set carPriceInt = data['tv.car-price'] | number_format %}
 
 {% set oldprice = runSnippet('helpers', {caroldprice: data['tv.car-price'],
-action:'caroldprice'}) %}
+    action:'caroldprice'}) %}
 
 
 <div class="col-lg-3 col-sm-6 cards-container">
     <a href="{{ data['url'] }}">
-                    <div class="item mb-3 position-relative">
-                        <span class="action position-absolute py-1 px-3">акция</span>
-                        <div class="image pt-2 pl-2 pr-2 text-center">
-                            <img src="{{ photo }}">
-                        </div>
-                        <div class="p-3">
-                            <a href="{{ data['url'] }}" class="name mb-2" id="car-name">{{ data['title'] }} {{ data['tv.year'] }} г.в.</a>
-                            <div class="way mb-2">
-                                Пробег: {{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км.
-                            </div>
-                            <div class="price mb-3">
-                                <span class="old">{{ ( data['tv.old-car-price'] )|number_format(0, '.', ' ') }} ₽</span>
-                                <div class="new mt-1">
-                                    {{ ( data['tv.car-price'] )|number_format(0, '.', ' ') }} ₽
-                                </div>
-                            </div>
-                            <div class="payment mb-4">
-                                Ежемесячный платеж <span>{{ (( data['tv.car-price'] )/82)|number_format(0, '.', ' ') }} ₽</span>
-                            </div>
-                            <div class="buttons">
-                                <button class="w-100 mb-2" data-toggle="modal" data-target="#popup" >В кредит от 4,9%</button>
-                                <button class="w-100 mb-2" data-toggle="modal" data-target="#popup" >Купить по trade - in</button>
-                                <button onclick="location.href='{{ data['url'] }}';" class="w-100">Подробнее</button>
-                            </div>
-                        </div>
-                    </div></a>
+        <div class="item mb-3 position-relative">
+            <span class="action position-absolute py-1 px-3">акция</span>
+            <div class="image pt-2 pl-2 pr-2 text-center">
+                <img src="{{ photo }}">
+            </div>
+            <div class="p-3">
+                <a href="{{ data['url'] }}" class="name mb-2" id="car-name">{{ data['title'] }} {{ data['tv.year'] }}
+                    г.в.</a>
+                <div class="way mb-2">
+                    Пробег: {{ ( data['tv.run'] )|number_format(0, '.', ' ') }}км.
                 </div>
+                <div class="price mb-3">
+                    <span class="old">{{ ( data['tv.old-car-price'] )|number_format(0, '.', ' ') }} ₽</span>
+                    <div class="new mt-1">
+                        {{ ( data['tv.car-price'] )|number_format(0, '.', ' ') }} ₽
+                    </div>
+                </div>
+                <div class="payment mb-4">
+                    Ежемесячный платеж <span>{{ ( carPriceInt / 82) | number_format(0, '.', ' ') }} ₽</span>
+                </div>
+                <div class="buttons">
+                    <button class="w-100 mb-2" data-toggle="modal" data-target="#popup">В кредит от 4,9%</button>
+                    <button class="w-100 mb-2" data-toggle="modal" data-target="#popup">Купить по trade - in</button>
+                    <button onclick="location.href='{{ data['url'] }}';" class="w-100">Подробнее</button>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
- <script>
+<script>
 
-  $(document).ready(function() {
-    var cardTitles = $(".name", ".cards-container");
+  $(document).ready(function () {
+    var cardTitles = $('.name', '.cards-container')
 
-    var maxHeight = 0;
-    cardTitles.each(function() {
-      var currentHeight = $(this).height();
-      maxHeight = Math.max(maxHeight, currentHeight);
-    });
-    cardTitles.height(maxHeight);
-  });
- </script>
+    var maxHeight = 0
+    cardTitles.each(function () {
+      var currentHeight = $(this).height()
+      maxHeight = Math.max(maxHeight, currentHeight)
+    })
+    cardTitles.height(maxHeight)
+  })
+</script>

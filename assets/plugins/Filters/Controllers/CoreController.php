@@ -148,7 +148,8 @@ class CoreController
             if (strpos($item, "range") !== false) {
                 $item_parts = explode("-", $item);
                 $range = array_shift($item_parts);
-                $_GET['f'][19] = implode(":", $item_parts);
+                $tv_id = array_shift($item_parts);
+                $_GET['f'][$tv_id] = implode(":", $item_parts);
             } else {
                 $whereItems[] = "LOWER(TRIM(tv_value.value)) = \"{$item}\"";
             }

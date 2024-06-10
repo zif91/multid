@@ -11,14 +11,14 @@ parent: catalog_number,
 				<span>Выбрать</span> марку
 			</div>
 			<div class="row">
-				
+
 				<div class="col-md-3 col-6">
 					{% if brandsarray is not empty %}
 					{% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
 					{% set sliced_brands = sorted_brands|slice(16,8) %}
 					{% for brand in sliced_brands %}
 					<div class="item mb-3 d-flex justify-content-between">
-						<a href="/katalog-avtomobilej/?f[42]={{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
+						<a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
 						<span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
 					</div>
 					{% endfor %}
@@ -32,7 +32,7 @@ parent: catalog_number,
 					{% set sliced_brands = sorted_brands|slice(0,8) %}
 					{% for brand in sliced_brands %}
 					<div class="item mb-3 d-flex justify-content-between">
-						<a href="/katalog-avtomobilej/?f[42]={{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
+						<a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
 						<span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
 					</div>
 					{% endfor %}
@@ -46,7 +46,7 @@ parent: catalog_number,
 					{% set sliced_brands = sorted_brands|slice(8,8) %}
 					{% for brand in sliced_brands %}
 					<div class="item mb-3 d-flex justify-content-between">
-						<a href="/katalog-avtomobilej/?f[42]={{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
+						<a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
 						<span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
 					</div>
 					{% endfor %}
@@ -60,7 +60,7 @@ parent: catalog_number,
 					{% set sliced_brands = sorted_brands|slice(24,8) %}
 					{% for brand in sliced_brands %}
 					<div class="item mb-3 d-flex justify-content-between">
-						<a href="/katalog-avtomobilej/?f[42]={{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
+						<a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
 						<span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
 					</div>
 					{% endfor %}

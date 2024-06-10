@@ -67,32 +67,6 @@
                 <div class="block-name mb-4">
                 </div>
             </div>
-            <script>
-              function submitForm () {
-                const url = '/filters/'
-                const formData = $('.extrafilter').serializeArray()
-                let newUrl = ''
-
-                formData.forEach(function (item) {
-                  if (item.value.length > 0) {
-                    item.value = item.value.replace(/ /g, '+')
-
-                    if (item.value.includes(":")) {
-                      item.value = "range-" + item.value.replace(":", "-")
-                    }
-
-                    newUrl = `${newUrl}${encodeURI(item.value)}/`
-                  }
-                })
-
-                if (newUrl.length > 0) {
-                  newUrl = `${url}${newUrl}`
-                  document.querySelector('.extrafilter').setAttribute('action', newUrl)
-                }
-
-                document.querySelector(".extrafilter").submit();
-              }
-            </script>
             <div class="row">
                 {{ filter | raw }}
             </div>

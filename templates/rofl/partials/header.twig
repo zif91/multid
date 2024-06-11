@@ -11,22 +11,7 @@
             <a class="menu-button"></a>
             <div class="logo pt-md-1 pt-2 pl-md-0 pl-5 ml-sm-0 ml-2 mob-logo" style="align-items: normal;">
                 <a href="/">
-                    {% if baseSettings["logo"] %}
-                        <img src="{{baseSettings["logo"]}}">
-                    {% else %}
-                        <div style="width: 200px;
-                height: 48px;
-                font-style: normal;
-                font-weight: 400;
-                font-size: 20px;
-                line-height: 24px;
-                display: flex;
-                align-items: center;
-                text-transform: uppercase;
-                justify-content: center;
-                color: #D12D1E;">{{ baseSettings.pagetitle }}
-                        </div>
-                    {% endif %}
+                    <div style="font-style: normal; font-weight: 400; font-size: 20px; line-height: 24px; display: flex; align-items: center; text-transform: uppercase; justify-content: center; color: #D12D1E;">{{ baseSettings["salon-name"] }}</div>
                 </a>
             </div>
                                       {{ headermenu|raw}}

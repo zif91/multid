@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% set site_start = modx.config['site_start'] %}
-{% set cacheKey = md5(site_start ~ json_encode(_GET)) %}
+{% set cacheKey = md5(site_start ~ "rofl") %}
 {% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}
 {% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}

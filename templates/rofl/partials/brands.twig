@@ -3,7 +3,10 @@
     key: baseSettings["id"],
     lifetime: '36000',
     parent: catalog_number,
-}) | batch(13, "") %}
+}) %}
+{% set brandsCount = brandsarray | count %}
+{% set brandsCount = brandsCount / 5 %}
+{% set brandsarray = brandsarray | batch(brandsCount, "") %}
 
 <div class="cars-in-stock-block pt-5 pb-4">
     <div class="container">

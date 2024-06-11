@@ -13,9 +13,10 @@
             </div>
             <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
                 <div class="logo pt-3 pb-4">
-                    <a href="/"><span class="logotype" style="background-image: url({{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}); background-size: contain;
-        background-repeat: no-repeat;
-        background-position: right;"></span> <span class="city align-middle pl-2 ml-2">{{city}}</span></a>
+                    <a href="/">
+                        <div style="font-style: normal; font-weight: 400; font-size: 20px; line-height: 24px; display: flex; align-items: center; text-transform: uppercase; justify-content: center; color: #D12D1E;">{{ baseSettings["salon-name"] }}</div>
+                        <span>{{city}}</span>
+                    </a>
                 </div>
                 <div class="item mb-4">
                     Адрес:

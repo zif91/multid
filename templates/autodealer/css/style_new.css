@@ -1357,20 +1357,44 @@ main {
   filter: grayscale(100%);
 }
 .credit-banner .banner {
-  background: url('/templates/autodealer/img/credit-banner.png') center / cover;
-  padding: 50px 58px;
+  /* background: url('/templates/autodealer/img/credit-banner.png') center / cover; */
+  background: url('/templates/autodealer/img/credit-banner3.png') center / cover;
+  /* padding: 50px 58px; */
+  padding: 50px 58px 197px 58px;
   color: #fff;
 }
-.credit-banner .banner .text {
+/* .credit-banner .banner .text {
   font-weight: 600;
   font-size: 26px;
   line-height: 130%;
+} */
+.credit-banner .banner img {
+  margin-top: -36px;
+}
+.credit-banner .banner .text {
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 130%;
+}
+.credit-banner .banner .text b {
+  font-weight: 700;
+}
+.credit-banner .banner .text span {
+  background-color: #0583F2;
+  border-radius: 33px;
 }
 .credit-banner .banner .text p {
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 36px;
+  /* font-size: 36px; */
+  font-size: 46px;
   line-height: 90%;
+}
+.credit-banner .banner .credit-text {
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 14px;
+  
 }
 .credit-banner .banner .text .percent {
   font-weight: 700;
@@ -1554,9 +1578,15 @@ main {
   .auto-sale-form form {
     padding: 0 30px;
   }
-  .credit-banner .banner .text {
-    margin-bottom: 30px;
+  .credit-banner .banner img {
+    margin-top: 15px;
   }
+  .credit-banner .banner {
+    padding: 50px 58px;
+  }
+  /* .credit-banner .banner .text {
+    margin-bottom: 30px;
+  } */
 }
 @media (max-width: 767px) {
   .header {
@@ -1696,13 +1726,18 @@ main {
   /* .credit-form form {
     padding: 30px;
   } */
+    .credit-form form {
+    padding: 30px;
+  }
   .credit-form form {
     background: url('/templates/autodealer/img/credit-formmob2.png') center / cover;
     padding: 234px 30px 30px 30px;
   }
-  .credit-banner .banner {
+  /* .credit-banner .banner {
     padding: 30px;
-  }
+  } */
+
+
   .credit-banner .banner .text .percent {
     font-size: 160px;
   }
@@ -1716,4 +1751,28 @@ main {
   .calc-banner {
     padding: 50px 0;
   }
+}
+@media (max-width: 500px) {
+
+  /* .credit-form form {
+    padding: 30px;
+  } */
+
+  /* .credit-banner .banner {
+    padding: 30px;
+  } */
+
+  .credit-banner .banner {
+    background: url('/templates/autodealer/img/credit-banner-mob.png') center / cover;
+    padding: 50px 38px 197px 38px;
+  }
+  .credit-banner .banner img {
+    margin-top: 83px;
+  }
+  .credit-banner .banner .text p {
+    font-size: 30px;
+  }
+  .credit-banner .banner .text {
+    font-size: 14px;
+}
 }

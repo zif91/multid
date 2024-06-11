@@ -1,74 +1,31 @@
 {% set brandsarray = runSnippet('getCache', {
-snippetName:'brands_array',
-key: baseSettings["id"],
-lifetime: '36000',
-parent: catalog_number,
-}) %}
-<div class="index-cars-select mb-5">
-	<div class="container">
-		<div class="cars p-sm-5 p-3">
-			<div class="block-name mb-4">
-				<span>Выбрать</span> марку
-			</div>
-			<div class="row">
+    snippetName:'brands_array',
+    key: baseSettings["id"],
+    lifetime: '36000',
+    parent: catalog_number,
+}) | batch(6, "") %}
 
-				<div class="col-md-3 col-6">
-					{% if brandsarray is not empty %}
-					{% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
-					{% set sliced_brands = sorted_brands|slice(16,8) %}
-					{% for brand in sliced_brands %}
-					<div class="item mb-3 d-flex justify-content-between">
-						<a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
-						<span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
-					</div>
-					{% endfor %}
-					{% else %}
-					The brands array is not defined or is empty.
-					{% endif %}
-				</div>
-				<div class="col-md-3 col-6">
-					{% if brandsarray is not empty %}
-					{% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
-					{% set sliced_brands = sorted_brands|slice(0,8) %}
-					{% for brand in sliced_brands %}
-					<div class="item mb-3 d-flex justify-content-between">
-						<a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
-						<span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
-					</div>
-					{% endfor %}
-					{% else %}
-					The brands array is not defined or is empty.
-					{% endif %}
-				</div>
-				<div class="col-md-3 col-6">
-					{% if brandsarray is not empty %}
-					{% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
-					{% set sliced_brands = sorted_brands|slice(8,8) %}
-					{% for brand in sliced_brands %}
-					<div class="item mb-3 d-flex justify-content-between">
-						<a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
-						<span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
-					</div>
-					{% endfor %}
-					{% else %}
-					The brands array is not defined or is empty.
-					{% endif %}
-				</div>
-				<div class="col-md-3 col-6">
-					{% if brandsarray is not empty %}
-					{% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
-					{% set sliced_brands = sorted_brands|slice(24,8) %}
-					{% for brand in sliced_brands %}
-					<div class="item mb-3 d-flex justify-content-between">
-						<a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
-						<span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
-					</div>
-					{% endfor %}
-					{% else %}
-					The brands array is not defined or is empty.
-					{% endif %}
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="index-cars-select mb-5">
+    <div class="container">
+        <div class="cars p-sm-5 p-3">
+            <div class="block-name mb-4">
+                <span>Выбрать</span> марку
+            </div>
+            <div class="row">
+
+                {% for group in brandsarray %}
+                    <div class="col-md-3 col-6">
+                        {% for brand in group %}
+                            {% if brand.name %}
+                                <div class="item mb-3 d-flex justify-content-between">
+                                    <a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
+                                    <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>

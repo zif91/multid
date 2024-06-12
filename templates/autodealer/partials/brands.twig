@@ -1,9 +1,12 @@
 {% set brandsarray = runSnippet('getCache', {
     snippetName:'brands_array',
-    key: baseSettings["id"] ~ "brands",
+    key: baseSettings["id"],
     lifetime: '36000',
-    parent: baseSettings['catalog_number'],
-}) | batch(6, "") %}
+    parent: catalog_number,
+}) %}
+{% set brandsCount = brandsarray | count %}
+{% set brandsCount = brandsCount / 5 %}
+{% set brandsarray = brandsarray | batch(brandsCount, "") %}
 
 <div class="index-cars-select mb-5">
     <div class="container">

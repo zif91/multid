@@ -2,7 +2,7 @@
     snippetName:'brands_array',
     key: baseSettings["id"] ~ "autodealer",
     lifetime: '36000',
-    parent: catalog_number,
+    parent: baseSettings['catalog_number'],
 }) %}
 {% set brandsCount = brandsarray | count %}
 {% set brandsCount = brandsCount / 4 %}

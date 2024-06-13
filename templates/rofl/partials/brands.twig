@@ -1,6 +1,6 @@
 {% set brandsarray = runSnippet('getCache', {
     snippetName:'brands_array',
-    key: baseSettings["id"] ~ "rofl-new",
+    key: baseSettings["id"] ~ "rofl-new" ~ baseSettings['catalog_number'],
     lifetime: '36000',
     parent: baseSettings['catalog_number'],
 }) %}

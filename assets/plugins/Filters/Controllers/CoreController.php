@@ -84,7 +84,7 @@ class CoreController
         $item_ids = array_keys($items);
         $item_ids = implode(",", $item_ids);
 
-        if (count((array) $_GET['f']) === count($url_parts)) {
+        if (!empty($_GET['f']) && count((array) $_GET['f']) === count($url_parts)) {
             $_REQUEST = $_GET;
             return $this->checkErrorPage($url_parts);
         }

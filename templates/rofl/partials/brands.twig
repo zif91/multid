@@ -16,7 +16,7 @@
                 <div class="list">
                     {% for brand in group %}
                         <div class="item position-relative mb-3">
-                            <a href="/filters/{{ brand.name | url_encode }}">{{ brand.name }}
+                            <a href="/filters/{{ brand.name | replace({" ": "+"}) | url_encode }}">{{ brand.name }}
                                 <span class="pt-1 pr-2 pb-1 pl-2">{{ brand.count }}</span>
                             </a>
                         </div>

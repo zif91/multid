@@ -21,7 +21,7 @@
                         {% for brand in group %}
                             {% if brand.name %}
                                 <div class="item mb-3 d-flex justify-content-between">
-                                    <a href="/filters/{{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
+                                    <a href="/filters/{{ brand.name | replace({" ": "+"}) | url_encode }}" class="justify-content-start">{{ brand.name }}</a>
                                     <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
                                 </div>
                             {% endif %}

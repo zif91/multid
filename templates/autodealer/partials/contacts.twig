@@ -9,9 +9,28 @@
                 {{ map | raw }}
             </div>
             <div class="contacts position-relative bg-light d-inline-block py-5 px-4">
+            {% if baseSettings["logo"] != "" %}
                 <div class="logo mb-4">
                     <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
                 </div>
+            {% else %}
+                <div class="logo mb-4">
+                    <a href="/">
+                        <div style="width: 120px;
+                            height: 50px;
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 19px;
+                            display: flex;
+                            align-items: center;
+                            text-transform: uppercase;
+                            justify-content: center;
+                            color: #D12D1E;">{{ baseSettings["salon-name"] }}
+                        </div>
+                    </a>
+                </div>
+            {% endif %}
                 <p class="mb-5">Дилерский центр автомобилей с пробегом</p>
                 <div class="adress pl-4 py-1 mb-3">
                     {{baseSettings.salon_location}}

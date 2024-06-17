@@ -22,6 +22,7 @@ outerTpl: '@CODE:
 <nav class="mobile-menu position-fixed w-100 h-100 text-light">
     <a class="close position-absolute"></a>
     <div class="container">
+    {% if baseSettings["logo"] != "" %}
         <div class="logo mb-5">
             <a href="/">
                 {% if baseSettings["logo"] %}
@@ -42,6 +43,24 @@ outerTpl: '@CODE:
                 {% endif %}
             </a>
         </div>
+        {% else %}
+        <div class="logo mb-5">
+            <a href="/">
+                    <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #FFFF;">{{ baseSettings.pagetitle }}
+                    </div>
+            </a>
+        </div>
+     {% endif %}
         {{ headermenumob|raw}}
         <div class="contacts pb-5">
             {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4 mb-2 d-block"}) | raw}}
@@ -57,17 +76,54 @@ outerTpl: '@CODE:
     </div>
 </nav>
 <header class="mobile-header position-relative">
+{% if baseSettings["logo"] != "" %}
     <div class="logo" >
         <a style=" background: url({#{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }#}{{baseSettings["logo"]}}) center / contain  no-repeat; filter: contrast(0.5) grayscale(1);
 " href="/"></a>
     </div>
+{% else %}
+<a href="/">
+    <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                padding-top: 16px;
+                color: #676262;">{{ baseSettings["salon-name"] }}
+                    </div>
+    </a>
+{% endif %}
     <a class="menu-button"></a>
 </header>
 <header class="header py-3">
     <div class="container flex">
+    {% if baseSettings["logo"] != "" %}
         <div class="logo" >
             <a style="background: url({#{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }#}{{baseSettings["logo"]}}) center / contain  no-repeat" href="/"></a>
         </div>
+    {% else %}
+        <div class="logo" >
+        <a href="/">
+    <div style="width: 200px;
+                height: 48px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 23px;
+                line-height: 24px;
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                justify-content: center;
+                color: #D12D1E;">{{ baseSettings["salon-name"] }}
+                    </div>
+    </a>
+        </div>
+{% endif %}
         <div class="contacts pt-2">
             {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4"}) | raw}}
             <div class="adress pl-4 py-1">

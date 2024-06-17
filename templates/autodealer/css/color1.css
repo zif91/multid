@@ -1,6 +1,6 @@
-.header .logo a {
+/* .header .logo a {
   background: url('../img/logo.svg') center / cover;
-}
+} */
 .header .contacts .phone span {
   color: #bf151b;
 }
@@ -81,9 +81,9 @@
 .footer .contacts .adress {
   background: url('../img/adress.svg') no-repeat 0 0;
 }
-.mobile-header .logo a {
+/* .mobile-header .logo a {
   background: url('../img/mob-logo.svg');
-}
+} */
 .mobile-header .menu-button {
   background: url('../img/menu.svg');
 }
@@ -176,9 +176,9 @@
 .steps-block .flex .item .time {
   color: #bf151b;
 }
-.header .logo a {
+/* .header .logo a {
   background: url('../img/logo.svg') center / cover;
-}
+} */
 .header .contacts .phone span {
   color: #bf151b;
 }
@@ -256,9 +256,9 @@
 .footer .contacts .adress {
   background: url('../img/adress.svg') no-repeat 0 0;
 }
-.mobile-header .logo a {
+/* .mobile-header .logo a {
   background: url('../img/mob-logo.svg');
-}
+} */
 .mobile-header .menu-button {
   background: url('../img/menu.svg');
 }

@@ -5,7 +5,7 @@
     parent: baseSettings['catalog_number'],
 }) %}
 {% set brandsCount = brandsarray | count %}
-{% set brandsCount = brandsCount / 5 %}
+{% set brandsCount = brandsCount / 4 %}
 {% set brandsarray = brandsarray | batch(brandsCount, "") %}
 
 <div class="cars-in-stock-block pt-5 pb-4">

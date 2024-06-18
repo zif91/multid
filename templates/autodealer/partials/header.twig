@@ -1,19 +1,18 @@
-
 {% set headermenumob = runSnippet('DLMenu', {
-parents: baseSettings["id"],
-tvList: 'image',
-maxDepth: 1,
-rowTpl: '@CODE:<li class="mb-2"><a href="[+url+]" class="text-light">[+pagetitle+]</a></li>',
-outerTpl: '@CODE:<ul class="pb-5">
+    parents: baseSettings["id"],
+    tvList: 'image',
+    maxDepth: 1,
+    rowTpl: '@CODE:<li class="mb-2"><a href="[+url+]" class="text-light">[+pagetitle+]</a></li>',
+    outerTpl: '@CODE:<ul class="pb-5">
     [+wrap+]</ul>'}) %}
 
 {% set headermenu = runSnippet('DLMenu', {
-parents: baseSettings["id"],
-tvList: 'image',
-maxDepth: 1,
-rowTpl: '@CODE:            <a href="[+url+]" class="mr-4 text-light">[+pagetitle+]</a>',
+    parents: baseSettings["id"],
+    tvList: 'image',
+    maxDepth: 1,
+    rowTpl: '@CODE:            <a href="[+url+]" class="mr-4 text-light">[+pagetitle+]</a>',
 
-outerTpl: '@CODE:
+    outerTpl: '@CODE:
     <nav>
             [+wrap+]
             <button class="btn btn-danger" data-toggle="modal" data-target="#popup" >Заказать звонок</button>
@@ -22,13 +21,9 @@ outerTpl: '@CODE:
 <nav class="mobile-menu position-fixed w-100 h-100 text-light">
     <a class="close position-absolute"></a>
     <div class="container">
-    {% if baseSettings["logo"] != "" %}
         <div class="logo mb-5">
             <a href="/">
-                {% if baseSettings["logo"] %}
-                    <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"  style="filter: brightness(0) invert(1);">
-                {% else %}
-                    <div style="width: 200px;
+                <div style="width: 200px;
                 height: 48px;
                 font-style: normal;
                 font-weight: 400;
@@ -38,37 +33,18 @@ outerTpl: '@CODE:
                 align-items: center;
                 text-transform: uppercase;
                 justify-content: center;
-                color: #D12D1E;">{{ baseSettings.pagetitle }}
-                    </div>
-                {% endif %}
+                color: #FFFF;">{{ logo }}
+                </div>
             </a>
         </div>
-        {% else %}
-        <div class="logo mb-5">
-            <a href="/">
-                    <div style="width: 200px;
-                height: 48px;
-                font-style: normal;
-                font-weight: 400;
-                font-size: 20px;
-                line-height: 24px;
-                display: flex;
-                align-items: center;
-                text-transform: uppercase;
-                justify-content: center;
-                color: #FFFF;">{{ baseSettings["salon-name"] }}
-                    </div>
-            </a>
-        </div>
-     {% endif %}
-        {{ headermenumob|raw}}
+        {{ headermenumob|raw }}
         <div class="contacts pb-5">
-            {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4 mb-2 d-block"}) | raw}}
+            {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4 mb-2 d-block"}) | raw }}
             <div class="adress pl-4 py-1">
-                {{baseSettings.salon_location}}
+                {{ baseSettings.salon_location }}
             </div>
         </div>
-        <button data-toggle="modal" data-target="#popup"  class="btn btn-light mb-5 w-100">Заказать звонок</button>
+        <button data-toggle="modal" data-target="#popup" class="btn btn-light mb-5 w-100">Заказать звонок</button>
         <div class="best pl-5">
             <span class="d-block mb-1">Лучший дилер</span>
             2021 года по версии журнала Дилеры России
@@ -76,14 +52,8 @@ outerTpl: '@CODE:
     </div>
 </nav>
 <header class="mobile-header position-relative">
-{% if baseSettings["logo"] != "" %}
-    <div class="logo" >
-        <a style=" background: url({#{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }#}{{baseSettings["logo"]}}) center / contain  no-repeat; filter: contrast(0.5) grayscale(1);
-" href="/"></a>
-    </div>
-{% else %}
-<a href="/">
-    <div style="width: 200px;
+    <a href="/">
+        <div style="width: 200px;
                 height: 48px;
                 font-style: normal;
                 font-weight: 400;
@@ -94,22 +64,16 @@ outerTpl: '@CODE:
                 text-transform: uppercase;
                 justify-content: center;
                 padding-top: 16px;
-                color: #676262;">{{ baseSettings["salon-name"] }}
-                    </div>
+                color: #676262;">{{ logo }}
+        </div>
     </a>
-{% endif %}
     <a class="menu-button"></a>
 </header>
 <header class="header py-3">
     <div class="container flex">
-    {% if baseSettings["logo"] != "" %}
-        <div class="logo" >
-            <a style="background: url({#{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }#}{{baseSettings["logo"]}}) center / contain  no-repeat" href="/"></a>
-        </div>
-    {% else %}
-        <div class="logo" >
-        <a href="/">
-    <div style="width: 200px;
+        <div class="logo">
+            <a href="/">
+                <div style="width: 200px;
                 height: 48px;
                 font-style: normal;
                 font-weight: 400;
@@ -119,15 +83,14 @@ outerTpl: '@CODE:
                 align-items: center;
                 text-transform: uppercase;
                 justify-content: center;
-                color: #D12D1E;">{{ baseSettings["salon-name"] }}
-                    </div>
-    </a>
+                color: #D12D1E;">{{ logo }}
+                </div>
+            </a>
         </div>
-{% endif %}
         <div class="contacts pt-2">
-            {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4"}) | raw}}
+            {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pl-4"}) | raw }}
             <div class="adress pl-4 py-1">
-                {{baseSettings.salon_location}}
+                {{ baseSettings.salon_location }}
             </div>
         </div>
         <div class="best pl-5 mt-2">
@@ -139,7 +102,7 @@ outerTpl: '@CODE:
 <nav class="top-menu py-2 bg-dark text-light">
     <div class="container flex position-relative">
         <a class="menu-button pl-4 mt-2 pt-1">Каталог автомобилей с пробегом</a>
-        {{headermenu |raw}}
+        {{ headermenu |raw }}
         <div class="catalog position-absolute w-100 p-5">
             <div class="block-name mb-4">
                 <span>Выбрать</span> марку
@@ -148,58 +111,62 @@ outerTpl: '@CODE:
 
                 <div class="col-md-3 col-6">
                     {% if brandsarray is not empty %}
-                    {% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
-                    {% set sliced_brands = sorted_brands|slice(16,8) %}
-                    {% for brand in sliced_brands %}
-                    <div class="item mb-3 d-flex justify-content-between">
-                        <a href="/katalog-avtomobilej/?f[42]={{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
-                        <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
-                    </div>
-                    {% endfor %}
+                        {% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
+                        {% set sliced_brands = sorted_brands|slice(16,8) %}
+                        {% for brand in sliced_brands %}
+                            <div class="item mb-3 d-flex justify-content-between">
+                                <a href="/katalog-avtomobilej/?f[42]={{ brand.name }}"
+                                   class="justify-content-start">{{ brand.name }}</a>
+                                <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
+                            </div>
+                        {% endfor %}
                     {% else %}
-                    The brands array is not defined or is empty.
+                        The brands array is not defined or is empty.
                     {% endif %}
                 </div>
                 <div class="col-md-3 col-6">
                     {% if brandsarray is not empty %}
-                    {% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
-                    {% set sliced_brands = sorted_brands|slice(8,8) %}
-                    {% for brand in sliced_brands %}
-                    <div class="item mb-3 d-flex justify-content-between">
-                        <a href="/katalog-avtomobilej/?f[42]={{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
-                        <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
-                    </div>
-                    {% endfor %}
+                        {% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
+                        {% set sliced_brands = sorted_brands|slice(8,8) %}
+                        {% for brand in sliced_brands %}
+                            <div class="item mb-3 d-flex justify-content-between">
+                                <a href="/katalog-avtomobilej/?f[42]={{ brand.name }}"
+                                   class="justify-content-start">{{ brand.name }}</a>
+                                <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
+                            </div>
+                        {% endfor %}
                     {% else %}
-                    The brands array is not defined or is empty.
-                    {% endif %}
-                </div>
-                <div class="col-md-3 col-6">
-                   {% if brandsarray is not empty %}
-                    {% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
-                    {% set sliced_brands = sorted_brands|slice(0,8) %}
-                    {% for brand in sliced_brands %}
-                    <div class="item mb-3 d-flex justify-content-between">
-                        <a href="/katalog-avtomobilej/?f[42]={{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
-                        <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
-                    </div>
-                    {% endfor %}
-                    {% else %}
-                    The brands array is not defined or is empty.
+                        The brands array is not defined or is empty.
                     {% endif %}
                 </div>
                 <div class="col-md-3 col-6">
                     {% if brandsarray is not empty %}
-                    {% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
-                    {% set sliced_brands = sorted_brands|slice(24,8) %}
-                    {% for brand in sliced_brands %}
-                    <div class="item mb-3 d-flex justify-content-between">
-                        <a href="/katalog-avtomobilej/?f[42]={{ brand.name }}" class="justify-content-start">{{ brand.name }}</a>
-                        <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
-                    </div>
-                    {% endfor %}
+                        {% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
+                        {% set sliced_brands = sorted_brands|slice(0,8) %}
+                        {% for brand in sliced_brands %}
+                            <div class="item mb-3 d-flex justify-content-between">
+                                <a href="/katalog-avtomobilej/?f[42]={{ brand.name }}"
+                                   class="justify-content-start">{{ brand.name }}</a>
+                                <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
+                            </div>
+                        {% endfor %}
                     {% else %}
-                    The brands array is not defined or is empty.
+                        The brands array is not defined or is empty.
+                    {% endif %}
+                </div>
+                <div class="col-md-3 col-6">
+                    {% if brandsarray is not empty %}
+                        {% set sorted_brands = brandsarray|sort((a, b) => b.count - a.count) %}
+                        {% set sliced_brands = sorted_brands|slice(24,8) %}
+                        {% for brand in sliced_brands %}
+                            <div class="item mb-3 d-flex justify-content-between">
+                                <a href="/katalog-avtomobilej/?f[42]={{ brand.name }}"
+                                   class="justify-content-start">{{ brand.name }}</a>
+                                <span class="ml-auto text-light py-1 px-2">{{ brand.count }}</span>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        The brands array is not defined or is empty.
                     {% endif %}
                 </div>
             </div>

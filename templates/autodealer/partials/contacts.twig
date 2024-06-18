@@ -9,11 +9,6 @@
                 {{ map | raw }}
             </div>
             <div class="contacts position-relative bg-light d-inline-block py-5 px-4">
-            {% if baseSettings["logo"] != "" %}
-                <div class="logo mb-4">
-                    <a href="/"><img src="{{  runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}"></a>
-                </div>
-            {% else %}
                 <div class="logo mb-4">
                     <a href="/">
                         <div style="width: 120px;
@@ -26,17 +21,15 @@
                             align-items: center;
                             text-transform: uppercase;
                             justify-content: center;
-                            color: #D12D1E;">{{ baseSettings["salon-name"] }}
-                        </div>
+                            color: #D12D1E;">{{ logo }}</div>
                     </a>
                 </div>
-            {% endif %}
                 <p class="mb-5">Дилерский центр автомобилей с пробегом</p>
                 <div class="adress pl-4 py-1 mb-3">
                     {{baseSettings.salon_location}}
                 </div>
-                
-                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], class: 'phone pl-4 mb-4', format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}} 
+
+                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], class: 'phone pl-4 mb-4', format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}
                 <button data-toggle="modal" data-target="#popup"  class="btn btn-danger w-100">Заказать звонок</button>
             </div>
         </div>

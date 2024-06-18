@@ -9,13 +9,14 @@
 
 {% for size in faviconSizes %}
   {% set favicon = runSnippet('phpthumb', {input: baseSettings['favicon'], options:'w=' ~ size ~ ',h=' ~ size ~ ',f=png,far=C, zc=L'}) %}
-  <link rel="icon" type="image/png" sizes="{{ size }}x{{ size }}" href="{{ favicon }}" />
+<link rel="icon" type="image/png" sizes="{{ size }}x{{ size }}" href="{{ favicon }}"/>
 {% endfor %}
 
 {% set city = runSnippet('UltimateParent', {}) %}
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
 
 {% set meta = runSnippet("getMeta") %}
+{% set logo = runSnippet("createLogo", { value: baseSettings["domain"] }) %}
 
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
@@ -27,7 +28,7 @@
     <meta name="description" content="{{ meta.description | parser }}">
     <meta name="keywords" content="{{ meta.keywords | parser }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{favicon}}" type="image/png">
+    <link rel="icon" href="{{ favicon }}" type="image/png">
     <meta name="color-theme" content="">
     <link rel="apple-touch-icon" sizes="60x60" href="static/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
@@ -35,49 +36,49 @@
     <link rel="mask-icon" href="static/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#5bbad5">
     <link rel="stylesheet" href="assets/site/bootstrap/css/bootstrap.min.css">
-        {# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> #}
+    {# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> #}
     <link rel="stylesheet" href="/templates/autodealer/css/style.css">
     <link rel="stylesheet" href="/templates/autodealer/css/color1.css">
     <link rel="stylesheet" href="/templates/autodealer/css/slick.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" /> #}
-    <link href="assets/site/fancybox/jquery.fancybox.min.css" rel="stylesheet" />
+    <link href="assets/site/fancybox/jquery.fancybox.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="/templates/autodealer/css/filter.css?3213">
     <link rel="stylesheet" href="/templates/autodealer/css/color1.css?321">
     <link rel="stylesheet" href="/templates/autodealer/css/style_new.css">
-    {{baseSettings.scripts_head | raw}}
+    {{ baseSettings.scripts_head | raw }}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
     {% block HEAD %}{% endblock %}
 </head>
 
 <body id="top">
-    {% if baseSettings.site_id is not empty %}
-  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">
+{% if baseSettings.site_id is not empty %}
+    <input type="hidden" id="ct-site-id" value="{{ baseSettings.site_id }}">
 {% endif %}
 {% if baseSettings.metrik_id is not empty %}
-              <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
+    <div class="d-none" id="metrik-id">{{ baseSettings.metrik_id }}</div>
 {% endif %}
 
-    {% cache 'header' ~ cacheKey %}
+{% cache 'header' ~ cacheKey %}
     {% set brandsarray = runSnippet('getCache', {
-snippetName:'brands_array',
-parent: baseSettings.catalog_number,
-key: 'cacheKey',
-lifetime: '36000',
-}) %}
+        snippetName:'brands_array',
+        parent: baseSettings.catalog_number,
+        key: 'cacheKey',
+        lifetime: '36000',
+    }) %}
     {% include('partials/header.twig') %}
-    {% endcache %}
-    {{baseSettings.scripts_body | raw}}
-    <main class="main">
-        {% block MAIN %}{% endblock %}
-        {% include('partials/scripts.twig') %}
-    </main>
-    {% cache 'footer' ~ cacheKey %}
+{% endcache %}
+{{ baseSettings.scripts_body | raw }}
+<main class="main">
+    {% block MAIN %}{% endblock %}
+    {% include('partials/scripts.twig') %}
+</main>
+{% cache 'footer' ~ cacheKey %}
     {% include('partials/footer.twig') %}
     {% include('partials/popup.twig') %}
-    {% endcache %}
-    {% block SCRIPTS %}{% endblock %}
-    <div id="loader"></div>
+{% endcache %}
+{% block SCRIPTS %}{% endblock %}
+<div id="loader"></div>
 </body>
 {% set stats = runSnippet('helpers', {action:'stats'}) | json %}
 <!-- Memory: {{ stats.phpMemory }}, MySQL: {{ stats.queryTime }}, {{ stats.queries }} request(s), PHP: {{ stats.phpTime }}, total: {{ stats.totalTime }}, document retrieved from {{ stats.source }}, ID: {{ resource.id }} -->

@@ -5,10 +5,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="logo mb-5">
                         <a href="/">
-                            {% if baseSettings["logo"] %}
-                                <img src="{{ runSnippet('phpthumb', {input: baseSettings["logo"], options: 'w=120,h=50,far=C,f=png,q=1'}) }}">
-                            {% else %}
-                                <div style="width: 200px;
+                            <div style="width: 200px;
                 height: 48px;
                 font-style: normal;
                 font-weight: 400;
@@ -18,10 +15,7 @@
                 align-items: center;
                 text-transform: uppercase;
                 justify-content: center;
-                color: #D12D1E;">{{ baseSettings["salon-name"] }}
-                {# {{ baseSettings.pagetitle }} #}
-                                </div>
-                            {% endif %}
+                color: #D12D1E;">{{ logo }}</div>
                         </a>
                     </div>
                 </div>

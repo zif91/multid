@@ -59,7 +59,7 @@
     <div class="d-none" id="metrik-id">{{ baseSettings.metrik_id }}</div>
 {% endif %}
 
-{#{% cache 'header' ~ cacheKey %}#}
+{% cache 'header' ~ cacheKey %}
     {% set brandsarray = runSnippet('getCache', {
         snippetName:'brands_array',
         parent: baseSettings.catalog_number,
@@ -67,7 +67,7 @@
         lifetime: '36000',
     }) %}
     {% include('partials/header.twig') %}
-{#{% endcache %}#}
+{% endcache %}
 {{ baseSettings.scripts_body | raw }}
 <main class="main">
     {% block MAIN %}{% endblock %}

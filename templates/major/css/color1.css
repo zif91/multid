@@ -15,7 +15,10 @@
   border: 1px solid #667b88;
 }
 .index-credit-block .item:before {
-  background: #667b88;
+  background: #3B80CC;
+}
+.index-credit-block2 .card:before{
+  background: #3B80CC;
 }
 .index-catalog-block .item .price .new {
   color: #667b88;

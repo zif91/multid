@@ -687,6 +687,41 @@ main {
   font-size: 20px;
   line-height: 24px;
   white-space: nowrap;
+  color: #181818;
+}
+.index-credit-block2 .card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+
+}
+.index-credit-block2 .card:before {
+content: "";
+position: absolute;
+width: 132px;
+height: 132px;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
+top: -50px;
+right: -58px;
+}
+
+.index-credit-block2 .card-body{
+  padding: 28px 21% 28px 28px;
+}
+.index-credit-block2 .card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:#181818;
+}
+
+.index-credit-block2 .card-text {
+  font-size: 13px;
+  color:#181818;
 }
 .index-catalog-block2 .list {
   margin: 0 -17px;
@@ -979,6 +1014,9 @@ main {
   height: 49px;
   background: #E05241;
   border-radius: 6px;
+}
+.trade-in-block .content button:hover {
+  background: #181818;
 }
 .trade-in-block .content p {
   font-weight: 500;

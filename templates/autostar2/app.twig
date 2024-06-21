@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 {% set site_start = modx.config['site_start'] %}
-{% set cacheKey = md5(site_start ~ json_encode(_GET)) %}
-{% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}
-{% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
+{% set cacheKey = md5(site_start ~ "autostar2") %}
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 {# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}
@@ -12,7 +10,8 @@
   {% set favicon = runSnippet('phpthumb', {input: baseSettings['favicon'], options:'w=' ~ size ~ ',h=' ~ size ~ ',f=png,far=C, zc=L'}) %}
   <link rel="icon" type="image/png" sizes="{{ size }}x{{ size }}" href="{{ favicon }}" />
 {% endfor %}
-    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
+
+{% set meta = runSnippet("getMeta") %}
 
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
@@ -20,9 +19,9 @@
     <base href="{{ config.site_url }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>{{ metaTitle }}</title>
-    <meta name="description" content="{{ metaDescription }}">
-    <meta name="keywords" content="{{ metaKeywords }}">
+    <title>{{ meta.title | parser }}</title>
+    <meta name="description" content="{{ meta.description | parser }}">
+    <meta name="keywords" content="{{ meta.keywords | parser }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{favicon}}" type="image/png">
     <meta name="color-theme" content="">
@@ -50,7 +49,7 @@
 {% if baseSettings.site_id is not empty %}
 
 {% endif %}
-  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">    
+  <input type="hidden" id="ct-site-id" value="{{baseSettings.site_id}}">
     <div class="d-none" id="vk-id">{{baseSettings.vk_id}}</div>
               <div class="d-none" id="metrik-id">{{baseSettings.metrik_id}}</div>
 

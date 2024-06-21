@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-{% set cacheKey = md5(resource.id ~ json_encode(_GET)) %}
-{% set metaTitle = resource.metaTitle | default(resource.pagetitle) | parser %}
-{% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}
-{% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
+{% set cacheKey = md5(resource.id ~ "ATLANT") %}
+{% set meta = runSnippet("getMeta") %}
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 {# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}
@@ -15,15 +13,15 @@
 {% endfor %}
 
 <html lang="ru" prefix="og: http://ogp.me/ns#">
-  
+
 
 <head>
     <base href="{{ config.site_url }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>{{ metaTitle }}</title>
-    <meta name="description" content="{{ metaDescription }}">
-    <meta name="keywords" content="{{ metaKeywords }}">
+    <title>{{ meta.title | parser }}</title>
+    <meta name="description" content="{{ meta.description | parser }}">
+    <meta name="keywords" content="{{ meta.keywords | parser }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{favicon}}" type="image/png">
     <meta name="color-theme" content="">
@@ -32,7 +30,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
     <link rel="mask-icon" href="static/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
-    <link rel="stylesheet" type="text/css" href="/templates/atlant/css/index.css">    
+    <link rel="stylesheet" type="text/css" href="/templates/atlant/css/index.css">
     <link rel="stylesheet" type="text/css" href="/templates/atlant/css/filter.css">
     <link rel="stylesheet" type="text/css" href="/templates/atlant/css/jquery.fancybox.css">
     {{baseSettings.scripts_head | raw}}
@@ -50,20 +48,20 @@
             {% block MAIN %}{% endblock %}
             {% include('partials/scripts.twig') %}
         </main>
-        {% cache 'footer' ~ resource.id %} 
+        {% cache 'footer' ~ resource.id %}
         {% include('partials/contacts.twig') %}
         {% include('partials/footer.twig') %}
-        {#% include('partials/popup.twig') %#} 
-        
-        {% endcache %}
-        
-         
-        
+        {#% include('partials/popup.twig') %#}
 
-        
+        {% endcache %}
+
+
+
+
+
     {% block SCRIPTS %}{% endblock %}
 
-   <div id="loader"></div> 
+   <div id="loader"></div>
 </body>
 {% set stats = runSnippet('helpers', {action:'stats'}) | json %}
 <!-- Memory: {{ stats.phpMemory }}, MySQL: {{ stats.queryTime }}, {{ stats.queries }} request(s), PHP: {{ stats.phpTime }}, total: {{ stats.totalTime }}, document retrieved from {{ stats.source }}, ID: {{ resource.id }} -->

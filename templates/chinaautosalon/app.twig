@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 {% set site_start = modx.config['site_start'] %}
-{% set cacheKey = md5(site_start ~ json_encode(_GET)) %}
-{% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}
-{% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
+{% set cacheKey = md5(site_start ~ "chinaautosalon") %}
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 {# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}
@@ -15,7 +13,6 @@
 
 {% set city = runSnippet('UltimateParent', {}) %}
 {% set catalog_number = baseSettings['catalog_number'] %}
-    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
 
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
 
@@ -55,15 +52,18 @@ addWhereList: 'isfolder=1 AND c.template=20',
 api: 1,
     })
     | json %}
+
+{% set meta = runSnippet("getMeta") %}
+
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
 <head>
     <base href="{{ config.site_url }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>{{ pageTitle }}</title>
-    <meta name="description" content="{{ descriptionContent }}">
-    <meta name="keywords" content="{{ metaKeywords }}">
+    <title>{{ meta.title | parser }}</title>
+    <meta name="description" content="{{ meta.description | parser }}">
+    <meta name="keywords" content="{{ meta.keywords | parser }}">
     {# <title>{{ metaTitle }}</title>
     <meta name="description" content="{{ metaDescription }}">
     <meta name="keywords" content="{{ metaKeywords }}"> #}
@@ -85,7 +85,7 @@ api: 1,
     {# <link rel="stylesheet" href="/templates/chinaautosalon/css/style.css"> #}
     <link rel="stylesheet" href="/templates/chinaautosalon/css/style.css?12222123123">
     <link rel="stylesheet" href="/templates/chinaautosalon/css/color1.css?32111">
-    <link rel="stylesheet" href="/templates/chinaautosalon/css/{{baseSettings.color_css}}"> 
+    <link rel="stylesheet" href="/templates/chinaautosalon/css/{{baseSettings.color_css}}">
 
     <link rel="stylesheet" href="/templates/chinaautosalon/css/slick.css">
    <link rel="stylesheet" href="/templates/chinaautosalon/css/plates.css">
@@ -93,7 +93,7 @@ api: 1,
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
     {% block HEAD %}{% endblock %}
 </head>
-  
+
 
 <body>
     {% if baseSettings.site_id is not empty %}

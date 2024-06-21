@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 {% set site_start = modx.config['site_start'] %}
-{% set cacheKey = md5(site_start ~ json_encode(_GET)) %}
-{% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}
-{% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
+{% set cacheKey = md5(site_start ~ "autostar3") %}
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 {# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}
@@ -12,7 +10,8 @@
   {% set favicon = runSnippet('phpthumb', {input: baseSettings['favicon'], options:'w=' ~ size ~ ',h=' ~ size ~ ',f=png,far=C, zc=L'}) %}
   <link rel="icon" type="image/png" sizes="{{ size }}x{{ size }}" href="{{ favicon }}" />
 {% endfor %}
-    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
+
+{% set meta = runSnippet("getMeta") %}
 
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
@@ -20,9 +19,9 @@
     <base href="{{ config.site_url }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>{{ metaTitle }}</title>
-    <meta name="description" content="{{ metaDescription }}">
-    <meta name="keywords" content="{{ metaKeywords }}">
+    <title>{{ meta.title | parser }}</title>
+    <meta name="description" content="{{ meta.description | parser }}">
+    <meta name="keywords" content="{{ meta.keywords | parser }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{favicon}}" type="image/png">
     <meta name="color-theme" content="">
@@ -39,8 +38,8 @@
     {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" /> #}
     <link href="assets/site/fancybox/jquery.fancybox.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/templates/autostar/css/{{baseSettings.color_css}}">      
-        <link rel="stylesheet" href="/templates/autostar/css/filter.css">      
+    <link rel="stylesheet" href="/templates/autostar/css/{{baseSettings.color_css}}">
+        <link rel="stylesheet" href="/templates/autostar/css/filter.css">
     {{baseSettings.scripts_head | raw}}
     {% set isPageSpeed = runSnippet('helpers', {action:'checkPageSpeed'}) %}
 
@@ -57,24 +56,24 @@
         {% cache 'header' ~ cacheKey %}
             {% include('partials/header.twig') %}
         {% endcache %}
-        
+
         {{baseSettings.scripts_body | raw}}
         <main class="main container">
-            {% block MAIN %}{% endblock %} 
+            {% block MAIN %}{% endblock %}
             {% include('partials/scripts.twig') %}
         </main>
-        {% cache 'footer' ~ cacheKey %} 
+        {% cache 'footer' ~ cacheKey %}
             {% include('partials/footer.twig') %}
-            {% include('partials/popup.twig') %} 
+            {% include('partials/popup.twig') %}
         {% endcache %}
-        
-         
-        
 
-        
+
+
+
+
     {% block SCRIPTS %}{% endblock %}
 
-   <div id="loader"></div> 
+   <div id="loader"></div>
 </body>
 {% set stats = runSnippet('helpers', {action:'stats'}) | json %}
 <!-- Memory: {{ stats.phpMemory }}, MySQL: {{ stats.queryTime }}, {{ stats.queries }} request(s), PHP: {{ stats.phpTime }}, total: {{ stats.totalTime }}, document retrieved from {{ stats.source }}, ID: {{ resource.id }} -->

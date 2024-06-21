@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 {% set site_start = modx.config['site_start'] %}
-{% set cacheKey = md5(site_start ~ json_encode(_GET)) %}
-{% set metaDescription = resource.metaDescription | default(resource.pagetitle) | parser %}
-{% set metaKeywords = resource.metaKeywords | default(resource.pagetitle) | parser %}
+{% set cacheKey = md5(site_start ~ "autosalon") %}
 {% set title = resource.longtitle | default(resource.pagetitle) | parser %}
 {% set baseSettings = runSnippet('helpers', {action: 'getBaseSettings'}) %}
 {# {% set favicon = runSnippet('phpthumb', {input: baseSettings['logo'], options:'w=16,h=16,f=png,far=C, zc=L'}) %} #}
@@ -15,7 +13,6 @@
 
 {% set city = runSnippet('UltimateParent', {}) %}
 {% set catalog_number = baseSettings['catalog_number'] %}
-    {% set metaTitle = resource.pagetitle ~ " | " ~ baseSettings["salon-name"]  | default(resource.pagetitle) %}
 
 {% set city = runSnippet('DocInfo', {field: pagetitle, docid: city}) %}
     {% set marks = runSnippet('DocLister', {
@@ -37,15 +34,18 @@ addWhereList: 'isfolder=1 AND c.template=20',
 api: 1,
     })
     | json %}
+
+{% set meta = runSnippet("getMeta") %}
+
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 
 <head>
     <base href="{{ config.site_url }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>{{ metaTitle }}</title>
-    <meta name="description" content="{{ metaDescription }}">
-    <meta name="keywords" content="{{ metaKeywords }}">
+    <title>{{ meta.title | parser }}</title>
+    <meta name="description" content="{{ meta.description | parser }}">
+    <meta name="keywords" content="{{ meta.keywords | parser }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{favicon}}" type="image/png">
     <meta name="color-theme" content="">

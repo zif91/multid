@@ -248,17 +248,18 @@ extension: 'twig'
 		</div> #}
         </div>
         </div>
-        <div class="index-credit-block mb-4">
+        {# <div class="index-credit-block mb-4">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6">
+                <div class="row"> #}
+                    {# <div class="col-lg-4 col-sm-6 d-flex">
                         <a href="#" data-src="#popupcred" data-fancybox>
                             <div class="item mb-3 position-relative">
                                 <span class="d-block mb-2">Купить в кредит</span>
-                                Оставьте заявку и мы свяжемся с Вами
+                                Оставьте заявку и мы подберем для вас самое выгодное кредитное предложение сотрудничаем с 14 банками 98% 
+                                одобрений по кредиту
                             </div>
                         </a>
-                    </div>
+                    </div> #}
                     {# <div class="col-lg-4 col-sm-6">
 					<a href="#" data-src="#popup" data-fancybox>
 						<div class="item mb-3 position-relative">
@@ -267,17 +268,60 @@ extension: 'twig'
 						</div>
 					</a>
 				</div> #}
-                    <div class="col-lg-4 col-sm-6">
+                    {# <div class="col-lg-4 col-sm-6 d-flex">
                         <a href="#" data-src="#popup" data-fancybox>
                             <div class="item mb-3 position-relative">
-                                <span class="d-block mb-2">Оценить автомобиль</span>
-                                Оставьте заявку и мы свяжемся с Вами
+                                <span class="d-block mb-2">Купить по трейд-ин</span>
+                                Заполните форму на оценку вашего авто и мы подберем новый автомобиль в замен вашего
                             </div>
                         </a>
+                    </div> #}
+                    {# <div class="col-lg-4 col-sm-6 d-flex">
+                        <a href="#" data-src="#popup" data-fancybox>
+                            <div class="item mb-3 position-relative">
+                                <span class="d-block mb-2">Купить в рассрочку</span>
+                                0% на полгода на проверенные автомобили. Оставьте заявку на рассрочку и 
+                                мы сделаем вам предложение от которого вы не сможете отказаться
+                            </div>
+                        </a>
+                    </div> #}
+                {# </div>
+            </div>
+        </div> #}
+    <section class="index-credit-block2 container my-4">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+            <a href="#" data-src="#popupcred" data-fancybox>
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title">Купить в кредит</h3>
+                        <p class="card-text flex-grow-1">Оставьте заявку и мы подберем для вас самое выгодное кредитное предложение сотрудничаем с 14 банками 98% одобрений по кредиту</p>
                     </div>
                 </div>
+            </a>
+            </div>
+            <div class="col-md-4 mb-4">
+            <a href="#" data-src="#popup" data-fancybox>
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title">Купить по трейд-ин</h3>
+                        <p class="card-text flex-grow-1">Заполните форму на оценку вашего авто и мы подберем новый автомобиль в замен вашего</p>
+                    </div>
+                </div>
+            </a>
+            </div>
+            <div class="col-md-4 mb-4">
+            <a href="#" data-src="#popup" data-fancybox>
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title">Купить в рассрочку</h3>
+                        <p class="card-text flex-grow-1">0% на полгода на проверенные автомобили. Оставьте заявку на рассрочку и мы сделаем вам предложение от которого вы не сможете отказаться</p>
+                    </div>
+                </div>
+            </a>
             </div>
         </div>
+    </section>
         <div class="index-catalog-block2 pb-5">
             <div class="container">
                 <h2 class="h2 mb-5">Предложение дня</h2>
@@ -290,18 +334,19 @@ extension: 'twig'
         {% include '/partials/banks.twig' %}
         {% include '/partials/actions.twig' %}
         {% include '/partials/advantages.twig' %}
+        {% include '/partials/not-found-block.twig' %}
 
         <div class="index-catalog-block2 pb-4">
             <div class="container">
                 <div class="block-name mb-5">
-                    Рекомендованные подборки
+                    Подборки по кузову
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6">
                         <a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=Седан">
                             <div class="item mb-4 position-relative">
-                                <img src="../templates/major/images/item2 5.jpg" class="w-100">
-                                <div class="number position-absolute bg-light p-2">
+                                <img src="../templates/major/images/item252.jpg" class="w-100">
+                                <div class="number position-absolute bg-light pl-3 pr-3 pb-1 pt-1">
                                     647
                                 </div>
                                 <div class="name position-absolute text-light w-100 p-3">
@@ -313,8 +358,8 @@ extension: 'twig'
                     <div class="col-lg-4 col-sm-6">
                         <a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=универсал">
                             <div class="item mb-4 position-relative">
-                                <img src="../templates/major/images/item2 6.jpg" class="w-100">
-                                <div class="number position-absolute bg-light p-2">
+                                <img src="../templates/major/images/item262.jpg" class="w-100">
+                                <div class="number position-absolute bg-light pl-3 pr-3 pb-1 pt-1">
                                     142
                                 </div>
                                 <div class="name position-absolute text-light w-100 p-3">
@@ -326,8 +371,8 @@ extension: 'twig'
                     <div class="col-lg-4 col-sm-6">
                         <a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=хэтчбек">
                             <div class="item mb-4 position-relative">
-                                <img src="../templates/major/images/item2 3.jpg" class="w-100">
-                                <div class="number position-absolute bg-light p-2">
+                                <img src="../templates/major/images/item232.jpg" class="w-100">
+                                <div class="number position-absolute bg-light pl-3 pr-3 pb-1 pt-1">
                                     764
                                 </div>
                                 <div class="name position-absolute text-light w-100 p-3">
@@ -339,8 +384,8 @@ extension: 'twig'
                     <div class="col-lg-4 col-sm-6">
                         <a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=внедорожник">
                             <div class="item mb-4 position-relative">
-                                <img src="../templates/major/images/item2 1.jpg" class="w-100">
-                                <div class="number position-absolute bg-light p-2">
+                                <img src="../templates/major/images/item212.jpg" class="w-100">
+                                <div class="number position-absolute bg-light pl-3 pr-3 pb-1 pt-1">
                                     892
                                 </div>
                                 <div class="name position-absolute text-light w-100 p-3">
@@ -352,8 +397,8 @@ extension: 'twig'
                     <div class="col-lg-4 col-sm-6">
                         <a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=лифтбек">
                             <div class="item mb-4 position-relative">
-                                <img src="../templates/major/images/item2 4.jpg" class="w-100">
-                                <div class="number position-absolute bg-light p-2">
+                                <img src="../templates/major/images/item242.jpg" class="w-100">
+                                <div class="number position-absolute bg-light pl-3 pr-3 pb-1 pt-1">
                                     182
                                 </div>
                                 <div class="name position-absolute text-light w-100 p-3">
@@ -365,8 +410,8 @@ extension: 'twig'
                     <div class="col-lg-4 col-sm-6">
                         <a href="/katalog-novyh-avtomobilej/podborka-po-parametram?body=купе">
                             <div class="item mb-4 position-relative">
-                                <img src="../templates/major/images/item2 2.jpg" class="w-100">
-                                <div class="number position-absolute bg-light p-2">
+                                <img src="../templates/major/images/item222.jpg" class="w-100">
+                                <div class="number position-absolute bg-light pl-3 pr-3 pb-1 pt-1">
                                     68
                                 </div>
                                 <div class="name position-absolute text-light w-100 p-3">
@@ -440,6 +485,9 @@ modelsSelect.addEventListener('change', function() {
 });
 
 </script> #}
+<style>
+
+</style>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const marksSelect = document.querySelector('#marks')

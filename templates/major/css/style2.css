@@ -687,6 +687,41 @@ main {
   font-size: 20px;
   line-height: 24px;
   white-space: nowrap;
+  color: #181818;
+}
+.index-credit-block2 .card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+
+}
+.index-credit-block2 .card:before {
+content: "";
+position: absolute;
+width: 132px;
+height: 132px;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
+top: -50px;
+right: -58px;
+}
+
+.index-credit-block2 .card-body{
+  padding: 28px 21% 28px 28px;
+}
+.index-credit-block2 .card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:#181818;
+}
+
+.index-credit-block2 .card-text {
+  font-size: 13px;
+  color:#181818;
 }
 .index-catalog-block2 .list {
   margin: 0 -17px;
@@ -980,6 +1015,9 @@ main {
   background: #E05241;
   border-radius: 6px;
 }
+.trade-in-block .content button:hover {
+  background: #181818;
+}
 .trade-in-block .content p {
   font-weight: 500;
 }
@@ -1040,9 +1078,28 @@ main {
 .not-found-block .image img {
   pointer-events: none;
   position: absolute;
+  /* top: 50%; */
+  top: 65%;
+  transform: translateY(-50%);
+  /* left: -282px; */
+  left: -130px;
+}
+.not-found-block .image_mob {
+  position: absolute;
+  right: 0;
+  top: 15px;
+  width: 50%;
+  height: 100%;
+  display: none;
+}
+.not-found-block .image_mob img {
+  pointer-events: none;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: -282px;
+  /* left: -282px; */
+  left: -96px;
+  display: none;
 }
 .not-found-block .text {
   width: 44%;
@@ -1067,6 +1124,10 @@ main {
   height: 49px;
   background: #E05241;
   border-radius: 6px;
+}
+.not-found-block .text button:hover {
+  color: #fff;
+  background: #181818;
 }
 .index-bottom-counts .item {
   border-top: 4px solid #F2F2F2;
@@ -1118,8 +1179,8 @@ main {
   max-width: 464px;
 }
 .bottom-page-contacts .map {
-  width: 464px;
-  height: 176px;
+  width: 100%;
+  height: 520px;
 }
 .bottom-page-contacts .field p {
   font-weight: 500;
@@ -1736,7 +1797,8 @@ main {
     width: 460px;
   }
   .not-found-block .image img {
-    left: -200px;
+    /* left: -200px; */
+    left: -116px;
   }
   .footer ul li:not(:last-child) {
     margin-right: 15px;
@@ -1910,9 +1972,21 @@ main {
   .index-calc-block button {
     margin-top: 0;
   }
+  .not-found-block .container_mob{
+    max-width: 100%;
+    height: 355px;
+  }
   .not-found-block .image {
     display: none;
   }
+  .not-found-block .image_mob {
+    display: block;
+    width: 65%;
+  }
+  .not-found-block .image_mob img{
+    display: block;
+  }
+  
   .not-found-block .text {
     width: auto;
   }
@@ -2006,6 +2080,14 @@ main {
   }
   .credit-form form {
     padding: 20px;
+  }
+  .not-found-block .container_mob{
+    max-width: 100%;
+    height: 298px;
+  }
+  .not-found-block .image_mob {
+    display: block;
+    width: 65%;
   }
 }
 .tab-content {

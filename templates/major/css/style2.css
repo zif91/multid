@@ -1468,10 +1468,11 @@ right: -58px;
 .credit-block .content {
   border-radius: 14px;
   overflow: hidden;
-  color: #fff;
+  /* color: #fff; */
+  color: #181818;
 }
 .credit-block .content .top {
-  background: linear-gradient(96.91deg, #0f1723 0%, #25344b 70.3%);
+  /* background: linear-gradient(96.91deg, #0f1723 0%, #25344b 70.3%); */
   padding: 30px 65px;
 }
 .credit-block .content .top h2 {
@@ -1479,12 +1480,29 @@ right: -58px;
   font-size: 28px;
   line-height: 34px;
 }
+.credit-block .content .top h4 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: auto;
+}
+.credit-block .content .top .item .edit_car{
+  color: #98AEC3;
+  font-size: 14px;
+  height: 50px;
+  border: solid 1px #B5B5B5;
+  border-radius: 8px;
+}
+.credit-block .content .top .item .item-cred-text{
+  color: #98AEC3;
+  font-size: 14px;
+}
 .credit-block .content .top .item .price input[type='text'] {
   background: none;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  color: #fff;
+  /* color: #fff; */
+  color: #181818;
   width: 100px;
 }
 .credit-block .content .top .item .price .edit {
@@ -1505,7 +1523,7 @@ right: -58px;
   background: #3B80CC;
 }
 .credit-block .content .top .item .ui-widget-header {
-  background: #fff;
+  background: #F2F3F7;
 }
 .credit-block .content .top .item .ui-state-default,
 .credit-block .content .top .item .ui-widget-content .ui-state-default,
@@ -1553,12 +1571,25 @@ right: -58px;
 }
 .credit-block .content .top .tbl1 tr td {
   padding: 0 20px 24px 0;
-  color: #fff;
+  /* color: #fff; */
+  color: #181818
+}
+.credit-block .content .top .tbl3 tr td {
+  padding: 0 20px 24px 0;
+  /* color: #fff; */
+  color: #FFFFFF;
 }
 .credit-block .content .top .tbl1 tr td:last-child {
   text-align: right;
   padding-right: 0;
   font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}
+.credit-block .content .top .tbl3 tr td:last-child {
+  text-align: right;
+  padding-right: 0;
+  font-weight: 400;
   font-size: 16px;
   line-height: 20px;
 }
@@ -1580,22 +1611,27 @@ right: -58px;
   line-height: 24px;
 }
 .credit-block .content .bottom {
-  background: #333333;
+  /* background: #333333; */
+  background: #E1E8F5;
   padding: 30px 65px;
+  border-radius: 14px;
 }
 .credit-block .content .bottom h2 {
   font-weight: 700;
   font-size: 28px;
   line-height: 34px;
+  color: #181818;
 }
 .credit-block .content .bottom .top-text {
   max-width: 400px;
   font-size: 20px;
   line-height: 24px;
+  color: #181818;
 }
 .credit-block .content .bottom p {
   font-weight: 500;
-  color: #BDBDBD;
+  /* color: #BDBDBD; */
+  color: #98AEC3;
 }
 .credit-block .content .bottom input[type='text'] {
   height: 52px;
@@ -1609,12 +1645,20 @@ right: -58px;
   color: #fff;
   font-weight: 500;
 }
+.credit-block .content .bottom button:hover {
+  background: #D12D1E;
+}
 .credit-block .content .bottom .bottom-text {
   font-size: 12px;
   line-height: 150%;
+  color: #181818;
 }
 .credit-block .content .bottom .bottom-text a {
   color: #3B80CC;
+}
+.credit-block .content .top .calc_blank {
+  background-color: #3B80CC;
+  border-radius: 14px;
 }
 .credit-page h1 {
   font-weight: 700;

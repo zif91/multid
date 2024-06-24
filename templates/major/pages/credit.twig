@@ -19,7 +19,8 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 }) |raw}} #}
 {% block MAIN %}
 <hr class="m-0" />
-<div class="credit-page pb-5">
+{% include('partials/crumbs.twig') %}
+{# <div class="credit-page pb-5">
     <div class="container">
         <h1 class="mb-4">Автокредит</h1>
         <div class="row">
@@ -63,7 +64,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
 {% endif %}% и зависит от конкретного банка, суммы займа и кредитной программы. Минимальный срок погашения от 61 дня, максимальный — 84 месяца. При этом любые дополнительные комисси автосалоном не взимаются.</p>
         </div>
     </div>
-</div>
+</div> #}
 <div class="container p-4 py-5">
     <div class="row">
         {{ runSnippet('Form', {
@@ -73,7 +74,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         }) | raw }}
     </div>
 </div>
-<div class="autocredits-block pb-4">
+{# <div class="autocredits-block pb-4">
     <div class="container">
         <h2 class="mb-4">Выгодные автокредиты</h2>
         <div class="row">
@@ -128,7 +129,7 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
             </div>
         </div>
     </div>
-</div>
+</div> #}
 {% include '/partials/banks.twig' %}
 {% include '/partials/not-found-block.twig' %}
 {% include '/partials/advantages_block.twig' %}

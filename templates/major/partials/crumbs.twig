@@ -21,12 +21,12 @@ tplFirst: '@CODE:<a href='/'>Главная</a>'
 {{ runSnippet('DLCrumbs', {
 showCurrent: 1,
 sysKey: 'crumbs',
-ownerTPL: '@CODE:<div class="navi pt-4 pb-5">
+ownerTPL: '@CODE:<div class="navi pt-4 pb-1">
     <div class="container">
             [+crumbs.wrap+]
         </div>
 </div>',
-tpl:'@CODE: <a itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="[+url+]">[+title+]</a><span>//</span>
+tpl:'@CODE: <a itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="[+url+]">[+title+]</a><span>|</span>
 ',
 tplCurrent: '@CODE:
 <a itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"  href="[+url+]">[+title+]</a>',

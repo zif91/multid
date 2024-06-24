@@ -797,6 +797,20 @@ right: -58px;
   background: #3B80CC;
   color: #fff;
 }
+.index-catalog-block2 .list .item .buttons button:nth-child(1):hover {
+  background: #D12D1E;
+  border: 1px solid #D12D1E;
+  color: #fff;
+}
+.index-catalog-block2 .list .item .buttons button:nth-child(2):hover {
+  background: #3B80CC;
+  border: 1px solid #3B80CC;
+  color: #fff;
+}
+.index-catalog-block2 .list .item .buttons button:nth-child(3):hover {
+  background: #D12D1E;
+  color: #fff;
+}
 .index-catalog-block2 .list .slick-prev,
 .index-catalog-block2 .list .slick-next {
   position: absolute;
@@ -1842,6 +1856,14 @@ right: -58px;
 }
 .advantages_blocks .advantage_text{
   padding-left:6px;
+}
+.config_car img{
+  width: 24px;
+  height: 24px;
+}
+.config_car p{
+  font-size: 12px;
+  color: #667B88;
 }
 @media (max-width: 1199px) {
   .header ul li:not(:last-child) {

@@ -44,7 +44,8 @@
     <main>
         <div class="index-catalog-block2 pb-5">
             <div class="container">
-                <h2 class="h2 m-5 ">Предложение дня</h2>
+            {% include('partials/crumbs.twig') %}
+                <h2 class="h2 m-5">Лучшие предложения на {{resource.pagetitle}} <br>в наличии</h2>
                 <div class="list row d-flex justify-content-center" id="catalog">
                     {{ DLModels |raw }}
                 </div>

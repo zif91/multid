@@ -1,5 +1,5 @@
 
-{# {% set gifts = runSnippet('DocLister', {
+{% set gifts = runSnippet('DocLister', {
 display: 3,
 parents: baseSettings.id,
 depth: 2,
@@ -19,7 +19,7 @@ tpl:'@T_FILE:partials/actions_actions'
 
             </div>
         </div>
-    </div> #}
+    </div>
 {#% set gifts = runSnippet('DocLister', {
 display: 3,
 parents: 24,
@@ -34,65 +34,3 @@ tpl:'@T_CODE:
 </div>'
 })
 %#}
-
-    <section class="container my-4">
-        <h2 class="text-center mb-4">Акции</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">БЕЗ ПОДАРКА <br><span>НЕ ОСТАВИМ</span></h3>
-                        <p class="card-text flex-grow-1">Вас ждет персональный подарок при покупке авто</p>
-                        <img src="/templates/major/img/action1.png" alt="Подарок" class="mt-3">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">СЧАСТЛИВЫЕ ЧАСЫ</h3>
-                        <p class="card-text flex-grow-1">Посетите наш салон с <strong>9 до 13:00</strong> в любой день недели и получите при покупке авто целый бак бензина!</p>
-                        <img src="/templates/major/img/action2.png" alt="Бак бензина" class="mt-3">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h3 class="card-title">НОВАЯ КРЕДИТНАЯ ПРОГРАММА <br><span>НА КИТАЙСКИЕ АВТО</span></h3>
-                        <p class="card-text flex-grow-1">Кредитная ставка от 0% годовых, без первого взноса, по 2-м документам.</p>
-                        <img src="/templates/major/img/action3.png" alt="Авто" class="mt-3">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<style>
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.card-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #181818;
-}
-
-.card-title span {
-    font-size: 24px;
-    color: #007bff;
-}
-
-.card-text {
-    font-size: 16px;
-    color: #181818;
-}
-
-.card img {
-    max-width: 100px;
-    margin-top: auto;
-    align-self: center;
-}
-</style>

@@ -331,8 +331,7 @@ extension: 'twig'
             </div>
         </div>
         {% include '/partials/credit.twig' %}
-        {% include '/partials/banks.twig' %}
-        {% include '/partials/actions.twig' %}
+        {# {% include '/partials/actions.twig' %} #}
 
 
         <div class="index-catalog-block2 pb-4">
@@ -421,6 +420,8 @@ extension: 'twig'
                     </div>
                 </div>
             </div>
+            {% include '/partials/banks.twig' %}
+            {% include '/partials/actions2.twig' %}
             {% include '/partials/advantages.twig' %}
             {% include '/partials/not-found-block.twig' %}
             {% include '/partials/advantages_block.twig' %}

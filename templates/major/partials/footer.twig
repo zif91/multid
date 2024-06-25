@@ -1,3 +1,10 @@
+{% set menu = runSnippet('DLMenu', {
+parents: baseSettings["id"],
+tvList: 'image',
+rowTpl: '@CODE:<li class="d-inline-block"><a href="[+url+]" class="text-light">[+pagetitle+]</a></li>',
+outerTpl: '@CODE:<ul class="pt-4 mt-1 mb-4">
+    [+wrap+]</ul>'}) %}
+
 <footer class="footer py-4 text-light">
     <div class="container">
         <div class="flex">
@@ -21,20 +28,39 @@
                     </div>
                 {% endif %}
             </div>
-            <ul class="pt-4 mt-1 mb-4">
-                <li class="d-inline-block"><a href="#" class="text-light">Автомобили в продаже</a></li>
-                {#<li class="d-inline-block"><a href="#" class="text-light">Услуги</a></li>
-                <li class="d-inline-block"><a href="#" class="text-light">О компании</a></li>
-                <li class="d-inline-block"><a href="#" class="text-light">Контакты</a></li>#}
-            </ul>
-        </div>
-        <div class="line mb-3"></div>
-        <div class="flex">
-            <div class="copy">
-                Для повышения удобства работы с сайтом компания использует файлы cookie. <br />
-                В cookie содержатся данные о прошлых посещениях сайта.
+            <div class="info_footer mt-2">
+                <div class="mb-1">
+                    {{baseSettings.salon_location}}
+                </div>
+                <div class="mb-1" style="color: #667B88;font-weight: 600;">
+                    с 9.00 до 21.00
+                </div>
+                <div class="mb-1">
+                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone mt-3 pt-2"}) | raw}}
+                </div>
             </div>
-            {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone mt-3 pt-2"}) | raw}}
+            {# <ul class="pt-4 mt-1 mb-4">
+                <li class="d-inline-block"><a href="#" class="text-light">Автомобили в продаже</a></li>
+                <li class="d-inline-block"><a href="#" class="text-light">Услуги</a></li>
+                <li class="d-inline-block"><a href="#" class="text-light">О компании</a></li>
+                <li class="d-inline-block"><a href="#" class="text-light">Контакты</a></li>
+            </ul> #}
+            {{menu|raw}}
+        </div>
+        {# <div class="line mb-3"></div> #}
+        <div class="info_footer_bottom flex">
+            {# <div class="copy mt-3 pt-2"> #}
+                {# Для повышения удобства работы с сайтом компания использует файлы cookie. <br />
+                В cookie содержатся данные о прошлых посещениях сайта. #}
+            {# </div> #}
+             
+            {# {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone mt-3 pt-2"}) | raw}} #}
+            <div class="info_footer_bottom_elem">
+                © {{baseSettings["pagetitle"]}},2023. Все права защищены
+            </div>
+            <div class="info_footer_bottom_elem">
+                 Политика конфиденциальности
+            </div>
         </div>
     </div>
 </footer>
@@ -67,7 +93,7 @@
 
 </div>
 
-<div class="popup" id="popup" style="display: none; width: 100%; max-width: 965px;">
+<div class="popup" id="popup" style="display: none; width: 100%; max-width: 500px;">
     {{ runSnippet('Form', {
         formid: 'FormCallback',
         path: '/templates/major/partials/forms/feedback/',

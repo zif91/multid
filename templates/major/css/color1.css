@@ -67,7 +67,18 @@
   background: #667b88;
 }
 .popup .bg button {
-  background: #667b88;
+  /* background: #667b88; */
+  background: #3B80CC;
+}
+.popup .bg button:hover {
+  background: #D12D1E;
+}
+.form-bottom-text{
+  color:#181818;
+  font-size:12px;
+}
+.form-bottom-text a{
+  color:#3B80CC;
 }
 .loader {
   width: 48px;

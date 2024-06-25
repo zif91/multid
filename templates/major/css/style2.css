@@ -1222,7 +1222,8 @@ right: -58px;
   margin-left: -80px;
 }
 .footer {
-  background: url('/templates/major/img/footer.png') center / cover;
+  /* background: url('/templates/major/img/footer.png') center / cover; */
+  background-color: #181818;
   color: #fff;
 }
 .footer .top {
@@ -1851,7 +1852,8 @@ right: -58px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   padding: 20px 6px;
   background-color: #F5F5F5;
-  width: 165px;
+  /* width: 165px; */
+  width: 205px;
   height: 75px;
 
 }
@@ -2068,6 +2070,9 @@ right: -58px;
   .credit-form form {
     padding: 30px;
   }
+  .info_footer {
+    width: 100%;
+  }
 }
 @media (max-width: 767px) {
   .index-top-line {
@@ -2118,6 +2123,9 @@ right: -58px;
   }
   .credit-page {
     padding-top: 30px;
+  }
+  .footer .info_footer_bottom.flex {
+    justify-content: center;
   }
 }
 @media (max-width: 575px) {
@@ -2195,6 +2203,19 @@ right: -58px;
   .not-found-block .image_mob {
     display: block;
     width: 65%;
+  }
+  .advantages_blocks .row .col-md-4.col-lg-2.col-6.mb-4{
+    justify-content: center;
+  }
+
+  .footer ul li {
+    display: block !important;
+    margin-top: 20px;
+    text-align: center;
+    margin: 12px !important;
+  }
+  .footer .info_footer_bottom .info_footer_bottom_elem{
+    margin-top: 12px !important;
   }
 }
 .tab-content {

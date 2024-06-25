@@ -21,6 +21,29 @@ class catalog_filtersDocLister extends site_contentDocLister
         $this->getFilterOptions();
         $this->renderFilterOptions();
         $this->setFilters();
+
+        $this->config->setConfig([
+            'makePaginateUrl' => function($data, $modx, $_DL, $_eDL) {
+                $url = (string) $_SERVER['REQUEST_URI'];
+
+                if (strpos($url, "filters/") === false) {
+                    return $modx->makeUrl($modx->documentIdentifier);
+                }
+
+                $url = explode("?", $url);
+                $url = (string) $url[0];
+
+                if (empty($url)) {
+                    return $modx->makeUrl($modx->documentIdentifier);
+                }
+
+                if (substr($url, 0, 1) !== "/") {
+                    $url = "/{$url}";
+                }
+
+                return $url;
+            }
+        ]);
     }
 
     public function addDocs($docs)

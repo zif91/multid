@@ -1487,7 +1487,8 @@ right: -58px;
 }
 .credit-block .content .top {
   /* background: linear-gradient(96.91deg, #0f1723 0%, #25344b 70.3%); */
-  padding: 30px 65px;
+  /* padding: 30px 65px; */
+  padding: 30px 10px;
 }
 .credit-block .content .top h2 {
   font-weight: 700;

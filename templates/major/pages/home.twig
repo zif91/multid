@@ -58,7 +58,7 @@
         controller: 'catalog_filters',
         filters: 'AND(tv:mark_id:=:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
         _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
-        display: 16,
+        display: 8,
         parents: baseSettings['catalog_number'],
         depth: 2,
         addWhereList: 'c.template=20',

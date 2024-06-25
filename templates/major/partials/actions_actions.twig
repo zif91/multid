@@ -8,6 +8,7 @@
                          {{ data.description }}
                         </p> #}
                         {# <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139, w=255,zc=1 fltr[]=ric|15|15'}) }}"> #}
-                        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139,zc=1 fltr[]=ric|15|15'}) }}" style="max-width:100%;">
+                        {# <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'h=139,zc=1 fltr[]=ric|15|15'}) }}" style="max-width:100%;"> #}
+                        <img src="{{ runSnippet('phpthumb', {input: data['tv.image'], options:'zc=1 fltr[]=ric|15|15'}) }}" style="max-width:100%;">
                     </div></a>
                 </div>

@@ -3,7 +3,8 @@
 {% set photo = data['image_format'] %}
 
 {# { data | dump } #}
-<div class="item col-12 col-sm-3 position-relative mb-3 "><a href="{{ data['url'] }}">
+{# <div class="item col-12 col-sm-3 position-relative mb-3 "><a href="{{ data['url'] }}"> #}
+<div class="item col-12 col-lg-3 col-sm-5 position-relative mb-3 "><a href="{{ data['url'] }}">
         <span class="hit position-absolute py-1 px-3">HIT</span>
         <div class="image">
             <img src="{{ photo }}">

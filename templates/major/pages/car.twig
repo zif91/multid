@@ -1,5 +1,51 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
+        {% set DLModels = runSnippet('DocLister', {
+        id: 'catalog',
+        controller: 'catalog_filters',
+        filters: 'AND(tv:mark_id:=:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
+        _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
+        display: 8,
+        parents: baseSettings['catalog_number'],
+        depth: 2,
+        addWhereList: 'c.template=20',
+        orderBy: 'car-price',
+        order: 'RAND()',
+        tvSortType: 'SIGNED',
+        tvList:'car-price,old-car-price,car_photos,run,configuration_id,engine_power,gear,year, image,mark_id,model_id,colors_list',
+        ownerTPL: '@T_FILE:partials/wrap',
+        tpl:'@T_FILE:partials/catalogcard_model',
+        paginate:'pages',
+        TplNextP:'',
+        TplPrevP:'',
+        TplPage:'@CODE:<li class="page-item"><a class="page-link" href="[+link+]">[+num+]</a></li>',
+        TplCurrentPage:'@CODE: <li class="page-item active" aria-current="page"><span class="page-link">[+num+]</span></li>',
+        TplWrapPaginate:'@CODE:<ul class="pagination">[+wrap+]</ul>',
+        filter: 'filters',
+        filterRangeSeparator: ':',
+        filterValuesSeparator: '|',
+        filterDelimiter: '||',
+        __filterPriceId: 14,
+        filterList: '42,43,19',
+        _filterList: '19:checkbox,20:checkbox,42:checkbox,43:checkbox',
+        filterTpl: '@T_FILE:partials/filters/tpl',
+        filterOwnerRange: '@T_FILE:partials/filters/ownerRange',
+        filterTplRange: '@T_FILE:partials/filters/tplRange',
+        filterOwnerCheckbox: '@T_FILE:partials/filters/ownerCheckbox',
+        filterTplCheckbox: '@T_FILE:partials/filters/tplCheckbox',
+        tvSortType: 'UNSIGNED',
+        api: 0,
+        debug:0,
+        noneTPL:'@CODE: <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+                </div>
+            </div>
+        </div>',
+        showParent: 1,
+        prepare: "DocLister ModelsPrepare"
+    }) %}
     {% set complectations = runSnippet('Complectations') %}
     {% set car_photos_one = "https://s3.multiauto.site/new_cars/" ~ resource.configuration_id ~ ".jpg" %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -7,7 +53,7 @@
     {% set car_photos = resource.car_photos | json %}
     {% set car_photos = car_photos.fieldValue %}
 
-    {% include('partials/crumbs.twig') %}
+    {# {% include('partials/crumbs.twig') %} #}
 
     {# <div class="item-page2 pb-5">
     <div class="container">
@@ -78,7 +124,7 @@
         </div>
     </div>
 </div> #}
-    <div class="item-page pb-3">
+    <div class="item-page pb-3 mt-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
@@ -181,11 +227,11 @@
     </div>
     <div class="page-form-block mb-5">
         <div class="container">
-            {{ runSnippet('Form', {
+            {# {{ runSnippet('Form', {
                 formid: 'FormCallback',
                 path: '/templates/major/partials/forms/feedback/',
                 extension: 'twig'
-            }) | raw }}
+            }) | raw }} #}
         </div>
     </div>
     <div class="item-page pb-5">
@@ -379,6 +425,38 @@
                 path: '/templates/major/partials/forms/credit/',
                 extension: 'twig'
             }) | raw }}
+        </div>
+    </div>
+    <div class="index-catalog-block2 pb-5">
+        <div class="container">
+            <h2 class="h2 mb-5">Специальное предложение</h2>
+            <div class="list" id="catalog">
+                {{ DLModels |raw }}
+            </div>
+        </div>
+    </div>
+    <div class="index-catalog-block2 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="item mb-4 position-relative">
+                        <img src="../templates/major/images/back1.jpg" class="w-100 d-none d-sm-block" style="border-radius:8px;">
+                        <img src="../templates/major/images/back3.jpg" class="w-100 d-none d-block d-sm-none" style="border-radius:8px;">
+                        <div class="name_block position-absolute text-light w-100 p-3">
+                            Выкупим Ваш <br>автомобиль
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="item mb-4 position-relative">
+                        <img src="../templates/major/images/back2.jpg" class="w-100 d-none d-sm-block" style="border-radius:8px;">
+                        <img src="../templates/major/images/back4.jpg" class="w-100 d-block d-sm-none" style="border-radius:8px;">
+                        <div class="name_block position-absolute text-light w-100 p-3">
+                            Подберем автомобиль<br> под Ваш запрос
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     {% include '/partials/not-found-block.twig' %}

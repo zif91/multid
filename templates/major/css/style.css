@@ -694,6 +694,14 @@ main {
   font-size: 18px;
   line-height: 22px;
 }
+.index-catalog-block2 .item .name_block {
+  left: 0;
+  /* bottom: 0; */
+  top: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+}
 .footer {
   background: #181818;
 }

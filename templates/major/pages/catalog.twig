@@ -80,7 +80,7 @@
         </div>',
     }) | json %}
     {% include('partials/crumbs.twig') %}
-    <div class="index-top-form pb-4 inner">
+    <div class="index-top-form pb-4 mt-4 inner">
         <div class="container flex">
             <div class="fields mb-3">
                 <div class="row">
@@ -124,11 +124,11 @@
     {# % include 'partials/actions.twig' % #}
     <div class="page-form-block mb-5">
         <div class="container">
-            {{ runSnippet('Form', {
+            {# {{ runSnippet('Form', {
                 formid: 'FormCallback',
                 path: '/templates/major/partials/forms/feedback/',
                 extension: 'twig'
-            }) | raw }}
+            }) | raw }} #}
         </div>
     </div>
     <script type="text/javascript">

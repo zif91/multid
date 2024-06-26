@@ -2217,6 +2217,12 @@ right: -58px;
   .footer .info_footer_bottom .info_footer_bottom_elem{
     margin-top: 12px !important;
   }
+  .credit-block .content .top .tbl3 tr td:last-child {
+    font-size: 11px;
+  }
+  .credit-block .content .top .tbl3 td{
+    font-size: 12px;
+  }
 }
 .tab-content {
     display: none;

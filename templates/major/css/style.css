@@ -1146,7 +1146,7 @@ main {
 @media (max-width: 991px) {
   .header .phone {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -1335,9 +1335,9 @@ main {
     width: 100%;
     order: 1;
   }
-  .navi {
+  /* .navi {
     display: none;
-  }
+  } */
   .h1 {
     padding-top: 50px;
   }

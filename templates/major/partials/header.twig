@@ -69,16 +69,18 @@ outerTpl: '@CODE:<ul>
                 color: #D12D1E;">{{ baseSettings.pagetitle }}
                 </div>
             {% endif %}
-            </div><a class="menu-button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </a>
+            </div>
+
             {{headermenu|raw}}
             <div class="phone pb-1">
                 {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}
                 <a href="#" data-src="#popup" data-fancybox="">заказать экспресс-звонок</a>
             </div>
+            <a class="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
             {#<div class="location">
             <span>Адрес: {{baseSettings.salon_location}}</span>
             </div>#}
@@ -92,8 +94,8 @@ outerTpl: '@CODE:<ul>
     4.9
 {% else %}
     {{ baseSettings.credit_rate }}
-{% endif %}% или в рассрочку под 0% <span class="d-inline-block mx-3">|</span> <button  data-src="#popup" data-fancybox="">Новые поступления</button></p>
-            <img src="/templates/major/img/car.png">
+{% endif %}% или в рассрочку под 0% <button  data-src="#popup" data-fancybox="">Новые поступления</button><span class="d-inline-block mx-3">|</span> В трейд-ин с выгодой до 300 000 ₽<button  data-src="#popup" data-fancybox="">Новые поступления</button></p>
+            {# <img src="/templates/major/img/car.png"> #}
             <a href="#" data-src="#popup" data-fancybox="" class="link d-block"></a>
         </div>
     </div>

@@ -694,6 +694,14 @@ main {
   font-size: 18px;
   line-height: 22px;
 }
+.index-catalog-block2 .item .name_block {
+  left: 0;
+  /* bottom: 0; */
+  top: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+}
 .footer {
   background: #181818;
 }
@@ -1081,6 +1089,7 @@ main {
 }
 .popup p {
   font-weight: 500;
+  color: #98AEC3;
 }
 .popup select {
   height: 48px;
@@ -1115,15 +1124,17 @@ main {
 }
 .popup .bg .name {
   font-weight: 700;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 152.9%;
+  color: #181818;
 }
 .popup .bg input[type='text'] {
   height: 48px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  border: 1px solid #E6E6E6;
+  /* border: 1px solid #E6E6E6; */
+  border: 1px solid #3B80CC;
 }
 .popup .bg button {
   height: 48px;
@@ -1143,7 +1154,7 @@ main {
 @media (max-width: 991px) {
   .header .phone {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -1332,9 +1343,9 @@ main {
     width: 100%;
     order: 1;
   }
-  .navi {
+  /* .navi {
     display: none;
-  }
+  } */
   .h1 {
     padding-top: 50px;
   }

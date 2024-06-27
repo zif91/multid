@@ -130,8 +130,8 @@ parents: 27, depth: 0, tpl:'@CODE:<option style="z-index:999" value="[+pagetitle
         </div>
     </div>
 </div> #}
-{% include '/partials/banks.twig' %}
 {% include '/partials/not-found-block.twig' %}
+{% include '/partials/banks.twig' %}
 {% include '/partials/advantages_block.twig' %}
 {% endblock %}
 {% block SCRIPTS %}
@@ -210,4 +210,14 @@ $(document).ready(function() {
 });
 
 </script>
+<style>
+.not-found-block{
+    display:none;
+}
+@media (max-width: 991px) {
+   .not-found-block{
+    display:block;
+    } 
+}
+</style>
 {% endblock %}

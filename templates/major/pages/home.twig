@@ -58,7 +58,7 @@
         controller: 'catalog_filters',
         filters: 'AND(tv:mark_id:=:' ~ brand ~ ';tv:model_id:like:'~ model ~')' ,
         _filters: 'AND(tv:price:>:0;tv:region:=:' ~ plh.activeLangAlias ~ ')',
-        display: 4,
+        display: 8,
         parents: baseSettings['catalog_number'],
         depth: 2,
         addWhereList: 'c.template=20',
@@ -331,7 +331,6 @@ extension: 'twig'
             </div>
         </div>
         {% include '/partials/credit.twig' %}
-        {# {% include '/partials/actions.twig' %} #}
 
 
         <div class="index-catalog-block2 pb-4">

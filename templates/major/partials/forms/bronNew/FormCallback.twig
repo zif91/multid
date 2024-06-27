@@ -33,8 +33,8 @@ var phoneMask = IMask(
         <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
         <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
         {{ data['form.messages'] | raw }}
-        <div class="name mb-3">
-            Заявка на обратный звонок!
+        <div class="name mb-3" style="color: #3B80CC;">
+            Летняя распродажа {{ resource.mark_id }}!
         </div>
         <div class="row">
             <div class="col-md-12 mb-3">
@@ -61,4 +61,5 @@ var phoneMask = IMask(
 .alert.text-field-error{
     color: #3B80CC;
 }
+
 </style>

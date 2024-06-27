@@ -38,7 +38,7 @@ switch($eventName) {
 		}
 		break;
 	}
-		
+
 	case 'OnDocFormPrerender': {
 		if(!isset($_REQUEST['id'])) {
 			global $content;
@@ -46,7 +46,7 @@ switch($eventName) {
 		}
 		break;
 	}
-					
+
 	case 'OnPageNotFound': {
 		/* Получение чанков */
 		if (strpos($_GET['q'], 'getModal') === 0) {
@@ -60,19 +60,19 @@ switch($eventName) {
 		}
 
 		if (strpos($_GET['q'], 'forms') === 0) {
-		    
-		    
-			
+
+
+
 			$formid = isset($_POST['formid'])
 				&& is_scalar($_POST['formid'])
 				&& isset($_SERVER['HTTP_X_REQUESTED_WITH'])
 				&& (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
 				? $_POST['formid']
 				: '';
-			
+
 			$extension = isset($_POST['extension']) ? $_POST['extension'] : 'tpl';
 			$path = isset($_POST['path']) ? $_POST['path'] : 'site/tpl/forms/';
-            
+
 			if(!empty($_POST['modal'])) {
 				echo $modx->runSnippet('Form', $_POST);
 				die();
@@ -83,7 +83,7 @@ switch($eventName) {
 			$from = !empty($modx->getConfig('client_smtp_username')) ? $modx->getConfig('client_smtp_username') : $modx->getConfig('client_company_email');
 			$subject = 'Форма с сайта ' . $modx->getConfig('site_name');
 
-			
+
 			if(file_exists(MODX_BASE_PATH . $path.$formid.'.'.$extension)) {
 				$formTpl = file_get_contents(MODX_BASE_PATH . $path.$formid.'.'.$extension);
 			} else {
@@ -102,7 +102,8 @@ switch($eventName) {
 				'messagesTpl'=>'@CODE:[+messages+]',
 				'errorTpl'=>'@CODE:[+message+]',
 				'errorClass'=>'is-invalid',
-				'requiredClass'=>'is-invalid'
+				'requiredClass'=>'is-invalid',
+                'noemail' => 1,
 			];
 
 
@@ -118,7 +119,7 @@ switch($eventName) {
 					$_params['reportTpl'] = '@CODE:'.file_get_contents(MODX_BASE_PATH . $path.$formid.'_report.'.$extension);
 					$_params['ccSenderTpl'] = '@CODE:'.file_get_contents(MODX_BASE_PATH . $path.$formid.'_reportback.'.$extension);
 					$_POST['formid'] = 'order';
-					
+
 					$result = $modx->runSnippet('Order', $_params);
 				} else {
 					if(file_exists(MODX_BASE_PATH . $path.$formid .'.success.'.$extension)) {

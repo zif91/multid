@@ -1,5 +1,13 @@
 {% extends 'app.twig' %}
 {% block MAIN %}
+    {% set brand = _GET.brand %}
+    {% if not brand %}
+        {% set brand = 'renault' %}
+    {% endif %}
+    {% set model = _GET.model %}
+    {% if not model %}
+        {% set model = '' %}
+    {% endif %}
         {% set DLModels = runSnippet('DocLister', {
         id: 'catalog',
         controller: 'catalog_filters',
@@ -138,7 +146,7 @@
                                 {% endfor %}
                             {% endif %}
                         </div>
-                        <div class="slider-nav">
+                        <div class="slider-nav" id="photosBlock">
                             {% if car_photos is empty %}
                                 <img src="{{ car_photos_one }}">
                             {% else %}
@@ -164,13 +172,20 @@
     {{ baseSettings.credit_rate }}
                             {% endif %}%</span>
                     </div>
-                    <div class="vin mb-3 flex">
+                    {# <div class="vin mb-3 flex">
                         <div><img src="/templates/major/img/vin1.svg"> <span>ПТС:</span> Оригинал</div>
                         <div><img src="/templates/major/img/vin2.svg"> Проверенный <span>VIN-номер</span></div>
-                    </div>
+                    </div> #}
+                    <ul class="list-unstyled mb-3">
+                        <li class="text-muted2 scroll-btn" data-target="photosBlock"><span>Фото</span></li>
+                        <li class="text-muted2 scroll-btn" data-target="configsAndPricesBlock"><span>Комплектации и цены</span></li>
+                        <li class="text-muted2 scroll-btn" data-target="discountsAndPromotionsBlock"><span>Скидки и акции</span></li>
+                        <li class="text-muted2 scroll-btn" data-target="creditblock"><span>Расчет кредита</span></li>
+                        <li class="text-muted2 scroll-btn" data-target="specialOffersBlock"><span>Спецпредложения</span></li>
+                    </ul>
                     <div class="buttons row mb-2">
                         <div class="col-12">
-                            <button class="w-100 mb-3 color1" data-fancybox="" data-src="#popup">Забронировать</button>
+                            <button class="w-100 mb-3 color1" data-fancybox="" data-src="#popupBronNew">Забронировать</button>
                         </div>
                         <div class="col-6">
                             <button class="w-100 color2 scroll-btn">Рассчитать кредит</button>
@@ -180,7 +195,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12">
+                <div class="col-12" id="configsAndPricesBlock">
                     {% if complectations is not empty %}
                         <div class="configurations mb-5">
                             <h2 class="mb-4">Доступные комплектации</h2>
@@ -259,12 +274,12 @@
                         </span>
                                 </div>
                                 <div class="buttons">
-                                    <button class="scroll-btn">В кредит
+                                    <button class="scroll-btn" data-target="creditblock">В кредит
                                         за {{ (item['offers-price-from'] / 82) | round | number_format(0, '.', ' ') }}
                                          ₽/мес.
                                     </button>
                                     <button data-fancybox="" data-src="#popup">Trade-in</button>
-                                    <button data-fancybox="" data-src="#popup">Забронировать</button>
+                                    <button data-fancybox="" data-src="#popupBronNew">Забронировать</button>
                                 </div>
                             </div>
                             <div class="item-content collapse" id="id_{{ item['complectation-id'] }}">
@@ -417,7 +432,9 @@
         </div> #}
         </div>
     </div>
-    {% include '/partials/actions.twig' %}
+    <div id="discountsAndPromotionsBlock">
+        {% include '/partials/actions.twig' %}
+    </div>
     <div class="container py-5" id="creditblock">
         <div class="row">
             {{ runSnippet('Form', {
@@ -427,7 +444,7 @@
             }) | raw }}
         </div>
     </div>
-    <div class="index-catalog-block2 pb-5">
+    <div class="index-catalog-block2 pb-5" id="specialOffersBlock">
         <div class="container">
             <h2 class="h2 mb-5">Специальное предложение</h2>
             <div class="list" id="catalog">
@@ -572,13 +589,63 @@
 
     </script>
     <script>
-      const buttons = document.querySelectorAll('.scroll-btn')
+    //   const buttons = document.querySelectorAll('.scroll-btn')
 
-      buttons.forEach(button => {
+    //   buttons.forEach(button => {
+    //     button.addEventListener('click', function () {
+    //       const creditBlock = document.getElementById('creditblock')
+    //       creditBlock.scrollIntoView({ behavior: 'smooth' })
+    //     })
+    //   })
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.scroll-btn');
+
+    buttons.forEach(button => {
         button.addEventListener('click', function () {
-          const creditBlock = document.getElementById('creditblock')
-          creditBlock.scrollIntoView({ behavior: 'smooth' })
-        })
-      })
+            const targetId = this.getAttribute('data-target');
+            const targetBlock = document.getElementById(targetId);
+            if (targetBlock) {
+                targetBlock.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+});
     </script>
+        <style>
+
+        .list-unstyled {
+            padding: 0;
+            margin: 20px 0;
+        }
+      .list-unstyled li {
+            padding: 10px 0;
+            font-size: 1rem;
+            background: url('/templates/major/img/Arrow1.svg') no-repeat left;
+            /* transition: filter 0.3s ease; */
+        }
+        .list-unstyled li:hover{
+            background: url('/templates/major/img/Arrow1color.svg') no-repeat left;
+            color: #007bff;
+        /* filter: invert(27%) sepia(95%) saturate(3390%) hue-rotate(202deg) brightness(106%) contrast(97%); */
+        /* filter: invert(27%) sepia(96%) saturate(7481%) hue-rotate(189deg) brightness(103%) contrast(109%); */
+        }
+     /* .list-unstyled .text-muted2 a:hover {
+            color: #007bff;
+            text-decoration: none;
+        }
+      .list-unstyled li a:hover {
+            text-decoration: underline;
+        } */
+      .list-unstyled .text-muted2 {
+            color: #181818;
+            font-size:16px;
+            font-weight: 700;
+        }
+ 
+              .list-unstyled .text-muted2 span{
+                padding-left: 40px;
+
+        }
+    </style>
 {% endblock %}

@@ -831,9 +831,17 @@ right: -58px;
   right: 70px;
   background: #f4f4f4 url('/templates/major/img/prev.svg') no-repeat center;
 }
+.index-catalog-block2 .list .slick-prev:hover {
+  right: 70px;
+  background: #f4f4f4 url('/templates/major/img/prev-hover.svg') no-repeat center;
+}
 .index-catalog-block2 .list .slick-next {
   right: 17px;
   background: #f4f4f4 url('/templates/major/img/next.svg') no-repeat center;
+}
+.index-catalog-block2 .list .slick-next:hover {
+  right: 17px;
+  background: #f4f4f4 url('/templates/major/img/next-hover.svg') no-repeat center;
 }
 .index-calc-block {
   background: url('/templates/major/img/index-calc-block.png') center / cover;

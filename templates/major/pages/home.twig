@@ -128,12 +128,36 @@
 		<div class="text">
 			<div class="top-text mb-3">
 			</div>
-			<div class="text">
+			<div class="text mb-3">
 				[+title+]
 			</div>
-			<button  data-src="#popup" data-fancybox="">Оставить заявку</button>
+            <div class="text2 mb-2">
+				[+vigoda+]
+			</div>
+            <div class="text3">
+				[+text+]
+			</div>
+			<button class="mt-2" data-src="#popup" data-fancybox="">Оставить заявку</button>
 		</div>
 	</div>
+</div>'}) %}
+    {% set bannermob = runSnippet('multiTV', {tvName: 's-vigoda-pulkovo1', docid: 'id', display:'all',
+        rowTpl:'@CODE:
+	<div class="container">
+		<div class="text">
+			<div class="top-text mb-3">
+			</div>
+			<div class="text mb-3">
+				[+title+]
+			</div>
+            <div class="text2 mb-2">
+				[+vigoda+]
+			</div>
+            <div class="text3">
+				[+text+]
+			</div>
+			<button class="mt-2" data-src="#popup" data-fancybox="">Оставить заявку</button>
+		</div>
 </div>'}) %}
     {# % include '/partials/brands.twig' % #}
     {# { runSnippet('Form', {
@@ -142,9 +166,20 @@ path: '/templates/rofl/partials/forms/credit_home/',
 extension: 'twig'
 }) | raw } #}
     <main>
-        <div class="index-page-slider text-light">
+        <div class="index-page-slider text-light d-none d-sm-block">
             {{ banner |raw }}
         </div>
+        {% if baseSettings['mob_banner'] is not empty %}
+        <div class="index-page-slider text-light d-block d-sm-none">
+            <div class="item" style="background: url('{{baseSettings['mob_banner']}}') center/cover;">
+                {{ bannermob |raw }}
+            </div>
+        </div>
+        {% else %}
+        <div class="index-page-slider text-light d-block d-sm-none">
+            {{ banner |raw }}
+        </div>
+        {% endif %}
         <div class="index-top-counts pt-3 text-light mb-5">
             <div class="container">
                 <div class="row">

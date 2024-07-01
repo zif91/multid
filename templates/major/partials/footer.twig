@@ -117,6 +117,14 @@ outerTpl: '@CODE:<ul class="pt-4 mt-1 mb-4">
         }) | raw }}
 
 </div>
+<div class="popup" id="popupTradeIn" style="display: none; width: 100%; max-width: 580px;">
+    {{ runSnippet('Form', {
+        formid: 'FormCallback',
+        path: '/templates/major/partials/forms/newTradeIn/',
+        extension: 'twig'
+        }) | raw }}
+
+</div>
 <script type="text/javascript">
 $(document).on('change', '.calc-input', function() {
   var loanAmount = parseFloat($('#loan-amount').val());

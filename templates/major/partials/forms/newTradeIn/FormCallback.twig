@@ -1,0 +1,50 @@
+<form>
+    <div class="bg p-sm-5 pl-4 pr-4 pb-4 pt-2 text-light">
+        <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+        <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+        {{ data['form.messages'] | raw }}
+        <div class="name mb-3">
+            Заявка на Trade-in
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-12 mb-3">
+                <p class="mb-2">Марка</p>
+                <input type="text" class="w-100 px-3">
+            </div>
+            <div class="col-md-6 col-12 mb-3">
+                <p class="mb-2">Модель</p>
+                <input type="text" class="w-100 px-3">
+            </div>
+            <div class="col-md-6 col-12 mb-3">
+                <p class="mb-2">Год</p>
+                <input type="text" class="w-100 px-3">
+            </div>
+            <div class="col-md-6 col-12 mb-3">
+                <p class="mb-2">КПП</p>
+                <input type="text" class="w-100 px-3">
+            </div>
+            <div class="col-md-12 mb-3">
+                <p class="mb-2">Имя</p>
+                <input type="text" placeholder="Иван" class="w-100 px-3 {{ data['first_name.classname'] }}" id="formName" name="first_name" value="{{ data.first_name }}">
+            </div>
+            <div class="col-md-12 mb-2">
+                <p class="mb-2">Телефон</p>
+                <input type="tel" name="mobile_tel" id="mobile_tel" value="{{ data.mobile_tel }}" placeholder="+7 (___) ___-__-__" class="{{ data['mobile_tel.classname'] }} w-100 px-3">
+            </div>
+            <div class="col-md-12">
+                <button class="w-100 mt-3">Оставить заявку</button>
+            </div>
+            <div class="col-xl-12 mt-1">
+                <div class="form-bottom-text">
+                    Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="/policy">персональных данных</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+
+.alert.text-field-error{
+    color: #3B80CC;
+}
+</style>

@@ -5,10 +5,47 @@
   border: 3px solid #667b88;
 }
 .index-top-counts {
-  background: #667b88;
+  background: #3B80CC;
+  color: #ffffff;
+  transition: background-color 0.3s, color 0.3s;
+}
+.index-top-counts:hover {
+  background: #ffffff;
+  color: #181818;
+}
+.index-top-counts .item {
+  color: #ffffff;
+  background: inherit;
+  transition: background-color 0.3s, color 0.3s;
+}
+.index-top-counts .item.first {
+  color: #181818;
+}
+.index-top-counts .item.first div:first-child {
+  color: #3B80CC;
+}
+.index-top-counts .item:hover {
+  background: #3B80CC;
+  color: #ffffff;
+}
+.index-top-counts .item div:first-child {
+  transition: color 0.3s;
 }
 .index-top-counts .item:hover div:first-child {
-  color: #667b88;
+  color: #ffffff;
+}
+.index-top-counts:hover .item {
+  color: #3B80CC;
+}
+.index-top-counts:hover .item div:first-child {
+  color: #3B80CC;
+}
+.index-top-counts:hover .item:hover {
+  background: #3B80CC;
+  color: #ffffff;
+}
+.index-top-counts:hover .item:hover div:first-child {
+  color: #ffffff;
 }
 .index-top-form .buttons button:hover {
   background: #667b88;

@@ -1,8 +1,4 @@
-
-
-
-
-<form class="p-md-5 p-4 text-center">
+{# <form class="p-md-5 p-4 text-center">
     <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
     <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
     {{ data['form.messages'] | raw }}
@@ -38,4 +34,191 @@
                 </div>
             </div>
             <button class="btn btn-danger mt-2">Получить условия и цену</button>
-        </form>
+        </form> #}
+<form>
+    <div class="credit-block-home mb-5">
+        <div class="container">
+            <div class="content">
+                <input type="hidden" name="docid" value="{{ data.docid | default(resource.id) }}">
+                <input type="hidden" name="price" value="{{ data.yourprice | default(resource[car-price]) }}" data-price>
+                {{ data['form.messages'] | raw }}
+                <div class="top">
+                    <h2 class="text-start mb-4">Автокредит от 4,9%</h2>
+                    <h4 class="text-start mb-4">Кредитные условия</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="top-calc">
+                                <div class="item mb-5">
+                                    <p class="mb-2"style="font-weight: 700">Выберите автомобиль</p>
+                                    <div class="edit_car col-12 d-flex justify-content-center align-items-center">
+                                        <select class="w-100 px-3">
+                                            <option>Выбрать...</option>
+                                            {# {% for item in marks %} #}
+                                            {# <option>{{ item.pagetitle }}</option> #}
+                                            {# {% endfor %} #}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="item mb-5">
+                                    <p class="mb-2 item-cred-text">Срок кредита</p>
+                                    <div class="price mb-4">
+                                        <input type="text" id="amount2" readonly> <a href="#" class="edit"></a>
+                                    </div>
+                                    <div id="slider-range-max2"></div>
+                                    <div class="values flex mt-3">
+                                        <div>1 год</div>
+                                        <div>2 года</div>
+                                        <div>3 года</div>
+                                        <div>4 года</div>
+                                        <div>5 лет</div>
+                                    </div>
+                                </div>
+                                <div class="item mb-5">
+                                    <p class="mb-2 item-cred-text">Первоначальный взнос</p>
+                                    <div class="price mb-4">
+                                        <input type="text" id="amount" readonly> <a href="#" class="edit"></a>
+                                    </div>
+                                    <div id="slider-range-max"></div>
+                                    <div class="values flex mt-3">
+                                        <div>0 ₽</div>
+                                        <div>250 000 ₽</div>
+                                        <div>500 000 ₽</div>
+                                        <div>1 000 000 ₽></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-0 pr-1">
+                            <div class="calc_blank p-3">
+                                <table class="tbl3 w-100">
+                                    <tr>
+                                        <td>Ваша ставка:</td>
+                                        <td>4.9 %</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Кредит:</td>
+                                        <td>от 250 000 ₽ до 8 000 000 ₽</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Срок кредита:</td>
+                                        <td>от 36 месяцев</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Оформление:</td>
+                                        <td>30 минут</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Одобрение:</td>
+                                        <td>По паспорту и правам</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Досрочное погашение:</td>
+                                        <td>Без штрафов</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                            <img src="../templates/major/img/car7.png">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <h2 class="mb-2">Оформить заявку</h2>
+                    <div class="top-text mb-3">
+                        Оставьте заявку чтобы зафиксировать Вашу скидку!
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <p class="mb-2">Ваше имя</p>
+                            <input type="text" name="first_name" value="{{ data.first_name }}" placeholder="Например Иван" class="{{ data['first_name.classname'] }} w-100 px-3 mb-3">
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <p class="mb-2">Ваш телефон</p>
+                            <input type="text" value="{{ data.mobile_tel }}" name="mobile_tel" placeholder="+7(___) ___-____" class="phone-imask {{ data['mobile_tel.classname'] }} w-100 px-3 mb-3">
+                        </div>
+                        <div class="col-md-4">
+                            <button class="w-100 mb-3" type="submit">Отправить заявку</button>
+                        </div>
+                        <div class="col-xl-4 offset-xl-8">
+                            <div class="bottom-text">
+                                Нажимая на кнопку "Отправить заявку" вы даете согласие на обработку <a href="/policy">персональных данных</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        function updateResults () {
+          const creditAmount = $('#slider-range-max3').slider('value')
+          const downPayment = $('#slider-range-max').slider('value')
+          const term = $('#slider-range-max2').slider('value')
+          const creditRate = 0.1
+          const monthlyPayment = (creditAmount - downPayment) * (creditRate / 12) / (1 - Math.pow(1 + creditRate / 12, -term))
+
+          $('.tbl1 tr:nth-child(1) td:nth-child(2)').text(creditAmount.toLocaleString() + ' ₽')
+          $('.tbl1 tr:nth-child(2) td:nth-child(2)').text(downPayment.toLocaleString() + ' ₽')
+          $('.tbl1 tr:nth-child(3) td:nth-child(2)').text(term + ' месяцев')
+          $('.tbl2 tr:nth-child(1) td:nth-child(2)').text(Math.round(monthlyPayment).toLocaleString() + ' ₽/мес.')
+        }
+
+        function updateDownPaymentSlider (creditAmount) {
+          const minDownPayment = 0.1 * creditAmount
+          const maxDownPayment = 0.9 * creditAmount
+          let currentDownPayment = $('#slider-range-max').slider('value')
+
+          if (currentDownPayment < minDownPayment) {
+            currentDownPayment = minDownPayment
+          } else if (currentDownPayment > maxDownPayment) {
+            currentDownPayment = maxDownPayment
+          }
+
+          $('#slider-range-max').slider('option', 'min', minDownPayment)
+          $('#slider-range-max').slider('option', 'max', maxDownPayment)
+          $('#slider-range-max').slider('value', currentDownPayment)
+
+          $('#amount').val(currentDownPayment.toLocaleString() + ' ₽')
+        }
+
+        $('#slider-range-max3').slider({
+          range: 'max',
+          min: 100000,
+          max: 1000000,
+          value: 500000,
+          slide: function (event, ui) {
+            $('#amount3').val(ui.value.toLocaleString() + ' ₽')
+            updateDownPaymentSlider(ui.value)
+            updateResults()
+          }
+        })
+
+        $('#slider-range-max').slider({
+          range: 'max',
+          min: 10000,
+          max: 900000,
+          value: 250000,
+          slide: function (event, ui) {
+            $('#amount').val(ui.value + ' ₽')
+            updateResults()
+          }
+        })
+
+        $('#slider-range-max2').slider({
+          range: 'max',
+          min: 12,
+          max: 60,
+          value: 12,
+          slide: function (event, ui) {
+            $('#amount2').val(ui.value + (ui.value > 12 && ui.value < 60 ? ' месяца' : ' месяцев'))
+            updateResults()
+          }
+        })
+
+        updateResults()
+      })
+
+    </script>

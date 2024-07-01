@@ -1,4 +1,4 @@
-{% set brands2 = runSnippet('DocLister', {
+{# {% set brands2 = runSnippet('DocLister', {
     parents: baseSettings['catalog_number'],
     depth: 0,
     orderBy: 'menuindex',
@@ -16,4 +16,99 @@
 	</div>
 </div>',
 }) %}
-				{{ brands2 | raw }}
+				{{ brands2 | raw }} #}
+{% set brands2 = runSnippet('DocLister', {
+    parents: baseSettings['catalog_number'],
+    depth: 0,
+    orderBy: 'menuindex',
+    order: 'ASC',
+    tvList:'',
+    ownerTPL: '@CODE:     [+dl.wrap+]',
+    tpl:'@CODE: <a href="[+url+]" class="brand-item">
+    <img src="[+tv.image+]" alt="[+pagetitle+]" class="brand-logo">
+     <span class="brand-title">[+pagetitle+]</span>
+     <span class="brand-count">[+count+]</span></a>',
+    api: 0,
+    addWhereList: 'isfolder=1',
+    noneTPL:'@CODE: <div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h2 class="display-4 catalog-block h2">По вашим критериям А/М не найдены, попробуйте немного изменить условия поиска</h1>
+		</div>
+	</div>
+</div>',
+}) %}
+    <div class="brands-container">   
+        		{{ brands2 | raw }}
+    </div>
+        {# <div class="brands-container">
+        {% for brand in brands %}
+        <a href="{{ brand.url }}" class="brand-item">
+            <img src="{{ brand.logo_url }}" alt="{{ brand.pagetitle }}" class="brand-logo">
+            <span class="brand-title">{{ brand.pagetitle }}</span>
+            <span class="brand-count">{{ brand.count }}</span>
+        </a>
+        {% endfor %}
+    </div> #}
+    <style>
+        .brands-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #FFFF;
+        }
+
+        .brand-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: calc(25% - 10px);
+            padding: 10px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .brand-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-logo {
+            height: 34px;
+            margin-right: 10px;
+        }
+
+        .brand-title {
+            flex-grow: 1;
+            color: #181818;
+            font-weight: 600;
+        }
+
+        .brand-count {
+            background-color: #FFFF;
+            border-radius: 8px;
+            padding: 5px 10px;
+            font-size: 14px;
+            color: #3B80CC;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .brand-item {
+                width: calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .brand-item {
+                width: 100%;
+            }
+        }
+    </style>
+

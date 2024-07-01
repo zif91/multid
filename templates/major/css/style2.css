@@ -655,6 +655,7 @@ main {
 .index-top-line.mob .container .order-call:hover {
   background-color: #D12D1E; 
   color: #ffffff;
+  border: solid 1px #D12D1E;
 }
 .index-page-slider .item {
   padding: 45px 0 150px;

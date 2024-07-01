@@ -1164,6 +1164,14 @@ main {
   /* border: 1px solid #E6E6E6; */
   border: 1px solid #3B80CC;
 }
+.popup .bg input[type='tel'] {
+  height: 48px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  /* border: 1px solid #E6E6E6; */
+  border: 1px solid #3B80CC;
+}
 .popup .bg button {
   height: 48px;
   -webkit-border-radius: 6px;
@@ -1259,7 +1267,8 @@ main {
     width: 80%;
   }
   .index-top-form .fields {
-    width: 48%;
+    /* width: 48%; */
+    width: 100%;
   }
   .index-top-form .buttons {
     width: 100%;

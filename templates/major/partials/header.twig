@@ -4,6 +4,14 @@ tvList: 'image',
 rowTpl: '@CODE:<li><a href="[+url+]">[+pagetitle+]</a></li>',
 outerTpl: '@CODE:<ul>
     [+wrap+]</ul>'}) %}
+{% set headermenu2 = runSnippet('DLMenu', {
+parents: baseSettings["id"],
+tvList: 'image',
+rowTpl: '@CODE:<li><a href="[+url+]">[+pagetitle+]</a></li>',
+outerTpl: '@CODE:<ul>
+    [+wrap+]</ul>'}) %}
+
+
 
 {#
 <div class="menubg"></div>
@@ -47,9 +55,60 @@ outerTpl: '@CODE:<ul>
 </header>
 #}
 
-<div class="menubg"></div>
+{# <div class="menubg"></div> #}
+<div class="menubg">
+    <header class="header2">
+        <div class="container flex">
+            <div class="logo">
+                {% if baseSettings["logo"] %}
+                <a style="background: url({{baseSettings["logo"]}}) no-repeat;
+                        background-size: contain; background-position: center;
+                        " href="/" class="d-inline-block"></a>
+                {% else %}
+                <a href="/">
+                <div style="width: 200px;
+                    height: 48px;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 24px;
+                    display: flex;
+                    align-items: center;
+                    text-transform: uppercase;
+                    justify-content: center;
+                    color: #FFFF;">{{ logo }}
+                </div>
+                </a>
+                {% endif %}
+            </div>
+            <div class="phone pb-1">
+                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1'}) | raw}}
+                <a href="#" data-src="#popup" data-fancybox="">заказать экспресс-звонок</a>
+            </div>
+            <img src="/templates/major/img/close.svg" class="img_close" style="width:20px; height:20px; margin-top: 38px;"> 
+        </div>
+    <div class="container">
+        <div>
+        <div style="width:100%" class="d-flex flex-column justify-content-center align-items-center mt-2">
+            {{headermenu|raw}}
+        </div>
+        <div class="line"></div>
+        <div class="mt-2 d-flex flex-column justify-content-center align-items-center" style="width:100%; color:#FFF;">
+            <div class="mb-1">
+                {{baseSettings.salon_location}}
+            </div>
+            <div class="mb-1 mt-1" style="color: #667B88;font-weight: 600;">
+                с 9.00 до 21.00
+            </div>
+            <div class="mb-1">
+                {{ runSnippet('formatPhone', {number: baseSettings["salon-phone"], format: '+7 (xxx) xxx-xx-xx', link: '1', class:"phone pt-1"}) | raw}}
+            </div>
+            </div>
+        </div>
+    </header>
+</div>
     <header class="header">
-        <div class="container flex" style="min-height: 90px">
+        <div class="container flex">
             <div class="logo">
                 {% if baseSettings["logo"] %}
                 <a style="background: url({{baseSettings["logo"]}}) no-repeat;
@@ -94,8 +153,41 @@ outerTpl: '@CODE:<ul>
     4.9
 {% else %}
     {{ baseSettings.credit_rate }}
-{% endif %}% или в рассрочку под 0% <button  data-src="#popup" data-fancybox="">Новые поступления</button><span class="d-inline-block mx-3">|</span> В трейд-ин с выгодой до 300 000 ₽<button  data-src="#popup" data-fancybox="">Новые поступления</button></p>
+{% endif %}% или в рассрочку под 0% <button  data-src="#popupCredNew" data-fancybox="">Купить в кредит</button><span class="d-inline-block mx-3">|</span> В трейд-ин с выгодой до 300 000 ₽<button class="but2" data-src="#popup" data-fancybox="">Заказать звонок</button></p>
             {# <img src="/templates/major/img/car.png"> #}
-            <a href="#" data-src="#popup" data-fancybox="" class="link d-block"></a>
+            <a href="#" onclick="closeBlock(event)" class="close-link link d-block"></a>
         </div>
     </div>
+    <div class="index-top-line mob py-3">
+    <div class="container flex">
+        <div class="credit-section w-100">
+            <p class="mb-2">В кредит под
+            {% if baseSettings.credit_rate is empty %} 
+            4.9%
+            {% else %}
+            {{ baseSettings.credit_rate }}
+            {% endif %}% или в рассрочку под 0%</p>
+            <button class="buy-credit" data-src="#popupCredNew" data-fancybox="">Купить в кредит</button>
+        </div>
+        <hr class="divider">
+        <div class="trade-in-section w-100">
+            <p class="mb-2">В трейд-ин с выгодой до 300 000 ₽</p>
+            <button class="order-call" data-src="#popup" data-fancybox="">Заказать звонок</button>
+        </div>
+             <a href="#" onclick="closeBlock(event)" class="close-link link d-block"></a>
+    </div>
+</div>
+<style>
+.header .logo{
+  background-color: #181818;
+}
+
+</style>
+<script>
+function closeBlock(event) {
+    event.preventDefault();
+    document.querySelector('.index-top-line').style.display = 'none';
+    document.querySelector('.index-top-line.mob').style.display = 'none';
+}
+
+</script>

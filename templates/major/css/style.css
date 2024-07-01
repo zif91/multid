@@ -438,9 +438,14 @@ main {
   position: relative;
   z-index: 3;
 }
+.menubg .header2 .logo a {
+  width: 204px;
+  height: 100%;
+}
 .header .logo a {
-  width: 214px;
-  height: 70px;
+  width: 204px;
+  /* height: 70px; */
+  height: 100%;
 }
 .header ul li {
   margin-right: 60px;
@@ -450,6 +455,12 @@ main {
 }
 .header ul li a {
   font-weight: 600;
+}
+.menubg .phone {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #3B80CC;
 }
 .header .phone {
   font-weight: 700;
@@ -481,6 +492,7 @@ main {
   line-height: 56px;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   width: 50%;
+  
 }
 .index-page-slider .item .text2 {
   font-weight: 700;
@@ -1159,6 +1171,59 @@ main {
   border-radius: 6px;
   color: #fff;
 }
+.popup .bg.formPopCred {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.popup .bg.formPopCred .name {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 152.9%;
+  color: #181818;
+}
+.popup .bg.formPopCred input[type='tel'],
+.popup .bg.formPopCred input[type='text'] {
+  height: 48px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  /* border: 1px solid #E6E6E6; */
+  border: 1px solid #3B80CC;
+}
+.popup .bg.formPopCred button {
+  height: 48px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  color: #fff;
+}
+.popup .bg.formPopCred {
+  border-radius: 10px;
+  padding: 20px;
+  color: #ffffff;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.popup .bg.formPopCred .details-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.popup .bg.formPopCred .detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup .bg.formPopCred .detail-item p {
+  margin: 0;
+}
+
+.popup .bg.formPopCred .detail-item span {
+  margin-top: 4px;
+}
 @media (max-width: 1199px) {
   .header ul li {
     margin-right: 20px;
@@ -1172,6 +1237,7 @@ main {
   }
 }
 @media (max-width: 991px) {
+  .menubg .header2 .phone,
   .header .phone {
     display: flex;
     /* width: 100%; */
@@ -1188,7 +1254,7 @@ main {
   .header ul li {
     margin-right: 15px;
   }
-  ..index-page-slider .item .text3,
+  .index-page-slider .item .text3,
   .index-page-slider .item .text {
     width: 80%;
   }
@@ -1235,6 +1301,35 @@ main {
     display: block;
   }*/
 }
+@media (min-width: 768px) {
+  .popup .bg.formPopCred .details-row {
+      flex-wrap: nowrap;
+  }
+
+  .popup .bg.formPopCred .detail-item:nth-child(1) {
+      flex: 0 0 70px;
+      padding-right: 0;
+      font-size: 11px;
+  }
+
+  .popup .bg.formPopCred .detail-item:nth-child(2) {
+      flex: 0 0 90px;
+      padding: 0;
+      font-size: 11px;
+  }
+
+  .popup .bg.formPopCred .detail-item:nth-child(3) {
+      flex: 0 0 113px;
+      font-size: 11px;
+      padding: 0;
+  }
+
+  .popup .bg.formPopCred .detail-item:nth-child(4) {
+      flex: 0 0 62px;
+      font-size: 11px;
+      padding: 0;
+  }
+}
 @media (max-width: 767px) {
   .menubg {
     position: fixed;
@@ -1244,7 +1339,7 @@ main {
     left: 0;
     background: rgba(1, 1, 1, 0.7);
     z-index: 11;
-    display: none;
+    display: none; 
   }
   .header ul {
     position: fixed;
@@ -1278,9 +1373,15 @@ main {
   .header .menu-button {
     display: block;
   }
+  .menubg .header2 .logo a{
+    width: 186px;
+    height: 100%;
+  }
   .header .logo a {
-    width: 183px;
-    height: 60px;
+    /* width: 183px;
+    height: 60px; */
+    width: 186px;
+    height: 100%;
   }
   .index-page-slider .item {
     padding: 45px 0 200px;
@@ -1319,6 +1420,22 @@ main {
   .item-page .top-info .text {
     display: block;
     padding: 36px 0 0 0;
+  }
+  .bg {
+    max-width: 100%; 
+  }
+  .detail-item {
+    width: 100%;
+    padding:auto;
+  }
+}
+@media (max-width: 768px) {
+  .popup .bg.formPopCred {
+    max-width: 100%; 
+  }
+  .popup .bg.formPopCred .detail-item {
+    width: 100%;
+    padding:auto;
   }
 }
 @media (max-width: 575px) {
@@ -1432,5 +1549,32 @@ main {
   }
   .popup .bg .name {
     text-align: center;
+  }
+  .menubg .header2 .logo a{
+    width: 110px;
+    height: 100%;
+  }
+  .header .logo a {
+    /* width: 183px;
+    height: 60px; */
+    width: 110px;
+    height: 100%;
+  }
+}
+@media (max-width: 325px) {
+  .menubg .header2 .logo a,
+  .header .logo a {
+    width: 100px;
+    height: 100%;
+  }
+  .menubg .header2 .phone a:nth-child(1),
+  .header .phone a:nth-child(1) {
+    font-size: 17px;
+  }
+  .header .phone a:nth-child(2) {
+    font-size: 10px;
+  }
+  .menubg .header2 .phone a:nth-child(2){
+    display: none;
   }
 }

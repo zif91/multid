@@ -13,11 +13,12 @@ $(function(){
 	});
 	$('.menubg').click(function() {
 		$('.menubg').fadeOut();
-		$('.header ul').removeClass('opened');
+		// $('.header ul').removeClass('opened');
+		// $('.header ul').removeClass('opened');
 	});
 	$('.header .menu-button').click(function() {
 		$('.menubg').fadeIn();
-		$('.header ul').addClass('opened');
+		// $('.header ul').addClass('opened');
 	});
 	$('.index-page-slider').slick({
 		arrows: false,

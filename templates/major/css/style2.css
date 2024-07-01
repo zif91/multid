@@ -733,10 +733,14 @@ main {
   -moz-border-radius: 6px;
   border-radius: 6px;
 }
-.index-top-counts .item:hover {
+.index-top-counts .item.first {
   background: #fff;
   color: #000;
 }
+/* .index-top-counts .item:hover {
+  background: #fff;
+  color: #000;
+} */
 .index-top-counts .item:hover div:first-child {
   color: #3B80CC;
 }

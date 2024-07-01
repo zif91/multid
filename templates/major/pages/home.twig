@@ -272,11 +272,11 @@ extension: 'twig'
         <div class="dealers-block pb-5">
             <div class="container">
                 <div class="block-name mb-4 pb-2">
-                    Официальный дилер 54 автомобильных марок
+                    30 марок авто в наличии
                 </div>
-                <div class="row">
+                {# <div class="row"> #}
                     {% include('partials/brands.twig') %}
-                </div>
+                {# </div> #}
             </div>
             {# <div class="button text-center pt-3">
 			<button class="btn btn-danger">Смотреть все модели</button>
@@ -365,7 +365,16 @@ extension: 'twig'
                 </div>
             </div>
         </div>
-        {% include '/partials/credit.twig' %}
+        {# {% include '/partials/credit.twig' %} #}
+        <div class="container py-5" id="creditblock">
+            <div class="row">
+                {{ runSnippet('Form', {
+                    formid: 'FormCredit',
+                    path: '/templates/major/partials/forms/credit_home/',
+                    extension: 'twig'
+                }) | raw }}
+            </div>
+        </div>
 
 
         <div class="index-catalog-block2 pb-4">

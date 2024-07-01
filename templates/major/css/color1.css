@@ -86,6 +86,25 @@
 .popup .bg button:hover {
   background: #D12D1E;
 }
+.popup .bg.formPopCred span {
+  /* background: #667b88; */
+  color: #3B80CC;
+  font-size: 14px;
+  font-weight: 600;
+}
+.popup .bg.formPopCred button {
+  /* background: #667b88; */
+  background: #3B80CC;
+}
+.popup .bg.formPopCred button:hover {
+  background: #D12D1E;
+}
+.popup .bg span {
+  /* background: #667b88; */
+  color: #3B80CC;
+  font-size: 14px;
+  font-weight: 600;
+}
 .form-bottom-text{
   color:#181818;
   font-size:12px;

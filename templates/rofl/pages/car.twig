@@ -47,10 +47,19 @@ tpl:'@T_CODE: <div class="gift__item">
 {% set complectation = runSnippet('multiTV', {tvName: 'equipment', docid: 'id', display:'all'}) %}
 {% set car_photos = resource.car_photos | json %}
 {% set car_photos = car_photos.fieldValue %}
+{% set vin = resource.vin %}
+{% set prefix = vin|slice(0, 5) %}
+{% set stars = '' %}
+
+{% for i in 1..(vin|length - 5) %}
+    {% set stars = stars ~ '*' %}
+{% endfor %}
+
+{% set shortenedVin = prefix ~ stars %}
 <div class="page-name py-4">
     <div class="container">
         {% include('partials/crumbs.twig') %}
-        <h1 class="h1 m-0">{{resource.pagetitle}} {{resource.year}} <i></i><span class="color">VIN: {#{resource.car_color}#}</span> <span class="number px-1">{{resource.vin}}</span></h1>
+        <h1 class="h1 m-0">{{resource.pagetitle}} {{resource.year}} <i></i><span class="color">VIN: {#{resource.car_color}#}</span> <span class="number px-1">{{shortenedVin}}</span></h1>
     </div>
 </div>
 <div class="item-page pb-5">
